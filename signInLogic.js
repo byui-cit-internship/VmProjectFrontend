@@ -1,8 +1,10 @@
-// fetch('https://localhost:5001/api/token')
-//     .then(response => response.json())
-//     .then(data => console.log(data));
-// console.log("hello there")
+fetch('https://localhost:5001/api/token')
+    .then(response => response.json())
+    .then(data => console.log(data));
+console.log("hello there")
+
 // get method with Axios
+
 const getDta = () => {
     // axios.get('https://localhost:5001/api/token{id_token}').then(response => {
     //     console.log(response)
