@@ -1,3 +1,4 @@
+
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -19,25 +20,30 @@ function onSignIn(googleUser) {
                 token: id_token
             }
         })
-            .then(response => console.log("this is backend response",response))
+            .then(response => {
+                console.log(response.data)
+                var userType = response.data
+        
+if (userType == "Professor")
+{
+  window.location.href = "https://www.google.com/";
+}
+
+else if (userType == "Student")
+{
+  window.location.href = "http://127.0.0.1:5500/studentview.html";
+}
+  
+ else {
+  userType = 'not allow user';
+}
+
+            } )
     }
     postItem()
-
-    if (response = teacher)
-  {
-    window.location = 'http://127.0.0.1:5500/facultyview.html';
-  }
-
-  else if (response = student)
-  {
-    window.location = 'http://127.0.0.1:5500/studentview.html';
-  }
-    
-   else {
-    response = 'not allow user';
-  }
-  return response;
-      } 
+//this function is a if statement that decides if the user is student/teacher
+  
+}
 
 // this function sign out of the website
 // function signOut() {
@@ -46,28 +52,4 @@ function onSignIn(googleUser) {
 //         console.log('User signed out.')
 //     });
 // }
-
-//this function is a if statement that decides if the user is student/teacher
-// function output()
-// {
-
-//   if (response = teacher)
-//   {
-//     response = window.location = 'linkhttp://127.0.0.1:5500/facultyview.html';
-//   }
-
-//   else if (response = student)
-//   {
-//     response = window.location = 'linkhttp://127.0.0.1:5500/studentview.html';
-//   }
-    
-//    else {
-//     response = 'not allow user';
-//   }
-//   return response;
-
-// }
-  
-
-
 
