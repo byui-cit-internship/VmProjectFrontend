@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>
-
-    <h1>Teacher</h1>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Dashboard View</title>
+    <title>Faculty Dashboard View</title>
     <link rel="stylesheet" href="../css/studentview.css" />
     <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
     <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
@@ -15,23 +13,47 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
-      </head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
+    <div class="container">
+      <h1>Teacher</h1>
+      <label for="course">Choose a course:</label>
 
-    <p>
-    	<input class="btn-lg btn-primary" id="-" value="Courses" onclick="-" type="button"><br>
-	</p>
-	<p>
-		<input class="btn-lg btn-primary" id="-" value="Create a Virtual Machine" onclick="-" type="button"><br>
-	</p>
-	<p>
-		<input class="btn btn-lg btn-primary" id="-" value="button" onclick="-" type="button"><br>
-	</p>
+      <select name="course" id="course">
+        <option value="id">option1</option>
+        <option value="id">option2</option>
+        <option value="id">option3</option>
+        <option value="id">option4</option>
+      </select>
 
-  <p>
-    <input class="btn-lg btn-primary" id="-" value="Profile" onclick="-" type="button"><br>
-</p>
+      <label for="student">Choose a student:</label>
 
-</body>
+      <select name="student" id="student">
+        <option value="id">option1</option>
+        <option value="id">option2</option>
+        <option value="id">option3</option>
+        <option value="id">option4</option>
+      </select>
+
+      <input
+        class="btn-primary submitBt"
+        id="-"
+        value="Access Machine"
+        onclick=""
+        type="submit"
+      />
+
+      <input
+        class="btn-primary submitBt"
+        id="-"
+        value="Profile"
+        onclick=""
+        type="button"
+      />
+
+      <a href="#" onclick="signOut();">Sign out</a>
+    </div>
+  </body>
 </html>

@@ -12,49 +12,42 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <main>
-      <h1>Courses</h1>
-      <p>
+      <div class="container">
+        <h1>Courses</h1>
+
+        <!-- To be populated with Courses from backend? -->
+        <label for="course">Choose a course:</label>
+
+        <select name="course" id="course">
+          <option value="id">option1</option>
+          <option value="id">option2</option>
+          <option value="id">option3</option>
+          <option value="id">option4</option>
+        </select>
+
         <input
-          class="btn-lg btn-primary"
-          id="-"
-          value="Courses"
-          onclick="-"
-          type="button"
-        /><br />
-      </p>
-      <p>
-        <input
-          class="btn-lg btn-primary"
+          class="btn-primary submitBt"
           id="-"
           value="Create a Virtual Machine"
-          onclick="-"
-          type="button"
-        /><br />
-      </p>
-      <p>
-        <input
-          class="btn btn-lg btn-primary"
-          id="-"
-          value="button"
-          onclick="-"
-          type="button"
-        /><br />
-      </p>
+          onclick=""
+          type="submit"
+        />
 
-      <p>
         <input
-          class="btn-lg btn-primary"
+          class="btn-primary submitBt"
           id="-"
           value="Profile"
-          onclick="-"
+          onclick=""
           type="button"
-        /><br />
-      </p>
-      <a href="#" onclick="signOut();">Sign out</a>
+        />
+
+        <a href="#" onclick="signOut();">Sign out</a>
+      </div>
     </main>
   </body>
 </html>
