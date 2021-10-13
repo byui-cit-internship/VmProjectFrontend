@@ -1,4 +1,4 @@
-
+// this is the data that well chnage in the future with the backend api
 listOfCourse = {
     "Cit 214": ["Henry", "Mike"],
     "Cit 5000": ["Mike", "jHelm", "Jane"],
