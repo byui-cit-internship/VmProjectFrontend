@@ -1,97 +1,80 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty Dashboard View</title>
-    <link rel="stylesheet" href="../css/studentview.css" />
-    <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
-    <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faculty Dashboard View</title>
+  <link rel="stylesheet" href="../css/studentview.css" />
+  <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
+  <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
       https://www.freecodecamp.org/learn/front-end-development-libraries/#bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    
-  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-  <body>
-    <div class="container">
-      <h1>Teacher</h1>
-      <label for="course">Choose a course:</label>
+<body>
+  <div class="container">
+    <h1>Teacher</h1>
+    <label for="course">Choose a course:</label>
+<!-- Dropdowm menu with classes -->
+    <select name="course" id="course">
+      <option value="Default">default</option>
+    </select>
+<!-- table with student's informartion -->
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>designation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-title="Name">John</td>
+          <td data-title="I-number">100</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Shyam</td>
+          <td data-title="I-number">101</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Mark</td>
+          <td data-title="I-number">102</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Bill</td>
+          <td data-title="I-number">104</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Arjun</td>
+          <td data-title="I-number">105</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Pratyush</td>
+          <td data-title="I-number">106</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+        <tr>
+          <td data-title="Name">Anant</td>
+          <td data-title="I-number">101</td>
+          <td data-title="Course">CIT</td>
+        </tr>
+      </tbody>
+<!-- Button -->
+      <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
 
-      <select name="course" id="course">
-        <option value="id">option1</option>
-        <option value="id">option2</option>
-        <option value="id">option3</option>
-        <option value="id">option4</option>
-      </select>
+      <input class="btn-primary submitBt" id="-" value="Create Virtual Machine" onclick="" type="button" />
+      <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+  </div>
+  <script src="facultyCourseDropdown.js"></script>
+</body>
 
-      <table width="100%">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>designation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td data-title="Name">John</td>
-            <td data-title="I-number">100</td>
-            <td data-title="Course">CIT</td>
-          </tr>
-          <tr>
-            <td data-title="Name">Shyam</td>
-            <td data-title="I-number">101</td>
-            <td data-title="Course">CIT</td>
-          </tr>
-          <tr>
-            <td data-title="Name">Mark</td>
-			<td data-title="I-number">102</td>
-			<td data-title="Course">CIT</td>
-		</tr>
-		<tr>
-			<td data-title="Name">Bill</td>
-			<td data-title="I-number">104</td>
-			<td data-title="Course">CIT</td>
-		</tr>
-		<tr>
-			<td data-title="Name">Arjun</td>
-			<td data-title="I-number">105</td>
-			<td data-title="Course">CIT</td>
-		</tr>
-		<tr>
-			<td data-title="Name">Pratyush</td>
-			<td data-title="I-number">106</td>
-			<td data-title="Course">CIT</td>
-		</tr>
-		<tr>
-			<td data-title="Name">Anant</td>
-			<td data-title="I-number">101</td>
-			<td data-title="Course">CIT</td>
-		</tr>
-	</tbody>
-
-      <input
-        class="btn-primary submitBt"
-        id="-"
-        value="Access Machine"
-        onclick=""
-        type="submit"
-      />
-
-      <input
-        class="btn-primary submitBt"
-        id="-"
-        value="Create Virtual Machine"
-        onclick=""
-        type="button"
-      />
-
-      <a href="#" onclick="signOut();">Sign out</a>
-    </div>
-  </body>
 </html>
