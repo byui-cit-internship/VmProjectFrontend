@@ -54,7 +54,7 @@ const createStudentTable = () => {
 
 
 }
-createStudentTable()
+
 
 const appendStudent = (name, id, status) => {
 
@@ -63,14 +63,8 @@ const appendStudent = (name, id, status) => {
     const studentTableBodyRow = document.createElement('tr')
     studentTableBodyRow.className = "studentTableBodyRow"
 
-    // const element = document.getElementsByClassName("studentTableBodyRow")
-
-    // // Deleting all the previouly created elemtents when switching 
-    // // according to views
-    // while (element.length > 0) {
-    //     element[0].parentNode.removeChild(element[0])
-    // }
-
+    const element = document.getElementsByClassName("studentTableBodyRow")
+    console.log("this is the student element", element)
 
     const studentName = document.createElement('td')
     studentName.className = "studentName"
@@ -89,11 +83,6 @@ const appendStudent = (name, id, status) => {
     studentTable.append(studentTableBodyRow)
 }
 
-
-/******************************************************************/
-
-
-
 // grabbing the course element/option
 
 const changeDropDown = () => {
@@ -107,7 +96,6 @@ const changeDropDown = () => {
         option.appendChild(txt);
         // Add it to the end of default
         select.insertBefore(option, select.lastChild);
-        console.log("where", listOfCourse[course][1])
 
     }
 }
@@ -118,37 +106,20 @@ changeDropDown()
 const changeView = () => {
 
     const grabSelect = document.querySelector('#course')
-    console.log(grabSelect)
-
     grabSelect.addEventListener('change', (event) => {
         const changeSelector = document.querySelector(".courseSelected")
-        console.log(event.target.value)
 
         if (event.target.value == "Default") {
             changeSelector.textContent = ''
         }
         else {
             changeSelector.textContent = `You are in the ${event.target.value} view`;
-
-            const studentTable_2 = document.querySelector('.main_table')
-            const studentTablerow = document.createElement("tr")
-            studentTablerow.setAttribute("class", "studentTableRow")
+            // create the tabel when we select our dropdown
+            createStudentTable()
             const listofNames = listOfCourse[event.target.value]
-
-
-
             for (let name in listofNames) {
                 const nameOfStudent = listofNames[name]
-                const element = document.getElementsByClassName("studentTableBodyRow")
-                console.log(element)
-                // Deleting all the previouly created elemtents when switching 
-                // according to views
-                // while (element.length > 0) {
-                //     element[0].parentNode.removeChild(element[0])
-                // }
                 appendStudent(nameOfStudent, "1223434", "active")
-
-
             }
 
         }
