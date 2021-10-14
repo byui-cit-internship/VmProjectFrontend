@@ -5,107 +5,102 @@ white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
 
+/* Small View */
 body {
-    background-color: #006eb6;
-    font-family: "Raleway", sans-serif;
-    text-align: center;
-  }
-  div.container {
-    max-width: 500px;
-    width: 80%;
-    background-color: white;
-    text-align: center;
-    box-shadow: 5px 5px 5px black;
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 50px;
-  }
-  table tr td,table tr td{
-    text-align: center;
+  background-color: #006eb6;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
 }
-@media only screen and (max-width: 500px) {
+div.container {
+  max-width: 500px;
+  width: 80%;
+  background-color: white;
+  text-align: center;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 50px;
+}
 
- table,head,tbody,th,td,tr {
-    display: block;
+div.g-signin2 {
+  margin: 15px;
 }
-thead tr {
-display: none;
+div {
+  display: block;
+  margin: auto auto;
 }
-tr {
- border: 1px solid #ccc; 
+
+select {
+  /* width: 100%; */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }
-td {
-border: none;
-border-bottom: 1px solid #eee;
-position: relative;
-padding-left: 50%;
-white-space: normal;
-text-align:left;
-min-height: 30px;
-overflow: hidden;
-word-break:break-all;
+
+label {
+  padding: 12px 12px 12px 0;
+  display: block;
+  margin: 0.7%;
+  padding-left: 0.9rem;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
 }
-td:before {
-position: absolute;
-top: 6px;
-left: 6px;
-width: 45%;
-padding-right: 10px;
-text-align:left;
-font-weight: bold;
+
+input.submitBt {
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 10px auto;
+  width: 90%;
+  border-radius: 7px;
+  display: block;
 }
-td:before { content: attr(data-title); }
+
+.btn-primary {
+  background-color: #006eb6 !important;
 }
-  div.g-signin2 {
-    margin: 15px;
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  /* border-radius: 6px; */
+}
+
+/* table tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #006eb6;
+  color: white;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  div.container {
+    width: 60%;
   }
-  div {
-    display: block;
-    margin: auto auto;
-  }
-  
-  select {
-    /* width: 100%; */
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-  }
-  
-  label {
-    padding: 12px 12px 12px 0;
-    display: block;
-    margin: 0.7%;
-    padding-left: 0.9rem;
-    padding-top: 0.5rem;
-    font-size: 1.5rem;
-  }
-  
   input.submitBt {
     font-size: 1.5rem;
     padding: 10px;
     margin: 10px auto;
-    width: 90%;
+    width: 60%;
     border-radius: 7px;
     display: block;
   }
-  
-  @media only screen and (min-width: 37.5em) {
-    div.container {
-      width: 60%;
-    }
-    input.submitBt {
-      font-size: 1.5rem;
-      padding: 10px;
-      margin: 10px auto;
-      width: 60%;
-      border-radius: 7px;
-      display: block;
-    }
-  }
-  
-  @media only screen and (min-width: 64em) {
-  }
+}
 
-  
-  
+/* Large View */
+@media only screen and (min-width: 64em) {
+}
