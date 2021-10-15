@@ -5,6 +5,11 @@ listOfCourse = {
     "Cit 100": { "Status": "Approved" }
 }
 
+/***************************Display name********************************************** */
+//get to display Students' name in the student view page
+// var name = document.getElementById('name').innerHTML
+
+// console.log(name)
 
 /***********************CREATE TABLE************************************************** */
 // get the main div to place the dynamic table inside
@@ -95,10 +100,18 @@ const createStatusBtn = (status) => {
     if (status == "InActive") {
 
         const inActiveFunction = () => {
-
-            alert("You just clicked the inactive button")
-        }
-
+        
+                axios({
+                    method: "get",
+                    url: "https://localhost:5001/api/user/sendemail/1234"
+                })
+                .then(response =>{
+                    var message = response.data
+                    alert(message)
+                })
+            }
+        
+    
         const inactiveBtn = document.createElement("button")
         inactiveBtn.innerHTML = "Send Request";
         inactiveBtn.onclick = inActiveFunction;
