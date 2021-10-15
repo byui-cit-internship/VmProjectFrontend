@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <title>Faculty Dashboard View</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <h1>Teacher</h1>
-      <label for="course">Choose a course:</label>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Faculty Dashboard View</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-      <select name="course" id="course">
-        <option value="Default">default</option>
-      </select>
+<body>
+  <div class="container">
+    <h1>Teacher</h1>
+    <label for="course">Choose a course:</label>
 
-      <div class="courseSelected"></div>
-      <div class="table_onCreate"></div>
+    <select name="course" id="course">
+      <option value="Default">default</option>
+    </select>
 
-      <input
-        class="btn-primary submitBt"
-        id="-"
-        value="Access Machine"
-        onclick=""
-        type="submit"
-      />
+    <div class="courseSelected"></div>
+    <div class="table_onCreate"></div>
 
-      <input
-        class="btn-primary submitBt"
-        id="-"
-        value="Create Virtual Machine"
-        onclick=""
-        type="button"
-      />
-      <!-- <a href="#" onclick="signOut();">Sign out</a> -->
-    </div>
-    <script src="facultyCourseDropdown.js"></script>
-  </body>
+    <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
+
+    <input class="btn-primary submitBt" id="-" value="Create Virtual Machine" onclick="" type="button" />
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+  </div>
+ 
+  <script src="facultyCourseDropdown.js"></script>
+</body>
+
 </html>
