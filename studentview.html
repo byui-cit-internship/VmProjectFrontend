@@ -1,74 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Dashboard View</title>
-    <link rel="stylesheet" href="../css/studentview.css" />
-    <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
-    <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard View</title>
+  <link rel="stylesheet" href="../css/studentview.css" />
+  <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
+  <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
       https://www.freecodecamp.org/learn/front-end-development-libraries/#bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
 
-  <body>
-    <main>
-      <div class="container">
-        <h1>Courses</h1>
+<body>
+  
+  <div class="container">
+    <h1 class="nameofStudent">BOB</h1>
+    <label for="course">Choose a course:</label>
 
-        <!-- To be populated with Courses from backend? -->
-        <label for="course">Choose a course:</label>
- 
-        <select name="course" id="course">
-          <option value="id">option1</option>
-          <option value="id">option2</option>
-          <option value="id">option3</option>
-          <option value="id">option4</option>
-        </select>
+    <select name="course" Id="course">
+      <option value="Default">default</option>
+    </select>
 
-        <input
-          class="btn-primary submitBt"
-          id="-"
-          value="Create a Virtual Machine"
-          onclick=""
-          type="submit"
-        />
+    <div class="courseSelected"></div>
+    <div class="table_onCreate"></div>
+    <div class="status_btn"></div>
 
-        <input
-          class="btn-primary submitBt"
-          id="-"
-          value="Profile"
-          onclick=""
-          type="button"
-        />
-        <table width="100%">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>ID</th>
-              <th>designation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-title="Name">John</td>
-              <td data-title="VM name">Mountain</td>
-              <td data-title="Course">CIT</td>
-            </tr>
-            <tr>
-              <td data-title="Name">Shyam</td>
-              <td data-title="VM name">Lake</td>
-              <td data-title="Course">CIT</td>
-            </tr>
-          
-    </tbody>
-        <a href="#" onclick="signOut();">Sign out</a>
+    <!-- <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
 
-      </div>
-    </main>
-  </body>
+    <input class="btn-primary submitBt" id="-" value="Create Virtual Machine" onclick="" type="button" /> -->
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+  </div>
+
+  <script src="studentDropDownView.js"></script>
+</body>
+
 </html>
