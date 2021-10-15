@@ -13,7 +13,7 @@ const tableDiv = document.querySelector(".table_onCreate")
 console.log("this is main div", tableDiv)
 
 // define the headers for the table
-const tableHeaders = ["Name", "ID", "Status"]
+const tableHeaders = ["Name", "Status"]
 
 const createStudentTable = () => {
 
@@ -56,7 +56,7 @@ const createStudentTable = () => {
 }
 
 
-const appendStudent = (name, id, status) => {
+const appendStudent = (name, status) => {
 
     const studentTable = document.querySelector(".studentTable")
 
@@ -70,15 +70,15 @@ const appendStudent = (name, id, status) => {
     studentName.className = "studentName"
     studentName.innerText = name
 
-    const studentId = document.createElement('td')
-    studentId.className = "studentId"
-    studentId.innerText = id
+    // const studentId = document.createElement('td')
+    // studentId.className = "studentId"
+    // studentId.innerText = id
 
     const StudentStatus = document.createElement('td')
     StudentStatus.className = "StudentStatus"
     StudentStatus.innerText = status
 
-    studentTableBodyRow.append(studentName, studentId, StudentStatus)
+    studentTableBodyRow.append(studentName, StudentStatus)
 
     studentTable.append(studentTableBodyRow)
 }
@@ -119,7 +119,7 @@ const changeView = () => {
             const listofNames = listOfCourse[event.target.value]
             for (let name in listofNames) {
                 const nameOfStudent = listofNames[name]
-                appendStudent(nameOfStudent, "1223434", "active")
+                appendStudent(nameOfStudent, "active")
             }
 
         }
