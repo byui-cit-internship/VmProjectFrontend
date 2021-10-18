@@ -28,22 +28,17 @@ function onSignIn(googleUser) {
 // we are filtering the  userType to verify if they are a student or professor
 if (userType == "Professor")
 {
-  window.location.href = "http://127.0.0.1:5500/facultyview.html";
+  window.location.href = "http://127.0.0.1:5501/facultyview.html";
 }
 
-
-        if (userType == "Professor") {
-          window.location.href = "https://www.google.com/";
-        }
-
-        else if (userType == "Student") {
-          window.location.href = "http://127.0.0.1:5500/studentview.html";
-        }
-
-        else {
-          userType = 'not allow user';
-        }
-
+else if (userType == "Student") 
+{
+  window.location.href = "http://127.0.0.1:5501/studentview.html";
+}
+else 
+{
+  userType = 'not allow user';
+}
       })
   }
   postItem()
