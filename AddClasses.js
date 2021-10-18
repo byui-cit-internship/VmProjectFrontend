@@ -41,17 +41,19 @@ function validateEmail(input, requiredMsg, invalidMsg) {
 
 const form = document.querySelector("#signup");
 
-const NAME_REQUIRED = "Please enter your name";
-const EMAIL_REQUIRED = "Please enter your email";
-const EMAIL_INVALID = "Please enter a correct email address format";
+const CLASSNAME_REQUIRED = "Please enter the class name";
+const SECTION_REQUIRED = "Please enter the class section";
+const CLASSTOKEN_REQUIRED = "Please enter the class token";
+const SEMESTER_REQUIRED = "Please enter the class semester";
+
 
 form.addEventListener("submit", function (event) {
 	// stop form submission
 	event.preventDefault();
 
 	// validate the form
-	let nameValid = hasValue(form.elements["name"], NAME_REQUIRED);
-	let emailValid = validateEmail(form.elements["email"], EMAIL_REQUIRED, EMAIL_INVALID);
+	let nameValid = hasValue(form.elements["name"], CLASSNAME_REQUIRED);
+	let emailValid = validateEmail(form.elements["section"], SECTION_REQUIRED);
 	// if valid, submit the form.
 	if (nameValid && emailValid) {
 		alert("Demo only. No form was posted.");
