@@ -72,7 +72,12 @@ table th {
   padding: 8px;
   /* border-radius: 6px; */
 }
-
+input:required{
+  border-left: red solid 8px;
+}
+input:required:valid{
+  border-left:green solid 8px;
+}
 /* table tr:nth-child(even) {
   background-color: #f2f2f2;
 } */

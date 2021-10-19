@@ -17,6 +17,7 @@
       <h1>Teacher</h1>
       <label for="course">Choose a course:</label>
 
+      <a href='http://127.0.0.1:5501/AddClasses.html'><button>Add Classes</button></a>
       <select name="course" id="course">
         <option value="Default">default</option>
       </select>
@@ -25,18 +26,6 @@
       <div class="table_onCreate"></div>
       <div class="status_btn"></div>
 
-      <!-- <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
-
-    <input class="btn-primary submitBt" id="-" value="Create Virtual Machine" onclick="" type="button" /> -->
-    <a href="#" onclick="signOut();">Sign out</a>
-    <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
-      }
-    </script>
     </div>
   </body>
 </html>
