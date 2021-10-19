@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-signin-scope" content="profile email" />
@@ -13,38 +12,33 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-  <title>Student Dashboard View</title>
-  
-  <link rel="stylesheet" href="../css/studentview.css" />
-  <!-- It seemed to me like you were trying to use bootstrap. You were just missing the link to it. -->
-  <!-- If you're planning to use bootstrap, maybe this short tutorial could help 
-      https://www.freecodecamp.org/learn/front-end-development-libraries/#bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <title>Student Dashboard View</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="js/studentDropDownView.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="nameofStudent">Name</h1>
+      <label for="course">Choose a course:</label>
 
-<body>
-  
-  <div class="container">
-    <h1 class="nameofStudent">Name</h1>
-    <label for="course">Choose a course:</label>
+      <select name="course" id="course">
+        <option value="Default">default</option>
+      </select>
 
-    <select name="course" Id="course">
-      <option value="Default">default</option>
-    </select>
+      <div class="courseSelected"></div>
+      <div class="table_onCreate"></div>
+      <div class="status_btn"></div>
 
-    <div class="courseSelected"></div>
-    <div class="table_onCreate"></div>
-    <div class="status_btn"></div>
-
-    <!-- <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
+      <!-- <input class="btn-primary submitBt" id="-" value="Access Machine" onclick="" type="submit" />
 
     <input class="btn-primary submitBt" id="-" value="Create Virtual Machine" onclick="" type="button" /> -->
-    <a href="#" onclick="signOut();">Sign out</a>
-  </div>
-
-  <script src="studentDropDownView.js"></script>
-</body>
-
+      <a href="#" onclick="signOut();">Sign out</a>
+    </div>
+  </body>
 </html>
