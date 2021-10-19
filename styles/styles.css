@@ -78,6 +78,14 @@ input:required{
 input:required:valid{
   border-left:green solid 8px;
 }
+
+form .semester{
+  /* margin-top: 5px; */
+    display: block;
+    padding: 0px;
+    margin: 5px;
+ }
+
 /* table tr:nth-child(even) {
   background-color: #f2f2f2;
 } */
