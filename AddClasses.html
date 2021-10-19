@@ -12,7 +12,7 @@
 
 <body>
   <div class="container">
-    <form action="signup.html" method="post" id="signup">
+    <form action='#' id="signup">
       <h1>Add Class</h1>
       <div class="field">
         <label for="name">Class Name:</label>
@@ -26,31 +26,33 @@
       </div>
       <div class="field">
         <label for="name">Token:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your class token" required />
+        <input type="text" id="name" name="token" placeholder="Enter your class token" required />
         <small></small>
 
         <div class="field">
           <label for="name">Description:</label>
-          <input type="text" id="name" name="name" placeholder="Description" />
+          <input type="text" id="name" name="description" placeholder="Description" />
           <small></small>
         </div>
         <div class="field">
           <label>Choose Semester:</label>
-          <select id="semester">
-            <option value="Summer">Summer</option>
-            <option value="Spring">Spring</option>
-            <option value="Fall">Fall</option>
-            <option value="Winter">Winter</option>
+          <select name="semester " id="semester">
+            <option name="option" value="Default">Default</option>
+            <option name="option" value="Summer">Summer</option>
+            <option name="option" value="Spring">Spring</option>
+            <option name="option" value="Fall">Fall</option>
+            <option name="option" value="Winter">Winter</option>
           </select>
         </div>
       </div>
       <div class="field">
-        <button type="submit" class="save">Save</button>
+        <button type="submit" class="save">Save Class</button>
       </div>
 
     </form>
   </div>
   <script src="AddClasses.js"></script>
+  <script src="js/form.js"></script>
 </body>
 
 </html>
