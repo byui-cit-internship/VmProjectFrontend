@@ -98,9 +98,12 @@ const changeView = () => {
   const grabSelect = document.querySelector("#course");
   grabSelect.addEventListener("change", (event) => {
     const changeSelector = document.querySelector(".courseSelected");
-
+    const table = document.querySelector(".studentTable");
     if (event.target.value == "Default") {
       changeSelector.textContent = "";
+      if (table !== null) {
+        table.style.display = "none";
+      }
     } else {
       changeSelector.textContent = `You are in the ${event.target.value} view`;
       // create the tabel when we select our dropdown
@@ -109,6 +112,9 @@ const changeView = () => {
       for (let name in listofNames) {
         const nameOfStudent = listofNames[name];
         appendStudent(nameOfStudent, "Active");
+      }
+      if (table !== null) {
+        table.style.display = "block";
       }
     }
   });

@@ -154,9 +154,13 @@ const changeView = () => {
   const grabSelect = document.querySelector("#course");
   grabSelect.addEventListener("change", (event) => {
     const changeSelector = document.querySelector(".courseSelected");
+    const table = document.querySelector(".studentTable");
 
     if (event.target.value == "Default") {
       changeSelector.textContent = "";
+      if (table !== null) {
+        table.style.display = "none";
+      }
     } else {
       changeSelector.textContent = `You are in the ${event.target.value} view`;
       // create the table when we select our dropdown and display the satus of that class
@@ -166,6 +170,9 @@ const changeView = () => {
       console.log(listofClasses["Status"]);
       appendStudent(statusOfClass);
       createStatusBtn(statusOfClass);
+      if (table !== null) {
+        table.style.display = "block";
+      }
     }
   });
 };
