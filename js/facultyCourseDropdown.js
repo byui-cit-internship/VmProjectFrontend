@@ -103,6 +103,7 @@ const changeView = () => {
       changeSelector.textContent = "";
       if (table !== null) {
         table.style.display = "none";
+        statusDiv.style.display = "none";
       }
     } else {
       changeSelector.textContent = `You are in the ${event.target.value} view`;
@@ -115,6 +116,7 @@ const changeView = () => {
       }
       if (table !== null) {
         table.style.display = "block";
+        statusDiv.style.display = "block";
       }
     }
   });
@@ -128,6 +130,7 @@ const createStatusBtn = (status) => {
   while (statusDiv.firstChild) statusDiv.removeChild(statusDiv.firstChild);
 
   const statusBtn = document.createElement("button");
+  statusBtn.classList.add("btn-primary", "submitBt");
 
   switch (status) {
     case "Active":
