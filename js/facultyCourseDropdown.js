@@ -81,7 +81,7 @@ const changeDropDown = () => {
   const select = document.getElementById("course");
 
   for (let course in listOfCourse) {
-    // creating a new otion for every course
+    // creating a new option for every course
     const option = document.createElement("option");
     const txt = document.createTextNode(course);
     option.setAttribute("value", course);
