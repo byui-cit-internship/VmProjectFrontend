@@ -37,53 +37,9 @@ const handleForm = (event) => {
     postItem()
 }
 
-// we are using axios to get the data from the backend to the frontend
-// const postData = () => {
-//     axios({
-//         method: "post",
-//         url: "https://localhost:5001/api/course",
-//         data: dataJson
-//         //     // ID: "7987987989789",
-//         //     className: "",
-//         //     section: "",
-//         //     description: "",
-//         //     classToken: "",
-//         //     semester: "",
-//         // }
-//     })
-//         .then(response => {
-//             console.log(response.data)
-//             dataJson = response.data
-
-//             postData()
-//         }
-//         )
-// }
-    // console.log(dataJson)
-}
 
 // we are using axios to get the data from the backend to the frontend
-const postData = () => {
-    axios({
-        method: "post",
-        url: "https://localhost:5001/api/course",
-        data: dataJson
-        // data: {
-        //     // ID: "7987987989789",
-        //     className: "",
-        //     section: "",
-        //     description: "",
-        //     classToken: "",
-        //     semester: "",
-        // }
-    })
-        .then(response => {
-            console.log(response.data)
-            dataJson = response.data
-            
-postData()
-}
-        )}
+
 
 function myFunction() {
     var tt = document.getElementById("tooltipdemo");
