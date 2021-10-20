@@ -16,27 +16,46 @@ const handleForm = (event) => {
     })
     let dataJson = JSON.stringify(object)
 
-    console.log(dataJson)
+    let jsonObject = JSON.parse(dataJson)
+    console.log(jsonObject.courseName)
+    // dataJson.forEach(element => {
+    //     console.log("this is an element", element)
+    // });
+    const postItem = () => {
+        axios({
+            method: "post",
+            url: "https://localhost:5001/api/course",
+            data: jsonObject
+        })
+            .then(response => {
+                console.log(response.data)
+                userType = response.data
+            }).catch(function (error) {
+                console.log(error.message)
+            })
+    }
+    postItem()
 }
 
 // we are using axios to get the data from the backend to the frontend
-const postData = () => {
-    axios({
-        method: "post",
-        url: "https://localhost:5001/api/token",
-        data: {
-            // ID: "7987987989789",
-            className: "",
-            section: "",
-            description: "",
-            classToken: "",
-            semester: "",
-        }
-    })
-        .then(response => {
-            console.log(response.data)
-            dataJson = response.data
-            
-postData()
-}
-        )}
+// const postData = () => {
+//     axios({
+//         method: "post",
+//         url: "https://localhost:5001/api/course",
+//         data: dataJson
+//         //     // ID: "7987987989789",
+//         //     className: "",
+//         //     section: "",
+//         //     description: "",
+//         //     classToken: "",
+//         //     semester: "",
+//         // }
+//     })
+//         .then(response => {
+//             console.log(response.data)
+//             dataJson = response.data
+
+//             postData()
+//         }
+//         )
+// }
