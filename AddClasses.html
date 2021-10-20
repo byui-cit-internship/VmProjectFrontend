@@ -15,21 +15,28 @@
   <div class="container">
     <form action='#' id="signup">
       <h1>Add Class</h1>
+      <!-- Class course -->
       <div class="field">
         <label for="name">Class Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your class name" required />
+        <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
         <small></small>
       </div>
+      <!-- Section course -->
       <div class="field">
         <label for="email">Section:</label>
-        <input type="text" id="email" name="email" placeholder="Enter your class section" required />
+        <input type="text" id="email" name="section_num" placeholder="Enter your class section" required />
         <small></small>
       </div>
+      <!-- Canvas token -->
       <div class="field">
-        <label for="name">Token:</label>
-        <input type="text" id="name" name="token" placeholder="Enter your class token" required />
+        <label for="name">Canvas Token:</label>
+        <div class="arrowpopup" onclick="myFunction()">?
+        <!-- This functions adds a tooltip -->
+        <span class="tooltiptext" id="tooltipdemo">Canvas Token</span>
+        </div>
+        <input type="text" id="name" name="canvas_token" placeholder="Enter your class token" required />
         <small></small>
-
+<!--Descriptin  -->
         <div class="field">
           <label for="name">Description:</label>
           <input type="text" id="name" name="description" placeholder="Description" />
@@ -49,10 +56,10 @@
       <div class="field">
         <button type="submit" class="save">Save Class</button>
       </div>
-
     </form>
+    
   </div>
-  <script src="AddClasses.js"></script>
+
   <script src="js/form.js"></script>
 </body>
 
