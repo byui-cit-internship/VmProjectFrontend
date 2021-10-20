@@ -25,14 +25,7 @@ const postData = () => {
         method: "post",
         url: "https://localhost:5001/api/course",
         data: dataJson
-        // data: {
-        //     // ID: "7987987989789",
-        //     className: "",
-        //     section: "",
-        //     description: "",
-        //     classToken: "",
-        //     semester: "",
-        // }
+        
     })
         .then(response => {
             console.log(response.data)
