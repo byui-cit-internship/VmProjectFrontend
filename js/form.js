@@ -43,7 +43,11 @@ const handleForm = (event) => {
 
 // We are using this function to create the tooltip
 
-function myFunction() {
+function messageBox() {
     var tt = document.getElementById("tooltipdemo");
     tt.classList.toggle("show");
+}
+
+function alertMessage() {
+    alert("You have added a class");
 }
