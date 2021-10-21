@@ -16,24 +16,32 @@ const handleForm = (event) => {
     })
     let dataJson = JSON.stringify(object)
 
-    // console.log(dataJson)
+    let jsonObject = JSON.parse(dataJson)
+    console.log(jsonObject.courseName)
+    // dataJson.forEach(element => {
+    //     console.log("this is an element", element)
+    // });
+
+
+    // we are using axios to get the data from the backend to the frontend
+
+    const postItem = () => {
+        axios({
+            method: "post",
+            url: "https://localhost:5001/api/course",
+            data: jsonObject
+        })
+            .then(response => {
+                console.log(response.data)
+                userType = response.data
+            }).catch(function (error) {
+                console.log(error.message)
+            })
+    }
+    postItem()
 }
 
-// we are using axios to get the data from the backend to the frontend
-const postData = () => {
-    axios({
-        method: "post",
-        url: "https://localhost:5001/api/course",
-        data: dataJson
-        
-    })
-        .then(response => {
-            console.log(response.data)
-            dataJson = response.data
-            
-postData()
-}
-        )}
+// We are using this function to create the tooltip
 
 function myFunction() {
     var tt = document.getElementById("tooltipdemo");
