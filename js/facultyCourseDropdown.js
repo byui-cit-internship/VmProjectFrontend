@@ -146,7 +146,6 @@ const createStatusBtn = (status) => {
       const activeFunction = () => {
         alert("You just clicked Access VM.");
       };
-
       statusBtn.innerHTML = "Activate VM";
       statusBtn.onclick = activeFunction;
       statusDiv.append(statusBtn);

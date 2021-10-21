@@ -31,10 +31,10 @@
 
           <!-- Section course -->
 
-          <label for="email">Section:</label>
+          <label for="section">Section:</label>
           <input
             type="text"
-            id="email"
+            id="section"
             name="section_num"
             placeholder="Enter your class section"
             required
@@ -42,28 +42,25 @@
 
           <!-- Canvas token -->
 
-          <label for="name">Canvas Token:</label>
+          <label for="canvasToken">Canvas Token:</label>
           <input
             type="text"
-            id="name"
+            id="canvasToken"
             name="canvas_token"
             placeholder="Enter your class token"
             required
           />
-          <div class="arrowpopup" onclick="myFunction()">
-            ?
-            <!-- This functions adds a tooltip -->
-            <span class="tooltiptext" id="tooltipdemo"
-              >Please enter canvas token from the</span
-            >
+          <!--Message box/ tooltipText  -->
+          <div class="arrowpopup" onclick="messageBox()">?
+          <span class="tooltiptext" id="tooltipdemo">Please enter canvas token from the</span>
           </div>
 
           <!--Descriptin  -->
 
-          <label for="name">Description:</label>
+          <label for="description">Description:</label>
           <input
             type="text"
-            id="name"
+            id="description"
             name="description"
             placeholder="Description"
           />
@@ -78,7 +75,7 @@
           </select>
         </div>
 
-        <button onclick="alertMessage()"  class="save submitBt btn-primary">
+        <button type="reset" class="save submitBt btn-primary">
           Save Class
         </button>
       </form>
