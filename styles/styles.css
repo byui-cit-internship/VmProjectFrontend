@@ -38,6 +38,15 @@ select {
   resize: vertical;
 }
 
+form {
+  text-align: center;
+}
+
+form .data {
+  text-align: left;
+  margin-left: 20%;
+}
+
 label {
   padding: 12px 12px 12px 0;
   display: block;
@@ -72,19 +81,19 @@ table th {
   padding: 8px;
   /* border-radius: 6px; */
 }
-input:required{
+input:required {
   border-left: red solid 8px;
 }
-input:required:valid{
-  border-left:green solid 8px;
+input:required:valid {
+  border-left: green solid 8px;
 }
 
-form .semester{
+form .semester {
   /* margin-top: 5px; */
-    display: block;
-    padding: 0px;
-    margin: 5px;
- }
+  display: block;
+  padding: 0px;
+  margin: 5px;
+}
 
 /* table tr:nth-child(even) {
   background-color: #f2f2f2;
@@ -99,12 +108,44 @@ table th {
   border-radius: 6px 6px 0 0;
 }
 
+.arrowpopup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.arrowpopup .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #8dd3ee;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  padding: 9px;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -85px;
+}
+.arrowpopup .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8dd3ee transparent transparent transparent;
+}
+.arrowpopup .show {
+  visibility: visible;
+}
+
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
   div.container {
     width: 60%;
   }
-  input.submitBt {
+  .submitBt {
     font-size: 1.5rem;
     padding: 10px;
     margin: 10px auto;
@@ -117,35 +158,3 @@ table th {
 /* Large View */
 @media only screen and (min-width: 64em) {
 }
-
-.arrowpopup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  }
-  .arrowpopup .tooltiptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #8DD3EE;
-  color: black;
-  text-align: center;
-  border-radius: 4px;
-  padding: 9px ;
-  position: absolute;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -85px;
-  }
-  .arrowpopup .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #8DD3EE transparent transparent transparent;
-  }
-  .arrowpopup .show {
-  visibility: visible;
-  }

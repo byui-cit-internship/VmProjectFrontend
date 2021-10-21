@@ -1,50 +1,75 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>AddClasses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <title>AddClasses</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
+  <body>
+    <div class="container">
+      <form action="#" id="signup">
+        <h1>Add Class</h1>
+        <!-- Class course -->
 
-<body>
-  <div class="container">
-    <form action='#' id="signup">
-      <h1>Add Class</h1>
-      <!-- Class course -->
-      <div class="field">
-        <label for="name">Class Name:</label>
-        <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
-        <small></small>
-      </div>
-      <!-- Section course -->
-      <div class="field">
-        <label for="email">Section:</label>
-        <input type="text" id="email" name="section_num" placeholder="Enter your class section" required />
-        <small></small>
-      </div>
-      <!-- Canvas token -->
-      <div class="field">
-        <label for="name">Canvas Token:</label>
-        <div class="arrowpopup" onclick="myFunction()">?
-        <!-- This functions adds a tooltip -->
-        <span class="tooltiptext" id="tooltipdemo">Please enter canvas token from the</span>
-        </div>
-        <input type="text" id="name" name="canvas_token" placeholder="Enter your class token" required />
-        <small></small>
-<!--Descriptin  -->
-        <div class="field">
+        <div class="data">
+          <label for="name">Class Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="CourseName"
+            placeholder="Enter your class name"
+            required
+          />
+
+          <!-- Section course -->
+
+          <label for="email">Section:</label>
+          <input
+            type="text"
+            id="email"
+            name="section_num"
+            placeholder="Enter your class section"
+            required
+          />
+
+          <!-- Canvas token -->
+
+          <label for="name">Canvas Token:</label>
+          <input
+            type="text"
+            id="name"
+            name="canvas_token"
+            placeholder="Enter your class token"
+            required
+          />
+          <div class="arrowpopup" onclick="myFunction()">
+            ?
+            <!-- This functions adds a tooltip -->
+            <span class="tooltiptext" id="tooltipdemo"
+              >Please enter canvas token from the</span
+            >
+          </div>
+
+          <!--Descriptin  -->
+
           <label for="name">Description:</label>
-          <input type="text" id="name" name="description" placeholder="Description" />
-          <small></small>
-        </div>
-        <div class="field">
+          <input
+            type="text"
+            id="name"
+            name="description"
+            placeholder="Description"
+          />
+
           <label>Choose Semester:</label>
-          <select name="semester " id="semester" required >
+          <select name="semester " id="semester" required>
             <option name="option" value="">Default</option>
             <option name="option" value="Summer">Summer</option>
             <option name="option" value="Spring">Spring</option>
@@ -52,15 +77,18 @@
             <option name="option" value="Winter">Winter</option>
           </select>
         </div>
-      </div>
-      <div class="field">
-        <button type="submit" class="save">Save Class</button>
-      </div>
-    </form>
-    <a href='http://127.0.0.1:5501/facultyview.html'><button>Back</button></a>
-  </div>
 
-  <script src="js/form.js"></script>
-</body>
+        <button type="submit" class="save submitBt btn-primary">
+          Save Class
+        </button>
+      </form>
+      <a
+        href="http://127.0.0.1:5501/facultyview.html"
+        class="submitBt btn-primary"
+        >Back</a
+      >
+    </div>
 
+    <script src="js/form.js"></script>
+  </body>
 </html>
