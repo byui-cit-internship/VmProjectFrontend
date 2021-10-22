@@ -47,3 +47,20 @@ function messageBox() {
     var tt = document.getElementById("tooltipdemo");
     tt.classList.toggle("show");
 }
+
+function alertMessage() {
+    
+  if (userType == "ok")
+  {
+    alert("You have added a new class!!!");
+  }
+  
+  else if (userType == "not save") 
+  {
+    alert("Class not added. Please try again!!!");
+  }
+  else 
+  {
+    userType = 'not allow user';
+  }
+        }
