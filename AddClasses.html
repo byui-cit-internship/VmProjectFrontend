@@ -43,6 +43,13 @@
           <!-- Canvas token -->
 
           <label for="canvasToken">Canvas Token:</label>
+          <!--Message box/ tooltipText  -->
+          <div class="arrowpopup" onclick="messageBox()">
+            ?
+            <span class="tooltiptext" id="tooltipdemo"
+              >Please enter canvas token from the</span
+            >
+          </div>
           <input
             type="text"
             id="canvasToken"
@@ -50,20 +57,17 @@
             placeholder="Enter your class token"
             required
           />
-          <!--Message box/ tooltipText  -->
-          <div class="arrowpopup" onclick="messageBox()">?
-          <span class="tooltiptext" id="tooltipdemo">Please enter canvas token from the</span>
-          </div>
 
-          <!--Descriptin  -->
+          <!--Description  -->
 
           <label for="description">Description:</label>
-          <input
-            type="text"
+          <textarea
             id="description"
             name="description"
             placeholder="Description"
-          />
+            rows="4"
+            cols="50"
+          ></textarea>
 
           <label>Choose Semester:</label>
           <select name="semester " id="semester" required>
@@ -75,14 +79,19 @@
           </select>
         </div>
 
-        <button onclick="alertMessage()" type="reset" class="save submitBt btn-primary">
+        <button
+          onclick="alertMessage()"
+          type="reset"
+          class="save submitBt btn-primary"
+        >
           Save Class
         </button>
       </form>
       <a
         href="http://127.0.0.1:5501/facultyview.html"
         class="submitBt btn-primary"
-        >Back</a>
+        >Back</a
+      >
     </div>
     <script src="js/form.js"></script>
   </body>
