@@ -30,30 +30,42 @@ div {
   margin: auto auto;
 }
 
-select {
-  /* width: 100%; */
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
 form {
   text-align: center;
 }
 
 form .data {
   text-align: left;
-  margin-left: 25%;
+  width: 90%;
 }
 
 label {
-  padding: 12px 12px 12px 0;
-  display: block;
+  padding: 12px 0 10px;
+  display: inline-block;
   margin: 0.7%;
-  padding-left: 0.9rem;
-  padding-top: 0.5rem;
   font-size: 1.5rem;
+}
+
+input,
+textarea,
+select#semester {
+  width: 100%;
+}
+
+input {
+  padding: 8px 0;
+}
+
+textarea {
+  padding: 10px 8px;
+}
+
+select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  text-align: center;
 }
 
 .submitBt {
@@ -149,8 +161,14 @@ table th {
     border-radius: 7px;
     display: block;
   }
+
+  form .data {
+    width: 60%;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  form .data {
+  }
 }

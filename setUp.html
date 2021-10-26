@@ -15,30 +15,38 @@
   <body>
     <div class="container">
       <h1>Setup Virtual Machine</h1>
-      <label for="course">Choose a course:</label>     
-            <select name="course" id="course">
-              <option value="Default">default</option>
-            </select>
-            
-            <form>
-                <label for="framework">Select Template</label>
-                <select id="framework">
-                    <option value="1">1.1</option>
-                    <option value="2">1.2</option>
-                    <option value="3">1.3</option>
-                    <option value="4">1.4</option>
-                </select>
+      <label for="course">Choose a course:</label>
+      <!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
+      <select name="course" id="course">
+        <option value="Default">default</option>
+      </select>
 
-    <label for="description">Description:</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            placeholder="Description"
-          />
-    <button type="reset" class="save submitBt btn-primary">Save Template</button>
-    <a href="http://127.0.0.1:5501/facultyview.html" class="submitBt btn-primary">Back</a>
- 
+      <form>
+        <label for="framework">Select Template</label>
+        <select id="framework">
+          <option value="1">Angular</option>
+          <option value="2">React</option>
+          <option value="3">Vue.js</option>
+          <option value="4">Ember.js</option>
+        </select>
+
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          placeholder="Description"
+          rows="4"
+          cols="50"
+        ></textarea>
+        <button type="reset" class="save submitBt btn-primary">
+          Save Template
+        </button>
+        <a
+          href="http://127.0.0.1:5501/facultyview.html"
+          class="submitBt btn-primary"
+          >Back</a
+        >
+      </form>
+    </div>
   </body>
-  
 </html>
