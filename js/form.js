@@ -9,7 +9,7 @@ const handleForm = (event) => {
     let myForm = event.target;
     let dataForm = new FormData(myForm);
 
-    // saving and converting the Formdata to ajson object to send to the backend
+    // saving and converting the Formdata to a Json object to send to the backend
     let object = {};
     dataForm.forEach((value, key) => {
         object[key] = value;
@@ -21,7 +21,6 @@ const handleForm = (event) => {
     // dataJson.forEach(element => {
     //     console.log("this is an element", element)
     // });
-
 
     // we are using axios to get the data from the backend to the frontend
 
@@ -61,6 +60,6 @@ function alertMessage() {
   }
   else 
   {
-    userType = 'not allow user';
+    userType = 'Error!!! Try again';
   }
         }

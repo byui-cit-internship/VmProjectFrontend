@@ -15,7 +15,7 @@ const tableHeaders = ["Name", "Status"];
 
 const createStudentTable = () => {
   while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
-
+ 
   // cretae the table
   const studentTable = document.createElement("table");
   studentTable.className = "studentTable";
