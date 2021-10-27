@@ -5,6 +5,32 @@ listOfCourse = {
   "Cit 100": { Status: "Approved" },
 };
 
+
+const query = () => {
+  const queryString = window.location.search;
+  console.log("this is the query string", queryString);
+  const urlParams = new URLSearchParams(queryString);
+  const userID = urlParams.get('userID')
+  console.log(userID);
+  return userID;
+}
+
+const postItem = () => {
+  let userID = query()
+  axios({
+    method: "get",
+    url:  `https://localhost:5001/api/user/userdetails/${userID}`,
+    
+  }).then((response) => {
+    console.log(response.data.firstName);
+    const user = response.data;
+    const studentName = document.querySelector(".nameofStudent");
+    studentName.innerHTML = user.firstName
+
+  });
+};
+postItem();
+
 /***************************Display name********************************************** */
 //get to display Students' name in the student view page
 // var name = document.getElementById('name').innerHTML

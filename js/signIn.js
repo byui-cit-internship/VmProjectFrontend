@@ -28,7 +28,7 @@ function onSignIn(googleUser) {
       if (user.userType == "Professor") {
         window.location.href = "http://127.0.0.1:5501/facultyview.html";
       } else if (user.userType == "Student") {
-        window.location.href = "http://127.0.0.1:5501/studentview.html";
+        window.location.href = "http://127.0.0.1:5501/studentview.html?userID="+user.userID;
       } else {
         user.userType = "not allow user";
       }
