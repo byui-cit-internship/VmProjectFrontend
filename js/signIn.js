@@ -10,7 +10,7 @@ function onSignIn(googleUser) {
   var email = profile.getEmail();
   var id = profile.getId();
   var id_token = googleUser.getAuthResponse().id_token;
-
+ console.log(id_token);
   // we are using axios to get the data from the backend to the frontend
   const postItem = () => {
     axios({
@@ -24,14 +24,14 @@ function onSignIn(googleUser) {
       console.log("whatever", response.data);
       user = response.data;
 
-      // we are filtering the  userType to verify if they are a student or professor
-      if (user.userType == "Professor") {
-        window.location.href = "http://127.0.0.1:5501/facultyview.html";
-      } else if (user.userType == "Student") {
-        window.location.href = "http://127.0.0.1:5501/studentview.html?userID="+user.userID;
-      } else {
-        user.userType = "not allow user";
-      }
+      // // we are filtering the  userType to verify if they are a student or professor
+      // if (user.userType == "Professor") {
+      //   window.location.href = "http://127.0.0.1:5501/facultyview.html";
+      // } else if (user.userType == "Student") {
+      //   window.location.href = "http://127.0.0.1:5501/studentview.html?userID="+user.userID;
+      // } else {
+      //   user.userType = "not allow user";
+      // }
     });
   };
   postItem();

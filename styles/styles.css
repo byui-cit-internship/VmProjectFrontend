@@ -147,6 +147,18 @@ table th {
 .arrowpopup .show {
   visibility: visible;
 }
+th, td, p, input, h3 {
+  font:15px 'Segoe UI';
+}
+table, th, td {
+  border: solid 1px #ddd;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+}
+th {
+  font-weight:bold;
+}
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
