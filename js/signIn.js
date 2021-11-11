@@ -25,13 +25,14 @@ function onSignIn(googleUser) {
       user = response.data;
 
       // // we are filtering the  userType to verify if they are a student or professor
-      // if (user.userType == "Professor") {
-      //   window.location.href = "http://127.0.0.1:5501/facultyview.html";
-      // } else if (user.userType == "Student") {
-      //   window.location.href = "http://127.0.0.1:5501/studentview.html?userID="+user.userID;
-      // } else {
-      //   user.userType = "not allow user";
-      // }
+      if (user.userType == "Professor") {
+        window.location.href = "/facultyview.html#"+ id_token;
+      } else if (user.userType == "Student") {
+        window.location.href = "/studentview.html#"+ id_token;
+        // +user.userID;
+      } else {
+        window.location.href = "/";
+      }
     });
   };
   postItem();
