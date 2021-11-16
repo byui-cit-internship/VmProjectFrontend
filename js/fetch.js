@@ -1,11 +1,24 @@
 
 async function fetchStudentJSON(){
+
+    const postItem = () => {
+        axios({
+          method: "post",
+          url: "https://localhost:5001/api/token/#"+ user_num,
+          data: {
+            ID: "7987987989789",
+            token: id_token,
+          },
+        }).then((response) => {
+          console.log("whatever", response.data);
+          user = response.data;
+
     // console.log("hello");
     let response = {};
     try{
     response = await fetch('https://localhost:5001/api/user/userdetails/1', {
       headers: {
-        "Authorization": "Bearer " + "eyJhbGciOiJSUzI1NiIsImtpZCI6IjI3YzcyNjE5ZDA5MzVhMjkwYzQxYzNmMDEwMTY3MTM4Njg1ZjdlNTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiMTA0Mzc0NzMxMzM2MS0wcm01ZWJ0ZjJ0cmpmazZlcWdnNWl2YXM4dWJzYW43di5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjEwNDM3NDczMTMzNjEtMHJtNWVidGYydHJqZms2ZXFnZzVpdmFzOHVic2FuN3YuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDQ2NzI3MDc4NTY2MDIzNTkyMDUiLCJlbWFpbCI6InRub2xhc2NvNTRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJnZVIyeTh3d05jTEs2cjNFdTFrUmNnIiwibmFtZSI6IlRhbW15IE5vbGFzY28iLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2l6aHc1WVpPalBhVTBwVjY3V0dILTFRV2h3Q2dCNXliUFFxUDlRQUE9czk2LWMiLCJnaXZlbl9uYW1lIjoiVGFtbXkiLCJmYW1pbHlfbmFtZSI6Ik5vbGFzY28iLCJsb2NhbGUiOiJlbiIsImlhdCI6MTYzNjU2NDMwOSwiZXhwIjoxNjM2NTY3OTA5LCJqdGkiOiIyZDYwZTUyYThkMDM2NmQwNDliYTIwYTIwMTQyYTU4OTcwMTQxNTA4In0.kQLjGLAQgZ6VZRX8DpnN6WPFqVNYq7L7wc0y3HTgyUITPnKHX8bn2UIWi6hUugqUFSLWKAlqZQn8f4rxe3Jy8mYy7XCZv5iuJbIiCG_asNfZ36u1YseUO8aIyrKT5trp2cSxU8Tu-IFT6AgVrPbZbmJ3dCD2SIcvTveJ-Y7U-63ZVZPEtzpYJpCm4nQuoB4M_wlNKPHEXfo7MhRo5CtX8FM6GI64CwDwwUKgNcybetSei-T-YMWdo8FdwuVioj_rxMlZxED8We3LxP2wfXgGE66HAS5Pguxi9TWLF-m93NjA43YSZuyUTkPuW6_D9iTtfulVQ0W-__rrKZP7u3Sq_w"
+        "Authorization": "Bearer " + "id_token"
       }
     });
 
@@ -56,8 +69,6 @@ async function fetchStudentJSON(){
             var divShowData = document.getElementById('showData');
             divShowData.innerHTML = "";
             divShowData.appendChild(table);
-            
-            document.getElementById('msg').innerHTML = '<br />You can later <a href="https://www.encodedna.com/javascript/dynamically-add-remove-rows-to-html-table-using-javascript-and-save-data.htm" target="_blank" style="color:#1464f4;text-decoration:none;">get all the data from table and save it in a database.</a>';
             
         }
         fetchStudentJSON()
