@@ -23,6 +23,8 @@ function onSignIn(googleUser) {
     }).then((response) => {
       console.log("whatever", response.data);
       user = response.data;
+      
+export {id_token}
 
       // // we are filtering the  userType to verify if they are a student or professor
       if (user.userType == "Professor") {

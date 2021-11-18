@@ -1,22 +1,10 @@
 
 async function fetchStudentJSON(){
-
-    const postItem = () => {
-        axios({
-          method: "post",
-          url: "https://localhost:5001/api/token/#"+ user_num,
-          data: {
-            ID: "7987987989789",
-            token: id_token,
-          },
-        }).then((response) => {
-          console.log("whatever", response.data);
-          user = response.data;
-
+    import {id_token} from "/signIn.js"
     // console.log("hello");
     let response = {};
     try{
-    response = await fetch('https://localhost:5001/api/user/userdetails/1', {
+    response = await fetch('https://localhost:5001/api/user/userdetails/2', {
       headers: {
         "Authorization": "Bearer " + "id_token"
       }
