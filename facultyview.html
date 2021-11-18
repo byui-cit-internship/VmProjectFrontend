@@ -9,16 +9,17 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="styles/styles.css" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="js/pageAccess.js" defer></script>
     <script src="js/facultyCourseDropdown.js" defer></script>
     <script src="js/fetch.js" defer></script>
-    <script src="jquery-3.1.1.min.js"></script>
   </head>
 
   <body>
     <div class="container">
       <h1>Teacher</h1>
-      <label for="course">Choose a course:</label>     
-<!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
+      <label for="course">Choose a course:</label>
+      <!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
       <select name="course" id="course">
         <option value="Default">default</option>
       </select>
@@ -26,10 +27,9 @@
       <div class="courseSelected"></div>
       <div class="table_onCreate"></div>
       <div class="status_btn"></div>
-      <a href="/AddClasses.html"class="submitBt btn-primary">Add Class</a>
-      <a href="/fetch.html"class="submitBt btn-primary">Courses</a>
-      <a href="/setUp.html"class="submitBt btn-primary">Setup Template</a>
+      <a href="/AddClasses.html" class="submitBt btn-primary">Add Class</a>
+      <a href="/fetch.html" class="submitBt btn-primary">Courses</a>
+      <a href="/setUp.html" class="submitBt btn-primary">Setup Template</a>
     </div>
   </body>
-  
 </html>
