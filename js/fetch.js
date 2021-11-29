@@ -1,12 +1,26 @@
+  // import {id_token} from "/signIn.js"
 
 async function fetchStudentJSON(){
-    import {id_token} from "/signIn.js"
-    // console.log("hello");
+
+    let usertoken = ""; //initialize to empty string
+    let email = "";
+    
+    let hash = location.hash; //will include the #
+    let hashparts = hash.split("#");
+    if (hashparts.length < 2) {
+      window.location = "/"; //there is no login token on the url, so they must not have logged in yet, we will help redirect them here
+    } else {
+    
+    usertoken = hashparts[1]; 
+    // console.log(usertoken)
+      // validateToken(); //check if token is expired, if not display the email, if expired send to login
+    }
+    
     let response = {};
     try{
-    response = await fetch('https://localhost:5001/api/user/userdetails/2', {
+    response = await fetch('https://localhost:5001/api/user/userdetails/' + userID, {
       headers: {
-        "Authorization": "Bearer " + "id_token"
+        "Authorization": "Bearer " + "usertoken"
       }
     });
 
