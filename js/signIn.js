@@ -19,7 +19,7 @@ function onSignIn(googleUser) {
       url: "https://localhost:5001/api/token/" + id_token,
       
     }).then((response) => {
-      console.log("whatever", response.data);
+      // console.log("whatever", response.data);
       user = response.data;
 
       // // we are filtering the  userType to verify if they are a student or professor
