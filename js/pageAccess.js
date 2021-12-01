@@ -1,4 +1,5 @@
-//© 2021 Sean Murdock
+
+function verifyToken(){
 
 let usertoken = ""; //initialize to empty string
 let email = "";
@@ -36,3 +37,5 @@ const validateToken = () => {
   return tokenEmail;
 };
 $(document).ready(validateToken)
+
+}
