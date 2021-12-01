@@ -13,7 +13,7 @@ async function fetchStudentJSON(){
     
     usertoken = hashparts[1]; 
     // console.log(usertoken)
-      // validateToken(); //check if token is expired, if not display the email, if expired send to login
+    // validateToken(); //check if token is expired, if not display the email, if expired send to login
     }
     
     let response = {};
