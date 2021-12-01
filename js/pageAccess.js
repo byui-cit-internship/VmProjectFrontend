@@ -1,5 +1,8 @@
 
-function websiteSecurity(){
+
+
+function verifyToken(){
+
 
 let usertoken = ""; //initialize to empty string
 let email = "";
@@ -38,6 +41,7 @@ const validateToken = () => {
   return tokenEmail;
 };
 $(document).ready(validateToken)
+
 }
 
 function savetoken(token){
@@ -46,3 +50,5 @@ function savetoken(token){
        sessionStorage.setItem("token", token);
       }
   }
+
+}
