@@ -1,5 +1,8 @@
 
+
+
 function verifyToken(){
+
 
 let usertoken = ""; //initialize to empty string
 let email = "";
@@ -15,6 +18,7 @@ console.log("usertoken " + usertoken)
   //  validateToken(); 
   
 }
+
 //check if token is expired, if not display the email, if expired send to login
 const validateToken = () => {
   let tokenEmail = "";
@@ -39,3 +43,12 @@ const validateToken = () => {
 $(document).ready(validateToken)
 
 }
+
+function savetoken(token){
+  // whatever passes as token should save into local storage
+      if (window.sessionStorage){
+       sessionStorage.setItem("token", token);
+      }
+  }
+
+

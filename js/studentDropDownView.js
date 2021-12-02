@@ -5,6 +5,7 @@ listOfCourse = {
   "Cit 100": { Status: "Approved" },
 };
 
+const userID = sessionStorage.getItem("token")
 
 const query = () => {
   const queryString = window.location.search;
@@ -13,13 +14,20 @@ const query = () => {
   const userID = urlParams.get('userID')
   console.log(userID);
   return userID;
+  
 }
 
 const postItem = () => {
-  let userID = query()
+  // let userID = query()
+  console.log(userID)
+
   axios({
     method: "get",
-    url:  `https://localhost:5001/api/user/userdetails/${userID}`,
+    url:  `https://localhost:5001/api/studentcourse`,
+
+      headers: {
+        "Authorization": "Bearer " + userID
+      }
     
   }).then((response) => {
     console.log(response.data.firstName);

@@ -18,9 +18,9 @@ async function fetchStudentJSON(){
     
     let response = {};
     try{
-    response = await fetch('https://localhost:5001/api/user/userdetails/' {
+    response = await fetch('https://localhost:5001/api/studentcourse/', {
       headers: {
-        "Authorization": "Bearer " + "usertoken"
+        "Authorization": "Bearer " + usertoken
       }
     });
 
@@ -32,7 +32,7 @@ async function fetchStudentJSON(){
     let enrollmentList = student.enrollments;
     console.log("this is ", enrollmentList);
     // Get the Course object
-    let course = enrollmentList[0].course.courseName;
+    // let course = enrollmentList[0].course.courseName;
     console.log("this is course", course)
      // Extract value from table header. 
             var col = [];

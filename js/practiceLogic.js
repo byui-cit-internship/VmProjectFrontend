@@ -5,8 +5,6 @@ listOfCourse = {
     "Cit 100": ["Mac", "Ling", "Pedro"]
 }
 
-
-
 // get the main div to place the dynamic table inside
 
 const tableDiv = document.querySelector(".table_onCreate")

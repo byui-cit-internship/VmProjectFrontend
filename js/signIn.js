@@ -3,10 +3,11 @@ var userType = "";
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log("Name: " + profile.getName());
-  console.log("Image URL: " + profile.getImageUrl());
-  console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+  // console.log("Basic profile: " + JSON.stringify(profile))
+  // console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  // console.log("Name: " + profile.getName());
+  // console.log("Image URL: " + profile.getImageUrl());
+  // console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
   var email = profile.getEmail();
   var id = profile.getId();
   var id_token = googleUser.getAuthResponse().id_token;
@@ -19,13 +20,13 @@ function onSignIn(googleUser) {
       
     }).then((response) => {
       // console.log("whatever", response.data);
-     user = response.data;
-   
+      user = response.data;
+
       // // we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
-        window.location.href = "/facultyview.html#"+ id_token;
+        //  window.location.href = "/facultyview.html#"+ id_token;
       } else if (user == "Student") {
-        window.location.href = "/studentview.html#"+ id_token;
+        // window.location.href = "/studentview.html#"+ id_token;
         // +user.userID;
       } else {
         //  window.location.href = "/";
@@ -33,5 +34,14 @@ function onSignIn(googleUser) {
     });
   };
   postItem();
+
+  savetoken(id_token);
 }
-// export {id_token}
+
+function savetoken(token){
+  // whatever passes as token should save into local storage
+      if (window.sessionStorage){
+       sessionStorage.setItem("token", token);
+      }
+  }
+
