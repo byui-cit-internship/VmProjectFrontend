@@ -29,14 +29,15 @@ async function fetchStudentJSON(){
     }
 
     let student = await response.json();
-    let enrollmentList = student.enrollments;
-    console.log("this is ", enrollmentList);
+    let enrollmentList = data;
+    console.log("this is ", data);
     // Get the Course object
     // let course = enrollmentList[0].course.courseName;
     console.log("this is course", course)
      // Extract value from table header. 
             var col = [];
             for (var i = 0; i < enrollmentList; i++) {
+                console.log(enrollmentList)
                 for (var key in enrollmentList[i]) {
                     if (col.indexOf(key) === -1) {
                         col.push(key);

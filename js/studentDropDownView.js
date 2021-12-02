@@ -9,7 +9,7 @@ const userToken = sessionStorage.getItem("token")
 
 const postItem = () => {
   // let userID = query()
-  console.log(userToken)
+  // console.log(userToken)
 
   axios({
     method: "get",
@@ -162,16 +162,19 @@ const createStatusBtn = (status) => {
 /************************************grabbing the course element/option****************************/
 
  const changeDropDown = async () => {
-  const select = document.getElementById("course");
+const select = document.getElementById("course");
+
+let counter = 0;
 
   await listOfCourse.forEach( course => {
     console.log(course.course_name)
     const option = document.createElement("option");
     const txt = document.createTextNode(course.course_name);
-    option.setAttribute("value", course.course_name);
+    option.setAttribute("value", cou);
     option.appendChild(txt);
     // Add it to the end of default
     select.insertBefore(option, select.lastChild);
+    counter = counter + 1
   })
 
 };
@@ -193,17 +196,17 @@ const changeView = () => {
         statusDiv.style.display = "none";
       }
     } else {
-      changeSelector.textContent = `You are in the ${event.target.value} view`;
+      const target_course_name = listOfCourse[event.target.value].course_name
+      changeSelector.textContent = `You are in the ${target_course_name} view`;
+      console.log("here in target")
       // create the table when we select our dropdown and display the satus of that class
       createStudentTable();
-      const listofClasses = listOfCourse[event.target.value];
-      const statusOfClass = listofClasses["Status"];
-      console.log(listofClasses["Status"]);
-      appendStudent(statusOfClass);
-      createStatusBtn(statusOfClass);
-      if (table !== null) {
-        table.style.display = "block";
-        statusDiv.style.display = "block";
+      const specificClassSelect = listOfCourse[event.target.value];
+      appendStudent(specificClassSelect.course_status);
+      createStatusBtn(specificClassSelect.course_status);
+       if (table !== null) {
+         table.style.display = "block";
+         statusDiv.style.display = "block";
       }
     }
   });
@@ -211,11 +214,3 @@ const changeView = () => {
 changeView();
 
 console.log("Your are in the student view");
-
-// function signOut() {
-//   var auth2 = gapi.auth2.getAuthInstance();
-//   auth2.signOut().then(function () {
-//     // console.log('User signed out.')
-//     window.location.href = "http://127.0.0.1:5501/index.html";
-//   });
-// }
