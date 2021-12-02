@@ -11,22 +11,22 @@ function onSignIn(googleUser) {
   var email = profile.getEmail();
   var id = profile.getId();
   var id_token = googleUser.getAuthResponse().id_token;
- console.log(id_token);
+  console.log(id_token);
   // we are using axios to get the data from the backend to the frontend
   const postItem = () => {
     axios({
       method: "get",
       url: "https://localhost:5001/api/token/" + id_token,
-      
+
     }).then((response) => {
       // console.log("whatever", response.data);
       user = response.data;
-
+      console.log(user)
       // // we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
-        //  window.location.href = "/facultyview.html#"+ id_token;
+        window.location.href = "/FrontEnd-VMproject/facultyview.html#" + id_token;
       } else if (user == "Student") {
-        // window.location.href = "/studentview.html#"+ id_token;
+        window.location.href = "/FrontEnd-VMproject/studentview.html#" + id_token;
         // +user.userID;
       } else {
         //  window.location.href = "/";
@@ -38,10 +38,10 @@ function onSignIn(googleUser) {
   savetoken(id_token);
 }
 
-function savetoken(token){
+function savetoken(token) {
   // whatever passes as token should save into local storage
-      if (window.sessionStorage){
-       sessionStorage.setItem("token", token);
-      }
+  if (window.sessionStorage) {
+    sessionStorage.setItem("token", token);
   }
+}
 
