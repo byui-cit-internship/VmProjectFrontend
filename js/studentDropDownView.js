@@ -43,7 +43,7 @@ postItem();
 // get the main div to place the dynamic table inside
 
 const tableDiv = document.querySelector(".table_onCreate");
-console.log("this is main div", tableDiv);
+// console.log("this is main div", tableDiv);
 
 // define the headers for the table
 const tableHeaders = ["Status"];
@@ -170,7 +170,7 @@ let counter = 0;
     console.log(course.course_name)
     const option = document.createElement("option");
     const txt = document.createTextNode(course.course_name);
-    option.setAttribute("value", cou);
+    option.setAttribute("value", counter);
     option.appendChild(txt);
     // Add it to the end of default
     select.insertBefore(option, select.lastChild);

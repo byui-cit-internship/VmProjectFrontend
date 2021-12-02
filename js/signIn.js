@@ -22,7 +22,7 @@ function onSignIn(googleUser) {
       user = response.data;
 
       console.log(response)
-      
+
       // // we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
         window.location.href = "/facultyview.html#"+ id_token;
