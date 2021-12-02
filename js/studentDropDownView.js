@@ -5,35 +5,29 @@ listOfCourse = {
   "Cit 100": { Status: "Approved" },
 };
 
-const userID = sessionStorage.getItem("token")
-
-const query = () => {
-  const queryString = window.location.search;
-  console.log("this is the query string", queryString);
-  const urlParams = new URLSearchParams(queryString);
-  const userID = urlParams.get('userID')
-  console.log(userID);
-  return userID;
-  
-}
+const userToken = sessionStorage.getItem("token")
 
 const postItem = () => {
   // let userID = query()
-  console.log(userID)
+  console.log(userToken)
 
   axios({
     method: "get",
     url:  `https://localhost:5001/api/studentcourse`,
 
       headers: {
-        "Authorization": "Bearer " + userID
+        "Authorization": "Bearer " + userToken
       }
     
   }).then((response) => {
-    console.log(response.data.firstName);
-    const user = response.data;
+    console.log(response)
+    console.log(response.data[0].student_name);
+    // const user = response.data;
     const studentName = document.querySelector(".nameofStudent");
-    studentName.innerHTML = user.firstName
+    studentName.innerHTML = response.data[0].student_name;
+    listOfCourse = response.data;
+changeDropDown();
+
 
   });
 };
@@ -167,22 +161,23 @@ const createStatusBtn = (status) => {
 
 /************************************grabbing the course element/option****************************/
 
-const changeDropDown = () => {
+ const changeDropDown = async () => {
   const select = document.getElementById("course");
 
-  for (let course in listOfCourse) {
-    // creating a new otion for every course
+  await listOfCourse.forEach( course => {
+    console.log(course.course_name)
     const option = document.createElement("option");
-    const txt = document.createTextNode(course);
-    option.setAttribute("value", course);
+    const txt = document.createTextNode(course.course_name);
+    option.setAttribute("value", course.course_name);
     option.appendChild(txt);
     // Add it to the end of default
     select.insertBefore(option, select.lastChild);
-  }
+  })
+
 };
 
 /***************************CHANGE UPON SELECT************************************************* */
-changeDropDown();
+// changeDropDown();
 
 // Changing the table based on the drop down option
 const changeView = () => {
