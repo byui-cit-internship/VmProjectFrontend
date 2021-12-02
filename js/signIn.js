@@ -10,7 +10,7 @@ function onSignIn(googleUser) {
   var email = profile.getEmail();
   var id = profile.getId();
   var id_token = googleUser.getAuthResponse().id_token;
-//  console.log(id_token);
+ console.log(id_token);
   // we are using axios to get the data from the backend to the frontend
   const postItem = () => {
     axios({
@@ -18,13 +18,13 @@ function onSignIn(googleUser) {
       url: "https://localhost:5001/api/token/" + id_token,
       
     }).then((response) => {
-      console.log("whatever", response.data);
-      user = response.data;
-
+      // console.log("whatever", response.data);
+     user = response.data;
+   
       // // we are filtering the  userType to verify if they are a student or professor
-      if (user.userType == "Professor") {
+      if (user == "Professor") {
         window.location.href = "/facultyview.html#"+ id_token;
-      } else if (user.userType == "Student") {
+      } else if (user == "Student") {
         window.location.href = "/studentview.html#"+ id_token;
         // +user.userID;
       } else {

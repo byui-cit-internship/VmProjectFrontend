@@ -18,7 +18,7 @@ async function fetchStudentJSON(){
     
     let response = {};
     try{
-    response = await fetch('https://localhost:5001/api/user/userdetails/' + userID, {
+    response = await fetch('https://localhost:5001/api/user/userdetails/' {
       headers: {
         "Authorization": "Bearer " + "usertoken"
       }
