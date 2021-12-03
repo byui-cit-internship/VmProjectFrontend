@@ -18,9 +18,9 @@ function onSignIn(googleUser) {
       console.log(user)
       //we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
-        window.location.href = "/FrontEnd-VMproject/facultyview.html#" + id_token;
+        // window.location.href = "/FrontEnd-VMproject/facultyview.html#" + id_token;
       } else if (user == "Student") {
-        window.location.href = "/FrontEnd-VMproject/studentview.html#" + id_token;
+        // window.location.href = "/FrontEnd-VMproject/studentview.html#" + id_token;
         // +user.userID;
       } else {
         window.location.href = "/";

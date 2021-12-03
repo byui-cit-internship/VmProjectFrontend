@@ -25,7 +25,8 @@ div.container {
 div.g-signin2 {
   margin: 15px;
 }
-div {
+div 
+{
   display: block;
   margin: auto auto;
 }
@@ -48,7 +49,9 @@ label {
 
 input,
 textarea,
-select#semester {
+select#semester,
+#vm_dropDown
+{
   width: 100%;
 }
 
@@ -100,7 +103,7 @@ input:required:valid {
   border-left: green solid 8px;
 }
 
-form .semester {
+form .semester  {
   /* margin-top: 5px; */
   display: block;
   padding: 0px;
@@ -116,12 +119,12 @@ table th {
   border-radius: 6px 6px 0 0;
 }
 
-.arrowpopup {
+.fa {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
-.arrowpopup .tooltiptext {
+.fa .tooltiptext {
   visibility: hidden;
   width: 160px;
   background-color: #8dd3ee;
@@ -134,7 +137,7 @@ table th {
   left: 50%;
   margin-left: -85px;
 }
-.arrowpopup .tooltiptext::after {
+.fa .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -144,7 +147,7 @@ table th {
   border-style: solid;
   border-color: #8dd3ee transparent transparent transparent;
 }
-.arrowpopup .show {
+.fa .show {
   visibility: visible;
 }
 th, td, p, input, h3 {
