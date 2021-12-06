@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>AddClasses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="js/pageAccess.js" defer></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <form action="#" id="signup">
+      <h1>Register Course</h1>
+
+      <!-- Course Name-->
+      <div class="data">
+        <label for="name">Course Name:</label>
+        <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
+
+        <!--Course Id-->
+        <label for="name">Course Id:</label>
+        <input type="number" id="name" name="CourseId" placeholder="Enter your course Id" required />
+
+        <!-- Section course -->
+
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
+
+        <!-- Canvas token -->
+
+        <label for="canvasToken">Canvas Token:</i></label>
+        <!--Message box/ tooltipText  -->
+        <!-- <i style="font-size:24px" class="fa">&#xf05a;</i> -->
+        <i style="font-size:15px" class="fa" onclick="messageBox()">&#xf05a;
+
+          <span class="tooltiptext" id="tooltipdemo">Access Token given to professors that is obtain when they have a
+            course on
+            BYUI Canvas</span>
+        </i>
+        <input type="text" id="canvasToken" name="canvas_token" placeholder="Enter your class token" required />
+
+        <!--Virtual machine  -->
+        <label>Choose a Virtual machine:</label>
+
+        <select name="vm_dropDown" id="vm_dropDown" required>
+          <option name="option" value="">Default</option>
+
+        </select>
+
+        <!--Description  -->
+        <label>Choose Semester:</label>
+        <select name="semester" id="semester" required>
+          <option name="option" value="">Default</option>
+          <option name="option" value="Summer">Summer</option>
+          <option name="option" value="Spring">Spring</option>
+          <option name="option" value="Fall">Fall</option>
+          <option name="option" value="Winter">Winter</option>
+        </select>
+
+
+        <!--Description-->
+        <label>Descriptin of Course:</label>
+        <textarea id="description" name="description" rows="4" cols="50" placeholder="Describe your course"
+          required></textarea>
+      </div>
+
+      <button type="submit" class="save submitBt btn-primary">
+        Save Class
+      </button>
+    </form>
+
+    <a href="http://localhost:5501/facultyview.html" class="submitBt btn-primary">Back</a>
+  </div>
+  <script src="form.js"></script>
+</body>
+
+</html>
