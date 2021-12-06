@@ -13,19 +13,19 @@ function onSignIn(googleUser) {
   const postItem = () => {
     axios({
       method: "get",
-      url: "https://localhost:5001/api/token/" + id_token,
+      url: "https://localhost:5001/api/token/"+ id_token,
 
     }).then((response) => {
       user = response.data;
 
-      console.log(user)
+      console.log("this is user", user)
+
       //we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
-        // window.location.href = "/FrontEnd-VMproject/facultyview.html#" + id_token;
+        window.location.href = "/facultyview.html";
       } else if (user == "Student") {
-        // window.location.href = "/FrontEnd-VMproject/studentview.html#" + id_token;
-        // +user.userID;
-
+        window.location.href = "/studentview.html";
+     
       } else {
         window.location.href = "/";
       }

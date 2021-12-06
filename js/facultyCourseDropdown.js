@@ -206,9 +206,6 @@ const postItem = () => {
             console.log("here in the second api")
             searchCourse();
 
-=======
-
-
 // Main
             /***************************************** */
 
