@@ -1,5 +1,10 @@
-  // import {id_token} from "/signIn.js"
+/*  Code not needed
 
+This code is fetching the API and creating a table with the data in the API
+I left it here because I think it will be helpful for the future interns to 
+see all the code that we created and they can use in future scenarios
+
+*/
 async function fetchStudentJSON(){
 
     let usertoken = ""; //initialize to empty string
@@ -29,14 +34,15 @@ async function fetchStudentJSON(){
     }
 
     let student = await response.json();
-    let enrollmentList = student.enrollments;
-    console.log("this is ", enrollmentList);
+    let enrollmentList = data;
+    console.log("this is ", data);
     // Get the Course object
     // let course = enrollmentList[0].course.courseName;
     console.log("this is course", course)
      // Extract value from table header. 
             var col = [];
             for (var i = 0; i < enrollmentList; i++) {
+                console.log(enrollmentList)
                 for (var key in enrollmentList[i]) {
                     if (col.indexOf(key) === -1) {
                         col.push(key);

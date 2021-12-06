@@ -1,10 +1,10 @@
 
-
 const userID = sessionStorage.getItem("token")
 
 const postItem = () => {
   // let userID = query()
   console.log(userID)
+
   axios({
     method: "get",
     url: `https://localhost:5001/api/studentcourse`,
@@ -23,6 +23,20 @@ const postItem = () => {
       studentName.innerHTML = list_student_courses[0].student_name
       /***********************CREATE TABLE************************************************** */
       // get the main div to place the dynamic table inside
+
+//       headers: {
+//         "Authorization": "Bearer " + userToken
+//       }
+    
+//   }).then((response) => {
+//     console.log(response)
+//     console.log(response.data[0].student_name);
+//     // const user = response.data;
+//     const studentName = document.querySelector(".nameofStudent");
+//     studentName.innerHTML = response.data[0].student_name;
+//     listOfCourse = response.data;
+// changeDropDown();
+
 
       const tableDiv = document.querySelector(".table_onCreate");
       console.log("this is main div", tableDiv);
@@ -237,6 +251,7 @@ postItem();
 
 // // define the headers for the table
 // const tableHeaders = ["Status"];
+
 
 // const createStudentTable = () => {
 //   while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
