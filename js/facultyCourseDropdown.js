@@ -139,6 +139,7 @@ const postItem = () => {
           const option = document.createElement("option");
           const txt = document.createTextNode(element.course_name);
           // sending that counter as the value
+
           option.setAttribute("value", counter);
           option.appendChild(txt);
           // Add it to the end of default
@@ -154,6 +155,7 @@ const postItem = () => {
        *This Func will change what the Teacher sees based upon what the 
        * drop down selection was. It will display all the students for that class
        * ******************* */
+
       const changeView = () => {
         const grabSelect = document.querySelector("#course");
         grabSelect.addEventListener("change", (event) => {
@@ -166,6 +168,7 @@ const postItem = () => {
               statusDiv.style.display = "none";
             }
           } else {
+
             const target_course_name = list_courses[event.target.value].course_name
             changeSelector.textContent = `You are in the ${target_course_name} view`;
 
@@ -174,10 +177,12 @@ const postItem = () => {
 
             const specificCourse = list_courses[event.target.value]
             // call the api to get the list of students for that slected class from the drop-down
+
             const searchCourse = () => {
               axios({
                 method: "get",
                 url: `https://localhost:5001/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
+
                 headers: {
                   "Authorization": "Bearer " + userID
                 }
@@ -185,9 +190,11 @@ const postItem = () => {
               }).then((response) => {
                 const list_student = response.data;
 
+
                 // when that object comes back, we loop through it to create the create the student table
                 // populate it with the student and their VM status
                 list_student.forEach(element => {
+
                   appendStudent(element.student_name, element.student_vm_status);
                 });
                 if (table !== null) {
@@ -198,11 +205,27 @@ const postItem = () => {
             }
             console.log("here in the second api")
             searchCourse();
+
+=======
+
+
+// Main
+            /***************************************** */
+
+            const listofNames = listOfCourse[event.target.value];
+            for (let name in listofNames) {
+              const nameOfStudent = listofNames[name];
+              appendStudent(nameOfStudent, "Active");
+            }
+            if (table !== null) {
+              table.style.display = "block";
+              statusDiv.style.display = "block";
+            }
+// Main
           }
         });
       };
       changeView();
-
 
       // console.log("this is status div", statusDiv);
       const statusDiv = document.querySelector(".status_btn");
@@ -212,6 +235,7 @@ const postItem = () => {
        * it should let the Professor, chnage the status, view the Vm instance etc.
        * For now this is not implemented
        * ************************** */
+
       const createStatusBtn = (status) => {
         while (statusDiv.firstChild) statusDiv.removeChild(statusDiv.firstChild);
 
@@ -260,12 +284,15 @@ const postItem = () => {
               alert("You have just cliked the Approved Function");
             };
 
+
             // statusBtn.innerHTML = " Approved Launch Vm";
             // statusBtn.onclick = approvedFuncton;
+
             statusDiv.append(statusBtn);
             break;
         }
       };
+
     }
 
   });

@@ -4,10 +4,12 @@
  * ******************************** */
 function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
+
   console.log(id_token);
 
   // Making a call to the back end to verify token and check wheather user exits in database 
   //they are a professor or student.
+
   const postItem = () => {
     axios({
       method: "get",
@@ -15,6 +17,7 @@ function onSignIn(googleUser) {
 
     }).then((response) => {
       user = response.data;
+
       console.log(user)
       //we are filtering the  userType to verify if they are a student or professor
       if (user == "Professor") {
@@ -22,6 +25,7 @@ function onSignIn(googleUser) {
       } else if (user == "Student") {
         window.location.href = "/FrontEnd-VMproject/VMstudent_dashboard/studentview.html";
         // +user.userID;
+
       } else {
         window.location.href = "/";
       }
