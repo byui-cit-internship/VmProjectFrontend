@@ -1,4 +1,7 @@
+/*  This code is need to use the verify the token and check if the user is in 
+the right 
 
+*/
 function verifyToken(){
 
 let usertoken = ""; //initialize to empty string
