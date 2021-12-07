@@ -33,7 +33,6 @@ function validate(event) {
             // if it is valid then we can go ahead and send that data
             // to register that class
             getFormData()
-
         }).catch(function (error) {
             console.log("Here in the error")
             console.log(error.message)
@@ -103,7 +102,15 @@ const getFormData = () => {
                 console.log("Here in the send form data to api")
                 alert("Your Course was created")
             }).catch(function (error) {
-                console.log(error.message)
+                console.log("Here in the error")
+                if (error.response.status == 409) {
+                    console.log(error.response.status)
+                    alert("Class has already been created")
+                }
+                else {
+                    alert("error has occured, check connection")
+                    console.log(error.message)
+                }
 
             })
     })
