@@ -9,19 +9,11 @@
    * ****************** */
 
 // The session token that was stored, this token is used through out every API call
-// function findValue() {
-//   let chosen_semester = document.getElementById("course_semester");
-//   let vlaue = chosen_semester.options[chosen_semester.selectedIndex].text
-//   console.log(vlaue)
-//   return vlaue
-// }
-
 
 const userID = sessionStorage.getItem("token")
 
 const postItem = () => {
   var course_semester = "Fall";
-  // console.log(vlaue_semester)
   // First API call to get a list of all the courses that the professor has for that semester.
   axios({
     method: "get",
@@ -180,7 +172,7 @@ const postItem = () => {
                 url: `https://localhost:5001/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
                 headers: {
                   "Authorization": "Bearer " + userID
-                }
+                },
 
               }).then((response) => {
                 const list_student = response.data;

@@ -2,6 +2,13 @@
 <html>
 
 <head>
+
+  <meta name="google-signin-scope" content="profile email" />
+
+  <meta name="google-signin-client_id"
+    content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com" />
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
   <title>Faculty Dashboard View</title>
@@ -15,30 +22,40 @@
 </head>
 
 <body>
-  <button id="signout" onclick="facultySignOut()">SignOut</button>
+  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
   <div class="container">
+    <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
     <h1 id="name0fProfessor">Teacher</h1>
     <label for="course">Choose a course:</label>
     <!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
     <select name="course" id="course">
       <option value="Default">default</option>
-
     </select>
-    <!-- <label for="Semester">Choose a Semester:</label> -->
-    <!-- <select id="course_semester" name="Semester" onchange="findValue()">
-      <option value="Fall">Default</option>
-      <option value="Fall">Fall</option>
-      <option value="Winter">Winter</option>
-      <option value="Spring">Spring</option>
-
-    </select> -->
 
     <div class="courseSelected"></div>
     <div class="table_onCreate"></div>
     <div class="status_btn"></div>
-    <a href="/AddClasses.html" class="submitBt btn-primary">Add Class</a>
+    <a href="/VMregistration_course_form/AddClasses.html" class="submitBt btn-primary">Add Class</a>
     <a href="/fetch.html" class="submitBt btn-primary">Courses</a>
     <a href="/setUp.html" class="submitBt btn-primary">Setup Template</a>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          sessionStorage.clear()
+        });
+      }
+
+      function onLoad() {
+        gapi.load('auth2', function () {
+          gapi.auth2.init();
+        });
+      }
+    </script>
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   </div>
 </body>
 

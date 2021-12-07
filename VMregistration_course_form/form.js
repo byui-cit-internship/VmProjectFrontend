@@ -1,5 +1,55 @@
 
-const tokenID = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjkzNDFhYmM0MDkyYjZmYzAzOGU0MDNjOTEwMjJkZDNlNDQ1MzliNTYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiMjA2MzU1NDkxNzUyLXBmN21kcTZnMjR0Y3NycHYxcTYxdG9jbXZ1dnU5MnIzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiMjA2MzU1NDkxNzUyLXBmN21kcTZnMjR0Y3NycHYxcTYxdG9jbXZ1dnU5MnIzLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA2MjYwNzIwODM4MDA4ODM2MjcwIiwiZW1haWwiOiJsZW9uYXJpbmVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJUSnZuYWR2VVRDcFB2YTdpR0lnYV9RIiwibmFtZSI6Ikxlb24gTmFyaW5lIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdqdDF2SmIwQ3ZjT0dRaS1Ia094cG1LcTYwdjJtZ2xIV0pNZHpCc0pRPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6Ikxlb24iLCJmYW1pbHlfbmFtZSI6Ik5hcmluZSIsImxvY2FsZSI6ImVuIiwiaWF0IjoxNjM4NTcxMDc5LCJleHAiOjE2Mzg1NzQ2NzksImp0aSI6ImU0OGVhYjVhM2MzYzg4ZTc5NzQ5MDY3YzEzNjdlMzU1OGYwMjIzYjkifQ.KwQGMM0mxtNrJw3DH29SO4FEZpUb6scveQXOojincxbLr6BiaTlJQjunFgxocMJWIZ__KhrSDWub4_G0jztwzsXPrVJh-EPhfOtjl_9tAVJndaxSk134AaujjtvhIdVMFj2CyptelgaMwY0DIpFSvsdFtAG-OhNoYCkRjZ83hVMA6v44OyoG3rW9f0t-EG7Jbokg1cSroz34Or_zsEH7zgwSceDoIj7LgMlmrWLvWu32Wabbte47i18_AAtt0uRZ8JqFBkxsm18v830V6VvSOBq6Szxg9u8di1CaS0Q9gg11SeyhT1qO7vgbY-paberzGK9qSpNpIKUB8QDlTVQqMw"
+const tokenID = sessionStorage.getItem("token")
+const courseIdInputElm = document.getElementById("courseId")
+const canvasTokenInputElm = document.getElementById("canvasToken")
+canvasTokenInputElm.addEventListener("input", validate)
+
+
+/***************************************************************
+ * This functions calls our API which then calls the canvas API to 
+ * verify that the course_id and course_token is a valid token.
+ * If it is not, it will clear the fields, which prompts the professors\
+ * re-enter those credentials
+ * ****************************************** */
+function validate(event) {
+    event.preventDefault()
+    let valid = true;
+
+    // this calls our API which then calls the Canvas API to verufy that the course_id and course Token entered
+    // by the professor is correct
+    axios({
+        method: "post",
+        url: "https://localhost:5001/api/course/professor/checkCanvasToken",
+        headers: {
+            "Authorization": "Bearer " + tokenID,
+        },
+        data: {
+            "canvas_token": canvasTokenInputElm.value,
+            "canvas_course_id": courseIdInputElm.value
+        }
+    })
+        .then(response => {
+            console.log(response.data)
+            // if it is valid then we can go ahead and send that data
+            // to register that class
+            getFormData()
+
+        }).catch(function (error) {
+            console.log("Here in the error")
+            console.log(error.message)
+            valid = false
+            if (valid === false) {
+                const nameError = document.getElementById("nameError");
+                nameError.classList.add("visible");
+                canvasTokenInputElm.value = ""
+                courseIdInputElm.value = ""
+                nameError.setAttribute("aria-hidden", false);
+                nameError.setAttribute("aria-invalid", true);
+            }
+
+        })
+    console.log(valid)
+}
 
 /*******************************************
  * This function will collect the Data from the form
@@ -21,6 +71,13 @@ const getFormData = () => {
         console.log(formData.get("semester"))
         console.log(formData.get("vm_dropDown"))
 
+        // making sure the form data is accurate
+        const courseIdInputElm = document.getElementById("courseId")
+        console.log("here goin to call the canvas api")
+        console.log(courseIdInputElm.value)
+        const canvasTokenInputElm = document.getElementById("canvasToken")
+
+        // this API call is to send the Form-data to the back end to register the class 
         axios({
             method: "post",
             url: "https://localhost:5001/api/enrollment/professor/register/course",
@@ -44,15 +101,14 @@ const getFormData = () => {
             .then(response => {
                 console.log(response.data)
                 console.log("Here in the send form data to api")
-                userType = response.data
-
+                alert("Your Course was created")
             }).catch(function (error) {
                 console.log(error.message)
+
             })
     })
 
 }
-getFormData()
 
 
 /*************************************************

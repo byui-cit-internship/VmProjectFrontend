@@ -25,7 +25,10 @@
 
         <!--Course Id-->
         <label for="name">Course Id:</label>
-        <input type="number" id="name" name="CourseId" placeholder="Enter your course Id" required />
+        <span role="alert" id="nameError" aria-hidden="true">
+          In Valid: Please a Valid canvas token and CourseID
+        </span>
+        <input type="number" id="courseId" name="CourseId" placeholder="Enter your course Id" required />
 
         <!-- Section course -->
 
@@ -33,7 +36,7 @@
         <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
 
         <!-- Canvas token -->
-
+        
         <label for="canvasToken">Canvas Token:</i></label>
         <!--Message box/ tooltipText  -->
         <!-- <i style="font-size:24px" class="fa">&#xf05a;</i> -->
@@ -43,6 +46,10 @@
             course on
             BYUI Canvas</span>
         </i>
+        <span role="alert" id="nameError" aria-hidden="true">
+          In Valid: Please a Valid canvas token and CourseID
+        </span>
+
         <input type="text" id="canvasToken" name="canvas_token" placeholder="Enter your class token" required />
 
         <!--Virtual machine  -->
@@ -66,16 +73,16 @@
 
         <!--Description-->
         <label>Descriptin of Course:</label>
-        <textarea id="description" name="description" rows="4" cols="50" placeholder="Describe your course"
+        <textarea  type="text" id="description" name="description" rows="4" cols="50" placeholder="Describe your course"
           required></textarea>
       </div>
 
-      <button type="submit" class="save submitBt btn-primary">
+      <button type="submit" id="submit" class="save submitBt btn-primary">
         Save Class
       </button>
     </form>
 
-    <a href="http://localhost:5501/facultyview.html" class="submitBt btn-primary">Back</a>
+    <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
   </div>
   <script src="form.js"></script>
 </body>
