@@ -1,10 +1,13 @@
-/*  Code not needed
+/***********************************************  
+ 
+Code not needed
 
 This code is fetching the API and creating a table with the data in the API
 I left it here because I think it will be helpful for the future interns to 
 see all the code that we created and they can use in future scenarios
 
-*/
+***********************************************/
+
 async function fetchStudentJSON(){
 
     let usertoken = ""; //initialize to empty string

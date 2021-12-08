@@ -37,7 +37,7 @@ function onSignIn(googleUser) {
 }
 
 function savetoken(token) {
-  // whatever passes as token should save into local storage
+  // whatever passes as token should save into session storage
   if (window.sessionStorage) {
     sessionStorage.setItem("token", token);
   }
