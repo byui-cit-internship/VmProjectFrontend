@@ -20,7 +20,7 @@
 2. Student sees a list of the class that they are enrolled in.
 3. Student clicks on a class and then sees their Vm and the Status of that Vm for that class
 4. Student can send a request to Professor to change the Status of the VM via email.
-
+# NOTES
 This repository is just for the front end.
 
 - I have created another branch. In the main branch , we are using URL storage the token. In the sessionStorage branch, we are using sessionStorage to storage the token to add extra security to the website. 
