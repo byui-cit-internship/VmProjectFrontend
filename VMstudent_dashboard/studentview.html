@@ -6,11 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-signin-scope" content="profile email" />
-  <!-- <meta name="google-signin-client_id" content="YOUR_CLIENT_ID"> -->
   <meta name="google-signin-client_id"
     content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com" />
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +26,6 @@
 
 <body>
   <div class="container">
-    <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
     <h1 class="nameofStudent">Name</h1>
     <h1></h1>
     <label for="course">Choose a course:</label>
@@ -40,6 +37,7 @@
     <div class="status_btn"></div>
     <!-- <a href="#" onclick="signOut();">Sign out</a> -->
     <a href="/fetch.html" class="submitBt btn-primary">Courses</a>
+    <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
   </div>
   <script>
     function signOut() {
