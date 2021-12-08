@@ -1,0 +1,189 @@
+/* BYUI Color Guide
+BYUI blue: #006EB6
+black: #000000
+white: #FFFFFF
+https://www.byui.edu/branding/color-guide
+*/
+
+/* Small View */
+body {
+  background-color: #006eb6;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+div.container {
+  max-width: 500px;
+  width: 80%;
+  background-color: white;
+  text-align: center;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 50px;
+}
+
+div.g-signin2 {
+  margin: 15px;
+}
+div 
+{
+  display: block;
+  margin: auto auto;
+}
+
+form {
+  text-align: center;
+}
+
+form .data {
+  text-align: left;
+  width: 90%;
+}
+
+label {
+  padding: 12px 0 10px;
+  display: inline-block;
+  margin: 0.7%;
+  font-size: 1.5rem;
+}
+
+input,
+textarea,
+select#semester,
+#vm_dropDown
+{
+  width: 100%;
+}
+
+input {
+  padding: 8px 0;
+}
+
+textarea {
+  padding: 10px 8px;
+}
+
+select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  text-align: center;
+}
+
+.submitBt {
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 10px auto;
+  width: 90%;
+  border-radius: 7px;
+  display: block;
+}
+
+.btn-primary {
+  background-color: #006eb6 !important;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  /* border-radius: 6px; */
+}
+input:required {
+  border-left: red solid 8px;
+}
+input:required:valid {
+  border-left: green solid 8px;
+}
+
+form .semester  {
+  /* margin-top: 5px; */
+  display: block;
+  padding: 0px;
+  margin: 5px;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #006eb6;
+  color: white;
+  border-radius: 6px 6px 0 0;
+}
+
+.fa {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.fa .tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #8dd3ee;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  padding: 9px;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -85px;
+}
+.fa .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8dd3ee transparent transparent transparent;
+}
+.fa .show {
+  visibility: visible;
+}
+th, td, p, input, h3 {
+  font:15px 'Segoe UI';
+}
+table, th, td {
+  border: solid 1px #ddd;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+}
+th {
+  font-weight:bold;
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  div.container {
+    width: 60%;
+  }
+  .submitBt {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 10px auto;
+    width: 60%;
+    border-radius: 7px;
+    display: block;
+  }
+
+  form .data {
+    width: 60%;
+  }
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+  form .data {
+  }
+}

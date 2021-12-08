@@ -17,13 +17,15 @@ function onSignIn(googleUser) {
 
     }).then((response) => {
       user = response.data;
-
-      console.log(user)
-      //we are filtering the  userType to verify if they are a student or professor
-      if (user == "Professor") {
+      const user_id = user.userID
+      console.log(user.userID)
+      
+      savetoken(id_token, user_id);
+      // we are filtering the  userType to verify if they are a student or professor
+      if (user.userType == "Professor") {
         window.location.href = "/VMfaculty_dashboard/facultyview.html";
       }
-      else if (user == "Student") {
+      else if (user.userType == "Student") {
         window.location.href = "/VMstudent_dashboard/studentview.html";
 
       }
@@ -33,13 +35,14 @@ function onSignIn(googleUser) {
     });
   };
   postItem();
-  savetoken(id_token);
+
 }
 
-function savetoken(token) {
+function savetoken(token, user_id) {
   // whatever passes as token should save into local storage
   if (window.sessionStorage) {
     sessionStorage.setItem("token", token);
+    sessionStorage.setItem("user_id", user_id)
   }
 }
 
