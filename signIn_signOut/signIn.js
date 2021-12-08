@@ -5,7 +5,7 @@
 function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
 
-  // Making a call to the back end to verify token and check wheather user exits in database 
+  //Making a call to the back end to verify token and check wheather user exits in database 
   //they are a professor or student.
 
   const postItem = () => {
@@ -36,14 +36,14 @@ function onSignIn(googleUser) {
   postItem();
 
 }
-
 function savetoken(token, user_id, name) {
+
   // whatever passes as token should save into local storage
+  // we are also saving the user_id and name for later use on different pages
   if (window.sessionStorage) {
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("user_id", user_id);
     sessionStorage.setItem("user_name", name);
-
   }
 }
 
