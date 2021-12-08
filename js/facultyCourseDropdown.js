@@ -297,3 +297,16 @@ const postItem = () => {
 postItem();
 // get the main div to place the dynamic table inside
 
+function messageBox(){
+  
+  var tooltip = document.querySelector('.tooltip')
+
+tooltip.addEventListener('click', function() {
+  if (this.classList.contains('active')) {
+    this.classList.remove('active');
+  } else {
+    this.classList.add('active');
+  }
+  
+});
+}
