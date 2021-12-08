@@ -4,7 +4,7 @@ const userID = sessionStorage.getItem("token")
 
 const postItem = () => {
   // let userID = query()
-  console.log(userID)
+  // console.log(userID)
   axios({
     method: "get",
     url: `https://localhost:5001/api/studentcourse`,
@@ -14,10 +14,10 @@ const postItem = () => {
     }
 
   }).then((response) => {
-    console.log(response.data.firstName);
+    // console.log(response.data.firstName);
     const list_student_courses = response.data;
-    console.log("here")
-    console.log(list_student_courses)
+    // console.log("here")
+    // console.log(list_student_courses)
     const studentName = document.querySelector(".nameofStudent");
     if (list_student_courses != null) {
       studentName.innerHTML = list_student_courses[0].student_name
@@ -25,7 +25,7 @@ const postItem = () => {
       // get the main div to place the dynamic table inside
 
       const tableDiv = document.querySelector(".table_onCreate");
-      console.log("this is main div", tableDiv);
+      // console.log("this is main div", tableDiv);
 
       // define the headers for the table
       const tableHeaders = ["Status"];
@@ -70,7 +70,7 @@ const postItem = () => {
         studentTableBodyRow.className = "studentTableBodyRow";
 
         const element = document.getElementsByClassName("studentTableBodyRow");
-        console.log("this is the student element", element);
+        // console.log("this is the student element", element);
 
         const StudentStatus = document.createElement("td");
         StudentStatus.className = "StudentStatus";
@@ -85,7 +85,7 @@ const postItem = () => {
       // get the main div to place the dynamic table inside
 
       const statusDiv = document.querySelector(".status_btn");
-      console.log("this is status div", statusDiv);
+      // console.log("this is status div", statusDiv);
 
       const createStatusBtn = (status) => {
         while (statusDiv.firstChild) statusDiv.removeChild(statusDiv.firstChild);

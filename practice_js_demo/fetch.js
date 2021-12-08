@@ -10,19 +10,19 @@ see all the code that we created and they can use in future scenarios
 
 async function fetchStudentJSON(){
 
-    let usertoken = ""; //initialize to empty string
-    let email = "";
+    // let usertoken = ""; //initialize to empty string
+    // let email = "";
     
-    let hash = location.hash; //will include the #
-    let hashparts = hash.split("#");
-    if (hashparts.length < 2) {
-      window.location = "/"; //there is no login token on the url, so they must not have logged in yet, we will help redirect them here
-    } else {
+    // let hash = location.hash; //will include the #
+    // let hashparts = hash.split("#");
+    // if (hashparts.length < 2) {
+    //   window.location = "/"; //there is no login token on the url, so they must not have logged in yet, we will help redirect them here
+    // } else {
     
-    usertoken = hashparts[1]; 
-    // console.log(usertoken)
-      // validateToken(); //check if token is expired, if not display the email, if expired send to login
-    }
+    // usertoken = hashparts[1]; 
+    // // console.log(usertoken)
+    //   // validateToken(); //check if token is expired, if not display the email, if expired send to login
+    // }
     
     let response = {};
     try{
