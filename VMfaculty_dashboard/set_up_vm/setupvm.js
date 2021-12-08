@@ -25,10 +25,12 @@ const getFormData = () => {
         })
             .then(response => {
                 console.log(response.data)
+                alert("Your Virtual Machine template was created")
 
             }).catch(error => {
                 console.log("Here in the error")
                 console.log(error.message)
+                alert("Error occured while creating, check connection")
             })
 
 

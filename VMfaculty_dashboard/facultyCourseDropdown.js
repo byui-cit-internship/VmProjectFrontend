@@ -10,7 +10,8 @@
 
 // The session token that was stored, this token is used through out every API call
 
-const userID = sessionStorage.getItem("token")
+const tokenID = sessionStorage.getItem("token")
+const user_name = sessionStorage.getItem("user_name")
 
 const postItem = () => {
   var course_semester = "Fall";
@@ -21,7 +22,7 @@ const postItem = () => {
 
     headers: {
       // Auth token is needed for every Api call
-      "Authorization": "Bearer " + userID
+      "Authorization": "Bearer " + tokenID
     }
 
   }).then((response) => {
@@ -33,7 +34,7 @@ const postItem = () => {
     if (list_courses !== null) {
 
       const professor_name_element = document.querySelector("#name0fProfessor");
-      professor_name_element.innerHTML = list_courses[0].course_professor
+      professor_name_element.innerHTML = user_name
 
       // grabbing the div Table element that will be affected through-out
       const tableDiv = document.querySelector(".table_onCreate");
@@ -171,7 +172,7 @@ const postItem = () => {
                 method: "get",
                 url: `https://localhost:5001/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
                 headers: {
-                  "Authorization": "Bearer " + userID
+                  "Authorization": "Bearer " + tokenID
                 },
 
               }).then((response) => {
