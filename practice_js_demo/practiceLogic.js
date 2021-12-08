@@ -91,9 +91,6 @@ const appendStudent = (name, id, status) => {
 
 
 /******************************************************************/
-
-
-
 // grabbing the course element/option
 
 const changeDropDown = () => {
