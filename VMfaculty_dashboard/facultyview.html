@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- <script src="jquery-3.1.1.min.js"></script> -->
-  <script src="js/pageAccess.js" defer></script>
   <script src="facultyCourseDropdown.js" defer></script>
   <!-- <script src="js/fetch.js" defer></script> -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -25,8 +24,16 @@
   <!-- <a href="#" onclick="signOut();">Sign out</a> -->
   <div class="container">
     <h1 id="name0fProfessor">Teacher</h1>
+
+    <label for="course_semester">Choose the semester:</label>
+    <select name="course_semester" id="course_semester">
+      <option value="Default">Winter</option>
+      <option value="Default">Spring</option>
+      <option value="Default">Summer</option>
+      <option value="Default">Fall</option>
+    </select>
+
     <label for="course">Choose a course:</label>
-    <!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
     <select name="course" id="course">
       <option value="Default">default</option>
     </select>
@@ -35,7 +42,7 @@
     <div class="table_onCreate"></div>
     <div class="status_btn"></div>
     <a href="/VMregistration_course_form/AddClasses.html" class="submitBt btn-primary">Add Class</a>
-    <a href="/fetch.html" class="submitBt btn-primary">Courses</a>
+    <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> -->
     <a href="/VMfaculty_dashboard/set_up_vm/setUp.html" class="submitBt btn-primary">Setup Template</a>
     <script>
       function signOut() {
