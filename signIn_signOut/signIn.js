@@ -1,11 +1,10 @@
+
 /**********************************************
  * This function triggers the google third party api to auth our user, it helps to create
  * our sign-in page so we don't have to create one.
  * ******************************** */
 function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
-
-  console.log(id_token);
 
   // Making a call to the back end to verify token and check wheather user exits in database 
   //they are a professor or student.
@@ -17,13 +16,16 @@ function onSignIn(googleUser) {
 
     }).then((response) => {
       user = response.data;
+      const user_id = user.userID
 
+      const name = `${user.firstName} ${user.lastName}`
       console.log(user)
-      //we are filtering the  userType to verify if they are a student or professor
-      if (user == "Professor") {
+      savetoken(id_token, user_id, name);
+      // we are filtering the  userType to verify if they are a student or professor
+      if (user.userType == "Professor") {
         window.location.href = "/VMfaculty_dashboard/facultyview.html";
       }
-      else if (user == "Student") {
+      else if (user.userType == "Student") {
         window.location.href = "/VMstudent_dashboard/studentview.html";
 
       }
@@ -33,13 +35,16 @@ function onSignIn(googleUser) {
     });
   };
   postItem();
-  savetoken(id_token);
+
 }
 
-function savetoken(token) {
-  // whatever passes as token should save into session storage
+function savetoken(token, user_id, name) {
+  // whatever passes as token should save into local storage
   if (window.sessionStorage) {
     sessionStorage.setItem("token", token);
+    sessionStorage.setItem("user_id", user_id);
+    sessionStorage.setItem("user_name", name);
+
   }
 }
 

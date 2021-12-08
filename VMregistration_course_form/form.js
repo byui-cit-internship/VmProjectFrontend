@@ -1,5 +1,6 @@
 
 const tokenID = sessionStorage.getItem("token")
+const user_id = sessionStorage.getItem("user_id")
 const courseIdInputElm = document.getElementById("courseId")
 const canvasTokenInputElm = document.getElementById("canvasToken")
 canvasTokenInputElm.addEventListener("input", validate)
@@ -89,9 +90,9 @@ const getFormData = () => {
                 semester: formData.get("semester"),
                 description: formData.get("description"),
                 // useId amd teacher Id needs to be replaced with the current user ID
-                userId: "40EB3559-EDB7-4281-35D4-08D9B5DAE12A",
+                userId: user_id,
                 status: "Active",
-                teacherId: "40EB3559-EDB7-4281-35D4-08D9B5DAE12A"
+                teacherId: user_id
             },
             headers: {
                 "Authorization": "Bearer " + tokenID
