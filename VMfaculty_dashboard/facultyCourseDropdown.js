@@ -1,24 +1,25 @@
-
 /***************************************
-   * This Api call is run to get a list of courses that this professor 
-   * is enrolled in for that semster. It then takes those course, 
-   * creates a drop down menu. Then takes the course_id of each class and calls
-   * another API which gives that specific class and a list of all the students 
-   * for that class. For each student, rows are created in the table and The student name and their 
-   * Virtual machine status is outputted on those newly created rows
-   * ****************** */
+ * This Api call is run to get a list of courses that this professor
+ * is enrolled in for that semster. It then takes those course,
+ * creates a drop down menu. Then takes the course_id of each class and calls
+ * another API which gives that specific class and a list of all the students
+ * for that class. For each student, rows are created in the table and The student name and their
+ * Virtual machine status is outputted on those newly created rows
+ * ****************** */
 
 // The session token that was stored, this token is used through out every API call
 
-const tokenID = sessionStorage.getItem("token")
-const user_name = sessionStorage.getItem("user_name")
+const tokenID = sessionStorage.getItem("token");
+const user_name = sessionStorage.getItem("user_name");
+
+const professor_name_element = document.querySelector("#name0fProfessor");
+professor_name_element.innerHTML = user_name;
 
 const postItem = () => {
-  
-  let course_semester = document.querySelector("#course_semester").value
-  
-  console.log(course_semester)
-  
+  let course_semester = document.querySelector("#course_semester").value;
+
+  console.log(course_semester);
+
   // First API call to get a list of all the courses that the professor has for that semester.
   axios({
     method: "get",
@@ -26,27 +27,21 @@ const postItem = () => {
 
     headers: {
       // Auth token is needed for every Api call
-      "Authorization": "Bearer " + tokenID
-    }
-
+      Authorization: "Bearer " + tokenID,
+    },
   }).then((response) => {
     console.log(response.data.firstName);
     const list_courses = response.data;
-    console.log("here")
-    console.log(list_courses)
+    console.log("here");
+    console.log(list_courses);
 
     if (list_courses !== null) {
-
-      const professor_name_element = document.querySelector("#name0fProfessor");
-      professor_name_element.innerHTML = user_name
-
       // grabbing the div Table element that will be affected through-out
       const tableDiv = document.querySelector(".table_onCreate");
       console.log("this is main div", tableDiv);
 
       // define the headers for the table
       const tableHeaders = ["Name", "Status"];
-
 
       /*******************************************
        * Create the Table for that Professor will see, that will contain
@@ -86,9 +81,8 @@ const postItem = () => {
         tableDiv.append(studentTable);
       };
 
-
       /*********************************************
-       * When called, this func dynamically create the the table and rows 
+       * When called, this func dynamically create the the table and rows
        * for all the students and their Vm status for that course
        * *********************************** */
       const appendStudent = (name, status) => {
@@ -116,11 +110,10 @@ const postItem = () => {
         studentTable.append(studentTableBodyRow);
       };
 
-
       /************************************************
-       * This func will create the drop down with a list of all the 
+       * This func will create the drop down with a list of all the
        * courses that a professor will have for that semster
-       * and will also be used to trigger a table for the student for that class 
+       * and will also be used to trigger a table for the student for that class
        * to be created.
        * ********************************** */
       const changeDropDown = () => {
@@ -131,8 +124,8 @@ const postItem = () => {
         // we cannot pass the entire object sicne we will get a weird [object Object]
         // as a value.
         var counter = 0;
-        list_courses.forEach(element => {
-          console.log(course)
+        list_courses.forEach((element) => {
+          console.log(course);
           const option = document.createElement("option");
           const txt = document.createTextNode(element.course_name);
           // sending that counter as the value
@@ -140,15 +133,14 @@ const postItem = () => {
           option.appendChild(txt);
           // Add it to the end of default
           select.insertBefore(option, select.lastChild);
-          counter = counter + 1
-        })
+          counter = counter + 1;
+        });
       };
 
       changeDropDown();
 
-
       /*************************************************
-       *This Func will change what the Teacher sees based upon what the 
+       *This Func will change what the Teacher sees based upon what the
        * drop down selection was. It will display all the students for that class
        * ******************* */
       const changeView = () => {
@@ -163,43 +155,45 @@ const postItem = () => {
               statusDiv.style.display = "none";
             }
           } else {
-            const target_course_name = list_courses[event.target.value].course_name
+            const target_course_name =
+              list_courses[event.target.value].course_name;
             changeSelector.textContent = `You are in the ${target_course_name} view`;
 
             // create the tabel when we select our dropdown
             createProfessorTable();
 
-            const specificCourse = list_courses[event.target.value]
+            const specificCourse = list_courses[event.target.value];
             // call the api to get the list of students for that slected class from the drop-down
             const searchCourse = () => {
               axios({
                 method: "get",
                 url: `https://localhost:5001/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
                 headers: {
-                  "Authorization": "Bearer " + tokenID
+                  Authorization: "Bearer " + tokenID,
                 },
-
               }).then((response) => {
                 const list_student = response.data;
 
                 // when that object comes back, we loop through it to create the create the student table
                 // populate it with the student and their VM status
-                list_student.forEach(element => {
-                  appendStudent(element.student_name, element.student_vm_status);
+                list_student.forEach((element) => {
+                  appendStudent(
+                    element.student_name,
+                    element.student_vm_status
+                  );
                 });
                 if (table !== null) {
                   table.style.display = "block";
                   statusDiv.style.display = "block";
                 }
-              })
-            }
-            console.log("here in the second api")
+              });
+            };
+            console.log("here in the second api");
             searchCourse();
           }
         });
       };
       changeView();
-
 
       // console.log("this is status div", statusDiv);
       const statusDiv = document.querySelector(".status_btn");
@@ -210,7 +204,8 @@ const postItem = () => {
        * For now this is not implemented
        * ************************** */
       const createStatusBtn = (status) => {
-        while (statusDiv.firstChild) statusDiv.removeChild(statusDiv.firstChild);
+        while (statusDiv.firstChild)
+          statusDiv.removeChild(statusDiv.firstChild);
 
         const statusBtn = document.createElement("button");
         statusBtn.classList.add("btn-primary", "submitBt");
@@ -264,9 +259,7 @@ const postItem = () => {
         }
       };
     }
-
   });
 };
 postItem();
 // get the main div to place the dynamic table inside
-
