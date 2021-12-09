@@ -1,64 +1,87 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com"
+    />
+    <script
+      src="https://apis.google.com/js/platform.js?onload=onLoad"
+      async
+      defer
+    ></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>Faculty Dashboard View</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="facultyCourseDropdown.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
 
-<head>
+  <body>
+    <!-- <a href="#" onclick="signOut();">Sign out</a> -->
+    <div class="container">
+      <h1 id="name0fProfessor">Teacher</h1>
 
-  <meta name="google-signin-scope" content="profile email" />
-  <meta name="google-signin-client_id"
-    content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com" />
-  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <title>Faculty Dashboard View</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="facultyCourseDropdown.js" defer></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
+      <label for="course_semester"
+        >Choose the semester:
 
-<body>
-  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
-  <div class="container">
-    <h1 id="name0fProfessor">Teacher</h1>
+        <select name="course_semester" id="course_semester">
+          <option value="Winter">Winter</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+        </select>
+      </label>
 
-    <label for="course_semester">Choose the semester:</label>
-    <select name="course_semester" id="course_semester">
-      <option value="Winter">Winter</option>
-      <option value="Spring">Spring</option>
-      <option value="Summer">Summer</option>
-      <option value="Fall">Fall</option>
-    </select>
+      <label for="course"
+        >Choose a course:
+        <select name="course" id="course">
+          <option value="Default">default</option>
+        </select>
+      </label>
 
-    <label for="course">Choose a course:</label>
-    <select name="course" id="course">
-      <option value="Default">default</option>
-    </select>
+      <div class="courseSelected"></div>
+      <div class="table_onCreate"></div>
+      <div class="status_btn"></div>
+      <a
+        href="/VMregistration_course_form/AddClasses.html"
+        class="submitBt btn-primary"
+        >Add Class</a
+      >
+      <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> -->
+      <a
+        href="/VMfaculty_dashboard/set_up_vm/setUp.html"
+        class="submitBt btn-primary"
+        >Setup Template</a
+      >
+      <script>
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log("User signed out.");
+            sessionStorage.clear();
+          });
+        }
 
-    <div class="courseSelected"></div>
-    <div class="table_onCreate"></div>
-    <div class="status_btn"></div>
-    <a href="/VMregistration_course_form/AddClasses.html" class="submitBt btn-primary">Add Class</a>
-    <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> -->
-    <a href="/VMfaculty_dashboard/set_up_vm/setUp.html" class="submitBt btn-primary">Setup Template</a>
-    <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-          sessionStorage.clear()
-        });
-      }
-
-      function onLoad() {
-        gapi.load('auth2', function () {
-          gapi.auth2.init();
-        });
-      }
-    </script>
-    <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  </div>
-</body>
-
+        function onLoad() {
+          gapi.load("auth2", function () {
+            gapi.auth2.init();
+          });
+        }
+      </script>
+      <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
+      <script
+        src="https://apis.google.com/js/platform.js?onload=onLoad"
+        async
+        defer
+      ></script>
+    </div>
+  </body>
 </html>
