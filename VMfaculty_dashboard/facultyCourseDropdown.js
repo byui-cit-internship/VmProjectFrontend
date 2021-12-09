@@ -12,13 +12,19 @@
 
 const tokenID = sessionStorage.getItem("token")
 const user_name = sessionStorage.getItem("user_name")
+// check the change of the button
+const semster_update = () => {
+  let course_semester = document.querySelector("#course_semester").value
+  console.log("here is the change", course_semester)
+}
+
 
 const postItem = () => {
-  
+
   let course_semester = document.querySelector("#course_semester").value
-  
+
   console.log(course_semester)
-  
+
   // First API call to get a list of all the courses that the professor has for that semester.
   axios({
     method: "get",
