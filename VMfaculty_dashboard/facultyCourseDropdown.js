@@ -14,7 +14,11 @@ const tokenID = sessionStorage.getItem("token")
 const user_name = sessionStorage.getItem("user_name")
 
 const postItem = () => {
-  let course_semester = "";
+  
+  let course_semester = document.querySelector("#course_semester").value
+  
+  console.log(course_semester)
+  
   // First API call to get a list of all the courses that the professor has for that semester.
   axios({
     method: "get",

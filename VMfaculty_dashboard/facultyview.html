@@ -4,7 +4,6 @@
 <head>
 
   <meta name="google-signin-scope" content="profile email" />
-
   <meta name="google-signin-client_id"
     content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com" />
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
@@ -14,9 +13,7 @@
   <title>Faculty Dashboard View</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="styles.css" />
-  <!-- <script src="jquery-3.1.1.min.js"></script> -->
   <script src="facultyCourseDropdown.js" defer></script>
-  <!-- <script src="js/fetch.js" defer></script> -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
@@ -27,10 +24,10 @@
 
     <label for="course_semester">Choose the semester:</label>
     <select name="course_semester" id="course_semester">
-      <option value="Default">Winter</option>
-      <option value="Default">Spring</option>
-      <option value="Default">Summer</option>
-      <option value="Default">Fall</option>
+      <option value="Winter">Winter</option>
+      <option value="Spring">Spring</option>
+      <option value="Summer">Summer</option>
+      <option value="Fall">Fall</option>
     </select>
 
     <label for="course">Choose a course:</label>

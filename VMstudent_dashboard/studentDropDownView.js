@@ -1,6 +1,8 @@
+const userID = sessionStorage.getItem("token");
+const user_name = sessionStorage.getItem("user_name");
 
-
-const userID = sessionStorage.getItem("token")
+const studentName = document.querySelector(".nameofStudent");
+studentName.innerHTML = user_name;
 
 const postItem = () => {
   // let userID = query()
@@ -10,17 +12,16 @@ const postItem = () => {
     url: `https://localhost:5001/api/studentcourse`,
 
     headers: {
-      "Authorization": "Bearer " + userID
-    }
-
+      Authorization: "Bearer " + userID,
+    },
   }).then((response) => {
     // console.log(response.data.firstName);
     const list_student_courses = response.data;
+    console.log(response);
     // console.log("here")
-    // console.log(list_student_courses)
-    const studentName = document.querySelector(".nameofStudent");
-    if (list_student_courses != null) {
-      studentName.innerHTML = list_student_courses[0].student_name
+    console.log(list_student_courses);
+
+    if (list_student_courses != null && list_student_courses.length != 0) {
       /***********************CREATE TABLE************************************************** */
       // get the main div to place the dynamic table inside
 
@@ -88,7 +89,8 @@ const postItem = () => {
       // console.log("this is status div", statusDiv);
 
       const createStatusBtn = (status) => {
-        while (statusDiv.firstChild) statusDiv.removeChild(statusDiv.firstChild);
+        while (statusDiv.firstChild)
+          statusDiv.removeChild(statusDiv.firstChild);
 
         const statusBtn = document.createElement("button");
         statusBtn.classList.add("btn-primary", "submitBt");
@@ -147,17 +149,16 @@ const postItem = () => {
         const select = document.getElementById("course");
 
         var counter = 0;
-        list_student_courses.forEach(element => {
-
-          console.log(course)
+        list_student_courses.forEach((element) => {
+          console.log(course);
           const option = document.createElement("option");
           const txt = document.createTextNode(element.course_name);
           option.setAttribute("value", counter);
           option.appendChild(txt);
           // Add it to the end of default
           select.insertBefore(option, select.lastChild);
-          counter = counter + 1
-        })
+          counter = counter + 1;
+        });
       };
 
       /***************************CHANGE UPON SELECT************************************************* */
@@ -177,12 +178,14 @@ const postItem = () => {
               statusDiv.style.display = "none";
             }
           } else {
-            const target_course_name = list_student_courses[event.target.value].course_name
+            const target_course_name =
+              list_student_courses[event.target.value].course_name;
             changeSelector.textContent = `You are in the ${target_course_name} view`;
-            console.log("here in target")
+            console.log("here in target");
             // create the table when we select our dropdown and display the satus of that class
             createStudentTable();
-            const specificClassSelect = list_student_courses[event.target.value];
+            const specificClassSelect =
+              list_student_courses[event.target.value];
             appendStudent(specificClassSelect.course_status);
             createStatusBtn(specificClassSelect.course_status);
             if (table !== null) {
@@ -195,10 +198,12 @@ const postItem = () => {
       changeView();
 
       console.log("Your are in the student view");
-
+    } else {
+      console.log(document.querySelector(".table_onCreate"));
+      document.querySelector(
+        ".table_OnCreate"
+      ).innerHTML = `<p> You don't have any courses </p>`;
     }
-
   });
 };
 postItem();
-
