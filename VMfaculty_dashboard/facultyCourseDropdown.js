@@ -13,19 +13,19 @@
 const tokenID = sessionStorage.getItem("token")
 const user_name = sessionStorage.getItem("user_name")
 // check the change of the button
-const semster_update = () => {
+const semester_update = () => {
   let course_semester = document.querySelector("#course_semester").value
   console.log("here is the change", course_semester)
 }
 
-
 const postItem = () => {
 
-  let course_semester = document.querySelector("#course_semester").value
+  // let course_semester = document.querySelector("#course_semester").value
 
   console.log(course_semester)
 
   // First API call to get a list of all the courses that the professor has for that semester.
+  course_semester = "Fall"
   axios({
     method: "get",
     url: `https://localhost:5001/api/course/professor/semester/${course_semester}`,
@@ -176,7 +176,7 @@ const postItem = () => {
             createProfessorTable();
 
             const specificCourse = list_courses[event.target.value]
-            // call the api to get the list of students for that slected class from the drop-down
+            // call the api to get the list of students for that selected class from the drop-down
             const searchCourse = () => {
               axios({
                 method: "get",

@@ -20,7 +20,7 @@ function onSignIn(googleUser) {
 
       const name = `${user.firstName} ${user.lastName}`
       console.log(user)
-      savetoken(id_token, user_id, name);
+      savetoken(id_token, user_id, name, user.isAdmin);
       // we are filtering the  userType to verify if they are a student or professor
       if (user.userType == "Professor") {
         window.location.href = "/VMfaculty_dashboard/facultyview.html";
@@ -37,7 +37,7 @@ function onSignIn(googleUser) {
   postItem();
 
 }
-function savetoken(token, user_id, name) {
+function savetoken(token, user_id, name, isAdmin) {
 
   // whatever passes as token should save into local storage
   // we are also saving the user_id and name for later use on different pages
@@ -45,6 +45,7 @@ function savetoken(token, user_id, name) {
     sessionStorage.setItem("token", token);
     sessionStorage.setItem("user_id", user_id);
     sessionStorage.setItem("user_name", name);
+    sessionStorage.setItem("isAdmin", isAdmin);
   }
 }
 
