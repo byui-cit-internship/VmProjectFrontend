@@ -1,3 +1,11 @@
+/* *************************************************************
+
+This code is controlling all the functions in studentView.html. 
+The student is able to see courses, launch VM, Send messages to 
+the professor, see status and log out.
+
+************************************************************* */
+
 const userID = sessionStorage.getItem("token");
 const user_name = sessionStorage.getItem("user_name");
 
@@ -20,8 +28,8 @@ const postItem = () => {
     console.log(response);
     // console.log("here")
     console.log(list_student_courses);
-
-    if (list_student_courses != null && list_student_courses.length != 0) {
+    // != null &&
+    if (list_student_courses && list_student_courses.length != 0) {
       /***********************CREATE TABLE************************************************** */
       // get the main div to place the dynamic table inside
 
@@ -200,9 +208,9 @@ const postItem = () => {
       console.log("Your are in the student view");
     } else {
       console.log(document.querySelector(".table_onCreate"));
-      document.querySelector(
-        ".table_OnCreate"
-      ).innerHTML = `<p> You don't have any courses </p>`;
+      document.querySelector(".table_onCreate").innerHTML =
+        "You don't have any courses";
+      // ).innerHTML = `<p> You don't have any courses </p>`;
     }
   });
 };
