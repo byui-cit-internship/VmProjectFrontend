@@ -1,3 +1,4 @@
+export { }
 const tokenID = sessionStorage.getItem("token")
 
 console.log("here")
@@ -37,9 +38,12 @@ const getFormData = () => {
                 if (error.response.status == 409) {
                     alert("Email already exits with a current user")
                 }
-                console.log("Here in the error")
-                console.log(error.message)
-                alert("Error occured while creating, check connection")
+                else {
+                    console.log("Here in the error")
+                    console.log(error.message)
+                    alert("Error occured while creating, check connection")
+                }
+
             })
 
 

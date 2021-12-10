@@ -9,7 +9,6 @@
 
 // The session token that was stored, this token is used through out every API call
 
-
 const tokenID = sessionStorage.getItem("token")
 const user_name = sessionStorage.getItem("user_name")
 // check the change of the button
