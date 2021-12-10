@@ -9,7 +9,7 @@
 
 // The session token that was stored, this token is used through out every API call
 
-<<<<<<< HEAD
+
 const tokenID = sessionStorage.getItem("token")
 const user_name = sessionStorage.getItem("user_name")
 // check the change of the button
@@ -18,25 +18,15 @@ const semester_update = () => {
   console.log("here is the change", course_semester)
 }
 
-=======
-const tokenID = sessionStorage.getItem("token");
-const user_name = sessionStorage.getItem("user_name");
-
 const professor_name_element = document.querySelector("#name0fProfessor");
 professor_name_element.innerHTML = user_name;
 
->>>>>>> 621cedba47ba522cb08ff2195606420ea7c25f7e
+
 const postItem = () => {
   let course_semester = document.querySelector("#course_semester").value;
-
-<<<<<<< HEAD
   // let course_semester = document.querySelector("#course_semester").value
 
   console.log(course_semester)
-=======
-  console.log(course_semester);
->>>>>>> 621cedba47ba522cb08ff2195606420ea7c25f7e
-
   // First API call to get a list of all the courses that the professor has for that semester.
   course_semester = "Fall"
   axios({
@@ -180,13 +170,10 @@ const postItem = () => {
             // create the tabel when we select our dropdown
             createProfessorTable();
 
-<<<<<<< HEAD
-            const specificCourse = list_courses[event.target.value]
-            // call the api to get the list of students for that selected class from the drop-down
-=======
+
             const specificCourse = list_courses[event.target.value];
             // call the api to get the list of students for that slected class from the drop-down
->>>>>>> 621cedba47ba522cb08ff2195606420ea7c25f7e
+
             const searchCourse = () => {
               axios({
                 method: "get",
