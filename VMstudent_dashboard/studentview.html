@@ -1,65 +1,59 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-signin-scope" content="profile email" />
+  <meta name="google-signin-client_id"
+    content="206355491752-pf7mdq6g24tcsrpv1q61tocmvuvu92r3.apps.googleusercontent.com" />
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
-  <title>Faculty Dashboard View</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <title>Student Dashboard View</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="styles/styles.css" />
-  <script src="js/jquery-3.1.1.min.js"></script>
-  <script src="js/pageAccess.js" defer></script>
-  <script src="js/facultyCourseDropdown.js" defer></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <!-- <script src="js/fetch.js" defer></script> -->
+  <script src="studentDropDownView.js" defer></script>
+  <!-- <script src="js/pageAccess.js" defer></script> -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
 
+</head>
 
 <body>
   <div class="container">
-    <h1 id="name0fProfessor">Teacher</h1>
+    <h1 class="nameofStudent">Name</h1>
+    <h1></h1>
     <label for="course">Choose a course:</label>
-    <!-- Line 20 is redirecting to the add classes page once the teacher adds a new class -->
     <select name="course" id="course">
       <option value="Default">default</option>
-
     </select>
-    <label for="Semester">Choose a Semester:</label>
-    <select id="course_semester" name="Semester" onchange="findValue()">
-      <option value="Fall">Default</option>
-      <option value="Fall">Fall</option>
-      <option value="Winter">Winter</option>
-      <option value="Spring">Spring</option>
-
-    </select>
-
     <div class="courseSelected"></div>
     <div class="table_onCreate"></div>
     <div class="status_btn"></div>
-    <a href="/AddClasses.html" class="submitBt btn-primary">Add Class</a>
-    <a href="/setUp.html" class="submitBt btn-primary">Setup Template</a>
-
     <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
-
   </div>
-
   <script>
     function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {
         console.log('User signed out.');
+        sessionStorage.removeItem("token")
         sessionStorage.clear()
       });
     }
+
     function onLoad() {
       gapi.load('auth2', function () {
         gapi.auth2.init();
       });
     }
   </script>
-  <!-- <a href="#" onclick="signOut();">Sign out</a> -->
   <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-
 </body>
 
 </html>

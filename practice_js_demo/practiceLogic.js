@@ -1,3 +1,5 @@
+
+
 listOfCourse = {
     "Cit 214": ["Henry", "Mike"],
     "Cit 5000": ["Mike", "jHelm", "Jane"],
@@ -89,9 +91,6 @@ const appendStudent = (name, id, status) => {
 
 
 /******************************************************************/
-
-
-
 // grabbing the course element/option
 
 const changeDropDown = () => {
