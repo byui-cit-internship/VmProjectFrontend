@@ -1,9 +1,26 @@
-export { }
-const tokenID = sessionStorage.getItem("token")
+
+const addprofessortokenID = sessionStorage.getItem("token")
+const addProGetApiRoot = () => {
+    const hashTag = window.location.hostname;
+    console.log('Hash tag ' + hashTag);
+    let apiRoot = hashTag === 'localhost'
+        ? 'https://localhost:5001'
+        : 'http://dev-vm-api.citwdd.net';
+
+    if (window.location.hostname.includes('dev-vm')) {
+        apiRoot = 'http://dev-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('test-vm')) {
+        apiRoot = 'http://test-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('prod-vm')) {
+        apiRoot = 'http://prod-vm-api.citwdd.net';
+    }
+    return apiRoot
+}
+let addProApiUrlroot = addProGetApiRoot()
 
 console.log("here")
 
-const getFormData = () => {
+const addProFormData = () => {
     const proForm_el = document.getElementById("professorSignup")
 
     proForm_el.addEventListener("submit", function (event) {
@@ -18,9 +35,9 @@ const getFormData = () => {
         // Send the form data to the backend API
         axios({
             method: "post",
-            url: "https://localhost:5001/api/user/admin/createuser",
+            url: addProApiUrlroot + "/api/user/admin/createuser",
             headers: {
-                "Authorization": "Bearer " + tokenID,
+                "Authorization": "Bearer " + addprofessortokenID,
             },
             data: {
                 firstName: formData.get("firstName"),
@@ -32,7 +49,7 @@ const getFormData = () => {
         })
             .then(response => {
                 console.log(response.data)
-                alert("Your Virtual Machine template was created")
+                alert("Professor was created")
 
             }).catch(error => {
                 if (error.response.status == 409) {
@@ -50,4 +67,4 @@ const getFormData = () => {
     })
 
 }
-getFormData()
+addProFormData()

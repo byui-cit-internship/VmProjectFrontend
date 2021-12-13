@@ -1,9 +1,27 @@
 
-const tokenID = sessionStorage.getItem("token")
+const register_tokenID = sessionStorage.getItem("token")
 const user_id = sessionStorage.getItem("user_id")
 const courseIdInputElm = document.getElementById("courseId")
 const canvasTokenInputElm = document.getElementById("canvasToken")
 canvasTokenInputElm.addEventListener("input", validate)
+
+const GetRegisterApiRoot = () => {
+    const hashTag = window.location.hostname;
+    console.log('Hash tag ' + hashTag);
+    let apiRoot = hashTag === 'localhost'
+        ? 'https://localhost:5001'
+        : 'http://dev-vm-api.citwdd.net';
+
+    if (window.location.hostname.includes('dev-vm')) {
+        apiRoot = 'http://dev-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('test-vm')) {
+        apiRoot = 'http://test-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('prod-vm')) {
+        apiRoot = 'http://prod-vm-api.citwdd.net';
+    }
+    return apiRoot
+}
+let registerApiUrlroot = GetRegisterApiRoot()
 
 
 /***************************************************************
@@ -20,9 +38,9 @@ function validate(event) {
     // by the professor is correct
     axios({
         method: "post",
-        url: "https://localhost:5001/api/course/professor/checkCanvasToken",
+        url: registerApiUrlroot + "/api/course/professor/checkCanvasToken",
         headers: {
-            "Authorization": "Bearer " + tokenID,
+            "Authorization": "Bearer " + register_tokenID,
         },
         data: {
             "canvas_token": canvasTokenInputElm.value,
@@ -80,7 +98,7 @@ const getFormData = () => {
         // this API call is to send the Form-data to the back end to register the class 
         axios({
             method: "post",
-            url: "https://localhost:5001/api/enrollment/professor/register/course",
+            url: registerApiUrlroot + "/api/enrollment/professor/register/course",
             data: {
                 courseName: formData.get("CourseName"),
                 course_id: formData.get("CourseId"),
@@ -95,7 +113,7 @@ const getFormData = () => {
                 teacherId: user_id
             },
             headers: {
-                "Authorization": "Bearer " + tokenID
+                "Authorization": "Bearer " + register_tokenID
             }
         })
             .then(response => {
@@ -129,9 +147,9 @@ const getAllVm = () => {
     console.log("here")
     axios({
         method: "get",
-        url: "https://localhost:5001/api/vmtable",
+        url: registerApiUrlroot + "/api/vmtable",
         headers: {
-            "Authorization": "Bearer " + tokenID
+            "Authorization": "Bearer " + register_tokenID
         }
     })
         .then(response => {

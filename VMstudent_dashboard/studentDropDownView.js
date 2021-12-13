@@ -5,19 +5,37 @@ The student is able to see courses, launch VM, Send messages to
 the professor, see status and log out.
 
 ************************************************************* */
-
 const userID = sessionStorage.getItem("token");
 const user_name = sessionStorage.getItem("user_name");
 
 const studentName = document.querySelector(".nameofStudent");
 studentName.innerHTML = user_name;
 
-const postItem = () => {
+const GetstudentApiRoot = () => {
+  const hashTag = window.location.hostname;
+  console.log('Hash tag ' + hashTag);
+  let apiRoot = hashTag === 'localhost'
+    ? 'https://localhost:5001'
+    : 'http://dev-vm-api.citwdd.net';
+
+  if (window.location.hostname.includes('dev-vm')) {
+    apiRoot = 'http://dev-vm-api.citwdd.net';
+  } else if (window.location.hostname.includes('test-vm')) {
+    apiRoot = 'http://test-vm-api.citwdd.net';
+  } else if (window.location.hostname.includes('prod-vm')) {
+    apiRoot = 'http://prod-vm-api.citwdd.net';
+  }
+  return apiRoot
+}
+let studentapiUrlroot = GetstudentApiRoot()
+
+
+const studentPostItem = () => {
   // let userID = query()
   // console.log(userID)
   axios({
     method: "get",
-    url: `https://localhost:5001/api/studentcourse`,
+    url: `${studentapiUrlroot}/api/studentcourse`,
 
     headers: {
       Authorization: "Bearer " + userID,
@@ -117,7 +135,7 @@ const postItem = () => {
             const inActiveFunction = () => {
               axios({
                 method: "get",
-                url: "https://localhost:5001/api/user/sendemail/1234",
+                url: studentapiUrlroot + "/api/user/sendemail/1234",
               }).then((response) => {
                 var message = response.data;
                 alert(message);
@@ -214,4 +232,4 @@ const postItem = () => {
     }
   });
 };
-postItem();
+studentPostItem();

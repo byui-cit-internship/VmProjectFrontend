@@ -1,9 +1,27 @@
 
-const tokenID = sessionStorage.getItem("token")
+const vmUsertokenID = sessionStorage.getItem("token")
 const vmForm_el = document.getElementById("vmsetUp")
 
+const GetVmApiRoot = () => {
+    const hashTag = window.location.hostname;
+    console.log('Hash tag ' + hashTag);
+    let apiRoot = hashTag === 'localhost'
+        ? 'https://localhost:5001'
+        : 'http://dev-vm-api.citwdd.net';
 
-const getFormData = () => {
+    if (window.location.hostname.includes('dev-vm')) {
+        apiRoot = 'http://dev-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('test-vm')) {
+        apiRoot = 'http://test-vm-api.citwdd.net';
+    } else if (window.location.hostname.includes('prod-vm')) {
+        apiRoot = 'http://prod-vm-api.citwdd.net';
+    }
+    return apiRoot
+}
+let vmApiUrlroot = GetVmApiRoot()
+
+
+const getVmFormData = () => {
     const vmForm_el = document.getElementById("vmsetUp")
 
     vmForm_el.addEventListener("submit", function (event) {
@@ -15,9 +33,9 @@ const getFormData = () => {
         // Send the form data to the backend API
         axios({
             method: "post",
-            url: "https://localhost:5001/api/vmtable",
+            url: vmApiUrlroot + "/api/vmtable",
             headers: {
-                "Authorization": "Bearer " + tokenID,
+                "Authorization": "Bearer " + vmUsertokenID,
             },
             data: {
                 vm_image: formData.get("description")
@@ -29,7 +47,7 @@ const getFormData = () => {
 
             }).catch(error => {
                 console.log("Here in the error")
-                console.log(error.message)
+                console.log(error)
                 alert("Error occured while creating, check connection")
             })
 
@@ -37,4 +55,4 @@ const getFormData = () => {
     })
 
 }
-getFormData()
+getVmFormData()

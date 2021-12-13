@@ -8,9 +8,28 @@
  * ****************** */
 
 // The session token that was stored, this token is used through out every API call
-
+// export { }
 const tokenID = sessionStorage.getItem("token")
-const user_name = sessionStorage.getItem("user_name")
+const professor_user_name = sessionStorage.getItem("user_name")
+
+const GetFacultyApiRoot = () => {
+  const hashTag = window.location.hostname;
+  console.log('Hash tag ' + hashTag);
+  let apiRoot = hashTag === 'localhost'
+    ? 'https://localhost:5001'
+    : 'http://dev-vm-api.citwdd.net';
+
+  if (window.location.hostname.includes('dev-vm')) {
+    apiRoot = 'http://dev-vm-api.citwdd.net';
+  } else if (window.location.hostname.includes('test-vm')) {
+    apiRoot = 'http://test-vm-api.citwdd.net';
+  } else if (window.location.hostname.includes('prod-vm')) {
+    apiRoot = 'http://prod-vm-api.citwdd.net';
+  }
+  return apiRoot
+}
+let facultyapiUrlroot = GetFacultyApiRoot()
+
 // check the change of the button
 const semester_update = () => {
   let course_semester = document.querySelector("#course_semester").value
@@ -18,10 +37,10 @@ const semester_update = () => {
 }
 
 const professor_name_element = document.querySelector("#name0fProfessor");
-professor_name_element.innerHTML = user_name;
+professor_name_element.innerHTML = professor_user_name;
 
 
-const postItem = () => {
+const facultyPostItem = () => {
   let course_semester = document.querySelector("#course_semester").value;
   // let course_semester = document.querySelector("#course_semester").value
 
@@ -30,7 +49,7 @@ const postItem = () => {
   course_semester = "Fall"
   axios({
     method: "get",
-    url: `https://localhost:5001/api/course/professor/semester/${course_semester}`,
+    url: `${facultyapiUrlroot}/api/course/professor/semester/${course_semester}`,
 
     headers: {
       // Auth token is needed for every Api call
@@ -176,7 +195,7 @@ const postItem = () => {
             const searchCourse = () => {
               axios({
                 method: "get",
-                url: `https://localhost:5001/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
+                url: `${facultyapiUrlroot}/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
                 headers: {
                   Authorization: "Bearer " + tokenID,
                 },
@@ -270,5 +289,5 @@ const postItem = () => {
     }
   });
 };
-postItem();
+facultyPostItem();
 // get the main div to place the dynamic table inside

@@ -11,6 +11,7 @@ function onSignIn(googleUser) {
   //Making a call to the back end to verify token and check wheather user exits in database 
   //they are a professor or student.
   const baseApiUrl = GetApiRoot()
+
   console.log(baseApiUrl)
   const postItem = () => {
     axios({
@@ -53,10 +54,10 @@ function savetoken(token, user_id, name, isAdmin) {
 }
 
 const GetApiRoot = () => {
-  const hashTag = window.location.hash;
+  const hashTag = window.location.hostname;
   console.log('Hash tag ' + hashTag);
-  let apiRoot = hashTag === '#local'
-    ? 'http://localhost:5001'
+  let apiRoot = hashTag === 'localhost'
+    ? 'https://localhost:5001'
     : 'http://dev-vm-api.citwdd.net';
 
   if (window.location.hostname.includes('dev-vm')) {
