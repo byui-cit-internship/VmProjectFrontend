@@ -1,27 +1,8 @@
-
-const vmUsertokenID = sessionStorage.getItem("token")
-const vmForm_el = document.getElementById("vmsetUp")
-
-const GetVmApiRoot = () => {
-    const hashTag = window.location.hostname;
-    console.log('Hash tag ' + hashTag);
-    let apiRoot = hashTag === 'localhost'
-        ? 'https://localhost:5001'
-        : 'http://dev-vm-api.citwdd.net';
-
-    if (window.location.hostname.includes('dev-vm')) {
-        apiRoot = 'http://dev-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('test-vm')) {
-        apiRoot = 'http://test-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('prod-vm')) {
-        apiRoot = 'http://prod-vm-api.citwdd.net';
-    }
-    return apiRoot
-}
-let vmApiUrlroot = GetVmApiRoot()
-
+import { getApiRoot } from "../../signIn_signOut/getApiRoot.js";
 
 const getVmFormData = () => {
+    const tokenID = sessionStorage.getItem("token")
+    let apiUrl = getApiRoot()
     const vmForm_el = document.getElementById("vmsetUp")
 
     vmForm_el.addEventListener("submit", function (event) {
@@ -33,9 +14,9 @@ const getVmFormData = () => {
         // Send the form data to the backend API
         axios({
             method: "post",
-            url: vmApiUrlroot + "/api/vmtable",
+            url: `${apiUrl}/api/vmtable`,
             headers: {
-                "Authorization": "Bearer " + vmUsertokenID,
+                "Authorization": "Bearer " + tokenID,
             },
             data: {
                 vm_image: formData.get("description")

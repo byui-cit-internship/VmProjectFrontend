@@ -8,28 +8,13 @@
  * ****************** */
 
 // The session token that was stored, this token is used through out every API call
-// export { }
-const tokenID = sessionStorage.getItem("token");
-const professor_user_name = sessionStorage.getItem("user_name");
 
-const GetFacultyApiRoot = () => {
-  const hashTag = window.location.hostname;
-  console.log("Hash tag " + hashTag);
-  let apiRoot =
-    hashTag === "localhost"
-      ? "https://localhost:5001"
-      : "http://dev-vm-api.citwdd.net";
+import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 
-  if (window.location.hostname.includes("dev-vm")) {
-    apiRoot = "http://dev-vm-api.citwdd.net";
-  } else if (window.location.hostname.includes("test-vm")) {
-    apiRoot = "http://test-vm-api.citwdd.net";
-  } else if (window.location.hostname.includes("prod-vm")) {
-    apiRoot = "http://prod-vm-api.citwdd.net";
-  }
-  return apiRoot;
-};
-let facultyapiUrlroot = GetFacultyApiRoot();
+
+const professor_user_name = sessionStorage.getItem("user_name")
+const professor_name_element = document.querySelector("#name0fProfessor");
+professor_name_element.innerHTML = professor_user_name;
 
 // check the change of the button
 const semester_update = () => {
@@ -37,10 +22,10 @@ const semester_update = () => {
   console.log("here is the change", course_semester);
 };
 
-const professor_name_element = document.querySelector("#name0fProfessor");
-professor_name_element.innerHTML = professor_user_name;
-
 const facultyPostItem = () => {
+  const tokenID = sessionStorage.getItem("token")
+  let apiUrl = getApiRoot()
+
   let course_semester = document.querySelector("#course_semester").value;
   // let course_semester = document.querySelector("#course_semester").value
 
@@ -49,23 +34,19 @@ const facultyPostItem = () => {
   course_semester = "Fall";
   axios({
     method: "get",
-    url: `${facultyapiUrlroot}/api/course/professor/semester/${course_semester}`,
+    url: `${apiUrl}/api/course/professor/semester/${course_semester}`,
 
     headers: {
       // Auth token is needed for every Api call
       Authorization: "Bearer " + tokenID,
     },
   }).then((response) => {
-    console.log(response.data.firstName);
     const list_courses = response.data;
     console.log("here");
-    console.log(list_courses);
 
     if (list_courses !== null) {
       // grabbing the div Table element that will be affected through-out
       const tableDiv = document.querySelector(".table_onCreate");
-      console.log("this is main div", tableDiv);
-
       // define the headers for the table
       const tableHeaders = ["Name", "Status"];
 
@@ -194,7 +175,7 @@ const facultyPostItem = () => {
             const searchCourse = () => {
               axios({
                 method: "get",
-                url: `${facultyapiUrlroot}/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
+                url: `${apiUrl}/api/course/professor/students/${specificCourse.course_id}/${specificCourse.course_semester}/${specificCourse.course_section}`,
                 headers: {
                   Authorization: "Bearer " + tokenID,
                 },
