@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vmfrontend-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vmfrontend-test
+  template:
+    metadata:
+      labels:
+        app: vmfrontend-test
+    spec:
+      containers:
+        - name: vmfrontend-test
+          image: gcr.io/constellation-275522/vmfrontend
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: ".5"
+              memory: "500Mi"
+            requests:
+              cpu: ".25"
+              memory: "250Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vmfrontend-test-nodeport
+spec:
+  selector:
+    app: vmfrontend-test
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: vmfrontend-test-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: vmfrontend-test
+    networking.gke.io/managed-certificates: vmfrontend-test-certificate
+#    kubernetes.io/ingress.allow-http: "false"
+spec:
+  backend:
+    serviceName: vmfrontend-test-nodeport
+    servicePort: 80
+---
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: vmfrontend-test-certificate
+spec:
+  domains:
+    - vmfrontend-test.citwdd.net
