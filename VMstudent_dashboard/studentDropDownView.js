@@ -5,37 +5,19 @@ The student is able to see courses, launch VM, Send messages to
 the professor, see status and log out.
 
 ************************************************************* */
-const userID = sessionStorage.getItem("token");
-const user_name = sessionStorage.getItem("user_name");
+import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 
+const user_name = sessionStorage.getItem("user_name");
 const studentName = document.querySelector(".nameofStudent");
 studentName.innerHTML = user_name;
 
-const GetstudentApiRoot = () => {
-  const hashTag = window.location.hostname;
-  console.log('Hash tag ' + hashTag);
-  let apiRoot = hashTag === 'localhost'
-    ? 'https://localhost:5001'
-    : 'http://dev-vm-api.citwdd.net';
-
-  if (window.location.hostname.includes('dev-vm')) {
-    apiRoot = 'http://dev-vm-api.citwdd.net';
-  } else if (window.location.hostname.includes('test-vm')) {
-    apiRoot = 'http://test-vm-api.citwdd.net';
-  } else if (window.location.hostname.includes('prod-vm')) {
-    apiRoot = 'http://prod-vm-api.citwdd.net';
-  }
-  return apiRoot
-}
-let studentapiUrlroot = GetstudentApiRoot()
-
-
 const studentPostItem = () => {
-  // let userID = query()
-  // console.log(userID)
+  const userID = sessionStorage.getItem("token");
+  let apiUrl = getApiRoot()
+
   axios({
     method: "get",
-    url: `${studentapiUrlroot}/api/studentcourse`,
+    url: `${apiUrl}/api/studentcourse`,
 
     headers: {
       Authorization: "Bearer " + userID,
@@ -43,17 +25,11 @@ const studentPostItem = () => {
   }).then((response) => {
     // console.log(response.data.firstName);
     const list_student_courses = response.data;
-    console.log(response);
-    // console.log("here")
-    console.log(list_student_courses);
-    // != null &&
     if (list_student_courses && list_student_courses.length != 0) {
       /***********************CREATE TABLE************************************************** */
       // get the main div to place the dynamic table inside
-
       const tableDiv = document.querySelector(".table_onCreate");
       // console.log("this is main div", tableDiv);
-
       // define the headers for the table
       const tableHeaders = ["Status"];
 
@@ -135,7 +111,7 @@ const studentPostItem = () => {
             const inActiveFunction = () => {
               axios({
                 method: "get",
-                url: studentapiUrlroot + "/api/user/sendemail/1234",
+                url: `${apiUrl}/api/user/sendemail/1234`,
               }).then((response) => {
                 var message = response.data;
                 alert(message);

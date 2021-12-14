@@ -1,3 +1,4 @@
+import { getApiRoot } from "../signIn_signOut/getApiRoot.js"
 
 const register_tokenID = sessionStorage.getItem("token")
 const user_id = sessionStorage.getItem("user_id")
@@ -5,23 +6,7 @@ const courseIdInputElm = document.getElementById("courseId")
 const canvasTokenInputElm = document.getElementById("canvasToken")
 canvasTokenInputElm.addEventListener("input", validate)
 
-const GetRegisterApiRoot = () => {
-    const hashTag = window.location.hostname;
-    console.log('Hash tag ' + hashTag);
-    let apiRoot = hashTag === 'localhost'
-        ? 'https://localhost:5001'
-        : 'http://dev-vm-api.citwdd.net';
-
-    if (window.location.hostname.includes('dev-vm')) {
-        apiRoot = 'http://dev-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('test-vm')) {
-        apiRoot = 'http://test-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('prod-vm')) {
-        apiRoot = 'http://prod-vm-api.citwdd.net';
-    }
-    return apiRoot
-}
-let registerApiUrlroot = GetRegisterApiRoot()
+let registerApiUrlroot = getApiRoot()
 
 
 /***************************************************************

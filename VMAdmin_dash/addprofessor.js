@@ -1,26 +1,8 @@
-
-const addprofessortokenID = sessionStorage.getItem("token")
-const addProGetApiRoot = () => {
-    const hashTag = window.location.hostname;
-    console.log('Hash tag ' + hashTag);
-    let apiRoot = hashTag === 'localhost'
-        ? 'https://localhost:5001'
-        : 'http://dev-vm-api.citwdd.net';
-
-    if (window.location.hostname.includes('dev-vm')) {
-        apiRoot = 'http://dev-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('test-vm')) {
-        apiRoot = 'http://test-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('prod-vm')) {
-        apiRoot = 'http://prod-vm-api.citwdd.net';
-    }
-    return apiRoot
-}
-let addProApiUrlroot = addProGetApiRoot()
-
-console.log("here")
+import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 
 const addProFormData = () => {
+    const apiUrl = getApiRoot()
+    const tokenID = sessionStorage.getItem("token")
     const proForm_el = document.getElementById("professorSignup")
 
     proForm_el.addEventListener("submit", function (event) {
@@ -35,9 +17,9 @@ const addProFormData = () => {
         // Send the form data to the backend API
         axios({
             method: "post",
-            url: addProApiUrlroot + "/api/user/admin/createuser",
+            url: `${apiUrl}/api/user/admin/createuser`,
             headers: {
-                "Authorization": "Bearer " + addprofessortokenID,
+                "Authorization": "Bearer " + tokenID,
             },
             data: {
                 firstName: formData.get("firstName"),
@@ -62,8 +44,6 @@ const addProFormData = () => {
                 }
 
             })
-
-
     })
 
 }
