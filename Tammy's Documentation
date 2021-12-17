@@ -1,1 +1,736 @@
+# Front-end internship Fall 2021
 
+### - I have created [video](https://youtu.be/wkUQ61dReZA) explaining the entire code.
+
+This is a great opportunity to learn how to work by yourself. To succeed in this internship, you want to learn how to try many methods and an important part is to understand why it works that way it does. As an intern, you want to try and research before going to ask for help. Please ask for help! You will learn more from others if you ask for help. Taking quick breaks will help you in the long way. Take a quick walk and get a drink after that you will clear your mind and see your problem with a different view. Make time to document, it will help you and help the future interns.
+
+### **Project description**
+
+We are making a website that CIT students can use to access a Virtual machine if they have the newer Mac, bad internet or less efficient computers. The project is going to use a single sign in to create a token and verify if the login is a student or faculty. We hope to get it connect it to Canvas so they can submit their assignment to the external program that we are creating.
+
+**Project Board Example**
+
+| Backlog         | In progress   | Done         | Future RoadMap |
+| --------------- | ------------- | ------------ | -------------- |
+| Create Frontend | Documentation | Single login |
+
+# Vocabulary
+
+- **A security token:** is a physical device, such as a special smart card, that together with something that a user knows, such as a PIN, will enable authorized access to a computer system or network.
+
+- **Get/Post:**
+  - _Get:_ is used to request data from a specified resource
+  - _Post:_ is used to send data to server to create/update a resource
+
+Useful links:
+
+- [HTTP Request Method](https://www.w3schools.com/tags/ref_httpmethods.asp)
+- [C# Get/Post request](https://zetcode.com/csharp/getpostrequest/)
+- [JavaScript in Visual Studio Code](https://code.visualstudio.com/docs/languages/javascript)
+
+# Process
+
+### - Tuesday September 21st (Frontend Google SignIn)
+
+**Tasks:**
+
+- URL
+- Login(Google account, BYUI credentials)
+
+**Process and struggles:**
+
+- Today, we were able to create a google authorization set-up. We can use the BYUI and google account. The issue is that the BYUI account is not letting verify even tho it said that it was going to sent a email to verify the access. Currently, it’s showing all the tokens when we login in. The other problem is that we need to use localhost when we opened it from the live server.
+- We are having problems installing C# in visual studio code. I have tried to download .net dot console 3 times but it said that it has been installed but it’s not letting c# to run. When we used the command “dotnet” it’s saying that the command doesn’t exist
+- We are still trying to create the server using c# but since c# is not currently working for me; I need to try different options to have the language in visual code
+- To use C#, you use a command line to run the code.
+
+**Useful links:**
+
+- [dotnet](https://docs.microsoft.com/en-us/dotnet/)
+- [Integrating Google Sign-in into your web app](https://developers.google.com/identity/sign-in/web/sign-in)
+- [Create a web API with ASP.NEt Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code) -> This link is really helpful. I tried Visual Studio for Mac. However, if you want to use fully Mac, it will be better to do the tutorial in Visual Code Studio. However, I met with Brother Thayne and he said that for C# is better to use Parallels. He sent me this [link](https://byuidaho.onthehub.com/WebStore/OfferingDetails.aspx?o=40d7a407-38a2-e811-8109-000d3af41938) to get the Virtual Machine. He explained that Paralles is the best if you are a Mac user and you are trying to develop backend using C#.
+
+### - Wednesday September 22nd (Backend setting up a simple server)
+
+**Tasks:**
+
+| Token Validate API                      | 13  |
+| --------------------------------------- | --- |
+| Change Weather -> Token                 | 8   |
+| Change the weather to have a post input | 5   |
+| Get a 200 response                      |
+| Pass a single integer per day           | 2   |
+
+**Process and struggles:**
+
+- Structure is a special function that creates a new object
+- Token validate
+- I will start working on the front end using axios post method.
+- Axios - to do fetch on frontend
+- This day was pretty tough since we couldn't find solutions to the problems until the next day when we had the standup meeting.
+- For C# in mac, it's better to get Parallels because it will let coding to be easier.
+
+**Useful links:**
+
+- [Microsoft Learn](https://docs.microsoft.com/en-us/learn/) -> this link is useful because you can find any tutorial for WDD
+- [Part 2, add a controller to an ASP.NET Core MVC app](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/adding-controller?view=aspnetcore-5.0&tabs=visual-studio-code)
+- [Creating A Class And Calling It From Main Program C#](https://www.c-sharpcorner.com/article/creating-a-class-and-call-it-from-main-program/)
+
+### - Thursday September 23rd (HTTP response/ FrontEnd server)
+
+**Tasks:**
+
+| Error Handling( Get/Post)          | 3   |
+| ---------------------------------- | --- |
+| Fix naming conventions             | 1   |
+| Get BYUI token research to console | 5   |
+| Write the documentation            | 3   |
+| Error handling Get/Post            | 3   |
+
+**Process and struggles:**
+
+- **Documentation tips**
+
+  - Things you've learned
+  - Helpful links
+  - Important code snipets
+
+- I learned that it will be better to do documentation daily before the shift it's over. I will try to set a documentation time daily to help me and the future interns.
+- For tomorrow, we are going to work on the following:
+
+  - How to avoid having the user signing more than necessary
+  - Find ways to check if the token is valid and if it’s valid then the button should disappear
+
+  - ReRoute the user when they are already signIn
+
+- You can use this command to create an app in React. Make sure to have Node.js install before running the command.
+
+`npx create-react-app my-app`
+
+**Useful links:**
+
+- [ConstellationWebApp](https://github.com/Constellation-BYUI/ConstellationWebApp/blob/master/Controllers/ChatApiController.cs)
+- [JsonResult Type in MVC](https://www.c-sharpcorner.com/UploadFile/2ed7ae/jsonresult-type-in-mvc/)
+- [Kubernetes](https://www.edx.org/course/introduction-to-kubernetes#)
+
+- [Tutorial: Create a web API with ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-5.0&tabs=visual-studio-code) -> Please finish all this tutorial. This is one of the best tutorials to learn more about web API with ASP.NET core.
+
+- [Videos](https://docs.microsoft.com/en-us/aspnet/mvc/videos/)
+
+### - Friday September 24th (Frontend)
+
+**Tasks:**
+
+| Create FrontEnd using JavaScript     |     |
+| ------------------------------------ | --- |
+| Create Student/Faculty view          |     |
+| Connect google login to the frontEnd |     |
+
+**Process and struggles:**
+
+- Today was a trial and error day, we tried fixing the Google login so when you successfully login in then it can redirect to another website.
+
+- We are still working on creating the frontEnd. We are struggling in the set up and what is going to connect to what. We are hoping getting some clarification next standup meeting
+
+- I created a user stories
+
+**User Stories**
+
+| Faculty View        | Student View                                |
+| ------------------- | ------------------------------------------- |
+| Create template     | Check the classes that requires creating VM |
+| Check their classes | Create and pick a template/VM               |
+| Create VM           | Check their different VM                    |
+
+**Useful links:**
+
+- [How TO - Redirect to Another Webpage](https://www.w3schools.com/howto/howto_js_redirect_webpage.asp) -> This link was definitely helpful.
+- [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow)
+- [adding google sign-in to your web-app – hello world](https://www.intricatecloud.io/2019/07/adding-google-sign-in-to-your-webapp-pt-1/)
+
+### - Monday/Tuesday September 27th/28th (Frontend)
+
+**Process and struggles:**
+
+These two days, I have only worked on the frontend. I have been working on redirect the pages in the website so when the user signed in, then the website will take them to a different page. I have used Brother's Murdock code to connect the frontend and backend together. When we get the backend push to github then I will start working in connecting frontend and backend
+
+**Useful links:**
+
+- [Learn Web Development Basics – HTML, CSS, and JavaScript Explained for Beginners](https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/)
+- [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
+- [Build your own function](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_your_own_function)
+- [POST /oath/oauth20/token](https://docs.akana.com/cm/api_oauth/oauth_oauth20/m_oauth20_getTokenPOST.htm)
+
+- [Stedi](https://dev.stedi.me/) -> This link is helpful to see how to connect backend to frontend. You can create an account and login in and inspect the page to check the code. Brother Murdock created that website.
+- [How can I pass the basic HTTP authentication or token authentication?](https://docs.agora.io/en/All/faq/restful_authentication)
+- [HTML Colors](https://www.w3schools.com/colors/colors_groups.asp) -> this link is helpful to find the colors to add to your vanilla javascript code
+- [Javascript if else statement with redirecting to page doesn't work](https://stackoverflow.com/questions/38002529/javascript-if-else-statement-with-redirecting-to-page-doesnt-work)
+- [JavaScript Redirect](https://www.javascripttutorial.net/javascript-bom/javascript-redirect/)
+
+### - Wednesday September 29th(Frontend)
+
+**Process and struggles:**
+
+- today I will be working on connecting HTML files into the index/main to start getting the frontend together.
+- I finished the beginning of the frontend🥳🥳🥳🥳🥳
+- Tomorrow, we will add the frontend to the backend.
+
+**Useful links:**
+
+- [Multi-Page HTML Sites](https://www.learnhowtoprogram.com/user-interfaces/building-layouts-preprocessors/multi-page-html-sites) -> I will use this link to attempt to connect all the HTML file to the main file.
+- [Getting Started with EF Core](https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli)
+
+#### **How to create a branch for GitHub in VS code**
+
+Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+
+You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
+
+- Git checkout name
+- Git status (to get status in which branch you are in)
+- Git checkout -b name
+- Git add \*\* (this add all your work to the new branch)
+- Git status ( it should say that you are in the branch that you just create)
+
+- git commit -m "my first commit" (you will update the branch to GitHub)
+
+- git push --set-upstream origin name
+- git branch (to check your branches)
+- git branch main (to change to another branch)
+
+### - Thursday September 30th(Frontend and Backend)
+
+**Process and struggles:**
+
+- Today, I have worked on connecting the backend and frontend using the fetch method
+- I'm struggling with the fetch method. I will ask brother Murdock. I have tried few methods to fix it but I still haven't being able to completely fix it.
+- I had to do a lot of research to understand the fetch method.
+
+**Useful links:**
+
+- [Tutorial: Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0)
+
+- [JavaScript | fetch() Method](https://www.geeksforgeeks.org/javascript-fetch-method/#:~:text=The%20fetch)
+- [1.1: fetch() - Working With Data & APIs in JavaScript](https://www.youtube.com/watch?v=tc8DU14qX6I) -> This is a create video to start understanding the fetch method.
+- [Quickstart: Run SQL Server container images with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+- [Using Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+- [1.4: JSON - Working with Data and APIs in JavaScript](https://www.youtube.com/watch?v=uxf0--uiX0I)
+- [How to install SQL Server on MacOS](https://phoenixnap.com/kb/install-sql-server-macos) -> I will use this link tomorrow to install SQL in my Mac so I will see if this works for Mac.
+
+### - Friday October 1st(Backend)
+
+**Process and struggles:**
+
+- Connect the backend and frontend
+- The process that we need to follow to accomplish the project
+
+  1.\_ Grab the token access token and email
+
+  2.\_ Sent the toke to the back end
+
+  3.\_ Hardcode the backend so we can filter the email and verify if they are a student or teacher/faculty.
+
+  4.\_ Send back the approval to the frontend
+
+  5.\_ Frontend will display the output of the approval
+
+**Useful links:**
+
+- [Using OAuth 2.0 for Web Server Applications ](https://developers.google.com/identity/protocols/oauth2/web-server#libraries)
+- [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2)
+- [OAuth 2.0](https://developers.google.com/api-client-library/dotnet/guide/aaa_oauth)
+- [Tutorial: Call an ASP.NET Core web API with JavaScript](https://docs.microsoft.com/en-us/aspnet/core/tutorials/web-api-javascript?view=aspnetcore-5.0)
+
+### - Monday October 4th(Backend/Frontend)
+
+**Process and struggles:**
+
+- If you are using Mac then follow this [Link](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash) to use SQL server in Mac.
+
+`sudo docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD= EnterPassword" -p 1433:1433 --name sql1 -h sql1 -d mcr.microsoft.com/mssql/server:2019-latest`
+
+- I have done the code in C# to check if the user is a teacher or student.
+
+**Useful links:**
+
+- [Download and install Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15) -> Azure Data Studio lets you use my SQL server in Mac.
+
+- [Resolving a merge conflict using the command line](https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line) -> This link is useful because you can use this to merge an additional branch to the main branch.
+
+- [JavaScript if/else Statement](https://www.w3schools.com/jsref/jsref_if.asp)
+
+### - Tuesday October 5th(Backend/Frontend)
+
+**Process and struggles:**
+
+- From the meeting with Brother Lindstrom and Brother Gibbons, I will have to change all the user stories.
+- I had download Azure Data Studio. Today, I followed a tutorial to start getting use to it.
+
+- I watched this [video](https://www.youtube.com/watch?v=Orv7fptVoUA) to understand Azure Data Studio better.
+
+**Useful links:**
+
+- [Quickstart: Use Azure Data Studio to connect and query SQL Serve](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-sql-server?view=sql-server-ver15) -> Right after downloading and installing Azure Data Studio, I follow this link to get familiarize with Azure Data Studio. _Your username will be sa because the command that we used set the username as sa._
+
+### - Wednesday October 6th(Frontend)
+
+**Process and struggles:**
+
+- The frontend got messed up because when the x Branch and the main main got merged. I went ahead and create a new repository and updated the correct code. I will have to check if the back end can sent me the user type to the frontend to see where to redirect.
+- The current code in the repository should work for everyone.
+- With Lakeram's help, I was able to connect the frontend with the backend. Now I need to get the code to display the specific page depending the user type.
+- After being able to display the specific page then I will ask for the canvas api so I can start working on displaying the courses according to each I-number.
+- We are currently confused in how to get the I-number from the user so we can use the canvas api. Which this is going to be our challenge for the coming week
+
+**Useful links:**
+
+- [Authenticate with a backend server](https://developers.google.com/identity/sign-in/web/backend-auth#send-the-id-token-to-your-server)
+- [Migrations Overview](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [connection string for sqlserver in Docker container](https://stackoverflow.com/questions/45712122/connection-string-for-sqlserver-in-docker-container)
+
+### - Thursday October 7th(Frontend)
+
+**Process and struggles:**
+
+- Today, I was able to finally connected the backend with the frontend.
+- Now I need to connect the Canvas Api.
+- Joyce has worked on the styling and now I need to modify it to make it to match the current user stories.
+- I will need to create a sleep/delay/pause/wait function so the sign doesn't redirect automatically.
+- Something that I learned from today is to experiment, try and research before asking for help. I learned more from trying to solve it by myself and then I'm able to learn from others and from my own experience.
+
+**Useful links:**
+
+- [Delay, Sleep, Pause, & Wait in JavaScript](https://www.sitepoint.com/delay-sleep-pause-wait/)
+- [JavaScript Function Parameters](https://www.w3schools.com/js/js_function_parameters.asp)
+- [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+
+### - Friday October 8th(Frontend)
+
+**Process and struggles:**
+
+- Create the javascript, html and css for the new wireframes of the frontend.
+- I have added the tables to the faculty/student view. I still need to add the avatar to each page.
+- I still need to work in the redirecting error since the website is not letting choose the email that you want to logging with. I have used all the links to find solutions to my issues which I was able to do so with those links.
+
+- the table will look something like this:
+
+| Student | I-number  | VM name | Course |
+| ------- | --------- | ------- | ------ |
+| Jack    | 384794580 | "name"  | CIT    |
+| Julie   | 9756756   | "name"  | CIT    |
+
+**Useful links:**
+
+- [Styling tables](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [How to make responsive table without using bootstrap](https://stackoverflow.com/questions/37723448/how-to-make-responsive-table-without-using-bootstrap)
+- [object-position](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position)
+- [How to Connect to an API with JavaScript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/) -> great tutorial to learn more about APIs
+- [JSON Tutorial: Request API Data with JavaScript or PHP](https://www.taniarascia.com/how-to-use-json-data-with-php-or-javascript/)
+- [Build a User Profile Avatar Generator with JavaScript](https://dev.to/dcodeyt/build-a-user-profile-avatar-generator-with-javascript-436m)
+
+### - Monday October 11th(Frontend)
+
+**Process and struggles:**
+
+- I'm currently working on fixing my code since I had added few new code and it won't working properly. Since I have an understanding of javascript but I forget the syntax then I have to do some research and ask other to make sure that I have the right syntax.
+
+- I will be working this week in adding a modal so new user can add their I-number to the data base.
+
+- We were planning in storing the I-number so the teachers can have access to their information.
+
+**Useful links:**
+
+- [From inside of a Docker container, how do I connect to the localhost of the machine?](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach)
+- [JavaScript: A simple modal feedback form with no plugins](https://www.the-art-of-web.com/javascript/feedback-modal-window/)
+
+### - Tuesday October 12th(Frontend)
+
+**Process and struggles:**
+
+- We are not storing the I-number in the database because FERPA policies.
+- To identify the student, we are just going to use their school email.
+- I need to work in how to make the table responsive to the canvas API.
+- Somehow I brake the frontend and now I need to find solution to my frontend.
+
+**Useful links:**
+
+- [Logo Guide](https://www.byui.edu/branding/logo-guide)
+- [Preventing automatic sign-in when using Google+ Sign-In](https://stackoverflow.com/questions/15484533/preventing-automatic-sign-in-when-using-google-sign-in)
+- [What is JavaScript rendering?](https://www.educative.io/edpresso/what-is-javascript-rendering)
+- [Preventing automatic sign-in when using Google+ Sign-In](https://newbedev.com/preventing-automatic-sign-in-when-using-google-sign-in)
+- [Creating a dynamic HTML table with JavaScript](https://javascript.plainenglish.io/creating-a-dynamic-html-table-through-javascript-f554fba376cf)
+
+### - Wednesday October 13th(Frontend)
+
+**Process and struggles:**
+
+- The frontend was having some problems so I was comparing the old code with the code that I'm currently working on. Something in database needs to be change so the frontend can work smoothly.
+
+- I will start working in explaining the code fron the frontend so people can understand it easily.
+
+**Useful links:**
+
+- [How to remove previously created element before adding new set of elements](https://stackoverflow.com/questions/38498401/how-to-remove-previously-created-element-before-adding-new-set-of-elements)
+
+### - Thursday day October 14th(Frontend)
+
+**Process and struggles:**
+
+- Fix few issues and improve the front-end
+
+**Useful links:**
+
+- [In Visual Studio Code How do I merge between two local branches?](https://stackoverflow.com/questions/38648772/in-visual-studio-code-how-do-i-merge-between-two-local-branches)
+
+### - Friday October 15th(Frontend)
+
+**Process and struggles:**
+
+- Today, we worked on sending an email to the teachers. Once the students press a button for a request then the front-end will sent the information to the back-end. The function is working with not problem.s
+
+**Useful links:**
+
+- [How to send emails from C#/.NET - The definitive tutorial](https://blog.elmah.io/how-to-send-emails-from-csharp-net-the-definitive-tutorial/)
+- [How to send an email in C# with .NET using Mailkit](https://www.youtube.com/watch?v=JzTxD4SczU8)
+- [How to dynamically change the title of web page using JavaScript ?](https://www.geeksforgeeks.org/how-to-dynamically-change-the-title-of-web-page-using-javascript/)
+
+### - Monday October 18th
+
+**Process and struggles:**
+
+- We are making the frontend more efficient. We are making sure that everything is running smoothly.
+
+- We are adding another page so teachers can add a class by their specific class token.
+
+- I started working on the Javascript from
+
+**Useful links:**
+
+- [Your first form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
+- [Google API: Not a valid origin for the client: url has not been whitelisted for client ID "ID"](https://stackoverflow.com/questions/43964539/google-api-not-a-valid-origin-for-the-client-url-has-not-been-whitelisted-for/45761277#45761277)
+- [Understanding OAuth2 and deploying a basic authorization service to Cloud Functions](https://cloud.google.com/community/tutorials/understanding-oauth2-and-deploy-a-basic-auth-srv-to-cloud-functions)
+
+### - Tuesday October 19th
+
+**Process and struggles:**
+
+- We had to grab the data from the HTML form.
+- Now, I need to sent the data to the backend so it can save it.
+
+**Useful links:**
+
+- [How to make HTTP requests with Axios](https://blog.logrocket.com/how-to-make-http-requests-like-a-pro-with-axios/)
+- [Using FormData Objects Effectively](https://www.youtube.com/watch?v=GWJhE7Licjs&list=WL&index=2&t=92s)
+
+### - Wednesday October 20th
+
+**Process and struggles:**
+
+- I need to add new features in the front-end. I have changed few things already and I will add a modal pop up on hover to explain the canvas token.
+- I have to add a back button so once teachers add a class, they can go back to the teacher view.
+- I will add once they add a class, they get a message saying that the class was added.
+
+**Useful links:**
+
+- [The Input (Form Input) element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+- [HTML Tooltip](https://www.educba.com/html-tooltip/)
+
+### - Thursday October 21st
+
+**Process and struggles:**
+
+- Joyce helped me with styling the form.
+- I added an alert message once the user clicks on the submit button
+- I'm working on clearing the input textbox once they user click the save button.
+- I'm currently making another page to set up the virtual machines
+- I have to add more details in the setup page and make it more proficient
+
+**Useful links:**
+
+- [Window alert() Method](https://www.w3schools.com/jsref/met_win_alert.asp)
+- [Html display text on click code example](https://newbedev.com/html-html-display-text-on-click-code-example)
+- [HTML on-click Event Attribute](https://www.w3schools.com/tags/ev_onclick.asp)
+- [How to Create a Table with a Fixed Header and Scrollable Body](https://www.w3docs.com/snippets/html/how-to-create-a-table-with-a-fixed-header-and-scrollable-body.html)
+
+### -Friday October 22nd
+
+**Process and struggles:**
+
+- Improve the front-end
+- The links that I have added are for the back-end
+
+**Useful links:**
+
+- [How to remove previously created element before adding new set of elements](https://stackoverflow.com/questions/38498401/how-to-remove-previously-created-element-before-adding-new-set-of-elements)
+- [Migrations in EF-Core](https://www.learnentityframeworkcore5.com/migrations-in-ef-core)
+- [Tutorial: Get started with EF Core in an ASP.NET MVC web app](https://docs.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-5.0)
+- [Raw SQL Queries in EF-Core](https://www.learnentityframeworkcore5.com/raw-sql-queries-in-ef-core)
+
+### - Monday October 25th
+
+**Process and struggles:**
+
+- Check all the naming in the front-end code.
+- Research how to connect the API so we don't have any hardcode input
+
+**Useful links:**
+
+- [Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+- [The Ultimate Guide to Accessing & Using APIs](https://blog.hubspot.com/website/application-programming-interface-api)
+
+### -Tuesday October 26th
+
+**Process and struggles:**
+
+- I did research how to populate tables with a JSON api.
+
+**Useful links:**
+
+- [Convert JSON Data Dynamically to HTML Table using JavaScript](https://www.encodedna.com/javascript/populate-json-data-to-html-table-using-javascript.htm)
+- [JavaScript Fetch API Tutorial with JS Fetch Post and Header Examples](https://www.freecodecamp.org/news/javascript-fetch-api-tutorial-with-js-fetch-post-and-header-examples/)
+- [Dynamically update HTML content using JSON file?](https://stackoverflow.com/questions/47624490/dynamically-update-html-content-using-json-file)
+- [how to change h1 text using javascript from node” Code Answer’s](https://www.codegrepper.com/code-examples/javascript/how+to+change+h1+text+using+javascript+from+node)
+- [Dynamically Add or Remove Table Rows in JavaScript and Save Data to a Database](https://www.encodedna.com/javascript/dynamically-add-remove-rows-to-html-table-using-javascript-and-save-data.htm)
+
+### - Wednesday October 27th
+
+**Process and struggles:**
+
+- Brother Murdock helped to use await to call the API and create a table using it. I had to add more code than what he gave me and then I added the code to create to the table. I'm having problems connecting to the back-end.
+
+`async function fetchStudentJSON()`
+
+`{`
+
+`let response = await fetch('ApiUrl');`
+
+`let student = await response.json();`
+
+`let enrollmentList = student.enrollments;`
+
+`console.log(enrollmentList);`
+
+`}`
+
+`fetchStudentJSON()`
+
+**Useful links:**
+
+- [Code for table](https://www.encodedna.com/javascript/practice-ground/default.htm?pg=convert_json_to_table_javascript)
+- [How to create a table from a json api using HTML tables](https://stackoverflow.com/questions/44895491/how-to-create-a-table-from-a-json-api-using-html-tables)
+- [How to Use Fetch with async/await](https://dmitripavlutin.com/javascript-fetch-async-await/)
+- [Family Education Rights & Privacy Act (FERPA)](<https://www.byui.edu/student-records/ferpa/family-education-rights-and-privacy-act-(ferpa)>) -> I added the FERPA policies because it's helpful to know which students' information we can use.
+
+### - Thursday October 28th
+
+**Process and struggles:**
+
+- Perfecting the table and making it more efficient.
+
+**Useful links:**
+
+- [How to extract data from JSON in JavaScript](https://geeksread.com/how-to-extract-data-from-json-in-javascript/)
+
+### - Friday October 29th
+
+**Process and struggles:**
+
+- I'm working on the scheduling project.
+- I'm doing research in how to handle header info at the front-end
+
+**Useful links:**
+
+- [Is it possible to handle http-header info at front-end? (using JavaScript)](https://stackoverflow.com/questions/27496008/is-it-possible-to-handle-http-header-info-at-front-end-using-javascript)
+- [Appointment Scheduler in JavaScript](https://mindfusion.eu/blog/appointment-scheduler-in-javascript/)
+
+### - Monday November 1st
+
+**Process and struggles:**
+
+- I found a website that is going to help me code the scheduling project. Today, I will start working on it.
+
+**Useful links:**
+
+- [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers)
+
+### - Tuesday November 2nd
+
+**Process and struggles:**
+
+- We have worked in the same problems as yesterday. Lakerman and I fixed the headers for the authorization
+
+**Useful links:**
+
+### - Wednesday November 3rd
+
+**Process and struggles:**
+
+- I have been working on the same all during this week
+
+**Useful links:**
+
+- [Object.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+- [What are HTTP Security Headers ?](https://www.loginradius.com/blog/async/http-security-headers/)
+
+### - Thursday/Friday November 4/5th
+
+**Process and struggles:**
+
+- I have been working on the same all during this week
+- I'm trying to understand to understand my code and see how to make it more proficient
+
+**Useful links:**
+
+- [Calendar with HTML, CSS, and JavaScript - How to build calendar using HTML, CSS, and JavaScript](https://www.youtube.com/watch?v=o1yMqPyYeAo)
+- [Building a Conference Schedule with CSS Grid](https://css-tricks.com/building-a-conference-schedule-with-css-grid/)
+
+### - Monday/Tuesday November 8/9th
+
+**Process and struggles:**
+
+- I had been working on the the token autho.
+- I'm adding Brother's Murdock code to check if the token is expired
+- I don't understand the token autho so I have been doing research to understand the process
+
+**Useful links:**
+
+- [How to Implement Refresh-Token Functionality (Front-End).](https://medium.com/swlh/how-to-implement-refresh-token-functionality-front-end-eff58ce52564)
+- [Where to store auth token (frontend) and how to put it in http headers of multiple endpoints?](https://stackoverflow.com/questions/51332747/where-to-store-auth-token-frontend-and-how-to-put-it-in-http-headers-of-multip)
+- [Token Storage](https://auth0.com/docs/security/data-security/token-storage)
+- [How to store and handle JWT tokens on front-end using fetch, and how to store it?](https://stackoverflow.com/questions/63141982/how-to-store-and-handle-jwt-tokens-on-front-end-using-fetch-and-how-to-store-it)
+
+### - Wednesday November 10th
+
+**Process and struggles:**
+
+- I have been trying to understand the the methods that I have been using in my code.
+
+**Useful links:**
+
+- [Manage access tokens for API requests](https://docs.microsoft.com/en-us/machine-learning-server/operationalize/how-to-manage-access-tokens#:~:text=..%20...-,Renew%20tokens,hour%20after%20login%20or%20renewal.)
+- [Pause your code with breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/)
+- [Debugging](https://code.visualstudio.com/docs/editor/debugging)
+
+### - Thursday November 11th
+
+**Process and struggles:**
+
+- I meant with Brother Murdock to solve some of the problems that I was having. The result that we got to accomplis was that now in the url is dispalying the token and if the token is expiered then it will sent them to the login page(index)
+
+- I learned that if you want it to redirect to the index you can just type:
+
+`"/"`
+
+- and if you wanted to redirect to other html you can use:
+
+` "/studentview.html"`
+
+- Now the next step that I need to work on is to add an hash function in each page so it can verify the token to be extra safe that it was sent to the right page.
+
+**Useful links:**
+
+### - Friday November 12th
+
+**Process and struggles:**
+
+- Today, I'm going to work in the hash method to double verify the token of each user to make sure it's the correct user.
+
+**Useful links:**
+
+- [Authentication vs. authorization](https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-vs-authorization)
+
+### - Monday/Tuesday November 15/16th
+
+**Process and struggles:**
+
+- I'm still working on the same as Friday.
+- I'm working on adding the fetch.js to the faculty view. I'm trying to make the front-end more efficient
+
+**Useful links:**
+
+- [How do I send requests using JavaScript Fetch API?](https://reqbin.com/Article/JavaScriptFetchAPI)
+- [Managing the URL Hash with Javascript](https://usefulangle.com/post/298/javascript-url-hash)
+- [URL.hash](https://developer.mozilla.org/en-US/docs/Web/API/URL/hash)
+- [What Is jQuery Used For?](https://www.learningjquery.com/2020/11/what-is-jquery-used-for)
+
+### - Wednesday/Thursday November 17/18th
+
+**Process and struggles:**
+
+- I'm adding a new fetch function to get the token in the fetch.js
+- I will add export/import to the signIn.js and fetch.js
+-
+
+**Useful links:**
+
+- [How to use the fetch() method to make multiple API calls with vanilla JavaScript](https://gomakethings.com/how-to-use-the-fetch-method-to-make-multiple-api-calls-with-vanilla-javascript/)
+- [JavaScript Modules with Import/Export Syntax (ES6) - JavaScript Tutorial](https://www.youtube.com/watch?v=s9kNndJLOjg)
+- [ES6 Tutorial - #10 Modules (import & export)](https://www.youtube.com/watch?v=_xL2dmzdCz8)
+
+## - Tuesday November 30th
+
+**Process and struggles:**
+
+- We were storing the token in the url and then hashing; however, now we are going to use sessionStorage to store the token and use it on other functions.
+- We are not using cookies because safari doesn't allow third party cookies.
+
+**Useful links:**
+
+- [JavaScript sessionStorage](https://www.javascripttutorial.net/web-apis/javascript-sessionstorage/)
+- [Full Third-Party Cookie Blocking and More](https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/)
+- [Github "Updates were rejected because the remote contains work that you do not have locally."](https://stackoverflow.com/questions/18328800/github-updates-were-rejected-because-the-remote-contains-work-that-you-do-not-h)
+
+## - Thursday December 2nd
+
+**Process and struggles:**
+
+- I'm correcting the studentDropDownView.js so it works wit the sessionStorage.
+- I have connected the new APIs to th frontend and it's working properly currently
+- I'm going to be fixing fetch.js
+
+**Useful links:**
+
+- [How and When to Apply Session Storage with JavaScript](https://www.section.io/engineering-education/how-and-when-to-apply-session-storage-with-javascript/)
+- [javascript: dynamic drop down menu values](https://stackoverflow.com/questions/20483470/javascript-dynamic-drop-down-menu-values)
+- [git push branch without merge](https://stackoverflow.com/questions/13529948/git-push-branch-without-merge)
+
+# ----------------------------------------
+
+### We have finished our part of the VM project. I will add following code so the interns can see all the code that we work or look into but we didn't use in the project
+
+- Hash function
+
+`let usertoken = ""; //initialize to empty string`
+
+    let email = "";
+
+    let hash = location.hash; //will include the #
+    let hashparts = hash.split("#");
+    if (hashparts.length < 2) {
+      window.location = "/"; //there is no login token on the url, so they must not have logged in yet, we will help redirect them here
+    } else {
+
+    usertoken = hashparts[1];
+    // console.log(usertoken)
+      // validateToken(); //check if token is expired, if not display the email, if expired send to login
+    }
+
+- Any code using $ is using Jquery library. A good example is in Brother's Murdock website ([Stedi](https://dev.stedi.me/))
+
+- This is how you use headers to authorize the token
+
+`
+
+     try{
+    response = await fetch('https://localhost:5001/api/studentcourse/', {
+
+      headers: {
+        "Authorization": "Bearer " + usertoken
+      }
+    });
+
+- Use [await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await) to wait for a promise
+
+- This is how to use the token after saving it on sessionStorage
+
+` const userID = sessionStorage.getItem("token")`
