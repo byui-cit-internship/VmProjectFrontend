@@ -29,7 +29,7 @@
         <span role="alert" id="nameError" aria-hidden="true">
           In Valid: Please a Valid canvas token and CourseID
         </span>
-        <input type="number" id="courseId" name="CourseId" placeholder="Enter your course Id" required />
+        <input type="text" id="courseId" name="CourseId" placeholder="Enter your course Id" required />
 
         <!-- Section course -->
 
@@ -37,11 +37,15 @@
         <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
 
         <!-- Canvas token -->
+        <label for="canvasToken">Canvas Token:</label>
+        <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required />
+       <p>For more information<a href="https://confluence.cit362.com/display/FAC/Get+your+Canvas+API+Token">&nbsp;click here!</a></p>
 
-        <label for="canvasToken">Canvas Token:</i></label>
+
+        <!-- <label for="canvasToken">Canvas Token:</i></label> -->
         <!--Message box/ tooltipText  -->
         <!-- <i style="font-size:24px" class="fa">&#xf05a;</i> --> 
-        <i style="font-size:15px" class="fa" onclick="messageBox()">&#xf05a;
+        <!-- <i style="font-size:15px" class="fa" onclick="messageBox()">&#xf05a;
 
           <span class="tooltiptext" id="tooltipdemo">Access Token given to professors that is obtain when they have a
             course on
@@ -51,7 +55,7 @@
           In Valid: Please a Valid canvas token and CourseID
         </span>
 
-        <input type="text" id="canvasToken" name="canvas_token" placeholder="Enter your class token" required />
+        <input type="text" id="canvasToken" name="canvas_token" placeholder="Enter your class token" required /> -->
 
         <!--Virtual machine  -->
         <label>Choose a Virtual machine:</label>
@@ -87,6 +91,21 @@
     </form>
 
   </div>
+
+ <div class="area" >
+      <ul class="circles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+      </ul>
+</div >
 </body>
 
 </html>

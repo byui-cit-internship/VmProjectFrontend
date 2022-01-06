@@ -56,16 +56,16 @@ function savetoken(token, user_id, name, isAdmin) {
 const GetApiRoot = () => {
   const hashTag = window.location.hostname;
   console.log('Hash tag ' + hashTag);
-  let apiRoot = hashTag === 'localhost'
-    ? 'https://localhost:5001'
-    : 'http://dev-vm-api.citwdd.net';
+  let apiRoot = 'http://dev-vm-api.citwdd.net';
+    // ? 'https://localhost:5001'
+    // : 'http://dev-vm-api.citwdd.net';
 
   if (window.location.hostname.includes('dev-vm')) {
-    apiRoot = 'http://dev-vm-api.citwdd.net';
+    apiRoot = 'https://dev-vm-api.citwdd.net';
   } else if (window.location.hostname.includes('test-vm')) {
-    apiRoot = 'http://test-vm-api.citwdd.net';
+    apiRoot = 'https://test-vm-api.citwdd.net';
   } else if (window.location.hostname.includes('prod-vm')) {
-    apiRoot = 'http://prod-vm-api.citwdd.net';
+    apiRoot = 'https://prod-vm-api.citwdd.net';
   }
   return apiRoot
 }
