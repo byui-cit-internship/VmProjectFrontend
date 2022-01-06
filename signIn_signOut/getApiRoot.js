@@ -6,11 +6,11 @@ export const getApiRoot = () => {
         // ? 'https://localhost:5001'
         // : 'http://dev-vm-api.citwdd.net';
 
-    if (window.location.hostname.includes('dev-vm')) {
+    if (window.location.hostname.includes('vmfrontend-dev')) {
         apiRoot = 'https://dev-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('test-vm')) {
+    } else if (window.location.hostname.includes('vmfrontend-test')) {
         apiRoot = 'https://test-vm-api.citwdd.net';
-    } else if (window.location.hostname.includes('prod-vm')) {
+    } else if (window.location.hostname.includes('vmfrontend-prod')) {
         apiRoot = 'https://prod-vm-api.citwdd.net';
     }
     return apiRoot
