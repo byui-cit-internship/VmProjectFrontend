@@ -4,7 +4,7 @@ const register_tokenID = sessionStorage.getItem("token")
 const user_id = sessionStorage.getItem("user_id")
 const courseIdInputElm = document.getElementById("courseId")
 const canvasTokenInputElm = document.getElementById("canvasToken")
-canvasTokenInputElm.addEventListener("input", validate)
+canvasTokenInputElm.addEventListener("onBlur", validate)
 
 let registerApiUrlroot = getApiRoot()
 
@@ -34,12 +34,12 @@ function validate(event) {
     })
         .then(response => {
             console.log(response.data)
-            // if it is valid then we can go ahead and send that data
-            // to register that class
+    //         // if it is valid then we can go ahead and send that data
+    //         // to register that class
             getFormData()
         }).catch(function (error) {
-            console.log("Here in the error")
-            console.log(error.message)
+            console.log("Here in the error");
+            console.log(error.message);
             valid = false
             if (valid === false) {
                 const nameError = document.getElementById("nameError");
@@ -49,7 +49,8 @@ function validate(event) {
                 nameError.setAttribute("aria-hidden", false);
                 nameError.setAttribute("aria-invalid", true);
             }
-
+            
+        
         })
     console.log(valid)
 }

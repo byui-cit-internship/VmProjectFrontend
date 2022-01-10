@@ -65,7 +65,7 @@ textarea {
 }
 
 select {
-  padding: 12px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
@@ -191,7 +191,7 @@ th {
   height: 20px;
   background: rgba(255, 255, 255, 0.2);
   animation: animate 25s linear infinite;
-  bottom: -150px;
+  bottom: -10px;
   
 }
 

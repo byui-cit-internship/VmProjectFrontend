@@ -14,6 +14,7 @@ const addProFormData = () => {
 
         console.log(formData.get("lastName"))
 
+
         // Send the form data to the backend API
         axios({
             method: "post",
