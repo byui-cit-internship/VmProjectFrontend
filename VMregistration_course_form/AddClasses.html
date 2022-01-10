@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/pageAccess.js" defer></script>
+  <!-- <script src="js/pageAccess.js" defer></script> -->
   <script type="module" src="form.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
@@ -37,10 +37,16 @@
         <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
 
         <!-- Canvas token -->
-        <label for="canvasToken">Canvas Token:</label>
-        <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required />
-       <p>For more information<a href="https://confluence.cit362.com/display/FAC/Get+your+Canvas+API+Token">&nbsp;click here!</a></p>
-
+        <div class="tool-tip">
+        <label class="canvasToken"for="canvasToken">Canvas Token: <i class="tool-tip__icon">i</i></label>
+    
+          <p class="tool-tip__info">
+            <span class="info">
+            </span>For more information<a href="https://confluence.cit362.com/display/FAC/Get+your+Canvas+API+Token">&nbsp;click here!</a></span>
+        </p>
+      </div>
+        <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required/> 
+      
 
         <!-- <label for="canvasToken">Canvas Token:</i></label> -->
         <!--Message box/ tooltipText  -->
@@ -59,10 +65,9 @@
 
         <!--Virtual machine  -->
         <label>Choose a Virtual machine:</label>
-
-        <select name="vm_dropDown" id="vm_dropDown" required>
-          <option name="option" value="">Default</option>
-
+        <select name="vm_dropDown" id="vm_dropDown" required > 
+        <!-- Just for testing -->
+        <option name="option" value="">Default</option>
         </select>
 
         <!--Description  -->
