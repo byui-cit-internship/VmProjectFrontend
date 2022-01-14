@@ -56,7 +56,7 @@ function savetoken(token, user_id, name, isAdmin) {
 const GetApiRoot = () => {
   const hashTag = window.location.hostname;
   console.log('Hash tag ' + hashTag);
-  let apiRoot = 'http://dev-vm-api.citwdd.net';
+  let apiRoot = 'https://dev-vm-api.citwdd.net';
     // ? 'https://localhost:5001'
     // : 'http://dev-vm-api.citwdd.net';
 
