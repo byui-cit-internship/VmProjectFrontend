@@ -25,7 +25,7 @@
         <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
 
         <!--Course Id-->
-        <label for="name">Course Id:</label>
+        <label for="name">Canvas Course Id:</label>
         <span role="alert" id="nameError" aria-hidden="true">
           In Valid: Please a Valid canvas token and CourseID
         </span>
@@ -42,7 +42,7 @@
     
           <p class="tool-tip__info">
             <span class="info">
-            </span>For more information<a href="https://confluence.cit362.com/display/FAC/Get+your+Canvas+API+Token">&nbsp;click here!</a></span>
+            </span>For more information<a href="https://confluence.cit362.com/display/IMD/Get+your+Canvas+API+Token">&nbsp;click here!</a></span>
         </p>
       </div>
         <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required/> 
@@ -84,11 +84,11 @@
         <!--Description-->
         <label>Description of Course:</label>
         <textarea type="text" id="description" name="description" rows="4" cols="50" placeholder="Describe your course"
-          required></textarea>
+         ></textarea>
       </div>
 
-      <button type="submit" id="submit" class="save submitBt btn-primary">
-        Save Class
+      <button type="button" id="submit"  class="save submitBt btn-primary">
+        Save
       </button>
 
       <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>

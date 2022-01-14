@@ -1,12 +1,19 @@
 import { getApiRoot } from "../signIn_signOut/getApiRoot.js"
 
-const register_tokenID = sessionStorage.getItem("token")
-const user_id = sessionStorage.getItem("user_id")
-const courseIdInputElm = document.getElementById("courseId")
-const canvasTokenInputElm = document.getElementById("canvasToken")
-canvasTokenInputElm.addEventListener("onBlur", validate)
+const register_tokenID = sessionStorage.getItem("token");
+const user_id = sessionStorage.getItem("user_id");
+const courseIdInputElm = document.getElementById("courseId");
+const canvasTokenInputElm = document.getElementById("canvasToken");
+// canvasTokenInputElm.addEventListener("input", validate)
+
+//new option
+const submitButton = document.getElementById("submit");
+console.log(submitButton);
+submitButton.addEventListener("click", validate);
+
 
 let registerApiUrlroot = getApiRoot()
+
 
 
 /***************************************************************
@@ -16,7 +23,7 @@ let registerApiUrlroot = getApiRoot()
  * re-enter those credentials
  * ****************************************** */
 function validate(event) {
-    event.preventDefault()
+
     let valid = true;
 
     // this calls our API which then calls the Canvas API to verufy that the course_id and course Token entered
@@ -36,7 +43,7 @@ function validate(event) {
             console.log(response.data)
     //         // if it is valid then we can go ahead and send that data
     //         // to register that class
-            getFormData()
+         getFormData()
         }).catch(function (error) {
             console.log("Here in the error");
             console.log(error.message);
@@ -49,11 +56,13 @@ function validate(event) {
                 nameError.setAttribute("aria-hidden", false);
                 nameError.setAttribute("aria-invalid", true);
             }
-            
-        
         })
-    console.log(valid)
+    // console.log(valid)
+    
 }
+
+
+
 
 /*******************************************
  * This function will collect the Data from the form
@@ -62,37 +71,32 @@ function validate(event) {
  * create an enrollment for the professor to that course along wiht a vm
  * *********************************/
 const getFormData = () => {
-    console.log("heer in getformdata func")
-    const myformElement = document.getElementById("signup")
+    console.log("here in getformdata func")
+  
 
-    // add an eentlistener to the form
-    myformElement.addEventListener("submit", function (event) {
-        // prevent the page from navigating away
-        event.preventDefault()
+        // get form field values
+        const name = document.querySelector('#name').value;
+        const courseId = document.querySelector('#courseId').value;
+        const section = document.querySelector('#section').value;
+        const canvasToken = document.querySelector('#canvasToken').value;
+        const vm_dropDown = document.querySelector('#vm_dropDown').value;
+        const semester = document.querySelector('#semester').value;
+        const description = document.querySelector('#description').value;
 
-        // create a formdata object 
-        const formData = new FormData(this)
-        console.log(formData.get("semester"))
-        console.log(formData.get("vm_dropDown"))
 
-        // making sure the form data is accurate
-        const courseIdInputElm = document.getElementById("courseId")
-        console.log("here goin to call the canvas api")
-        console.log(courseIdInputElm.value)
-        const canvasTokenInputElm = document.getElementById("canvasToken")
 
         // this API call is to send the Form-data to the back end to register the class 
         axios({
             method: "post",
             url: registerApiUrlroot + "/api/enrollment/professor/register/course",
             data: {
-                courseName: formData.get("CourseName"),
-                course_id: formData.get("CourseId"),
-                section_num: formData.get("section_num"),
-                canvas_token: formData.get("canvas_token"),
-                vmTableID: formData.get("vm_dropDown"),
-                semester: formData.get("semester"),
-                description: formData.get("description"),
+                courseName: name,
+                course_id: courseId,
+                section_num: section,
+                canvas_token: canvasToken,
+                vmTableID: vm_dropDown,
+                semester: semester,
+                description: description,
                 // useId amd teacher Id needs to be replaced with the current user ID
                 userId: user_id,
                 status: "Active",
@@ -105,6 +109,7 @@ const getFormData = () => {
             .then(response => {
                 console.log(response.data)
                 console.log("Here in the send form data to api")
+                // console.log("hola")
                 alert("Your Course was created")
             }).catch(function (error) {
                 console.log("Here in the error")
@@ -118,10 +123,12 @@ const getFormData = () => {
                 }
 
             })
-    })
-
+    
+       
 }
 
+// getFormData();
+ 
 
 /*************************************************
  * Func will call the backend API to grab all the 
@@ -170,3 +177,11 @@ const VmDropDown = (list_of_vm) => {
 
     })
 };
+
+
+
+// window.addEventListener('DOMContentLoaded', (event) => {
+//     const submitButton = document.getElementById("submit")
+//     console.log(submitButton)
+//     submitButton.addEventListener("onclick", validate)
+// });

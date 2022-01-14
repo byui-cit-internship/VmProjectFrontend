@@ -19,7 +19,7 @@ const getVmFormData = () => {
                 "Authorization": "Bearer " + tokenID,
             },
             data: {
-                vm_image: formData.get("description")
+                vm_image: formData.get("CourseName")
             }
         })
             .then(response => {
