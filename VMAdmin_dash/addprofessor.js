@@ -36,7 +36,7 @@ const addProFormData = () => {
                 if (confirm("Would you like to add another professor?") == true) {
                 location.reload()
                 }else {
-                    window.location.assign("http://localhost:5501/VMAdmin_dash/admin.html")
+                    window.location.assign("/VMAdmin_dash/admin.html")
                 }
             }).catch(error => {
                 if (error.response.status == 409) {

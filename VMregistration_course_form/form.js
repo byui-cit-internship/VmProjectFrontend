@@ -115,7 +115,7 @@ const getFormData = () => {
                 if (confirm("Would you like to add another class?") == true) {
                 location.reload()
                 }else {
-                    window.location.assign("http://localhost:5501/VMfaculty_dashboard/facultyview.html")
+                    window.location.assign("/VMfaculty_dashboard/facultyview.html")
                 }
           
             }).catch(function (error) {
