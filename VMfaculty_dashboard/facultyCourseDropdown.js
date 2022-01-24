@@ -16,11 +16,36 @@ const professor_user_name = sessionStorage.getItem("user_name")
 const professor_name_element = document.querySelector("#name0fProfessor");
 professor_name_element.innerHTML = professor_user_name;
 
-// check the change of the button
-const semester_update = () => {
-  let course_semester = document.querySelector("#course_semester").value;
+
+//Semester dropdown 
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  let course_semester = document.querySelector("course_semester");
+  course_semester.onchange=semester_update;
   console.log("here is the change", course_semester);
-};
+  });
+
+// const semester_update = () => {
+// const getSelect = document.querySelector("#course_semester");
+// getSelect.addEventListener('change', (event) => {
+// const changeSelector = document.querySelector(".semesterSelected");
+// const table = document.querySelector(".studentTable");
+// if (event.target.value == "Default") {
+//     changeSelector.textContent = "";
+//     if (table !== null) {
+//      table.style.display = "none";
+//        statusDiv.style.display = "none";
+//       } 
+//      } else {
+//       const target_course_semester =
+//        list_courses[event.target.value].course_name;
+//       changeSelector.textContent = `You are in the ${target_course_semester} view`;
+
+//       createProfessorTable();
+      
+// }
+//  });
+// }
 
 const facultyPostItem = () => {
   const tokenID = sessionStorage.getItem("token")
@@ -166,7 +191,7 @@ const facultyPostItem = () => {
               list_courses[event.target.value].course_name;
             changeSelector.textContent = `You are in the ${target_course_name} view`;
 
-            // create the tabel when we select our dropdown
+            // create the table when we select our dropdown
             createProfessorTable();
 
             const specificCourse = list_courses[event.target.value];

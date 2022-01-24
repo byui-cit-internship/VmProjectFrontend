@@ -10,9 +10,9 @@ We are making a website that CIT students can use to access a Virtual machine if
 
 **Project Board Example**
 
-| Backlog         | In progress   | Done         | Future RoadMap |
-| --------------- | ------------- | ------------ | -------------- |
-| Create Frontend | Documentation | Single login |
+Blocked    | Backlog         | In progress   | Done         | Future RoadMap | Forever in progress
+           | --------------- | ------------- | ------------ | -------------- | -------------------
+           | Create Frontend | Documentation | Single login |                | Documentation
 
 # Vocabulary
 

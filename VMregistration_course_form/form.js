@@ -45,10 +45,11 @@ function validate(event) {
     //         // to register that class
          getFormData()
         }).catch(function (error) {
-            console.log("Here in the error");
+          alert("Please type a valid Canvas Token or the class ID");
             console.log(error.message);
             valid = false
             if (valid === false) {
+                // window.alert("Warning! Please type a valid Canvas Token or class ID")
                 const nameError = document.getElementById("nameError");
                 nameError.classList.add("visible");
                 canvasTokenInputElm.value = ""
@@ -73,7 +74,8 @@ function validate(event) {
 const getFormData = () => {
     console.log("here in getformdata func")
   
-
+       
+    
         // get form field values
         const name = document.querySelector('#name').value;
         const courseId = document.querySelector('#courseId').value;
@@ -109,8 +111,13 @@ const getFormData = () => {
             .then(response => {
                 console.log(response.data)
                 console.log("Here in the send form data to api")
-                // console.log("hola")
-                alert("Your Course was created")
+                alert("Your Course was created! ")
+                if (confirm("Would you like to add another class?") == true) {
+                location.reload()
+                }else {
+                    window.location.assign("/VMfaculty_dashboard/facultyview.html")
+                }
+          
             }).catch(function (error) {
                 console.log("Here in the error")
                 if (error.response.status == 409) {
@@ -123,11 +130,9 @@ const getFormData = () => {
                 }
 
             })
-    
        
 }
 
-// getFormData();
  
 
 /*************************************************
