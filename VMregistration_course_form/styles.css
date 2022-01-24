@@ -95,9 +95,15 @@ table th {
 /* input:required {
   border-left: red solid 8px;
 } */
-input:required:valid {
+/* input:required:valid {
   border-bottom: green solid 5px;
-}
+} */
+
+/* input:required:invalid {
+  border-bottom: red 5px !important;
+} */
+
+
 
 form .semester  {
   /* margin-top: 5px; */
@@ -110,7 +116,7 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #006eb6;
+  background-color: #006eb6;;
   color: white;
   border-radius: 6px 6px 0 0;
 }
@@ -171,6 +177,8 @@ input.invalid {
   border-color: red;
 }
 
+
+
 .canvasToken{
   padding-bottom:0.5em ;
 }
@@ -201,8 +209,8 @@ input.invalid {
   width: 20px;
   height: 20px;
   background: rgba(255, 255, 255, 0.2);
-  animation: animate 25s linear infinite;
-  bottom: -10px;
+  animation: animate 15s linear infinite;
+  bottom: -100px;
   
 }
 
