@@ -7,6 +7,7 @@ the professor, see status and log out.
 ************************************************************* */
 import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 
+
 const user_name = sessionStorage.getItem("user_name");
 const studentName = document.querySelector(".nameofStudent");
 studentName.innerHTML = user_name;
@@ -90,14 +91,14 @@ const studentPostItem = () => {
       const statusDiv = document.querySelector(".status_btn");
       // console.log("this is status div", statusDiv);
 
-      const createStatusBtn = (status) => {
+      const createStatusBtn = (status, enrollmentID) => {
         while (statusDiv.firstChild)
           statusDiv.removeChild(statusDiv.firstChild);
 
         const statusBtn = document.createElement("button");
         statusBtn.classList.add("btn-primary", "submitBt");
 
-        switch (status) {
+        switch (status) { 
           case "Active":
             const activeFunction = () => {
               alert("You just clicked the Active button");
@@ -111,7 +112,10 @@ const studentPostItem = () => {
             const inActiveFunction = () => {
               axios({
                 method: "get",
-                url: `${apiUrl}/api/user/sendemail/1234`,
+                url: `${apiUrl}/api/studentcourse/student/sendemail/${enrollmentID}`,
+                headers: {
+                  Authorization: "Bearer " + userID,
+                },
               }).then((response) => {
                 var message = response.data;
                 alert(message);
@@ -122,7 +126,7 @@ const studentPostItem = () => {
             statusBtn.onclick = inActiveFunction;
             statusDiv.append(statusBtn);
             break;
-          case "Pending":
+          case "Pending": 
             const pendingFunction = () => {
               alert("You just clicked the pending button");
             };
@@ -187,9 +191,10 @@ const studentPostItem = () => {
             // create the table when we select our dropdown and display the satus of that class
             createStudentTable();
             const specificClassSelect =
-              list_student_courses[event.target.value];
+              list_student_courses[event.target.value]; 
+              console.log("This is a course", specificClassSelect);
             appendStudent(specificClassSelect.course_status);
-            createStatusBtn(specificClassSelect.course_status);
+            createStatusBtn(specificClassSelect.course_status, specificClassSelect.enrollment_id);
             if (table !== null) {
               table.style.display = "block";
               statusDiv.style.display = "block";

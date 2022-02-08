@@ -179,7 +179,7 @@ const VmDropDown = (list_of_vm) => {
         option.appendChild(txt);
         // Add it to the end of default
         select.insertBefore(option, select.lastChild);
-
+       
     })
 };
 
