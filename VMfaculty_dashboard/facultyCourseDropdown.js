@@ -25,27 +25,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
   console.log("here is the change", course_semester);
   });
 
-// const semester_update = () => {
-// const getSelect = document.querySelector("#course_semester");
-// getSelect.addEventListener('change', (event) => {
-// const changeSelector = document.querySelector(".semesterSelected");
-// const table = document.querySelector(".studentTable");
-// if (event.target.value == "Default") {
-//     changeSelector.textContent = "";
-//     if (table !== null) {
-//      table.style.display = "none";
-//        statusDiv.style.display = "none";
-//       } 
-//      } else {
-//       const target_course_semester =
-//        list_courses[event.target.value].course_name;
-//       changeSelector.textContent = `You are in the ${target_course_semester} view`;
+//function of the semester dropdown
 
-//       createProfessorTable();
-      
+// const semesterView = () => {
+// const getSelect = document.querySelector("#course_semester")
+// getSelect.addEventListener("change",(event) => {
+// const 
 // }
-//  });
+// )
 // }
+  
+
+
 
 const facultyPostItem = () => {
   const tokenID = sessionStorage.getItem("token")

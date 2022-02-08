@@ -18,8 +18,12 @@
     <form action="#" id="vmsetUp">
       <!-- Course Name-->
       <div class="data">
-        <label for="name">Virtual Machine Template Name:</label>
-        <input type="text" id="name" name="CourseName" placeholder="Enter template name" required />
+        <label for="name">Virtual Machine Template:</label>
+       <select name="templateDropdown" id="templateDropdown" required > 
+          <option  value="option">Default</option>
+          </select>
+        
+        <!-- <input type="text" id="name" name="CourseName" placeholder="Enter template name" required /> -->
 
         <!--Description-->
         <!-- <label>Description of Virtual machine Template:</label>
