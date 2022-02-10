@@ -64,7 +64,7 @@ const facultyPostItem = () => {
       // grabbing the div Table element that will be affected through-out
       const tableDiv = document.querySelector(".table_onCreate");
       // define the headers for the table
-      const tableHeaders = ["Name", "Status"];
+      const tableHeaders = ["Name", "Approved"];
 
       /*******************************************
        * Create the Table for that Professor will see, that will contain
@@ -74,8 +74,10 @@ const facultyPostItem = () => {
         while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
 
         // create the table
+
         const studentTable = document.createElement("table");
         studentTable.className = "studentTable";
+
 
         // create the tabel head for that table
         const studentTableHead = document.createElement("thead");
@@ -104,6 +106,10 @@ const facultyPostItem = () => {
         tableDiv.append(studentTable);
       };
 
+
+      
+
+
       /*********************************************
        * When called, this func dynamically create the the table and rows
        * for all the students and their Vm status for that course
@@ -113,13 +119,13 @@ const facultyPostItem = () => {
 
         const studentTableBodyRow = document.createElement("tr");
         studentTableBodyRow.className = "studentTableBodyRow";
-
-        const element = document.getElementsByClassName("studentTableBodyRow");
-        console.log("this is the student element", element);
+        
 
         const studentName = document.createElement("td");
         studentName.className = "studentName";
         studentName.innerText = name;
+        // const checkout = document.getElementById("myCheck");
+        // checkout.checked = true;
         const StudentStatus = document.createElement("td");
         StudentStatus.className = "StudentStatus";
         StudentStatus.innerText = status;
