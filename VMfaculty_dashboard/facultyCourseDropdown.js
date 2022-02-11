@@ -47,7 +47,7 @@ const facultyPostItem = () => {
 
   console.log(course_semester);
   // First API call to get a list of all the courses that the professor has for that semester.
-  course_semester = "Fall";
+  // course_semester = "Fall";
   axios({
     method: "get",
     url: `${apiUrl}/api/course/professor/semester/${course_semester}`,
