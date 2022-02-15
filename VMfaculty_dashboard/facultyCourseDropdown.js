@@ -15,35 +15,28 @@ import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 const professor_user_name = sessionStorage.getItem("user_name")
 const professor_name_element = document.querySelector("#name0fProfessor");
 professor_name_element.innerHTML = professor_user_name;
+const tokenID = sessionStorage.getItem("token");
+
+
+let apiUrl = getApiRoot()
+
+
 
 
 //Semester dropdown 
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  let course_semester = document.querySelector("course_semester");
-  course_semester.onchange=semester_update;
-  console.log("here is the change", course_semester);
-  });
-
-//function of the semester dropdown
-
-// const semesterView = () => {
-// const getSelect = document.querySelector("#course_semester")
-// getSelect.addEventListener("change",(event) => {
-// const 
-// }
-// )
-// }
-  
+// window.addEventListener('DOMContentLoaded', (event) => {
+//   let course_semester = document.querySelector("course_semester");
+//   course_semester.onchange=semester_update;
+//   console.log("here is the change", course_semester);
+//   });
 
 
 
 const facultyPostItem = () => {
-  const tokenID = sessionStorage.getItem("token")
-  let apiUrl = getApiRoot()
+ 
 
   let course_semester = document.querySelector("#course_semester").value;
-  // let course_semester = document.querySelector("#course_semester").value
 
   console.log(course_semester);
   // First API call to get a list of all the courses that the professor has for that semester.
@@ -106,8 +99,32 @@ const facultyPostItem = () => {
         tableDiv.append(studentTable);
       };
 
+///SemesterDropdown
 
-      
+      const changeSemester = () => {
+        const select = document.getElementById("course_semester");
+
+        // this counter is need for value which will be later
+        // used as the event.target.value to identify which course was selcted
+        // we cannot pass the entire object sicne we will get a weird [object Object]
+        // as a value.
+        var counter = 0;
+        list_courses.forEach((element) => {
+          console.log(course);
+          const option = document.createElement("option");
+          const txt = document.createTextNode(element.option);
+          // sending that counter as the value
+          option.setAttribute("value", counter);
+          option.appendChild(txt);
+          // Add it to the end of default
+          select.insertBefore(option, select.lastChild);
+          // counter = counter + 1;
+        });
+      };
+
+      changeSemester();
+     
+
 
 
       /*********************************************
@@ -228,66 +245,8 @@ const facultyPostItem = () => {
       // console.log("this is status div", statusDiv);
       const statusDiv = document.querySelector(".status_btn");
 
-      /*************************************************
-       * This func will let the professor alter or play with the Vm status of the students
-       * it should let the Professor, chnage the status, view the Vm instance etc.
-       * For now this is not implemented
-       * ************************** */
-      const createStatusBtn = (status) => {
-        while (statusDiv.firstChild)
-          statusDiv.removeChild(statusDiv.firstChild);
+  
 
-        const statusBtn = document.createElement("button");
-        statusBtn.classList.add("btn-primary", "submitBt");
-
-        switch (status) {
-          case "Active":
-            const accessFunction = () => {
-              alert("You just clicked Access VM.");
-            };
-
-            statusBtn.innerHTML = "Access VM";
-            statusBtn.onclick = accessFunction;
-            statusDiv.append(statusBtn);
-            break;
-          case "InActive":
-            const activeFunction = () => {
-              alert("You just clicked Access VM.");
-            };
-            statusBtn.innerHTML = "Activate VM";
-            statusBtn.onclick = activeFunction;
-            statusDiv.append(statusBtn);
-            break;
-          case "Pending":
-            const denyBtn = document.createElement("button");
-            const activateFunction = () => {
-              alert("You just clicked Access VM.");
-            };
-            const denyFunction = () => {
-              alert("You just clicked Deny request.");
-            };
-
-            statusBtn.innerHTML = "Activate VM";
-            denyBtn.innerHTML = "Deny request";
-
-            // statusBtn.setAttribute("onClick", pendingFunction)
-            statusBtn.onclick = activateFunction;
-            denyBtn.onclick = denyFunction;
-
-            statusDiv.append(statusBtn, denyBtn);
-            break;
-
-          case "Approved":
-            const approvedFuncton = () => {
-              alert("You have just cliked the Approved Function");
-            };
-
-            // statusBtn.innerHTML = " Approved Launch Vm";
-            // statusBtn.onclick = approvedFuncton;
-            statusDiv.append(statusBtn);
-            break;
-        }
-      };
     }
   });
 };

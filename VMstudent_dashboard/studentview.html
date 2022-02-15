@@ -31,26 +31,35 @@
     <select name="course" id="course">
       <option value="Default">Default</option>
     </select>
-    <div class="courseSelected"></div>
+    <!-- <div class="courseSelected"></div>
     <div class="table_onCreate"></div>
-    <div class="status_btn"></div>
+    <div class="status_btn"></div> -->
+    <button type="button" id="myButton3" onclick="myButtonClicked(this)">Create MV</button>
     <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
   </div>
   <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-        sessionStorage.removeItem("token")
-        sessionStorage.clear()
-      });
-    }
+    // // function signOut() {
+    // //   var auth2 = gapi.auth2.getAuthInstance();
+    // //   auth2.signOut().then(function () {
+    // //     console.log('User signed out.');
+    // //     sessionStorage.removeItem("token")
+    // //     sessionStorage.clear()
+    //   });
+    // }
 
-    function onLoad() {
-      gapi.load('auth2', function () {
-        gapi.auth2.init();
-      });
-    }
+    // function onLoad() {
+    //   gapi.load('auth2', function () {
+    //     gapi.auth2.init();
+    //   });
+  
+
+    function myButtonClicked(el)
+{
+    el.disabled = true; 
+}
+    
+
+
   </script>
 
 <div class="area" >

@@ -133,60 +133,59 @@ const getFormData = () => {
        
 }
 
- 
+
 
 /*************************************************
  * Func will call the backend API to grab all the 
  * Vm that are available to the professors. It will 
  * then call VMdropDown func which will create the option tags
  * and the become the values for the drop down option
- * ******************************* */
-const getAllVm = () => {
-    console.log("here")
+ ******************************** */
+
+const getAllTemplates = () => {
+    console.log("here");
     axios({
         method: "get",
-        url: registerApiUrlroot + "/api/vmtable",
+        url: `${registerApiUrlroot}/api/vmtable/templates/all`,
         headers: {
             "Authorization": "Bearer " + register_tokenID
         }
     })
         .then(response => {
-            // console.log(response.data)
-            const listOfVms = response.data
-            // console.log(listOfVms)
-            VmDropDown(listOfVms)
+            console.log(response.data)
+            const listOfTemplates = response.data
+            console.log(listOfTemplates)
+            VmDropDown(listOfTemplates)
         }).catch(function (error) {
             console.log(error.message)
         })
 }
-getAllVm()
+getAllTemplates()
 
 
 /**************************************************
  * This will create the drop down option tag based upon 
  * how many vm images are in the database.
  * ******************************* */
-const VmDropDown = (list_of_vm) => {
-    console.log("here in vmDropdown")
-    // console.log(list_of_vm)
+const VmDropDown = (list_of_template) => {
+    console.log("Dropdown");
+//    console.log(list_of_template);
+
     const select = document.getElementById("vm_dropDown");
 
-    list_of_vm.forEach(element => {
-        console.log(element)
+    list_of_template.forEach(element => {
+        console.log(element);
         const option = document.createElement("option");
-        const txt = document.createTextNode(element.vm_image);
-        option.setAttribute("value", element.vmTableID);
+        const txt = document.createTextNode(element.name);
+    
+         //id, name
+        option.setAttribute("value", element.id);
+        console.log("list")
         option.appendChild(txt);
         // Add it to the end of default
         select.insertBefore(option, select.lastChild);
        
     })
+    
 };
 
-
-
-// window.addEventListener('DOMContentLoaded', (event) => {
-//     const submitButton = document.getElementById("submit")
-//     console.log(submitButton)
-//     submitButton.addEventListener("onclick", validate)
-// });
