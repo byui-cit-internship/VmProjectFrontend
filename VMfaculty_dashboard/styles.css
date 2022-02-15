@@ -11,7 +11,7 @@ body {
   font-family: "Raleway", sans-serif;
   text-align: center;
 }
-div.container {
+.container {
   max-width: 400px;
   width: 80%;
   background-color: white;
