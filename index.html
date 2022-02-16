@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- https://developers.google.com/identity/sign-in/web/sign-in
+<!-- https://developers.google.com/identity/sign-in/web/sign-in
     We followed this link to create the Google sign it. The tutorials
     explains more about the link and the functionality of the code. We
     have been adding more code to create our frontend.
    -->
 
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-signin-scope" content="profile email" />
-    <meta
-      name="google-signin-client_id"
-      content="567295502131-utunljme5lr7apa1cvi1f80bvn4e7ojh.apps.googleusercontent.com"
-    />
+    <meta name="google-signin-client_id" content="567295502131-utunljme5lr7apa1cvi1f80bvn4e7ojh.apps.googleusercontent.com" />
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,33 +26,38 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Document</title>
     <script src="signIn_signOut/signIn.js"></script>
-  </head>
+</head>
 
-  <body>
-    <div class="container">
-      <div class="text">
-      <img  class="logo" src="images/LOGO-VIMA.png">
-      <h2>Welcome to vima<br>the VM selft-service app</h2>
-      <p>Login with your BYUI account.</p>
-      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<body>
+    <main>
+        <div class="container">
+            <div class="text">
+                <img class="logo" src="images/LOGO-VIMA.png">
+                <h2>Welcome to vima<br>the VM selft-service app</h2>
+                <p>Login with your BYUI account.</p>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </div>
+            <div class="imagehero">
+                <img class="hero" src="/images/hero.png">
+            </div>
+        </div>
+    </main>
+
+    <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
-      <div class="imagehero">
-        <img class="hero" src="/images/hero.png">
-      </div>
-    </div>
-    <div class="area" >
-      <ul class="circles">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-      </ul>
-</div >
-  </body>
+
+</body>
+
 </html>
