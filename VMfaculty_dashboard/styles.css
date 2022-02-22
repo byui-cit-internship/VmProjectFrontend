@@ -6,22 +6,92 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+* {
+  margin: 0;
+}
 body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
   text-align: center;
 }
 .container {
-  max-width: 400px;
-  width: 80%;
+  width: 1000px;
   background-color: white;
   text-align: center;
-  /* box-shadow: 5px 5px 5px black; */
-  border-radius: 5px;
-  padding: 15px;
-  margin-top: 100px;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 25% 70%;
+  background-image: url('/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
 }
+.logo{
+  width: 150px;
+  display: flex;
+  padding-left: 50px;
+  margin-top: 50px;
+  grid-row: 1/2;
 
+}
+#name0fProfessor {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-align: left;
+  font-size: 40px;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  padding-left: 50px;
+  color: black;
+}
+#name0fProfessor span {
+  font-weight: bold;
+}
+#greeting {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 70px;
+  padding-left: 50px;
+  color: black;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  
+}
+.material-icons {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  padding-top: 30px;
+  color: #006eb6;
+  text-align: left;
+}
+#welcome {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  color: #006eb6;
+  padding-top: 30px;
+  padding-left: 30px;
+  text-align: left;
+}
+.signOut {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  background-color:transparent;
+  border-style: none;
+  width: fit-content;
+  height: fit-content;
+  padding-top: 33px;
+  padding-left: 170px;
+}
+.signOut a {
+  color: red;
+  
+}
 div.g-signin2 {
   margin: 15px;
 }
@@ -50,8 +120,110 @@ input {
   padding: 8px 0;
 }
 button{
-  margin-top: 1em;
- margin-bottom: 2em;
+  margin-bottom: 2em;
+}
+
+.add_professor {
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #3A8ACE;
+  color: white;
+  margin-top: 110px;
+}
+
+.add_professor .submit_professor {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 30px;
+  float: left;
+  padding-left: 20px;
+  
+}
+
+.add_professor span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+.add_class{
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #5BBCFB;
+  color: white;
+  margin-top: 10px;
+}
+.add_class .submitBt {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding-top: 30px;
+  float: left;
+  padding-left: 20px;
+  
+}
+.add_class span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+
+.vm_utilization {
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #1A63A1;
+  color: white;
+  margin-top: 210px;
+}
+.vm_utilization span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+
+.vm_utilization a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 30px;
+  float: left;
+  padding-left: 20px;
+}
+
+#admin_portal {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 300px;
+}
+form .data {
+  width: 60%;
 }
 textarea {
   padding: 10px 8px;
@@ -232,21 +404,10 @@ th {
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
-  div.container {
+  /* div.container {
     width: 60%;
-  }
-  .submitBt {
-    font-size: 1.5rem;
-    padding: 10px;
-    margin: 10px auto;
-    width: 60%;
-    border-radius: 7px;
-    display: block;
-  }
+  } */
 
-  form .data {
-    width: 60%;
-  }
   
 }
 

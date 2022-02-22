@@ -73,7 +73,7 @@ div
   grid-column: 1/3;
 }
 .logo{
-  max-width: 150px;
+  width: 150px;
   display: flex;
   padding-left: 50px;
   margin-top: 50px;
