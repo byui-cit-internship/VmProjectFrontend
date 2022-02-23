@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setupvm</title>
+</head>
+<body>
+    <h1>Setup VM Specification</h1>
+    <form>
+        <!-- name of the vm -->
+        <label >Name: </label>
+        <input></input>
+         <!-- how much memory  -->
+        <label>Memory: </label>
+        <select name="memoNumb" id="memoNumb">
+        <option  name="memoNumb" value=" "></option>
+       </select>
+        <!-- how much CPU  -->
+        <label>CPU: </label>
+       <select name= "cpuNumb" id="cpuNumb">
+       <option name="cpuNumb" value=" "></option>
+    </select>
+     <!-- how much Disk  -->
+        <label>Disk: </label>
+        <input></input>
+      <button type="submit" id="submit" class="save submitBt btn-primary">Save</button>
+      <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
+    </form>
+    <script src="setupvm.js"></script>
+</body>
+</html>
