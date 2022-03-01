@@ -10,20 +10,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta charset="UTF-8" />
   <title>Faculty Dashboard View</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="styles.css" />
+   <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <script type="module" src="facultyCourseDropdown.js" defer></script>
   <script src="addadminportal.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
+  
   <!-- <a href="#" onclick="signOut();">Sign out</a> -->
   <div class="container">
-    <header>
-    <!-- <img class="logo" src="/images/LOGO-VIMA.png"> -->
-    <h1 id="name0fProfessor">Teacher</h1>
-  </header>
+    <img class="logo" src="/images/LOGO-VIMA.png">
+    <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
+    <p id="greeting">How can we help you today?</p>
+
+    <span class="material-icons">    
+      person
+      </span>
+      <p id="welcome">Welcome Professor |</p>
+      <script>
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log("User signed out.");
+            sessionStorage.clear();
+          });
+        }
+  
+        function onLoad() {
+          gapi.load("auth2", function () {
+            gapi.auth2.init();
+          });
+        }
+      </script>
+      <button class="signOut"><a href="/index.html" onclick="signOut();">Log out</a></button>
     <!-- <label for="course_semester">Choose Semester: -->
     <!--onchange="semester_update() -->
       <!-- <select name="course_semester" id="course_semester">
@@ -44,28 +71,30 @@
     <div class="table_onCreate"></div>
     <div class="status_btn"></div>
     <div class="form-check"> -->
-
-    <a href="/VMregistration_course_form/AddClasses.html" class="submitBt btn-primary">Add Class</a>
-    <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> -->
-    <div id="admin_portal">
+      <div onclick="location='/VMregistration_course_form/AddClasses.html'" class="add_class">
+        <span class="material-icons">
+          add_circle_outline
+          </span>
+        <a  class="submitBt">Add Class</a>
+      </div>
+      <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="add_professor">
+        <span class="material-icons">
+          person_add_alt_1
+          </span>
+        <a  class="submit_professor">Add Professors</a>
+      </div>
+      <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="vm_utilization">
+        <span class="material-icons">
+          dns
+          </span>
+        <a  class="vm_utilization_text">VM Utilization</a>
+      </div>
+        <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> -->
+      
+    <!-- <div id="admin_portal"> -->
     </div>
 
-    <script>
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log("User signed out.");
-          sessionStorage.clear();
-        });
-      }
 
-      function onLoad() {
-        gapi.load("auth2", function () {
-          gapi.auth2.init();
-        });
-      }
-    </script>
-    <button class="signOut"><a href="/index.html" onclick="signOut();">Sign out</a></button>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
   </div>
 
