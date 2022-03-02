@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utilization.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Utilization</title>
+</head>
+<body>
+    <div class="container">
+ <label for="course_semester">Choose Semester:
+    <!-- onchange="semester_update() -->
+      <select name="course_semester" id="course_semester">
+        <option value="Winter">Winter</option>
+        <option value="Spring">Spring</option>
+        <option value="Summer">Summer</option>
+        <option value="Fall">Fall</option>
+      </select>
+    </label>
+
+    <label class="chooseCourse" for="course">Course:
+      <select name="course" id="course">
+        <option value="Default">Default</option>
+      </select>
+    </label>
+
+    <div class="courseSelected"></div>
+    <div class="table_onCreate"></div>
+    <div class="status_btn"></div>
+    <div class="form-check"> 
+    
+    <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
+
+    </div>
+
+    <div class="area" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+  </div >
+  <script type="module" src="utilization.js"></script>
+</body>
+</html>
