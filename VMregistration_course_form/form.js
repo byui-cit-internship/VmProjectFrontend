@@ -11,7 +11,6 @@ const submitButton = document.getElementById("submit");
 console.log(submitButton);
 submitButton.addEventListener("click", validate);
 
-
 let registerApiUrlroot = getApiRoot()
 
 
@@ -142,6 +141,7 @@ const getFormData = () => {
  * and the become the values for the drop down option
  ******************************** */
 
+
 const getAllTemplates = () => {
     console.log("here");
     axios({
@@ -161,6 +161,8 @@ const getAllTemplates = () => {
         })
 }
 getAllTemplates()
+
+
 
 
 /**************************************************
@@ -188,4 +190,7 @@ const VmDropDown = (list_of_template) => {
     })
     
 };
+
+
+
 

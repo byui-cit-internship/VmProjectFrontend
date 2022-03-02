@@ -17,7 +17,7 @@
 <body>
   <div class="container">
     <form action="#" id="signup">
-      <h1>Register Course</h1>
+      <h1>Add Class</h1>
 
       <!-- Course Name-->
       <div class="data">
@@ -46,28 +46,12 @@
         </p>
       </div>
         <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required/> 
-      
-
-        <!-- <label for="canvasToken">Canvas Token:</i></label> -->
-        <!--Message box/ tooltipText  -->
-        <!-- <i style="font-size:24px" class="fa">&#xf05a;</i> --> 
-        <!-- <i style="font-size:15px" class="fa" onclick="messageBox()">&#xf05a;
-
-          <span class="tooltiptext" id="tooltipdemo">Access Token given to professors that is obtain when they have a
-            course on
-            BYUI Canvas</span> 
-        </i>
-        <span role="alert" id="nameError" aria-hidden="true">
-          In Valid: Please a Valid canvas token and CourseID
-        </span>
-
-        <input type="text" id="canvasToken" name="canvas_token" placeholder="Enter your class token" required /> -->
 
         <!--Virtual machine  -->
-        <label>Choose a Virtual machine:</label>
-        <select name="vm_dropDown" id="vm_dropDown" required > 
+        <label>Choose a template Virtual machine:</label>
+        <select name="vm_dropDown"  id="vm_dropDown"  required > 
         <!-- Just for testing -->
-        <option name="option" value="">Default</option>
+        <option name="option" value="Default">Default</option>
         </select>
 
         <!--Description  -->

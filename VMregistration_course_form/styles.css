@@ -51,6 +51,14 @@ select#semester,
   width: 100%;
 }
 
+input,
+textarea,
+select,
+#specific_dropDown
+{
+  width: 100%;
+}
+
 input {
   padding: 8px 0;
 }
