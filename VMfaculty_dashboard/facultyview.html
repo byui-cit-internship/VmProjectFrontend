@@ -39,11 +39,11 @@
         function signOut() {
           var auth2 = gapi.auth2.getAuthInstance();
           auth2.signOut().then(function () {
-            console.log("User signed out.");
-            sessionStorage.clear();
+            console.ge.clear();
           });
         }
-  
+  log("User signed out.");
+            sessionStora
         function onLoad() {
           gapi.load("auth2", function () {
             gapi.auth2.init();
@@ -51,26 +51,7 @@
         }
       </script>
       <button class="signOut"><a href="/index.html" onclick="signOut();">Log out</a></button>
-    <!-- <label for="course_semester">Choose Semester: -->
-    <!--onchange="semester_update() -->
-      <!-- <select name="course_semester" id="course_semester">
-        <option value="Winter">Winter</option>
-        <option value="Spring">Spring</option>
-        <option value="Summer">Summer</option>
-        <option value="Fall">Fall</option>
-      </select>
-    </label>
 
-    <label class="chooseCourse" for="course">Course:
-      <select name="course" id="course">
-        <option value="Default">Default</option>
-      </select>
-    </label>
-    
-    <div class="courseSelected"></div>
-    <div class="table_onCreate"></div>
-    <div class="status_btn"></div>
-    <div class="form-check"> -->
       <div onclick="location='/VMregistration_course_form/AddClasses.html'" class="add_class">
         <span class="material-icons">
           add_circle_outline
@@ -83,7 +64,7 @@
           </span>
         <a  class="submit_professor">Add Professors</a>
       </div>
-      <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="vm_utilization">
+      <div onclick="location='/vmutilization/utilization.html'" class="vm_utilization">
         <span class="material-icons">
           dns
           </span>

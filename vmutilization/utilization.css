@@ -1,19 +1,23 @@
-body {
-    background-color: #006eb6;
-    font-family: "Raleway", sans-serif;
-    text-align: center;
-  }
 
-  div.container {
-    max-width: 500px;
-    width: 80%;
-    background-color: white;
-    text-align: center;
-    /* box-shadow: 5px 5px 5px black; */
-    border-radius: 5px;
-    padding: 15px;
-    margin-top: 50px;
-  }
+body {
+  background-color: #006eb6;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+.container {
+  width: 1000px;
+  background-color: white;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+
+}
+
+div {
+  display: block;
+  margin: auto auto;
+}
+
 
 
 
