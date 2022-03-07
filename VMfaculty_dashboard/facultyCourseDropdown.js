@@ -18,7 +18,7 @@ professor_name_element.innerHTML = professor_user_name;
 // const tokenID = sessionStorage.getItem("token");
 
 
-let apiUrl = getApiRoot()
+let apiUrl = getApiRoot();
 
 
 

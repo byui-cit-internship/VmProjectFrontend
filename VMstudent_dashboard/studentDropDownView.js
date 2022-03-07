@@ -12,6 +12,43 @@ const user_name = sessionStorage.getItem("user_name");
 const studentName = document.querySelector(".nameofStudent");
 studentName.innerHTML = user_name;
 
+
+//create vm
+
+function createvm (event)  {
+ 
+  
+  console.log("here template");
+  axios({
+    method: "post",
+    url: registerApiUrlroot + "/api/",
+    data: {
+        
+        
+    },
+    headers: {
+        "Authorization": "Bearer " + register_tokenID
+    }
+})
+    .then(response => {
+        console.log(response.data)
+        console.log("Here in the send form data to api")
+        alert("VM was created! ")
+    }).catch(function (error) {
+        console.log("Here in the error")
+        if (error.response.status == 409) {
+            console.log(error.response.status)
+            alert("VM has already been created")
+        }
+        else {
+            alert("error has occured, check connection")
+            console.log(error.message)
+        }
+
+    })
+}
+
+
 const studentPostItem = () => {
   const userID = sessionStorage.getItem("token");
   let apiUrl = getApiRoot()

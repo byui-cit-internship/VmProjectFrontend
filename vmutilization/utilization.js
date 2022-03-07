@@ -35,14 +35,7 @@ const getAllCourses = () => {
 //       const list_courses = response.data;
 //       console.log("here");
   
-     
-     
-     
-     
-     
-     
-     
-     
+
       if (list_courses !== null) {
         // grabbing the div Table element that will be affected through-out
         const tableDiv = document.querySelector(".table_onCreate");
@@ -239,3 +232,4 @@ const getAllCourses = () => {
 };
 getAllCourses();
 // get the main div to place the dynamic table inside
+

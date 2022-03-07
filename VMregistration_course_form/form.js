@@ -79,8 +79,9 @@ const getFormData = () => {
         const name = document.querySelector('#name').value;
         const courseId = document.querySelector('#courseId').value;
         const section = document.querySelector('#section').value;
+        const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
-        const vm_dropDown = document.querySelector('#vm_dropDown').value;
+        const templateVm = document.querySelector('#vm_dropDown').value;
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
 
@@ -93,9 +94,10 @@ const getFormData = () => {
             data: {
                 courseName: name,
                 course_id: courseId,
-                section_num: section,
+                section: section,
+                contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
-                vmTableID: vm_dropDown,
+                templateVm: vm_dropDown,
                 semester: semester,
                 description: description,
                 // useId amd teacher Id needs to be replaced with the current user ID
