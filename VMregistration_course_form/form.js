@@ -11,7 +11,7 @@ const submitButton = document.getElementById("submit");
 console.log(submitButton);
 submitButton.addEventListener("click", validate);
 
-let registerApiUrlroot = getApiRoot()
+let registerApiUrlroot = getApiRoot();
 
 
 
@@ -81,7 +81,7 @@ const getFormData = () => {
         const section = document.querySelector('#section').value;
         const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
-        const templateVm = document.querySelector('#vm_dropDown').value;
+        const templateVm = document.querySelector('#templateVm').value;
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
 
@@ -97,12 +97,11 @@ const getFormData = () => {
                 section: section,
                 contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
-                templateVm: vm_dropDown,
+                templateVm: templateVm,
                 semester: semester,
                 description: description,
                 // useId amd teacher Id needs to be replaced with the current user ID
                 userId: user_id,
-                status: "Active",
                 teacherId: user_id
             },
             headers: {
@@ -134,6 +133,54 @@ const getFormData = () => {
        
 }
 
+//call vcenter api to get the list of content libraries
+
+const getLibraries = () => {
+    console.log("here");
+    axios({
+        method:"get",
+        url: `${registerApiUrlroot}/api/createvm/libraries`,
+        headers: {
+        "Authorization": "Bearer " + register_tokenID
+        }
+    })
+    
+    .then(response => {
+        console.log(response.data)
+        const listOfLibraries = response.data
+        console.log(listOfLibraries)
+        LibraryDropDown(listOfLibraries)
+    }).catch(function (error) {
+        console.log(error.message)
+    })
+}
+getLibraries();
+
+
+//Library dropdown
+
+const LibraryDropDown = (list_of_library) => {
+    console.log("libraries");
+//    console.log(list_of_template);
+
+    const select = document.getElementById("contentLibrary");
+
+    list_of_library.forEach(element => {
+        console.log(element);
+        const option = document.createElement("option");
+        const txt = document.createTextNode(element.name);
+    
+         //id, name
+        option.setAttribute("value", element.id);
+        console.log("list")
+        option.appendChild(txt);
+        // Add it to the end of default
+        select.insertBefore(option, select.lastChild);
+       
+    })
+    
+};
+
 
 
 /*************************************************
@@ -143,12 +190,12 @@ const getFormData = () => {
  * and the become the values for the drop down option
  ******************************** */
 
+const getAllTemplates = (libraryId) => {
 
-const getAllTemplates = () => {
     console.log("here");
     axios({
         method: "get",
-        url: `${registerApiUrlroot}/api/vmtable/templates/all`,
+        url: `${registerApiUrlroot}/api/vmtable/templates/all?libraryId=${libraryId}`,
         headers: {
             "Authorization": "Bearer " + register_tokenID
         }
@@ -162,7 +209,6 @@ const getAllTemplates = () => {
             console.log(error.message)
         })
 }
-getAllTemplates()
 
 
 
@@ -175,7 +221,8 @@ const VmDropDown = (list_of_template) => {
     console.log("Dropdown");
 //    console.log(list_of_template);
 
-    const select = document.getElementById("vm_dropDown");
+    const select = document.getElementById("templateVm");
+    select.innerHTML = "";
 
     list_of_template.forEach(element => {
         console.log(element);
@@ -194,5 +241,17 @@ const VmDropDown = (list_of_template) => {
 };
 
 
+//filter the template list according to library
+
+
+const libraryList  = () => {
+const grabSelect = document.querySelector("#contentLibrary");
+grabSelect.addEventListener("change",(event) =>{
+// const changeSelector = document.querySelector("templateVm");
+getAllTemplates(event.target.value);
+
+}
+)}
+libraryList();
 
 
