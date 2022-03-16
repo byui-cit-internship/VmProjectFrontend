@@ -59,7 +59,7 @@ const courseDropDown = (list_of_course) => {
 const postTemplate = () =>{
     axios({
         method:"post",
-        url: `${registerApiUrlroot}/api/createvm?enrollmentId=${enrollment_id}`,
+        url: `${registerApiUrlroot}/api/deployvm?enrollmentId=${enrollment_id}`,
         headers: {
             
         "Authorization": "Bearer " + register_tokenID
@@ -70,7 +70,7 @@ const postTemplate = () =>{
             alert("Your vm was created!")
       
         }).catch(function (error) {
-            console.log("Here in the error");
+            console.log("There is an error");
     
          }
 
