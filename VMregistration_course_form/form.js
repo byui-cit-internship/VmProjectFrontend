@@ -133,6 +133,55 @@ const getFormData = () => {
        
 }
 
+
+//call vcenter api to get the list of folders in vcenter
+
+const getFolders = () => {
+    console.log("here");
+    axios({
+        method:"get",
+        url: `${registerApiUrlroot}/api/`,
+        headers: {
+            "Authorization": "Bearer " + register_tokenID
+        }
+    })
+    .then(response => {
+        console.log(response.data)
+        const listOfFolders = response.data
+        console.log(listOfFolders)
+        folderDropDown(listOfFolders)
+    }).catch(function (error) {
+        console.log(error.message)
+    })
+}
+
+getFolders();
+
+//folder dropdown
+
+const folderDropDown = (list_of_folder) => {
+    console.log("folders");
+//    console.log(list_of_template);
+
+    const select = document.getElementById("folder");
+
+    list_of_library.forEach(element => {
+        console.log(element);
+        const option = document.createElement("option");
+        const txt = document.createTextNode(element.name);
+    
+         //id, name
+        option.setAttribute("value", element.id);
+        console.log("list")
+        option.appendChild(txt);
+        // Add it to the end of default
+        select.insertBefore(option, select.lastChild);
+       
+    })
+    
+};
+
+
 //call vcenter api to get the list of content libraries
 
 const getLibraries = () => {

@@ -33,6 +33,7 @@ grid-row: 1/2;
 div {
   display: block;
   margin: auto auto;
+  width: 70%;
 }
 
 .colum1{
@@ -442,6 +443,8 @@ a:focus + .tool-tip .tool-tip__info {
     width: 60%;
     border-radius: 7px;
     display: block;
+    height: 50%;
+    width: 30%;
   }
 
   /* form .data {
