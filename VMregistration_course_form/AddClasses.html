@@ -34,6 +34,7 @@
 
         <label for="section">Section:</label>
         <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
+
         <!-- Canvas token -->
         <div class="tool-tip">
         <label class="canvasToken"for="canvasToken">Canvas Token: <i class="tool-tip__icon">i</i></label>
@@ -44,9 +45,27 @@
         </p>
       </div>
         <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required/> 
+
+          <!--Semester  -->
+          <label>Choose Semester:</label>
+          <select name="semester" id="semester" required>
+            <option name="option" value="">Default</option>
+            <option name="option" value="Summer">Summer</option>
+            <option name="option" value="Spring">Spring</option>
+            <option name="option" value="Fall">Fall</option>
+            <option name="option" value="Winter">Winter</option>
+          </select>
+
         </div>
+
         <div class=" colunm2">
-     <!--Virtual machine  -->
+     <!--Folders  -->
+     <label>Choose a Folder:</label>
+     <select name="folder"  id="folder" required > 
+     <option name="option" value="Default">Default</option>
+      </select>
+
+     <!-- Content Library  -->
    <label>Choose a Content Library:</label>
      <select name="contentLibrary"  id="contentLibrary" required > 
      <option name="option" value="Default">Default</option>
@@ -56,16 +75,6 @@
         <label>Choose a template Virtual machine:</label>
         <select name="templateVm"  id="templateVm"  required > 
         <option name="option" value="Default">Default</option>
-        </select>
-
-        <!--Description  -->
-        <label>Choose Semester:</label>
-        <select name="semester" id="semester" required>
-          <option name="option" value="">Default</option>
-          <option name="option" value="Summer">Summer</option>
-          <option name="option" value="Spring">Spring</option>
-          <option name="option" value="Fall">Fall</option>
-          <option name="option" value="Winter">Winter</option>
         </select>
 
         <!--Description-->

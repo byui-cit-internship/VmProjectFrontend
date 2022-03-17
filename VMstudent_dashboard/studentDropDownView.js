@@ -29,7 +29,7 @@ const getAllCourses = () => {
           console.log(error.message)
       })
 }
-var listof = getAllCourses()
+ getAllCourses()
 
 //course dropdown 
 

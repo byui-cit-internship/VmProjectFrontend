@@ -21,6 +21,7 @@ body {
   }
 
 
+
 div.g-signin2 {
   margin: 15px;
 }
@@ -28,6 +29,7 @@ div
 {
   display: block;
   margin: auto auto;
+
 }
 
 form {
@@ -36,7 +38,7 @@ form {
 
 form .data {
   text-align: left;
-  width: 90%;
+  width: 50%;
 }
 
 label {
@@ -44,6 +46,7 @@ label {
   display: inline-block;
   margin: 0.7%;
   font-size: 1.5rem;
+
 }
 
 input,
@@ -56,6 +59,7 @@ select#semester,
 
 input {
   padding: 8px 0;
+
 }
 
 textarea {
@@ -305,7 +309,7 @@ img{
     font-size: 1.5rem;
     padding: 10px;
     margin: 10px auto;
-    width: 60%;
+    width: 20%;
     border-radius: 7px;
     display: block;
   }
