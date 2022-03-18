@@ -140,7 +140,7 @@ const getFolders = () => {
     console.log("here");
     axios({
         method:"get",
-        url: `${registerApiUrlroot}/api/`,
+        url: `${registerApiUrlroot}/api/createvm/folders`,
         headers: {
             "Authorization": "Bearer " + register_tokenID
         }
@@ -165,13 +165,13 @@ const folderDropDown = (list_of_folder) => {
 
     const select = document.getElementById("folder");
 
-    list_of_library.forEach(element => {
+    list_of_folder.forEach(element => {
         console.log(element);
         const option = document.createElement("option");
         const txt = document.createTextNode(element.name);
     
          //id, name
-        option.setAttribute("value", element.id);
+        option.setAttribute("value", element.folder);
         console.log("list")
         option.appendChild(txt);
         // Add it to the end of default
