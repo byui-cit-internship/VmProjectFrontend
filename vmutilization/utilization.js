@@ -89,7 +89,8 @@ const courseDropDown = (list_of_course) => {
 //        * *********************** */
       const createDetailTable = () => {
         while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
-
+      }
+    }
 //         // create the table
 
 //         const studentTable = document.createElement("table");
