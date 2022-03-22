@@ -84,8 +84,7 @@ const getFormData = () => {
         const templateVm = document.querySelector('#templateVm').value;
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
-
-
+        const folder = document.querySelector('#folder').value;
 
         // this API call is to send the Form-data to the back end to register the class 
         axios({
@@ -100,6 +99,7 @@ const getFormData = () => {
                 templateVm: templateVm,
                 semester: semester,
                 description: description,
+                folder: folder,
                 // useId amd teacher Id needs to be replaced with the current user ID
                 userId: user_id,
                 teacherId: user_id

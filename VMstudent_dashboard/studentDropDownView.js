@@ -59,7 +59,7 @@ const courseDropDown = (list_of_course) => {
 const postTemplate = () =>{
     axios({
         method:"post",
-        url: `${registerApiUrlroot}/api/deployvm?enrollmentId=${enrollment_id}`,
+        url: `${registerApiUrlroot}/api/deployvm?enrollment_id=${enrollment_id}`,
         headers: {
             
         "Authorization": "Bearer " + register_tokenID
@@ -92,3 +92,5 @@ const vmButton = () => {
     }    
     )}
     vmButton();
+
+    
