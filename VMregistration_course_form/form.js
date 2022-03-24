@@ -141,7 +141,7 @@ const getFormData = () => {
 const getPool = () => {
     axios({
         method:"get",
-        url: `${registerApiUrlroot}/api/`,
+        url: `${registerApiUrlroot}/api/deployvm/resource-pool`,
         headers:{
             "Authorization": "Bearer " + register_tokenID
         }
