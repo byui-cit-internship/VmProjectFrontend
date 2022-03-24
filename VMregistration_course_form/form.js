@@ -85,6 +85,7 @@ const getFormData = () => {
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
         const folder = document.querySelector('#folder').value;
+        const resource_pool = document.querySelector('#pool').value;
 
         // this API call is to send the Form-data to the back end to register the class 
         axios({
@@ -100,6 +101,7 @@ const getFormData = () => {
                 semester: semester,
                 description: description,
                 folder: folder,
+                resource_pool:resource_pool,
                 // useId amd teacher Id needs to be replaced with the current user ID
                 userId: user_id,
                 teacherId: user_id
@@ -133,6 +135,50 @@ const getFormData = () => {
        
 }
 
+
+// call vcenter api to get a list of resource pool
+
+const getPool = () => {
+    axios({
+        method:"get",
+        url: `${registerApiUrlroot}/api/`,
+        headers:{
+            "Authorization": "Bearer " + register_tokenID
+        }
+    })
+    .then(response =>{
+        console.log(response.data);
+        const listOfPools = response.data;
+        console.log(listOfPools);
+        poolDropDown(listOfPools);
+    }).catch(function(error){
+        console.log(error.message);
+    })
+}
+getPool();
+
+//pool dropdown
+const poolDropDown = (list_of_pool) => {
+
+    console.log("Resource Pools");
+    //    console.log(list_of_template);
+    
+        const select = document.getElementById("pool");
+    
+        list_of_pool.forEach(element => {
+            console.log(element);
+            const option = document.createElement("option");
+            const txt = document.createTextNode(element.name);
+        
+             //id, name
+            option.setAttribute("value", element.pool);
+            console.log("list")
+            option.appendChild(txt);
+            // Add it to the end of default
+            select.insertBefore(option, select.lastChild);
+           
+        })
+};
 
 //call vcenter api to get the list of folders in vcenter
 
