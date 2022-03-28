@@ -1,13 +1,15 @@
 import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 let registerApiUrlroot = getApiRoot();
 const register_tokenID = sessionStorage.getItem("token");
+let semester = '';
+let section = '';
 
 
 const getAllCourses = () => {
   console.log("here");
   axios({
       method: "get",
-      url: `${registerApiUrlroot}/api/studentcourse`,
+      url: `${registerApiUrlroot}/api/course/professor/${semester}/${section}`,
       headers: {
           "Authorization": "Bearer " + register_tokenID
       }
@@ -21,7 +23,7 @@ const getAllCourses = () => {
           console.log(error.message)
       })
 }
-getAllCourses()
+getAllCourses();
 
 //course dropdown 
 
@@ -42,7 +44,13 @@ const courseDropDown = (list_of_course) => {
       // Add it to the end of default
       select.insertBefore(option, select.lastChild);
      })
-    }
+    };
+
+
+
+
+
+
 // const getAllCourses = () => {
 //   console.log("here");
 //   axios({
@@ -77,19 +85,20 @@ const courseDropDown = (list_of_course) => {
 // //       console.log("here");
   
 
-//       if (list_courses !== null) {
-//         // grabbing the div Table element that will be affected through-out
-//         const tableDiv = document.querySelector(".table_onCreate");
-//         // define the headers for the table
-//         const tableHeaders = ["Student Name", "Email", "Virtual Machine", "Creation Date"];
+      if (list_courses !== null) {
+        // grabbing the div Table element that will be affected through-out
+        const tableDiv = document.querySelector(".table_onCreate");
+        // define the headers for the table
+        const tableHeaders = ["Student Name", "Email", "Virtual Machine", "Class", "Creation Date"];
 
 //          /*******************************************
 //        * Create the Table for that Professor will see, that will contain
 //        * course and students of that course
 //        * *********************** */
-//       const createDetailTable = () => {
-//         while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
-
+      const createDetailTable = () => {
+        while (tableDiv.firstChild) tableDiv.removeChild(tableDiv.firstChild);
+      }
+    }
 //         // create the table
 
 //         const studentTable = document.createElement("table");
