@@ -18,6 +18,12 @@ body {
 grid-row: 1/2;
  }
 
+ .addButton{
+  background: none;
+  border: none;
+  margin: 0.5em;
+ }
+
 .container {
   width: 1000px;
   background-color: white;
