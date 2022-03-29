@@ -169,7 +169,7 @@ const poolDropDown = (list_of_pool) => {
             const txt = document.createTextNode(element.name);
         
              //id, name
-            option.setAttribute("value", element.pool);
+            option.setAttribute("value", element.resource_pool);
             console.log("list")
             option.appendChild(txt);
             // Add it to the end of default
