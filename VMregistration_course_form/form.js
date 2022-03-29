@@ -77,7 +77,6 @@ const getFormData = () => {
     
         // get form field values
         const name = document.querySelector('#name').value;
-        const courseId = document.querySelector('#courseId').value;
         const section = document.querySelector('#section').value;
         const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
@@ -86,6 +85,7 @@ const getFormData = () => {
         const description = document.querySelector('#description').value;
         const folder = document.querySelector('#folder').value;
         const resource_pool = document.querySelector('#pool').value;
+        const canvas_course_id = document.querySelector('#courseId').value;
 
         // this API call is to send the Form-data to the back end to register the class 
         axios({
@@ -93,7 +93,7 @@ const getFormData = () => {
             url: registerApiUrlroot + "/api/enrollment/professor/register/course",
             data: {
                 courseName: name,
-                course_id: courseId,
+               canvasCourseId: canvas_course_id,
                 section: section,
                 contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
@@ -142,9 +142,7 @@ const getPool = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/deployvm/resource-pool`,
-        headers:{
-            "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials: true
     })
     .then(response =>{
         console.log(response.data);
