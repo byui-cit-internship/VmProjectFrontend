@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script type="module" src="studentDropDownView.js" defer></script>
+  <script type="module" src="../signIn_signOut/signout.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </head>
@@ -40,7 +41,7 @@
     <div class="status_btn"></div> -->
     <input id ="vm_name" type="hidden" value ='Default Vm'>
     <button id="buttonVm">Create</button>
-    <button><a href="/index.html" onclick="signOut();">Sign out</a></button>
+    <button class="signOut">Sign out</button>
   </div>
   <!-- <script>
     function myButtonClicked(el)

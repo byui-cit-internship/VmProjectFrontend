@@ -3,14 +3,16 @@
  * This function triggers the google third party api to auth our user, it helps to create
  * our sign-in page so we don't have to create one.
  * ******************************** */
-function onSignIn(googleUser) {
+async function onSignIn(googleUser) {
   let response = googleUser.getAuthResponse()
   let accessToken = response.access_token;
   //var new_token = id_token.replaceAll(/\./g, "%2E")
   //console.log(new_token)
   //Making a call to the back end to verify token and check wheather user exits in database 
   //they are a professor or student.
-  const baseApiUrl = GetApiRoot()
+  let getApiRoot = await import('./getApiRoot.js')
+  console.log(getApiRoot);
+  const baseApiUrl = getApiRoot.getApiRoot()
   console.log(baseApiUrl)
 
   const postItem = () => {
@@ -51,21 +53,4 @@ function savetoken(user) {
 
 function loadPage() {
 
-}
-
-const GetApiRoot = () => {
-  const hashTag = window.location.hostname;
-  console.log('Hash tag ' + hashTag);
-  let apiRoot = 'http://localhost:5000';
-  // ? 'https://localhost:5001'
-  // : 'http://dev-vm-api.citwdd.net';
-
-  if (window.location.hostname.includes('vmfrontend-dev')) {
-    apiRoot = 'https://dev-vm-api.citwdd.net';
-  } else if (window.location.hostname.includes('vmfrontend-test')) {
-    apiRoot = 'https://test-vm-api.citwdd.net';
-  } else if (window.location.hostname.includes('vmfrontend-prod')) {
-    apiRoot = 'https://prod-vm-api.citwdd.net';
-  }
-  return apiRoot
 }
