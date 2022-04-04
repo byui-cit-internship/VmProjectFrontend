@@ -56,44 +56,44 @@ const courseDropDown = (list_of_course) => {
 //get list of vm
 
 
-const getAllvm = () => {
-    console.log("here");
-    axios({
-        method: "get",
-        url: `${registerApiUrlroot}/api/`,
-        headers: {
-            "Authorization": "Bearer " + register_tokenID
-        }
-    })
-        .then(response => {
-            console.log(response.data)
-            const listOfVm = response.data
-            console.log(listOfVm)
-            vmDropDown(listOfVm)
-        }).catch(function (error) {
-            console.log(error.message)
-        })
-  }
-   getAllvm();
+// const getAllvm = () => {
+//     console.log("here");
+//     axios({
+//         method: "get",
+//         url: `${registerApiUrlroot}/api/`,
+//         headers: {
+//             "Authorization": "Bearer " + register_tokenID
+//         }
+//     })
+//         .then(response => {
+//             console.log(response.data)
+//             const listOfVm = response.data
+//             console.log(listOfVm)
+//             vmDropDown(listOfVm)
+//         }).catch(function (error) {
+//             console.log(error.message)
+//         })
+//   }
+//    getAllvm();
 
 //vm dropdown
 
-const vmDropDown = (list_of_vm) => {
-    console.log("vm");
-    const select = document.getElementById("templatevm");
+// const vmDropDown = (list_of_vm) => {
+//     console.log("vm");
+//     const select = document.getElementById("templatevm");
   
-    list_of_vm.forEach(element => {
-        console.log(element);
-        const option = document.createElement("option");
-        const txt = document.createTextNode(element.name);
+//     list_of_vm.forEach(element => {
+//         console.log(element);
+//         const option = document.createElement("option");
+//         const txt = document.createTextNode(element.name);
     
-        option.setAttribute("value", element.id);
-        console.log("list")
-        option.appendChild(txt);
-        // Add it to the end of default
-        select.insertBefore(option, select.lastChild);
-       })
-  };
+//         option.setAttribute("value", element.id);
+//         console.log("list")
+//         option.appendChild(txt);
+//         // Add it to the end of default
+//         select.insertBefore(option, select.lastChild);
+//        })
+//   };
 
 
 

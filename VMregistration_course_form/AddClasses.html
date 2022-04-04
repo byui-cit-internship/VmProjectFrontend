@@ -19,6 +19,7 @@
   <div class="container">
 
     <h1>Add Class</h1>
+    <a href="/VMfaculty_dashboard/facultyview.html" class="back">Back</a>
       <!-- Course Name-->
         <div class="colum1">
         <label for="name">Course Name:</label>
@@ -83,9 +84,23 @@
         <option name="option" value="Default">Default</option>
         </select>
 
-        <div>
-          <button class="addButton"><i class="material-icons">add_circle</i><a href="/VMprofesor_template/template.html">Add more templates</a></button>
+        <!--Button to open a modal to add more templates-->
+
+          <button id="open"><i class="material-icons">add_circle</i>Add more templates</button>
+        
+        <div class="modalForTemplate" id="modalForTemplate">
+          <div class="modal-content">
+          <span class="closeModal">X</span>
+            <h1>Add templates</h1>
+            <label>Choose a template Virtual machine:</label>
+            <select name="addTemplateVm"  id="addTemplateVm"  required > 
+            <option name="option" value="Default">Default</option>
+            </select>
+            <button id="more"><i class="material-icons">add</i></button>
+            <button id="submitAddTemplates">save</button>
+            </div>
         </div>
+        
 
         <!--Description-->
         <label>Description of Course:</label>
@@ -96,8 +111,6 @@
       <button type="button" id="submit" class="save submitBt btn-primary">
         Save
       </button>
-
-      <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
   
     </div>
     </form>
