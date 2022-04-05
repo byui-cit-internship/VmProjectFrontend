@@ -7,14 +7,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: vmfrontend-dev
+      app: vmfrontend-dev-deploy
   template:
     metadata:
       labels:
-        app: vmfrontend-dev
+        app: vmfrontend-dev-deploy
     spec:
       containers:
-        - name: vmfrontend-dev
+        - name: vmfrontend-dev-deploy
           image: rcr.citwdd.net/frontend-repository/frontend-vima
           ports:
             - containerPort: 80
