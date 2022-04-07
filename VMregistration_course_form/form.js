@@ -30,9 +30,7 @@ function validate(event) {
     axios({
         method: "post",
         url: registerApiUrlroot + "/api/course/professor/checkCanvasToken",
-        headers: {
-            "Authorization": "Bearer " + register_tokenID,
-        },
+        withCredentials:true,
         data: {
             "canvas_token": canvasTokenInputElm.value,
             "canvas_course_id": courseIdInputElm.value
@@ -106,9 +104,7 @@ const getFormData = () => {
                 userId: user_id,
                 teacherId: user_id
             },
-            headers: {
-                "Authorization": "Bearer " + register_tokenID
-            }
+            withCredentials:true
         })
             .then(response => {
                 console.log(response.data)
@@ -185,9 +181,7 @@ const getFolders = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/createvm/folders`,
-        headers: {
-            "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials: true
     })
     .then(response => {
         console.log(response.data)
@@ -233,9 +227,7 @@ const getLibraries = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/createvm/libraries`,
-        headers: {
-        "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials:true
     })
     
     .then(response => {
@@ -289,9 +281,7 @@ const getAllTemplates = (libraryId) => {
     axios({
         method: "get",
         url: `${registerApiUrlroot}/api/vmtable/templates/all?libraryId=${libraryId}`,
-        headers: {
-            "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials:true
     })
         .then(response => {
             console.log(response.data)
