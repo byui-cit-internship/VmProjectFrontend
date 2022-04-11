@@ -16,9 +16,7 @@ const getAllCourses = () => {
   axios({
       method: "get",
       url: `${registerApiUrlroot}/api/studentcourse`,
-      headers: {
-          "Authorization": "Bearer " + register_tokenID
-      }
+      withCredentials:true
   })
       .then(response => {
           console.log(response.data)
@@ -103,11 +101,7 @@ const postTemplate = () =>{
     axios({
         method:"post",
         url: `${registerApiUrlroot}/api/deployvm?enrollment_id=${enrollment_id}`,
-        headers: {
-            
-        "Authorization": "Bearer " + register_tokenID
-
-        }
+        withCredentials:true
     }) .then(response => {
             console.log(response.data);
             alert("Your vm was created!")

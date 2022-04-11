@@ -16,20 +16,14 @@ const addProFormData = () => {
 
 
         // Send the form data to the backend API
-        axios({
-            method: "post",
-            url: `${apiUrl}/api/user/admin/createuser`,
-            headers: {
-                "Authorization": "Bearer " + tokenID,
-            },
-            data: {
-                firstName: formData.get("firstName"),
-                lastName: formData.get("lastName"),
-                email: formData.get("email"),
-                usertype: "Professor",
-                userAccess: true
-            }
-        })
+        axios.post(`${apiUrl}/api/user/admin/createuser`, {
+            firstName: formData.get("firstName"),
+            lastName: formData.get("lastName"),
+            email: formData.get("email"),
+            usertype: "Professor",
+            userAccess: true
+        }, { withCredentials: true }
+        )
             .then(response => {
                 console.log(response.data)
                 alert("Professor was created")

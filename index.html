@@ -28,7 +28,7 @@
     <!-- This is the axios library so we can call the backend and display the response -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Document</title>
-    <script src="signIn_signOut/signIn.js"></script>
+    <script src="signIn_signOut/signIn.js" async defer></script>
   </head>
 
   <body>
@@ -44,7 +44,7 @@
         <img src="/images/mobile-hero.png">
       </div>
       <p>Login with your BYUI account.</p>
-      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+      <div class="g-signin2" data-onsuccess="onSignIn" onclick="loadPage()" data-theme="dark"></div>
     </div>
 
     </div>

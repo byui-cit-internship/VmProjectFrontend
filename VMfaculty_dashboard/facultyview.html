@@ -19,7 +19,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
   <script type="module" src="facultyCourseDropdown.js" defer></script>
-  <script src="addadminportal.js" defer></script>
+  <script type="module" src="../signIn_signOut/signout.js" defer></script>
+    <script src="addadminportal.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
@@ -35,22 +36,8 @@
       person
       </span>
       <p id="welcome">Welcome Professor |</p>
-      <script>
-        function signOut() {
-          var auth2 = gapi.auth2.getAuthInstance();
-          auth2.signOut().then(function () {
-            console.ge.clear();
-          });
-        }
-  log("User signed out.");
-            sessionStora
-        function onLoad() {
-          gapi.load("auth2", function () {
-            gapi.auth2.init();
-          });
-        }
-      </script>
-      <button class="signOut"><a href="/index.html" onclick="signOut();">Log out</a></button>
+      
+      <button class="signOut">Sign out</button>
 
       <div onclick="location='/VMregistration_course_form/AddClasses.html'" class="add_class">
         <span class="material-icons">

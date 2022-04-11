@@ -31,9 +31,7 @@ function validate(event) {
     axios({
         method: "post",
         url: registerApiUrlroot + "/api/course/professor/checkCanvasToken",
-        headers: {
-            "Authorization": "Bearer " + register_tokenID,
-        },
+        withCredentials:true,
         data: {
             "canvas_token": canvasTokenInputElm.value,
             "canvas_course_id": courseIdInputElm.value
@@ -78,7 +76,6 @@ const getFormData = () => {
     
         // get form field values
         const name = document.querySelector('#name').value;
-        const courseId = document.querySelector('#courseId').value;
         const section = document.querySelector('#section').value;
         const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
@@ -87,6 +84,7 @@ const getFormData = () => {
         const description = document.querySelector('#description').value;
         const folder = document.querySelector('#folder').value;
         const resource_pool = document.querySelector('#pool').value;
+        const canvas_course_id = document.querySelector('#courseId').value;
 
         // this API call is to send the Form-data to the back end to register the class 
         axios({
@@ -94,7 +92,7 @@ const getFormData = () => {
             url: registerApiUrlroot + "/api/enrollment/professor/register/course",
             data: {
                 courseName: name,
-                course_id: courseId,
+               canvasCourseId: canvas_course_id,
                 section: section,
                 contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
@@ -107,9 +105,7 @@ const getFormData = () => {
                 userId: user_id,
                 teacherId: user_id
             },
-            headers: {
-                "Authorization": "Bearer " + register_tokenID
-            }
+            withCredentials:true
         })
             .then(response => {
                 console.log(response.data)
@@ -143,9 +139,7 @@ const getPool = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/deployvm/resource-pool`,
-        headers:{
-            "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials: true
     })
     .then(response =>{
         console.log(response.data);
@@ -188,9 +182,7 @@ const getFolders = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/createvm/folders`,
-        headers: {
-            "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials: true
     })
     .then(response => {
         console.log(response.data)
@@ -236,9 +228,7 @@ const getLibraries = () => {
     axios({
         method:"get",
         url: `${registerApiUrlroot}/api/createvm/libraries`,
-        headers: {
-        "Authorization": "Bearer " + register_tokenID
-        }
+        withCredentials:true
     })
     
     .then(response => {
@@ -292,10 +282,7 @@ const getAllTemplates = (libraryId) => {
     axios({
         method: "get",
         url: `${registerApiUrlroot}/api/vmtable/templates/all?libraryId=${libraryId}`,
-        headers: {
-            "Authorization": "Bearer " + register_tokenID
-        }
-        
+        withCredentials:true
     })
         .then(response => {
             console.log(response.data)
