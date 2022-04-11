@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css" />
+  <link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- <script src="js/pageAccess.js" defer></script> -->
   <script type="module" src="form.js" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -18,6 +19,7 @@
   <div class="container">
 
     <h1>Add Class</h1>
+    <a href="/VMfaculty_dashboard/facultyview.html" class="back">Back</a>
       <!-- Course Name-->
         <div class="colum1">
         <label for="name">Course Name:</label>
@@ -55,7 +57,6 @@
             <option name="option" value="Fall">Fall</option>
             <option name="option" value="Winter">Winter</option>
           </select>
-
         </div>
 
         <div class=" colunm2">
@@ -83,6 +84,24 @@
         <option name="option" value="Default">Default</option>
         </select>
 
+        <!--Button to open a modal to add more templates-->
+
+          <button id="open"><i class="material-icons">add_circle</i>Add more templates</button>
+        
+        <div class="modalForTemplate" id="modalForTemplate">
+          <div class="modal-content">
+          <span class="closeModal">X</span>
+            <h1>Add templates</h1>
+            <label>Choose a template Virtual machine:</label>
+            <select name="addTemplateVm"  id="addTemplateVm"  required > 
+            <option name="option" value="Default">Default</option>
+            </select>
+            <button id="more"><i class="material-icons">add</i></button>
+            <button id="submitAddTemplates">save</button>
+            </div>
+        </div>
+        
+
         <!--Description-->
         <label>Description of Course:</label>
         <textarea type="text" id="description" name="description" rows="2" cols="30" placeholder="Describe your course"
@@ -92,8 +111,6 @@
       <button type="button" id="submit" class="save submitBt btn-primary">
         Save
       </button>
-
-      <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
   
     </div>
     </form>

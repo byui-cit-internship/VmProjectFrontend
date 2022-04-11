@@ -5,6 +5,7 @@ const user_id = sessionStorage.getItem("user_id");
 const courseIdInputElm = document.getElementById("courseId");
 const canvasTokenInputElm = document.getElementById("canvasToken");
 // canvasTokenInputElm.addEventListener("input", validate)
+const templateIds = [];
 
 //new option
 const submitButton = document.getElementById("submit");
@@ -288,6 +289,8 @@ const getAllTemplates = (libraryId) => {
             const listOfTemplates = response.data
             console.log(listOfTemplates)
             VmDropDown(listOfTemplates)
+            const listOfAddTemplates = response.data
+            addVmDropDown(listOfAddTemplates)
         }).catch(function (error) {
             console.log(error.message)
         })
@@ -323,6 +326,30 @@ const VmDropDown = (list_of_template) => {
     
 };
 
+//add templates dropdown in the modal 
+
+const addVmDropDown = (list_of_add_template) => {
+    console.log("Dropdown");
+//    console.log(list_of_template);
+
+    const select = document.getElementById("addTemplateVm");
+    select.innerHTML = "";
+
+    list_of_add_template.forEach(element => {
+        console.log(element);
+        const option = document.createElement("option");
+        const txt = document.createTextNode(element.name);
+    
+         //id, name
+        option.setAttribute("value", element.id);
+        console.log("list")
+        option.appendChild(txt);
+        // Add it to the end of default
+        select.insertBefore(option, select.lastChild);
+       
+    })
+    
+};
 
 //filter the template list according to library
 
@@ -338,3 +365,33 @@ getAllTemplates(event.target.value);
 libraryList();
 
 
+//open and close the modal 
+
+// const openModal = document.querySelector('.open');
+// const modal = document.querySelector('#modalForTemplate');
+// const closeModal = document.querySelector('.closeModal');
+
+// openModal.addEventListener('click',() => {
+//     modal.showModal();
+
+// })
+
+
+//  closeModal.addEventListener('click',() => {
+//     modal.close();
+
+// })
+
+//open the modal with the button
+
+var openModal = document.getElementById("open");
+//when you click the open 
+openModal.onclick = function() {
+    modalForTemplate.style.display = "block";
+  }
+//span x
+let span = document.getElementsByClassName("closeModal")[0];
+//close modal when you click x
+span.onclick = function() {
+    modalForTemplate.style.display = "none";
+  }
