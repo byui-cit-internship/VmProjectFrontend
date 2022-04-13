@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: vmfrontend-dev-deploy
-          image: rcr.citwdd.net/frontend-repository/frontend-vima
+          image: rcr.citwdd.net/frontend-repository/frontend-vima:latest
           ports:
             - containerPort: 80
           resources:
