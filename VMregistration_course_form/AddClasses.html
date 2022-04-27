@@ -21,7 +21,7 @@
     <h1>Add Class</h1>
     <a href="/VMfaculty_dashboard/facultyview.html" class="back">Back</a>
       <!-- Course Name-->
-        <div class="colum1">
+        <div class="column1">
         <label for="name">Course Name:</label>
         <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
 
@@ -59,7 +59,7 @@
           </select>
         </div>
 
-        <div class=" colunm2">
+        <div class=" column2">
  <!--Resource_Pool  -->
  <label>Choose a Resource Pool:</label>
  <select name="pool"  id="pool" required > 
@@ -80,13 +80,14 @@
 
         <!--Virtual machine  -->
         <label>Choose a template Virtual machine:</label>
-        <select name="templateVm"  id="templateVm"  required > 
+        <form action="">
+        <select name="templateVm"  id="templateVm"  required multiple type="checkbox">
         <option name="option" value="Default">Default</option>
         </select>
-
+        </form>
         <!--Button to open a modal to add more templates-->
 
-          <button id="open"><i class="material-icons">add_circle</i>Add more templates</button>
+        <!-- <button id="open"><i class="material-icons">add_circle</i>Add more templates</button>
         
         <div class="modalForTemplate" id="modalForTemplate">
           <div class="modal-content">
@@ -99,7 +100,7 @@
             <button id="more"><i class="material-icons">add</i></button>
             <button id="submitAddTemplates">save</button>
             </div>
-        </div>
+        </div> -->
         
 
         <!--Description-->
