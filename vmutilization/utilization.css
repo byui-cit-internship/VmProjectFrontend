@@ -2,21 +2,97 @@
 body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
-  text-align: center;
+  /* text-align: center; */
+}
+.back {
+  text-decoration: none;
+  color: #006eb6;
 }
 .container {
   width: 1000px;
   background-color: white;
   margin-top: 50px;
-  height: 500px;
-  border-radius: 50px;
+    height: 500px;
+    border-radius: 50px;
+    /* padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px; */
 
 }
+/* .container {
+  width: 1000px;
+  background-color: white;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
 
+} */
 div {
   display: block;
   margin: auto auto;
+  width: 90%;
 }
+h1 {
+  text-align: center;
+}
+.VMU-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 20px;
+}
+.VMU-header a {
+  align-self: center;
+}
+h2 {
+   color: #006eb6;
+   font-size: 18px;
+}
+label {
+  color: #006eb6;
+}
+.course-select {
+  font-size: 20px;
+  display: flex;
+  margin-bottom: 30px;
+}
+label {
+  margin-right: 100px;
+}
+select {
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 10%);
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100px;
+}
+.btn {
+  background-color: #006eb6;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+}
+.button {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.scoreboard {
+  text-align: center;
+  margin-bottom: 50px;
+}
+th {
+  margin-right: 50px;
+  padding-right: 20px;
+}
+
+/* div {
+  display: block;
+  margin: auto auto;
+} */
 
 
 

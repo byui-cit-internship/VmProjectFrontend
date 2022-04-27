@@ -31,8 +31,9 @@ grid-row: 1/2;
     height: 700px;
     border-radius: 50px;
     display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   column-gap: 3%;
+  /* padding-bottom: 100px; */
   grid-template-rows: 10% 70%;
 }
 
@@ -114,9 +115,24 @@ label, input {
   display: inline-block;
   margin: 0.7%;
   font-size: 1.5rem;
+  margin-bottom: 0;
  
 }
-
+.validation {
+  color: #ff0000;
+  text-align: left;
+}
+input:invalid {
+    border: 2px solid #000;
+}
+input:valid {
+  border: 2px solid rgba(0,0,0,10%);
+}
+n {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
 input,
 textarea,
 select#semester,
