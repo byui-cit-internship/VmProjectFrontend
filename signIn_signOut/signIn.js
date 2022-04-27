@@ -18,6 +18,8 @@ async function onSignIn(googleUser) {
 
   await axios.get(`${baseApiUrl}`, {withCredentials : true})
 
+  await axios.get(baseApiUrl, { withCredentials: true })
+
   const postItem = () => {
     axios.post(`${baseApiUrl}/api/token`, {
       "accessTokenValue": accessToken
