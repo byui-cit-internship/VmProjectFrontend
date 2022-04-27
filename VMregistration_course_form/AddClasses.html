@@ -22,7 +22,10 @@
     <a href="/VMfaculty_dashboard/facultyview.html" class="back">Back</a>
       <!-- Course Name-->
         <div class="column1">
+          <p class="validation">Required *</p>
         <label for="name">Course Name:</label>
+        
+
         <input type="text" id="name" name="CourseName" placeholder="Enter your class name" required />
 
         <!--Course Id-->
@@ -34,8 +37,15 @@
 
         <!-- Section course -->
 
-        <label for="section">Section:</label>
-        <input type="text" id="section" name="section_num" placeholder="Enter your class section" required />
+        <label>Section:</label>
+          <select name="semester" id="semester" required>
+            <option name="option" value="">Select a section number</option>
+            <option name="option" value="1">1</option>
+            <option name="option" value="2">2</option>
+            <option name="option" value="3">3</option>
+            <option name="option" value="4">4</option>
+            <option name="option" value="5">5</option>
+          </select>
 
         <!-- Canvas token -->
         <div class="tool-tip">
@@ -57,6 +67,16 @@
             <option name="option" value="Fall">Fall</option>
             <option name="option" value="Winter">Winter</option>
           </select>
+
+          <!--Semester  -->
+        <label>Professor Page Year:</label>
+        <select name="semester" id="semester" required>
+          <option name="option" value="">Default</option>
+          <option name="option" value="Summer">2022</option>
+          <option name="option" value="Spring">2021</option>
+          <option name="option" value="Fall">2020</option>
+          <option name="option" value="Winter">2019</option>
+        </select>
         </div>
 
         <div class=" column2">
