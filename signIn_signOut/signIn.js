@@ -16,6 +16,8 @@ async function onSignIn(googleUser) {
   console.log(baseApiUrl)
   await axios.get(baseApiUrl, {withCredentials: true})
 
+  await axios.get(`${baseApiUrl}`, {withCredentials : true})
+
   const postItem = () => {
     axios.post(`${baseApiUrl}/api/token`, {
       "accessTokenValue": accessToken
@@ -49,6 +51,9 @@ function savetoken(user) {
     sessionStorage.setItem("user_id", user.userId);
     sessionStorage.setItem("user_name", `${user.firstName} ${user.lastName}`);
     sessionStorage.setItem("isAdmin", user.isAdmin);
+    sessionStorage.setItem("firstName", user.firstName);
+    sessionStorage.setItem("lastName", user.lastName);
+    sessionStorage.setItem("email", user.email)
   }
 }
 

@@ -12,7 +12,12 @@ function validate(event) {
         url: getApiRoot() + "/api/user",
         withCredentials:true,
         data: {
-            "canvasToken": canvasTokenInputElm.value
+            "userId" : sessionStorage.getItem("user_id"),
+            "canvasToken": canvasTokenInputElm.value,
+            "firstName" : sessionStorage.getItem("firstName"),
+            "lastName"  : sessionStorage.getItem("lastName"),
+            "email" : sessionStorage.getItem("email"),
+            "isAdmin" : sessionStorage.getItem("isAdmin")
         }
     })
         .then(response => {
