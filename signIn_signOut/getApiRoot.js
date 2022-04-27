@@ -6,7 +6,6 @@ export const getApiRoot = () => {
     // ? 'https://localhost:5001'
     // : 'http://dev-vm-api.citwdd.net';
 
-
     if (window.location.hostname.includes('rancher-vmfrontend-dev')) {
         apiRoot = 'https://rancher-dev-vm-api.citwdd.net';
     } else if (window.location.hostname.includes('rancher-vmfrontend-test')) {

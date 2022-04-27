@@ -34,7 +34,7 @@ const addProFormData = () => {
                 }
             }).catch(error => {
                 if (error.response.status == 409) {
-                    alert("Email already exits with a current user")
+                    alert("Email already exists with a current user")
                 }
                 else {
                     console.log("Here in the error")
