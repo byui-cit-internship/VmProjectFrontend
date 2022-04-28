@@ -339,8 +339,8 @@ const addVmDropDown = (list_of_add_template) => {
         console.log(element);
         const option = document.createElement("option");
         const txt = document.createTextNode(element.name);
-    
-         //id, name
+        
+        //id, name
         option.setAttribute("value", element.id);
         console.log("list")
         option.appendChild(txt);
@@ -363,7 +363,6 @@ getAllTemplates(event.target.value);
 }
 )}
 libraryList();
-
 
 //open and close the modal 
 
@@ -389,6 +388,34 @@ var openModal = document.getElementById("open");
 openModal.onclick = function() {
     modalForTemplate.style.display = "block";
   }
+
+//come back here shae!
+//this will let you add more than one template 
+
+// submitAddTemplates.getElementById('submitAddTemplates').onclick = function() {
+//     //would potentially need a list of the vm options here
+    
+//     var select = document.createElement("select");
+//     select.vm = "vm";
+//     select.id = "${course.id}"
+ 
+//     for (const val of values)
+//     {
+//         var option = document.createElement("option");
+//         option.value = val;
+//         option.text = val.charAt(0) + val.slice(1);
+//         select.appendChild(option);
+//     }
+ 
+//     var label = document.createElement("label");
+//     label.innerHTML = "Choose your templates: "
+//     label.htmlFor = "vm";
+ 
+//     document.getElementById("container").appendChild(label).appendChild(select);
+//     // closeModal here
+// }
+
+
 //span x
 let span = document.getElementsByClassName("closeModal")[0];
 //close modal when you click x

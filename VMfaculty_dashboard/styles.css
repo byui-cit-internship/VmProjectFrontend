@@ -63,35 +63,44 @@ body {
   grid-row: 2/3;
   
 }
-.material-icons {
+.professorgrid {
   grid-column: 2/3;
-  grid-row: 1/2;
-  padding-top: 30px;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: 8% 55% 30%;
+  margin: auto 0;
+}
+.material-icons {
+  grid-column: 1/2;
   color: #006eb6;
   text-align: left;
 }
 #welcome {
   grid-column: 2/3;
-  grid-row: 1/2;
   color: #006eb6;
-  padding-top: 30px;
-  padding-left: 30px;
-  text-align: left;
+  font-size: 1.1em;
 }
 .signOut {
-  grid-column: 2/3;
-  grid-row: 1/2;
+  grid-column: 3/4;
   background-color:transparent;
-  border-style: none;
-  width: fit-content;
-  height: fit-content;
-  padding-top: 33px;
-  padding-left: 170px;
+  color: #006eb6;
+  /* border-style: none; */
+  width: 85px;
+  height: 25px;
+  border-radius: 10px;
+  border: #006eb6 1px solid;
 }
-.signOut a {
+
+.signOut:hover {
+  background-color: #006eb6;
+  color: white;
+
+}
+/* .signOut a {
   color: red;
-  
-}
+} */
+
 div.g-signin2 {
   margin: 15px;
 }
@@ -123,20 +132,25 @@ button{
   margin-bottom: 2em;
 }
 
+.addgrid{
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+}
+
 .add_professor {
   font-size: 20px;
-  float: left;
+  /* float: left; */
   width: 300px;
   height: 90px;
   border-radius: 7px 0px 0px 7px;
-  display: block;
   grid-column: 2/3;
-  grid-row: 2/3;
   background-color: #3A8ACE;
   color: white;
-  margin-top: 110px;
+  grid-row: 2/3;
 }
-
+.add_professor:hover {
+  background-color: #022d53;
+}
 .add_professor .submit_professor {
   color: white;
   font-size: 20px;
@@ -166,7 +180,10 @@ button{
   grid-row: 2/3;
   background-color: #5BBCFB;
   color: white;
-  margin-top: 10px;
+  grid-row: 1/2;
+}
+.add_class:hover {
+  background-color: #022d53;
 }
 .add_class .submitBt {
   color: white;
@@ -194,11 +211,14 @@ button{
   border-radius: 7px 0px 0px 7px;
   display: block;
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 3/4;
   background-color: #1A63A1;
   color: white;
-  margin-top: 210px;
 }
+.vm_utilization:hover {
+  background-color: #022d53;
+}
+
 .vm_utilization span {
   color: white;
   font-size: 40px;
