@@ -15,8 +15,7 @@ body {
   font-family: 'Roboto', sans-serif;
   /* text-align: center; */
 }
-
-.container {
+.loginContainer {
   /* max-width: 100em; */
   width: 1000px;
   background-color: white;
@@ -37,7 +36,22 @@ body {
   /* gap: 10px; */
   /* grid-template-rows:  250px  250px; */
   /* padding-left: 20px; */
-
+}
+.mainContainer {
+  width: 1000px;
+  background-color: white;
+  text-align: center;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 60% 10% 30%;
+  grid-template-rows: 25% 70%;
+  background-image: url('/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
 }
 
 .imagehero {
@@ -46,7 +60,7 @@ body {
 
 div.g-signin2 {
   margin-top: 20px;
-  float: left;
+  float: left;  
   padding-left: 50px;
 
 }
@@ -60,14 +74,6 @@ div
 .text {
   margin: 0;
   grid-column: 1/3;
-}
-
-.logo{
-  width: 150px;
-  display: flex;
-  padding-left: 50px;
-  margin-top: 50px;
-
 }
 
 h2{
@@ -84,9 +90,9 @@ p{
   /* margin-top: 4.5em; */
   text-align: left;
   /* padding-top: 15em; */
-  padding-left: 50px;
-  margin-bottom: 0;
-  margin-top: 1em;
+  /* padding-left: 50px; */
+  /* margin-bottom: 0; */
+  /* margin-top: 1em; */
 }
 .image {
   display: none;
@@ -227,9 +233,339 @@ th {
   font-weight:bold;
 }
 
+/* Welcome homepage */
+.mainContainer {
+  width: 1000px;
+  background-color: white;
+  text-align: center;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: 60% 10% 30%;
+  grid-template-rows: 25% 70%;
+  background-image: url('/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
+}
+.header {
+  grid-column: 1/4;
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  width: 100%;
+}
+.logo{
+  width: 150px;
+  align-self: center;
+  margin-left: 50px;
+}
+#name0fProfessor {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-align: left;
+  font-size: 40px;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  padding-left: 50px;
+  color: black;
+}
+#name0fProfessor span {
+  font-weight: bold;
+}
+#greeting {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  text-align: left;
+  font-size: 20px;
+  padding-top: 70px;
+  padding-left: 50px;
+  color: black;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  
+}
+.professorgrid {
+  /* grid-column: 2/4; */
+  width: 350px;
+  padding: 0px;
+  margin: 0px;
+  display: grid;
+  grid-template-columns: .2fr .7fr .5fr;
+  grid-gap: 5px;
+  justify-items: center;
+  align-items: center;
+  margin: auto 0;
+}
+.material-icons {
+  grid-column: 1/2;
+  justify-self: end;
+  color: #006eb6;
+  text-align: left;
+}
+#welcome {
+  grid-column: 2/3;
+  color: #006eb6;
+  font-size: 1.1em;
+}
+.signOut {
+  grid-column: 3/4;
+  background-color:transparent;
+  color: #006eb6;
+  /* border-style: none; */
+  justify-self: start;
+  width: 85px;
+  height: 25px;
+  border-radius: 10px;
+  border: #006eb6 1px solid;
+}
+
+.signOut:hover {
+  background-color: #006eb6;
+  color: white;
+
+}
+/* .signOut a {
+  color: red;
+} */
+
+div.g-signin2 {
+  margin: 15px;
+}
+div 
+{
+  display: block;
+  margin: auto auto;
+}
+
+label {
+  /* padding: 12px 0 10px; */
+  display: inline-block;
+  margin: 1em;
+  font-size: 1.5rem;
+}
+
+input,
+textarea,
+select#semester,
+#vm_dropDown
+{
+  width: 100%;
+}
+
+input {
+  padding: 8px 0;
+}
+
+.addgrid{
+  grid-column: 3/4;
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+}
+
+.add_professor {
+  font-size: 20px;
+  /* float: left; */
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  grid-column: 2/3;
+  background-color: #3A8ACE;
+  color: white;
+  grid-row: 2/3;
+}
+.add_professor:hover {
+  background-color: #022d53;
+}
+.add_professor .submit_professor {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 30px;
+  float: left;
+  padding-left: 20px;
+  
+}
+
+.add_professor span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+.add_class{
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #5BBCFB;
+  color: white;
+  grid-row: 1/2;
+}
+.add_class:hover {
+  background-color: #022d53;
+}
+.add_class .submitBt {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding-top: 30px;
+  float: left;
+  padding-left: 20px;
+  
+}
+.add_class span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+
+.vm_utilization {
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 3/4;
+  background-color: #1A63A1;
+  color: white;
+}
+.vm_utilization:hover {
+  background-color: #022d53;
+}
+
+.vm_utilization span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  
+}
+
+.vm_utilization a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 30px;
+  float: left;
+  padding-left: 20px;
+}
+
+#admin_portal {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  width: 300px;
+}
+form .data {
+  width: 60%;
+}
+textarea {
+  padding: 10px 8px;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  /* border-radius: 6px; */
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #006eb6;
+  color: white;
+  border-radius: 6px 6px 0 0;
+}
+
+th, td, p, input, h3 {
+  font:15px 'Segoe UI';
+}
+table, th, td {
+  border: solid 1px #ddd;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+}
+th {
+  font-weight:bold;
+}
+/************************/
+/* VM utilization */
+.utilContainer {
+  width: 1000px;
+  background-color: white;
+  text-align: center;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-rows: 25% 1fr 1fr 1fr 1fr 1fr;
+  background-image: url('/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
+}
+/***********************/
+/* Add Professor */
+.addProfContainer {
+  width: 1000px;
+  background-color: white;
+  text-align: center;
+  margin-top: 50px;
+  height: 500px;
+  border-radius: 50px;
+  display: grid;
+  grid-template-rows: 25% 10% 65%;
+  grid-template-columns: none;
+  background-image: url('/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
+}
+#professorSignup {
+  width: 500px;
+}
+.addHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: 2/3;
+  grid-column: 1/4;
+  padding: 0;
+  margin: 0;
+}
+
 /* animation*/
-
-
 .area{
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
   width: 100%;
@@ -379,13 +715,13 @@ th {
 
 
 
-  .container {
+  /* .container {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
     width:auto;
     background-image: none;
     background-color:#006db600
-  };
+  }; */
 
   .text {
     grid-row: 1/3;

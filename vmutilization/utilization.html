@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="utilization.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
 <script type="module" src="utilization.js" defer></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Utilization</title>
 </head>
 <body>
-    <div class="container">
+    <div class="utilContainer">
+      <div class="header">
+        <img class="logo" src="/images/LOGO-VIMA.png">
+        <div class="professorgrid">
+          <span class="material-icons">
+            person
+            </span>
+            <p id="welcome">Welcome Professor |</p>
+      
+            <button class="signOut">Sign out</button>
+          </div>
+        </div>
       <div class="VMU-header">
         <a href="/VMfaculty_dashboard/facultyview.html" class="back"><i style="font-size:24px" class="fa">&#xf177;</i> Back</a>
         <h1>Class VM utilization</h1>
