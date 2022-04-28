@@ -12,6 +12,8 @@ const submitButton = document.getElementById("submit");
 console.log(submitButton);
 submitButton.addEventListener("click", validate);
 
+
+
 let registerApiUrlroot = getApiRoot();
 
 
@@ -71,21 +73,27 @@ function validate(event) {
  * *********************************/
 const getFormData = () => {
     console.log("here in getformdata func")
-  
-       
     
         // get form field values
         const name = document.querySelector('#name').value;
         const section = document.querySelector('#section').value;
         const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
-        const templateVm = document.querySelector('#templateVm').value;
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
         const folder = document.querySelector('#folder').value;
         const resource_pool = document.querySelector('#pool').value;
         const canvas_course_id = document.querySelector('#courseId').value;
 
+        const templateVm = document.querySelectorAll('#templateVm :checked');
+
+        var selected = [...templateVm].map(option => option.value);
+
+        // function(templateVm) {
+        //     const checked = templateVm;
+        //     const selected = [...checked].map(option => option.value);
+        //     alert(selected);
+        // }
         // this API call is to send the Form-data to the back end to register the class 
         axios({
             method: "post",
@@ -96,7 +104,7 @@ const getFormData = () => {
                 section: section,
                 contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
-                templateVm: templateVm,
+                templateVm: selected,
                 semester: semester,
                 description: description,
                 folder: folder,
