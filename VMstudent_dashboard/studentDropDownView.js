@@ -40,9 +40,9 @@ const courseDropDown = (list_of_course) => {
   list_of_course.forEach(element => {
       console.log(element);
       const option = document.createElement("option");
-      const txt = document.createTextNode(element.course_name);
+      const txt = document.createTextNode(element.courseName);
   
-      option.setAttribute("value", element.enrollment_id);
+      option.setAttribute("value", element.enrollmentId);
       console.log("list")
       option.appendChild(txt);
       // Add it to the end of default
