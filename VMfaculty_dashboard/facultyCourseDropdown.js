@@ -11,15 +11,9 @@
 
 import { getApiRoot } from "../signIn_signOut/getApiRoot.js";
 
-
 const professor_user_name = sessionStorage.getItem("user_name")
 const professor_name_element = document.querySelector("#name0fProfessor");
 professor_name_element.innerHTML = professor_user_name;
 // const tokenID = sessionStorage.getItem("token");
 
-
 let apiUrl = getApiRoot();
-
-
-
-

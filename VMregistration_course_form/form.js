@@ -12,6 +12,8 @@ const submitButton = document.getElementById("submit");
 console.log(submitButton);
 submitButton.addEventListener("click", validate);
 
+
+
 let registerApiUrlroot = getApiRoot();
 
 
@@ -71,21 +73,27 @@ function validate(event) {
  * *********************************/
 const getFormData = () => {
     console.log("here in getformdata func")
-  
-       
     
         // get form field values
         const name = document.querySelector('#name').value;
         const section = document.querySelector('#section').value;
         const contentLibrary = document.querySelector('#contentLibrary').value;
         const canvasToken = document.querySelector('#canvasToken').value;
-        const templateVm = document.querySelector('#templateVm').value;
         const semester = document.querySelector('#semester').value;
         const description = document.querySelector('#description').value;
         const folder = document.querySelector('#folder').value;
         const resource_pool = document.querySelector('#pool').value;
         const canvas_course_id = document.querySelector('#courseId').value;
 
+        const templateVm = document.querySelectorAll('#templateVm :checked');
+
+        var selected = [...templateVm].map(option => option.value);
+
+        // function(templateVm) {
+        //     const checked = templateVm;
+        //     const selected = [...checked].map(option => option.value);
+        //     alert(selected);
+        // }
         // this API call is to send the Form-data to the back end to register the class 
         axios({
             method: "post",
@@ -96,7 +104,7 @@ const getFormData = () => {
                 section: section,
                 contentLibrary: contentLibrary,
                 canvas_token: canvasToken,
-                templateVm: templateVm,
+                templateVm: selected,
                 semester: semester,
                 description: description,
                 folder: folder,
@@ -339,8 +347,8 @@ const addVmDropDown = (list_of_add_template) => {
         console.log(element);
         const option = document.createElement("option");
         const txt = document.createTextNode(element.name);
-    
-         //id, name
+        
+        //id, name
         option.setAttribute("value", element.id);
         console.log("list")
         option.appendChild(txt);
@@ -363,7 +371,6 @@ getAllTemplates(event.target.value);
 }
 )}
 libraryList();
-
 
 //open and close the modal 
 
@@ -389,6 +396,34 @@ var openModal = document.getElementById("open");
 openModal.onclick = function() {
     modalForTemplate.style.display = "block";
   }
+
+//come back here shae!
+//this will let you add more than one template 
+
+// submitAddTemplates.getElementById('submitAddTemplates').onclick = function() {
+//     //would potentially need a list of the vm options here
+    
+//     var select = document.createElement("select");
+//     select.vm = "vm";
+//     select.id = "${course.id}"
+ 
+//     for (const val of values)
+//     {
+//         var option = document.createElement("option");
+//         option.value = val;
+//         option.text = val.charAt(0) + val.slice(1);
+//         select.appendChild(option);
+//     }
+ 
+//     var label = document.createElement("label");
+//     label.innerHTML = "Choose your templates: "
+//     label.htmlFor = "vm";
+ 
+//     document.getElementById("container").appendChild(label).appendChild(select);
+//     // closeModal here
+// }
+
+
 //span x
 let span = document.getElementsByClassName("closeModal")[0];
 //close modal when you click x
