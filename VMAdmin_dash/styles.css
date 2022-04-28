@@ -5,103 +5,40 @@ white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
 /* Small View */
 body {
   background-color: #006eb6;
-  /* font-family: "Raleway", sans-serif; */
-  font-family: 'Roboto', sans-serif;
-  /* text-align: center; */
-}
-
-.container {
-  /* max-width: 100em; */
-  width: 1000px;
-  background-color: white;
+  font-family: "Raleway", sans-serif;
   text-align: center;
-  /* box-shadow: 5px 5px 5px black; */
-  /* padding-left: 30px; */
-  /* padding-top: 30px; */
-  margin-top: 50px;
-  height: 500px;
-  border-radius: 50px;
-  display: grid;
-  grid-template-columns: 30% 70%;
-  background-image: url('/images/hero.png');
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position-x: 110%;
-  background-position-y: 110%;
-  /* gap: 10px; */
-  /* grid-template-rows:  250px  250px; */
-  /* padding-left: 20px; */
-
 }
 
-.imagehero {
-  display: none;
-}
+  .container {
+    width: 1000px;
+    background-color: white;
+    margin-top: 50px;
+      height: 500px;
+      border-radius: 50px;
+  }
+
+
 
 div.g-signin2 {
-  margin-top: 20px;
-  float: left;
-  padding-left: 50px;
-
+  margin: 15px;
 }
-
 div 
 {
   display: block;
   margin: auto auto;
-}
-
-.text {
-  margin: 0;
-  grid-column: 1/3;
-}
-
-.logo{
-  width: 150px;
-  display: flex;
-  padding-left: 50px;
-  margin-top: 50px;
 
 }
 
-h2{
-  margin-top: 20px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  text-align: left;
-  font-size: 20px;
-  margin-top: 4em;
-  padding-left: 50px;
-}
-
-p{
-  /* margin-top: 4.5em; */
-  text-align: left;
-  /* padding-top: 15em; */
-  padding-left: 50px;
-  margin-bottom: 0;
-  margin-top: 1em;
-}
-.image {
-  display: none;
-}
-#vima {
-  color:#006eb6;
-  font-weight: bold;
-}
 form {
   text-align: center;
 }
 
 form .data {
   text-align: left;
-  width: 90%;
+  width: 50%;
 }
 
 label {
@@ -109,6 +46,7 @@ label {
   display: inline-block;
   margin: 0.7%;
   font-size: 1.5rem;
+
 }
 
 input,
@@ -121,6 +59,7 @@ select#semester,
 
 input {
   padding: 8px 0;
+
 }
 
 textarea {
@@ -160,12 +99,12 @@ table th {
   padding: 8px;
   /* border-radius: 6px; */
 }
-input:required {
+ /* input:required {
   border-left: red solid 8px;
-}
+} */
 input:required:valid {
-  border-left: green solid 8px;
-}
+  border-bottom: green solid 5px;
+} 
 
 form .semester  {
   /* margin-top: 5px; */
@@ -225,6 +164,14 @@ table, th, td {
 }
 th {
   font-weight:bold;
+}
+
+.data{
+  margin-bottom: 2.3em;
+}
+img{
+  max-width: 150px;
+  margin: 2em ;
 }
 
 /* animation*/
@@ -334,6 +281,8 @@ th {
   animation-duration: 11s;
 }
 
+
+
 @keyframes animate {
 
   0%{
@@ -351,80 +300,27 @@ th {
 }
 
 
-
 /* Medium View */
-@media only screen and (max-width: 1000px) {
-  .circles li{
-    display: none;
-  }
-  h2 {
-    margin-top: 20px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 200;
-    text-align: left;
-    font-size: 25px;
-    margin-top: 4em;
-    padding-left: 20px;
-  }
-
-  body{
-    height: 100vh;
-    background-color: white;
-    background-image: url("/images/mobile-background.png");
-    background-position-y:bottom;
-    background-position-x: right;
-    background-repeat: no-repeat;
-    background-size: 80%;
-  }
-
-
-
-  .container {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    width:auto;
-    background-image: none;
-    background-color:#006db600
-  };
-
-  .text {
-    grid-row: 1/3;
-    text-align: center;
-  }
-
-  .imagehero {
-    display: block;
-    grid-column: 1/3;
-      
+@media only screen and (min-width: 37.5em) {
+  div.container {
     
   }
-  .imagehero img {
-    width: 100%;
+  .submitBt {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 10px auto;
+    width: 20%;
+    border-radius: 7px;
+    display: block;
   }
 
-  .logo {
-    margin-top: 0px;
-  }
-
-  div.g-signin2 {
-    margin-top: 20px;
-    float: none;
-    padding-left: 0;
-  
-  }
-
-  p {
-    text-align: center;
-    padding: 0;
-  }
-  .logo {
-    padding-left: 20px;
+  form .data {
+    
   }
 }
 
 /* Large View */
-/* @media only screen and (min-width: 64em) {
+@media only screen and (min-width: 64em) {
   form .data {
   }
-
-} */
+}
