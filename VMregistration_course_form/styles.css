@@ -264,9 +264,12 @@ input.invalid {
 
 .back {
   width: 25%;
-  height: 50px;
-  margin: 0 auto;
-grid-row: 1/2;
+  height: 40px;
+  margin: 20px auto;
+  grid-row: 1/2;
+  padding-top: 10px;
+  border-radius: 20px;
+  border: 1px solid #022d53;
 }
 .back:hover {
   background-color: #022d53;

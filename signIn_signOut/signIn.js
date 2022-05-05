@@ -14,11 +14,11 @@ async function onSignIn(googleUser) {
   console.log(getApiRoot);
   const baseApiUrl = getApiRoot.getApiRoot()
   console.log(baseApiUrl)
-  await axios.get(baseApiUrl, {withCredentials: true})
+  // await axios.get(baseApiUrl, {withCredentials: true})
 
-  await axios.get(`${baseApiUrl}`, {withCredentials : true})
+  // await axios.get(`${baseApiUrl}`, {withCredentials : true})
 
-  await axios.get(baseApiUrl, { withCredentials: true })
+  // await axios.get(baseApiUrl, { withCredentials: true })
 
   const postItem = () => {
     axios.post(`${baseApiUrl}/api/token`, {
