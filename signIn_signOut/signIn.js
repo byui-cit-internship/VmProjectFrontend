@@ -8,7 +8,7 @@ async function onSignIn(googleUser) {
   let accessToken = response.access_token;
   //var new_token = id_token.replaceAll(/\./g, "%2E")
   //console.log(new_token)
-  //Making a call to the back end to verify token and check wheather user exits in database 
+  //Making a call to the back end to verify token and check weather user exits in database 
   //they are a professor or student.
   let getApiRoot = await import('./getApiRoot.js')
   console.log(getApiRoot);
