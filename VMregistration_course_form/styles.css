@@ -17,12 +17,12 @@ body {
  h1{
 grid-row: 1/2;
  }
-
+/* 
  .open{
   background: none;
   border: none;
   margin: 0.5em;
- }
+ } */
 
 .container {
   width: 1000px;
@@ -51,32 +51,32 @@ div {
   grid-row: 2/2;
 }
 
-.logo{
+/* .logo{
   width: 150px;
   display: flex;
   padding-left: 50px;
   margin-top: 50px;
   grid-row: 1/2;
 
-}
+} */
 
-.i {
+/* .i {
   grid-column: 2/3;
   grid-row: 1/2;
   padding-top: 30px;
   color: #006eb6;
   text-align: left;
-}
+} */
 
-#welcome {
+/* #welcome {
   grid-column: 2/3;
   grid-row: 1/2;
   color: #006eb6;
   padding-top: 30px;
   padding-left: 30px;
   text-align: left;
-}
-.signOut {
+} */
+/* .signOut {
   grid-column: 2/3;
   grid-row: 1/2;
   background-color:transparent;
@@ -89,8 +89,8 @@ div {
 .signOut a {
   color: red;
   
-}
- .close button {
+} */
+ /* .close button {
   margin-top: 0.5em;
   -webkit-appearance: none;
   padding: 0;
@@ -102,13 +102,13 @@ div {
   background-color: #006eb6;
   height: 50%;
   width: 30%;
-}
+} */
 
 
 
-form label {
+/* form label {
   display: block;
-}
+} */
 
 label, input {
   padding: 12px 0 10px;
@@ -122,24 +122,27 @@ label, input {
   color: #ff0000;
   text-align: left;
 }
+
 input:invalid {
     border: 2px solid #000;
 }
+
 input:valid {
   border: 2px solid rgba(0,0,0,10%);
 }
-n {
+
+/* n {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-}
-input,
+} */
+/* input,
 textarea,
 select#semester,
 #vm_dropDown
 {
   width: 100%;
-}
+} */
 
 input,
 textarea,
@@ -149,14 +152,14 @@ select,
   width: 90%;
 }
 
-input {
+/* input {
   padding: 8px 0;
   width: 100%;
-}
-
+} */
+/* 
 textarea {
   padding: 10px 8px;
-}
+} */
 
 select {
   padding: 12px;
@@ -176,7 +179,7 @@ select {
   background-color: #006eb6
 }
 
-table {
+/* table {
   width: 100%;
   text-align: center;
   border-collapse: separate;
@@ -186,32 +189,32 @@ table td,
 table th {
   border: 1px solid #ddd;
   padding: 8px;
-}
+} */
 
 
 
-form .semester  {
-  /* margin-top: 5px; */
+/* form .semester  {
+  margin-top: 5px;
   display: block;
   padding: 0px;
   margin: 5px;
-}
+} */
 
-table th {
+/* table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
   background-color: #006eb6;;
   color: white;
   border-radius: 6px 6px 0 0;
-}
+} */
 
-.fa {
+/* .fa {
   position: relative;
   display: inline-block;
   cursor: pointer;
-}
-.fa .tooltiptext {
+} */
+/* .fa .tooltiptext {
   visibility: hidden;
   width: 160px;
   background-color: #8dd3ee;
@@ -223,8 +226,8 @@ table th {
   bottom: 150%;
   left: 50%;
   margin-left: -85px;
-}
-.fa .tooltiptext::after {
+} */
+/* .fa .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -236,8 +239,8 @@ table th {
 }
 .fa .show {
   visibility: visible;
-}
-th, td, p, input, h3 {
+} */
+/* th, td, p, input, h3 {
   font:15px 'Segoe UI';
 }
 table, th, td {
@@ -248,7 +251,7 @@ table, th, td {
 }
 th {
   font-weight:bold;
-}
+} */
 #nameError {
   display: none;
   font-size: 0.8em;
@@ -275,65 +278,66 @@ input.invalid {
   background-color: #022d53;
   color: white;
 }
-
+/* 
 .canvasToken{
   padding-bottom:0.5em ;
-}
+} */
 
-#more{
+/* #more{
   border: none;
   background-color: white;
-}
+} */
 
 /*modal */
-.modalForTemplate{
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+/* .modalForTemplate{
+  display: none; Hidden by default
+  position: fixed; Stay in place
+  z-index: 1; Sit on top
+  padding-top: 100px; Location of the box
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-.closeModal{
+  width: 100%; Full width
+  height: 100%; Full height
+  overflow: auto; Enable scroll if needed
+  background-color: rgb(0,0,0); Fallback color
+  background-color: rgba(0,0,0,0.4); Black w/ opacity
+} */
+/* .closeModal{
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
-}
-span{
+} */
+/* span{
   cursor: pointer;
     display: flex;
     justify-content: flex-end;
     margin-right: -1rem;
     margin-top: -1rem;
-}
-
+} */
+/* 
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-}
-
+} */
+/* 
 #open{
   margin: 0.5em;
-}
+} */
 
-#addmore{
+/* #addmore{
   background-color: blue;
-}
+} */
 
-#submitAddTemplates{
+/* #submitAddTemplates{
   margin: 0.5em;
-}
-/* animation*/
+} */
 
+
+/* animation*/
 
 .area{
   /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);   */

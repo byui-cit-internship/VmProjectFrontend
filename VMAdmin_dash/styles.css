@@ -22,9 +22,9 @@ body {
 
 
 
-div.g-signin2 {
+/* div.g-signin2 {
   margin: 15px;
-}
+} */
 div 
 {
   display: block;
@@ -49,30 +49,24 @@ label {
 
 }
 
-input,
-textarea,
-select#semester,
-#vm_dropDown
+input
 {
   width: 100%;
-}
-
-input {
   padding: 8px 0;
-
 }
 
+/* 
 textarea {
   padding: 10px 8px;
-}
+} */
 
-select {
+/* select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
   text-align: center;
-}
+} */
 
 .submitBt {
   font-size: 1.5rem;
@@ -83,11 +77,11 @@ select {
   display: block;
 }
 
-.btn-primary {
+/* .btn-primary {
   background-color: #006eb6 !important;
-}
+} */
 
-table {
+/* table {
   width: 100%;
   text-align: center;
   border-collapse: separate;
@@ -97,8 +91,8 @@ table td,
 table th {
   border: 1px solid #ddd;
   padding: 8px;
-  /* border-radius: 6px; */
-}
+  border-radius: 6px; 
+} */
  /* input:required {
   border-left: red solid 8px;
 } */
@@ -106,13 +100,13 @@ input:required:valid {
   border-bottom: green solid 5px;
 } 
 
-form .semester  {
-  /* margin-top: 5px; */
+/* form .semester  {
+  margin-top: 5px; 
   display: block;
   padding: 0px;
   margin: 5px;
-}
-
+} */
+/* 
 table th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -120,8 +114,8 @@ table th {
   background-color: #006eb6;
   color: white;
   border-radius: 6px 6px 0 0;
-}
-
+} */
+/* 
 .fa {
   position: relative;
   display: inline-block;
@@ -152,11 +146,11 @@ table th {
 }
 .fa .show {
   visibility: visible;
-}
-th, td, p, input, h3 {
+} */
+/* th, td, p, input, h3 {
   font:15px 'Segoe UI';
-}
-table, th, td {
+} */
+/* table, th, td {
   border: solid 1px #ddd;
   border-collapse: collapse;
   padding: 2px 3px;
@@ -164,15 +158,15 @@ table, th, td {
 }
 th {
   font-weight:bold;
-}
+} */
 
 .data{
   margin-bottom: 2.3em;
 }
-img{
+/* img{
   max-width: 150px;
   margin: 2em ;
-}
+} */
 
 /* animation*/
 
@@ -302,9 +296,9 @@ img{
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
-  div.container {
+  /* div.container {
     
-  }
+  } */
   .submitBt {
     font-size: 1.5rem;
     padding: 10px;
@@ -314,13 +308,13 @@ img{
     display: block;
   }
 
-  form .data {
+  /* form .data {
     
-  }
+  } */
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
-  form .data {
-  }
+  /* form .data {
+  } */
 }

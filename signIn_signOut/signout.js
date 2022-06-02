@@ -8,10 +8,8 @@ function signOut() {
         auth2.signOut().then( ()=> {
             console.log('User signed out.');
             window.location.href = "/"
-        });
-        
+        }); 
     });
-
 }
 
 function onLoad() {
