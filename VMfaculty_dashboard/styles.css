@@ -128,9 +128,6 @@ select#semester,
 input {
   padding: 8px 0;
 }
-button{
-  margin-bottom: 2em;
-}
 
 .addgrid{
   display: grid;
