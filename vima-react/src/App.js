@@ -5,7 +5,7 @@ import StudentDashboard from './StudentDashboard';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
-
+import jwt_decode from 'jwt-decode';
 
 const handleFailure = (result) => {
   console.log('There was a problem logging in.', result);
@@ -20,10 +20,12 @@ function App() {
   let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   
   const handleLogin = (googleData) => {
+    const googleCredentials=jwt_decode(googleData.credential);
+    const email = googleCredentials.email;
     setUserLoggedIn(true);
     userIsAdministrator=true;//we will need to change this to look up the user from the backend
     //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
-    console.log('You successfully logged in.', googleData);
+    console.log(`Welcome ${email} You successfully logged in.`, googleData);
     window.location.href="VMfaculty_dashboard/facultyview.html"
   
     return
