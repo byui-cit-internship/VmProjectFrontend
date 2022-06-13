@@ -1,7 +1,6 @@
 const FacultyDashboard = ()=>{
 return(
-
-    <div></div>
+    <div>Hello Faculty Dashboard</div>
 )
 }
 
