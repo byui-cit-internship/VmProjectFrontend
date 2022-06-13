@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="utilization.css" />
+<script type="module" src="utilization.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Utilization</title>
+</head>
+<body>
+    <div class="container">
+      <div class="VMU-header">
+        <a href="/VMfaculty_dashboard/facultyview.html" class="back"><i style="font-size:24px" class="fa">&#xf177;</i> Back</a>
+        <h1>Class VM utilization</h1>
+      </div>
+      <div class="course-select">
+    <label for="course_semester">Choose Semester
+        <!-- onchange="semester_update() -->
+          <select name="course_semester" id="course_semester">
+            <option value="Winter">Winter</option>
+            <option value="Spring">Spring</option>
+            <option value="Summer">Summer</option>
+            <option value="Fall">Fall</option>
+          </select>
+        </label>
+
+    <label class="chooseCourse" for="course">Course:
+      <select name="course" id="course">
+        <option value="Default">Default</option>
+          <!-- <option value="CIT171">CIT 171</option>
+          <option value="CIT270">CIT 270</option>
+          <option value="CIT353">CIT 353</option>
+          <option value="CIT354">CIT 354</option>
+          <option value="CIT470">CIT 470</option> -->
+        </select>
+    </label>
+
+        
+        </div>
+        <div>
+        <h2>Available templates for this Class</h2>
+        </div>
+            <div class="button">
+              <button class="btn"></button>
+            </div>
+
+
+    <div class="scoreboard" style="display:block;">
+      <table class="scoreboardTable">
+        <thead class="scoreboardtableHead">
+          <tr class="scoreboardtableHeaderRow">
+          <th>Student Name</th>
+          <th>Email</th>
+          <th>Virtual Machine</th>
+          <th>Class</th>
+          <th>Creation Date</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <!-- <div class="courseSelected"></div>
+    <div class="table_onCreate"></div>
+    <div class="status_btn"></div>
+    <div class="form-check">  -->
+    
+    <!-- <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a> -->
+
+    </div>
+
+    <div class="area" >
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+  </div >
+  <script type="module" src="utilization.js"></script>
+</body>
+</html>
