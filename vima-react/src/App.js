@@ -1,17 +1,34 @@
 import './App.css';
+import {useState,useRef} from 'react';
+import FacultyDashboard from './FacultyDashboard';
+import StudentDashboard from './StudentDashboard';
+
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 
-function App() {
-  const handleFailure = (result) => {
-    console.log('There was a problem logging in.', result);
-  };
 
+const handleFailure = (result) => {
+  console.log('There was a problem logging in.', result);
+};
+
+
+
+function App() {
+
+
+  const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
+  let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
+  
   const handleLogin = (googleData) => {
+    setUserLoggedIn(true);
+    userIsAdministrator=true;//we will need to change this to look up the user from the backend
     //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
     console.log('You successfully logged in.', googleData);
     window.location.href="VMfaculty_dashboard/facultyview.html"
+  
+    return
   };
+  if (!userIsLoggedIn){
 
   return (
     <div className="App">
@@ -63,6 +80,18 @@ function App() {
       </header>
     </div>
   );
+} else{
+
+  if(userIsAdministrator){
+  return (//View could work instead of div here, but not sure  
+      <FacultyDashboard></FacultyDashboard>
+  )
+  } else{
+    return (
+        <StudentDashboard></StudentDashboard>
+    )
+  }
+}
 }
 
 export default App;
