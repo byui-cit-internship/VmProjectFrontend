@@ -1,5 +1,5 @@
 import './App.css';
-import {useState,useRef} from 'react';
+import {useState, useRef} from 'react';
 import FacultyDashboard from './FacultyDashboard';
 import StudentDashboard from './StudentDashboard';
 
@@ -8,28 +8,34 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 
 const handleFailure = (result) => {
-  console.log('There was a problem logging in.', result);
-};
-
-
+    console.log('There was a problem logging in.', result);
+  };
+const isAdmin = [
+    'shaecarnahan@gmail.com',
+    'danieluribe@gmail.com'
+    ];
 
 function App() {
 
 
   const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
-  let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
-  
+  // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
+  const googleCredentials = useRef({});
   const handleLogin = (googleData) => {
-    const googleCredentials=jwt_decode(googleData.credential);
-    const email = googleCredentials.email;
+    googleCredentials.current = jwt_decode(googleData.credential);
+
+    const email = googleCredentials.current.email;
+
+    
+  
     setUserLoggedIn(true);
-    userIsAdministrator=true;//we will need to change this to look up the user from the backend
+    // userIsAdministrator=true;//we will need to change this to look up the user from the backend
     //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
-    window.location.href="VMfaculty_dashboard/facultyview.html"
+    
+  } 
+    
   
-    return
-  };
   if (!userIsLoggedIn){
 
   return (
@@ -81,17 +87,20 @@ function App() {
     </div>
   );
 } else{
+    console.log(googleCredentials.current.email);
+   if(isAdmin.includes(googleCredentials.current.email)){
+      return (//View could work instead of div here, but not sure  
+          <FacultyDashboard></FacultyDashboard>
+        // window.location.href="VMfaculty_dashboard/facultyview.html"
+      )
+      } 
+      else {
+        return (
+          // window.location.href="VMstudent_dashboard/studentview.html"
+            <StudentDashboard></StudentDashboard>
+        )
+      }}
+}
 
-  if(userIsAdministrator){
-  return (//View could work instead of div here, but not sure  
-      <FacultyDashboard></FacultyDashboard>
-  )
-  } else{
-    return (
-        <StudentDashboard></StudentDashboard>
-    )
-  }
-}
-}
 
 export default App;
