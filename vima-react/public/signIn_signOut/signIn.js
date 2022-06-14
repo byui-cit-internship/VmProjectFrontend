@@ -27,11 +27,11 @@ async function onSignIn(googleUser) {
       .then((response) => {
         console.log(response);
 
-        user = response.data;
+        let user = response.data;
         console.log(user)
         savetoken(user);
 
-        if (sessionStorage.getItem("isAdmin") == "true") {
+        if (sessionStorage.getItem("isAdmin") === "true") {
           window.location.href = "/VMfaculty_dashboard/facultyview.html";
         }
         else {

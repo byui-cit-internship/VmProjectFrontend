@@ -1,68 +1,39 @@
 import './App.css';
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { GoogleLogin } from '@react-oauth/google';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import AddProffesor from './components/faculty/addprofessor';
+import AddClass from './components/faculty/AddClass';
+import CanvasToken from './components/faculty/canvastoken';
 
 function App() {
-  const handleFailure = (result) => {
-    console.log('There was a problem logging in.', result);
-  };
-
-  const handleLogin = (googleData) => {
-    //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
-    console.log('You successfully logged in.', googleData);
-    window.location.href="VMfaculty_dashboard/facultyview.html"
-  };
-
+  const routes = [
+    // {path: '/', name: 'home', Component: },
+    // {path: '/login', name: 'login', Component: },
+    // {path: '/faculty', name: 'faculty', Component: },
+    // {path: '/student', name: 'student', Component: },
+    {path: '/faculty/canvasToken', name: 'canvasToken', Component: CanvasToken},
+    // {path: '/admin/utilization', name: 'utilization', Component: },
+    // {path: '/student/vm/createVM', name: 'createVM', Component: },
+    // {path: '/student/vm/vmHistory', name: 'vmHistory', Component: },
+    {path: '/faculty/addClass', name: 'addClass', Component: AddClass},
+    // {path: '/faculty/createNetwork', name: 'createNetwork', Component: },
+    // {path: '/faculty/createVLAN', name: 'createVLAN', Component: },
+    {path: '/admin/addProffesor', name: 'addProffessor', Component: AddProffesor},
+  ];
+  
   return (
-    <div className="App">
-    
-      <header className="App-header">
-        {/* <h1>React Google Login App</h1> */}
-        <body>
-    <div id="back_mobile" >
-      
-    </div>
-    <div class="container">
-      <div class="text">
-      <img  class="logo" src="images/LOGO-VIMA.png" alt='logo'/>
-      <h2>Welcome to <span id="vima">vima</span><br/>the VM self-service app</h2>
-      {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
-      <div class="imagehero">
-        <img src="/images/mobile-hero.png" alt='heroimg'/>
-      </div>
-      <p>Login with your BYUI account.</p>
-      {/* <div class="g-signin2" data-onsuccess="onSignIn" onclick="loadPage()" data-theme="dark"></div> */}
-      <div id='googlebutton'>
-            <GoogleOAuthProvider
-            clientId='705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com'
-            ><GoogleLogin
-            onSuccess={handleLogin}
-            onError={handleFailure}
-            ></GoogleLogin>          
-            </GoogleOAuthProvider>
-        </div>
-    </div>
-
-    </div>
-    <div class="area" >
-      <ul class="circles">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-      </ul>
-</div >
-  </body>
-        
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        {routes.map(({ path, Component, name }) => (
+            <Route
+              exact
+              key={name}
+              path={path}
+              element={<Component className="page" />}
+            />
+          ))}
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
 export default App;
