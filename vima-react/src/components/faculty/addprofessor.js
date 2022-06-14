@@ -1,10 +1,13 @@
 import React from "react";
 import Squares from "../../pages/squares";
+import "./addprofessor.css";
+import Header from "../../pages/header";
 
 function AddProffesor() {
     return (
         <div>        
-                <div class="container">
+            <div class="container">
+                <Header />
                 <h1>Add a Professor</h1>
                     <form action="#" id="professorSignup">
                         {/* <!-- Course Name--> */}

@@ -1,6 +1,7 @@
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import Squares from '../pages/squares';
+import "./signin-page.css"
 
 
 function Signin() {

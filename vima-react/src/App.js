@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import AddProffesor from './components/faculty/addprofessor';
 import AddClass from './components/faculty/AddClass';
@@ -35,5 +35,6 @@ function App() {
     </BrowserRouter>
   )
 }
+
 
 export default App;

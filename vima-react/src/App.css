@@ -80,6 +80,14 @@ body {
 
 }
 
+.right{
+  /* display: grid; */
+  display: flex;
+  /* grid-template-columns: 20% 80%; */
+  width: 100%;
+  justify-content: right;
+}
+
 .imagehero {
   display: none;
 }
@@ -107,7 +115,6 @@ div
   display: flex;
   padding-left: 50px;
   margin-top: 50px;
-
 }
 
 h2{
