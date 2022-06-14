@@ -35,18 +35,17 @@ function App() {
   return (
     <div className="App">
     
-      <header className="App-header">
+      <div className="App-header">
         {/* <h1>React Google Login App</h1> */}
-        <body>
     <div id="back_mobile" >
       
     </div>
-    <div class="container">
-      <div class="text">
-      <img  class="logo" src="images/LOGO-VIMA.png" alt='logo'/>
+    <div className="container">
+      <div className="text">
+      <img  className="logo" src="images/LOGO-VIMA.png" alt='logo'/>
       <h2>Welcome to <span id="vima">vima</span><br/>the VM self-service app</h2>
       {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
-      <div class="imagehero">
+      <div className="imagehero">
         <img src="/images/mobile-hero.png" alt='heroimg'/>
       </div>
       <p>Login with your BYUI account.</p>
@@ -63,8 +62,8 @@ function App() {
     </div>
 
     </div>
-    <div class="area" >
-      <ul class="circles">
+    <div className="area" >
+      <ul className="circles">
               <li></li>
               <li></li>
               <li></li>
@@ -77,9 +76,8 @@ function App() {
               <li></li>
       </ul>
 </div >
-  </body>
         
-      </header>
+      </div>
     </div>
   );
 } else{
