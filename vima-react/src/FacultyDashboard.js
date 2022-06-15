@@ -1,3 +1,9 @@
+import './faculty.css';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import DnsIcon from '@mui/icons-material/Dns';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonIcon from '@mui/icons-material/Person';
+
 const FacultyDashboard = ()=>{
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
@@ -6,7 +12,7 @@ return(
         <img class="logo" src="/images/LOGO-VIMA.png" alt="logo"/>
         <div class="professorgrid">
         <span class="material-icons">
-        person
+        <PersonIcon />
         </span>
         <p id="welcome">Welcome Professor |</p>
 
@@ -14,24 +20,24 @@ return(
     </div>
     <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
     <p id="greeting">How can we help you today?</p>
-    <div class="addgrid">
-      {/* <div onclick="location='/VMregistration_course_form/addclass.html'" class="add_class"> */}
+    {/* <div class="addgrid"> */}
+      <div onclick="location='/VMregistration_course_form/addclass.html'" class="add_class">
         <span class="material-icons">
-          add_circle_outline
+          <AddCircleOutlineIcon />
           </span>
-        <button class="submitBt">Add Class</button>
+        <button>Add Class</button>
     </div>
       <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="add_professor">
         <span class="material-icons">
-          person_add_alt_1
+          <PersonAddIcon />
         </span>
-        <button class="submit_professor">Add Professors</button>
+        <button>Add Professors</button>
       </div>
-      <div onclick="location='/vmutilization/utilization.html'" class="vm_utilization">
+      <div onClick="location='/vmutilization/utilization.html'" class="vm_utilization">
         <span class="material-icons">
-          dns
+          <DnsIcon />
         </span>
-        <button class="vm_utilization_text">VM Utilization</button>
+        <button>VM Utilization</button>
       </div>
     </div>
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}

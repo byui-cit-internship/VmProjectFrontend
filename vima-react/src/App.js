@@ -1,8 +1,8 @@
 import './App.css';
+import './Background.css';
 import {useState, useRef} from 'react';
 import FacultyDashboard from './FacultyDashboard';
 import StudentDashboard from './StudentDashboard';
-
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
@@ -10,13 +10,13 @@ import jwt_decode from 'jwt-decode';
 const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);
   };
+
 const isAdmin = [
     'shaecarnahan@gmail.com',
     'danieluribe@gmail.com'
     ];
 
 function App() {
-
 
   const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
@@ -26,15 +26,11 @@ function App() {
 
     const email = googleCredentials.current.email;
 
-    
-  
     setUserLoggedIn(true);
     // userIsAdministrator=true;//we will need to change this to look up the user from the backend
     //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
-    
   } 
-    
   
   if (!userIsLoggedIn){
 
@@ -66,7 +62,6 @@ function App() {
             </GoogleOAuthProvider>
         </div>
     </div>
-
     </div>
     <div className="area" >
       <ul className="circles">
@@ -81,9 +76,8 @@ function App() {
               <li></li>
               <li></li>
       </ul>
-</div >
-        
-      </div>
+    </div >
+    </div>
     </div>
   );
 } else{
@@ -101,6 +95,5 @@ function App() {
         )
       }}
 }
-
 
 export default App;
