@@ -10,7 +10,7 @@ async function onSignIn(googleUser) {
   //console.log(new_token)
   //Making a call to the back end to verify token and check weather user exits in database 
   //they are a professor or student.
-  let getApiRoot = await import('./getApiRoot.js')
+  let getApiRoot = await import('./getapiroot.js')
   console.log(getApiRoot);
   const baseApiUrl = getApiRoot.getApiRoot()
   console.log(baseApiUrl)

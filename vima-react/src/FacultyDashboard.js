@@ -3,8 +3,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
-import AddClass from './components/faculty/AddClass';
-import Background from './Background';
+import AddClass from './components/faculty/addclass';
+import Background from './background';
 
 const FacultyDashboard = ()=>{
 return(

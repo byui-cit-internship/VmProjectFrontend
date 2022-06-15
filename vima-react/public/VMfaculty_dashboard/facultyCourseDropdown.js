@@ -9,7 +9,7 @@
 
 // The session token that was stored, this token is used through out every API call
 
-import { getApiRoot } from "../../../signIn_signOut/getApiRoot.js";
+import { getApiRoot } from "../signin_signout/getapiroot.js";
 
 const professor_user_name = sessionStorage.getItem("user_name")
 const professor_name_element = document.querySelector("#name0fProfessor");
