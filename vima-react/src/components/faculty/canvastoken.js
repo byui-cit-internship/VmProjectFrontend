@@ -1,5 +1,5 @@
 import React from "react";
-import Squares from "../../pages/squares";
+import '../../Background.css';
 
 function CanvasToken() {
     return (
@@ -14,7 +14,6 @@ function CanvasToken() {
             </div>
             <input type="text" id="canvasToken"  name="canvas_token" placeholder="Enter your class token" required/> 
             <button id="validate">Submit</button>
-            <Squares />
         </main>
     )
 }

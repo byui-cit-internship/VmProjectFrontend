@@ -3,6 +3,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
+import AddClass from './components/faculty/AddClass';
 
 const FacultyDashboard = ()=>{
 return(
@@ -21,7 +22,7 @@ return(
     <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
     <p id="greeting">How can we help you today?</p>
     {/* <div class="addgrid"> */}
-      <div onclick="location='/VMregistration_course_form/addclass.html'" class="add_class">
+      <div onclick={<AddClass />} class="add_class">
         <span class="material-icons">
           <AddCircleOutlineIcon />
           </span>

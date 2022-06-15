@@ -1,6 +1,5 @@
 import React from "react";
-import Squares from "../../pages/squares";
-
+import '../../Background.css';
 
 function FacultyView() {
     return (
@@ -44,8 +43,6 @@ function FacultyView() {
 
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-
-       <Squares />
   </div>
     
     );

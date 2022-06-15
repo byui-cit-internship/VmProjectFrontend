@@ -1,5 +1,5 @@
 import React from "react";
-import Squares from "../../pages/squares";
+import '../../Background.css';
 import "./addprofessor.css";
 import Header from "../../pages/header";
 
@@ -24,7 +24,6 @@ function AddProffesor() {
                         <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
                     </form>
                 </div>
-            <Squares />
         </div>
     )
 }

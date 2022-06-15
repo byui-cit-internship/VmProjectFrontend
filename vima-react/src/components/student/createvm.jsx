@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import Squares from "../components/squares"
+import '../../Background.css';
 
 function CreateVM() {
     return (
@@ -26,7 +26,6 @@ function CreateVM() {
                 <input id ="vm_name" type="hidden" value ='Default Vm' />
                 <button id="buttonVm">Create</button>
             </div>
-            <Squares />
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
             </div>
         </div>
