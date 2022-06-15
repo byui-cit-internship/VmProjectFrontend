@@ -1,5 +1,5 @@
-import React from 'react'
-import Squares from '../../pages/squares';
+import React from 'react';
+import '../../Background.css';
 
 function AddClass() {
   return (
@@ -90,7 +90,6 @@ function AddClass() {
           </button>
         </form>
       </div>
-      <Squares />
     </div>
             
   )
