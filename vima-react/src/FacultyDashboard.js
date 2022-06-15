@@ -4,6 +4,7 @@ import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import AddClass from './components/faculty/AddClass';
+import Background from './Background';
 
 const FacultyDashboard = ()=>{
 return(
@@ -49,21 +50,8 @@ return(
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
-
-  <div class="area" >
-    <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-    </ul>
-</div>
+  <Background />
+ 
 </div>
 )
 }
