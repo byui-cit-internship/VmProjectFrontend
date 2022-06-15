@@ -13,7 +13,8 @@ const handleFailure = (result) => {
 
 const isAdmin = [
     'shaecarnahan@gmail.com',
-    'danieluribe@gmail.com'
+    'danielu35@gmail.com',
+    'kar18004@byui.edu'
     ];
 
 function App() {
