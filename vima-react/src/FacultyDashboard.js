@@ -3,10 +3,14 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
+import { useNavigate } from 'react-router-dom';
 import AddClass from './components/faculty/addclass';
 import Background from './background';
 
 const FacultyDashboard = ()=>{
+
+  let navigate = useNavigate();
+
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
 <div>
@@ -23,11 +27,11 @@ return(
     <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
     <p id="greeting">How can we help you today?</p>
     {/* <div class="addgrid"> */}
-      <div onclick={<AddClass />} class="add_class">
+        <div class="add_class">
         <span class="material-icons">
           <AddCircleOutlineIcon />
           </span>
-        <button>Add Class</button>
+        <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div>
       <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="add_professor">
         <span class="material-icons">
@@ -50,7 +54,7 @@ return(
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
-  <Background />
+  <Background/>
  
 </div>
 )
