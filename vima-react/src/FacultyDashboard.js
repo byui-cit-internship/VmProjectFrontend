@@ -3,6 +3,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
+import { useNavigate } from 'react-router-dom';
 import AddClass from './components/faculty/addclass';
 import Background from './background';
 
@@ -11,6 +12,8 @@ const iconStyles = {
 }
 
 const FacultyDashboard = ()=>{
+
+let navigate = useNavigate();
 
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
@@ -32,7 +35,7 @@ return(
         <span className="material-icons">
           <AddCircleOutlineIcon style={iconStyles}/>
         </span>
-        <button>Add Class</button>
+        <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div>
       <div onclick="location='/VMAdmin_dash/addprofessor.html'" className="add_professor">
         <span className="material-icons">
@@ -55,7 +58,7 @@ return(
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
-  <Background />
+  <Background/>
  
 </div>
 )

@@ -6,6 +6,8 @@ import StudentDashboard from './studentdashboard';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
+import Background from './Background';
+import FacultyRoute from './faculty-route';
 
 const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);
@@ -64,20 +66,7 @@ function App() {
         </div>
     </div>
     </div>
-    <div className="area" >
-      <ul className="circles">
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-      </ul>
-    </div >
+    <Background />
     </div>
     </div>
   );
@@ -85,7 +74,7 @@ function App() {
     console.log(googleCredentials.current.email);
    if(isAdmin.includes(googleCredentials.current.email)){
       return (//View could work instead of div here, but not sure  
-          <FacultyDashboard></FacultyDashboard>
+          <FacultyRoute></FacultyRoute>
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
