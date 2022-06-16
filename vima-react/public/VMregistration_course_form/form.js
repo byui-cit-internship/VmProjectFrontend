@@ -1,4 +1,4 @@
-import { getApiRoot } from "../signIn_signOut/getApiRoot.js"
+import { getApiRoot } from "../signin_signout/getapiroot.js";
 
 const register_tokenID = sessionStorage.getItem("token");
 const user_id = sessionStorage.getItem("user_id");

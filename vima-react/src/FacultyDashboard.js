@@ -3,8 +3,9 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
-import Background from './Background';
 import { useNavigate } from 'react-router-dom';
+import AddClass from './components/faculty/addclass';
+import Background from './background';
 
 const FacultyDashboard = ()=>{
 

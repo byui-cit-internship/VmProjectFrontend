@@ -1,4 +1,4 @@
-import { getApiRoot } from "../signIn_signOut/getApiRoot.js"
+import { getApiRoot } from "../signin_signout/getapiroot.js"
 
 const user_name = sessionStorage.getItem("user_name");
 const studentName = document.querySelector(".nameofStudent");
