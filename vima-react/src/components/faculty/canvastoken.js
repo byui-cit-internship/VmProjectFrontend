@@ -1,5 +1,5 @@
 import React from "react";
-import '../../Background.css';
+import '../../background.css';
 
 function CanvasToken() {
     return (

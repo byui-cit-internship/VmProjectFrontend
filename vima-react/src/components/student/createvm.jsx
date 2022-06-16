@@ -1,5 +1,5 @@
 import Header from "../components/header";
-import '../../Background.css';
+import '../../background.css';
 
 function CreateVM() {
     return (
