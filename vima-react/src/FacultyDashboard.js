@@ -1,4 +1,4 @@
-import './faculty.css';
+import './facultydashboard.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
@@ -7,41 +7,45 @@ import { useNavigate } from 'react-router-dom';
 import AddClass from './components/faculty/addclass';
 import Background from './background';
 
+const iconStyles = {
+    color: 'white', fontSize: '35px'
+}
+
 const FacultyDashboard = ()=>{
 
-  let navigate = useNavigate();
+let navigate = useNavigate();
 
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
 <div>
-    <div class="container">
-        <img class="logo" src="/images/LOGO-VIMA.png" alt="logo"/>
-        <div class="professorgrid">
-        <span class="material-icons">
-        <PersonIcon />
+    <div className="container">
+        <img className="logo" src="/images/LOGO-VIMA.png" alt="logo"/>
+        <div className="professorgrid">
+        <span className="material-icons">
+            <PersonIcon sx={{fontSize: '2rem'}} />
         </span>
         <p id="welcome">Welcome Professor |</p>
 
-        <button class="signOut">Sign out</button>
+        <button className="signOut">Sign out</button>
     </div>
     <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
     <p id="greeting">How can we help you today?</p>
     {/* <div class="addgrid"> */}
-        <div class="add_class">
-        <span class="material-icons">
-          <AddCircleOutlineIcon />
-          </span>
+      <div className="add_class">
+        <span className="material-icons">
+          <AddCircleOutlineIcon style={iconStyles}/>
+        </span>
         <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div>
-      <div onclick="location='/VMAdmin_dash/addprofessor.html'" class="add_professor">
-        <span class="material-icons">
-          <PersonAddIcon />
+      <div onclick="location='/VMAdmin_dash/addprofessor.html'" className="add_professor">
+        <span className="material-icons">
+          <PersonAddIcon style={iconStyles}/>
         </span>
         <button>Add Professors</button>
       </div>
-      <div onClick="location='/vmutilization/utilization.html'" class="vm_utilization">
-        <span class="material-icons">
-          <DnsIcon />
+      <div onClick="location='/vmutilization/utilization.html'" className="vm_utilization">
+        <span className="material-icons">
+          <DnsIcon style={iconStyles}/>
         </span>
         <button>VM Utilization</button>
       </div>

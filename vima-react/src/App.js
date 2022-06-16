@@ -1,5 +1,5 @@
-import './App.css';
-import './Background.css';
+import './app.css';
+import './background.css';
 import {useState, useRef} from 'react';
 import FacultyDashboard from './facultydashboard';
 import StudentDashboard from './studentdashboard';

@@ -1,5 +1,5 @@
 import React from "react";
-import '../../Background.css';
+import '../../background.css';
 import "./addprofessor.css";
 import Header from "../../pages/header";
 
