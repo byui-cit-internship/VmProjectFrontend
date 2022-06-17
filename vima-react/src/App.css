@@ -177,19 +177,6 @@ select {
   text-align: center;
 }
 
-.submitBt {
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 10px auto;
-  width: 90%;
-  border-radius: 7px;
-  display: block;
-}
-
-.btn-primary {
-  background-color: #006eb6 !important;
-}
-
 table {
   width: 100%;
   text-align: center;
