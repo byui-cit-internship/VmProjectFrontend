@@ -1,10 +1,10 @@
 import './App.css';
 import { useState, useRef } from 'react';
-import StudentDashboard from './studentsashboard';
+import StudentDashboard from './studentsDashboard';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
-import Background from './background';
+import Background from './Background';
 import FacultyRoute from './faculty-route';
 
 const handleFailure = (result) => {

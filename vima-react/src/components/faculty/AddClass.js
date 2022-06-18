@@ -1,4 +1,4 @@
-import Background from '../../background';
+import Background from '../../Background';
 import styles from './addclass.module.css';
 
 function AddClass() {
