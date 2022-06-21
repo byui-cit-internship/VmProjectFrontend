@@ -1,50 +1,51 @@
-import './facultydashboard.css';
+// import './facultydashboard.css';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
-import AddClass from './components/faculty/addclass';
+// import AddClass from './components/faculty/addclass';
 import Background from './background';
+import styles from './facultydashboard.module.css';
 
 const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
-const FacultyDashboard = ()=>{
+const FacultyDashboard = () => {
 
 let navigate = useNavigate();
 
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
 <div>
-    <div className="container">
-        <img className="logo" src="/images/LOGO-VIMA.png" alt="logo"/>
-        <div className="professorgrid">
-        <span className="material-icons">
-            <PersonIcon sx={{fontSize: '2rem'}} />
+    <div className={styles.container}>
+        <img className={styles.logo} src="/images/LOGO-VIMA.png" alt="logo"/>
+        <div className={styles.professorgrid}>
+        <span className={styles.materialicons}>
+            <PersonIcon sx={{fontSize: '2rem', paddingLeft: "10px"}} />
         </span>
-        <p id="welcome">Welcome Professor |</p>
+        <p id={styles.welcome}>Welcome Professor |</p>
 
-        <button className="signOut">Sign out</button>
+        <button className={styles.signOut}>Sign out</button>
     </div>
-    <h1 id="name0fProfessor">Hello <span>Professor</span></h1>
-    <p id="greeting">How can we help you today?</p>
+    <h1 id={styles.nameOfProfessor}>Hello <span>Professor</span></h1>
+    <p id={styles.greeting}>How can we help you today?</p>
     {/* <div class="addgrid"> */}
-      <div className="add_class">
-        <span className="material-icons">
+      <div className={styles.add_class}>
+        <span className={styles.materialicons}>
           <AddCircleOutlineIcon style={iconStyles}/>
         </span>
         <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div>
-      <div onclick="location='/VMAdmin_dash/addprofessor.html'" className="add_professor">
-        <span className="material-icons">
+      <div onclick="location='/VMAdmin_dash/addprofessor.html'" className={styles.add_professor}>
+        <span className={styles.materialicons}>
           <PersonAddIcon style={iconStyles}/>
         </span>
         <button>Add Professors</button>
       </div>
-      <div onClick="location='/vmutilization/utilization.html'" className="vm_utilization">
-        <span className="material-icons">
+      <div onClick="location='/vmutilization/utilization.html'" className={styles.vm_utilization}>
+        <span className={styles.materialicons}>
           <DnsIcon style={iconStyles}/>
         </span>
         <button>VM Utilization</button>
