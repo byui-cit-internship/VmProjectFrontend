@@ -7,11 +7,8 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import Background from './background';
 import FacultyRoute from './faculty-route';
-
 import styles from './app.module.css';
 import background from './background.module.css';
-
-
 
 const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);
@@ -59,7 +56,7 @@ function App() {
       </div>
       <p>Login with your BYUI account.</p>
       {/* <div class="g-signin2" data-onsuccess="onSignIn" onclick="loadPage()" data-theme="dark"></div> */}
-      <div id='googlebutton'>
+      <div className={styles.google_button}>
             <GoogleOAuthProvider
             clientId='705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com'
             ><GoogleLogin

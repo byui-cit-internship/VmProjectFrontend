@@ -10,7 +10,7 @@ https://www.byui.edu/branding/color-guide
 body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
-  text-align: center;
+  /* text-align: center; */
 }
 div.container {
   max-width: 500px;

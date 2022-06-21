@@ -147,7 +147,7 @@ button {
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 25px;  
+  padding-top: 20px;  
 }
 
 .add_class{
@@ -175,7 +175,7 @@ button {
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .vm_utilization {
@@ -202,7 +202,7 @@ button {
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .vm_utilization a {
