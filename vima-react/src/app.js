@@ -6,7 +6,7 @@ import StudentDashboard from './studentdashboard';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
-import Background from './Background';
+import Background from './background';
 import FacultyRoute from './faculty-route';
 
 const handleFailure = (result) => {
