@@ -1,13 +1,13 @@
 import React from "react";
 import '../../background.css';
 import "./addprofessor.css";
-import Header from "../../pages/header";
+// import Header from "../../pages/header";
 
-function AddProffesor() {
+function AddProfessor() {
     return (
         <div>        
             <div class="container">
-                <Header />
+                {/* <Header /> */}
                 <h1>Add a Professor</h1>
                     <form action="#" id="professorSignup">
                         {/* <!-- Course Name--> */}
@@ -27,4 +27,4 @@ function AddProffesor() {
         </div>
     )
 }
-export default AddProffesor;
+export default AddProfessor;
