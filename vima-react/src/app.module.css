@@ -7,7 +7,10 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.google_button {
+    padding-left: 49px;
+    padding-top: 8px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .applogo {
     animation: App-logo-spin infinite 20s linear;
@@ -310,6 +313,8 @@ th {
     background-image: none;
     background-color:#006db600;
   }
+
+  
 
   .text {
     grid-row: 1/3;
