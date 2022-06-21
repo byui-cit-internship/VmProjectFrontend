@@ -62,7 +62,7 @@ h1{
   body {
     background-color: #006eb6;
     font-family: "Raleway", sans-serif;
-    text-align: center;
+    /* text-align: center; */
   }
    h1{
   grid-row: 1/2;
@@ -90,7 +90,7 @@ h1{
   div {
     display: block;
     margin: auto auto;
-    width: 70%;
+    /* width: 70%; */
   }
   
   .column1{

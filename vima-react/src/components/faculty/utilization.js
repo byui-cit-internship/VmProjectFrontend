@@ -1,7 +1,5 @@
 import React from "react";
-import '../../background.css';
-import "./addprofessor.css";
-// import Header from "../../pages/header";
+// import background from './background.module.css';
 
 function Utilization() {
     return (

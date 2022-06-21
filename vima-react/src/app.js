@@ -1,5 +1,5 @@
-import './app.css';
-import './background.css';
+// import './app.css';
+// import './background.css';
 import {useState, useRef} from 'react';
 import StudentRoute from './student-route';
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -7,6 +7,11 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import Background from './background';
 import FacultyRoute from './faculty-route';
+
+import styles from './app.module.css';
+import background from './background.module.css';
+
+
 
 const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);
@@ -37,19 +42,19 @@ function App() {
   if (!userIsLoggedIn){
 
   return (
-    <div className="App">
+    <div className={styles.app}>
     
-      <div className="App-header">
+      <div className={styles.appheader}>
         {/* <h1>React Google Login App</h1> */}
-    <div id="back_mobile" >
+    {/* <div id="back_mobile" >
       
-    </div>
-    <div className="container">
-      <div className="text">
-      <img  className="logo" src="images/LOGO-VIMA.png" alt='logo'/>
+    </div> */}
+    <div className={styles.container}>
+      <div className={styles.text}>
+      <img className={styles.logo} src="images/LOGO-VIMA.png" alt='logo'/>
       <h2>Welcome to <span id="vima">vima</span><br/>the VM self-service app</h2>
       {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
-      <div className="imagehero">
+      <div className={styles.imagehero}>
         <img src="/images/mobile-hero.png" alt='heroimg'/>
       </div>
       <p>Login with your BYUI account.</p>
