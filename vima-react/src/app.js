@@ -1,7 +1,7 @@
 import './app.css';
 import './background.css';
 import {useState, useRef} from 'react';
-import FacultyDashboard from './FacultyDashboard';
+import FacultyDashboard from './facultydashboard';
 import StudentDashboard from './studentdashboard';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';

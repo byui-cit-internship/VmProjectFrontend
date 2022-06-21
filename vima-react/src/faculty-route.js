@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddClass from './components/faculty/AddClass';
+import AddClass from './components/faculty/addclass';
 import FacultyDashboard from './facultydashboard';
 
 function FacultyRoute() {
