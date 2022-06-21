@@ -1,12 +1,13 @@
 import React from "react";
-import '../../background.css';
-import "./addprofessor.css";
+// import background from './background.module.css';
+import addprofessor from './addprofessor.module.css';
+
 // import Header from "../../pages/header";
 
 function AddProfessor() {
     return (
         <div>        
-            <div class="container">
+            <div className= {addprofessor.container}>
                 {/* <Header /> */}
                 <h1>Add a Professor</h1>
                     <form action="#" id="professorSignup">

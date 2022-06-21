@@ -1,10 +1,12 @@
 import React from 'react';
-import '../../background.css';
+// import background from './background.module.css';
+import addclass from './addclass.module.css';
+
 
 function AddClass() {
   return (
     <div>
-      <div class="container">
+      <div className= {addclass.container}>
         <h1>Add Class</h1>
         <a href="/VMfaculty_dashboard/facultyview.html" class="back">Back</a>
         <form>
