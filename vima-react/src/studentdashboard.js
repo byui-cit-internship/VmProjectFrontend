@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+
+
 const StudentDashboard = ()=>{
+    let navigate = useNavigate();
+
     return(
-        <div>
-            Hello student
-        </div>
+        <>
+            Here is the Dashboard. Good luck. 
+        </>
     )
 }
 export default StudentDashboard;

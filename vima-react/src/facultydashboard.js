@@ -4,7 +4,6 @@ import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
-import AddClass from './components/faculty/AddClass';
 import Background from './background';
 
 const iconStyles = {
