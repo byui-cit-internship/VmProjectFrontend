@@ -38,17 +38,17 @@ return(
         </span>
         <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div>
-      <div onclick="location='/VMAdmin_dash/addprofessor.html'" className={styles.add_professor}>
+      <div className={styles.add_professor}>
         <span className={styles.materialicons}>
           <PersonAddIcon style={iconStyles}/>
         </span>
-        <button>Add Professors</button>
+        <button onClick={() => {navigate("/addprofessor")}}>Add Professors</button>
       </div>
-      <div onClick="location='/vmutilization/utilization.html'" className={styles.vm_utilization}>
+      <div className={styles.vm_utilization}>
         <span className={styles.materialicons}>
           <DnsIcon style={iconStyles}/>
         </span>
-        <button>VM Utilization</button>
+        <button onClick={() => {navigate("/utilization")}}>VM Utilization</button>
       </div>
     </div>
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
