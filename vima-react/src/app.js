@@ -1,7 +1,7 @@
 import './app.css';
 import './background.css';
 import {useState, useRef} from 'react';
-import StudentDashboard from './studentdashboard';
+import StudentRoute from './student-route';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
@@ -80,7 +80,7 @@ function App() {
       else {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
-            <StudentDashboard></StudentDashboard>
+            <StudentRoute />
         )
       }}
 }
