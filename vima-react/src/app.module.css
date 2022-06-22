@@ -131,7 +131,6 @@ p{
   padding-left: 50px;
   margin-bottom: 0;
   color: black;
-  margin-top: 1em;
 }
 .image {
   display: none;
@@ -156,7 +155,7 @@ label {
   font-size: 1.5rem;
 }
 
-input,
+.input,
 textarea,
 select#semester,
 #vm_dropDown
@@ -164,7 +163,7 @@ select#semester,
   width: 100%;
 }
 
-input {
+.input {
   padding: 8px 0;
 }
 
@@ -178,19 +177,6 @@ select {
   border-radius: 4px;
   resize: vertical;
   text-align: center;
-}
-
-.submitBt {
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 10px auto;
-  width: 90%;
-  border-radius: 7px;
-  display: block;
-}
-
-.btn-primary {
-  background-color: #006eb6 !important;
 }
 
 table {
