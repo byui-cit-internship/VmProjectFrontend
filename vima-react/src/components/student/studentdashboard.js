@@ -1,59 +1,138 @@
-import react from "react";
-import "../App.css";
-import Background from "../../background";
-import style from "./studentdashboard.module.css";
+// import react from "react";
+// import Background from "../../background";
+// import studentDashboard from "./studentdashboard.module.css";
 
-class StudentDashboard extends react.Component{
-    render() {
-        return (
-            
-          
+// import './facultydashboard.css';
 
-<body>
 
-  {/* <!-- <a href="#" onclick="signOut();">Sign out</a> --> */}
-  <div class={style.container}>
-    <img class="logo" src="/images/LOGO-VIMA.png"/>
-    <div class="professorgrid">
-    <span class="material-icons">
-      person
-      </span>
-      <p id="welcome">Welcome Student |</p>
 
-      <button class="signOut">Sign out</button>
+
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import Computer from '@mui/icons-material/Computer';
+import PersonIcon from '@mui/icons-material/Person';
+import { useNavigate } from 'react-router-dom';
+// import AddClass from './components/faculty/addclass';
+import Background from '../../background';
+import studentDashboard from "./studentdashboard.module.css";
+
+
+
+const iconStyles = {
+    color: 'white', fontSize: '35px'
+}
+
+const StudentDashboard = () => {
+
+let navigate = useNavigate();
+
+return(
+    // window.location.href="VMfaculty_dashboard/facultyview.html";
+<div>
+    <div className={studentDashboard.container}>
+        <img className={studentDashboard.logo} src="./../../vima-react/public/images/LOGO-VIMA.png" alt="logo"/>
+        <div className={studentDashboard.professorgrid}>
+        <span className={studentDashboard.materialicons}>
+            <PersonIcon sx={{fontSize: '2rem', paddingLeft: "10px"}} />
+        </span>
+        <p id={studentDashboard.welcome}>Welcome Student |</p>
+
+        <button className={studentDashboard.signOut}>Sign out</button>
     </div>
-    <h1 id="name0fProfessor">Hello <span>Student</span></h1>
-    <p id="greeting">How can we help you today?</p>
-    <div class="addgrid">
-      <div onclick="location='/VMstudent_dashboard/studentview.html'" class="add_class">
-        <span class="material-icons">
-          add_circle_outline
-          </span>
-        <a class="submitBt">Create VM</a>
+    <h1 id={studentDashboard.nameOfStudent}>Hello <span>Student</span></h1>
+    <p id={studentDashboard.greeting}>How can we help you today?</p>
+    {/* <div class="addgrid"> */}
+      {/* <div className={studentDashboard.add_class}>
+        <span className={studentDashboard.materialicons}>
+          <AddCircleOutlineIcon style={iconStyles}/>
+        </span>
+        <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
+    </div> */}
+      <div className={studentDashboard.add_professor}>
+        <span className={studentDashboard.materialicons}>
+          <AddCircleOutlineIcon studentDashboard={iconStyles}/>
+        </span>
+        <button onClick={() => {navigate("/vmcreated")}}>Create VM</button>
       </div>
-      <div onclick="location='/VMstudent_dashboard/studentview.html'" class="add_professor">
-        <span class="material-icons">
-          computer
-          </span>
-        <a  class="submit_professor">My VMs</a>
+      <div className={studentDashboard.vm_utilization}>
+        <span className={studentDashboard.materialicons}>
+          <Computer studentDashboard={iconStyles}/>
+        </span>
+        <button onClick={() => {navigate("/vmhistory")}}>My VMS</button>
       </div>
-     
     </div>
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
 
-    {/* <!-- <div id="admin_portal"> -->
-    </div> */}
+    {/* <!-- <div id="admin_portal"> --> */}
+    {/* </div> */}
 
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  </div>
 
- <Background />
-
-</body>
-          
-        );
-    }
+  <Background/>
+ 
+</div>
+)
 }
 
-export default StudentDashboard; 
+export default StudentDashboard;
+
+
+
+
+
+
+
+// class StudentDashboard extends react.Component{
+//     render() {
+//         return (
+            
+          
+
+// <body>
+
+//   {/* <!-- <a href="#" onclick="signOut();">Sign out</a> --> */}
+//   <div className={studentDashboard.container}>
+//     <img className="logo" src="/images/LOGO-VIMA.png"/>
+//     <div className="professorgrid">
+//     <span className="material-icons">
+//       person
+//       </span>
+//       <p id="welcome">Welcome Student |</p>
+
+//       <button className="signOut">Sign out</button>
+//     </div>
+//     <h1 id="name0fStudent">Hello <span>Student</span></h1>
+//     <p id="greeting">How can we help you today?</p>
+//     <div className="addgrid">
+//       <div onclick="location='/VMstudent_dashboard/studentview.html'" class="add_class">
+//         <span className="material-icons">
+//           add_circle_outline
+//           </span>
+//         <a className="submitBt">Create VM</a>
+//       </div>
+//       <div onclick="location='/VMstudent_dashboard/studentview.html'" class="add_professor">
+//         <span className="material-icons">
+//           computer
+//           </span>
+//         <a  className="submit_professor">My VMs</a>
+//       </div>
+     
+//     </div>
+//         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
+
+//     {/* <!-- <div id="admin_portal"> -->
+//     </div> */}
+
+
+//     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+//   </div>
+
+//  <Background />
+
+// </body>
+          
+//         );
+//     }
+// }
+
+// export default StudentDashboard; 

@@ -1,3 +1,226 @@
-.container {
+/* BYUI Color Guide
+BYUI blue: #006EB6
+black: #000000
+white: #FFFFFF
+https://www.byui.edu/branding/color-guide
+*/
+
+/* Small View */
+* {
+    margin: 0;
+  }
+  
+  .container {
+    width: 1000px;
+    background-color: white;
+    /* text-align: center; */
+    margin-top: 50px;
+    height: 500px;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    grid-template-rows: 25% 70%;
+    background-image: url('/public/images/background.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position-x: -10%;
+    background-position-y: 110%;
+  }
+  
+  h1 {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    padding-left: 49px;
+  }
+  
+  .logo{
+    width: 150px;
+    display: flex;
+    padding-left: 50px;
+    margin-top: 50px;
+    grid-row: 1/2;
+  }
+  
+  #name0fStudent {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    text-align: left;
+    font-size: 40px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    padding-left: 50px;
+    color: black;
+  }
+  
+  #name0fStudent span {
+    font-weight: bold;
+  }
+  
+  #greeting {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
+    text-align: left;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-left: 50px;
+    color: black;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  
+  .studentgrid {
+    grid-column: 2/3;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 8% 60% 30%;
+    margin: auto 25px;
+  }
+  
+  .materialicons {
+    grid-column: 1/2;
+    color: #006eb6;
+    text-align: left;
+    /* font-size: 50px; */
+  }
+  
+  #welcome {
+    grid-column: 2/3;
+    color: #006eb6;
+    font-size: 1.1em;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+  }
+  
+  .signOut {
+    grid-column: 3/4;
+    background-color:transparent;
+    color: #006eb6;
+    width: 100%;
+    height: 25px;
+    border-radius: 10px;
+    border: #006eb6 1px solid;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 15px;
+  }
+  
+  .signOut:hover {
+    background-color: #006eb6;
+    color: white;
+  
+  }
+  
+  button {
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 34px;
+    float: left;
+    padding-left: 20px;
+    /* width: 200px; */
+    border: transparent;
+  }
+  
+  .add_professor {
+    font-size: 20px;
+    /* float: left; */
+    width: 300px;
+    height: 90px;
+    border-radius: 7px 0px 0px 7px;
+    grid-column: 2/3;
+    background-color: #3A8ACE;
+    color: white;
+    grid-row: 2/3;
+    margin-right: 0px;
+  }
+  
+  .add_professor:hover {
+    background-color: #022d53;
+  }
+  
+  .add_professor span {
+    color: white;
+    font-size: 40px;
+    float: left;
+    padding-left: 40px;
+    padding-top: 25px;  
+  }
+  
+  .add_class{
+    font-size: 20px;
+    float: left;
+    width: 300px;
+    height: 90px;
+    border-radius: 7px 0px 0px 7px;
+    display: block;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: #5BBCFB;
+    color: white;
+    grid-row: 2/3;
+    margin-top: 15px;
+    margin-right: 0px;
+  }
+  
+  .add_class:hover {
+    background-color: #022d53;
+  }
+  
+  .add_class span {
+    color: white;
+    font-size: 40px;
+    float: left;
+    padding-left: 40px;
+    padding-top: 25px;
+  }
+  
+  .vm_utilization {
+    font-size: 20px;
+    float: left;
+    width: 300px;
+    height: 90px;
+    border-radius: 7px 0px 0px 7px;
+    display: block;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: #1A63A1;
+    color: white;
+    margin-top: 245px;
+    margin-right: 0px;
+  }
+  
+  .vm_utilization:hover {
+    background-color: #022d53;
+  }
+  
+  .vm_utilization span {
+    color: white;
+    font-size: 40px;
+    float: left;
+    padding-left: 40px;
+    padding-top: 25px;
+  }
+  
+  .vm_utilization a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: 30px;
+    float: left;
+    padding-left: 20px;
+  }
+  
+  /* Medium View */
+  @media only screen and (min-width: 37.5em) {
     
-}
+  }
+  
+  /* Large View */
+  @media only screen and (min-width: 64em) {
+  
+  }
+  

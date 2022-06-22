@@ -1,13 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
-const StudentDashboard = ()=>{
-    let navigate = useNavigate();
+// const StudentDashboard = ()=>{
+//     let navigate = useNavigate();
 
-    return(
-        <>
-            Here is the Dashboard. Good luck. 
-        </>
-    )
-}
-export default StudentDashboard;
+//     return(
+//         <>
+//             Here is the Dashboard. Good luck. 
+//         </>
+//     )
+// }
+// export default StudentDashboard;
