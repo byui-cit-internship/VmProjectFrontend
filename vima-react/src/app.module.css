@@ -131,7 +131,6 @@ p{
   padding-left: 50px;
   margin-bottom: 0;
   color: black;
-  margin-top: 1em;
 }
 .image {
   display: none;
@@ -156,7 +155,11 @@ label {
   font-size: 1.5rem;
 } */
 
+<<<<<<< HEAD
 /* input,
+=======
+.input,
+>>>>>>> fe510f5653441e11a501fbdb87eb2c4cbcadfb98
 textarea,
 select#semester,
 #vm_dropDown
@@ -164,7 +167,11 @@ select#semester,
   width: 100%;
 } */
 
+<<<<<<< HEAD
 /* input {
+=======
+.input {
+>>>>>>> fe510f5653441e11a501fbdb87eb2c4cbcadfb98
   padding: 8px 0;
 } */
 
@@ -180,6 +187,7 @@ select#semester,
   text-align: center;
 } */
 
+<<<<<<< HEAD
 /* .submitBt {
   font-size: 1.5rem;
   padding: 10px;
@@ -193,6 +201,8 @@ select#semester,
   background-color: #006eb6 !important;
 } */
 /* 
+=======
+>>>>>>> fe510f5653441e11a501fbdb87eb2c4cbcadfb98
 table {
   width: 100%;
   text-align: center;

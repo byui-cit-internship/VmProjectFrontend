@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import StudentDashboard from './studentdashboard';
+import StudentDashboard from '../src/components/student/studentdashboard';
 
 
 function StudentRoute() {
