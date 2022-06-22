@@ -51,6 +51,8 @@ return(
         <button onClick={() => {navigate("/utilization")}}>VM Utilization</button>
       </div>
     </div>
+    <button onClick={() => {navigate("/createvm")}}>Create VM</button>
+
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
 
     {/* <!-- <div id="admin_portal"> --> */}

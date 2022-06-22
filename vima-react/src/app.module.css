@@ -20,7 +20,7 @@
 .appheader {
   background-size: cover;
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -87,18 +87,18 @@ body {
   display: none;
 }
 
-div.g-signin2 {
+/* div.g-signin2 {
   margin-top: 20px;
   float: left;
   padding-left: 50px;
 
-}
+} */
 
-div 
+/* div 
 {
   display: block;
   margin: auto auto;
-}
+} */
 
 .text {
   margin: 0;
@@ -140,100 +140,100 @@ p{
   color:#006eb6;
   font-weight: bold;
 }
-form {
+/* form {
   text-align: center;
-}
+} */
 
-form .data {
+/* form .data {
   text-align: left;
   width: 90%;
-}
-
+} */
+/* 
 label {
   padding: 12px 0 10px;
   display: inline-block;
   margin: 0.7%;
   font-size: 1.5rem;
-}
+} */
 
-input,
+/* input,
 textarea,
 select#semester,
 #vm_dropDown
 {
   width: 100%;
-}
+} */
 
-input {
+/* input {
   padding: 8px 0;
-}
+} */
 
-textarea {
+/* textarea {
   padding: 10px 8px;
-}
+} */
 
-select {
+/* select {
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
   text-align: center;
-}
+} */
 
-.submitBt {
+/* .submitBt {
   font-size: 1.5rem;
   padding: 10px;
   margin: 10px auto;
   width: 90%;
   border-radius: 7px;
   display: block;
-}
+} */
 
-.btn-primary {
+/* .btn-primary {
   background-color: #006eb6 !important;
-}
-
+} */
+/* 
 table {
   width: 100%;
   text-align: center;
   border-collapse: separate;
-}
+} */
 
-table td,
+/* table td,
 table th {
   border: 1px solid #ddd;
   padding: 8px;
-  /* border-radius: 6px; */
-}
-input:required {
+  border-radius: 6px;
+} */
+/* input:required {
   border-left: red solid 8px;
-}
-input:required:valid {
+} */
+/* input:required:valid {
   border-left: green solid 8px;
-}
-
+} */
+/* 
 form .semester  {
-  /* margin-top: 5px; */
+  margin-top: 5px;
   display: block;
   padding: 0px;
   margin: 5px;
-}
+} */
 
-table th {
+/* table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
   background-color: #006eb6;
   color: white;
   border-radius: 6px 6px 0 0;
-}
+} */
 
-.fa {
+/* .fa {
   position: relative;
   display: inline-block;
   cursor: pointer;
-}
-.fa .tooltiptext {
+} */
+/* .fa .tooltiptext {
   visibility: hidden;
   width: 160px;
   background-color: #8dd3ee;
@@ -245,8 +245,8 @@ table th {
   bottom: 150%;
   left: 50%;
   margin-left: -85px;
-}
-.fa .tooltiptext::after {
+} */
+/* .fa .tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -255,22 +255,22 @@ table th {
   border-width: 5px;
   border-style: solid;
   border-color: #8dd3ee transparent transparent transparent;
-}
-.fa .show {
+} */
+/* .fa .show {
   visibility: visible;
-}
+} */
 th, td, p, input, h3 {
   font:15px 'Segoe UI';
 }
-table, th, td {
+/* table, th, td {
   border: solid 1px #ddd;
   border-collapse: collapse;
   padding: 2px 3px;
   text-align: center;
-}
-th {
+} */
+/* th {
   font-weight:bold;
-}
+} */
 
 #googlebutton {
   text-align: left;
@@ -280,8 +280,8 @@ th {
 
 
 /* Medium View */
-@media only screen and (max-width: 1000px) {
-  .circles li{
+/* @media only screen and (max-width: 1000px) { */
+  /* .circles li{
     display: none;
   }
   h2 {
@@ -349,7 +349,7 @@ th {
   .logo {
     padding-left: 20px;
   }
-}
+} */
 
 /* Large View */
 /* @media only screen and (min-width: 64em) {

@@ -6,36 +6,36 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
-body {
+/* body {
     background-color: #006eb6;
     font-family: "Raleway", sans-serif;
     /* text-align: center; */
-}
-div {
+/* } */
+/* div {
     display: block;
     margin: auto auto;
     width: 90%;
-}
+} */
 /* h1{
     grid-row: 1/2;
 } */
-h2 {
+/* h2 {
     color: #006eb6;
     font-size: 18px;
 }
 .back {
     text-decoration: none;
     color: #006eb6;
-}
-.container {
+} */
+/* .container {
     width: 1000px;
     background-color: white;
     margin-top: 50px;
       height: 500px;
       border-radius: 50px;
-      /* padding: 10px;
+      padding: 10px;
     padding-left: 50px;
-    padding-right: 50px; */
+    padding-right: 50px;
   
 }
 label {
@@ -46,10 +46,10 @@ label {
     padding: 20px;
     border: none;
     border-radius: 8px;
-}
+} */
 
 /** VM utilization **/
-.button {
+/* .button {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
@@ -61,20 +61,20 @@ label {
 }
 .VMU-header a {
     align-self: center;
-}
+} */
 /*********************/
 
 
 /* animation*/
-.area{
+/* .area{ */
     /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);   */
-    width: 100%;
+    /* width: 100%; */
     /* height:100vh; */
     
-}  
-.circles{
+/* }   */
+/* .circles{ */
     /* position: absolute; */
-    top: 0;
+    /* top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -171,4 +171,4 @@ label {
         border-radius: 50%;
     }
     
-}
+} */
