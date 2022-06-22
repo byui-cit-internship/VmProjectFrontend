@@ -1,10 +1,13 @@
 import React from "react";
 // import background from './background.module.css';
 import addprofessor from './addprofessor.module.css';
+import { useNavigate } from 'react-router-dom';
 
 // import Header from "../../pages/header";
 
 function AddProfessor() {
+    let navigate = useNavigate();
+
     return (
         <div>        
             <div className= {addprofessor.container}>
@@ -22,7 +25,7 @@ function AddProfessor() {
                         </div>
 
                         <button type="submit"  id="submit" class="save submitBt btn-primary">Save</button>
-                        <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a>
+                        <button onClick={() => {navigate("/")}} class="submitBt btn-primary">Back</button>
                     </form>
                 </div>
         </div>
