@@ -29,7 +29,7 @@ return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
 <div>
     <div className={studentDashboard.container}>
-        <img className={studentDashboard.logo} src="./../../vima-react/public/images/LOGO-VIMA.png" alt="logo"/>
+        <img className={studentDashboard.logo} src="/images/LOGO-VIMA.png" alt="logo" />
         <div className={studentDashboard.professorgrid}>
         <span className={studentDashboard.materialicons}>
             <PersonIcon sx={{fontSize: '2rem', paddingLeft: "10px"}} />
