@@ -32,7 +32,7 @@ return(
         <img className={studentDashboard.logo} src="/images/LOGO-VIMA.png" alt="logo" />
         <div className={studentDashboard.professorgrid}>
         <span className={studentDashboard.materialicons}>
-            <PersonIcon sx={{fontSize: '2rem', paddingLeft: "10px"}} />
+            <PersonIcon sx={{fontSize: '2.5rem', paddingLeft: "10px"}} className={ studentDashboard.material } />
         </span>
         <p id={studentDashboard.welcome}>Welcome Student |</p>
 
@@ -48,14 +48,14 @@ return(
         <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
     </div> */}
       <div className={studentDashboard.add_professor}>
-        <span className={studentDashboard.materialicons}>
-          <AddCircleOutlineIcon studentDashboard={iconStyles}/>
+        <span className={studentDashboard.material}>
+          <AddCircleOutlineIcon studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
         <button onClick={() => {navigate("/vmcreated")}}>Create VM</button>
       </div>
       <div className={studentDashboard.vm_utilization}>
-        <span className={studentDashboard.materialicons}>
-          <Computer studentDashboard={iconStyles}/>
+        <span className={studentDashboard.material}>
+          <Computer studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
         <button onClick={() => {navigate("/vmhistory")}}>My VMS</button>
       </div>
