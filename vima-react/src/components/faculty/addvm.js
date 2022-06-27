@@ -7,7 +7,7 @@ function AddVm() {
     return (
         <>
         <div className={addvm.container}>
-            <h1>Add Virtual Machine</h1>
+            <h1>Add VSphere Template</h1>
             <div className={addvm.content}>
 
                 {/* Folders */}
