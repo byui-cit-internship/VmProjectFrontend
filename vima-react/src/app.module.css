@@ -97,6 +97,8 @@ div.g-signin2 {
 div 
 {
   display: block;
+  /* display: grid; */
+  /* grid-gap: 5px; */
   margin: auto auto;
 }
 

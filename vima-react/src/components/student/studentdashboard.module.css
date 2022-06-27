@@ -61,7 +61,7 @@ https://www.byui.edu/branding/color-guide
     font-weight: 200;
     text-align: left;
     font-size: 20px;
-    padding-top: 20px;
+    /* padding-top: 20px; */
     padding-left: 50px;
     color: black;
     grid-column: 1/2;
@@ -81,7 +81,10 @@ https://www.byui.edu/branding/color-guide
     grid-column: 1/2;
     color: #006eb6;
     text-align: left;
-    /* font-size: 50px; */
+    font-size: 25px;
+  }
+  .material {
+    font-size: 25px;
   }
   
   #welcome {
@@ -137,6 +140,10 @@ https://www.byui.edu/branding/color-guide
     grid-row: 2/3;
     margin-right: 0px;
   }
+  .professorgrid {
+    display: grid;
+  grid-gap: 5px;
+  }
   
   .add_professor:hover {
     background-color: #022d53;
@@ -147,7 +154,7 @@ https://www.byui.edu/branding/color-guide
     font-size: 40px;
     float: left;
     padding-left: 40px;
-    padding-top: 25px;  
+    padding-top: 18px;  
   }
   
   .add_class{
@@ -202,7 +209,7 @@ https://www.byui.edu/branding/color-guide
     font-size: 40px;
     float: left;
     padding-left: 40px;
-    padding-top: 25px;
+    padding-top: 18px;
   }
   
   .vm_utilization a {
