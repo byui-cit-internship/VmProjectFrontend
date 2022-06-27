@@ -51,7 +51,7 @@ return(
         <button onClick={() => {navigate("/utilization")}}>VM Utilization</button>
       </div>
     </div>
-    <button onClick={() => {navigate("/createvm")}}>Create VM</button>
+    <button onClick={() => {navigate("/addvm")}}>Add VM</button>
 
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
 

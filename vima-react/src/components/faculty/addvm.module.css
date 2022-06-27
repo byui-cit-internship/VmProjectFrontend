@@ -15,15 +15,44 @@ h1 {
     background-color: white;
     margin: 50px auto;
     border-radius: 50px;
+    height: 600px;
 }
 
 .content {
     background-color: #F0F0F0;
     width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.folder {
+    grid-column: 1/3;
+    width: 100%;
+}
+
+.contentLibrary {
+    grid-column: 3/5;
+    width: 100%;
+}
+
+.year {
+    grid-column: 1/2;
+}
+
+.semester {
+    grid-column: 2/3;
+    width: 85%;
+}
+
+.chooseVm {
+    grid-column: 1/5;
+    width: 100%;
 }
 
 select {
-    width: 50%;
+    width: 95%;
 }
 
 .canvasToken{
@@ -59,7 +88,7 @@ select {
 
 span{
     cursor: pointer;
-    display: flex;
+    /* display: flex; */
     justify-content: flex-end;
     margin-right: -1rem;
     margin-top: -1rem;
@@ -74,7 +103,19 @@ span{
 }
 
 #open{
-    margin: 0.5em;
+    background-color: #3A8ACE;
+    width: 175px;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: 40%;
+    padding: 10px;
+}
+
+select[multiple] {
+    width: 100%;
 }
 
 #addmore{
@@ -93,10 +134,4 @@ span{
 
 textarea {
     width: 50%;
-}
-
-.open{
-    background: none;
-    border: none;
-    margin: 0.5em;
 }
