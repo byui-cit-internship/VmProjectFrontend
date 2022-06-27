@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Background from '../../background';
 import './addclassdependencies.css';
 import style from './addclass.module.css'; 

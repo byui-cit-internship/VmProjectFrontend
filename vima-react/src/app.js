@@ -8,6 +8,7 @@ import jwt_decode from 'jwt-decode';
 import Background from './background';
 import FacultyRoute from './faculty-route';
 import styles from './app.module.css';
+// import background from './background.module.css';
 
 const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);

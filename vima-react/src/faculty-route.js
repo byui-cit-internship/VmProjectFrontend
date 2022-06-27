@@ -3,6 +3,7 @@ import AddClass from './components/faculty/addclass';
 import FacultyDashboard from './facultydashboard';
 import AddProfessor from './components/faculty/addprofessor';
 import Utilization from './components/faculty/utilization';
+import AddVm from './components/faculty/addvm';
 
 function FacultyRoute() {
     return (
@@ -12,6 +13,7 @@ function FacultyRoute() {
                 <Route path="/addclass" element={<AddClass />} />
                 <Route path="/addprofessor" element={<AddProfessor />} />
                 <Route path="/utilization" element={<Utilization />} />
+                <Route path="/addvm" element={<AddVm />} />
             </Routes>
         </Router>
     )

@@ -4,27 +4,27 @@ black: #000000
 white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
 
 /* Small View */
-body {
-  background-color: #006eb6;
+/* body {
+  background-color: #006eb6; */
   /* font-family: "Raleway", sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
   /* text-align: center; */
-}
+/* } */
 
-.container {
+/* .container { */
   /* max-width: 100em; */
-  width: 1000px;
-  background-color: white;
+  /* width: 1000px;
+  background-color: white; */
   /* text-align: center; */
   /* box-shadow: 5px 5px 5px black; */
   /* padding-left: 30px; */
   /* padding-top: 30px; */
-  margin-top: 50px;
+  /* margin-top: 50px;
   height: 500px;
   border-radius: 50px;
   display: grid;
@@ -33,14 +33,14 @@ body {
   background-size: 60%;
   background-repeat: no-repeat;
   background-position-x: 110%;
-  background-position-y: 110%;
+  background-position-y: 110%; */
   /* gap: 10px; */
   /* grid-template-rows:  250px  250px; */
   /* padding-left: 20px; */
 
-}
+/* } */
 
-.imagehero {
+/* .imagehero {
   display: none;
 }
 
@@ -81,9 +81,9 @@ h2{
 }
 
 p{
-  /* margin-top: 4.5em; */
+  margin-top: 4.5em; 
   text-align: left;
-  /* padding-top: 15em; */
+   padding-top: 15em; 
   padding-left: 50px;
   margin-bottom: 0;
   margin-top: 1em;
@@ -159,7 +159,7 @@ table th {
   border: 1px solid #ddd;
   padding: 8px;
   /* border-radius: 6px; */
-}
+/* }
 input:required {
   border-left: red solid 8px;
 }
@@ -167,8 +167,8 @@ input:required:valid {
   border-left: green solid 8px;
 }
 
-form .semester  {
-  /* margin-top: 5px; */
+form .semester  { 
+  margin-top: 5px;
   display: block;
   padding: 0px;
   margin: 5px;
@@ -225,20 +225,20 @@ table, th, td {
 }
 th {
   font-weight:bold;
-}
+} */
 
 /* animation*/
 
 
-.area{
+/* .area{
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
   width: 100%;
-  /* height:100vh; */
+  height:100vh;
   
-}
+} */
 
-.circles{
-  /* position: absolute; */
+/* .circles{
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -348,12 +348,12 @@ th {
       border-radius: 50%;
   }
 
-}
+} */
 
 
 
 /* Medium View */
-@media only screen and (max-width: 1000px) {
+/* @media only screen and (max-width: 1000px) {
   .circles li{
     display: none;
   }
@@ -420,7 +420,7 @@ th {
   .logo {
     padding-left: 20px;
   }
-}
+} */
 
 /* Large View */
 /* @media only screen and (min-width: 64em) {

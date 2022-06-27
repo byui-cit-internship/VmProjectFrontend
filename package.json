@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@mui/icons-material": "^5.8.4"
+    "@mui/icons-material": "^5.8.4",
+    "react-helmet": "^6.1.0"
   }
 }
