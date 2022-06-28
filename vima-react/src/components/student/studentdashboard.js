@@ -36,7 +36,7 @@ return(
         </span>
         <p id={studentDashboard.welcome}>Welcome Student |</p>
 
-        <button className={studentDashboard.signOut}>Sign out</button>
+        <button className={studentDashboard.signOut} onClick={() => {navigate("/")}}>Sign out</button>
     </div>
     <h1 id={studentDashboard.nameOfStudent}>Hello <span>Student</span></h1>
     <p id={studentDashboard.greeting}>How can we help you today?</p>

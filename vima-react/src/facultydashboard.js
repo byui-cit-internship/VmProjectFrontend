@@ -27,7 +27,7 @@ return(
         </span>
         <p id={styles.welcome}>Welcome Professor |</p>
 
-        <button className={styles.signOut}>Sign out</button>
+        <button className={styles.signOut} onClick={() => {navigate("/")}} >Sign out</button>
     </div>
     <h1 id={styles.nameOfProfessor}>Hello <span>Professor</span></h1>
     <p id={styles.greeting}>How can we help you today?</p>
