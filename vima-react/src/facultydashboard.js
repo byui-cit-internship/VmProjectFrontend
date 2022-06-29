@@ -28,7 +28,7 @@ return(
         <p id={facultydashboard.welcome}>Welcome Professor |</p>
 
 
-        <button className={styles.signOut} onClick={() => {navigate("/")}} >Sign out</button>
+        <button className={facultydashboard.signOut} onClick={() => {navigate("/")}} >Sign out</button>
 
     </div>
     <h1 id={facultydashboard.nameOfProfessor}>Hello <span>Professor</span></h1>
