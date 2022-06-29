@@ -22,7 +22,9 @@ function AddClass() {
         </span>
         <p id={addclass.welcome}>Welcome Professor |</p>
 
-        <button className={addclass.signOut}>Sign Out</button>
+
+        <button className={style.signOut} onClick={() => {navigate("/")}}>Sign Out</button>
+
         </div>
     </div>
     <div id={addclass.formheader}>
