@@ -5,6 +5,8 @@ import AddClass from "./components/faculty/addclass";
 import AddProfessor from "./components/faculty/addprofessor";
 import AddVm from "./components/faculty/addvm";
 import StudentDashboard from "./components/student/studentdashboard";
+import CreateVM from "./components/student/createvm";
+import MyVM from "./components/student/myvm";
 
 export default function VimaRouter () {
     return (
@@ -16,6 +18,8 @@ export default function VimaRouter () {
                 <Route path='/addprofessor' element={<AddProfessor />} />
                 <Route path='/addvm' element={<AddVm />} />
                 <Route path='/student' element={<StudentDashboard />} />
+                <Route path='/createvm' element={<CreateVM />} />
+                <Route path='/myvm' element={<MyVM />} />
             </Routes>
         </Router>
     )
