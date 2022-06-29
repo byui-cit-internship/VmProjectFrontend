@@ -84,7 +84,6 @@ function AddVm() {
                 {/* Button to open a modal to add more templates */}
                     <button id={addvm.open}>Add</button>
         </div>
-   
         <Background/>
         </div>
     )        
