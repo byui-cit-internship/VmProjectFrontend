@@ -48,13 +48,14 @@ https://www.byui.edu/branding/color-guide
   padding: 8px 0;
 }
 
-.addprofessor .submitBt {
+.addprofessor button {
   font-size: 1.5rem;
   padding: 10px;
   margin: 10px auto;
   width: 90%;
   border-radius: 7px;
   display: block;
+  background-color: #006eb6;
 }
 
 /* .btn-primary {
@@ -154,7 +155,7 @@ th {
   /* div.container {
     
   } */
-  .addprofessor .submitBt {
+  .addprofessor button {
     font-size: 1.5rem;
     padding: 10px;
     margin: 10px auto;
