@@ -9,7 +9,7 @@ function AddProfessor() {
     let navigate = useNavigate();
 
     return (
-        <div>        
+        <div className={addprofessor.addprofessor}>        
             <div className= {addprofessor.container}>
                 {/* <Header /> */}
                 <h1>Add a Professor</h1>

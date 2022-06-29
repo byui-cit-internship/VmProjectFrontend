@@ -4,7 +4,7 @@ import addvm from './addvm.module.css';
 
 function AddVm() {
     return (
-        <>
+        <div className={addvm.addvm}>
         <div className={addvm.container}>
             <h1>Add VSphere Template</h1>
             <div className={addvm.content}>
@@ -86,7 +86,7 @@ function AddVm() {
         </div>
    
         <Background/>
-        </>
+        </div>
     )        
 }
 
