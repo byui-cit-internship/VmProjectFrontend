@@ -1,6 +1,6 @@
 import React from "react"; 
 import Background from "../../background";
-import { Helmet } from 'react-helmet';
+// import { Helmet } from 'react-helmet';
 import addvm from './addvm.module.css';
 
 function AddVm() {
@@ -85,9 +85,9 @@ function AddVm() {
                 {/* Button to open a modal to add more templates */}
                     <button id={addvm.open}>Add</button>
         </div>
-        <Helmet>
+        {/* <Helmet>
             
-        </Helmet>
+        </Helmet> */}
         <Background/>
         </>
     )        
