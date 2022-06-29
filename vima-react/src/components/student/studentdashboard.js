@@ -51,13 +51,14 @@ return(
         <span className={studentDashboard.material}>
           <AddCircleOutlineIcon studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
-        <button onClick={() => {navigate("/vmcreated")}}>Create VM</button>
+        <button onClick={() => {navigate("/createvm")}}>Create VM</button>
+        
       </div>
       <div className={studentDashboard.vm_utilization}>
         <span className={studentDashboard.material}>
           <Computer studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
-        <button onClick={() => {navigate("/vmhistory")}}>My VMS</button>
+        <button onClick={() => {navigate("/myvm")}}>My VMS</button>
       </div>
     </div>
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
