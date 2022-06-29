@@ -1,8 +1,8 @@
-body {
+.addvm body {
     margin: 0 auto;
 }
 
-h1 {
+.addvm h1 {
     text-align: center;
     padding: 20px 50px;
 }
@@ -52,7 +52,7 @@ h1 {
     width: 100%;
 }
 
-select {
+.addvm select {
     width: 100%;
 }
 
@@ -87,7 +87,7 @@ select {
     font-weight: bold;
 }
 
-span .addvm {
+.addvm span {
     cursor: pointer;
     /* display: flex; */
     justify-content: flex-end;
