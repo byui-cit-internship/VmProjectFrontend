@@ -282,9 +282,7 @@ th, td, p, input, h3 {
 
 /* Medium View */
 /* @media only screen and (max-width: 1000px) { */
-  /* .circles li{
-    display: none;
-  }
+  /* 
   h2 {
     margin-top: 20px;
     font-family: 'Raleway', sans-serif;

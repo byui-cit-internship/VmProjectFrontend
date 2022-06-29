@@ -1,11 +1,11 @@
-import Header from "../components/header";
-import '../../background.css';
+// import Header from "../components/header";
+// import '../../background.css';
 
 function CreateVM() {
     return (
         <div>
             <div className="container">
-            <Header />
+            {/* <Header /> */}
             <h4 class="lets">Let's create a VM</h4>
             <div class="body">
                 {/* <!-- course dropdown -->  */}

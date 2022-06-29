@@ -1,13 +1,14 @@
 // import './app.css';
 // import './background.css';
 import {useState, useRef} from 'react';
-import StudentRoute from './student-route';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import Background from './background';
-import FacultyRoute from './faculty-route';
 import styles from './app.module.css';
+import { Navigate } from 'react-router-dom';
+import FacultyDashboard from './facultydashboard';
+import StudentDashboard from './components/student/studentdashboard';
 // import background from './background.module.css';
 
 const handleFailure = (result) => {
@@ -75,14 +76,14 @@ function App() {
     console.log(googleCredentials.current.email);
    if(isAdmin.includes(googleCredentials.current.email)){
       return (//View could work instead of div here, but not sure  
-          <FacultyRoute></FacultyRoute>
+          <Navigate to='/faculty' element={<FacultyDashboard />} />
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
       else {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
-            <StudentRoute />
+            <Navigate to='/student' element={<StudentDashboard />} />
         )
       }}
 }

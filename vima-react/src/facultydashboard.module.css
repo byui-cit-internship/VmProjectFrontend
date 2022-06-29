@@ -10,7 +10,11 @@ https://www.byui.edu/branding/color-guide
   margin: 0;
 }
 
-.container {
+.facultydashboard div {
+  margin: auto auto;
+}
+
+.facultydashboard .container {
   width: 1000px;
   background-color: white;
   /* text-align: center; */
@@ -27,13 +31,13 @@ https://www.byui.edu/branding/color-guide
   background-position-y: 110%;
 }
 
-h1 {
+.facultydashboard h1 {
   grid-row: 2/3;
   grid-column: 1/2;
   padding-left: 49px;
 }
 
-.logo{
+.facultydashboard .logo{
   width: 150px;
   display: flex;
   padding-left: 50px;
@@ -41,7 +45,7 @@ h1 {
   grid-row: 1/2;
 }
 
-#name0fProfessor {
+.facultydashboard #name0fProfessor {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   text-align: left;
@@ -52,23 +56,23 @@ h1 {
   color: black;
 }
 
-#name0fProfessor span {
+.facultydashboard #name0fProfessor span {
   font-weight: bold;
 }
 
-#greeting {
+.facultydashboard #greeting {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   text-align: left;
   font-size: 20px;
-  padding-top: 20px;
+  padding-top: 65px;
   padding-left: 50px;
   color: black;
   grid-column: 1/2;
   grid-row: 2/3;
 }
 
-.professorgrid {
+.facultydashboard .professorgrid {
   grid-column: 2/3;
   padding: 0px;
   margin: 0px;
@@ -77,14 +81,14 @@ h1 {
   margin: auto 25px;
 }
 
-.materialicons {
+.facultydashboard .materialicons {
   grid-column: 1/2;
   color: #006eb6;
   text-align: left;
-  /* font-size: 50px; */
+  font-size: 50px;
 }
 
-#welcome {
+.facultydashboard #welcome {
   grid-column: 2/3;
   color: #006eb6;
   font-size: 1.1em;
@@ -94,7 +98,7 @@ h1 {
   text-align: right;
 }
 
-.signOut {
+.facultydashboard .signOut {
   grid-column: 3/4;
   background-color:transparent;
   color: #006eb6;
@@ -107,13 +111,13 @@ h1 {
   font-size: 15px;
 }
 
-.signOut:hover {
+.facultydashboard .signOut:hover {
   background-color: #006eb6;
   color: white;
 
 }
 
-button {
+.facultydashboard button {
   background-color: transparent;
   color: white;
   font-size: 20px;
@@ -125,7 +129,7 @@ button {
   border: transparent;
 }
 
-.add_professor {
+.facultydashboard .add_professor {
   font-size: 20px;
   /* float: left; */
   width: 300px;
@@ -135,14 +139,15 @@ button {
   background-color: #3A8ACE;
   color: white;
   grid-row: 2/3;
-  margin-right: 0px;
+  margin-left: 50px;
+  margin-top: 130px;
 }
 
-.add_professor:hover {
+.facultydashboard .add_professor:hover {
   background-color: #022d53;
 }
 
-.add_professor span {
+.facultydashboard .add_professor span {
   color: white;
   font-size: 40px;
   float: left;
@@ -150,7 +155,7 @@ button {
   padding-top: 20px;  
 }
 
-.add_class{
+.facultydashboard .add_class{
   font-size: 20px;
   float: left;
   width: 300px;
@@ -163,14 +168,14 @@ button {
   color: white;
   grid-row: 2/3;
   margin-top: 15px;
-  margin-right: 0px;
+  margin-left: 50px;
 }
 
-.add_class:hover {
+.facultydashboard .add_class:hover {
   background-color: #022d53;
 }
 
-.add_class span {
+.facultydashboard .add_class span {
   color: white;
   font-size: 40px;
   float: left;
@@ -178,7 +183,7 @@ button {
   padding-top: 20px;
 }
 
-.vm_utilization {
+.facultydashboard .vm_utilization {
   font-size: 20px;
   float: left;
   width: 300px;
@@ -190,14 +195,14 @@ button {
   background-color: #1A63A1;
   color: white;
   margin-top: 245px;
-  margin-right: 0px;
+  margin-left: 50px;
 }
 
-.vm_utilization:hover {
+.facultydashboard .vm_utilization:hover {
   background-color: #022d53;
 }
 
-.vm_utilization span {
+.facultydashboard .vm_utilization span {
   color: white;
   font-size: 40px;
   float: left;
@@ -205,7 +210,7 @@ button {
   padding-top: 20px;
 }
 
-.vm_utilization a {
+.facultydashboard .vm_utilization a {
   color: white;
   font-size: 20px;
   text-decoration: none;

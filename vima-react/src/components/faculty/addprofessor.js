@@ -9,7 +9,7 @@ function AddProfessor() {
     let navigate = useNavigate();
 
     return (
-        <div>        
+        <div className={addprofessor.addprofessor}>        
             <div className= {addprofessor.container}>
                 {/* <Header /> */}
                 <h1>Add a Professor</h1>
@@ -24,8 +24,8 @@ function AddProfessor() {
                             <input type="text" id="email" name="email" placeholder="Enter template name" required />
                         </div>
 
-                        <button type="submit"  id="submit" class="save submitBt btn-primary">Save</button>
-                        <button onClick={() => {navigate("/")}} class="submitBt btn-primary">Back</button>
+                        <button type="submit"  id="submit">Save</button>
+                        <button onClick={() => {navigate("/")}}>Back</button>
                     </form>
                 </div>
         </div>

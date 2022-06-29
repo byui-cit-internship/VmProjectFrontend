@@ -35,8 +35,7 @@ return(
             <PersonIcon sx={{fontSize: '2.5rem', paddingLeft: "10px"}} className={ studentDashboard.material } />
         </span>
         <p id={studentDashboard.welcome}>Welcome Student |</p>
-
-        <button onClick className={studentDashboard.signOut}>Sign out</button>
+        <button className={studentDashboard.signOut} onClick={() => {navigate("/")}}>Sign out</button>
     </div>
     <h1 id={studentDashboard.nameOfStudent}>Hello <span>Student</span></h1>
     <p id={studentDashboard.greeting}>How can we help you today?</p>
@@ -51,13 +50,13 @@ return(
         <span className={studentDashboard.material}>
           <AddCircleOutlineIcon studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
-        <button onClick={() => {navigate("./createvm")}}>Create VM</button>
+        <button onClick={() => {navigate("/createvm")}}>Create VM</button>
       </div>
       <div className={studentDashboard.vm_utilization}>
         <span className={studentDashboard.material}>
           <Computer studentDashboard={iconStyles} className={ studentDashboard.material }/>
         </span>
-        <button onClick={() => {navigate("/vmhistory")}}>My VMS</button>
+        <button onClick={() => {navigate("/myvm")}}>My VMS</button>
       </div>
     </div>
         {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}

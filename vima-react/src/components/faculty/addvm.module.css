@@ -1,13 +1,13 @@
-body {
+.addvm body {
     margin: 0 auto;
 }
 
-h1 {
+.addvm h1 {
     text-align: center;
     padding: 20px 50px;
 }
 
-.container {
+.addvm .container {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
     width: 900px;
@@ -18,54 +18,55 @@ h1 {
     height: 600px;
 }
 
-.content {
+.addvm .content {
     background-color: #F0F0F0;
     width: 800px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
     padding: 20px;
+    margin: auto auto;
     margin-bottom: 20px;
 }
 
-.folder {
+.addvm .folder {
     grid-column: 1/3;
     width: 100%;
 }
 
-.contentLibrary {
+.addvm .contentLibrary {
     grid-column: 3/5;
     width: 100%;
 }
 
-.year {
+.addvm .year {
     grid-column: 1/2;
 }
 
-.semester {
+.addvm .semester {
     grid-column: 2/3;
-    width: 85%;
 }
 
-.chooseVm {
+.addvm .chooseVm {
     grid-column: 1/5;
     width: 100%;
 }
 
-select {
-    width: 95%;
+.addvm select {
+    width: 100%;
 }
 
-.canvasToken{
+.addvm .canvasToken{
     padding-bottom:0.5em;
 }
 
-#more{
+.addvm #more{
     border: none;
     background-color: white;
 }
 
 /*modal */
-.modalForTemplate{
+.addvm .modalForTemplate{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -79,14 +80,14 @@ select {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.closeModal{
+.addvm .closeModal{
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-span{
+.addvm span {
     cursor: pointer;
     /* display: flex; */
     justify-content: flex-end;
@@ -94,7 +95,7 @@ span{
     margin-top: -1rem;
 }
 
-.modalcontent {
+.addvm .modalcontent {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -102,7 +103,7 @@ span{
     width: 50%;
 }
 
-#open{
+.addvm #open{
     background-color: #3A8ACE;
     width: 175px;
     border-radius: 20px;
@@ -114,24 +115,20 @@ span{
     padding: 10px;
 }
 
-select[multiple] {
-    width: 100%;
-}
-
-#addmore{
+.addvm #addmore{
     background-color: blue;
 }
 
-#submitAddTemplates{
+.addvm #submitAddTemplates{
     margin: 0.5em;
 }
 
-.materialicons {
+.addvm .materialicons {
     grid-column: 1/2;
     color: #006eb6;
     text-align: left;
 }
 
-textarea {
+.addvm textarea {
     width: 50%;
 }
