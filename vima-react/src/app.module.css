@@ -67,7 +67,6 @@ body {
   /* box-shadow: 5px 5px 5px black; */
   /* padding-left: 30px; */
   /* padding-top: 30px; */
-  margin-top: 50px;
   height: 500px;
   border-radius: 50px;
   display: grid;
@@ -77,6 +76,9 @@ body {
   background-repeat: no-repeat;
   background-position-x: 110%;
   background-position-y: 110%;
+  margin: auto auto;
+  margin-top: 50px;
+
   /* gap: 10px; */
   /* grid-template-rows:  250px  250px; */
   /* padding-left: 20px; */
