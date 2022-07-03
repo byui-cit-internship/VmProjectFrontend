@@ -9,6 +9,8 @@ import styles from './app.module.css';
 import { Navigate } from 'react-router-dom';
 import FacultyDashboard from './facultydashboard';
 import StudentDashboard from './components/student/studentdashboard';
+import { getApiRoot } from '../public/signIn_signOut/getapiroot';
+import Popup from 'react-popup';
 // import background from './background.module.css';
 
 const handleFailure = (result) => {
@@ -21,14 +23,15 @@ const isAdmin = [
     'kar18004@byui.edu'
     ];
 
-function App() {
+async function App() {
 
   const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
+  let googleJwt = {};
   const handleLogin = (googleData) => {
     googleCredentials.current = jwt_decode(googleData.credential);
-
+    googleJwt = googleData.credential;
     const email = googleCredentials.current.email;
 
     setUserLoggedIn(true);
@@ -73,19 +76,26 @@ function App() {
     </div>
   );
 } else{
+
+  const jwtResponse = await fetch(getApiRoot()+'/api/token',{method:'POST', body:{accessTokenValue: googleJwt}});
+  const jwtStatus = jwtResponse.status;
     console.log(googleCredentials.current.email);
-   if(isAdmin.includes(googleCredentials.current.email)){
+   if(jwtStatus==200 && isAdmin.includes(googleCredentials.current.email)){
       return (//View could work instead of div here, but not sure  
           <Navigate to='/faculty' element={<FacultyDashboard />} />
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
-      else {
+      else if(jwtStatus==200) {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
             <Navigate to='/student' element={<StudentDashboard />} />
         )
-      }}
+      }
+      else{
+        console.log('Received status: '+jwtResponse.status+' when validating Google JWT');
+      }
+    }
 }
 
 export default App;
