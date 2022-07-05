@@ -1,6 +1,6 @@
 // import './app.css';
 // import './background.css';
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
@@ -24,15 +24,25 @@ const isAdmin = [
     'marvinomeccozi@gmail.com'
     ];
 
-async function App() {
+function App() {
 
   const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
+  const [googleJwtResponse, setGoogleJwtResponse] = useState({});//google jwt verification response
+  const [googleJwt, setGoogleJwt] = useState({});
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
-  let googleJwt = {};
+  useEffect(()=>{
+    const verifyJwt = async ()=>{
+      const jwtResponse = await fetch(getApiRoot()+'/api/token',{method:'POST', body:{accessTokenValue: googleJwt}});
+      setGoogleJwtResponse(jwtResponse);
+    }
+    verifyJwt();
+  }, [userIsLoggedIn, googleJwt]);//only verify the token if the logged in state has changed
+  
+  
   const handleLogin = (googleData) => {
     googleCredentials.current = jwt_decode(googleData.credential);
-    googleJwt = googleData.credential;
+    setGoogleJwt(googleData.credential);
     const email = googleCredentials.current.email;
 
     setUserLoggedIn(true);
@@ -78,23 +88,22 @@ async function App() {
   );
 } else{
 
-  const jwtResponse = await fetch(getApiRoot()+'/api/token',{method:'POST', body:{accessTokenValue: googleJwt}});
-  const jwtStatus = jwtResponse.status;
+
     console.log(googleCredentials.current.email);
-   if(jwtStatus==200 && isAdmin.includes(googleCredentials.current.email)){
+   if(googleJwtResponse.jwtStatus==200 && isAdmin.includes(googleCredentials.current.email)){
       return (//View could work instead of div here, but not sure  
           <Navigate to='/faculty' element={<FacultyDashboard />} />
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
-      else if(jwtStatus==200) {
+      else if(googleJwtResponse.status==200) {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
             <Navigate to='/student' element={<StudentDashboard />} />
         )
       }
       else{
-        console.log('Received status: '+jwtResponse.status+' when validating Google JWT');
+        console.log('Received status: '+googleJwtResponse.status+' when validating Google JWT');
       }
     }
 }
