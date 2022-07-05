@@ -9,7 +9,7 @@ import styles from './app.module.css';
 import { Navigate } from 'react-router-dom';
 import FacultyDashboard from './facultydashboard';
 import StudentDashboard from './components/student/studentdashboard';
-import { getApiRoot } from '../public/signIn_signOut/getapiroot';
+import { getApiRoot } from './utils/getApiRoot';
 
 // import background from './background.module.css';
 
