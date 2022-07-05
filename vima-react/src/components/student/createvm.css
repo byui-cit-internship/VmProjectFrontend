@@ -1,0 +1,23 @@
+/* BYUI Color Guide
+BYUI blue: #006EB6
+black: #000000
+white: #FFFFFF
+https://www.byui.edu/branding/color-guide
+*/
+
+/* Small View */
+* {
+    margin: 0;
+}
+
+.container {
+    width: 1000px;
+    background-color: white;
+    margin: 50px auto;
+    height: 700px;
+    border-radius: 50px;
+
+    column-gap: 10%;
+    background-color: #F0F0F0;
+    padding: 10px 20px;
+}
