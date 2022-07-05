@@ -1,6 +1,9 @@
 // import Header from "../components/header";
 // import '../../background.css';
 
+import Background from '../../background';
+import createVM from "./createvm.css";
+
 function CreateVM() {
     return (
         <div>
