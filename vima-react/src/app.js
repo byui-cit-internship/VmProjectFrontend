@@ -33,10 +33,19 @@ function App() {
   const googleCredentials = useRef({});
   useEffect(()=>{
     const verifyJwt = async ()=>{
-      const jwtResponse = await fetch(getApiRoot()+'/api/token',{method:'POST', body:{accessTokenValue: googleJwt}});
+      const jwtResponse = await fetch(getApiRoot()+'/api/token',
+      {
+        headers:{
+          'content-type':'application/json'
+        },
+        method:'POST', 
+        body:JSON.stringify({accessTokenValue: googleJwt})
+      });
       setGoogleJwtResponse(jwtResponse);
     }
-    verifyJwt();
+    if (googleJwt.length> 0){//be sure the google JWT is already assigned (they have authenticated with Google)
+      verifyJwt();
+    }
   }, [userIsLoggedIn, googleJwt]);//only verify the token if the logged in state has changed
   
   
