@@ -1,11 +1,15 @@
 import React from "react"; 
 import Background from "../../background";
+// import Header from "../../header";
 import addvm from './addvm.module.css';
 
 function AddVm() {
     return (
         <div className={addvm.addvm}>
         <div className={addvm.container}>
+            <div className={addvm.header}>
+                {/* <Header /> */}
+            </div>
             <h1>Add VSphere Template</h1>
             <div className={addvm.content}>
 
@@ -66,7 +70,7 @@ function AddVm() {
                             <h1>Add templates</h1>
                             <label>Choose a template Virtual machine:</label>
                             <select name="addTemplateVm" id={addvm.addTemplateVm} required > 
-                                <option name="option" value="Default">Default</option>
+                                <option className={addvm.vm} name="option" value="Default"  >Default</option>
                             </select>
                             <button id={addvm.more}><i className={addvm.materialicons}>add</i></button>
                             <button id={addvm.submitAddTemplates}>save</button>
