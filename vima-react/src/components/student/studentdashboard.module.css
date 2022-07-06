@@ -10,11 +10,14 @@ https://www.byui.edu/branding/color-guide
   margin: 0;
 }
 
+.studentdashboard .studentdashboard {
+  margin: auto auto;
+}
+
 .studentdashboard .container {
   width: 1000px;
   background-color: white;
   /* text-align: center; */
-  margin-top: 50px;
   height: 500px;
   border-radius: 50px;
   display: grid;
@@ -25,6 +28,8 @@ https://www.byui.edu/branding/color-guide
   background-repeat: no-repeat;
   background-position-x: -10%;
   background-position-y: 110%;
+  margin: 50px auto;
+
 }
 
 .studentdashboard .header {

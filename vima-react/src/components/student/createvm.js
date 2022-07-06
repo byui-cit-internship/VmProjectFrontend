@@ -1,11 +1,13 @@
 import createVm from "./createvm.module.css";
 import Background from '../../background';
+import Header from "../../header";
 
 function CreateVM() {
     return (
         <div className={createVm.createvm}>
             <div className={createVm.container}>
             {/* <Header /> */}
+            <Header />
             <h4 className={createVm}>Let's create a VM</h4>
                 <div className={createVm.body}>
                 {/* <!-- course dropdown -->  */}

@@ -84,15 +84,16 @@ https://www.byui.edu/branding/color-guide
     margin-top: 50px;
       height: 700px;
       border-radius: 50px;
+      margin: 50px auto;
       /* display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 3%;
     grid-template-rows: 10% 70%; */
   }
-  .addclass .header {
+  /* .addclass .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
+  } */
   
   .addclass div {
     display: block;

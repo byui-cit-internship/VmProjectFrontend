@@ -10,7 +10,7 @@ https://www.byui.edu/branding/color-guide
     margin: 0;
 }
 
-.container {
+.myVm .container {
     width: 1000px;
     background-color: white;
     margin: 50px auto;
