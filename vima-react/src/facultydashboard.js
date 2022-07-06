@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 // import AddClass from './components/faculty/addclass';
 import Background from './background';
 import facultydashboard from './facultydashboard.module.css';
+import Header from './header';
 
 const iconStyles = {
     color: 'white', fontSize: '35px'
@@ -20,16 +21,8 @@ return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
   <div className={facultydashboard.facultydashboard}>
     <div className={facultydashboard.container}>
-        <img className={facultydashboard.logo} src="/images/LOGO-VIMA.png" alt="logo"/>
-        <div className={facultydashboard.professorgrid}>
-        <span className={facultydashboard.materialicons}>
-            <PersonIcon sx={{fontSize: '50px', paddingLeft: "10px"}} />
-        </span>
-        <p id={facultydashboard.welcome}>Welcome Professor |</p>
-
-
-        <button className={facultydashboard.signOut} onClick={() => {navigate("/")}} >Sign out</button>
-
+    <div className={facultydashboard.header} >
+      <Header />
     </div>
     <h1 id={facultydashboard.nameOfProfessor}>Hello <span>Professor</span></h1>
     <p id={facultydashboard.greeting}>How can we help you today?</p>
