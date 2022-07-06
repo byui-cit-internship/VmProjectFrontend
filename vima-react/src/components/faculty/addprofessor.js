@@ -2,8 +2,7 @@ import React from "react";
 // import background from './background.module.css';
 import addprofessor from './addprofessor.module.css';
 import { useNavigate } from 'react-router-dom';
-
-// import Header from "../../pages/header";
+import Header from "../../header";
 
 function AddProfessor() {
     let navigate = useNavigate();
@@ -12,6 +11,9 @@ function AddProfessor() {
         <div className={addprofessor.addprofessor}>        
             <div className= {addprofessor.container}>
                 {/* <Header /> */}
+                <div className={addprofessor.header}>
+                    <Header />
+                </div>
                 <h1>Add a Professor</h1>
                     <form action="#" id="professorSignup">
                         {/* <!-- Course Name--> */}

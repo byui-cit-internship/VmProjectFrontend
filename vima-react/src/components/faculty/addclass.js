@@ -7,6 +7,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DnsIcon from '@mui/icons-material/Dns';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import PersonIcon from '@mui/icons-material/Person';
+import Header from '../../header';
 
 function AddClass() {
   let navigate = useNavigate();
@@ -15,18 +16,8 @@ function AddClass() {
     <div className={addclass.addclass}>
     <div className={addclass.container}>
       <div className={addclass.header}>
-        <img className={addclass.logo} src="/images/LOGO-VIMA.png" alt="logo"/>
-        <div className={addclass.professorgrid}>
-        <span className={addclass.materialicons}>
-            <PersonIcon sx={{fontSize: '2rem', paddingLeft: "10px"}} />
-        </span>
-        <p id={addclass.welcome}>Welcome Professor |</p>
-
-
-        <button className={addclass.signOut} onClick={() => {navigate("/")}}>Sign Out</button>
-
-        </div>
-    </div>
+        <Header />
+      </div>
     <div id={addclass.formheader}>
       <span onClick={() => {navigate("/")}} id={addclass.backbtn}>&#8592; back</span>
       <h1>Add Class</h1>
