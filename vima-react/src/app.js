@@ -17,18 +17,12 @@ const handleFailure = (result) => {
     console.log('There was a problem logging in.', result);
   };
 
-const isAdmin = [
-    'shaecarnahan@gmail.com',
-    'danielu35@gmail.com',
-    'kar18004@byui.edu',
-    'marvinomeccozi@gmail.com'
-    ];
 
 function App() {
 
   const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
-  const [googleJwtResponse, setGoogleJwtResponse] = useState({});//google jwt verification response
-  const [googleJwt, setGoogleJwt] = useState({});
+  const [authorization, setAuthorization] = useState({});
+  const [googleJwt, setGoogleJwt] = useState("");
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
   useEffect(()=>{
@@ -41,7 +35,9 @@ function App() {
         method:'POST', 
         body:JSON.stringify({accessTokenValue: googleJwt})
       });
-      setGoogleJwtResponse(jwtResponse);
+
+      const authorizationObject = await jwtResponse.json();
+      setAuthorization(authorizationObject);
     }
     if (googleJwt.length> 0){//be sure the google JWT is already assigned (they have authenticated with Google)
       verifyJwt();
@@ -60,7 +56,7 @@ function App() {
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
   } 
   
-  if (!userIsLoggedIn){
+  if (googleJwt ===""){
 
   return (
     <div className={styles.app}>
@@ -99,20 +95,20 @@ function App() {
 
 
     console.log(googleCredentials.current.email);
-   if(googleJwtResponse.jwtStatus==200 && isAdmin.includes(googleCredentials.current.email)){
+   if(authorization.isAdmin===true){
       return (//View could work instead of div here, but not sure  
           <Navigate to='/faculty' element={<FacultyDashboard />} />
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
-      else if(googleJwtResponse.status==200) {
+      else if(Object.keys(authorization)>0) {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
             <Navigate to='/student' element={<StudentDashboard />} />
         )
       }
       else{
-        console.log('Received status: '+googleJwtResponse.status+' when validating Google JWT');
+        console.log('One re-render too soon to verify Google JWT');
       }
     }
 }
