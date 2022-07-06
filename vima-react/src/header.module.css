@@ -1,0 +1,57 @@
+.header * {
+    width: 95%;
+    margin-top: 25px;
+}
+
+.header .grid {
+    display: grid;
+    margin-left: 50px;
+    grid-template-columns: 64% 3% 18% 14%;
+}
+
+.header .logo {
+    width: 150px;
+    /* display: flex; */
+    /* padding-left: 50px; */
+    grid-column: 1/2;
+}
+
+.header #welcome {
+    grid-column: 3/4;
+    color: #006eb6;
+    font-size: 1.2em;
+    width: 100%;
+    padding: 0;
+    /* margin: 0; */
+    text-align: right;
+}
+
+.header .signOut {
+    grid-column: 4/5;
+    background-color:transparent;
+    color: #006eb6;
+    width: 85px;
+    height: 25px;
+    border-radius: 10px;
+    border: #006eb6 1px solid;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.header .signOut:hover {
+    background-color: #006eb6;
+    color: white;
+}
+
+.header .materialicons {
+    grid-column: 1/2;
+    color: #8ED2FF;
+    text-align: left;
+    font-size: 25px;
+}
+
+.header .material {
+    color: #1FAAFA;
+    font-size: 25px;
+}
