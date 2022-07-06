@@ -1,5 +1,5 @@
 import Background from '../../background';
-import myVM from "./myvm.css";
+import myVM from "./myvm.module.css";
 
 function MyVM() {
     return (
@@ -28,6 +28,7 @@ function MyVM() {
             </div>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
             </div>
+            <Background />
         </div>
     )
 }
