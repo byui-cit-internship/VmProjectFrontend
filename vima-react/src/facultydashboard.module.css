@@ -17,7 +17,6 @@ https://www.byui.edu/branding/color-guide
 .facultydashboard .container {
   width: 1000px;
   background-color: white;
-  /* text-align: center; */
   margin-top: 50px;
   height: 500px;
   border-radius: 50px;
@@ -29,6 +28,11 @@ https://www.byui.edu/branding/color-guide
   background-repeat: no-repeat;
   background-position-x: -10%;
   background-position-y: 110%;
+}
+
+.facultydashboard .header {
+  grid-column: 1/3;
+  width: 100%;
 }
 
 .facultydashboard h1 {
@@ -65,7 +69,7 @@ https://www.byui.edu/branding/color-guide
   font-weight: 200;
   text-align: left;
   font-size: 20px;
-  padding-top: 65px;
+  padding-top: 45px;
   padding-left: 50px;
   color: black;
   grid-column: 1/2;

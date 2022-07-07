@@ -5,519 +5,123 @@ white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
 
-.addclass #formheader{
+/* Small View */
+.addclass #formheader {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-top: 2em; 
+  padding-top: 2em;
   padding-bottom: 1em;
   align-items: center;
 }
 
-.addclass #formheader h1{
+.addclass #formheader h1 {
   font-size: 1.8em;
   font-weight: bold;
   grid-column: 2;
+  text-align: center;
 }
 
-/* label{
-  float: left;
-  color: #2E5B9A;
-  font-weight: 200;
-
-
-} */
-
-.addclass h1{
-  /* text-align: center; */
-}
-
-.addclass #backbtn{
+.addclass #backbtn {
   display: flex;
   color: #006eb6;
-  margin-left: 1em;
+  margin-left: 50px;
   cursor: pointer;
   font-size: 1.3em;
   margin-top: 0.7em;
 }
 
-.addclass #backbtn:hover{
+.addclass #backbtn:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.addclass #gridcont{
+.addclass #gridcont {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 10%;
-  /* grid-template-rows: 100%; */
-  background-color: #F0F0F0;
-  padding-top: 3%;
-  padding-bottom: 5%;
-  width: 80%;
-  padding: 10px 20px;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  background-color: #f0f0f0;
+  width: 900px;
+  margin: 30px auto;
+  padding: 20px;
 }
 
-/* Small View */
-* {
-    margin: 0;
-  }
-  .addclass body {
-    background-color: #006eb6;
-    font-family: "Raleway", sans-serif;
-    /* text-align: center; */
-  }
-  .addclass h1{
+.addclass body {
+  background-color: #006eb6;
+  font-family: "Raleway", sans-serif;
+}
+
+.addclass h1 {
   grid-row: 1/2;
-   }
-  /* 
-   .open{
-    background: none;
-    border: none;
-    margin: 0.5em;
-   } */
-  
+}
 
-   .addclass .container {
+.addclass .container {
+  width: 1000px;
+  background-color: white;
+  border-radius: 50px;
+  margin: 50px auto;
+  padding: 15px;
+}
 
-    width: 1000px;
-    background-color: white;
-    margin-top: 50px;
-      height: 700px;
-      border-radius: 50px;
-      /* display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3%;
-    grid-template-rows: 10% 70%; */
-  }
-  .addclass .header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .addclass div {
-    display: block;
-    margin: auto auto;
-    /* width: 70%; */
-  }
-  
-  .addclass .column1{
-    grid-row: 2/2;
-  }
-  
-  .addclass .column2{
-    grid-row: 2/2;
-  }
-  
-  .addclass .logo{
-    width: 150px;
-    display: flex;
-    padding-left: 50px;
-    margin-top: 50px;
-    grid-row: 1/2;
-  
-  }
-  
-  /* .i {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    padding-top: 30px;
-    color: #006eb6;
-    text-align: left;
-  } */
-  
-  /* #welcome {
-    grid-column: 2/3;
-    grid-row: 1/2;
-    color: #006eb6;
-    padding-top: 30px;
-    padding-left: 30px;
-    text-align: left;
-  } */
-  .addclass .signOut {
-    grid-column: 3/4;
-    background-color: transparent;
-    color: #006eb6;
-    width: 100%;
-    height: 25px;
-    border-radius: 10px;
-    border: #006eb6 1px solid;
-    padding: 0;
-    margin-left: 5px;
-    font-size: 15px
-  }
-  .addclass .signOut a {
-    color: red;
-    
-  }
-   /* .close button {
-    margin-top: 0.5em;
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    background: 0 0;
-    border: 0;
-    color: white;
-    border-radius: 7px;
-    background-color: #006eb6;
-    height: 50%;
-    width: 30%;
-  } */
-  
-  
-  
-  .addclass .form .label {
-    display: block;
-    text-align: left;
-  }
+.addclass .column1 {
+  grid-row: 2/2;
+}
 
-  .addclass .label, .input {
-    
-    display: inline-block;
-    margin: 0.3%;
-    font-size: 1.5rem;
-    margin-bottom: 0;
-  }
-  .addclass .validation {
-    color: #ff0000;
-    text-align: left;
-  }
-  
-  .addclass .input:valid {
-    border: 2px solid rgba(0,0,0,10%);
-  }
-  
-  /* n {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-  } */
-  /* input,
-  textarea,
-  select#semester,
-  #vm_dropDown
-  {
-    width: 100%;
-  } */
-  
-  .addclass input,
-  .addclass textarea,
-  .addclass select,
-  .addclass #specific_dropDown
-  {
-    width: 100%;
-  }
-  
-  /* input {
-    padding: 8px 0;
-    width: 100%;
-  } */
-  /* 
-  textarea {
-    padding: 10px 8px;
-  } */
-  
-  .addclass select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    text-align: center;
-  }
-  
-  .addclass .btnprimary {
-    background-color: #006eb6;
-    font-size: 1.5rem;
-    padding: 10px;
-    margin: 20px 40%;
-    width: 20%;
-    border-radius: 7px;
-    display: block;
-    color: #fff;
-  }
-  
-  /* table {
-    width: 100%;
-    text-align: center;
-    border-collapse: separate;
-  }
-  
-  table td,
-  table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  } */
-  
-  
-  
-  /* form .semester  {
-    margin-top: 5px;
-    display: block;
-    padding: 0px;
-    margin: 5px;
-  } */
-  
-  /* table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #006eb6;;
-    color: white;
-    border-radius: 6px 6px 0 0;
-  } */
-  
-  /* .fa {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  } */
-  /* .fa .tooltiptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #8dd3ee;
-    color: black;
-    text-align: center;
-    border-radius: 4px;
-    padding: 9px;
-    position: absolute;
-    bottom: 150%;
-    left: 50%;
-    margin-left: -85px;
-  } */
-  /* .fa .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #8dd3ee transparent transparent transparent;
-  }
-  .fa .show {
-    visibility: visible;
-  } */
-  /* th, td, p, input, h3 {
-    font:15px 'Segoe UI';
-  }
-  table, th, td {
-    border: solid 1px #ddd;
-    border-collapse: collapse;
-    padding: 2px 3px;
-    text-align: center;
-  }
-  th {
-    font-weight:bold;
-  } */
-  .addclass #nameError {
-    display: none;
-    font-size: 0.8em;
-  }
-  
-  .addclass #nameError.visible {
-    display: block;
-  }
-  
-  .addclass input.invalid {
-    border-color: red;
-  }
-  
-  .addclass .back {
-    width: 25%;
-    height: 40px;
-    margin: 20px auto;
-    grid-row: 1/2;
-    padding-top: 10px;
-    border-radius: 20px;
-    border: 1px solid #022d53;
-    cursor: pointer;
-  }
-  .addclass .back:hover {
-    background-color: #022d53;
-    color: white;
-    cursor: pointer;
-  }
-  /* 
-  .canvasToken{
-    padding-bottom:0.5em ;
-  } */
-  
-  /* #more{
-    border: none;
-    background-color: white;
-  } */
-  
-  /*modal */
-  /* .modalForTemplate{
-    display: none; Hidden by default
-    position: fixed; Stay in place
-    z-index: 1; Sit on top
-    padding-top: 100px; Location of the box
-    left: 0;
-    top: 0;
-    width: 100%; Full width
-    height: 100%; Full height
-    overflow: auto; Enable scroll if needed
-    background-color: rgb(0,0,0); Fallback color
-    background-color: rgba(0,0,0,0.4); Black w/ opacity
-  } */
-  /* .closeModal{
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  } */
-  /* span{
-    cursor: pointer;
-      display: flex;
-      justify-content: flex-end;
-      margin-right: -1rem;
-      margin-top: -1rem;
-  } */
-  /* 
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-  } */
-  /* 
-  #open{
-    margin: 0.5em;
-  } */
-  
-  /* #addmore{
-    background-color: blue;
-  } */
-  
-  /* #submitAddTemplates{
-    margin: 0.5em;
-  } */
-  
-  /*tooltip*/
-  
-  .addclass .tool-tip {
-    display: inline-block;
-    position: relative;
-    margin-left: 0.5em;
-  }
-  .addclass .tool-tip .tool-tip__icon {
-    background: #006eb6;
-    border-radius: 10px;
-    cursor: pointer;
-    display: inline-block;
-    font-style: italic;
-    font-family: times new roman;
-    height: 20px;
-    line-height: 1.3em;
-    text-align: center;
-    width: 20px;
-    margin-bottom: 1em;
-    color: white;
-  }
-  .addclass .tool-tip .tool-tip__info {
-    display: none;
-    background: #262626;
-    border: 1px solid #006eb6;
-    border-radius: 3px;
-    font-size: 0.875em;
-    padding: 1em;
-    left: 30px;
-    top: -20px;
-    width: 250px;
-    z-index: 2;
-    color:white;
-  }
-  .addclass .tool-tip .tool-tip__info:before, .tool-tip .tool-tip__info:after {
-    content: "";
-    position: absolute;
-    left: -10px;
-    top: 7px;
-    border-style: solid;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #006eb6;
-  }
-  .addclass .tool-tip .tool-tip__info:after {
-    left: -8px;
-    border-right-color: #262626;
-  }
-  .addclass .tool-tip .tool-tip__info .info {
-    display: block;
-  }
-  
-  .addclass .tool-tip:hover .tool-tip__info, .tool-tip:focus .tool-tip__info {
-    display: inline-block;
-  }
-  
-  .addclass a:focus + .tool-tip .tool-tip__info {
-    display: inline-block;
-  }
-  
-  /* Header */
-  .addclass .professorgrid {
-    grid-column: 2/3;
-    padding: 0px;
-    margin: 0px;
-    margin: auto 0;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    margin: auto 30px;
-    padding-top: 50px;
-    
-  }
-  .addclass .material-icons {
-    grid-column: 1/2;
-    color: #006eb6;
-    text-align: left;
-  }
-  .addclass #welcome {
-    grid-column: 2/3;
-    color: #006eb6;
-    font-size: 1.1em;
-  }
-  .addclass .signOut {
-    grid-column: 3/4;
-    background-color:transparent;
-    color: #006eb6;
-    /* border-style: none; */
-    width: 85px;
-    height: 25px;
-    border-radius: 10px;
-    border: #006eb6 1px solid;
-  }
-  .addclass .signOut:hover {
-    background-color: #006eb6;
-    color: white;
-  }
-  
-  /* Medium View */
-  @media only screen and (min-width: 37.5em) {
-    /* div.container {
-      width: 60%;
-    } */
-    .addclass .submitBt {
-      text-align: center;
-      font-size: 2.0rem;
-      font-weight: bold;
-      /* padding: 10px; */
-      /* padding: 16px 67px; */
-      margin-top: 40px;
-      /* width: 60%; */
-      border-radius: 7px;
-      display: block;
-      /* height: 40%; */
-      width: 15%;
-      height: 6.5%;
-    }
-  
-    /* form .data {
-      width: 60%;
-    } */
-  }
-  
-  /* Large View */
-  @media only screen and (min-width: 64em) {
-  
-  }
-  
+.addclass .column2 {
+  grid-row: 2/2;
+}
+
+.addclass .validation {
+  color: #ff0000;
+  text-align: left;
+}
+
+.addclass .input:valid {
+  border: 2px solid rgba(0, 0, 0, 10%);
+}
+
+.addclass input {
+  width: 93.5%;
+  border: 3px solid #98d5fd;
+  padding: 10px 10px;
+  margin-top: 10px;
+}
+
+.addclass select {
+  width: 100%;
+  border: 3px solid #98d5fd;
+  padding: 11.5px;
+  margin-top: 10px;
+}
+
+.addclass .btnprimary {
+  background-color: #006eb6;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin: 0px 40% 20px;
+  width: 20%;
+  border-radius: 7px;
+  border: transparent;
+  color: #fff;
+}
+
+.addclass #nameError {
+  display: none;
+  font-size: 0.8em;
+}
+
+.addclass #nameError.visible {
+  display: block;
+}
+
+.addclass input.invalid {
+  border-color: red;
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+}
