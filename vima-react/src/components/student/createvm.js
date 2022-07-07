@@ -4,13 +4,18 @@ import Header from "../../header";
 import LaptopIcon from '@mui/icons-material/Laptop';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { useNavigate } from 'react-router-dom';
 
 function CreateVM() {
+
+    let navigate = useNavigate();
+
     return (
         <div className={createVM.createvm}>
             <div className={createVM.container}>
             {/* <Header /> */}
             <Header />
+            <span onClick={() => {navigate("/student")}} id={createVM.backbtn}>&#8592; back</span>
             <h4 className={createVM.lets}>Let's create a VM</h4>
                 <div className={createVM.body}>
                 {/* <!-- course dropdown -->  */}
