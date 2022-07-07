@@ -25,7 +25,7 @@ function AddProfessor() {
                         </div>
 
                         <button type="submit"  id="submit">Save</button>
-                        <button onClick={() => {navigate("/")}}>Back</button>
+                        <button onClick={() => {navigate('/faculty')}}>Back</button>
                     </form>
                 </div>
         </div>

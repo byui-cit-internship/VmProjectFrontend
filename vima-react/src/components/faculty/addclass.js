@@ -28,7 +28,7 @@ function AddClass() {
         </div>
     </div>
     <div id={addclass.formheader}>
-      <span onClick={() => {navigate("/")}} id={addclass.backbtn}>&#8592; back</span>
+      <span onClick={() => {navigate("/faculty")}} id={addclass.backbtn}>&#8592; back</span>
       <h1>Add Class</h1>
     </div>
     <div id={addclass.gridcont}>

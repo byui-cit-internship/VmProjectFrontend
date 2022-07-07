@@ -28,6 +28,7 @@ function MyVM() {
             </div>
             <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
             </div>
+            <Background />
         </div>
     )
 }
