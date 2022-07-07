@@ -1,6 +1,6 @@
 import React from "react"; 
 import Background from "../../background";
-// import Header from "../../header";
+import Header from "../../header";
 import addvm from './addvm.module.css';
 
 function AddVm() {
@@ -8,7 +8,7 @@ function AddVm() {
         <div className={addvm.addvm}>
         <div className={addvm.container}>
             <div className={addvm.header}>
-                {/* <Header /> */}
+                <Header />
             </div>
             <h1>Add VSphere Template</h1>
             <div className={addvm.content}>
@@ -86,11 +86,10 @@ function AddVm() {
 
             </div>
                 {/* Button to open a modal to add more templates */}
-                    <button id={addvm.open}>Add</button>
+                    <button id={addvm.addtemplate}>Add</button>
         </div>
         <Background/>
         </div>
     )        
 }
-
 export default AddVm;

@@ -10,7 +10,7 @@
 .addvm .container {
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    width: 900px;
+    width: 1000px;
     background-image: none;
     background-color: white;
     margin: 50px auto;
@@ -21,6 +21,7 @@
 .addvm .content {
     background-color: #F0F0F0;
     width: 800px;
+    height: 320px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
@@ -59,83 +60,99 @@
     margin-top: 5px;
 }
 
-.addvm .vm {
+.addvm option {
+    padding: 5px;
+}
+
+.addvm option:hover {
+    background-color: #006eb6;
+    color: white;
+}
+
+/* .addvm .vm {
     width: 20px;
-}
+} */
 
-.addvm .canvasToken{
+/* .addvm .canvasToken{
     padding-bottom:0.5em;
-}
+} */
 
-.addvm #more{
+/* .addvm #more{
     border: none;
     background-color: white;
-}
+} */
 
 /*modal */
 .addvm .modalForTemplate{
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    /* position: fixed; Stay in place */
+    /* z-index: 1; Sit on top */
+    /* padding-top: 100px; Location of the box */
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; Full width */
+    /* height: 100%; Full height */
+    /* overflow: auto; Enable scroll if needed */
+    /* background-color: rgb(0,0,0); Fallback color */
+    /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
 }
-
+/* 
 .addvm .closeModal{
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-}
+} */
 
-.addvm span {
+/* .addvm span {
     cursor: pointer;
-    /* display: flex; */
+    display: flex;
     justify-content: flex-end;
     margin-right: -1rem;
     margin-top: -1rem;
-}
+} */
 
-.addvm .modalcontent {
+/* .addvm .modalcontent {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
-}
+} */
 
-.addvm #open{
+.addvm #addtemplate{
     background-color: #3A8ACE;
     width: 175px;
-    border-radius: 20px;
+    border-radius: 10px;
     text-align: center;
     margin: auto;
     display: flex;
     justify-content: center;
     margin-left: 40%;
     padding: 10px;
+    border: transparent;
+    color: white;
+    font-size: 20px;
+}
+.addvm #addtemplate:hover{
+    background-color: #022d53;
 }
 
-.addvm #addmore{
+
+/* .addvm #addmore{
     background-color: blue;
-}
+} */
 
-.addvm #submitAddTemplates{
+/* .addvm #submitAddTemplates{
     margin: 0.5em;
-}
+} */
 
-.addvm .materialicons {
+/* .addvm .materialicons {
     grid-column: 1/2;
     color: #006eb6;
     text-align: left;
-}
+} */
 
-.addvm textarea {
+/* .addvm textarea {
     width: 50%;
-}
+} */

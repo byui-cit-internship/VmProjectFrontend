@@ -9,10 +9,10 @@ https://www.byui.edu/branding/color-guide
 * {
   margin: 0;
 }
-
+/* 
 .studentdashboard .studentdashboard {
   margin: auto auto;
-}
+} */
 
 .studentdashboard .container {
   width: 1000px;
@@ -68,14 +68,15 @@ https://www.byui.edu/branding/color-guide
 
 .studentdashboard #greeting {
   font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-  text-align: left;
+  /* font-weight: 200; */
+  /* text-align: left; */
   font-size: 20px;
   /* padding-top: 20px; */
   padding-left: 50px;
   color: black;
   grid-column: 1/2;
   grid-row: 2/3;
+  padding-top: 45px;
 }
 
 .studentdashboard .studentgrid {
@@ -145,10 +146,12 @@ https://www.byui.edu/branding/color-guide
   height: 90px;
   border-radius: 7px 0px 0px 7px;
   grid-column: 2/3;
-  background-color: #8ED2FF;
+  background-color: #5BBCFB;
   color: white;
   grid-row: 2/3;
   margin-right: 0px;
+  margin-top: 15px;
+  margin-left: 50px;
 }
 .studentdashboard .professorgrid {
   display: grid;
@@ -176,7 +179,7 @@ grid-gap: 5px;
   display: block;
   grid-column: 2/3;
   grid-row: 2/3;
-  background-color: #5BBCFB;
+  background-color: #3A8ACE;
   color: white;
   grid-row: 2/3;
   margin-top: 15px;
@@ -204,10 +207,11 @@ grid-gap: 5px;
   display: block;
   grid-column: 2/3;
   grid-row: 2/3;
-  background-color: #5BBCFB;
+  background-color: #3A8ACE;
   color: white;
-  margin-top: 145px;
   margin-right: 0px;
+  margin-left: 50px;
+  margin-top: 130px;
 }
 
 .studentdashboard .vm_utilization:hover {
@@ -249,10 +253,11 @@ grid-gap: 5px;
   display: block;
   grid-column: 2/3;
   grid-row: 2/3;
-  background-color: #3A8ACE;
+  background-color: #1A63A1;
   color: white;
-  margin-top: 245px;
   margin-right: 0px;
+  margin-top: 245px;
+  margin-left: 50px;
 }
 
 .studentdashboard .mynetworks:hover {
