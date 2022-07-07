@@ -8,14 +8,14 @@
 }
 
 .addvm .container {
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-  width: 900px;
-  background-image: none;
-  background-color: white;
-  margin: 50px auto;
-  border-radius: 50px;
-  height: 600px;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    width: 1000px;
+    background-image: none;
+    background-color: white;
+    margin: 50px auto;
+    border-radius: 50px;
+    height: 600px;
 }
 
 .addvm .content {

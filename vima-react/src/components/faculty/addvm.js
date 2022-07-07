@@ -4,13 +4,15 @@ import Background from "../../background";
 import addvm from "./addvm.module.css";
 
 function AddVm() {
-  return (
-    <div className={addvm.addvm}>
-      <div className={addvm.container}>
-        <div className={addvm.header}>{/* <Header /> */}</div>
-        <h1>Add VSphere Template</h1>
-        <div className={addvm.content}>
-          {/* Folders */}
+    return (
+        <div className={addvm.addvm}>
+        <div className={addvm.container}>
+            <div className={addvm.header}>
+                <Header />
+            </div>
+            <h1>Add VSphere Template</h1>
+            <div className={addvm.content}>
+             {/* Folders */}
           <div className={addvm.folder}>
             <label>Choose a Folder:</label>
             <br />
@@ -109,12 +111,32 @@ function AddVm() {
               <button id={addvm.submitAddTemplates}>save</button>
             </div>
           </div>
-
-          {/* Description */}
-          {/* <div className={addvm.description}>
+            
+                    <div className={addvm.modalForTemplate}>
+                        <div className={addvm.modalcontent}>
+                        <span className={addvm.closeModal}>X</span>
+                            <h1>Add templates</h1>
+                            <label>Choose a template Virtual machine:</label>
+                            <select name="addTemplateVm" id={addvm.addTemplateVm} required > 
+                                <option className={addvm.vm} name="option" value="Default"  >Default</option>
+                            </select>
+                            <button id={addvm.more}><i className={addvm.materialicons}>add</i></button>
+                            <button id={addvm.submitAddTemplates}>save</button>
+                        </div>
+                    </div>
+            
+                {/* Description */}
+                {/* <div className={addvm.description}>
                     <label>Description of Virtual Machine:</label>
                     <textarea type="text" id={addvm.description} name="description" rows="2" cols="30" placeholder="Describe your course"></textarea>
                 </div> */}
+
+
+            </div>
+                {/* Button to open a modal to add more templates */}
+                    <button id={addvm.addtemplate}>Add</button>
+        </div>
+        <Background/>
         </div>
         {/* Button to open a modal to add more templates */}
         <button id={addvm.open}>Add</button>
