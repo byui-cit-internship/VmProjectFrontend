@@ -1,16 +1,4 @@
-/* BYUI Color Guide
-BYUI blue: #006EB6
-black: #000000
-white: #FFFFFF
-https://www.byui.edu/branding/color-guide
-*/
-
-/* Small View */
-* {
-    margin: 0;
-}
-
-.myVm .container {
+.mynetworks .container {
     width: 1000px;
     background-color: white;
     margin: 50px auto;
@@ -22,7 +10,7 @@ https://www.byui.edu/branding/color-guide
     padding: 10px 20px;
 }
 
-.myVm #backbtn{
+.mynetworks #backbtn{
     display: flex;
     color: #006eb6;
     margin-left: 1em;
