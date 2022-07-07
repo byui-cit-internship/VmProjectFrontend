@@ -16,6 +16,7 @@
     margin: 50px auto;
     border-radius: 50px;
     height: 600px;
+    padding-top: 15px;
 }
 
 .addvm .content {
@@ -100,7 +101,6 @@
 
 .addvm span {
     cursor: pointer;
-    /* display: flex; */
     justify-content: flex-end;
     margin-right: -1rem;
     margin-top: -1rem;
@@ -142,4 +142,8 @@
 
 .addvm textarea {
     width: 50%;
+}
+
+.addvm .addTemplateVm {
+    width: 50px;
 }

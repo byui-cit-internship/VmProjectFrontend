@@ -1,6 +1,6 @@
 import React from "react"; 
 import Background from "../../background";
-// import Header from "../../header";
+import Header from "../../header";
 import addvm from './addvm.module.css';
 import Apple from '@mui/icons-material/Apple';
 
@@ -10,7 +10,7 @@ function AddVm() {
         <div className={addvm.addvm}>
         <div className={addvm.container}>
             <div className={addvm.header}>
-                {/* <Header /> */}
+                <Header />
             </div>
             <h1>Add VSphere Template</h1>
             <div className={addvm.content}>
@@ -60,7 +60,8 @@ function AddVm() {
                 <label>Choose a Virtual machine:</label>
                     <form action="">
                         <select name="templateVm" id={addvm.templateVm} required multiple type="checkbox">
-                            <option name="option" value="Default">Default</option>
+                                <option className={addvm.apple} name='option'><Apple /></option>
+                            {/* <option name="option" value="Default">Default</option> */}
                         </select>
                     </form>
                 </div>
@@ -71,10 +72,8 @@ function AddVm() {
                         <span className={addvm.closeModal}>X</span>
                             <h1>Add templates</h1>
                             <label>Choose a template Virtual machine:</label>
-                            <select name="addTemplateVm" id={addvm.addTemplateVm} required > 
-                                <option name='option' value={<Apple></Apple>}> <i><Apple /></i>
-                                </option>
-                                {/* <option className={addvm.vm} name="option" value="Default" >Default</option> */}
+                            <select className={addvm.addTemplateVm} required > 
+                                <option className={addvm.vm} name="option" value="Default" >Default</option>
                             </select>
                             <button id={addvm.more}><i className={addvm.materialicons}>add</i></button>
                             <button id={addvm.submitAddTemplates}>save</button>
