@@ -4,7 +4,6 @@ import Header from "../../header";
 import addvm from './addvm.module.css';
 import Apple from '@mui/icons-material/Apple';
 
-
 function AddVm() {
     return (
         <div className={addvm.addvm}>
@@ -56,29 +55,6 @@ function AddVm() {
                     </option>
                 </select>
             </div>
-
-            {/* Semester */}
-            <div className={addvm.semester}>
-                <label>Choose Semester:</label>
-                <select name="semester" id="semester" required>
-                    <option name="option" value="">
-                        Default
-                    </option>
-                    <option name="option" value="Summer">
-                        Summer
-                    </option>
-                    <option name="option" value="Spring">
-                        Spring
-                    </option>
-                    <option name="option" value="Fall">
-                        Fall
-                    </option>
-                    <option name="option" value="Winter">
-                        Winter
-                    </option>
-                </select>
-            </div>
-
 
                     {/* Semester */}
                     <div className={addvm.semester}>
@@ -140,13 +116,10 @@ function AddVm() {
                 <textarea type="text" id={addvm.description} name="description" rows="2" cols="30" placeholder="Describe your course"></textarea>
             </div> */}
 
-
         </div>
-                    {/* Button to open a modal to add more templates */}
-                        <button id={addvm.addtemplate}>Add</button>
-        <Background/>
             {/* Button to open a modal to add more templates */}
             <button id={addvm.open}>Add</button>
+        <Background/>
     </div>
     </div>
   );
