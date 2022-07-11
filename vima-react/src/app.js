@@ -29,6 +29,7 @@ function App() {
     const verifyJwt = async ()=>{
       const jwtResponse = await fetch(getApiRoot()+'/api/token',
       {
+        credentials:'include',
         headers:{
           'content-type':'application/json'
         },
