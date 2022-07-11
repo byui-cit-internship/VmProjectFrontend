@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState,useEffect} from "react";
 import Background from "../../background";
 import Header from "../../header";
 import addvm from './addvm.module.css';
@@ -6,6 +6,15 @@ import Apple from '@mui/icons-material/Apple';
 
 
 function AddVm() {
+    const [templateFolders,setTemplateFolders] = useState([]);
+
+    useEffect(()=>{
+
+        console.log('Calling fetch to update a list of template folders')
+
+    }
+    ,templateFolders);
+
     return (
         <div className={addvm.addvm}>
             <div className={addvm.container}>
