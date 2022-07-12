@@ -57,47 +57,6 @@ function AddProfessor() {
           </button>
         </form>
       </div>
-      <h1>Add a Professor</h1>
-      <form action="#" id="professorSignup">
-        {/* <!-- Course Name--> */}
-        <div class="data">
-          <label for="name">First Name:</label>
-          <input
-            type="text"
-            id="fname"
-            name="firstName"
-            placeholder="Enter template name"
-            required
-          />
-          <label for="name">Last Name:</label>
-          <input
-            type="text"
-            id="lname"
-            name="lastName"
-            placeholder="Enter template name"
-            required
-          />
-          <label for="name">Email:</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            placeholder="Enter template name"
-            required
-          />
-        </div>
-
-        <button type="submit" id="submit">
-          Save
-        </button>
-        <button
-          onClick={() => {
-            navigate("/faculty");
-          }}
-        >
-          Back
-        </button>
-      </form>
     </div>
   );
 }
