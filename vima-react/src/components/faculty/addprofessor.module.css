@@ -29,7 +29,7 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor h1 {
-  margin: auto auto;
+  text-align: center;
 }
 
 .addprofessor #backbtn {
@@ -83,17 +83,8 @@ https://www.byui.edu/branding/color-guide
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
-  /* .addprofessor #submit {
-    font-size: 1.5rem;
-    padding: 10px;
-    margin: 10px auto;
-    width: 20%;
-    border-radius: 7px;
-    display: block;
-  } */
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
-
 }
