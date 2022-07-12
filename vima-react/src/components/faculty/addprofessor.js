@@ -7,49 +7,31 @@ import Header from "../../header";
 function AddProfessor() {
   let navigate = useNavigate();
 
-<<<<<<< Updated upstream
-    return (
-        <div className={addprofessor.addprofessor}>        
-            <div className= {addprofessor.container}>
-                {/* <Header /> */}
-                <div className={addprofessor.header}>
-                    <Header />
-                </div>
-                <button className={addprofessor.backbtn} onClick={() => {navigate('/faculty')}}>Back</button>
-                <h1>Add a Professor</h1>
-                    <form action="#" id="professorSignup">
-                        {/* <!-- Course Name--> */}
-                        <div className={addprofessor.data}>
-                            <label for="name">First Name:</label>
-                            <input type="text" id="fname" name="firstName" placeholder="Enter professor first name" required />
-                            <label for="name">Last Name:</label>
-                            <input type="text" id="lname" name="lastName" placeholder="Enter professor last name" required />
-                            <label for="name">Email:</label>
-                            <input type="text" id="email" name="email" placeholder="Enter professor email" required />
-                        </div>
-                        <img alt="teacher" src='/images/teacherpic.jpg'></img>
-                        <button type="submit" id={addprofessor.submit}>Add Professor</button>
-                    </form>
-                </div>
-=======
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
         {/* <Header /> */}
         <div className={addprofessor.header}>
           <Header />
->>>>>>> Stashed changes
         </div>
+        <button
+          className={addprofessor.backbtn}
+          onClick={() => {
+            navigate("/faculty");
+          }}
+        >
+          Back
+        </button>
         <h1>Add a Professor</h1>
         <form action="#" id="professorSignup">
           {/* <!-- Course Name--> */}
-          <div class="data">
+          <div className={addprofessor.data}>
             <label for="name">First Name:</label>
             <input
               type="text"
               id="fname"
               name="firstName"
-              placeholder="Enter template name"
+              placeholder="Enter professor first name"
               required
             />
             <label for="name">Last Name:</label>
@@ -57,7 +39,7 @@ function AddProfessor() {
               type="text"
               id="lname"
               name="lastName"
-              placeholder="Enter template name"
+              placeholder="Enter professor last name"
               required
             />
             <label for="name">Email:</label>
@@ -65,23 +47,57 @@ function AddProfessor() {
               type="text"
               id="email"
               name="email"
-              placeholder="Enter template name"
+              placeholder="Enter professor email"
               required
             />
           </div>
-
-          <button type="submit" id="submit">
-            Save
-          </button>
-          <button
-            onClick={() => {
-              navigate("/faculty");
-            }}
-          >
-            Back
+          <img alt="teacher" src="/images/teacherpic.jpg"></img>
+          <button type="submit" id={addprofessor.submit}>
+            Add Professor
           </button>
         </form>
       </div>
+      <h1>Add a Professor</h1>
+      <form action="#" id="professorSignup">
+        {/* <!-- Course Name--> */}
+        <div class="data">
+          <label for="name">First Name:</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstName"
+            placeholder="Enter template name"
+            required
+          />
+          <label for="name">Last Name:</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastName"
+            placeholder="Enter template name"
+            required
+          />
+          <label for="name">Email:</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            placeholder="Enter template name"
+            required
+          />
+        </div>
+
+        <button type="submit" id="submit">
+          Save
+        </button>
+        <button
+          onClick={() => {
+            navigate("/faculty");
+          }}
+        >
+          Back
+        </button>
+      </form>
     </div>
   );
 }
