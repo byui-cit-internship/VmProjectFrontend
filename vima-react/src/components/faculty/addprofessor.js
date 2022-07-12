@@ -10,7 +10,6 @@ function AddProfessor() {
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
-        {/* <Header /> */}
         <div className={addprofessor.header}>
           <Header />
         </div>
