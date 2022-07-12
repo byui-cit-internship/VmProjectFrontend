@@ -43,64 +43,6 @@ function AddVm() {
                 </option>
                 </select>
             </div>
-
-            {/* Year */}
-            <div className={addvm.year}>
-                <label>Professor Page Year:</label>
-                <select name="semester" id={addvm.semester} required>
-                    <option name="option" value="">
-                        Default
-                    </option>
-                    <option name="option" value="Summer">
-                        2022
-                    </option>
-                    <option name="option" value="Spring">
-                        2021
-                    </option>
-                    <option name="option" value="Fall">
-                        2020
-                    </option>
-                    <option name="option" value="Winter">
-                        2019
-                    </option>
-                </select>
-            </div>
-
-            {/* Semester */}
-            <div className={addvm.semester}>
-                <label>Choose Semester:</label>
-                <select name="semester" id="semester" required>
-                    <option name="option" value="">
-                        Default
-                    </option>
-                    <option name="option" value="Summer">
-                        Summer
-                    </option>
-                    <option name="option" value="Spring">
-                        Spring
-                    </option>
-                    <option name="option" value="Fall">
-                        Fall
-                    </option>
-                    <option name="option" value="Winter">
-                        Winter
-                    </option>
-                </select>
-            </div>
-
-
-                    {/* Semester */}
-                    <div className={addvm.semester}>
-                        <label>Choose Semester:</label>
-                            <select name="semester" id="semester" required>
-                                <option name="option" value="">Default</option>
-                                <option name="option" value="Summer">Summer</option>
-                                <option name="option" value="Spring">Spring</option>
-                                <option name="option" value="Fall">Fall</option>
-                                <option name="option" value="Winter">Winter</option>
-                            </select>
-                    </div>
-
                     {/* Virtual Machine */}
                     <div className={addvm.chooseVm}>
                         <label>Choose a Virtual machine:</label>
