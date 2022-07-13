@@ -1,53 +1,53 @@
 .header * {
-    width: 95%;
-    margin-top: 25px;
+  width: 95%;
+  margin-top: 25px;
 }
 
 .header .grid {
-    display: grid;
-    margin-left: 50px;
-    grid-template-columns: 64% .2fr 1fr 14%;
+  display: grid;
+  margin-left: 50px;
+  grid-template-columns: 64% 0.2fr 1fr 14%;
 }
 
 .header .logo {
-    width: 150px;
-    margin-top: 21px;
+  width: 150px;
+  margin-top: 21px;
 }
 
 .header #welcome {
-    color: #006eb6;
-    font-size: 1.2em;
-    width: 100%;
-    padding: 0;
-    text-align: right;
+  color: #006eb6;
+  font-size: 1.2em;
+  width: 100%;
+  padding: 0;
+  text-align: right;
 }
 
 .header .signOut {
-    background-color:transparent;
-    color: #D01900;
-    width: 85px;
-    height: 25px;
-    border-radius: 10px;
-    border: #D01900 1px solid;
-    padding: 0;
-    margin-left: 9px;
-    margin-top: 26px;
-    font-size: 15px;
+  background-color: transparent;
+  color: #d01900;
+  width: 85px;
+  height: 25px;
+  border-radius: 10px;
+  border: #d01900 1px solid;
+  padding: 0;
+  margin-left: 9px;
+  margin-top: 26px;
+  font-size: 15px;
 }
 
 .header .signOut:hover {
-    background-color: #D01900;
-    color: white;
+  background-color: #d01900;
+  color: white;
 }
 
 .header .materialicons {
-    color: #8ED2FF;
-    text-align: left;
-    font-size: 25px;
+  color: #8ed2ff;
+  text-align: left;
+  font-size: 25px;
 }
 
 .header .material {
-    color: #1FAAFA;
-    font-size: 35px;
-    margin-top: 21px;
+  color: #1faafa;
+  font-size: 35px;
+  margin-top: 21px;
 }

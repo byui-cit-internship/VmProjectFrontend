@@ -4,16 +4,14 @@ import Header from "../../header";
 import addvm from './addvm.module.css';
 import Apple from '@mui/icons-material/Apple';
 
-
 function AddVm() {
-    const [templateFolders,setTemplateFolders] = useState([]);
+    const [templateFolders, setTemplateFolders] = useState([]);
 
     useEffect(()=>{
 
         console.log('Calling fetch to update a list of template folders')
 
-    }
-    ,templateFolders);
+    },templateFolders);
 
     return (
         <div className={addvm.addvm}>
@@ -54,7 +52,6 @@ function AddVm() {
                         </form>
                     </div>
 
-
             <div className={addvm.modalForTemplate}>
                 <div className={addvm.modalcontent}>
                     <span className={addvm.closeModal}>X</span>
@@ -91,13 +88,10 @@ function AddVm() {
                 <textarea type="text" id={addvm.description} name="description" rows="2" cols="30" placeholder="Describe your course"></textarea>
             </div> */}
 
-
         </div>
-                    {/* Button to open a modal to add more templates */}
-                        <button id={addvm.addtemplate}>Add</button>
-        <Background/>
             {/* Button to open a modal to add more templates */}
             <button id={addvm.open}>Add</button>
+        <Background/>
     </div>
     </div>
   );

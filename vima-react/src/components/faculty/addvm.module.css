@@ -8,26 +8,26 @@
 }
 
 .addvm .container {
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    width: 1000px;
-    background-image: none;
-    background-color: white;
-    margin: 50px auto;
-    border-radius: 50px;
-    height: 600px;
-    padding-top: 15px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  width: 1000px;
+  background-image: none;
+  background-color: white;
+  margin: 50px auto;
+  border-radius: 50px;
+  height: 650px;
+  padding-top: 15px;
 }
 
 .addvm .content {
-    background-color: #F0F0F0;
-    width: 800px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding: 35px 25px;
-    margin: auto auto;
-    margin-bottom: 20px;
+  background-color: #f0f0f0;
+  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 35px 25px;
+  margin: auto auto;
+  margin-bottom: 20px;
 }
 
 .addvm .folder {
@@ -54,14 +54,14 @@
 }
 
 .addvm label {
-    margin-top: 10px;
+  margin-top: 5px;
 }
 
 .addvm select {
-    width: 100%;
-    border: 3px solid #98D5FD;
-    padding: 15px;
-    margin-top: 10px;
+  width: 100%;
+  border: 3px solid #98d5fd;
+  padding: 15px;
+  margin-top: 10px;
 }
 
 .addvm .vm {
@@ -100,10 +100,10 @@
 }
 
 .addvm span {
-    cursor: pointer;
-    justify-content: flex-end;
-    margin-right: -1rem;
-    margin-top: -1rem;
+  cursor: pointer;
+  justify-content: flex-end;
+  margin-right: -1rem;
+  margin-top: -1rem;
 }
 
 .addvm .modalcontent {
@@ -141,10 +141,9 @@
 }
 
 .addvm textarea {
-    width: 50%;
+  width: 50%;
 }
 
 .addvm .addTemplateVm {
-    width: 50px;
+  width: 50px;
 }
-
