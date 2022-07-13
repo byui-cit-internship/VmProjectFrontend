@@ -102,7 +102,7 @@ function App() {
         // window.location.href="VMfaculty_dashboard/facultyview.html"
       )
       } 
-      else if(Object.keys(authorization)>0) {
+      else if(authorization.isAdmin===false) {
         return (
           // window.location.href="VMstudent_dashboard/studentview.html"
             <Navigate to='/student' element={<StudentDashboard />} />
