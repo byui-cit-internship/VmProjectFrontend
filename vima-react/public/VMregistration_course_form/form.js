@@ -124,7 +124,6 @@ const getFormData = () => {
                 }else {
                     window.location.assign("/VMfaculty_dashboard/facultyview.html")
                 }
-          
             }).catch(function (error) {
                 console.log("Here in the error")
                 if (error.response.status == 409) {
@@ -135,9 +134,7 @@ const getFormData = () => {
                     alert("error has occured, check connection")
                     console.log(error.message)
                 }
-
             })
-       
 }
 
 

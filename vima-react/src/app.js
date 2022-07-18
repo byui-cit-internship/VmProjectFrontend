@@ -94,7 +94,6 @@ function App() {
   );
 } else{
 
-
     console.log(googleCredentials.current.email);
    if(authorization.isAdmin===true){
       return (//View could work instead of div here, but not sure  
