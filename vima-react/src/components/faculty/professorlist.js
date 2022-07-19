@@ -1,14 +1,14 @@
 import Background from '../../background';
 import Header from '../../header';
-import professorList from './professorlist.module.css'
+import professorList from './professorlist.module.css';
 import { useNavigate } from 'react-router-dom';
 
 
-// import ReactDOM from 'react-dom'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-// const element = <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-// ReactDOM.render(element, document.body)
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+const element = <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+
 
 
 
@@ -26,10 +26,9 @@ export default function ProfessorList() {
                 <div id={professorList.professorsAndSearch}>
                     <h1 className={professorList.lets}>Professors</h1>
                     <div class={professorList.searchbar}>
+                        <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} />
                         <input id={professorList.search} type="text" placeholder="Search.."/>
-                        {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
                     </div>
-                    
                 </div>
 
                 <div className={professorList.table}>

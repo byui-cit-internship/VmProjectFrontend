@@ -1,5 +1,6 @@
 
-/* Small View */
+/* Large View */
+
 .body {
   font-family: "Raleway", sans-serif;
 }
@@ -60,15 +61,29 @@
   padding: 10px 0px;
 }
 
+.professorList .searchbar {
+margin: 0px 10px;
+border-radius: 8px;
+border: 1px solid #ffffff;
+background-color: #006eb6;
+height: 30px;
+width: 455px;
+padding: 0px 9px;
+display: flex;
+align-items: center;
+}
+
+.professorList .searchbar #MGlass {
+  font-size: .9rem;
+  opacity: 80%;
+  }
+
+
 .professorList #search {
-  margin: 0px 10px;
-  border-radius: 8px;
-  border: 1px solid #ffffff;
-  background-color: #006eb6;
-  height: 30px;
-  width: 280px;
-  padding: 0px 9px;
   font-family: "Raleway", sans-serif;
+  background-color: #006eb6;
+  border: none;
+  margin-left: 3px;
 }
 
 .professorList #search::placeholder{
