@@ -1,37 +1,12 @@
-import {React,useState} from "react";
+import React from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../header";
-import {getApiRoot} from '../../utils/getApiRoot';
 
 function AddClass() {
   let navigate = useNavigate();
-  const [canvasToken, setCanvasToken] = useState("");
-  const [canvasCourseId, setCanvasCourseId] = useState("");
-  const [courseName, setCourseName] = useState("");
-  const [courseSemester, setCourseSemester] = useState("");
-  const [courseYear, setCourseYear] = useState("");
-  const [courseSection, setCourseSection] = useState("");
-
-  const validateCanvasToken = ()=>{
-    fetch(
-      getApiRoot() + "/api/course/professor/checkCanvasToken",{
-      method:'POST',
-      credentials:'include',
-      withCredentials:true,
-      body: JSON.stringify({
-          "canvas_token": canvasToken,
-          "canvas_course_id": canvasCourseId
-      }
-      ),
-      headers:{
-        'content-type':'application/json'
-      }
-    }
-  )
-  }
 
   return (
     <div className={addclass.addclass}>
@@ -54,7 +29,7 @@ function AddClass() {
           {/* <!-- Course Name--> */}
           <div className={addclass.coursename}>
             {/* <p class="validation">Required *</p> */}
-            <label className={addclass.label} htmlFor="name">
+            <label className={addclass.label} for="name">
               Course Name:
             </label>
             <input
@@ -64,13 +39,11 @@ function AddClass() {
               name="CourseName"
               placeholder="Enter your class name"
               required
-              value={courseName}
-              onChange={(event)=>setCourseName(event.target.value)}
             />
           </div>
           {/* <!--Folders  --> */}
           <div className={addclass.canvastoken}>
-            <label className={addclass.label} htmlFor="name">
+            <label className={addclass.label} for="name">
               Canvas Token:
             </label>
             <input
@@ -80,8 +53,6 @@ function AddClass() {
               name="canvas_token"
               placeholder="Enter your class token"
               required
-              value={canvasToken}
-              onChange={(event)=>setCanvasToken(event.target.value)}
               />
           </div>
               {/* <!-- Section course --> */}
@@ -110,7 +81,7 @@ function AddClass() {
           </div>
           {/* <!--Course Id--> */}
           <div className={addclass.courseid}>
-            <label className={addclass.label} htmlFor="name">
+            <label className={addclass.label} for="name">
               Canvas Course ID:
             </label>
             <span role="alert" id={addclass.nameError} aria-hidden="true">
@@ -122,56 +93,11 @@ function AddClass() {
               id="courseId"
               name="CourseId"
               placeholder="Enter your course Id"
-              value={canvasCourseId}
-              onChange={(event)=>setCanvasCourseId(event.target.value)}
               required
             />
           </div>
-            {/* Semester */}
-            <div className={addclass.semester}>
-                <label>Semester:</label>
-                <select name="semester" id="semester" required>
-                    <option name="option" value="">
-                        Default
-                    </option>
-                    <option name="option" value="Summer">
-                        Summer
-                    </option>
-                    <option name="option" value="Spring">
-                        Spring
-                    </option>
-                    <option name="option" value="Fall">
-                        Fall
-                    </option>
-                    <option name="option" value="Winter">
-                        Winter
-                    </option>
-                </select>
-            </div>
-            {/* Year */}
-            <div className={addclass.year}>
-                <label>Year:</label>
-                <select name="semester" id={addclass.semester} required>
-                    <option name="option" value="">
-                        Default
-                    </option>
-                    <option name="option" value="Summer">
-                        2022
-                    </option>
-                    <option name="option" value="Spring">
-                        2021
-                    </option>
-                    <option name="option" value="Fall">
-                        2020
-                    </option>
-                    <option name="option" value="Winter">
-                        2019
-                    </option>
-                </select>
-            </div>
-
         </div>
-        <button type="button" id="submit" className={addclass.btnprimary} onClick={validateCanvasToken}>
+        <button type="button" id="submit" className={addclass.btnprimary}>
           Add
         </button>
       </div>
