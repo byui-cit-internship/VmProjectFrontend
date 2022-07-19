@@ -3,6 +3,16 @@ import Header from '../../header';
 import professorList from './professorlist.module.css'
 import { useNavigate } from 'react-router-dom';
 
+
+// import ReactDOM from 'react-dom'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// const element = <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
+// ReactDOM.render(element, document.body)
+
+
+
+
 export default function ProfessorList() {
 
     let navigate = useNavigate();
@@ -12,7 +22,15 @@ export default function ProfessorList() {
             <div className={professorList.container}>
                 <Header />
                 <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span>
-                <h1 className={professorList.lets}>Let's create a VM</h1>
+                <span id={professorList.title}> Professor List</span>
+                <div id={professorList.professorsAndSearch}>
+                    <h1 className={professorList.lets}>Professors</h1>
+                    <div class={professorList.searchbar}>
+                        <input id={professorList.search} type="text" placeholder="Search.."/>
+                        {/* <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" /> */}
+                    </div>
+                    
+                </div>
 
                 <div className={professorList.table}>
                     <table>
@@ -45,8 +63,11 @@ export default function ProfessorList() {
                         </tr>
                         </tbody>
                     </table>
-                    </div>
+                </div>
+
+                <button className={professorList.backbtn} onClick={() => {navigate("#");}}>Add New Professor</button>
             </div>
+
             <Background />
         </div>
     )
