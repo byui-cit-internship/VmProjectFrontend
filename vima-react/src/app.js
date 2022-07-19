@@ -7,7 +7,7 @@ import jwt_decode from 'jwt-decode';
 import Background from './background';
 import styles from './app.module.css';
 import { Navigate } from 'react-router-dom';
-import FacultyDashboard from './facultydashboard';
+import FacultyDashboard from './components/faculty/facultydashboard';
 import StudentDashboard from './components/student/studentdashboard';
 import { getApiRoot } from './utils/getApiRoot';
 

@@ -2,9 +2,10 @@ import {React,useState} from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
 import {getApiRoot} from '../../utils/getApiRoot';
+// import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
   let navigate = useNavigate();
@@ -15,8 +16,35 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
 
-  const validateCanvasToken = ()=>{
-    fetch(
+  const createCourse = async ()=>{
+      const response = await fetch(
+      getApiRoot() + "/api/enrollment/professor/register/course",{
+      method:'POST',
+      data: {
+        courseName: courseName,
+        courseSection: courseSection,
+        courseSemester: courseSemester,
+        courseYear: courseYear,
+        canvasCourseId: canvasCourseId,
+        canvasToken: canvasToken,
+        credentials:'include',
+      }   
+    }
+  );
+ const responseObject = await response.json();
+    console.log(JSON.stringify(responseObject));
+    console.log("Here we send data from api");
+    alert("Your course was created!");
+    if (console.log("Would you like to add another class")== false) {
+      // return(
+      // <Navigate to='/faculty' element={<FacultyDashboard />}  
+      // );
+
+    }
+  }
+
+  const validateCanvasToken = async ()=>{
+    await fetch(
       getApiRoot() + "/api/course/professor/checkCanvasToken",{
       method:'POST',
       credentials:'include',
@@ -82,6 +110,7 @@ function AddClass() {
               required
               value={canvasToken}
               onChange={(event)=>setCanvasToken(event.target.value)}
+              onBlur={(event)=>validateCanvasToken()}
               />
           </div>
               {/* <!-- Section course --> */}
