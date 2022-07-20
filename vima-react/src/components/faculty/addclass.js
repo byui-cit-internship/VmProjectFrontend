@@ -5,6 +5,7 @@ import addclass from "./addclass.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
 import {getApiRoot} from '../../utils/getApiRoot';
+
 // import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
@@ -20,31 +21,38 @@ function AddClass() {
       const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course",{
       method:'POST',
-      data: {
+      body: JSON.stringify({
         courseName: courseName,
         courseSection: courseSection,
         courseSemester: courseSemester,
         courseYear: courseYear,
         canvasCourseId: canvasCourseId,
         canvasToken: canvasToken,
-        credentials:'include',
-      }   
+        
+      }), 
+      credentials:'include',
+      headers:{
+        'content-type':'application/json'
+      }  
     }
   );
  const responseObject = await response.json();
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
     alert("Your course was created!");
-    if (console.log("Would you like to add another class")== false) {
+    console.log("Your course was created!");
+    if (console.log("Your course was created!")== true) {
+      alert("Would you like to add another course");
+
       // return(
-      // <Navigate to='/faculty' element={<FacultyDashboard />}  
+      // <Navigate to='/faculty' element={<FacultyDashboard />}></Navigate>  
       // );
 
     }
   }
 
   const validateCanvasToken = async ()=>{
-    await fetch(
+    const tokenResponse = await fetch(
       getApiRoot() + "/api/course/professor/checkCanvasToken",{
       method:'POST',
       credentials:'include',
@@ -54,11 +62,21 @@ function AddClass() {
           "canvas_course_id": canvasCourseId
       }
       ),
+
+      
       headers:{
         'content-type':'application/json'
       }
     }
-  )
+  );
+  
+  const canvasValidationObject = await tokenResponse.json();
+  if (tokenResponse.status!=200){
+    alert("Canvas Validation failed with the error: "+JSON.stringify(canvasValidationObject.errors))
+  }
+  else{
+    await createCourse();
+  }
   }
 
   return (
@@ -110,15 +128,21 @@ function AddClass() {
               required
               value={canvasToken}
               onChange={(event)=>setCanvasToken(event.target.value)}
-              onBlur={(event)=>validateCanvasToken()}
+              
               />
           </div>
               {/* <!-- Section course --> */}
           <div className={addclass.coursesection}>
             <label className={addclass.label}>Course Section:</label>
-            <select name="section" required>
+            <select name="section" required onChange={(event)=>{
+              
+              console.log("section", event.target.value)
+
+              setCourseSection(event.target.value)
+              console.log("courseSection", courseSection)
+            }}>
               <option name="option" value="">
-                Select a section number
+                Select a Section Number
               </option>
               <option name="option" value="1">
                 1
@@ -159,20 +183,25 @@ function AddClass() {
             {/* Year */}
             <div className={addclass.year}>
                 <label>Year:</label>
-                <select name="semester" id={addclass.semester} required>
+                <select name="semester" id={addclass.semester} required onChange={(event)=>{
+                  
+                  console.log("Year",event.target.value)
+                  setCourseYear(event.target.value)
+                  console.log("courseYear", courseYear)
+                  }}>
                     <option name="option" value="">
                         Default
                     </option>
-                    <option name="option" value="Summer">
+                    <option name="option" value="2022">
                         2022
                     </option>
-                    <option name="option" value="Spring">
+                    <option name="option" value="2021">
                         2021
                     </option>
-                    <option name="option" value="Fall">
+                    <option name="option" value="2020">
                         2020
                     </option>
-                    <option name="option" value="Winter">
+                    <option name="option" value="2019">
                         2019
                     </option>
                 </select>
@@ -181,7 +210,14 @@ function AddClass() {
             {/* Semester */}
             <div className={addclass.semester}>
                 <label>Choose Semester:</label>
-                <select name="semester" id="semester" required>
+                <select name="semester" id="semester" required onChange={(event)=>{
+                  
+                  
+                  
+                  console.log("Semester",event.target.value)
+                  setCourseSemester(event.target.value)
+                  console.log("Semester", courseSemester)
+                  }}>
                     <option name="option" value="">
                         Default
                     </option>
