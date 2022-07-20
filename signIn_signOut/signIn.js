@@ -32,11 +32,13 @@ async function onSignIn(googleUser) {
         savetoken(user);
 
         if (sessionStorage.getItem("isAdmin") == "true") {
-          window.location.href = "/VMfaculty_dashboard/facultyview.html";
+          window.location.href = "../vima-react/src/facultydashboard.js";
+          // window.location.href = "/VMfaculty_dashboard/facultyview.html";
         }
         else {
-          window.location.href = "/VMstudent_dashboard/studentview.html";
-        }
+          window.location.href = "../vima-react/src/components/student/studentdashboard.js";
+        //   window.location.href = "/VMstudent_dashboard/studentview.html";
+        // }
         // we are filtering the  userType to verify if they are a student or professor 
       });
   };

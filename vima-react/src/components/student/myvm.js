@@ -13,10 +13,38 @@ function MyVM() {
             <div className={myVm.container}>
                 <Header />
                 <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; back</span>
-                My VMs page
-            </div>
+                
+            <div className={myVm.table}>
+                    <table>
+                        <thead>
+                        <tr>
+                        <th>Class</th>
+                        <th>VM</th>
+                        <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>CIT 335</td>
+                            <td>Linux</td>
+                            <td>2/17/22</td>
+                        </tr>
+                        <tr>
+                            <td>CIT 240</td>
+                            <td>Android Pie</td>
+                            <td>2/17/22</td>
+                        </tr>
+                        <tr>
+                            <td>CIT 354</td>
+                            <td>Android Pie</td>
+                            <td>2/17/22</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
             <Background />
         </div>
+    </div>
     )
 }
 

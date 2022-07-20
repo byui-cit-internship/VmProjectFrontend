@@ -10,7 +10,7 @@ function Header() {
             <div className={header.grid}>
             <img className={header.logo} src="/images/LOGO-VIMA.png" alt="logo" />
             <PersonIcon className={header.material} />
-            <p id={header.welcome}>Welcome Student |</p>
+            <p id={header.welcome}>Welcome |</p>
             <button className={header.signOut} onClick={() => {navigate("/")}}>Sign out</button>
             </div>
         </div>
