@@ -4,7 +4,7 @@ export default function Tooltip(props) {
   const { text, linkObj, label} = props;
   return (
     <div className={styles.tooltip}>
-      <label class={styles.canvasToken} htmlFor='canvasToken'>
+      <label htmlFor={label}>
         {label}: <i className={styles.icon}>i</i>
       </label>
       <p className={styles.tooltipinfo}>
