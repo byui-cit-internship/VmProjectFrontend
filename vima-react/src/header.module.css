@@ -51,3 +51,44 @@
   font-size: 35px;
   margin-top: 21px;
 }
+
+/* Small View*/
+@media only screen and (max-width: 650px) {
+
+  .header .grid {
+    margin-left: 0px;
+  }
+
+  .header #welcome {
+    font-size: 1em;
+  }
+
+  .header .signOut {
+    font-size: 14px;
+  }
+  
+  /* .header .material {
+    display: none;
+  } */
+
+  .header .materialicons {
+    color: #8ed2ff;
+    text-align: left;
+    font-size: 25px;
+  }
+  
+  .header .material {
+    color: #1faafa;
+    font-size: 25px;
+    margin-top: 21px;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 650px) and (max-width: 1000px) {
+
+  .header .grid {
+    margin-left: 0px;
+  }
+
+}
