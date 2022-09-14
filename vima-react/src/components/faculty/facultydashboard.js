@@ -13,6 +13,10 @@ const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
+const adminInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+const adminFirst = adminInfo.firstName;
+const adminLast = adminInfo.lastName;
+
 const FacultyDashboard = () => {
 
 let navigate = useNavigate();
@@ -24,7 +28,7 @@ return(
     <div className={facultydashboard.header} >
       <Header />
     </div>
-    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>Professor</span></h1>
+    <h1 id={facultydashboard.nameOfProfessor}>Welcome <span>{adminFirst} {adminLast}</span></h1>
     <p id={facultydashboard.greeting}>How can we help you today?</p>
     {/* <div class="addgrid"> */}
       <div className={facultydashboard.add_class}>

@@ -23,7 +23,7 @@ const StudentDashboard = () => {
         <div className={studentdashboard.header} >
         <Header />  
         </div>
-      <h1 id={studentdashboard.nameOfStudent}>Hello <span>{studentFirst} {studentLast}</span></h1>
+      <h1 id={studentdashboard.nameOfStudent}>Welcome <span>{studentFirst} {studentLast}</span></h1>
       <p id={studentdashboard.greeting}>How can we help you today?</p>
         <div className={studentdashboard.createvm}>
           <span className={studentdashboard.material}>
