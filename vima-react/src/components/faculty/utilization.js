@@ -13,16 +13,6 @@ const register_tokenID = sessionStorage.getItem("token");
 let semester = '';
 let section = '';
 
-const getAllCourses = async ()=>{
-    const response = await fetch(
-    getApiRoot() + `${registerApiUrlroot}/api/course/professor/${semester}/${section}`,{
-    method:"POST",
-    body: JSON.stringify({
-      
-    })
-    }
-    )
-};
 //   console.log("here");
 //   axios({
 //       method: "get",
@@ -39,7 +29,8 @@ const getAllCourses = async ()=>{
 //       }).catch(function (error) {
 //           console.log(error.message)
 //       })
-// }
+
+
 // getAllCourses();
 
 //course dropdown 
@@ -166,10 +157,10 @@ function Utilization() {
               </table>
             </div>
         
-            {/*} <div class="courseSelected"></div>
-            <div class="table_onCreate"></div>
-            <div class="status_btn"></div>
-                <div class="form-check">  */}
+            <div className="courseSelected"></div>
+            <div className="table_onCreate"></div>
+            <div className="status_btn"></div>
+                <div class="form-check"></div>
             
             {/*} <a href="/VMfaculty_dashboard/facultyview.html" class="submitBt btn-primary">Back</a> */}
         
