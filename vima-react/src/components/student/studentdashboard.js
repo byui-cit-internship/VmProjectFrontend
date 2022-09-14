@@ -10,14 +10,14 @@ const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
-var userFirst = "";
-var userLast = "";
+
 
 const StudentDashboard = () => {
   let navigate = useNavigate();
 
   const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-
+  var userFirst = "";
+  var userLast = "";
   if (userInfo == null) {
     userFirst = "Student";
   } else {
