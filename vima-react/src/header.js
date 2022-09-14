@@ -3,6 +3,8 @@ import header from './header.module.css';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 
+//const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
 function Header() {
     let navigate = useNavigate();
     return(

@@ -5,25 +5,33 @@ import { useNavigate } from 'react-router-dom';
 import Background from '../../background';
 import studentdashboard from "./studentdashboard.module.css";
 import Header from '../../header';
-import { getApiRoot } from '../../utils/getApiRoot';
 
 const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
-const studentInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-const studentFirst = studentInfo.firstName;
-const studentLast = studentInfo.lastName;
+var userFirst = "";
+var userLast = "";
 
 const StudentDashboard = () => {
   let navigate = useNavigate();
+
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
+  if (userInfo == null) {
+    userFirst = "Student";
+  } else {
+    userFirst = userInfo.firstName;
+    userLast = userInfo.lastName;
+  };
+
   return(
   <div className={studentdashboard.studentdashboard}>
       <div className={studentdashboard.container}>
         <div className={studentdashboard.header} >
         <Header />  
         </div>
-      <h1 id={studentdashboard.nameOfStudent}>Welcome <span>{studentFirst} {studentLast}</span></h1>
+      <h1 id={studentdashboard.nameOfStudent}>Hello <span>{userFirst} {userLast}</span></h1>
       <p id={studentdashboard.greeting}>How can we help you today?</p>
         <div className={studentdashboard.createvm}>
           <span className={studentdashboard.material}>
