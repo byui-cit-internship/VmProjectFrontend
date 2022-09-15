@@ -17,6 +17,7 @@ const FacultyDashboard = () => {
 
 let navigate = useNavigate();
 
+//userInfo gets user info from token put in session storage to display the users first and last name
 const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
 var userFirst = "";
 var userLast = "";

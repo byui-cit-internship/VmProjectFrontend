@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 function Header() {
     let navigate = useNavigate();
 
+    //userInfo gets user info from token put in session storage to display the users first name
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     var userFirstName = "";
     if (userInfo == null) {
