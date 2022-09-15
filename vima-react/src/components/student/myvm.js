@@ -4,6 +4,8 @@ import myVm from "./myvm.module.css";
 import { useNavigate } from 'react-router-dom';
 
 
+//This page needs to get user data to populate the table with the individual students classes 
+
 function MyVM() {
 
     let navigate = useNavigate();
@@ -25,19 +27,19 @@ function MyVM() {
                         </thead>
                         <tbody>
                         <tr>
-                            <td>CIT 335</td>
-                            <td>Linux</td>
-                            <td>2/17/22</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>CIT 240</td>
-                            <td>Android Pie</td>
-                            <td>2/17/22</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>CIT 354</td>
-                            <td>Android Pie</td>
-                            <td>2/17/22</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>

@@ -5,13 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import Background from '../../background';
 import studentdashboard from "./studentdashboard.module.css";
 import Header from '../../header';
+//import React, { useState, useEffect } from 'react';
 
 const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
+// route student course is api/StudentCourse
+
 const StudentDashboard = () => {
   let navigate = useNavigate();
+ // const [resourceType, setResourceType] = useState('posts');
+
   return(
   <div className={studentdashboard.studentdashboard}>
       <div className={studentdashboard.container}>
