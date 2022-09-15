@@ -11,11 +11,29 @@ const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
+<<<<<<< HEAD
 // route student course is api/StudentCourse
 
 const StudentDashboard = () => {
   let navigate = useNavigate();
  // const [resourceType, setResourceType] = useState('posts');
+=======
+
+
+const StudentDashboard = () => {
+  let navigate = useNavigate();
+
+  //userInfo gets user info from token put in session storage to display the users first and last name
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  var userFirst = "";
+  var userLast = "";
+  if (userInfo == null) {
+    userFirst = "Student";
+  } else {
+    userFirst = userInfo.firstName;
+    userLast = userInfo.lastName;
+  };
+>>>>>>> 49e800e462624ca6de233a88875419d076f13283
 
   return(
   <div className={studentdashboard.studentdashboard}>
@@ -23,7 +41,7 @@ const StudentDashboard = () => {
         <div className={studentdashboard.header} >
         <Header />  
         </div>
-      <h1 id={studentdashboard.nameOfStudent}>Hello <span>Student</span></h1>
+      <h1 id={studentdashboard.nameOfStudent}>Hello <span>{userFirst} {userLast}</span></h1>
       <p id={studentdashboard.greeting}>How can we help you today?</p>
         <div className={studentdashboard.createvm}>
           <span className={studentdashboard.material}>

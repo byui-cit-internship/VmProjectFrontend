@@ -1,0 +1,231 @@
+* {
+  margin: 0;
+}
+
+.utilization #backbtn {
+  display: flex;
+  color: #006eb6;
+  margin-left: 50px;
+  cursor: pointer;
+  font-size: 1.3em;
+  margin-top: 0.7em;
+}
+
+.utilization #backbtn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.utilization #formheader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  align-items: center;
+}
+
+.utilization #formheader h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  grid-column: 2;
+  text-align: center;
+}
+
+.utilization .container {
+  width: 1000px;
+  background-color: white;
+  margin: 50px auto;
+  height: 800px;
+  border-radius: 50px;
+  background-image: url('/public/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
+  padding: 15px;
+}
+
+.utilization div {
+  margin: auto auto;
+}
+
+.utilization h1 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  padding-left: 49px;
+}
+
+.utilization .header {
+  margin-top: 30px;
+}
+
+.utilization .courseselect {
+  font-size: 20px;
+  display: grid;
+  margin-bottom: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.utilization label {
+  color: #006eb6;
+
+}
+
+.utilization select {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 10%);
+  border: none;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 200px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.utilization h2 {
+  color:#006eb6;
+}
+
+.utilization .btn {
+  background-color: #006eb6;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+.utilization .button {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.utilization .scoreboard {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.utilization th {
+  margin-right: 50px;
+  padding-right: 20px;
+}
+
+
+
+/* animation*/
+.utilization .area{
+    /* background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);   */
+    width: 100%;
+    /* height:100vh; */
+    
+  }
+  
+  .utilization .circles{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .utilization .circles li{
+    position: fixed;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+  }
+  
+  .utilization .circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+  }
+  
+  
+  .utilization .circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+  }
+  
+  .utilization .circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+  }
+  
+  .utilization .circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+  }
+  
+  .utilization .circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+  }
+  
+  .utilization .circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+  }
+  
+  .utilization .circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+  }
+  
+  .utilization .circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+  }
+  
+  .utilization .circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+  }
+  
+  .utilization .circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+  }
+  
+  /* Medium View */
+  @media only screen and (min-width: 37.5em) {
+    
+  }
+  
+  /* Large View */
+  @media only screen and (min-width: 64em) {
+  
+  }

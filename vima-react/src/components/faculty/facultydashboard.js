@@ -17,6 +17,17 @@ const FacultyDashboard = () => {
 
 let navigate = useNavigate();
 
+//userInfo gets user info from token put in session storage to display the users first and last name
+const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+var userFirst = "";
+var userLast = "";
+if (userInfo == null) {
+  userFirst = "Professor";
+} else {
+  userFirst = userInfo.firstName;
+  userLast = userInfo.lastName;
+};
+
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
   <div className={facultydashboard.facultydashboard}>
@@ -24,7 +35,7 @@ return(
     <div className={facultydashboard.header} >
       <Header />
     </div>
-    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>Professor</span></h1>
+    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>{userFirst} {userLast}</span></h1>
     <p id={facultydashboard.greeting}>How can we help you today?</p>
     {/* <div class="addgrid"> */}
       <div className={facultydashboard.add_class}>
