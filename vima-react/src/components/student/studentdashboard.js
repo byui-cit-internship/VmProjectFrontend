@@ -10,15 +10,29 @@ const iconStyles = {
     color: 'white', fontSize: '35px'
 }
 
+
+
 const StudentDashboard = () => {
   let navigate = useNavigate();
+
+  //userInfo gets user info from token put in session storage to display the users first and last name
+  const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  var userFirst = "";
+  var userLast = "";
+  if (userInfo == null) {
+    userFirst = "Student";
+  } else {
+    userFirst = userInfo.firstName;
+    userLast = userInfo.lastName;
+  };
+
   return(
   <div className={studentdashboard.studentdashboard}>
       <div className={studentdashboard.container}>
         <div className={studentdashboard.header} >
         <Header />  
         </div>
-      <h1 id={studentdashboard.nameOfStudent}>Hello <span>Student</span></h1>
+      <h1 id={studentdashboard.nameOfStudent}>Hello <span>{userFirst} {userLast}</span></h1>
       <p id={studentdashboard.greeting}>How can we help you today?</p>
         <div className={studentdashboard.createvm}>
           <span className={studentdashboard.material}>
