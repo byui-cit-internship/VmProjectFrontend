@@ -95,31 +95,28 @@ function Utilization() {
 
 
                 <div className={utilization.twoTables}>
+
+
                   <div className={utilization.searchBar}>
-                    <table>
-                      <thead className={utilization.searchHead}>
-                        <tr>
-                          <th>Students</th>
+                    <div className={utilization.s}>
+                        <div className={utilization.trHead}>
+                          <label>Students</label>
                           <TextField
                           onChange={inputHandler}
                             id={utilization.search}
                             variant="outlined"
                             size="small"
                             label="Search"/>
-                        </tr>
-                      </thead>
-                      <tbody className={utilization.updateList}>
-                        <tr>
-                          <th>
+                        </div>
+                      <div className={utilization.updateList}>
+                        <ul>
                             {filteredData.map((item) => (
                               <li key={item.id}>{item.text}</li>
                               ))}
-                          </th>
-                        </tr>
-                      </tbody>
-                    </table>
+                        </ul>
+                      </div>
                   </div>
-
+                  </div>
 
             <div className={utilization.scoreboard}>
               <table className={utilization.scoreboardTable}>

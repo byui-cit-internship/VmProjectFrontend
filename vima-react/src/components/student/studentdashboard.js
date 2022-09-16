@@ -34,23 +34,23 @@ const StudentDashboard = () => {
         </div>
       <h1 id={studentdashboard.nameOfStudent}>Hello <span>{userFirst} {userLast}</span></h1>
       <p id={studentdashboard.greeting}>How can we help you today?</p>
-        <div className={studentdashboard.createvm}>
+        <div className={studentdashboard.createvm} onClick={() => {navigate("/createvm")}}>
           <span className={studentdashboard.material}>
             <AddCircleOutlineIcon studentdashboard={iconStyles} className={studentdashboard.material}/>
           </span>
-          <button onClick={() => {navigate("/createvm")}}>Create VM</button>
+          <button >Create VM</button>
         </div>
-        <div className={studentdashboard.vm_utilization}>
+        <div className={studentdashboard.vm_utilization} onClick={() => {navigate("/myvm")}}>
           <span className={studentdashboard.material}>
             <Computer studentdashboard={iconStyles} className={studentdashboard.material}/>
           </span>
-          <button onClick={() => {navigate("/myvm")}}>My VMS</button>
+          <button >My VMS</button>
         </div>
-        <div className={studentdashboard.mynetworks}>
+        <div className={studentdashboard.mynetworks} onClick={() => {navigate("/mynetworks")}}>
           <span className={studentdashboard.material}>
             <CloudQueue studentdashboard={iconStyles} className={studentdashboard.material}/>
           </span>
-          <button onClick={() => {navigate("/mynetworks")}}>My Networks</button>
+          <button >My Networks</button>
         </div>
       </div>
       <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>

@@ -129,11 +129,6 @@
   grid-row-gap: 0px;
 }
 
-.utilization .searchBar {
-  grid-area: 1 / 1 / 2 / 2;
-  border: solid 1px;
-}
-
 .utilization .scoreboard {
   text-align: left;
   grid-area: 1 / 2 / 2 / 3;
@@ -145,9 +140,6 @@
   padding-right: 20px;
 }
 
-.utilization tr {
-  border: solid 1px;
-}
 
 .utilization .updateList {
   text-align: right;
