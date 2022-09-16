@@ -6,26 +6,53 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+
+body {
+  font-family: raleway;
+}
+
+label {
+  color: #006eb6;
+  font-size: 1.5rem;
+}
+
+input {
+  max-width: 500px;
+}
+
+.addprofessor .image {
+  width: 100%;
+}
+
+.addprofessor .main {
+  max-width: 300px;
+}
+
 .addprofessor body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
 }
 
+.addprofessor .addprofessor {
+  margin: 0px 5px 25px 5px;;
+}
+
 .addprofessor .container {
-  width: 1000px;
   background-color: white;
   margin-top: 50px;
-  height: 500px;
   margin: auto auto;
   border-radius: 50px;
+  width: auto;
+  max-width: 1000px;
+  padding: 0px 10px;
 }
 
 .addprofessor form {
   width: 90%;
   margin: auto auto;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .addprofessor h1 {
@@ -56,10 +83,6 @@ https://www.byui.edu/branding/color-guide
   border: 3px solid #98D5FD;
 }
 
-.addprofessor img {
-  width: 100%;
-}
-
 .addprofessor #submit {
   font-size: 1.5rem;
   padding: 10px;
@@ -81,10 +104,74 @@ https://www.byui.edu/branding/color-guide
   margin-bottom: 2.3em;
 }
 
+.addprofessor .inputbox {
+  margin: 15px 0px;
+}
+
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  body {
+    background-color: black;
+  }
+
+  .addprofessor form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+  }
+
+  .addprofessor .imagecontainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* .addprofessor .image {
+    height: 225px;
+  } */
+
+  .addprofessor .data {
+    margin: 40px 0px;
+  }
+
+  .addprofessor .inputbox {
+    margin: 15px 0px;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  body {
+    background-color: red;
+  }
+
+  /* .addprofessor .image {
+    height: 225px;
+  } */
+
+  .addprofessor .buttondiv {
+    margin-bottom: 15px;
+  }
+
+  .addprofessor form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addprofessor .inputbox {
+    margin: 20px 0px 20px 0px;
+  }
+
+  .addprofessor .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 400px;
+  }
+
+  .addprofessor .main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 900px;
+  }
 }

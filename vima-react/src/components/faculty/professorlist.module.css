@@ -1,4 +1,5 @@
 /* Small View */
+
 .body {
   font-family: "Raleway", sans-serif;
 }
@@ -168,6 +169,13 @@ color: currentColor;
 
 /* Small View */
 @media only screen and (max-width: 650px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  .professorList .container {
+    background-color: #ffffff;
+  }
 
   .header .material {
     color: #1faafa;
