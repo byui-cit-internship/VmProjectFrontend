@@ -16,20 +16,24 @@ function CreateVM() {
     const [authorization, setAuthorization] = useState({});
     const [googleJwt, setGoogleJwt] = useState("");
     const googleCredentials = useRef({});
+    
+    
     useEffect(()=>{
       const verifyJwt = async()=>{
-        const jwtResponse = await fetch(getApiRoot()+'/student/api/studentcourse',
+        const jwtResponse = await fetch(getApiRoot()+'/student/api/StudentCourse',
         {
           credentials:'include',
           headers:{
             'content-type':'application/json'
           },
-          method:'POST',
-          body:JSON.stringify({accessTokenValue: googleJwt})
+          method:'GET',
         });
-              const authorizationObject = await jwtResponse.json();
+        
+        const authorizationObject = await jwtResponse.json();
+        this.setState()
         sessionStorage.setItem('userInfo', JSON.stringify(authorizationObject))
         setAuthorization(authorizationObject);
+        
         }
     },[googleJwt])
 
