@@ -6,12 +6,14 @@ import {getApiRoot} from '../../utils/getApiRoot';
 import TextField from "@mui/material/TextField";
 import data from "../../studentList.json"
 import Header from "../../header";
+import InputAdornment from '@mui/material/InputAdornment';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled } from '@mui/material/styles';
 
 let registerApiUrlroot = getApiRoot();
 const register_tokenID = sessionStorage.getItem("token");
 let semester = '';
 let section = '';
-
 
 function Utilization() {
 
@@ -33,7 +35,21 @@ function Utilization() {
           else {
               return i.text.toLowerCase().includes(inputText)
           }
-      })
+      });
+
+      // const TheTextField = styled(TextField)({
+      //   '& input:valid fieldset': {
+      //     borderColor: 'white',
+      //     borderWidth: 2
+      //   },
+      //   '& input:valid:focus fieldset': {
+      //     borderColor: 'white'
+      //     },
+      //   '&:hover fieldset': {
+      //     borderColor: 'white'
+      //   },
+      // });
+
 
     return (
     <div className={utilization.utilization}>
@@ -98,15 +114,20 @@ function Utilization() {
 
 
                   <div className={utilization.searchBar}>
-                    <div className={utilization.s}>
-                        <div className={utilization.trHead}>
-                          <label>Students</label>
+                        <div className={utilization.listHead}>
+                          <strong className={utilization.listHeadText}>Students</strong>
                           <TextField
-                          onChange={inputHandler}
+                            onChange={inputHandler}
                             id={utilization.search}
                             variant="outlined"
                             size="small"
-                            label="Search"/>
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <SearchIcon style={{ color: 'white' }}/>
+                                </InputAdornment>
+                              ),
+                            }}/>
                         </div>
                       <div className={utilization.updateList}>
                         <ul>
@@ -115,7 +136,6 @@ function Utilization() {
                               ))}
                         </ul>
                       </div>
-                  </div>
                   </div>
 
             <div className={utilization.scoreboard}>

@@ -129,6 +129,43 @@
   grid-row-gap: 0px;
 }
 
+.utilization .searchBar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+.utilization .listHead {
+  display: flex;
+  width: 350px;
+  background-color:#006eb6;
+  height: 60px;
+  padding: 5px;
+}
+
+.utilization #search {
+  padding: 5px;
+  width: 150px;
+  color: white;
+}
+
+.utilization .listHeadText {
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.utilization .updateList {
+  overflow-y: scroll;
+  height: 180px;
+  width: 350px;
+}
+
 .utilization .scoreboard {
   text-align: left;
   grid-area: 1 / 2 / 2 / 3;
@@ -138,11 +175,6 @@
 .utilization th {
   margin-right: 50px;
   padding-right: 20px;
-}
-
-
-.utilization .updateList {
-  text-align: right;
 }
 
 
