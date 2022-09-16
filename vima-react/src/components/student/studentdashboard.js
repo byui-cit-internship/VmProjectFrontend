@@ -5,22 +5,11 @@ import { useNavigate } from 'react-router-dom';
 import Background from '../../background';
 import studentdashboard from "./studentdashboard.module.css";
 import Header from '../../header';
-//import React, { useState, useEffect } from 'react';
 
 const iconStyles = {
     color: 'white', fontSize: '35px'
 }
-
-<<<<<<< HEAD
-// route student course is api/StudentCourse
-
-const StudentDashboard = () => {
-  let navigate = useNavigate();
- // const [resourceType, setResourceType] = useState('posts');
-=======
-
-
-const StudentDashboard = () => {
+  const StudentDashboard = () => {
   let navigate = useNavigate();
 
   //userInfo gets user info from token put in session storage to display the users first and last name
@@ -32,8 +21,7 @@ const StudentDashboard = () => {
   } else {
     userFirst = userInfo.firstName;
     userLast = userInfo.lastName;
-  };
->>>>>>> 49e800e462624ca6de233a88875419d076f13283
+  };  
 
   return(
   <div className={studentdashboard.studentdashboard}>
@@ -65,6 +53,6 @@ const StudentDashboard = () => {
       <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <Background/>
   </div>
-)
-}
+  )
+  }
 export default StudentDashboard; 

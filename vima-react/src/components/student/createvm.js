@@ -5,10 +5,33 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { getApiRoot } from '../../utils/getApiRoot';
 
 function CreateVM() {
 
     let navigate = useNavigate();
+    const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
+    const [authorization, setAuthorization] = useState({});
+    const [googleJwt, setGoogleJwt] = useState("");
+    const googleCredentials = useRef({});
+    useEffect(()=>{
+      const verifyJwt = async()=>{
+        const jwtResponse = await fetch(getApiRoot()+'/student/api/studentcourse',
+        {
+          credentials:'include',
+          headers:{
+            'content-type':'application/json'
+          },
+          method:'POST',
+          body:JSON.stringify({accessTokenValue: googleJwt})
+        });
+              const authorizationObject = await jwtResponse.json();
+        sessionStorage.setItem('userInfo', JSON.stringify(authorizationObject))
+        setAuthorization(authorizationObject);
+        }
+    },[googleJwt])
 
     return (
         <div className={createVM.createvm}>
@@ -43,3 +66,9 @@ function CreateVM() {
     )
 }
 export default CreateVM;
+
+
+// create an array for the list of classes to be stored in 
+//then create a loop to go through and create an option in the drop down select for each class
+//
+// let class = []

@@ -25,6 +25,7 @@ function App() {
   const [googleJwt, setGoogleJwt] = useState("");
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
+  
   useEffect(()=>{
     const verifyJwt = async ()=>{
       const jwtResponse = await fetch(getApiRoot()+'/api/token',
