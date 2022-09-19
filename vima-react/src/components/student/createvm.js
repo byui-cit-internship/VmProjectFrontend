@@ -12,9 +12,9 @@ import { getApiRoot } from '../../utils/getApiRoot';
 function CreateVM() {
     const [courseList, setCourseList]= useState([]);
     let navigate = useNavigate();
-        useEffect(()=>{
-      const verifyJwt = async()=>{
-        const jwtResponse = await fetch(getApiRoot()+'/api/studentcourse',
+    useEffect(()=>{
+      const getCourseList = async ()=>{
+        const courseResponse = await fetch(getApiRoot()+'/api/studentcourse',
         {
           credentials:'include',
           headers:{
@@ -22,7 +22,10 @@ function CreateVM() {
           },
           method:'GET',
         });
+        const courseResponseObject = await courseResponse.json();
+        console.log(courseResponseObject);
         }
+        getCourseList();
     }, [])
     // after class is selected fill the [] with the selcted option
 
