@@ -11,15 +11,8 @@ import { getApiRoot } from '../../utils/getApiRoot';
 
 function CreateVM() {
     const [courseList, setCourseList]= useState([]);
-
     let navigate = useNavigate();
-    const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
-    const [authorization, setAuthorization] = useState({});
-    const [googleJwt, setGoogleJwt] = useState("");
-    const googleCredentials = useRef({});
-    
-    
-    useEffect(()=>{
+        useEffect(()=>{
       const verifyJwt = async()=>{
         const jwtResponse = await fetch(getApiRoot()+'/api/studentcourse',
         {
@@ -30,7 +23,8 @@ function CreateVM() {
           method:'GET',
         });
         }
-    },[googleJwt])
+    }, [])
+    // after class is selected fill the [] with the selcted option
 
     return (
         <div className={createVM.createvm}>
