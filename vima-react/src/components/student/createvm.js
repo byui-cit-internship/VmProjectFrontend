@@ -5,10 +5,29 @@ import LaptopIcon from '@mui/icons-material/Laptop';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { getApiRoot } from '../../utils/getApiRoot';
 
 function CreateVM() {
-
+    const [courseList, setCourseList]= useState([]);
     let navigate = useNavigate();
+    useEffect(()=>{
+      const getCourseList = async ()=>{
+        const courseResponse = await fetch(getApiRoot()+'/api/studentcourse',
+        {
+          credentials:'include',
+          headers:{
+            'content-type':'application/json'
+          },
+          method:'GET',
+        });
+        const courseResponseObject = await courseResponse.json();
+        console.log(courseResponseObject);
+        }
+        getCourseList();
+    }, [])
+    // after class is selected fill the [] with the selcted option
 
     return (
         <div className={createVM.createvm}>
@@ -43,3 +62,9 @@ function CreateVM() {
     )
 }
 export default CreateVM;
+
+
+// create an array for the list of classes to be stored in 
+//then create a loop to go through and create an option in the drop down select for each class
+//
+// let class = []
