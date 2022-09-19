@@ -8,7 +8,7 @@ import data from "../../studentList.json"
 import Header from "../../header";
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled } from '@mui/material/styles';
+import classList from '../../courseList.json';
 
 let registerApiUrlroot = getApiRoot();
 const register_tokenID = sessionStorage.getItem("token");
@@ -19,7 +19,9 @@ function Utilization() {
 
     let navigate = useNavigate();
   
+    const [courseCode, setCourseCode] =useState("");
     const [inputText, setInputText] = useState("");
+
       let inputHandler = (e) => {
         //convert input text to lower case
         var lowerCase = e.target.value.toLowerCase();
@@ -37,18 +39,48 @@ function Utilization() {
           }
       });
 
-      // const TheTextField = styled(TextField)({
-      //   '& input:valid fieldset': {
-      //     borderColor: 'white',
-      //     borderWidth: 2
-      //   },
-      //   '& input:valid:focus fieldset': {
-      //     borderColor: 'white'
-      //     },
-      //   '&:hover fieldset': {
-      //     borderColor: 'white'
-      //   },
+//*****************************************************************/
+//Code for getting a specific professors course list and filtering out any duplicate course codes
+//******************************************************************/
+
+      const getStudentList = async ()=>{
+      //   const listResponse = await fetch(
+      //     getApiRoot() + "/api/course/professor/semester/winter",{
+      //     method:'GET',
+      //     credentials:'include',
+      //     headers:{
+      //       'content-type':'application/json'
+      //     }
+      //   }
+      // );
+      //const classList = listResponse.json()
+      };
+
+      const courseObject = classList.map((item) => {
+        return [item.course_code]
+      });
+      console.log(courseObject)
+      console.log(classList)
+      getStudentList()
+
+
+      // const uniqueIds = new Set();
+
+      // const unique = classList.filter(element => {
+      //   const isDuplicate = uniqueIds.has(element.id);
+
+      //   uniqueIds.add(element.id);
+
+      //   if (!isDuplicate) {
+      //     return true;
+      //   }
+
+      //   return false;
       // });
+
+//*****************************************************************************/
+
+
 
 
     return (
@@ -68,7 +100,17 @@ function Utilization() {
           </span>
           <h1>Class VM Utilization</h1>
         </div>
+
         <div className={utilization.courseselect}>
+     <label className={utilization.choosecourse} htmlFor="course">Course:
+        <select name="course"
+        id={utilization.course}>
+          {classList.map((item) => (
+            <option key={item.id} value={item.value}>{item.course_code}</option>
+          ))}
+        </select>
+     </label>
+
     <label htmlFor="course_semester">Semester:
     {/*onchange="semester_update()*/}
         <select name="course_semester" id={utilization.course_semester}>
@@ -79,11 +121,7 @@ function Utilization() {
         </select>
      </label>
         
-     <label className={utilization.choosecourse} htmlFor="course">Course:
-        <select name="course" id={utilization.course}>
-            <option value="Default">Default</option>
-        </select>
-     </label>
+
 
      <label htmlFor="choosesection">Section:
         <select name="choosesection" id={utilization.choosesection}>
