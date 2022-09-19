@@ -10,6 +10,7 @@ import React, { useState, useRef } from 'react';
 import { getApiRoot } from '../../utils/getApiRoot';
 
 function CreateVM() {
+    const [courseList, setCourseList]= useState([]);
 
     let navigate = useNavigate();
     const [userIsLoggedIn, setUserLoggedIn] = useState(false);//this creates a placeholder for the user logged in state
@@ -20,7 +21,7 @@ function CreateVM() {
     
     useEffect(()=>{
       const verifyJwt = async()=>{
-        const jwtResponse = await fetch(getApiRoot()+'/student/api/StudentCourse',
+        const jwtResponse = await fetch(getApiRoot()+'/api/studentcourse',
         {
           credentials:'include',
           headers:{
@@ -28,12 +29,6 @@ function CreateVM() {
           },
           method:'GET',
         });
-        
-        const authorizationObject = await jwtResponse.json();
-        this.setState()
-        sessionStorage.setItem('userInfo', JSON.stringify(authorizationObject))
-        setAuthorization(authorizationObject);
-        
         }
     },[googleJwt])
 
