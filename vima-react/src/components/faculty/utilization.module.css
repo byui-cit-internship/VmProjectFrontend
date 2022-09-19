@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+}
+
+.utilization #backbtn {
+  display: flex;
+  color: #006eb6;
+  margin-left: 50px;
+  cursor: pointer;
+  font-size: 1.3em;
+  margin-top: 0.7em;
+}
+
+.utilization #backbtn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.utilization #formheader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-top: 2em;
+  padding-bottom: 1em;
+  align-items: center;
+}
+
+.utilization #formheader h1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  grid-column: 2;
+  text-align: center;
+}
+
+.utilization .container {
+  width: 1000px;
+  background-color: white;
+  margin: 50px auto;
+  height: 800px;
+  border-radius: 50px;
+  background-image: url('/public/images/background.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position-x: -10%;
+  background-position-y: 110%;
+  padding: 15px;
+}
+
+.utilization div {
+  margin: auto auto;
+}
+
+.utilization h1 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  padding-left: 49px;
+}
+
+.utilization .header {
+  margin-top: 30px;
+  grid-column: 1/3;
+  width: 100%;
+}
+
+.utilization .courseselect {
+  font-size: 20px;
+  display: grid;
+  margin-bottom: 0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.utilization label {
+  color: #006eb6;
+
+}
+
+.utilization select {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 10%);
+  border: none;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 200px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.utilization h2 {
+  color:#006eb6;
+}
+
+.utilization .btn {
+  background-color: #006eb6;
+  padding: 30px;
+  border: none;
+  border-radius: 8px;
+  width: 220px;
+  height: 75px;  
+  margin-left: 20px;
+  margin-right: 10px;
+  font-size: 18px;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.utilization .logo {
+  width: 35px;
+  height: 40px;
+  align-self: center;
+}
+
+.utilization .button {
+  display: flex;
+  margin-bottom: 20px;
+  padding: 25px;
+  justify-content: flex-start;
+
+}
+
+.utilization .twoTables {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.utilization .searchBar {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+.utilization .listHead {
+  display: flex;
+  width: 350px;
+  background-color:#006eb6;
+  height: 60px;
+  padding: 5px;
+}
+
+.utilization #search {
+  padding: 5px;
+  width: 150px;
+  color: white;
+}
+
+.utilization .listHeadText {
+  color: white;
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.utilization .updateList {
+  overflow-y: scroll;
+  height: 180px;
+  width: 350px;
+}
+
+.utilization .scoreboard {
+  text-align: left;
+  grid-area: 1 / 2 / 2 / 3;
+  border: solid 1px;
+}
+
+.utilization th {
+  margin-right: 50px;
+  padding-right: 20px;
+}
+
+
+  /* Medium View */
+  @media only screen and (min-width: 37.5em) {
+    
+  }
+  
+  /* Large View */
+  @media only screen and (min-width: 64em) {
+  
+  }

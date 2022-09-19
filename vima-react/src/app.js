@@ -36,10 +36,12 @@ function App() {
         method:'POST', 
         body:JSON.stringify({accessTokenValue: googleJwt})
       });
-
+      
       const authorizationObject = await jwtResponse.json();
+      sessionStorage.setItem('userInfo', JSON.stringify(authorizationObject))
       setAuthorization(authorizationObject);
     }
+
     if (googleJwt.length> 0){//be sure the google JWT is already assigned (they have authenticated with Google)
       verifyJwt();
     }
