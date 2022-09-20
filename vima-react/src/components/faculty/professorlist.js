@@ -64,7 +64,7 @@ export default function ProfessorList() {
                     </table>
                 </div>
 
-                <button className={professorList.backbtn} onClick={() => {navigate("#");}}>Add New Professor</button>
+                <button className={professorList.backbtn} onClick={() => {navigate("/VmProjectFrontend/vima-react/src/components/faculty/addprofessor.js");}}>Add New Professor</button>
             </div>
 
             <Background />
