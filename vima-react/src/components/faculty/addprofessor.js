@@ -7,12 +7,15 @@ import Header from "../../header";
 
 function AddProfessor() {
   let navigate = useNavigate();
+<<<<<<< HEAD
 
   
 
 
 
 
+=======
+>>>>>>> d94eb739ce1dce5b3abc93445d60642beca8a546
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
