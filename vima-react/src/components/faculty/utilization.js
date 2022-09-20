@@ -8,7 +8,7 @@ import data from "../../studentList.json"
 import Header from "../../header";
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled } from '@mui/material/styles';
+import classList from '../../courseList.json';
 
 let registerApiUrlroot = getApiRoot();
 const register_tokenID = sessionStorage.getItem("token");
@@ -19,12 +19,19 @@ function Utilization() {
 
     let navigate = useNavigate();
   
+    const [courseCode, setCourseCode] = useState("");
+    const [courseSemester, setSemester] = useState("");
+    const [courseSection, setSection] = useState("");
     const [inputText, setInputText] = useState("");
+    
+
+
+//Code for filtering student lists when the proper course is selected ****
+//***********************************************************************/
       let inputHandler = (e) => {
         //convert input text to lower case
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);}
-
 
         const filteredData = data.filter((i) => {
           //if no input the return the original
@@ -37,19 +44,45 @@ function Utilization() {
           }
       });
 
-      // const TheTextField = styled(TextField)({
-      //   '& input:valid fieldset': {
-      //     borderColor: 'white',
-      //     borderWidth: 2
-      //   },
-      //   '& input:valid:focus fieldset': {
-      //     borderColor: 'white'
-      //     },
-      //   '&:hover fieldset': {
-      //     borderColor: 'white'
-      //   },
-      // });
+//*****************************************************************/
+//Code for getting a specific professors course list and filtering out any duplicate course codes
+//******************************************************************/
 
+      const getStudentList = async ()=>{
+      //   const listResponse = await fetch(
+      //     getApiRoot() + "/api/course/professor/semester/winter",{
+      //     method:'GET',
+      //     credentials:'include',
+      //     headers:{
+      //       'content-type':'application/json'
+      //     }
+      //   }
+      // );
+      // const classList = listResponse.json()
+      };
+      getStudentList()
+
+//below code is hardcode for the dropdown that pulls data from a local json file because as of Sept. 20, 2022, the get request above displays an empty array
+      const uniqueIds = new Set();
+      const unique = classList.filter(element => {
+        const isDuplicate = uniqueIds.has(element.course_code);
+
+        uniqueIds.add(element.course_code);
+
+        if (!isDuplicate) {
+          return true;
+        }
+
+        return false;
+      });
+      console.log(unique)
+      console.log(courseCode)
+      console.log(courseSemester)
+      console.log(courseSection)
+
+//*****************************************************************************/
+//Return statement with all JSX for this page**********************************/
+//*****************************************************************************/
 
     return (
     <div className={utilization.utilization}>
@@ -68,10 +101,24 @@ function Utilization() {
           </span>
           <h1>Class VM Utilization</h1>
         </div>
+
         <div className={utilization.courseselect}>
+     <label className={utilization.choosecourse} htmlFor="course">Course:
+        <select name="course"
+        id={utilization.course}
+        required onChange={(event)=>setCourseCode(event.target.value)}>
+          <option value="" hidden>Choose Course</option>
+          {unique.map((item) => (
+            <option key={item.id} value={item.value}>{item.course_code} {item.original_name}</option>
+          ))}
+        </select>
+     </label>
+
     <label htmlFor="course_semester">Semester:
     {/*onchange="semester_update()*/}
-        <select name="course_semester" id={utilization.course_semester}>
+        <select name="course_semester" id={utilization.course_semester}
+        required onChange={(event)=>setSemester(event.target.value)}>
+            <option value="" hidden>Choose Semester</option>
             <option value="Winter">Winter</option>
             <option value="Spring">Spring</option>
             <option value="Summer">Summer</option>
@@ -79,15 +126,12 @@ function Utilization() {
         </select>
      </label>
         
-     <label className={utilization.choosecourse} htmlFor="course">Course:
-        <select name="course" id={utilization.course}>
-            <option value="Default">Default</option>
-        </select>
-     </label>
+
 
      <label htmlFor="choosesection">Section:
-        <select name="choosesection" id={utilization.choosesection}>
-        <option value="Default">Default</option>
+        <select name="choosesection" id={utilization.choosesection}
+        required onChange={(event)=>setSection(event.target.value)}>
+        <option value="" hidden>Choose Section</option>
         </select>
      </label>
           </div>
