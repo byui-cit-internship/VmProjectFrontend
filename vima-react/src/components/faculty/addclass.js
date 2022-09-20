@@ -9,7 +9,13 @@ import {getApiRoot} from '../../utils/getApiRoot';
 // import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
+  const userInfoString = sessionStorage.getItem('userInfo');
+  const userInfoObject = JSON.parse(userInfoString);
+  const userId = userInfoObject.userId;
+  const teacherId = userInfoObject.userId;
   let navigate = useNavigate();
+  const [templateVm, setTemplateVm] =useState("");
+  const [description, setDescription] =useState("");
   const [canvasToken, setCanvasToken] =useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -22,6 +28,11 @@ function AddClass() {
       getApiRoot() + "/api/enrollment/professor/register/course",{
       method:'POST',
       body: JSON.stringify({
+
+        userId: userId,
+        teacherId: teacherId,
+        templateVm: [templateVm],
+        description: description,
         courseName: courseName,
         courseSection: courseSection,
         courseSemester: courseSemester,
@@ -97,9 +108,10 @@ function AddClass() {
           <h1>Add Class</h1>
         </div>
         <div id={addclass.gridcont}>
+
+          
           {/* <!-- Course Name--> */}
           <div className={addclass.coursename}>
-            {/* <p class="validation">Required *</p> */}
             <label className={addclass.label} htmlFor="name">
               Course Name:
             </label>
@@ -114,6 +126,45 @@ function AddClass() {
               onChange={(event)=>setCourseName(event.target.value)}
             />
           </div>
+
+
+
+          {/* <!-- Template VM --> */}
+          <div className={addclass.templateVm}>
+            <label className={addclass.label} htmlFor="templateVM">
+              Template VM:
+            </label>
+            <input
+              className={addclass.input}
+              type="text"
+              // id={addclass.templateVm}
+              name="TemplateVM"
+              placeholder="Enter the template VM"
+              required
+              value={templateVm}
+              onChange={(event)=>setTemplateVm(event.target.value)}
+            />
+          </div>
+
+
+            {/* <!-- Description --> */}
+            <div className={addclass.description}>
+            <label description={addclass.label} htmlFor="description">
+              Description:
+            </label>
+            <input
+              className={addclass.input}
+              type="text"
+              id={addclass.description}
+              name="Description"
+              placeholder="Enter description"
+              required
+              value={description}
+              onChange={(event)=>setDescription(event.target.value)}
+            />
+          </div>
+
+
           {/* <!--Folders  --> */}
           <div className={addclass.canvastoken}>
             <label className={addclass.label} htmlFor="name">
