@@ -3,10 +3,6 @@
     background-color: #4e54c8;
 } */
 
-html {
-  padding: 5px 10px;
-}
-
 .background .area {
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
   width: 100%;
