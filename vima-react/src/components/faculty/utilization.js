@@ -62,7 +62,7 @@ function Utilization() {
       };
       getStudentList()
 
-
+//below code is hardcode for the dropdown that pulls data from a local json file because as of Sept. 20, 2022, the get request above displays an empty array
       const uniqueIds = new Set();
       const unique = classList.filter(element => {
         const isDuplicate = uniqueIds.has(element.course_code);
