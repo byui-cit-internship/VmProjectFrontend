@@ -17,6 +17,17 @@ const FacultyDashboard = () => {
 
 let navigate = useNavigate();
 
+//userInfo gets user info from token put in session storage to display the users first and last name
+const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+var userFirst = "";
+var userLast = "";
+if (userInfo == null) {
+  userFirst = "Professor";
+} else {
+  userFirst = userInfo.firstName;
+  userLast = userInfo.lastName;
+};
+
 return(
     // window.location.href="VMfaculty_dashboard/facultyview.html";
   <div className={facultydashboard.facultydashboard}>
@@ -24,26 +35,26 @@ return(
     <div className={facultydashboard.header} >
       <Header />
     </div>
-    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>Professor</span></h1>
+    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>{userFirst} {userLast}</span></h1>
     <p id={facultydashboard.greeting}>How can we help you today?</p>
     {/* <div class="addgrid"> */}
-      <div className={facultydashboard.add_class}>
-        <span className={facultydashboard.materialicons}>
+      <div className={facultydashboard.add_class} onClick={() => {navigate("/addclass")}}>
+        <span className={facultydashboard.materialicons} >
           <AddCircleOutlineIcon style={iconStyles}/>
         </span>
-        <button onClick={() => {navigate("/addclass")}}  >Add Class</button>
+        <button>Add Class</button>
     </div>
-      <div className={facultydashboard.add_professor}>
+      <div className={facultydashboard.add_professor} onClick={() => {navigate("/addprofessor")}}>
         <span className={facultydashboard.materialicons}>
           <PersonAddIcon style={iconStyles}/>
         </span>
-        <button onClick={() => {navigate("/addprofessor")}}>Add Professors</button>
+        <button >Add Professors</button>
       </div>
-      <div className={facultydashboard.vm_utilization}>
+      <div className={facultydashboard.vm_utilization} onClick={() => {navigate("/utilization")}}>
         <span className={facultydashboard.materialicons}>
           <DnsIcon style={iconStyles}/>
         </span>
-        <button onClick={() => {navigate("/utilization")}}>VM Utilization</button>
+        <button >VM Utilization</button>
       </div>
     </div>
     {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}

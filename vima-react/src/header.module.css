@@ -28,11 +28,11 @@
   width: 85px;
   height: 25px;
   border-radius: 10px;
-  border: #d01900 1px solid;
+  border: none;
   padding: 0;
   margin-left: 9px;
   margin-top: 26px;
-  font-size: 15px;
+  font-size: 1.1rem;
 }
 
 .header .signOut:hover {

@@ -1,0 +1,92 @@
+.fa * {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltiptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #8dd3ee;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  padding: 9px;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -85px;
+}
+.tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8dd3ee transparent transparent transparent;
+}
+.show {
+  visibility: visible;
+}
+.tooltip {
+  display: inline-block;
+  position: relative;
+  margin-left: 0.5em;
+}
+.icon {
+  background: #006eb6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-block;
+  font-style: italic;
+  font-family: times new roman;
+  height: 20px;
+  line-height: 1.3em;
+  text-align: center;
+  width: 20px;
+  margin-bottom: 1em;
+  color: white;
+}
+.tooltipinfo {
+  display: none;
+  position: absolute;
+  background: #262626;
+  border: 1px solid #006eb6;
+  border-radius: 3px;
+  font-size: 0.875em;
+  padding: 1em;
+  left: 50px;
+  top: -2em;
+  width: 250px;
+  z-index: 2;
+  color: white;
+}
+.tooltipinfo:before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 1em;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #006eb6;
+  border-right-color: #262626;
+  left: -8px;
+}
+.tooltipinfo:after {
+}
+.info {
+  display: block;
+}
+
+.tooltip:hover .tooltipinfo,
+.tooltip:focus .tooltipinfo {
+  display: inline-block;
+}
+
+a:focus + .tooltip .tooltipinfo {
+  display: inline-block;
+}
+.canvasToken {
+  padding-bottom: 0.5em;
+}
