@@ -7,15 +7,6 @@ import Header from "../../header";
 
 function AddProfessor() {
   let navigate = useNavigate();
-<<<<<<< HEAD
-
-  
-
-
-
-
-=======
->>>>>>> d94eb739ce1dce5b3abc93445d60642beca8a546
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
@@ -60,8 +51,8 @@ function AddProfessor() {
             />
           </div>
           <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" id={addprofessor.submit} >
           {/* <button type="submit" id={addprofessor.submit} onClick={addProfessor}> */}
+          <button type="submit" id={addprofessor.submit}>
             Add Professor
           </button>
         </form>

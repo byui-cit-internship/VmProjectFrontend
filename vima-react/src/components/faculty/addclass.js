@@ -22,6 +22,7 @@ function AddClass() {
   const [courseSemester, setCourseSemester] = useState("");
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
+  const [vCenterFolderId, setvCenterFolderId] = useState("");
 
   const createCourse = async ()=>{
       const response = await fetch(
@@ -39,6 +40,7 @@ function AddClass() {
         courseYear: courseYear,
         canvasCourseId: canvasCourseId,
         canvasToken: canvasToken,
+        vCenterFolderId: vCenterFolderId,
         
       }), 
       credentials:'include',
@@ -261,10 +263,7 @@ function AddClass() {
             {/* Semester */}
             <div className={addclass.semester}>
                 <label>Choose Semester:</label>
-                <select name="semester" id="semester" required onChange={(event)=>{
-                  
-                  
-                  
+                <select name="semester" id="semester" required onChange={(event)=>{                  
                   console.log("Semester",event.target.value)
                   setCourseSemester(event.target.value)
                   console.log("Semester", courseSemester)
@@ -286,6 +285,25 @@ function AddClass() {
                     </option>
                 </select>
             </div>
+
+            {/* <!-- vCenterFolderId --> */}
+            <div className={addclass.vCenterFolderId}>
+              <label className={addclass.label} htmlFor="vCenterFolderId">
+              vCenterFolderId:
+              </label>
+              <input
+                className={addclass.input}
+                type="text"
+                id={addclass.vCenterFolderId}
+                name="vCenterFolderId"
+                placeholder="Enter the vCenterFolderId"
+                required
+                value={vCenterFolderId}
+                onChange={(event)=>setvCenterFolderId(event.target.value)}
+              />
+            </div>
+
+
         </div>
         <button type="button" id="submit" className={addclass.btnprimary} onClick={validateCanvasToken}>
           Add
