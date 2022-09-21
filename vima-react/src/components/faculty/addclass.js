@@ -31,7 +31,7 @@ function AddClass() {
 
         userId: userId,
         teacherId: teacherId,
-        templateVm: templateVm,
+        templateVm: [templateVm],
         description: description,
         courseName: courseName,
         courseSection: courseSection,
