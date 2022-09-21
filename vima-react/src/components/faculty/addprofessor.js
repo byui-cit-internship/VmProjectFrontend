@@ -4,14 +4,9 @@ import addprofessor from "./addprofessor.module.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../header";
 
+
 function AddProfessor() {
   let navigate = useNavigate();
-
-  
-
-
-
-
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
@@ -56,6 +51,7 @@ function AddProfessor() {
             />
           </div>
           <img alt="teacher" src="/images/teacherpic.jpg"></img>
+          {/* <button type="submit" id={addprofessor.submit} onClick={addProfessor}> */}
           <button type="submit" id={addprofessor.submit}>
             Add Professor
           </button>
@@ -65,3 +61,9 @@ function AddProfessor() {
   );
 }
 export default AddProfessor;
+
+
+
+
+
+

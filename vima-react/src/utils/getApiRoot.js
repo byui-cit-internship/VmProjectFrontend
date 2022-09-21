@@ -7,7 +7,7 @@ export const getApiRoot = () => {
     // : 'http://dev-vm-api.citwdd.net';
 
     if (window.location.hostname.includes('rancher-vmfrontend-dev')) {
-        apiRoot = 'https://rancher-dev-vm-api.citwdd.net';
+        apiRoot = 'https://rancher-dev-bff-api.citwdd.net';
     } else if (window.location.hostname.includes('rancher-vmfrontend-test')) {
         apiRoot = 'https://rancher-test-vm-api.citwdd.net';
     } else if (window.location.hostname.includes('vmfrontend-dev')) {

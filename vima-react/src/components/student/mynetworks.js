@@ -11,7 +11,7 @@ function MyNetworks() {
         <div className={mynetworks.mynetworks}>
             <div className={mynetworks.container}>
                 <Header />
-                <span onClick={() => {navigate("/student")}} id={mynetworks.backbtn}>&#8592; back</span>
+                <span onClick={() => {navigate("/student")}} id={mynetworks.backbtn}>&#8592; Back</span>
                 Network page
             </div>
             <Background />
