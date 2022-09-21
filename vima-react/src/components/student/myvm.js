@@ -2,17 +2,35 @@ import Background from '../../background';
 import Header from '../../header';
 import myVm from "./myvm.module.css";
 import { useNavigate } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import { getApiRoot } from '../../utils/getApiRoot';
 
 
 function MyVM() {
 
+    const [courseList, setCourseList]= useState([]);
     let navigate = useNavigate();
+        useEffect(()=>{
+      const getCourseList = async ()=>{
+        const courseResponse = await fetch(getApiRoot()+'/api/studentcourse',
+        {
+          credentials:'include',
+          headers:{
+            'content-type':'application/json'
+          },
+          method:'GET',
+        });
+        const courseResponseObject = await courseResponse.json();
+        console.log(courseResponseObject);
+        }
+        getCourseList();
+    }, [])
 
     return (
         <div className={myVm.myVm}>
             <div className={myVm.container}>
                 <Header />
-                <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; back</span>
+                <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span>
                 
             <div className={myVm.table}>
                     <table>
@@ -25,19 +43,9 @@ function MyVM() {
                         </thead>
                         <tbody>
                         <tr>
-                            <td>CIT 335</td>
-                            <td>Linux</td>
-                            <td>2/17/22</td>
-                        </tr>
-                        <tr>
-                            <td>CIT 240</td>
-                            <td>Android Pie</td>
-                            <td>2/17/22</td>
-                        </tr>
-                        <tr>
-                            <td>CIT 354</td>
-                            <td>Android Pie</td>
-                            <td>2/17/22</td>
+                            <td>Class</td>
+                            <td>Vm</td>
+                            <td>Date</td>
                         </tr>
                         </tbody>
                     </table>
