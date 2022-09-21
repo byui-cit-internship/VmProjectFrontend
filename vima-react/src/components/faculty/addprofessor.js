@@ -51,7 +51,7 @@ function AddProfessor() {
             />
           </div>
           <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" id={addprofessor.submit} onClick={addProfessor}>
+          <button type="submit" id={addprofessor.submit} onClick={()=>{}}>
             Add Professor
           </button>
         </form>
