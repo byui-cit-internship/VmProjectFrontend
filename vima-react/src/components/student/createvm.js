@@ -11,7 +11,10 @@ import { getApiRoot } from '../../utils/getApiRoot';
 
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
+  const [enrollmentId, setEnrollmentId] = useState("") // How to get enrollment Id?
+
   let navigate = useNavigate();
+
   useEffect(() => {
     const getCourseList = async () => {
 
@@ -33,14 +36,19 @@ function CreateVM() {
   }, [])
   // after class is selected fill the [] with the selcted option
 
-  const createVm = async()=>{
-    option = {
-      method: "POST"
+
+  const postVm = async () => {
+    const options = {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json"
+      }
     }
 
-    const response = await fetch(
+    const response = await fetch(getApiRoot() + "/api/DeployVm?" + enrollmentId, options) // How to get enrollment Id?
+    const responseObject = await response.json()
 
-    )
   }
 
   return (
@@ -72,7 +80,7 @@ function CreateVM() {
           <span className={createVM.material}><CheckCircleOutlineIcon className={createVM.material} /></span>
           <p className={createVM.description}>2. Create the VM</p>
           <input id="vm_name" type="hidden" value='Default Vm' />
-          <button id={createVM.buttonVm}>Create</button>
+          <button id={createVM.buttonVm} onClick={postVm}>Create</button>
         </div>
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       </div>
