@@ -16,7 +16,7 @@
 
 .header #welcome {
   color: #006eb6;
-  font-size: 1.2em;
+  font-size: 1.1em;
   width: 100%;
   padding: 0;
   text-align: right;
@@ -44,10 +44,12 @@
   color: #8ed2ff;
   text-align: left;
   font-size: 25px;
+
 }
 
 .header .material {
-  color: #1faafa;
+  color: white;
   font-size: 35px;
   margin-top: 21px;
+
 }
