@@ -1,6 +1,6 @@
 .myVm .container {
   width: 1000px;
-  background-color: #FFFFFF;
+  background-color: white;
   margin: 50px auto;
   height: 700px;
   border-radius: 50px;
@@ -38,7 +38,7 @@
   border: 2px solid #006EB6;
   background-color: #006EB6;
   padding: 15px;
-  color: white;
+  color: #FFFFFF;
   text-align: center;
 }
 
