@@ -83,18 +83,14 @@ p {
   margin: 20px;
   font-size: 1.2rem;
   color: #006eb6;
+  transition: ease-in-out 0.3s;
 }
 
 .success .newVm:hover{
   cursor: pointer;
   color: #006e;
   letter-spacing: .2px;
-  transition: 0.3s;
 }
-
-/* .success .newVm:hover::after {
-  transition: 0.3s;
-} */
 
 .success .main {
   display: flex;
