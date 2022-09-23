@@ -23,7 +23,6 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
 
   const createCourse = async () => {
     const response = await fetch(
@@ -42,7 +41,6 @@ function AddClass() {
         canvasToken: canvasToken,
         folder: vCenterFolderId,
         section_num: courseSection,
-        description: courseDescription,
       }), 
       credentials:'include',
       headers:{
@@ -317,23 +315,6 @@ function AddClass() {
               required
               value={vCenterFolderId}
               onChange={(event) => setvCenterFolderId(event.target.value)}
-            />
-          </div>
-
-          {/* <!-- Course Description--> */}
-          <div className={addclass.coursename}>
-            <label className={addclass.label} htmlFor="name">
-              Course Description:
-            </label>
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.name}
-              name="CourseDescription"
-              placeholder="Enter a Short Class Description"
-              required
-              value={courseDescription}
-              onChange={(event)=>setCourseDescription(event.target.value)}
             />
           </div>
 
