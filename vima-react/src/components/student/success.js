@@ -5,28 +5,37 @@ import { useNavigate } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { getApiRoot } from '../../utils/getApiRoot';
 
+
+
 function CreatedSuccessfully() {
-
     let navigate = useNavigate();
-
     return (
         <div className={success.success}>
             <div className={success.container}>
                 <Header />
                 <span onClick={() => {navigate("/createvm")}} id={success.backbtn}>&#8592; Back</span>
-                <h1>VM Created Successfully!</h1>
-                <br></br>
-                <p>You created a <span>{}</span> VM for your <span>{}</span> class</p>
-                <br></br>
-                <h3>Click on the link to access the VM</h3>
-                <br></br>
-                <button>Click Here</button>
-                <br></br>
-                <h4>Or click here to create a new VM</h4>
+                <div className={success.main}>
+                    <div className={success.main}>
+                        <div className={success.iconPlaceholder}></div>
+                        <h4 className={success.title}> VM created successfully!</h4>
+                        <p className={success.created}>You have created a <span>{}</span> VM for your <span>{}</span> class</p>
+
+
+                        <div className={success.goToVm}>
+                            <p className={success.click}>Click on the link to access the VM</p>
+                            <button id={success.button} onClick={() => {navigate("/#")}}>Click Here</button>
+                        </div>
+
+
+                        <span onClick={() => {navigate("/createvm")}} className={success.newVm}>Or click here to create a new VM</span>
+                    </div>     
+                </div>                
             </div>
             <Background />
         </div>
     )
 }
+
+
 
 export default CreatedSuccessfully;

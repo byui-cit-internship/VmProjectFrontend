@@ -4,7 +4,6 @@
   margin: 50px auto;
   border-radius: 50px;
   column-gap: 10%;
-  background-color: #f0f0f0;
   padding: 10px 20px 80px;
 }
 
@@ -25,7 +24,7 @@
 
 .createvm .body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr /*1fr*/;
   grid-template-rows: 1fr 1fr 1fr;
   position: relative;
   padding-top: 4%;
