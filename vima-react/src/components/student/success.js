@@ -4,7 +4,7 @@ import success from "./success.module.css";
 import { useNavigate } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { getApiRoot } from '../../utils/getApiRoot';
-
+import { FaCheck } from "react-icons/fa";
 
 
 function CreatedSuccessfully() {
@@ -16,7 +16,9 @@ function CreatedSuccessfully() {
                 <span onClick={() => {navigate("/createvm")}} id={success.backbtn}>&#8592; Back</span>
                 <div className={success.main}>
                     <div className={success.main}>
-                        <div className={success.iconPlaceholder}></div>
+                        <div className={success.iconPlaceholder}>
+                            <FaCheck className={success.checkicon}/>
+                        </div>
                         <h4 className={success.title}> VM created successfully!</h4>
                         <p className={success.created}>You have created a <span>{}</span> VM for your <span>{}</span> class</p>
 
