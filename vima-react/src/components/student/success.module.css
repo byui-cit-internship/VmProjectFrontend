@@ -108,6 +108,14 @@ p {
   background: limegreen;
   border-radius: 50px;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success .checkicon{
+  font-size: 50px;
+  color: white;
 }
 
 .success .goToVm {
