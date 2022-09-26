@@ -24,6 +24,7 @@ function AddClass() {
   const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const createCourse = async () => {
     const response = await fetch(

@@ -3,10 +3,13 @@ import React from "react";
 import addprofessor from "./addprofessor.module.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../../header";
+import {useState} from "react";
+import { FaCheck } from "react-icons/fa";
 
 
 function AddProfessor() {
   let navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
@@ -51,9 +54,21 @@ function AddProfessor() {
             />
           </div>
           <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" id={addprofessor.submit} onClick={()=>{}}>
+          <button type="submit" className={addprofessor.primaryButton} onClick={()=> setIsOpen(true)}>
             Add Professor
           </button>
+         {isOpen && <div className={addprofessor.modal}>
+         <div className={addprofessor.modalBox}>
+
+          <button className={addprofessor.closeBtn} onClick={()=> setIsOpen(false)}>X</button>
+          <div className={addprofessor.message}>
+          <div className={addprofessor.iconPlaceholder}>
+            <FaCheck className={addprofessor.checkicon}/>
+          </div>
+          <div className={addprofessor.message}>Added Successfully!</div>
+          </div>
+         </div>
+         </div>}
         </form>
       </div>
     </div>
