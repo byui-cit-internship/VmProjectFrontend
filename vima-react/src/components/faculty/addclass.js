@@ -15,7 +15,7 @@ function AddClass() {
   const teacherId = userInfoObject.userId;
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
-  const [description, setDescription] = useState("");
+  const [courseCode, setCourseCode] = useState("");
   const [canvasToken, setCanvasToken] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -23,8 +23,9 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  
 
   const createCourse = async () => {
     const response = await fetch(
@@ -35,15 +36,14 @@ function AddClass() {
         userId: userId,
         teacherId: teacherId,
         templateVm: [templateVm],
-        description: description,
+        courseCode: courseCode,
         courseName: courseName,
         semester: courseSemester,
         courseYear: courseYear,
         canvasCourseId: canvasCourseId,
         canvasToken: canvasToken,
         folder: vCenterFolderId,
-        section_num: courseSection,
-        description: courseDescription,
+        section_num: courseSection
       }), 
       credentials:'include',
       headers:{
@@ -167,20 +167,20 @@ function AddClass() {
           </div>
 
 
-          {/* <!-- Description --> */}
-          <div className={addclass.description}>
-            <label description={addclass.label} htmlFor="description">
-              Description:
+          {/* <!-- courseCode --> */}
+          <div className={addclass.courseCode}>
+            <label className={addclass.label} htmlFor="courseCode">
+              Course Code:
             </label>
             <input
               className={addclass.input}
               type="text"
-              id={addclass.description}
-              name="Description"
-              placeholder="Enter description"
+              id={addclass.courseCode}
+              name="courseCode"
+              placeholder="Enter courseCode"
               required
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
+              value={courseCode}
+              onChange={(event) => setCourseCode(event.target.value)}
             />
           </div>
 
@@ -320,25 +320,6 @@ function AddClass() {
               onChange={(event) => setvCenterFolderId(event.target.value)}
             />
           </div>
-
-          {/* <!-- Course Description--> */}
-          <div className={addclass.coursename}>
-            <label className={addclass.label} htmlFor="name">
-              Course Description:
-            </label>
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.name}
-              name="CourseDescription"
-              placeholder="Enter a Short Class Description"
-              required
-              value={courseDescription}
-              onChange={(event)=>setCourseDescription(event.target.value)}
-            />
-          </div>
-
-
         </div>
         <button type="button" id="submit" className={addclass.btnprimary} onClick={validateCanvasToken}>
           Add
