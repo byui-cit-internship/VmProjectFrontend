@@ -6,6 +6,18 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+.addprofessor h1{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  color: #006eb6;
+}
+.addprofessor .professorSignup{
+  font-family: 'Raleway';
+  color: #006eb6;
+
+}
+
 .addprofessor body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
@@ -79,8 +91,11 @@ https://www.byui.edu/branding/color-guide
 
 .addprofessor .data {
   margin-bottom: 2.3em;
+  padding: 1em;
 }
-
+.addprofessor .data input{
+  padding: .5em;
+}
 .addprofessor .modal{
   position: fixed;
   top:0;

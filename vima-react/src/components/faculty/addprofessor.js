@@ -6,6 +6,7 @@ import Header from "../../header";
 import {useState} from "react";
 import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from '../../utils/getApiRoot'
+import Image from '../../addprofessor.png'
 
 
 function AddProfessor() {
@@ -64,57 +65,60 @@ function AddProfessor() {
         >
           Back
         </button>
-        <h1>Add a Professor</h1>
-        <form action="#" id="professorSignup">
-          {/* <!-- Course Name--> */}
-          <div className={addprofessor.data}>
-            <label for="name">First Name:</label>
-            <input
-              type="text"
-              id="fname"
-              name="firstName"
-              placeholder="Enter professor first name"
-              required
-              onChange={(event)=>setFirstName(event.target.value)}
-            />
-            <label for="name">Last Name:</label>
-            <input
-              type="text"
-              id="lname"
-              name="lastName"
-              placeholder="Enter professor last name"
-              required
-              onChange={(event)=>setLastName(event.target.value)}
-            />
-            <label for="name">Email:</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Enter professor email"
-              required
-              onChange={(event)=>setEmail(event.target.value)}
-            />
-          </div>
-          <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" className={addprofessor.primaryButton} onClick={()=> validateForm}>
-            Add Professor
-          </button>
-         {isOpen && <div className={addprofessor.modal}>
-         <div className={addprofessor.modalBox}>
+            <h1>Add a Professor</h1>
+            <form action="#" className={addprofessor.professorSignup}>
+              {/* <!-- Course Name--> */}
+              <div className={addprofessor.data}>
+                <label htmlFor="name">First Name:</label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="firstName"
+                  placeholder="Enter professor first name"
+                  required
+                  value= {firstName}
+                  onChange={(event)=>setFirstName(event.target.value)}
+                />
+                <label htmlFor="name">Last Name:</label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lastName"
+                  placeholder="Enter professor last name"
+                  required
+                  value = {lastName}
+                  onChange={(event)=>setLastName(event.target.value)}
+                />
+                <label htmlFor="name">Email:</label>
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="Enter professor email"
+                  required
+                  value = {email}
+                  onChange={(event)=>setEmail(event.target.value)}
+                />
+              </div>
+              <img alt="teacher" src={Image}/>
+              <button type="submit" className={addprofessor.primaryButton} onClick={async ()=> { await validateForm()}}>
+                Add Professor
+              </button>
+            {isOpen && <div className={addprofessor.modal}>
+            <div className={addprofessor.modalBox}>
 
-          <button className={addprofessor.closeBtn} onClick={()=> setIsOpen(false)}>X</button>
-          <div className={addprofessor.message}>
-          <div className={addprofessor.iconPlaceholder}>
-            <FaCheck className={addprofessor.checkicon}/>
+              <button className={addprofessor.closeBtn} onClick={()=> setIsOpen(false)}>X</button>
+              <div className={addprofessor.message}>
+              <div className={addprofessor.iconPlaceholder}>
+                <FaCheck className={addprofessor.checkicon}/>
+              </div>
+              <div className={addprofessor.message}>Added Successfully!</div>
+              </div>
+            </div>
+            </div>}
+            </form>
           </div>
-          <div className={addprofessor.message}>Added Successfully!</div>
-          </div>
-         </div>
-         </div>}
-        </form>
-      </div>
-    </div>
+        </div>
   );
 }
 export default AddProfessor;
