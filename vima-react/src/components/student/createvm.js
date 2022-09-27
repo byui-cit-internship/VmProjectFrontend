@@ -34,10 +34,9 @@ function CreateVM() {
     }
     getCourseList();
   }, [])
-  // after class is selected fill the [] with the selcted option
-
 
   const postVm = async () => {
+
     const options = {
       method: "POST",
       credentials: "include",
@@ -46,8 +45,13 @@ function CreateVM() {
       }
     }
 
-    const response = await fetch(getApiRoot() + "/api/DeployVm?" + enrollmentId, options) // How to get enrollment Id?
+    console.log(enrollmentId)
+    console.log(`${getApiRoot()}/api/deployvm?enrollment_id=${enrollmentId}`)
+
+    const response = await fetch(`${getApiRoot()}/api/deployvm?enrollment_id=${enrollmentId}`, options)
     const responseObject = await response.json()
+
+    console.log(responseObject)
 
   }
 
@@ -62,14 +66,14 @@ function CreateVM() {
           {/* <!-- course dropdown -->  */}
           <span className={createVM.material}><LibraryBooksIcon className={createVM.material} /></span>
           <p className={createVM.description}>1. Select Course</p>
-          <select className="course" id={createVM.course}>
+          <select className="course" id={createVM.course} onChange={(e) => (setEnrollmentId(e.target.value))}>
             <option value="Default">- Select -</option>
             {courseList.map((course) => (
-              <option value={course.courseId}>{course.courseName}</option>
+              <option value={course.enrollmentId}>{course.courseName}</option>
             ))}
           </select>
 
-          {/* template vm dropdown  */}
+          {/* template vm dropdown - Not needed for MVP */}
           {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
           <p className={createVM.description}>2. Select VM</p>
           <select name="templatevm" id={createVM.course}>
