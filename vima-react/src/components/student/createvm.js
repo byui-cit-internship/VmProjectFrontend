@@ -34,7 +34,7 @@ function CreateVM() {
             <div className={createVM.container}>
             {/* <Header /> */}
             <Header />
-            <span onClick={() => {navigate("/student")}} id={createVM.backbtn}>&#8592; Back</span>
+            {/* <span onClick={() => {navigate("/student")}} id={createVM.backbtn}>&#8592; Back</span> */}
             <h4 className={createVM.lets}>Let's create a VM</h4>
                 <div className={createVM.body}>
                 {/* <!-- course dropdown -->  */}
