@@ -17,6 +17,7 @@ function AddProfessor() {
       allFieldsValid = false;
     }
     if (allFieldsValid){
+      try{
       const response = await fetch(
         getApiRoot() + '/api/user/admin/createuser', {
           method: 'POST',
@@ -41,6 +42,9 @@ function AddProfessor() {
       else {
         console.log("Error", responseStatus);
       }
+    } catch(error){
+      console.log("Error calling fetch to create professor", error)
+    }
   }
 };
 

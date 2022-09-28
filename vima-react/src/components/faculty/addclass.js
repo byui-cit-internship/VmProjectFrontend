@@ -25,9 +25,39 @@ function AddClass() {
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  
+  const validateForm = async ()=>{
+    let allFieldsValid = true;
+    if (courseName.length === 0 || courseCode.length === 0 ||
+        courseSection.length === 0 || courseYear.length === 0 ||
+        vCenterFolderId.length === 0 || templateVm.length === 0 ||
+        canvasToken.length === 0 || canvasCourseId === 0 ||
+        courseSemester.length === 0){
+          allFieldsValid = false;
+        }
+    if (allFieldsValid){
+      const response = await fetch(
+        getApiRoot() + '/api/user/admin/createuser', {
+          method: 'POST',
+          body: JSON.stringify({
+            courseName: courseName,
+            courseCode: courseCode,
+            courseSection: courseSection,
+            courseYear: courseYear,
+            courseSemester: courseSemester,
+            
+
+          }),
+          credentials:'include',
+          headers:{
+            'content-type':'application/json'
+          }
+        }
+      )
+    }
+  }
 
   const createCourse = async () => {
+    
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", {
       method: 'POST',
@@ -56,9 +86,9 @@ function AddClass() {
     console.log("Here we send data from api");
     alert("Your course was created!");
     console.log("Your course was created!");
-    if (console.log("Your course was created!") == true) {
+    if (console.log("Your course was created!") === true) {
       alert("Would you like to add another course");
-
+      // This should be apart of the popup modal
       // return(
       // <Navigate to='/faculty' element={<FacultyDashboard />}></Navigate>  
       // );
@@ -68,7 +98,7 @@ function AddClass() {
 
   const validateCanvasToken = async () => {
     const tokenResponse = await fetch(
-      getApiRoot() + "/api/course/professor/checkCanvasToken", {
+      getApiRoot() + "/api/enrollment/professor/register/course", {
       method: 'POST',
       credentials: 'include',
       withCredentials: true,
@@ -86,7 +116,7 @@ function AddClass() {
     );
 
     const canvasValidationObject = await tokenResponse.json();
-    if (tokenResponse.status != 200) {
+    if (tokenResponse.status !== 200) {
       alert("Canvas Validation failed with the error: " + JSON.stringify(canvasValidationObject.errors))
     }
     else {
