@@ -13,48 +13,50 @@ function AddProfessor() {
         <div className={addprofessor.header}>
           <Header />
         </div>
-        <button
+        {/* <button
           className={addprofessor.backbtn}
           onClick={() => {
             navigate("/faculty");
           }}
         >
           Back
-        </button>
-        <h1>Add a Professor</h1>
-        <form action="#" id="professorSignup">
-          {/* <!-- Course Name--> */}
-          <div className={addprofessor.data}>
-            <label for="name">First Name:</label>
-            <input
-              type="text"
-              id="fname"
-              name="firstName"
-              placeholder="Enter professor first name"
-              required
-            />
-            <label for="name">Last Name:</label>
-            <input
-              type="text"
-              id="lname"
-              name="lastName"
-              placeholder="Enter professor last name"
-              required
-            />
-            <label for="name">Email:</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Enter professor email"
-              required
-            />
-          </div>
-          <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" id={addprofessor.submit} onClick={()=>{}}>
-            Add Professor
-          </button>
-        </form>
+        </button> */}
+        <div className={addprofessor.main}>
+          <h1 className={addprofessor.h1}>Add a Professor</h1>
+          <form action="#" id="professorSignup">
+            {/* <!-- Course Name--> */}
+            <div className={addprofessor.data}>
+              <label for="name">First Name:</label>
+              <input
+                type="text"
+                id="fname"
+                name="firstName"
+                placeholder="Enter professor first name"
+                required
+              />
+              <label for="name">Last Name:</label>
+              <input
+                type="text"
+                id="lname"
+                name="lastName"
+                placeholder="Enter professor last name"
+                required
+              />
+              <label for="name">Email:</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter professor email"
+                required
+              />
+            </div>
+            <img alt="teacher" src="/images/teacherpic.jpg"></img>
+            <button type="submit" id={addprofessor.submit} onClick={()=>{}}>
+              Add Professor
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

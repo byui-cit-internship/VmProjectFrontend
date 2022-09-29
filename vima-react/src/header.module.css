@@ -101,6 +101,7 @@ a {
 
   .header .rightSide #hidden a {
     margin: 10px 0px;
+    color: red;
   }
 
   .header .rightSide .hamWrapper {
