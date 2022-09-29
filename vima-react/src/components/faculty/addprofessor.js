@@ -56,63 +56,65 @@ function AddProfessor() {
         <div className={addprofessor.header}>
           <Header />
         </div>
-        <button
+        {/* <button
           className={addprofessor.backbtn}
           onClick={() => {
             navigate("/faculty");
           }}
         >
           Back
-        </button>
-        <h1>Add a Professor</h1>
-        <form action="#" id="professorSignup">
-          {/* <!-- Course Name--> */}
-          <div className={addprofessor.data}>
-            <label for="name">First Name:</label>
-            <input
-              type="text"
-              id="fname"
-              name="firstName"
-              placeholder="Enter professor first name"
-              required
-              onChange={(event)=>setFirstName(event.target.value)}
-            />
-            <label for="name">Last Name:</label>
-            <input
-              type="text"
-              id="lname"
-              name="lastName"
-              placeholder="Enter professor last name"
-              required
-              onChange={(event)=>setLastName(event.target.value)}
-            />
-            <label for="name">Email:</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Enter professor email"
-              required
-              onChange={(event)=>setEmail(event.target.value)}
-            />
-          </div>
-          <img alt="teacher" src="/images/teacherpic.jpg"></img>
-          <button type="submit" className={addprofessor.primaryButton} onClick={()=> validateForm}>
-            Add Professor
-          </button>
-         {isOpen && <div className={addprofessor.modal}>
-         <div className={addprofessor.modalBox}>
+        </button> */}
+        <div className={addprofessor.main}>
+          <h1 className={addprofessor.h1}>Add a Professor</h1>
+          <form action="#" id="professorSignup">
+            {/* <!-- Course Name--> */}
+            <div className={addprofessor.data}>
+              <label for="name">First Name:</label>
+              <input
+                type="text"
+                id="fname"
+                name="firstName"
+                placeholder="Enter professor first name"
+                required
+                onChange={(event)=>setFirstName(event.target.value)}
+              />
+              <label for="name">Last Name:</label>
+              <input
+                type="text"
+                id="lname"
+                name="lastName"
+                placeholder="Enter professor last name"
+                required
+                onChange={(event)=>setLastName(event.target.value)}
+              />
+              <label for="name">Email:</label>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter professor email"
+                required
+                onChange={(event)=>setEmail(event.target.value)}
+              />
+            </div>
+            <img alt="teacher" src="/images/teacherpic.jpg"></img>
+            <button type="submit" className={addprofessor.primaryButton} onClick={()=> validateForm}>
+              Add Professor
+            </button>
+            {isOpen && <div className={addprofessor.modal}>
+              <div className={addprofessor.modalBox}>
 
-          <button className={addprofessor.closeBtn} onClick={()=> setIsOpen(false)}>X</button>
-          <div className={addprofessor.message}>
-          <div className={addprofessor.iconPlaceholder}>
-            <FaCheck className={addprofessor.checkicon}/>
-          </div>
-          <div className={addprofessor.message}>Added Successfully!</div>
-          </div>
-         </div>
-         </div>}
-        </form>
+                <button className={addprofessor.closeBtn} onClick={()=> setIsOpen(false)}>X</button>
+                <div className={addprofessor.message}>
+                  <div className={addprofessor.iconPlaceholder}>
+                    <FaCheck className={addprofessor.checkicon}/>
+                  </div>
+                  <div className={addprofessor.message}>Added Successfully!</div>
+                </div>
+              </div>
+            </div>}
+          </form>
+        </div>
       </div>
     </div>
   );

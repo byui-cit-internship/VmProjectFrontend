@@ -13,7 +13,7 @@ function CreatedSuccessfully() {
         <div className={success.success}>
             <div className={success.container}>
                 <Header />
-                <span onClick={() => {navigate("/createvm")}} id={success.backbtn}>&#8592; Back</span>
+                {/* <span onClick={() => {navigate("/createvm")}} id={success.backbtn}>&#8592; Back</span> */}
                 <div className={success.main}>
                     <div className={success.main}>
                         <div className={success.iconPlaceholder}>

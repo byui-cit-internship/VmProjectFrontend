@@ -12,10 +12,8 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor .container {
-  width: 1000px;
   background-color: white;
   margin-top: 50px;
-  height: 500px;
   margin: auto auto;
   border-radius: 50px;
 }
@@ -23,9 +21,6 @@ https://www.byui.edu/branding/color-guide
 .addprofessor form {
   width: 90%;
   margin: auto auto;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 20px;
 }
 
 .addprofessor h1 {
@@ -144,10 +139,38 @@ https://www.byui.edu/branding/color-guide
 
 }
 
+/* Small View */
+@media screen and (max-width: 37.4em) {
+  /* .header .header {
+    width: 200px;
+  } */
+
+  .addprofessor .container {
+    
+  }
+
+  .addprofessor form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addprofessor .h1 {
+    color: red;
+  }
+}
+
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .addprofessor .container {
+    width: 1000px;
+    background-color: white;
+    margin-top: 50px;
+    height: 500px;
+    margin: auto auto;
+    border-radius: 50px;
+  }
 }

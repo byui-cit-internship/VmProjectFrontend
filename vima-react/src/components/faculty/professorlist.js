@@ -21,7 +21,7 @@ export default function ProfessorList() {
         <div className={professorList.professorList}>
             <div className={professorList.container}>
                 <Header />
-                <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span>
+                {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
                 <span id={professorList.title}> Professor List</span>
                 <div id={professorList.professorsAndSearch}>
                     <h1 className={professorList.lets}>Professors</h1>

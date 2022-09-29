@@ -1,55 +1,115 @@
-.header * {
-  width: 95%;
-  margin-top: 25px;
-}
-
-.header .grid {
-  display: grid;
-  margin-left: 50px;
-  grid-template-columns: 64% 0.2fr 1fr 14%;
-}
-
 .header .logo {
-  width: 150px;
-  margin-top: 21px;
+  width: 170px;
+  margin: 17px;
 }
 
-.header #welcome {
-  color: #006eb6;
-  font-size: 1.1em;
+.header {
+  display: flex;
   width: 100%;
-  padding: 0;
-  text-align: right;
+  height: 80px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.header .signOut {
-  background-color: transparent;
-  color: #d01900;
-  width: 85px;
-  height: 25px;
-  border-radius: 10px;
+.header .rightSide {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-right: 50px;
+}
+
+.header .links {
+  max-height: 80px;
+}
+
+.header .rightSide .links a {
+  text-decoration: none;
+  color: #006eb6;
+  font-size: 1em;
+  margin-left: 15px;
+}
+
+.header .rightSide .hamWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+}
+
+.header .rightSide .outHam {
+  visibility: hidden;
   border: none;
-  padding: 0;
-  margin-left: 9px;
-  margin-top: 26px;
-  font-size: 1.1rem;
+  font-size: 2em;
+  background-color: transparent;
+  color: #006eb6;
+  /* transition: ease-in-out .2s; */
+} 
+/* may not work */
+
+.header .rightSide .outHam:hover {
+  font-size: 2.1em;
+  text-shadow: 0 2px 2px 2px black;
 }
 
-.header .signOut:hover {
-  background-color: #d01900;
-  color: white;
+.header .rightSide #hidden {
+  display: flex;
 }
 
-.header .materialicons {
-  color: #8ed2ff;
-  text-align: left;
-  font-size: 25px;
-
+.header .leftSide {
+  flex: 50%;
+  display: flex;
+  align-items: center;
+  padding-right: 25px;
 }
 
-.header .material {
-  color: white;
-  font-size: 35px;
-  margin-top: 21px;
-
+.header .leftSide .outHam {
+  height: 32px;
+  width: 70px;
+  font-size: 1em;
 }
+/* may not work */
+
+a {
+  margin: 0px 30px;
+}
+/* need to be more specific */
+
+@media only screen and (max-width: 880px) {
+}
+
+@media only screen and (max-width: 750px) {
+}
+
+@media only screen and (max-width: 650px) {
+  .header .rightSide .outHam {
+    display: flex;
+  }
+
+  .header .rightSide .links {
+    display: none;
+  }
+
+  .header .rightSide #hidden {
+    position: absolute;
+    top: 80px;
+    height: 230px;
+    max-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .header .rightSide #hidden a {
+    margin: 10px 0px;
+    color: red;
+  }
+
+  .header .rightSide .hamWrapper {
+    margin-top: 10px;
+  }
+
+  .header .rightSide .hamWrapper .outHam {
+    visibility: visible;
+  }
+
+  }
