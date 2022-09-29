@@ -23,6 +23,8 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderId, setvCenterFolderId] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const createCourse = async () => {
     const response = await fetch(
@@ -35,21 +37,21 @@ function AddClass() {
         templateVm: [templateVm],
         description: description,
         courseName: courseName,
-        courseSection: courseSection,
-        courseSemester: courseSemester,
+        semester: courseSemester,
         courseYear: courseYear,
         canvasCourseId: canvasCourseId,
         canvasToken: canvasToken,
-        vCenterFolderId: vCenterFolderId,
-
-      }),
-      credentials: 'include',
-      headers: {
-        'content-type': 'application/json'
+        folder: vCenterFolderId,
+        section_num: courseSection,
+        description: courseDescription,
+      }), 
+      credentials:'include',
+      headers:{
+        'content-type':'application/json'
       }
     }
-    );
-    const responseObject = await response.json();
+  );
+ const responseObject = await response;
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
     alert("Your course was created!");
@@ -91,6 +93,22 @@ function AddClass() {
       await createCourse();
     }
   }
+
+  // const getCourseInfo = async () => {
+  //     const listResponse = await fetch(
+  //       "https://byui.test.instructure.com",{
+  //       method:'GET',
+  //       credentials:'include',
+  //       headers:{
+  //         'content-type':'application/json'
+  //       }
+  //     }
+  //   );
+  //   const classList = listResponse.json()
+  // };
+  // getCourseInfo();
+
+
 
   return (
     <div className={addclass.addclass}>
@@ -300,6 +318,23 @@ function AddClass() {
               required
               value={vCenterFolderId}
               onChange={(event) => setvCenterFolderId(event.target.value)}
+            />
+          </div>
+
+          {/* <!-- Course Description--> */}
+          <div className={addclass.coursename}>
+            <label className={addclass.label} htmlFor="name">
+              Course Description:
+            </label>
+            <input
+              className={addclass.input}
+              type="text"
+              id={addclass.name}
+              name="CourseDescription"
+              placeholder="Enter a Short Class Description"
+              required
+              value={courseDescription}
+              onChange={(event)=>setCourseDescription(event.target.value)}
             />
           </div>
 
