@@ -34,7 +34,7 @@ function AddClass() {
   const [libraryName, setLibraryName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [getTemplates, setGetTemplates] = useState();
-  useEffect(async () => {      const getLibraries = async () => {
+  useEffect(async () => {const getLibraries = async () => {
   
     const methods =
     {
