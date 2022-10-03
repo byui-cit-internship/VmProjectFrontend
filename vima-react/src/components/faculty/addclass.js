@@ -15,6 +15,8 @@ function AddClass() {
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
+  const [getLibraries, setGetLibraries] = useState("");
+  const [chooseLibrary, setChooseLibrary] = useState(false);
 
 
 //*********Variables and React States************/
@@ -31,7 +33,25 @@ function AddClass() {
   const [libraryList, setLibraryList] = useState([]);
   const [libraryName, setLibraryName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
+  const [getTemplates, setGetTemplates] = useState();
+  useEffect(async () => {      const getLibraries = async () => {
+  
+    const methods =
+    {
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'GET',
+    }
+
+    const listResponse = await fetch(getApiRoot() + '/api/createvm/libraries', methods);
+
+    const listResponseObject = await listResponse.json()
+    setLibraryList(listResponseObject)
+  }
+  await getLibraries();
+},[])
 
 //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
@@ -105,33 +125,11 @@ function AddClass() {
 
 
   //*************Gets Library ID's and Names****************/
-  useEffect(() => {
-    const getLibraries = async () => {
+  async function chosenLibrary(libraryId){} //The library ID is the Vsphere internal Id for the library that was chosen 
 
-      const methods =
-      {
-        credentials: 'include',
-        headers: {
-          'content-type': 'application/json'
-        },
-        method: 'GET',
-      }
-
-      const listResponse = await fetch(getApiRoot() + '/api/createvm/libraries', methods);
-
-      const listResponseObject = await listResponse.json()
-      setLibraryList(listResponseObject)
-    }
-    getLibraries();
-  }, [])
-
-  function chooseLibrary(n) {
-    const obj = Object.name(libraryList).includes(n)
-    if (Object.name(libraryList).includes(n)) {
-
-    }
-    console.log(obj);
-  }
+// Template Dropdown 
+  async function chooseTemplate(libraryId){}
+  
 
 
   //*****************************************************************************/
@@ -346,7 +344,7 @@ function AddClass() {
             <label>Choose Library:</label>
             <select name="library" id="semester" 
               required
-              onChange={(event) => chooseLibrary(event.target.value)}
+              onChange={(event) => chooseLibrary(event.target.id)}
               >
               <option value="" hidden>
                 Choose Library
