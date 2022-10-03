@@ -30,7 +30,7 @@ function MyVM() {
         <div className={myVm.myVm}>
             <div className={myVm.container}>
                 <Header />
-                <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span>
+                {/* <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span> */}
                 
             <div className={myVm.table}>
                     <table>

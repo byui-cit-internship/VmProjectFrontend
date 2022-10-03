@@ -89,14 +89,14 @@ function Utilization() {
           <Header />
         </div>
         <div id={utilization.formheader}>
-          <span
+          {/* <span
             onClick={() => {
               navigate("/faculty");
             }}
             id={utilization.backbtn}
           >
             &#8592; back
-          </span>
+          </span> */}
           <h1>Class VM Utilization</h1>
         </div>
 

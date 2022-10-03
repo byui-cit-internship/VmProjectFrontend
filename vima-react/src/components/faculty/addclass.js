@@ -30,6 +30,8 @@ function AddClass() {
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [libraryName, setLibraryName] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
 //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
@@ -142,14 +144,7 @@ function AddClass() {
           <Header />
         </div>
         <div id={addclass.formheader}>
-          <span
-            onClick={() => {
-              navigate("/faculty");
-            }}
-            id={addclass.backbtn}
-          >
-            &#8592; back
-          </span>
+          {/* <span onClick={() => {navigate("/faculty");}} id={addclass.backbtn}>&#8592; back</span> */}
           <h1>Add Class</h1>
         </div>
         <div id={addclass.gridcont}>
