@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
@@ -9,10 +9,15 @@ import { getApiRoot } from "../../utils/getApiRoot";
 // import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
-  const userInfoString = sessionStorage.getItem("userInfo");
+
+//*********Session Storage for name and email data of current user***********/
+  const userInfoString = sessionStorage.getItem('userInfo');
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
+
+
+//*********Variables and React States************/
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
   const [description, setDescription] = useState("");
@@ -23,32 +28,33 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderId, setvCenterFolderId] = useState("");
+  const [libraryList, setLibraryList] = useState([]);
+  const [libraryName, setLibraryName] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
+//*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     const response = await fetch(
-      getApiRoot() + "/api/enrollment/professor/register/course",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          userId: userId,
-          teacherId: teacherId,
-          templateVm: [templateVm],
-          description: description,
-          courseName: courseName,
-          semester: courseSemester,
-          courseYear: courseYear,
-          canvasCourseId: canvasCourseId,
-          canvasToken: canvasToken,
-          folder: vCenterFolderId,
-          section_num: courseSection,
-          description: courseDescription,
-        }),
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
+      getApiRoot() + "/api/enrollment/professor/register/course", {
+      method: 'POST',
+      body: JSON.stringify({
+
+        userId: userId,
+        teacherId: teacherId,
+        templateVm: [templateVm],
+        description: description,
+        courseName: courseName,
+        semester: courseSemester,
+        courseYear: courseYear,
+        canvasCourseId: canvasCourseId,
+        canvasToken: canvasToken,
+        folder: vCenterFolderId,
+        section_num: courseSection,
+      }), 
+      credentials:'include',
+      headers:{
+        'content-type':'application/json'
       }
     );
     const responseObject = await response;
@@ -65,6 +71,8 @@ function AddClass() {
     }
   };
 
+
+//*********Validates the Canvas token************/
   const validateCanvasToken = async () => {
     const tokenResponse = await fetch(
       getApiRoot() + "/api/course/professor/checkCanvasToken",
@@ -93,20 +101,39 @@ function AddClass() {
     }
   };
 
-  // const getCourseInfo = async () => {
-  //     const listResponse = await fetch(
-  //       "https://byui.test.instructure.com",{
-  //       method:'GET',
-  //       credentials:'include',
-  //       headers:{
-  //         'content-type':'application/json'
-  //       }
-  //     }
-  //   );
-  //   const classList = listResponse.json()
-  // };
-  // getCourseInfo();
+  //*************Gets Library ID's and Names****************/
+  useEffect(() => {
+    const getLibraries = async () => {
 
+      const methods =
+      {
+        credentials: 'include',
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: 'GET',
+      }
+
+      const listResponse = await fetch(getApiRoot() + '/api/createvm/libraries', methods);
+
+      const listResponseObject = await listResponse.json()
+      setLibraryList(listResponseObject)
+    }
+    getLibraries();
+  }, [])
+
+  function chooseLibrary(n) {
+    const obj = Object.name(libraryList).includes(n)
+    if (Object.name(libraryList).includes(n)) {
+
+    }
+    console.log(obj);
+  }
+
+
+  //*****************************************************************************/
+  //Return statement with all JSX for this page**********************************/
+  //*****************************************************************************/
   return (
     <div className={addclass.addclass}>
       <div className={addclass.container}>
@@ -271,17 +298,12 @@ function AddClass() {
           {/* Semester */}
           <div className={addclass.semester}>
             <label>Choose Semester:</label>
-            <select
-              name="semester"
-              id="semester"
-              required
-              onChange={(event) => {
-                console.log("Semester", event.target.value);
-                setCourseSemester(event.target.value);
-                console.log("Semester", courseSemester);
-              }}
-            >
-              <option name="option" value="">
+            <select name="semester" id="semester" required onChange={(event) => {
+              console.log("Semester", event.target.value)
+              setCourseSemester(event.target.value)
+              console.log("Semester", courseSemester)
+            }}>
+              <option name="option" value="" hidden>
                 Default
               </option>
               <option name="option" value="Summer">
@@ -316,21 +338,21 @@ function AddClass() {
             />
           </div>
 
-          {/* <!-- Course Description--> */}
-          <div className={addclass.coursename}>
-            <label className={addclass.label} htmlFor="name">
-              Course Description:
-            </label>
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.name}
-              name="CourseDescription"
-              placeholder="Enter a Short Class Description"
+          {/* Library*/}
+          <div className={addclass.semester}>
+            <label>Choose Library:</label>
+            <select name="library" id="semester" 
               required
-              value={courseDescription}
-              onChange={(event) => setCourseDescription(event.target.value)}
-            />
+              onChange={(event) => chooseLibrary(event.target.value)}
+              >
+              <option value="" hidden>
+                Choose Library
+              </option>
+              {libraryList.map((item) => (
+               <option key={item.id} value={item.value}>
+                  {item.name}
+                </option>))}
+            </select>
           </div>
         </div>
         <button

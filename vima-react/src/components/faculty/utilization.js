@@ -210,6 +210,7 @@ function Utilization() {
                   <th>Email</th>
                   <th>Virtual Machine</th>
                   <th>Creation Date</th>
+                  <th>VM Template</th>
                 </tr>
               </thead>
               <tbody>
