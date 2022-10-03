@@ -4,12 +4,12 @@ import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
-import { getApiRoot } from '../../utils/getApiRoot';
+import { getApiRoot } from "../../utils/getApiRoot";
 
 // import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
-  const userInfoString = sessionStorage.getItem('userInfo');
+  const userInfoString = sessionStorage.getItem("userInfo");
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
@@ -28,30 +28,30 @@ function AddClass() {
 
   const createCourse = async () => {
     const response = await fetch(
-      getApiRoot() + "/api/enrollment/professor/register/course", {
-      method: 'POST',
-      body: JSON.stringify({
-
-        userId: userId,
-        teacherId: teacherId,
-        templateVm: [templateVm],
-        description: description,
-        courseName: courseName,
-        semester: courseSemester,
-        courseYear: courseYear,
-        canvasCourseId: canvasCourseId,
-        canvasToken: canvasToken,
-        folder: vCenterFolderId,
-        section_num: courseSection,
-        description: courseDescription,
-      }), 
-      credentials:'include',
-      headers:{
-        'content-type':'application/json'
+      getApiRoot() + "/api/enrollment/professor/register/course",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: userId,
+          teacherId: teacherId,
+          templateVm: [templateVm],
+          description: description,
+          courseName: courseName,
+          semester: courseSemester,
+          courseYear: courseYear,
+          canvasCourseId: canvasCourseId,
+          canvasToken: canvasToken,
+          folder: vCenterFolderId,
+          section_num: courseSection,
+          description: courseDescription,
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
       }
-    }
-  );
- const responseObject = await response;
+    );
+    const responseObject = await response;
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
     alert("Your course was created!");
@@ -60,39 +60,38 @@ function AddClass() {
       alert("Would you like to add another course");
 
       // return(
-      // <Navigate to='/faculty' element={<FacultyDashboard />}></Navigate>  
+      // <Navigate to='/faculty' element={<FacultyDashboard />}></Navigate>
       // );
-
     }
-  }
+  };
 
   const validateCanvasToken = async () => {
     const tokenResponse = await fetch(
-      getApiRoot() + "/api/course/professor/checkCanvasToken", {
-      method: 'POST',
-      credentials: 'include',
-      withCredentials: true,
-      body: JSON.stringify({
-        "canvas_token": canvasToken,
-        "canvas_course_id": canvasCourseId
+      getApiRoot() + "/api/course/professor/checkCanvasToken",
+      {
+        method: "POST",
+        credentials: "include",
+        withCredentials: true,
+        body: JSON.stringify({
+          canvas_token: canvasToken,
+          canvas_course_id: canvasCourseId,
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
       }
-      ),
-
-
-      headers: {
-        'content-type': 'application/json'
-      }
-    }
     );
 
     const canvasValidationObject = await tokenResponse.json();
     if (tokenResponse.status != 200) {
-      alert("Canvas Validation failed with the error: " + JSON.stringify(canvasValidationObject.errors))
-    }
-    else {
+      alert(
+        "Canvas Validation failed with the error: " +
+          JSON.stringify(canvasValidationObject.errors)
+      );
+    } else {
       await createCourse();
     }
-  }
+  };
 
   // const getCourseInfo = async () => {
   //     const listResponse = await fetch(
@@ -108,8 +107,6 @@ function AddClass() {
   // };
   // getCourseInfo();
 
-
-
   return (
     <div className={addclass.addclass}>
       <div className={addclass.container}>
@@ -121,8 +118,6 @@ function AddClass() {
           <h1>Add Class</h1>
         </div>
         <div id={addclass.gridcont}>
-
-
           {/* <!-- Course Name--> */}
           <div className={addclass.coursename}>
             <label className={addclass.label} htmlFor="name">
@@ -139,8 +134,6 @@ function AddClass() {
               onChange={(event) => setCourseName(event.target.value)}
             />
           </div>
-
-
 
           {/* <!-- Template VM --> */}
           <div className={addclass.templateVm}>
@@ -159,7 +152,6 @@ function AddClass() {
             />
           </div>
 
-
           {/* <!-- Description --> */}
           <div className={addclass.description}>
             <label description={addclass.label} htmlFor="description">
@@ -177,7 +169,6 @@ function AddClass() {
             />
           </div>
 
-
           {/* <!--Folders  --> */}
           <div className={addclass.canvastoken}>
             <label className={addclass.label} htmlFor="name">
@@ -192,19 +183,21 @@ function AddClass() {
               required
               value={canvasToken}
               onChange={(event) => setCanvasToken(event.target.value)}
-
             />
           </div>
           {/* <!-- Section course --> */}
           <div className={addclass.coursesection}>
             <label className={addclass.label}>Course Section:</label>
-            <select name="section" required onChange={(event) => {
+            <select
+              name="section"
+              required
+              onChange={(event) => {
+                console.log("section", event.target.value);
 
-              console.log("section", event.target.value)
-
-              setCourseSection(event.target.value)
-              console.log("courseSection", courseSection)
-            }}>
+                setCourseSection(event.target.value);
+                console.log("courseSection", courseSection);
+              }}
+            >
               <option name="option" value="">
                 Select a Section Number
               </option>
@@ -247,12 +240,16 @@ function AddClass() {
           {/* Year */}
           <div className={addclass.year}>
             <label>Year:</label>
-            <select name="semester" id={addclass.semester} required onChange={(event) => {
-
-              console.log("Year", event.target.value)
-              setCourseYear(event.target.value)
-              console.log("courseYear", courseYear)
-            }}>
+            <select
+              name="semester"
+              id={addclass.semester}
+              required
+              onChange={(event) => {
+                console.log("Year", event.target.value);
+                setCourseYear(event.target.value);
+                console.log("courseYear", courseYear);
+              }}
+            >
               <option name="option" value="">
                 Default
               </option>
@@ -274,11 +271,16 @@ function AddClass() {
           {/* Semester */}
           <div className={addclass.semester}>
             <label>Choose Semester:</label>
-            <select name="semester" id="semester" required onChange={(event) => {
-              console.log("Semester", event.target.value)
-              setCourseSemester(event.target.value)
-              console.log("Semester", courseSemester)
-            }}>
+            <select
+              name="semester"
+              id="semester"
+              required
+              onChange={(event) => {
+                console.log("Semester", event.target.value);
+                setCourseSemester(event.target.value);
+                console.log("Semester", courseSemester);
+              }}
+            >
               <option name="option" value="">
                 Default
               </option>
@@ -327,13 +329,16 @@ function AddClass() {
               placeholder="Enter a Short Class Description"
               required
               value={courseDescription}
-              onChange={(event)=>setCourseDescription(event.target.value)}
+              onChange={(event) => setCourseDescription(event.target.value)}
             />
           </div>
-
-
         </div>
-        <button type="button" id="submit" className={addclass.btnprimary} onClick={validateCanvasToken}>
+        <button
+          type="button"
+          id="submit"
+          className={addclass.btnprimary}
+          onClick={validateCanvasToken}
+        >
           Add
         </button>
       </div>
