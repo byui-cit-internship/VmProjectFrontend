@@ -5,6 +5,7 @@
   border-radius: 50px;
   column-gap: 10%;
   padding: 10px 20px 80px;
+  min-height: 500px;
 }
 
 .createvm #backbtn {
@@ -73,4 +74,17 @@
   background: #58b952;
   color: white;
   border-radius: 4px;
+}
+
+.loading{
+  margin: 30px 0px;
+  display: flex;
+  justify-content: center;
+  min-height: 280px;
+  align-items: center;
+}
+
+.loading p{
+  font-family: "Raleway";
+    font-size: 1.6rem;
 }
