@@ -57,6 +57,7 @@ function AddClass() {
         'content-type':'application/json'
       }}
     )
+
     const responseObject = await response;
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
@@ -197,7 +198,6 @@ function AddClass() {
               </option>
             </select>
           </div>
-
           {/* <!-- CourseCode --> */}
           <div className={addclass.courseCode}>
             <label description={addclass.label} htmlFor="courseCode">

@@ -43,6 +43,8 @@ function AddProfessor() {
   }
 };
 
+
+
   let navigate = useNavigate();
   let [isOpen, setIsOpen] = useState(false);
   const [firstName, setFirstName] = useState("");
