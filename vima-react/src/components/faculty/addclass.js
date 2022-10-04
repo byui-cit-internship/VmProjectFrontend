@@ -20,7 +20,8 @@ function AddClass() {
 //*********Variables and React States************/
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
-  const [description, setDescription] = useState("");
+  const [templateVmList, setTemplateVmList] = useState("");
+  const [courseCode, setCourseCode] = useState("");
   const [canvasToken, setCanvasToken] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -30,11 +31,10 @@ function AddClass() {
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [libraryName, setLibraryName] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
 //*********Creates course by sending all info in body to the BFF course controller************/
-  const createCourse = async () => {
+   const createCourse = async () => {
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", {
       method: 'POST',
@@ -43,7 +43,7 @@ function AddClass() {
         userId: userId,
         teacherId: teacherId,
         templateVm: [templateVm],
-        description: description,
+        courseCode: courseCode,
         courseName: courseName,
         semester: courseSemester,
         courseYear: courseYear,
@@ -55,8 +55,8 @@ function AddClass() {
       credentials:'include',
       headers:{
         'content-type':'application/json'
-      }
-    );
+      }}
+    )
     const responseObject = await response;
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
@@ -124,12 +124,35 @@ function AddClass() {
 
   function chooseLibrary(n) {
     const obj = Object.name(libraryList).includes(n)
-    if (Object.name(libraryList).includes(n)) {
-
-    }
     console.log(obj);
   }
 
+  // Gets Template Id's and Names
+
+  useEffect(() => {
+    const getTemplateVms = async () => {
+
+      const methods =
+      {
+        credentials: 'include',
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: 'GET',
+      }
+
+      const listResponse = await fetch(getApiRoot() + '/api/createvm/templateVm', methods);
+
+      const listResponseObject = await listResponse.json()
+      setTemplateVmList(listResponseObject)
+    }
+    getTemplateVms();
+  }, [])
+
+  function chooseTemplateVm(n) {
+    const obj = Object.name(templateVmList).includes(n)
+    console.log(obj);
+  }
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -167,32 +190,28 @@ function AddClass() {
             <label className={addclass.label} htmlFor="templateVM">
               Template VM:
             </label>
-            <input
-              className={addclass.input}
-              type="text"
-              // id={addclass.templateVm}
-              name="TemplateVM"
-              placeholder="Enter the template VM"
-              required
-              value={templateVm}
-              onChange={(event) => setTemplateVm(event.target.value)}
-            />
+            <select name="templateVm" id={addclass.templateVm}
+            required>
+              <option value="" hidden>
+                Choose a Template
+              </option>
+            </select>
           </div>
 
-          {/* <!-- Description --> */}
-          <div className={addclass.description}>
-            <label description={addclass.label} htmlFor="description">
-              Description:
+          {/* <!-- CourseCode --> */}
+          <div className={addclass.courseCode}>
+            <label description={addclass.label} htmlFor="courseCode">
+              Course Code:
             </label>
             <input
               className={addclass.input}
               type="text"
-              id={addclass.description}
-              name="Description"
-              placeholder="Enter description"
+              id={addclass.courseCode}
+              name="courseCode"
+              placeholder="Enter course code"
               required
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
+              value={courseCode}
+              onChange={(event) => setCourseCode(event.target.value)}
             />
           </div>
 
@@ -339,7 +358,7 @@ function AddClass() {
           </div>
 
           {/* Library*/}
-          <div className={addclass.semester}>
+          <div className={addclass.library}>
             <label>Choose Library:</label>
             <select name="library" id="semester" 
               required
