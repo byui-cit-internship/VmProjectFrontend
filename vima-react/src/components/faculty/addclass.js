@@ -10,14 +10,14 @@ import { getApiRoot } from "../../utils/getApiRoot";
 
 function AddClass() {
 
-//*********Session Storage for name and email data of current user***********/
+  //*********Session Storage for name and email data of current user***********/
   const userInfoString = sessionStorage.getItem('userInfo');
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
 
 
-//*********Variables and React States************/
+  //*********Variables and React States************/
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
   const [description, setDescription] = useState("");
@@ -33,7 +33,7 @@ function AddClass() {
   const [courseDescription, setCourseDescription] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-//*********Creates course by sending all info in body to the BFF course controller************/
+  //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", {
@@ -51,11 +51,12 @@ function AddClass() {
         canvasToken: canvasToken,
         folder: vCenterFolderId,
         section_num: courseSection,
-      }), 
-      credentials:'include',
-      headers:{
-        'content-type':'application/json'
+      }),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
       }
+    }
     );
     const responseObject = await response;
     console.log(JSON.stringify(responseObject));
@@ -72,7 +73,7 @@ function AddClass() {
   };
 
 
-//*********Validates the Canvas token************/
+  //*********Validates the Canvas token************/
   const validateCanvasToken = async () => {
     const tokenResponse = await fetch(
       getApiRoot() + "/api/course/professor/checkCanvasToken",
@@ -94,7 +95,7 @@ function AddClass() {
     if (tokenResponse.status != 200) {
       alert(
         "Canvas Validation failed with the error: " +
-          JSON.stringify(canvasValidationObject.errors)
+        JSON.stringify(canvasValidationObject.errors)
       );
     } else {
       await createCourse();
@@ -341,15 +342,15 @@ function AddClass() {
           {/* Library*/}
           <div className={addclass.semester}>
             <label>Choose Library:</label>
-            <select name="library" id="semester" 
+            <select name="library" id="semester"
               required
               onChange={(event) => chooseLibrary(event.target.value)}
-              >
+            >
               <option value="" hidden>
                 Choose Library
               </option>
               {libraryList.map((item) => (
-               <option key={item.id} value={item.value}>
+                <option key={item.id} value={item.value}>
                   {item.name}
                 </option>))}
             </select>
