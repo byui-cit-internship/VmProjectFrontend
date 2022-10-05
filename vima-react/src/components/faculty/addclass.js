@@ -30,7 +30,7 @@ function AddClass() {
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [libraryName, setLibraryName] = useState("");
-  const [courseDescription, setCourseDescription] = useState("");
+  const [canvasCourses, setCanvasCourses] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   //*********Creates course by sending all info in body to the BFF course controller************/
@@ -132,6 +132,43 @@ function AddClass() {
   }
 
 
+  //*************Gets Canvas course info with your canvas token****************/
+  useEffect(() => {
+    const getCanvasCourseInfo = async () => {
+
+      const methods =
+      {
+        credentials: 'include',
+        headers: {
+          'content-type': 'application/json'
+        },
+        method: 'GET',
+      }
+
+      const listResponse = await fetch(getApiRoot() + '/api/course/professor/canvasDropdown', methods);
+
+      const listResponseObject = await listResponse.json()
+      setCanvasCourses(listResponseObject)
+    }
+    getCanvasCourseInfo();
+  }, [])
+
+//*************Maps course list string from canvas and sets course description****************/
+
+  function canvasDesc(item) {
+    const canvasDescList = canvasCourses.filter(element => {return element.id == item}).map((desc) => {
+        return [desc.name]
+      });
+    console.log(canvasDescList)
+    let canvasDescString = "";
+    if (canvasDescList.length > 0) {
+      canvasDescString = canvasDescList[0][0]
+    }
+    console.log(canvasDescString)
+    setDescription(canvasDescString);
+
+  };
+
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -180,7 +217,8 @@ function AddClass() {
             />
           </div>
 
-          {/* <!-- Description --> */}
+          {/* <!-- Description -->*/}
+
           <div className={addclass.description}>
             <label description={addclass.label} htmlFor="description">
               Description:
@@ -261,7 +299,10 @@ function AddClass() {
               name="CourseId"
               placeholder="Enter your course Id"
               value={canvasCourseId}
-              onChange={(event) => setCanvasCourseId(event.target.value)}
+              onChange={(event) => {
+                setCanvasCourseId(event.target.value),
+                canvasDesc(event.target.value)
+              }}
               required
             />
           </div>
