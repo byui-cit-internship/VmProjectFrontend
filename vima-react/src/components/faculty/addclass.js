@@ -111,7 +111,7 @@ function AddClass() {
     <div className={addclass.addclass}>
       <div className={addclass.container}>
         <div className={addclass.header}>
-          <Header />
+          <Header userType="faculty" />
         </div>
         <div id={addclass.formheader}>
           {/* <span onClick={() => {navigate("/faculty");}} id={addclass.backbtn}>&#8592; back</span> */}
