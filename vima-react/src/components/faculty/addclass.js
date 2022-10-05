@@ -31,18 +31,11 @@ function AddClass() {
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [libraryName, setLibraryName] = useState("");
-<<<<<<< HEAD
-  const [isOpen, setIsOpen] = useState(false);
-
-//*********Creates course by sending all info in body to the BFF course controller************/
-   const createCourse = async () => {
-=======
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
->>>>>>> 9a2319b7235c2b73074693a723181777d6227e92
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", {
       method: 'POST',
@@ -59,14 +52,6 @@ function AddClass() {
         canvasToken: canvasToken,
         folder: vCenterFolderId,
         section_num: courseSection,
-<<<<<<< HEAD
-      }), 
-      credentials:'include',
-      headers:{
-        'content-type':'application/json'
-      }}
-    )
-=======
       }),
       credentials: 'include',
       headers: {
@@ -74,7 +59,6 @@ function AddClass() {
       }
     }
     );
->>>>>>> 9a2319b7235c2b73074693a723181777d6227e92
     const responseObject = await response;
     console.log(JSON.stringify(responseObject));
     console.log("Here we send data from api");
@@ -171,8 +155,6 @@ function AddClass() {
     const obj = Object.name(templateVmList).includes(n)
     console.log(obj);
   }
-
-
   //*************Gets Canvas course info with your canvas token****************/
   useEffect(() => {
     const getCanvasCourseInfo = async () => {
@@ -217,7 +199,7 @@ function AddClass() {
     <div className={addclass.addclass}>
       <div className={addclass.container}>
         <div className={addclass.header}>
-          <Header />
+          <Header userType="faculty" />
         </div>
         <div id={addclass.formheader}>
           {/* <span onClick={() => {navigate("/faculty");}} id={addclass.backbtn}>&#8592; back</span> */}
@@ -253,12 +235,18 @@ function AddClass() {
               </option>
             </select>
           </div>
+          {/* <!-- Description -->*/}
 
+          <div className={addclass.description}>
+            <label description={addclass.label} htmlFor="description">
+              Description:
+            </label>
             <input
               className={addclass.input}
               type="text"
               id={addclass.courseCode}
               name="courseCode"
+              placeholder="Enter course code"
               required
               value={courseCode}
               onChange={(event) => setCourseCode(event.target.value)}
