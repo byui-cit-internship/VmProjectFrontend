@@ -11,7 +11,9 @@ import { getApiRoot } from "../../utils/getApiRoot";
 
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
-  const [enrollmentId, setEnrollmentId] = useState(""); // How to get enrollment Id?
+  const [enrollmentId, setEnrollmentId] = useState("");
+  // const [response, setResponse] = useState(null)
+  const [loading, setLoading] = useState(null);
 
   let navigate = useNavigate();
 
@@ -29,28 +31,32 @@ function CreateVM() {
         getApiRoot() + "/api/studentcourse",
         methods
       );
-
       const courseResponseObject = await courseResponse.json();
       setCourseList(courseResponseObject);
     };
     getCourseList();
   }, []);
-  // after class is selected fill the [] with the selcted option
 
   const postVm = async () => {
+    setLoading(true);
     const options = {
       method: "POST",
       credentials: "include",
       headers: {
         "content-type": "application/json",
       },
+      body: enrollmentId,
     };
 
-    const response = await fetch(
-      getApiRoot() + "/api/DeployVm?" + enrollmentId,
-      options
-    ); // How to get enrollment Id?
-    const responseObject = await response.json();
+    const response = await fetch(`${getApiRoot()}/api/deployvm`, options);
+
+    if (response.ok) {
+      alert("Virtual machine created");
+      navigate("/success");
+    } else {
+      alert("Failed to create virtual machine");
+      setLoading(null);
+    }
   };
 
   return (
@@ -66,35 +72,54 @@ function CreateVM() {
           &#8592; Back
         </span>
         <h4 className={createVM.lets}>Let's create a VM</h4>
-        <div className={createVM.body}>
-          {/* <!-- course dropdown -->  */}
-          <span className={createVM.material}>
-            <LibraryBooksIcon className={createVM.material} />
-          </span>
-          <p className={createVM.description}>1. Select Course</p>
-          <select className="course" id={createVM.course}>
-            <option value="Default">- Select -</option>
-            {courseList.map((course) => (
-              <option value={course.courseId}>{course.courseName}</option>
-            ))}
-          </select>
+        <div>
+          {!loading ? (
+            <div className={createVM.body}>
+              {/* <!-- course dropdown -->  */}
+              <span className={createVM.material}>
+                <LibraryBooksIcon className={createVM.material} />
+              </span>
+              <p className={createVM.description}>1. Select Course</p>
+              <select
+                className="course"
+                id={createVM.course}
+                onChange={(e) => setEnrollmentId(e.target.value)}
+              >
+                <option value="Default">- Select -</option>
+                {courseList.map((course) => (
+                  <option value={course.enrollmentId}>
+                    {course.courseName}
+                  </option>
+                ))}
+              </select>
 
-          {/* template vm dropdown  */}
-          {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
+              {/* template vm dropdown - Not needed for MVP */}
+              {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
           <p className={createVM.description}>2. Select VM</p>
           <select name="templatevm" id={createVM.course}>
             <option value="Default">-  Select -</option>
           </select> */}
 
-          {/* <!--Create the VM--> */}
-          <span className={createVM.material}>
-            <CheckCircleOutlineIcon className={createVM.material} />
-          </span>
-          <p className={createVM.description}>2. Create the VM</p>
-          <input id="vm_name" type="hidden" value="Default Vm" />
-          <button id={createVM.buttonVm} onClick={postVm}>
-            Create
-          </button>
+              {/* <!--Create the VM--> */}
+              <span className={createVM.material}>
+                <CheckCircleOutlineIcon className={createVM.material} />
+              </span>
+              <p className={createVM.description}>2. Create the VM</p>
+              <input id="vm_name" type="hidden" value="Default Vm" />
+              <button id={createVM.buttonVm} onClick={postVm}>
+                Create
+              </button>
+            </div>
+          ) : (
+            <p></p>
+          )}
+          {loading ? (
+            <div className={createVM.loading}>
+              <p>Please wait...</p>
+            </div>
+          ) : (
+            <p></p>
+          )}
         </div>
         <script
           src="https://apis.google.com/js/platform.js?onload=onLoad"
@@ -107,8 +132,3 @@ function CreateVM() {
   );
 }
 export default CreateVM;
-
-// create an array for the list of classes to be stored in
-//then create a loop to go through and create an option in the drop down select for each class
-//
-// let class = []
