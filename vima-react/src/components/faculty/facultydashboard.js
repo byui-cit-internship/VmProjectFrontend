@@ -38,11 +38,11 @@ return(
     <h1 id={facultydashboard.nameOfProfessor}>Hello <span>{userFirst} {userLast}</span></h1>
     <p id={facultydashboard.greeting}>How can we help you today?</p>
     {/* <div class="addgrid"> */}
-      <div className={facultydashboard.add_class} onClick={() => {navigate("/addclass")}}>
+      <div className={facultydashboard.add_class} onClick={() => {navigate("/classlist")}}>
         <span className={facultydashboard.materialicons} >
           <AddCircleOutlineIcon style={iconStyles}/>
         </span>
-        <button>Add Class</button>
+        <button>Class List</button>
     </div>
       <div className={facultydashboard.add_professor} onClick={() => {navigate("/addprofessor")}}>
         <span className={facultydashboard.materialicons}>
