@@ -11,6 +11,7 @@ import Utilization from "./components/faculty/utilization";
 import MyNetworks from "./components/student/mynetworks";
 import ProfessorList from "./components/faculty/professorlist";
 import CreatedSuccessfully from "./components/student/success";
+import ClassList from "./components/faculty/classlist";
 
 export default function VimaRouter () {
     return (
@@ -28,6 +29,7 @@ export default function VimaRouter () {
                 <Route path='/mynetworks' element={<MyNetworks />} />
                 <Route path='/professorlist' element={<ProfessorList />} />
                 <Route path='/success' element={<CreatedSuccessfully />} />
+                <Route path='/classlist' element={<ClassList />} />
             </Routes>
         </Router>
     )

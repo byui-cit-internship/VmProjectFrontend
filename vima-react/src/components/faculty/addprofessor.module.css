@@ -5,26 +5,42 @@ white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
 
-/* Small View */
-.addprofessor body {
-  background-color: #006eb6;
-  font-family: "Raleway", sans-serif;
-}
+/* body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
+/* Small View */
 .addprofessor .container {
   background-color: white;
   margin-top: 50px;
   margin: auto auto;
   border-radius: 50px;
+  width: 95vw;
+  max-width: 1000px;
 }
 
 .addprofessor form {
   width: 90%;
   margin: auto auto;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+
+.addprofessor .form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addprofessor h1 {
   text-align: center;
+  margin: 10px;
+  font-family: "Raleway";
 }
 
 .addprofessor .backbtn {
@@ -48,24 +64,50 @@ https://www.byui.edu/branding/color-guide
 .addprofessor input {
   width: 100%;
   padding: 8px 0;
-  border: 3px solid #98D5FD;
+  border: 3px solid #98d5fd;
 }
 
 .addprofessor img {
-  width: 100%;
+  max-width: 450px;
 }
 
 .addprofessor .primaryButton {
   font-size: 1.5rem;
   padding: 10px;
-  margin: 10px auto;
   width: 185px;
   border-radius: 7px;
   border: transparent;
   display: block;
   background-color: #006eb6;
   color: white;
-  grid-column: 1/3;
+  margin: 20px 0px 30px 0px;
+}
+
+.addprofessor .primaryButton:hover {
+  cursor: pointer;
+  opacity: 90%;
+}
+
+.addprofessor .singleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addprofessor .singleContainer input {
+  width: 280px;
+}
+
+.addprofessor .flexContainer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.addprofessor .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .addprofessor input:required:valid {
@@ -76,15 +118,14 @@ https://www.byui.edu/branding/color-guide
   margin-bottom: 2.3em;
 }
 
-.addprofessor .modal{
+.addprofessor .modal {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-
 }
-.addprofessor .modalBox{
+.addprofessor .modalBox {
   position: absolute;
   width: 350px;
   aspect-ratio: 1.5/1;
@@ -98,6 +139,10 @@ https://www.byui.edu/branding/color-guide
   grid-template-columns: 1fr;
   text-align: center;
   padding: 20px;
+}
+
+.addprofessor .singleContainer label {
+  color: #006eb6;
 }
 
 .addprofessor .closeBtn {
@@ -114,7 +159,7 @@ https://www.byui.edu/branding/color-guide
   border: none;
 }
 
-.addprofessor .closeBtn:hover{
+.addprofessor .closeBtn:hover {
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
 }
@@ -129,48 +174,158 @@ https://www.byui.edu/branding/color-guide
   align-items: center;
   margin: 0 auto;
 }
-.addprofessor .checkicon{
+.addprofessor .checkicon {
   font-size: 50px;
   color: white;
 }
-.addprofessor .message{
+.addprofessor .message {
   padding-top: 2em;
-  font-family: 'Raleway';
-
+  font-family: "Raleway";
 }
 
 /* Small View */
 @media screen and (max-width: 37.4em) {
-  /* .header .header {
-    width: 200px;
-  } */
+  .addprofessor .image {
+    display: none;
+  }
+
+  .addprofessor .singleContainer {
+    margin-bottom: 18px;
+  }
+
+  .addprofessor .singleContainer label {
+    color: #006eb6;
+    margin-bottom: 14px;
+  }
+
+  .addprofessor .flexContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .addprofessor .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .addprofessor .container {
-    
+    border-radius: 0px;
+    width: 100vw;
+    height: 100vh;
+    /* width: 95%; */
   }
 
   .addprofessor form {
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
   }
 
   .addprofessor .h1 {
-    color: red;
+    font-size: 1.5rem;
+    margin: 22px;
+  }
+
+  .addprofessor .data {
+    margin-bottom: 5em;
   }
 }
 
 /* Medium View */
-@media only screen and (min-width: 37.5em) {
+@media only screen and (min-width: 37.4em) {
+  .addprofessor .flexContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .addprofessor .singleContainer {
+    align-items: baseline;
+    margin-bottom: 10px;
+    flex-direction: row;
+    width: 400px;
+  }
+
+  .addprofessor .data {
+    margin-bottom: 0px;
+  }
+
+  .addprofessor img {
+    width: 235px;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .addprofessor .image {
+    width: 450px;
+  }
   .addprofessor .container {
     width: 1000px;
     background-color: white;
     margin-top: 50px;
-    height: 500px;
     margin: auto auto;
     border-radius: 50px;
+  }
+
+  .addprofessor .flexContainer {
+    flex-direction: row;
+  }
+
+  .addprofessor form {
+    width: 90%;
+    margin: auto auto;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+  }
+
+  .addprofessor .form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .addprofessor .flexContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .addprofessor .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .addprofessor .data {
+    margin-bottom: 2.3em;
+  }
+
+  .addprofessor .singleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .addprofessor .singleContainer input {
+    width: 280px;
+  }
+
+  .addprofessor .singleContainer label {
+    color: #006eb6;
+  }
+
+  .addprofessor input {
+    width: 100%;
+    padding: 8px 0;
+    border: 3px solid #98d5fd;
+  }
+
+  .addprofessor input {
+    width: 100% !important;
+    padding: 8px 0;
+    border: 3px solid #98d5fd;
   }
 }

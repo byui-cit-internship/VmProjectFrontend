@@ -16,20 +16,17 @@ function ProfessorList() {
 
   useEffect(() => {
     const getCourseInfo = async () => {
-      console.log("hello")
-      const listResponse = await fetch(
-        getApiRoot() + "/api/studentcourse",
-        {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "content-type": "application/json",
-          },
-        }
-      );
-      console.log("listResponse; ", listResponse)
+      console.log("hello");
+      const listResponse = await fetch(getApiRoot() + "/api/studentcourse", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      console.log("listResponse; ", listResponse);
       const classList = await listResponse.json();
-      console.log("classes; ", classList)
+      console.log("classes; ", classList);
       setCourseList(classList);
     };
     getCourseInfo();
@@ -38,7 +35,7 @@ function ProfessorList() {
   return (
     <div className={professorList.professorList}>
       <div className={professorList.container}>
-        <Header />
+        <Header userType="faculty" />
         {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
         <span id={professorList.title}> Professor List</span>
         <div id={professorList.professorsAndSearch}>
@@ -95,7 +92,7 @@ function ProfessorList() {
         <button
           className={professorList.backbtn}
           onClick={() => {
-            navigate("#");
+            navigate("/addprofessor");
           }}
         >
           Add New Professor
