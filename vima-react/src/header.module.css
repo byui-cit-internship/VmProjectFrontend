@@ -43,7 +43,7 @@
   background-color: transparent;
   color: #006eb6;
   /* transition: ease-in-out .2s; */
-} 
+}
 /* may not work */
 
 .header .rightSide .outHam:hover {
@@ -74,15 +74,16 @@ a {
 }
 /* need to be more specific */
 
-@media only screen and (max-width: 880px) {
-}
+/* Small View */
+@media screen and (max-width: 37.4em) {
+  .header .header {
+    align-items: baseline;
+    height: 90px;
+  }
 
-@media only screen and (max-width: 750px) {
-}
-
-@media only screen and (max-width: 650px) {
   .header .rightSide .outHam {
     display: flex;
+    margin-bottom: 6px;
   }
 
   .header .rightSide .links {
@@ -101,7 +102,6 @@ a {
 
   .header .rightSide #hidden a {
     margin: 10px 0px;
-    color: red;
   }
 
   .header .rightSide .hamWrapper {
@@ -112,4 +112,15 @@ a {
     visibility: visible;
   }
 
+  .header .logo {
+    width: 130px;
   }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+}
