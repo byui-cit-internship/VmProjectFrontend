@@ -47,26 +47,26 @@ spec:
     - port: 80
       targetPort: 80
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: vmfrontend-dev-ingress
-  namespace: vm-project-dev
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
-spec:
-  tls:
-  - hosts:
-    - rancher-vmfrontend-dev.citwdd.net
-    secretName: vmfrontend-dev-tls
-  rules:
-  - host: rancher-vmfrontend-dev.citwdd.net
-    http:
-      paths:
-      - backend:
-          serviceName: vmfrontend-dev-nodeport
-          servicePort: 80
-    
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+#   name: vmfrontend-dev-ingress
+#   namespace: vm-project-dev
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+#     kubernetes.io/ingress.class: "nginx"
+#     cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+# spec:
+#   tls:
+#   - hosts:
+#     - rancher-vmfrontend-dev.citwdd.net
+#     secretName: vmfrontend-dev-tls
+#   rules:
+#   - host: rancher-vmfrontend-dev.citwdd.net
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: vmfrontend-dev-nodeport
+#           servicePort: 80
+
       
