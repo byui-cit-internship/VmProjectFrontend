@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 function ProfessorList() {
   let navigate = useNavigate();
   const [courseList, setCourseList] = useState([]);
-
+  console.log(JSON.stringify(professorList))
   useEffect(() => {
     const getCourseInfo = async () => {
       console.log("hello")
