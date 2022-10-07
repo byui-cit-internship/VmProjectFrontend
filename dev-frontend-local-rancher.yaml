@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: vmfrontend-dev-deploy
-          image: gcr.io/constellation-275522/vmfrontend:latest
+          image: gcr.io/cubs-consulting/vmfrontend:latest
           ports:
             - containerPort: 80
           resources:
