@@ -45,25 +45,52 @@ const FacultyDashboard = () => {
 
   return (
     // window.location.href="VMfaculty_dashboard/facultyview.html";
-  <div className={facultydashboard.facultydashboard}>
-    <div className={facultydashboard.container}>
-    <div className={facultydashboard.header} >
-      <Header />
-    </div>
-    <h1 id={facultydashboard.nameOfProfessor}>Hello <span>{userFirst} {userLast}</span></h1>
-    <p id={facultydashboard.greeting}>How can we help you today?</p>
-    {/* <div class="addgrid"> */}
-      <div className={facultydashboard.add_class} onClick={() => {navigate("/myclasses")}}>
-        <span className={facultydashboard.materialicons} >
-          <AddCircleOutlineIcon style={iconStyles}/>
-        </span>
-        <button>My Classes</button>
-    </div>
-      <div className={facultydashboard.add_class} onClick={() => {navigate("/myclasses")}}>
-        <span className={facultydashboard.materialicons}>
-          <PersonAddIcon style={iconStyles}/>
-        </span>
-        <button >Add Professors</button>
+    <div className={facultydashboard.facultydashboard}>
+      <div className={facultydashboard.container}>
+        <div className={facultydashboard.header}>
+          <Header userType="faculty" />
+        </div>
+        <h1 id={facultydashboard.nameOfProfessor}>
+          Hello{" "}
+          <span>
+            {userFirst} {userLast}
+          </span>
+        </h1>
+        <p id={facultydashboard.greeting}>How can we help you today?</p>
+        {/* <div class="addgrid"> */}
+        <div
+          className={facultydashboard.add_class}
+          onClick={() => {
+            navigate("/addclass");
+          }}
+        >
+          <span className={facultydashboard.materialicons}>
+            <AddCircleOutlineIcon style={iconStyles} />
+          </span>
+          <button>Add Class</button>
+        </div>
+        <div
+          className={facultydashboard.add_professor}
+          onClick={() => {
+            navigate("/professorlist");
+          }}
+        >
+          <span className={facultydashboard.materialicons}>
+            <PersonAddIcon style={iconStyles} />
+          </span>
+          <button>View Professors</button>
+        </div>
+        <div
+          className={facultydashboard.vm_utilization}
+          onClick={() => {
+            navigate("/utilization");
+          }}
+        >
+          <span className={facultydashboard.materialicons}>
+            <DnsIcon style={iconStyles} />
+          </span>
+          <button>VM Utilization</button>
+        </div>
       </div>
       <div className={facultydashboard.vm_utilization} onClick={() => {navigate("/utilization")}}>
         <span className={facultydashboard.materialicons}>
@@ -71,21 +98,6 @@ const FacultyDashboard = () => {
         </span>
         <button >VM Utilization</button>
       </div>
-    </div>
-    {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}
-
-      {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
-
-      {/* <!-- <div id="admin_portal"> --> */}
-      {/* </div> */}
-
-      <script
-        src="https://apis.google.com/js/platform.js?onload=onLoad"
-        async
-        defer
-      ></script>
-
-      <Background />
     </div>
   );
 };

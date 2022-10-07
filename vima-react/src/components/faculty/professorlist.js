@@ -16,17 +16,17 @@ function ProfessorList() {
   console.log(JSON.stringify(professorList))
   useEffect(() => {
     const getCourseInfo = async () => {
-      const listResponse = await fetch(
-        getApiRoot() + "/api/studentcourse",
-        {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "content-type": "application/json",
-          },
-        }
-      );
-      console.log("listResponse; ", listResponse)
+
+      console.log("hello");
+      const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+      console.log("listResponse; ", listResponse);
+
       const classList = await listResponse.json();
       console.log("classes; ", classList);
       setCourseList(classList);
@@ -57,36 +57,14 @@ function ProfessorList() {
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Age</th>
               </tr>
             </thead>
             <tbody>
               {courseList.map((professor) => (
                 <tr>
-                  <td>{professor.studentFullName}</td>
-                  <td>{professor.courseName}</td>
+                  <td>{professor.firstName} {professor.lastName}</td>
                 </tr>
               ))}
-              {/* <tr>
-                <td>Robert</td>
-                <td>23</td>
-              </tr>
-              <tr>
-                <td>Michal</td>
-                <td>24</td>
-              </tr>
-              <tr>
-                <td>Morgan</td>
-                <td>24</td>
-              </tr>
-              <tr>
-                <td>Tom</td>
-                <td>26</td>
-              </tr>
-              <tr>
-                <td>Steve</td>
-                <td>27</td>
-              </tr> */}
             </tbody>
           </table>
         </div>
