@@ -61,13 +61,13 @@ const FacultyDashboard = () => {
         <div
           className={facultydashboard.add_class}
           onClick={() => {
-            navigate("/addclass");
+            navigate("/myclasses");
           }}
         >
           <span className={facultydashboard.materialicons}>
             <AddCircleOutlineIcon style={iconStyles} />
           </span>
-          <button>Add Class</button>
+          <button>My Classes</button>
         </div>
         <div
           className={facultydashboard.add_professor}
@@ -92,6 +92,7 @@ const FacultyDashboard = () => {
           <button>VM Utilization</button>
         </div>
       </div>
+<<<<<<< Updated upstream
       {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}
 
       {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
@@ -106,6 +107,8 @@ const FacultyDashboard = () => {
       ></script>
 
       <Background />
+=======
+>>>>>>> Stashed changes
     </div>
   );
 };
