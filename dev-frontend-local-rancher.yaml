@@ -59,10 +59,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - rancher-vmfrontend-dev.citwdd.net
+    - rancher-vmfrontend-dev.cit.byui.edu
     secretName: vmfrontend-dev-tls
   rules:
-  - host: rancher-vmfrontend-dev.citwdd.net
+  - host: rancher-vmfrontend-dev.cit.byui.edu
     http:
       paths:
       - backend:

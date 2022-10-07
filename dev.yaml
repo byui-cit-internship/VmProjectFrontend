@@ -62,4 +62,4 @@ metadata:
   name: vmfrontend-dev-certificate
 spec:
   domains:
-    - vmfrontend-dev.citwdd.net
+    - vmfrontend-dev.cit.byui.edu
