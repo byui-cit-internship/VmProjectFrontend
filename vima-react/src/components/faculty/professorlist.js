@@ -13,9 +13,10 @@ import { useEffect, useState } from "react";
 function ProfessorList() {
   let navigate = useNavigate();
   const [courseList, setCourseList] = useState([]);
-
+  console.log(JSON.stringify(professorList))
   useEffect(() => {
     const getCourseInfo = async () => {
+
       console.log("hello");
       const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
         method: "GET",
@@ -25,6 +26,7 @@ function ProfessorList() {
         },
       });
       console.log("listResponse; ", listResponse);
+
       const classList = await listResponse.json();
       console.log("classes; ", classList);
       setCourseList(classList);
