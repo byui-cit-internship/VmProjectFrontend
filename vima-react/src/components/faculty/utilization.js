@@ -86,7 +86,7 @@ function Utilization() {
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header />
+          <Header userType="faculty" />
         </div>
         <div id={utilization.formheader}>
           {/* <span
@@ -109,7 +109,7 @@ function Utilization() {
               id={utilization.course_semester}
               required
               onChange={(event) => setSemester(event.target.value)}
-              >
+            >
               <option value="" hidden>
                 Choose Semester
               </option>
