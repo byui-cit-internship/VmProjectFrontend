@@ -16,7 +16,6 @@ function ProfessorList() {
   console.log(JSON.stringify(professorList))
   useEffect(() => {
     const getCourseInfo = async () => {
-      console.log("hello")
       const listResponse = await fetch(
         getApiRoot() + "/api/studentcourse",
         {

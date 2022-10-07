@@ -7,14 +7,13 @@
 
 .myclasses .container {
   width: 1000px;
-  background-color: white;
   margin: 50px auto;
   border-radius: 50px;
   column-gap: 10%;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   padding: 10px 20px;
-  justify-content: center;
-  align-items: center;
+  
+
 }
 
 .myclasses #backbtn {
@@ -39,17 +38,15 @@
   display: table;
 }
 
-.myclasses #professorsAndSearch {
+.myclasses #classesAndSearch {
   display: flex;
   width: 800px;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.5rem;
-  background-color: #006eb6;
   font-family: "Raleway", sans-serif;
   padding: 10px 0px;
   font-weight: bold;
-  color: #ffffff;
   align-items: center;
 }
 
@@ -73,12 +70,6 @@ display: flex;
 align-items: center;
 }
 
-.myclasses .searchbar #MGlass {
-  font-size: .9rem;
-  opacity: 80%;
-  }
-
-
 .myclasses #search {
   font-family: "Raleway", sans-serif;
   background-color: #006eb6;
@@ -96,8 +87,8 @@ align-items: center;
 .myclasses #search:focus, textarea:focus, select:focus{
   outline: none;
   caret-color: auto;
-color: transparent;
-color: currentColor;
+  color: transparent;
+  color: currentColor;
 }
 
 .myclasses #search:focus::-webkit-input-placeholder {
@@ -116,38 +107,46 @@ color: currentColor;
  opacity: 0;
 }
 
+
 .myclasses table {
-  width: 800px;
+  width: 350px;
   height: 200px;
   border-collapse: collapse;
-  margin-left: auto;
+  margin-left: 10%;
   margin-right: auto;
-  
+  border: 2px solid #006eb6;  
+  padding: 10px;
 }
 
 .myclasses th {
-  border-bottom: 1px solid black;
-  border: 2px solid #3a8ace;
-  text-align: left;
-  font-family: "Raleway", sans-serif;
-  padding: 10px;
-  margin: 10px auto;
   font-size: 1.5rem;
+  background-color: #006eb6;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
+  color: #ffffff;
+  padding: 10px;
 }
 
-.myclasses td {
-  border: 2px solid #3a8ace;
+.myclasses tr {
   font-family: "Raleway", sans-serif;
-  padding: 10px;
-  margin: 10px auto;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
-/* .submitBt {
+.myclasses .vmName{
+  /*Need to make this text thicker*/
+  color: #006eb6;
+  padding: 10px;
+}
+.myclasses .semester{
+  float: right;
+  padding: 10px;
+}
+.submitBt {
+  background-color: #006eb6;
   font-size: 1.5rem;
   padding: 10px;
-  margin: 10px auto;
-  width: 90%;
+  margin: 0px 40% 20px;
+  width: 20%;
   border-radius: 7px;
-  display: block;
-} */
+  border: transparent;
+  color: #fff;
+}
