@@ -10,6 +10,7 @@ import { Navigate } from 'react-router-dom';
 import FacultyDashboard from './components/faculty/facultydashboard';
 import StudentDashboard from './components/student/studentdashboard';
 import { getApiRoot } from './utils/getApiRoot';
+import { BFF } from './utils/bff'
 
 // import background from './background.module.css';
 
@@ -27,19 +28,11 @@ function App() {
   const googleCredentials = useRef({});
   useEffect(() => {
     const verifyJwt = async () => {
-      const jwtResponse = await fetch(getApiRoot() + '/api/token',
-        {
-          credentials: 'include',
-          headers: {
-            'content-type': 'application/json'
-          },
-          method: 'POST',
-          body: JSON.stringify({ accessTokenValue: googleJwt })
-        });
-
-      const authorizationObject = await jwtResponse.json();
-      sessionStorage.setItem('userInfo', JSON.stringify(authorizationObject))
-      setAuthorization(authorizationObject);
+      let requestData = { accessTokenValue: googleJwt };
+      let jwtResponse = await BFF.Post('/api/token', requestData);
+      //const authorizationObject = await jwtResponse.json();
+      sessionStorage.setItem('userInfo', JSON.stringify(jwtResponse))
+      setAuthorization(jwtResponse);
     }
 
     if (googleJwt.length > 0) {//be sure the google JWT is already assigned (they have authenticated with Google)

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vmfrontend-test
-          image: gcr.io/constellation-275522/vmfrontend
+          image: gcr.io/cubs-consulting/vmfrontend
           ports:
             - containerPort: 80
           resources:
