@@ -87,37 +87,34 @@ function AddProfessor() {
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
                 <div className={addprofessor.singleContainer}>
-                  <label for="name">First Name:</label>
+                  <label htmlFor="name">First Name:</label>
                   <input
                     type="text"
                     id="fname"
                     name="firstName"
                     className={addprofessor.input}
-                    placeholder="Enter professor first name"
                     required
                     onChange={(event) => setFirstName(event.target.value)}
                   />
                 </div>
                 <div className={addprofessor.singleContainer}>
-                  <label for="name">Last Name:</label>
+                  <label htmlFor="name">Last Name:</label>
                   <input
                     type="text"
                     id="lname"
                     name="lastName"
                     className={addprofessor.input}
-                    placeholder="Enter professor last name"
                     required
                     onChange={(event) => setLastName(event.target.value)}
                   />
                 </div>
                 <div className={addprofessor.singleContainer}>
-                  <label for="name">Email:</label>
+                  <label htmlFor="name">Email:</label>
                   <input
                     type="text"
                     id="email"
                     name="email"
                     className={addprofessor.input}
-                    placeholder="Enter professor email"
                     required
                     onChange={(event) => setEmail(event.target.value)}
                   />

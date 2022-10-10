@@ -50,54 +50,60 @@ const FacultyDashboard = () => {
         <div className={facultydashboard.header}>
           <Header userType="faculty" />
         </div>
-        <h1 id={facultydashboard.nameOfProfessor}>
-          Hello{" "}
-          <span>
-            {userFirst} {userLast}
-          </span>
-        </h1>
-        <p id={facultydashboard.greeting}>How can we help you today?</p>
-        {/* <div class="addgrid"> */}
-        <div
-          className={facultydashboard.add_class}
-          onClick={() => {
-            navigate("/addclass");
-          }}
-        >
-          <span className={facultydashboard.materialicons}>
-            <AddCircleOutlineIcon style={iconStyles} />
-          </span>
-          <button>Add Class</button>
-        </div>
-        <div
-          className={facultydashboard.add_professor}
-          onClick={() => {
-            navigate("/professorlist");
-          }}
-        >
-          <span className={facultydashboard.materialicons}>
-            <PersonAddIcon style={iconStyles} />
-          </span>
-          <button>View Professors</button>
-        </div>
-        <div
-          className={facultydashboard.vm_utilization}
-          onClick={() => {
-            navigate("/utilization");
-          }}
-        >
-          <span className={facultydashboard.materialicons}>
-            <DnsIcon style={iconStyles} />
-          </span>
-          <button>VM Utilization</button>
+        <div className={facultydashboard.main}>
+          <div className={facultydashboard.text}>
+            <h1 id={facultydashboard.nameOfProfessor}>
+              Hello{" "}
+              <span>
+                {userFirst} {userLast}
+              </span>
+            </h1>
+            <p id={facultydashboard.greeting}>How can we help you today?</p>
+          </div>
+          <div className={facultydashboard.buttons}>
+            <div
+              className={facultydashboard.add_class}
+              id={facultydashboard.singleContainer}
+              onClick={() => {
+                navigate("/addclass");
+              }}
+            >
+              <span className={facultydashboard.material}>
+                <AddCircleOutlineIcon style={iconStyles} />
+              </span>
+              <button className={facultydashboard.button}>Add Class</button>
+            </div>
+            <div
+              className={facultydashboard.add_professor}
+              id={facultydashboard.singleContainer}
+              onClick={() => {
+                navigate("/professorlist");
+              }}
+            >
+              <span className={facultydashboard.material}>
+                <PersonAddIcon style={iconStyles} />
+              </span>
+              <button className={facultydashboard.button}>
+                View Professors
+              </button>
+            </div>
+            <div
+              className={facultydashboard.vm_utilization}
+              id={facultydashboard.singleContainer}
+              onClick={() => {
+                navigate("/utilization");
+              }}
+            >
+              <span className={facultydashboard.material}>
+                <DnsIcon style={iconStyles} />
+              </span>
+              <button className={facultydashboard.button}>
+                VM Utilization
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}
-
-      {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
-
-      {/* <!-- <div id="admin_portal"> --> */}
-      {/* </div> */}
 
       <script
         src="https://apis.google.com/js/platform.js?onload=onLoad"
