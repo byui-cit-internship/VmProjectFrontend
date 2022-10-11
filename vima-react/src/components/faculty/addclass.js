@@ -16,14 +16,14 @@ function AddClass() {
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
-
+  const canvasToken = userInfoObject.canvasToken
 
   //*********Variables and React States************/
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
   const [templateVmList, setTemplateVmList] = useState([]);
-  const [courseCode, setCourseCode] = useState("");
-  const [canvasToken, setCanvasToken] = useState("");
+  const [courseCodeName, setCourseCodeName] = useState("");
+  // const [canvasToken, setCanvasToken] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
   const [courseSemester, setCourseSemester] = useState("");
@@ -47,8 +47,8 @@ function AddClass() {
         userId: userId,
         teacherId: teacherId,
         templateVm: [templateVm],
-        courseCode: courseCode,
-        courseName: courseName,
+        courseCode: code,
+        courseName: name,
         semester: courseSemester,
         courseYear: courseYear,
         canvasCourseId: canvasCourseId,
@@ -62,18 +62,12 @@ function AddClass() {
       }
     }
     );
-    const responseObject = await response;
-    console.log(JSON.stringify(responseObject));
-    console.log("Here we send data from api");
-    alert("Your course was created!");
-    console.log("Your course was created!");
-    if (console.log("Your course was created!") == true) {
-      alert("Would you like to add another course");
-
-      // return(
-      // <Navigate to='/faculty' element={<FacultyDashboard />}></Navigate>
-      // );
+    if (response.ok) {
+      alert("Course was added");
+    } else {
+      alert("Error adding course.")
     }
+    console.log(response)
   };
 
 
@@ -145,7 +139,7 @@ function AddClass() {
         },
         method: 'GET',
       }
-                                                      //PUT THIS TEMPORARY URL IN JUST SO I CAN SEE A COUPLE TEMPLATES
+      //PUT THIS TEMPORARY URL IN JUST SO I CAN SEE A COUPLE TEMPLATES
       const listResponse = await fetch(getApiRoot() + '/api/vmtable/templates/all?libraryId=8feee841-e798-48a3-9e7d-743411a0f641', methods);
 
       const listResponseObject = await listResponse.json()
@@ -160,8 +154,8 @@ function AddClass() {
   }
 
 
- //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
-//*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
+  //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
+  //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
   useEffect(() => {
     const getVmFolderInfo = async () => {
 
@@ -187,7 +181,8 @@ function AddClass() {
     const folderList = vCenterFolderList.filter(element => {
       if (element.name.replace(/\D/g, '') == newItem) {
         return [element.name, element.folder]
-      }}).map((folder) => {
+      }
+    }).map((folder) => {
       return [folder.name, folder.folder]
     });
     let folderString = "";
@@ -203,7 +198,7 @@ function AddClass() {
         setVisibleFolderName(errorMsg)
       }
     }
-    
+
   }
 
 
@@ -228,12 +223,12 @@ function AddClass() {
     getCanvasCourseInfo();
   }, [])
 
-//*************Maps course list string from canvas and sets course description****************/
+  //*************Maps course list string from canvas and sets course description****************/
 
   function canvasDesc(item) {
-    const canvasDescList = canvasCourses.filter(element => {return element.id == item}).map((desc) => {
-        return [desc.name]
-      });
+    const canvasDescList = canvasCourses.filter(element => { return element.id == item }).map((desc) => {
+      return [desc.name]
+    });
     console.log(canvasDescList)
     let canvasDescString = "";
     if (canvasDescList.length > 0) {
@@ -243,6 +238,14 @@ function AddClass() {
     setCourseName(canvasDescString);
 
   };
+
+  /* What happens after selecting course id */
+  const updateCourseNameId = (event) => {
+    const code = event.target.getAttribute['data-code']
+    const id = event.target.dataset.id
+    const name = event.target.dataset.name
+    console.log(code, id, name)
+  }
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -262,18 +265,25 @@ function AddClass() {
           <div className={addclass.coursename}>
             <label className={addclass.label} htmlFor="name">
               Course Code:
+              <select
+                onChange={event => updateCourseNameId(event)
+                  // setCourseCodeName(event.target.value),
+                  // vmFolder(event.target.value),
+                  // canvasCourseIdInput(e.target.value)
+                }>
+                <option value="Default">- Select -</option>
+                {
+                  canvasCourses.map((course) => (
+                    <option
+                      data-code={course.course_code}
+                      data-name={course.name}
+                      data-id={course.id}>
+                      {course.course_code} {course.name}
+                    </option>
+                  ))
+                }
+              </select>
             </label>
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.name}
-              name="CourseCode"
-              placeholder="Enter your course code"
-              required
-              value={courseCode}
-              onChange={(event) => {setCourseCode(event.target.value),
-                vmFolder(event.target.value)}}
-            />
           </div>
 
           {/* <!-- Template VM --> */}
@@ -282,8 +292,8 @@ function AddClass() {
               Template VM:
             </label>
             <select name="templateVm" id={addclass.templateVm}
-            required
-            onChange={(event) => {setTemplateVm(event.target.value)}}>
+              required
+              onChange={(event) => { setTemplateVm(event.target.value) }}>
               <option value="" hidden>
                 Choose a Template
               </option>
@@ -293,73 +303,7 @@ function AddClass() {
                 </option>))}
             </select>
           </div>
-          {/* <!-- Course Name/Nickname -->*/}
 
-          <div className={addclass.description}>
-            <label description={addclass.label} htmlFor="description">
-              Course Name:
-            </label>
-            <select
-              className={addclass.input}
-              type="text"
-              id={addclass.courseCode}
-              name="courseName"
-              placeholder="Enter Course Name"
-              required
-              value={courseName}
-              onChange={(event) => setCourseName(event.target.value)}
-            />
-          </div>
-
-          {/* <!-- Canvas Token  --> */}
-          <div className={addclass.canvastoken}>
-            <label className={addclass.label} htmlFor="name">
-              Canvas Token:
-            </label>
-            <select
-              className={addclass.input}
-              type="text"
-              id="canvasToken"
-              name="canvas_token"
-              placeholder="Enter your class token"
-              required
-              value={canvasToken}
-              onChange={(event) => setCanvasToken(event.target.value)}
-            />
-          </div>
-          {/* <!-- Section course --> */}
-          <div className={addclass.coursesection}>
-            <label className={addclass.label}>Course Section:</label>
-            <select
-              name="section"
-              required
-              onChange={(event) => {
-                console.log("section", event.target.value);
-
-                setCourseSection(event.target.value);
-                console.log("courseSection", courseSection);
-              }}
-            >
-              <option name="option" value="">
-                Select a Section Number
-              </option>
-              <option name="option" value="1">
-                1
-              </option>
-              <option name="option" value="2">
-                2
-              </option>
-              <option name="option" value="3">
-                3
-              </option>
-              <option name="option" value="4">
-                4
-              </option>
-              <option name="option" value="5">
-                5
-              </option>
-            </select>
-          </div>
           {/* <!--Course Id--> */}
           <div className={addclass.courseid}>
             <label className={addclass.label} htmlFor="name">
@@ -375,11 +319,11 @@ function AddClass() {
               name="CourseId"
               placeholder="Enter your course Id"
               value={canvasCourseId}
-              onChange={(event) => {
-                setCanvasCourseId(event.target.value),
-                canvasDesc(event.target.value)
-              }}
-              required
+              // onChange={(event) => {
+              //   setCanvasCourseId(event.target.value),
+              //     canvasDesc(event.target.value)
+              // }}
+              readOnly
             />
           </div>
           {/* Year */}
@@ -452,7 +396,7 @@ function AddClass() {
               name="vCenterFolderId"
               required
               readOnly
-              value={visibleFolderName}/>
+              value={visibleFolderName} />
           </div>
 
           {/* Library*/}
