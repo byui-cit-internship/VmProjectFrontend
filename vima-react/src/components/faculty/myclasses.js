@@ -7,27 +7,32 @@ import { useEffect, useState } from "react";
 
 function MyClasses() {
   let navigate = useNavigate();
-  const [myCourses, setMyCourses] = useState([]);
+  const [classList, setClassList] = useState([]);
   console.log(JSON.stringify(myclasses));
-  // useEffect(()=>{
-  //   const getClassInfo = async () =>{
-  //     const listResponse = await fetch(
-  //       getApiRoot() + "/api/course/professor/getAllCourses",
-  //       {
-  //         method: "GET",
-  //         credentials: "include",
-  //         headers: {
-  //           "content-type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     console.log("listResponse; ", listResponse)
-  //     const classList = await listResponse.json();
-  //     console.log("classes; ", classList)
-  //     setCourseList(classList);
-  //   };
-  //   getCourseInfo();
-  // }, []);
+  const myClasses = [];
+  useEffect(() =>{
+    const getclassList = async () =>{
+      const listResponse = await fetch(
+        getApiRoot() + "/api/course/professor/getAllCourses",
+        {
+          method: "GET",
+          body: JSON.stringify({
+            vmName: vmName,
+            semester: semester,
+          }),
+          credentials: "include",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      console.log(listResponse);
+      const classList = await listResponse.json();
+      console.log("classes; ", classList);
+      setCourseList(classList);
+    };
+    getclassList();
+  }, []);
 
 
   return (
@@ -38,7 +43,11 @@ function MyClasses() {
         <span id={myclasses.title}></span>
         <div id={myclasses.classesAndSearch}>
           <h1 className={myclasses.lets}>My Classes</h1>
-          <div className={myclasses.searchbar}>
+          <div className={myclasses.searchbar}>              
+            {classList.map((item) => (
+                <th key={item.id} value={item.value}>
+                  {item.name}
+                </th>))}
             <input
               id={myclasses.search}
               type="text"
@@ -48,19 +57,7 @@ function MyClasses() {
         </div>
           <div className={myclasses.tablegrid}>
             <div className={myclasses.table}>
-              <table id={myclasses.table1}>
-                <tr className={myclasses.tableHead}>
-                <th>CIT 110</th>
-                </tr>
-                <tr>
-                  <span className={myclasses.vmName}>Linux </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
-                </tr>
-                <tr>
-                  <span className={myclasses.vmName}>Windows </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
-                  </tr>
-              </table>
+
               <br></br>
             </div>
           </div>

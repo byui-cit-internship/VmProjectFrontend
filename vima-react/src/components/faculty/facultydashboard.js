@@ -61,13 +61,13 @@ const FacultyDashboard = () => {
         <div
           className={facultydashboard.add_class}
           onClick={() => {
-            navigate("/addclass");
+            navigate("/myclasses");
           }}
         >
           <span className={facultydashboard.materialicons}>
             <AddCircleOutlineIcon style={iconStyles} />
           </span>
-          <button>Add Class</button>
+          <button>My Classes</button>
         </div>
         <div
           className={facultydashboard.add_professor}
