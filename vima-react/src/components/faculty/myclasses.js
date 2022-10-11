@@ -9,6 +9,7 @@ function MyClasses() {
   let navigate = useNavigate();
   const [myCourses, setMyCourses] = useState([]);
   console.log(JSON.stringify(myclasses));
+<<<<<<< Updated upstream
   useEffect(()=>{
     const getClassInfo = async () =>{
       const listResponse = await fetch(
@@ -28,8 +29,29 @@ function MyClasses() {
     };
     getClassInfo();
   }, []);
+=======
+>>>>>>> Stashed changes
 
+  useEffect(() =>{
+    const getCourseList = async () =>{
+      const listResponse = await fetch(
+        getApiRoot() + "",
+        {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
 
+          },
+        }
+      );
+      console.log("listResponse; ", listResponse);
+      const courseList = await listResponse.json;
+      console.log("classes; ", classList);
+      setCourseList(classList);
+    };
+    getCourseList();
+  }, []);
+  
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
@@ -53,12 +75,12 @@ function MyClasses() {
                 <th>CIT 110</th>
                 </tr>
                 <tr>
-                  <span className={myclasses.vmName}>Linux </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
+                  Linux
+                  Spring 2022
                 </tr>
                 <tr>
-                  <span className={myclasses.vmName}>Windows </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
+                  Windows
+                   Spring 2022
                   </tr>
               </table>
               <br></br>
