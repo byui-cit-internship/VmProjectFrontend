@@ -9,13 +9,11 @@ import { getApiRoot } from "../../utils/getApiRoot";
 // import FacultyDashboard from "../../facultydashboard";
 
 function AddClass() {
-
   //*********Session Storage for name and email data of current user***********/
-  const userInfoString = sessionStorage.getItem('userInfo');
+  const userInfoString = sessionStorage.getItem("userInfo");
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const teacherId = userInfoObject.userId;
-
 
   //*********Variables and React States************/
   let navigate = useNavigate();
@@ -37,27 +35,27 @@ function AddClass() {
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     const response = await fetch(
-      getApiRoot() + "/api/enrollment/professor/register/course", {
-      method: 'POST',
-      body: JSON.stringify({
-
-        userId: userId,
-        teacherId: teacherId,
-        templateVm: [templateVm],
-        courseCode: courseCode,
-        courseName: courseName,
-        semester: courseSemester,
-        courseYear: courseYear,
-        canvasCourseId: canvasCourseId,
-        canvasToken: canvasToken,
-        folder: vCenterFolderId,
-        section_num: courseSection,
-      }),
-      credentials: 'include',
-      headers: {
-        'content-type': 'application/json'
+      getApiRoot() + "/api/enrollment/professor/register/course",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: userId,
+          teacherId: teacherId,
+          templateVm: [templateVm],
+          courseCode: courseCode,
+          courseName: courseName,
+          semester: courseSemester,
+          courseYear: courseYear,
+          canvasCourseId: canvasCourseId,
+          canvasToken: canvasToken,
+          folder: vCenterFolderId,
+          section_num: courseSection,
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json",
+        },
       }
-    }
     );
     const responseObject = await response;
     console.log(JSON.stringify(responseObject));
@@ -72,7 +70,6 @@ function AddClass() {
       // );
     }
   };
-
 
   //*********Validates the Canvas token************/
   const validateCanvasToken = async () => {
@@ -96,7 +93,7 @@ function AddClass() {
     if (tokenResponse.status != 200) {
       alert(
         "Canvas Validation failed with the error: " +
-        JSON.stringify(canvasValidationObject.errors)
+          JSON.stringify(canvasValidationObject.errors)
       );
     } else {
       await createCourse();
@@ -106,26 +103,27 @@ function AddClass() {
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
     const getLibraries = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
-      const listResponse = await fetch(getApiRoot() + '/api/createvm/libraries', methods);
+      const listResponse = await fetch(
+        getApiRoot() + "/api/createvm/libraries",
+        methods
+      );
 
-      const listResponseObject = await listResponse.json()
-      setLibraryList(listResponseObject)
-    }
+      const listResponseObject = await listResponse.json();
+      setLibraryList(listResponseObject);
+    };
     getLibraries();
-  }, [])
+  }, []);
 
   function chooseLibrary(n) {
-    const obj = Object.name(libraryList).includes(n)
+    const obj = Object.name(libraryList).includes(n);
     console.log(obj);
   }
 
@@ -133,64 +131,69 @@ function AddClass() {
 
   useEffect(() => {
     const getTemplateVms = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
-      const listResponse = await fetch(getApiRoot() + '/api/createvm/templateVm', methods);
+      const listResponse = await fetch(
+        getApiRoot() + "/api/createvm/templateVm",
+        methods
+      );
 
-      const listResponseObject = await listResponse.json()
-      setTemplateVmList(listResponseObject)
-    }
+      const listResponseObject = await listResponse.json();
+      setTemplateVmList(listResponseObject);
+    };
     getTemplateVms();
-  }, [])
+  }, []);
 
   function chooseTemplateVm(n) {
-    const obj = Object.name(templateVmList).includes(n)
+    const obj = Object.name(templateVmList).includes(n);
     console.log(obj);
   }
   //*************Gets Canvas course info with your canvas token****************/
   useEffect(() => {
     const getCanvasCourseInfo = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
-      const listResponse = await fetch(getApiRoot() + '/api/course/professor/canvasDropdown', methods);
+      const listResponse = await fetch(
+        getApiRoot() + "/api/course/professor/canvasDropdown",
+        methods
+      );
 
-      const listResponseObject = await listResponse.json()
-      setCanvasCourses(listResponseObject)
-    }
+      const listResponseObject = await listResponse.json();
+      setCanvasCourses(listResponseObject);
+    };
     getCanvasCourseInfo();
-  }, [])
+  }, []);
 
-//*************Maps course list string from canvas and sets course description****************/
+  //*************Maps course list string from canvas and sets course description****************/
 
   function canvasDesc(item) {
-    const canvasDescList = canvasCourses.filter(element => {return element.id == item}).map((desc) => {
-        return [desc.name]
+    const canvasDescList = canvasCourses
+      .filter((element) => {
+        return element.id == item;
+      })
+      .map((desc) => {
+        return [desc.name];
       });
-    console.log(canvasDescList)
+    console.log(canvasDescList);
     let canvasDescString = "";
     if (canvasDescList.length > 0) {
-      canvasDescString = canvasDescList[0][0]
+      canvasDescString = canvasDescList[0][0];
     }
-    console.log(canvasDescString)
+    console.log(canvasDescString);
     setDescription(canvasDescString);
-
-  };
+  }
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -228,8 +231,7 @@ function AddClass() {
             <label className={addclass.label} htmlFor="templateVM">
               Template VM:
             </label>
-            <select name="templateVm" id={addclass.templateVm}
-            required>
+            <select name="templateVm" id={addclass.templateVm} required>
               <option value="" hidden>
                 Choose a Template
               </option>
@@ -319,7 +321,7 @@ function AddClass() {
               value={canvasCourseId}
               onChange={(event) => {
                 setCanvasCourseId(event.target.value),
-                canvasDesc(event.target.value)
+                  canvasDesc(event.target.value);
               }}
               required
             />
@@ -358,11 +360,16 @@ function AddClass() {
           {/* Semester */}
           <div className={addclass.semester}>
             <label>Choose Semester:</label>
-            <select name="semester" id="semester" required onChange={(event) => {
-              console.log("Semester", event.target.value)
-              setCourseSemester(event.target.value)
-              console.log("Semester", courseSemester)
-            }}>
+            <select
+              name="semester"
+              id="semester"
+              required
+              onChange={(event) => {
+                console.log("Semester", event.target.value);
+                setCourseSemester(event.target.value);
+                console.log("Semester", courseSemester);
+              }}
+            >
               <option name="option" value="" hidden>
                 Default
               </option>
@@ -401,7 +408,9 @@ function AddClass() {
           {/* Library*/}
           <div className={addclass.library}>
             <label>Choose Library:</label>
-            <select name="library" id="semester"
+            <select
+              name="library"
+              id="semester"
               required
               onChange={(event) => chooseLibrary(event.target.value)}
             >
@@ -411,7 +420,8 @@ function AddClass() {
               {libraryList.map((item) => (
                 <option key={item.id} value={item.value}>
                   {item.name}
-                </option>))}
+                </option>
+              ))}
             </select>
           </div>
         </div>
