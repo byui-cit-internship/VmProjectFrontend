@@ -22,7 +22,7 @@ function AddClass() {
   let navigate = useNavigate();
   const [templateVm, setTemplateVm] = useState("");
   const [templateVmList, setTemplateVmList] = useState([]);
-  const [courseCodeName, setCourseCodeName] = useState("");
+  const [courseCode, setCourseCode] = useState("");
   // const [canvasToken, setCanvasToken] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
@@ -36,32 +36,42 @@ function AddClass() {
   const [libraryName, setLibraryName] = useState("");
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [description, setDescription] = useState()
 
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
-    const response = await fetch(
-      getApiRoot() + "/api/enrollment/professor/register/course", {
+
+    const options = {
       method: 'POST',
       body: JSON.stringify({
-
-        userId: userId,
-        teacherId: teacherId,
-        templateVm: [templateVm],
-        courseCode: code,
-        courseName: name,
-        semester: courseSemester,
-        courseYear: courseYear,
         canvasCourseId: canvasCourseId,
+        courseName: courseName,
+        description: description,
         canvasToken: canvasToken,
-        folder: vCenterFolderId,
-        section_num: courseSection,
+        section_num: "1" // Section will not be needed
       }),
+      // body: JSON.stringify({
+
+      //   userId: userId,
+      //   teacherId: teacherId,
+      //   templateVm: [templateVm],
+      //   courseCode: code,
+      //   courseName: name,
+      //   semester: courseSemester,
+      //   courseYear: courseYear,
+      //   canvasCourseId: canvasCourseId,
+      //   canvasToken: canvasToken,
+      //   folder: vCenterFolderId,
+      //   section_num: courseSection,
+      // }),
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }
     }
-    );
+
+    const response = await fetch(
+      getApiRoot() + "/api/enrollment/professor/register/course", options);
     if (response.ok) {
       alert("Course was added");
     } else {
@@ -225,6 +235,7 @@ function AddClass() {
 
   //*************Maps course list string from canvas and sets course description****************/
 
+  // Not needed?
   function canvasDesc(item) {
     const canvasDescList = canvasCourses.filter(element => { return element.id == item }).map((desc) => {
       return [desc.name]
@@ -236,15 +247,17 @@ function AddClass() {
     }
     console.log(canvasDescString)
     setCourseName(canvasDescString);
-
   };
 
   /* What happens after selecting course id */
   const updateCourseNameId = (event) => {
-    const code = event.target.getAttribute['data-code']
-    const id = event.target.dataset.id
-    const name = event.target.dataset.name
-    console.log(code, id, name)
+    const code = event.target.options[event.target.selectedIndex].dataset.code
+    const id = event.target.options[event.target.selectedIndex].dataset.id
+    const name = event.target.options[event.target.selectedIndex].dataset.name
+
+    setCourseCode(code);
+    setCanvasCourseId(id);
+    setCourseName(name);
   }
 
   //*****************************************************************************/
@@ -264,12 +277,10 @@ function AddClass() {
           {/* <!-- Course Code--> */}
           <div className={addclass.coursename}>
             <label className={addclass.label} htmlFor="name">
-              Course Code:
+              Course:
               <select
                 onChange={event => updateCourseNameId(event)
-                  // setCourseCodeName(event.target.value),
                   // vmFolder(event.target.value),
-                  // canvasCourseIdInput(e.target.value)
                 }>
                 <option value="Default">- Select -</option>
                 {
@@ -278,7 +289,7 @@ function AddClass() {
                       data-code={course.course_code}
                       data-name={course.name}
                       data-id={course.id}>
-                      {course.course_code} {course.name}
+                      {course.course_code} - {course.name}
                     </option>
                   ))
                 }
@@ -312,19 +323,28 @@ function AddClass() {
             <span role="alert" id={addclass.nameError} aria-hidden="true">
               {/* Please add a valid CourseID */}
             </span>
-            <select
+            <input
+              readOnly
+              type="text"
+              value={canvasCourseId}
+            // Not needed?
+            // onChange={(event) => {
+            //     canvasDesc(event.target.value)
+            // }}
+            ></input>
+            {/* <select
               className={addclass.input}
               type="text"
               id="courseId"
               name="CourseId"
               placeholder="Enter your course Id"
               value={canvasCourseId}
-              // onChange={(event) => {
-              //   setCanvasCourseId(event.target.value),
-              //     canvasDesc(event.target.value)
-              // }}
+              onChange={(event) => {
+                setCanvasCourseId(event.target.value),
+                  canvasDesc(event.target.value)
+              }}
               readOnly
-            />
+            /> */}
           </div>
           {/* Year */}
           <div className={addclass.year}>
