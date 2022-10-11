@@ -87,6 +87,15 @@ https://www.byui.edu/branding/color-guide
   margin-top: 10px;
 }
 
+.input-icons i {
+  position: absolute;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
 .addclass select {
   width: 100%;
   border: 3px solid #98d5fd;

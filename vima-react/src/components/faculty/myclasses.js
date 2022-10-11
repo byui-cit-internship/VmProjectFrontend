@@ -9,7 +9,6 @@ function MyClasses() {
   let navigate = useNavigate();
   const [myCourses, setMyCourses] = useState([]);
   console.log(JSON.stringify(myclasses));
-<<<<<<< Updated upstream
   useEffect(()=>{
     const getClassInfo = async () =>{
       const listResponse = await fetch(
@@ -29,9 +28,6 @@ function MyClasses() {
     };
     getClassInfo();
   }, []);
-=======
->>>>>>> Stashed changes
-
   useEffect(() =>{
     const getCourseList = async () =>{
       const listResponse = await fetch(
@@ -51,7 +47,26 @@ function MyClasses() {
     };
     getCourseList();
   }, []);
-  
+  // useEffect(()=>{
+  //   const getClassInfo = async () =>{
+  //     const listResponse = await fetch(
+  //       getApiRoot() + "/api/course/professor/getAllCourses",
+  //       {
+  //         method: "GET",
+  //         credentials: "include",
+  //         headers: {
+  //           "content-type": "application/json",
+  //         },
+  //       }
+  //     );
+  //     console.log("listResponse; ", listResponse)
+  //     const classList = await listResponse.json();
+  //     console.log("classes; ", classList)
+  //     setCourseList(classList);
+  //   };
+  //   getCourseInfo();
+  // }, []);
+
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
@@ -75,13 +90,7 @@ function MyClasses() {
                 <th>CIT 110</th>
                 </tr>
                 <tr>
-                  Linux
-                  Spring 2022
                 </tr>
-                <tr>
-                  Windows
-                   Spring 2022
-                  </tr>
               </table>
               <br></br>
             </div>
