@@ -92,7 +92,6 @@ const FacultyDashboard = () => {
           <button>VM Utilization</button>
         </div>
       </div>
-<<<<<<< Updated upstream
       {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}
 
       {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
@@ -107,8 +106,6 @@ const FacultyDashboard = () => {
       ></script>
 
       <Background />
-=======
->>>>>>> Stashed changes
     </div>
   );
 };
