@@ -23,19 +23,15 @@ function AddClass() {
   const [templateVm, setTemplateVm] = useState("");
   const [templateVmList, setTemplateVmList] = useState([]);
   const [courseCode, setCourseCode] = useState("");
-  // const [canvasToken, setCanvasToken] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [courseName, setCourseName] = useState("");
   const [courseSemester, setCourseSemester] = useState("");
   const [courseYear, setCourseYear] = useState("");
-  const [courseSection, setCourseSection] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolderId, setvCenterFolderId] = useState("");
   const [visibleFolderName, setVisibleFolderName] = useState("")
   const [libraryList, setLibraryList] = useState([]);
-  const [libraryName, setLibraryName] = useState("");
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [description, setDescription] = useState()
   const [libraryId, setLibraryId] = useState()
 
@@ -57,20 +53,6 @@ function AddClass() {
         templateVm: [templateVm],
         folder: vCenterFolderId
       }),
-      // body: JSON.stringify({
-
-      //   userId: userId,
-      //   teacherId: teacherId,
-      //   templateVm: [templateVm],
-      //   courseCode: code,
-      //   courseName: name,
-      //   semester: courseSemester,
-      //   courseYear: courseYear,
-      //   canvasCourseId: canvasCourseId,
-      //   canvasToken: canvasToken,
-      //   folder: vCenterFolderId,
-      //   section_num: courseSection,
-      // }),
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
@@ -270,7 +252,6 @@ function AddClass() {
           <Header userType="faculty" />
         </div>
         <div id={addclass.formheader}>
-          {/* <span onClick={() => {navigate("/faculty");}} id={addclass.backbtn}>&#8592; back</span> */}
           <h1>Add Class</h1>
         </div>
         <div id={addclass.gridcont}>
@@ -336,24 +317,7 @@ function AddClass() {
               readOnly
               type="text"
               value={canvasCourseId}
-            // Not needed?
-            // onChange={(event) => {
-            //     canvasDesc(event.target.value)
-            // }}
             ></input>
-            {/* <select
-              className={addclass.input}
-              type="text"
-              id="courseId"
-              name="CourseId"
-              placeholder="Enter your course Id"
-              value={canvasCourseId}
-              onChange={(event) => {
-                setCanvasCourseId(event.target.value),
-                  canvasDesc(event.target.value)
-              }}
-              readOnly
-            /> */}
           </div>
           {/* Template VM */}
           <div className={addclass.templateVm}>
