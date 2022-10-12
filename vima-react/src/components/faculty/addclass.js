@@ -15,7 +15,6 @@ function AddClass() {
   const userInfoString = sessionStorage.getItem('userInfo');
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
-  // const teacherId = userInfoObject.userId;
   const canvasToken = userInfoObject.canvasToken
 
   //*********Variables and React States************/
@@ -37,28 +36,28 @@ function AddClass() {
 
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
-
+    console.log(courseCode)
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        canvasCourseId: canvasCourseId,
-        courseName: courseName,
-        description: description,
+        canvasCourseId: canvasCourseId, 
+        courseName: courseCode, // Passing course code because table is set to varchar(20), so it wont accept long strings...
+        description: description, 
         canvasToken: canvasToken,
-        section_num: "1", // Section will not be needed
-        semester: courseSemester,
-        courseYear: courseYear,
-        userId: userId,
-        teacherId: userId,
+        section_num: "1", 
+        semester: courseSemester, 
+        courseYear: courseYear, 
+        userId: userId, 
+        teacherId: userId, 
         templateVm: [templateVm],
-        folder: vCenterFolderId
+        folder: vCenterFolderId 
       }),
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
       }
     }
-
+    console.log(options.body)
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", options);
     if (response.ok) {
@@ -206,7 +205,9 @@ function AddClass() {
       }
 
       const listResponse = await fetch(getApiRoot() + '/api/course/professor/canvasDropdown', methods);
-
+      if (!listResponse.ok){
+        console.log("response", listResponse)
+      }
       const listResponseObject = await listResponse.json()
       setCanvasCourses(listResponseObject)
     }
@@ -233,8 +234,8 @@ function AddClass() {
     const code = event.target.options[event.target.selectedIndex].dataset.code
     const id = event.target.options[event.target.selectedIndex].dataset.id
     const name = event.target.options[event.target.selectedIndex].dataset.name
-
-    setCourseCode(code);
+    
+    setCourseCode(code); //course code probably not needed
     setCanvasCourseId(id);
     setCourseName(name);
 
