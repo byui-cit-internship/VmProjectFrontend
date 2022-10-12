@@ -152,12 +152,14 @@ function AddClass() {
         method: 'GET',
       }
       //PUT THIS TEMPORARY URL IN JUST SO I CAN SEE A COUPLE TEMPLATES
-      const listResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${library}`, methods);
+      const listResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`, methods);
 
       const listResponseObject = await listResponse.json()
       setTemplateVmList(listResponseObject)
     }
-    getTemplateVms();
+    if (libraryId) {
+      getTemplateVms();
+    }
   }, [libraryId])
 
   //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
@@ -358,10 +360,12 @@ function AddClass() {
             <label className={addclass.label} htmlFor="templateVM">
               Template VM:
             </label>
-            <select name="templateVm" id={addclass.templateVm}
+            <select
+              name="templateVm"
+              id={addclass.templateVm}
               required
               onChange={(event) => { setTemplateVm(event.target.value) }}
-              
+              disabled={!libraryId}
             >
               <option value="" hidden>
                 Choose a Template
