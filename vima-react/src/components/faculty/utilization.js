@@ -101,7 +101,7 @@ function Utilization() {
         </div>
 
         <div className={utilization.courseselect}>
-          <label htmlFor="course_semester">
+          <label className={utilization.dropdown} htmlFor="course_semester">
             Semester:
             {/*onchange="semester_update()*/}
             <select
@@ -120,7 +120,7 @@ function Utilization() {
             </select>
           </label>
 
-          <label className={utilization.choosecourse} htmlFor="course">
+          <label className={utilization.dropdown} htmlFor="course">
             Course:
             <select
               name="course"
@@ -139,7 +139,7 @@ function Utilization() {
             </select>
           </label>
 
-          <label htmlFor="choosesection">
+          <label htmlFor="choosesection" className={utilization.dropdown}>
             Section:
             <select
               name="choosesection"
