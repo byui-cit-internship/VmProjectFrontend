@@ -15,7 +15,7 @@ function AddClass() {
   const userInfoString = sessionStorage.getItem('userInfo');
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
-  const teacherId = userInfoObject.userId;
+  // const teacherId = userInfoObject.userId;
   const canvasToken = userInfoObject.canvasToken
 
   //*********Variables and React States************/
@@ -37,6 +37,7 @@ function AddClass() {
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [description, setDescription] = useState()
+  const [libraryId, setLibraryId] = useState()
 
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
@@ -48,7 +49,13 @@ function AddClass() {
         courseName: courseName,
         description: description,
         canvasToken: canvasToken,
-        section_num: "1" // Section will not be needed
+        section_num: "1", // Section will not be needed
+        semester: courseSemester,
+        courseYear: courseYear,
+        userId: userId,
+        teacherId: userId,
+        templateVm: [templateVm],
+        folder: vCenterFolderId
       }),
       // body: JSON.stringify({
 
@@ -131,11 +138,6 @@ function AddClass() {
     getLibraries();
   }, [])
 
-  function chooseLibrary(n) {
-    const obj = Object.name(libraryList).includes(n)
-    console.log(obj);
-  }
-
   // Gets Template Id's and Names
 
   useEffect(() => {
@@ -150,19 +152,13 @@ function AddClass() {
         method: 'GET',
       }
       //PUT THIS TEMPORARY URL IN JUST SO I CAN SEE A COUPLE TEMPLATES
-      const listResponse = await fetch(getApiRoot() + '/api/vmtable/templates/all?libraryId=8feee841-e798-48a3-9e7d-743411a0f641', methods);
+      const listResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${library}`, methods);
 
       const listResponseObject = await listResponse.json()
       setTemplateVmList(listResponseObject)
     }
     getTemplateVms();
-  }, [])
-
-  function chooseTemplateVm(n) {
-    const obj = Object.name(templateVmList).includes(n)
-    console.log(obj);
-  }
-
+  }, [libraryId])
 
   //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
   //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
@@ -245,12 +241,11 @@ function AddClass() {
     if (canvasDescList.length > 0) {
       canvasDescString = canvasDescList[0][0]
     }
-    console.log(canvasDescString)
-    setCourseName(canvasDescString);
+    setDescription(canvasDescString);
   };
 
   /* What happens after selecting course id */
-  const updateCourseNameId = (event) => {
+  const updateInputs = (event) => {
     const code = event.target.options[event.target.selectedIndex].dataset.code
     const id = event.target.options[event.target.selectedIndex].dataset.id
     const name = event.target.options[event.target.selectedIndex].dataset.name
@@ -258,6 +253,9 @@ function AddClass() {
     setCourseCode(code);
     setCanvasCourseId(id);
     setCourseName(name);
+
+    canvasDesc(event.target.value)
+    vmFolder(code)
   }
 
   //*****************************************************************************/
@@ -279,16 +277,24 @@ function AddClass() {
             <label className={addclass.label} htmlFor="name">
               Course:
               <select
-                onChange={event => updateCourseNameId(event)
+                onChange={event => updateInputs(event)
                   // vmFolder(event.target.value),
                 }>
-                <option value="Default">- Select -</option>
+                <option
+                  value="Default"
+                  data-code=""
+                  data-name=""
+                  data-id="">
+                  - Select -
+                </option>
                 {
                   canvasCourses.map((course) => (
                     <option
                       data-code={course.course_code}
                       data-name={course.name}
-                      data-id={course.id}>
+                      data-id={course.id}
+                      value={course}
+                    >
                       {course.course_code} - {course.name}
                     </option>
                   ))
@@ -297,23 +303,24 @@ function AddClass() {
             </label>
           </div>
 
-          {/* <!-- Template VM --> */}
-          <div className={addclass.templateVm}>
-            <label className={addclass.label} htmlFor="templateVM">
-              Template VM:
-            </label>
-            <select name="templateVm" id={addclass.templateVm}
+          {/* <!-- Library --> */}
+          <div className={addclass.library}>
+            <label>Choose Library:</label>
+            <select name="library" id="semester"
               required
-              onChange={(event) => { setTemplateVm(event.target.value) }}>
+              onChange={(event) => setLibraryId(event.target.value)}
+              disabled={!courseSemester}
+            >
               <option value="" hidden>
-                Choose a Template
+                Choose Library
               </option>
-              {templateVmList.map((item) => (
-                <option key={item.id} value={item.value}>
+              {libraryList.map((item) => (
+                <option key={item.name} value={item.id}>
                   {item.name}
                 </option>))}
             </select>
           </div>
+
 
           {/* <!--Course Id--> */}
           <div className={addclass.courseid}>
@@ -346,7 +353,27 @@ function AddClass() {
               readOnly
             /> */}
           </div>
-          {/* Year */}
+          {/* Template VM */}
+          <div className={addclass.templateVm}>
+            <label className={addclass.label} htmlFor="templateVM">
+              Template VM:
+            </label>
+            <select name="templateVm" id={addclass.templateVm}
+              required
+              onChange={(event) => { setTemplateVm(event.target.value) }}
+              
+            >
+              <option value="" hidden>
+                Choose a Template
+              </option>
+              {templateVmList.map((item) => (
+                <option key={item.id} value={item.value}>
+                  {item.name}
+                </option>))}
+            </select>
+          </div>
+
+          {/* Year*/}
           <div className={addclass.year}>
             <label>Year:</label>
             <select
@@ -354,10 +381,9 @@ function AddClass() {
               id={addclass.semester}
               required
               onChange={(event) => {
-                console.log("Year", event.target.value);
                 setCourseYear(event.target.value);
-                console.log("courseYear", courseYear);
               }}
+              disabled={!courseCode}
             >
               <option name="option" value="">
                 Default
@@ -376,14 +402,26 @@ function AddClass() {
               </option>
             </select>
           </div>
-
+          {/* <!-- vCenterFolder --> */}
+          <div className={addclass.vCenterFolderId}>
+            <label className={addclass.label} htmlFor="vCenterFolderId">
+              vCenterFolder:
+            </label>
+            <FontAwesomeIcon icon="fa-solid fa-question" />
+            <input
+              className={addclass.input}
+              type="text"
+              id={addclass.vCenterFolderId}
+              name="vCenterFolderId"
+              required
+              readOnly
+              value={visibleFolderName} />
+          </div>
           {/* Semester */}
           <div className={addclass.semester}>
             <label>Choose Semester:</label>
-            <select name="semester" id="semester" required onChange={(event) => {
-              console.log("Semester", event.target.value)
+            <select name="semester" id="semester" required disabled={!courseYear} onChange={(event) => {
               setCourseSemester(event.target.value)
-              console.log("Semester", courseSemester)
             }}>
               <option name="option" value="" hidden>
                 Default
@@ -400,39 +438,6 @@ function AddClass() {
               <option name="option" value="Winter">
                 Winter
               </option>
-            </select>
-          </div>
-
-          {/* <!-- vCenterFolder --> */}
-          <div className={addclass.vCenterFolderId}>
-            <label className={addclass.label} htmlFor="vCenterFolderId">
-              vCenterFolder:
-            </label>
-            <FontAwesomeIcon icon="fa-solid fa-question" />
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.vCenterFolderId}
-              name="vCenterFolderId"
-              required
-              readOnly
-              value={visibleFolderName} />
-          </div>
-
-          {/* Library*/}
-          <div className={addclass.library}>
-            <label>Choose Library:</label>
-            <select name="library" id="semester"
-              required
-              onChange={(event) => chooseLibrary(event.target.value)}
-            >
-              <option value="" hidden>
-                Choose Library
-              </option>
-              {libraryList.map((item) => (
-                <option key={item.id} value={item.value}>
-                  {item.name}
-                </option>))}
             </select>
           </div>
         </div>
