@@ -10,6 +10,18 @@ https://www.byui.edu/branding/color-guide
   margin: 0;
 }
 
+.facultydashboard #singleContainer:hover {
+  cursor: pointer;
+}
+
+.facultydashboard .material:hover {
+  cursor: pointer;
+}
+
+.facultydashboard .button:hover {
+  cursor: pointer;
+}
+
 .facultydashboard div {
   margin: 0;
 }

@@ -235,7 +235,7 @@ h3 {
     height: 40px;
     border-radius: 10px;
     width: 130px;
-    background: linear-gradient(
+    /* background: linear-gradient(
       0deg,
       hsl(204deg 93% 66%) 0%,
       hsl(205deg 79% 62%) 0%,
@@ -251,7 +251,7 @@ h3 {
       hsl(206deg 68% 57%) 75%,
       hsl(205deg 79% 62%) 90%,
       hsl(204deg 93% 66%) 100%
-    );
+    ); */
   }
 
   .app .main {
