@@ -1,18 +1,16 @@
-import { React, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faQuestion } from '@fortawesome/free-solid-svg-icons'
 // import FacultyDashboard from "../../facultydashboard";
+import Popup from "./Popup.js";
 
 function AddClass() {
-
   //*********Session Storage for name and email data of current user***********/
-  const userInfoString = sessionStorage.getItem('userInfo');
+  const userInfoString = sessionStorage.getItem("userInfo");
   const userInfoObject = JSON.parse(userInfoString);
   const userId = userInfoObject.userId;
   const canvasToken = userInfoObject.canvasToken
@@ -28,7 +26,7 @@ function AddClass() {
   const [courseYear, setCourseYear] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [visibleFolderName, setVisibleFolderName] = useState("")
+  const [visibleFolderName, setVisibleFolderName] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [description, setDescription] = useState()
@@ -68,7 +66,6 @@ function AddClass() {
     console.log(response)
   };
 
-
   //*********Validates the Canvas token************/
   const validateCanvasToken = async () => {
     const tokenResponse = await fetch(
@@ -91,7 +88,7 @@ function AddClass() {
     if (tokenResponse.status != 200) {
       alert(
         "Canvas Validation failed with the error: " +
-        JSON.stringify(canvasValidationObject.errors)
+          JSON.stringify(canvasValidationObject.errors)
       );
     } else {
       await createCourse();
@@ -101,34 +98,33 @@ function AddClass() {
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
     const getLibraries = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
-      const listResponse = await fetch(getApiRoot() + '/api/createvm/libraries', methods);
+      const listResponse = await fetch(
+        getApiRoot() + "/api/createvm/libraries",
+        methods
+      );
 
-      const listResponseObject = await listResponse.json()
-      setLibraryList(listResponseObject)
-    }
+      const listResponseObject = await listResponse.json();
+      setLibraryList(listResponseObject);
+    };
     getLibraries();
-  }, [])
+  }, []);
 
   // Gets Template Id's and Names
 
   useEffect(() => {
     const getTemplateVms = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
         method: 'GET',
       }
@@ -147,62 +143,44 @@ function AddClass() {
   //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
   useEffect(() => {
     const getVmFolderInfo = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
-      const listResponse = await fetch(getApiRoot() + '/api/createvm/folders', methods);
+      const listResponse = await fetch(
+        getApiRoot() + "/api/createvm/folders",
+        methods
+      );
 
-      const listResponseObject = await listResponse.json()
-      setvCenterFolderList(listResponseObject)
-    }
+      const listResponseObject = await listResponse.json();
+      setvCenterFolderList(listResponseObject);
+    };
     getVmFolderInfo();
-  }, [])
+  }, []);
 
-  function vmFolder(item) {
-    const newItem = item.replace(/\D/g, '');
-    const folderList = vCenterFolderList.filter(element => {
-      if (element.name.replace(/\D/g, '') == newItem) {
-        return [element.name, element.folder]
-      }
-    }).map((folder) => {
-      return [folder.name, folder.folder]
-    });
-    let folderString = "";
-    let folderId = "";
-    if (folderList.length > 0) {
-      folderString = folderList[0][0]
-      folderId = folderList[0][1]
-      if (/\d/.test(folderString) == true) {
-        setvCenterFolderId(folderId);
-        setVisibleFolderName(folderString);
-      } else {
-        const errorMsg = "No Folder For Course"
-        setVisibleFolderName(errorMsg)
-      }
-    }
+  const [isOpen, setIsOpen] = useState(false);
 
-  }
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
+  let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+width=0,height=0,left=-1000,top=-1000`;
 
   //*************Gets Canvas course info with your canvas token****************/
   useEffect(() => {
     const getCanvasCourseInfo = async () => {
-
-      const methods =
-      {
-        credentials: 'include',
+      const methods = {
+        credentials: "include",
         headers: {
-          'content-type': 'application/json'
+          "content-type": "application/json",
         },
-        method: 'GET',
-      }
+        method: "GET",
+      };
 
       const listResponse = await fetch(getApiRoot() + '/api/course/professor/canvasDropdown', methods);
       if (!listResponse.ok){
@@ -212,19 +190,23 @@ function AddClass() {
       setCanvasCourses(listResponseObject)
     }
     getCanvasCourseInfo();
-  }, [])
+  }, []);
 
   //*************Maps course list string from canvas and sets course description****************/
 
   // Not needed?
   function canvasDesc(item) {
-    const canvasDescList = canvasCourses.filter(element => { return element.id == item }).map((desc) => {
-      return [desc.name]
-    });
-    console.log(canvasDescList)
+    const canvasDescList = canvasCourses
+      .filter((element) => {
+        return element.id == item;
+      })
+      .map((desc) => {
+        return [desc.name];
+      });
+    console.log(canvasDescList);
     let canvasDescString = "";
     if (canvasDescList.length > 0) {
-      canvasDescString = canvasDescList[0][0]
+      canvasDescString = canvasDescList[0][0];
     }
     setDescription(canvasDescString);
   };
@@ -338,7 +320,8 @@ function AddClass() {
               {templateVmList.map((item) => (
                 <option key={item.id} value={item.value}>
                   {item.name}
-                </option>))}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -371,21 +354,6 @@ function AddClass() {
               </option>
             </select>
           </div>
-          {/* <!-- vCenterFolder --> */}
-          <div className={addclass.vCenterFolderId}>
-            <label className={addclass.label} htmlFor="vCenterFolderId">
-              vCenterFolder:
-            </label>
-            <FontAwesomeIcon icon="fa-solid fa-question" />
-            <input
-              className={addclass.input}
-              type="text"
-              id={addclass.vCenterFolderId}
-              name="vCenterFolderId"
-              required
-              readOnly
-              value={visibleFolderName} />
-          </div>
           {/* Semester */}
           <div className={addclass.semester}>
             <label>Choose Semester:</label>
@@ -408,6 +376,75 @@ function AddClass() {
                 Winter
               </option>
             </select>
+          </div>
+
+          {/* <!-- vCenterFolder --> */}
+          <div className={addclass.vCenterFolderId}>
+            <label>vCenterFolder:</label>
+            <select
+              id={addclass.vCenterFolderId}
+              name="vCenterFolderId"
+              required
+              onChange={(event) => {
+                setvCenterFolderId(event.target.value);
+              }}
+            >
+              <option value="" hidden>
+                Choose vCenter Folder
+              </option>
+              {vCenterFolderList.map((item) => (
+                <option key={item.name} value={item.folder}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+            <div className={addclass.alert}>
+              <label className={addclass.alertLabel}>
+                No Folder For Your Class
+              </label>
+              <button
+                onClick={togglePopup}
+                type="vCenter Folder Alert Button"
+                className={addclass.alertButton}
+              >
+                <i
+                  className={addclass.alertIcon}
+                  class="fa fa-question-circle fa-lg"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+            {isOpen && (
+              <Popup
+                content={
+                  <>
+                    <div className={addclass.popupbox}>
+                    
+                      <div className={addclass.box}>
+                      
+                        <span
+                          className={addclass.closeicon}
+                          onClick={togglePopup}
+                        >
+                        x
+                        </span>
+                        <img
+                      className={addclass.logo}
+                      src="../../images/LOGO-VIMA.png"
+                      alt="logo"/>
+                        <h3>
+                          Follow This Link To a Confluence Article to Create a
+                          Vcenter Folder
+                        </h3>
+                        <a href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template" className={addclass.a}>
+                          <button className={addclass.confluence}>Create VCenter Folder</button>
+                        </a>
+                      </div>
+                    </div>
+                  </>
+                }
+              />
+            )}
           </div>
         </div>
         <button
