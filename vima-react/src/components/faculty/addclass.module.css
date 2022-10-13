@@ -139,27 +139,6 @@ https://www.byui.edu/branding/color-guide
   border-color: red;
 }
 
-@media screen and (max-width: 37.4em) {
-  .addclass .container{
-    background-color: white;
-    padding: 15px;
-    width: unset;
-  }
-  .addclass .gridcont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    background-color: #f0f0f0;
-    /* width: 900px; */
-    margin: 30px auto;
-    padding: 20px;
-}
-
-/* Large View */
-@media only screen and (min-width: 64em) {
-}
-
 /* Popup style */
 .addclass .popupbox {
   position: fixed;
@@ -251,4 +230,25 @@ h3 {
 .addclass .logo {
   width: 170px;
   margin: 17px;
+}
+
+@media screen and (max-width: 37.4em) {
+  .addclass .container{
+    background-color: white;
+    padding: 15px;
+    width: unset;
+  }
+  .addclass .gridcont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    background-color: #f0f0f0;
+    /* width: 900px; */
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
 }
