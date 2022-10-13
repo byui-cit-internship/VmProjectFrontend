@@ -11,14 +11,33 @@
   margin-top: 0.7em;
 } */
 
+.utilization .li {
+  list-style: none;
+  font-family: "Raleway";
+}
+
+.utilization .studentName {
+  font-family: "Raleway";
+}
+.utilization .studentEmail {
+  font-family: "Raleway";
+}
+.utilization .studentVM {
+  font-family: "Raleway";
+}
+.utilization .creationDate {
+  font-family: "Raleway";
+}
+.utilization .vmTemplate {
+  font-family: "Raleway";
+}
+
 .utilization #backbtn:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
 .utilization #formheader {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   padding-top: 2em;
   padding-bottom: 1em;
   align-items: center;
@@ -175,37 +194,146 @@
 
 /* Small View */
 @media only screen and (max-width: 37.5em) {
+  .utilization {
+    margin: unset;
+  }
+
+  .utilization h1 {
+    padding-left: 0px;
+  }
+
+  .utilization .h2available {
+    padding: 0px;
+    margin-top: 40px;
+    font-size: 1em;
+  }
+  .utilization .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: unset;
+  }
+
   .utilization .container {
-    width: 100vw;
+    width: 100vw !important;
     border-radius: 0;
     margin: 0;
     height: 100%;
+    padding: 0 !important;
   }
 
-  .utilization .formheader {
-    margin: 22px 0px;
+  .utilization #formheader {
+    margin: 0px;
     display: flex;
+    justify-content: center;
+    font-size: 0.9em;
   }
 
+  .utilization .logo {
+    display: none;
+  }
   .utilization .dropdown {
     margin: 10px 0px;
     display: flex;
     flex-direction: column;
+    font-size: 0.8em;
   }
+
+  .utilization .dropdownDescription {
+    font-size: 0.8em;
+    max-width: 300px;
+  }
+
+  .utilization .singleOption {
+    font-size: 15px;
+  }
+
   .utilization .courseselect {
     display: flex;
     flex-direction: column;
     margin: unset;
-    align-items: center;
+    width: 80vw;
   }
 
-  .utilization .button {
+  .utilization .listHead {
     flex-direction: column;
+    height: unset;
+    border-radius: 15px;
+    padding: 5px 20px 15px 20px;
+    align-items: flex-start;
+  }
+  .utilization .templatesAvailable {
+    display: flex;
+    flex-direction: column;
+  }
+  .utilization .button {
+    padding: 0px;
+  }
+
+  .utilization .btn {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    height: 65px;
   }
 
   .utilization .twoTables {
     display: flex;
     flex-direction: column;
+  }
+
+  .utilization .listHead {
+    background-color: transparent;
+  }
+  .utilization .listHeadText {
+    color: black;
+  }
+
+  .utilization #search {
+    color: black;
+  }
+
+  .utilization .searchBar {
+    margin-bottom: 25px;
+  }
+
+  .utilization .updateList {
+    width: 80vw;
+  }
+
+  .utilization .updateList::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .utilization .updateList::-webkit-scrollbar-thumb {
+    background: #006eb6;
+    border-radius: 20px;
+  }
+
+  .utilization .updateList::-webkit-scrollbar-track {
+    background: #ddd;
+    border-radius: 20px;
+  }
+
+  .utilization .li:hover {
+    cursor: pointer;
+    font-weight: bold;
+    color: #006eb6;
+  }
+  .utilization .scoreboardTable {
+    display: none;
+  }
+
+  .utilization .studentEmail {
+    display: none;
+  }
+
+  .utilization .creationDate {
+    display: none;
+  }
+  .utilization .vmTemplate {
+    display: none;
   }
 }
 
