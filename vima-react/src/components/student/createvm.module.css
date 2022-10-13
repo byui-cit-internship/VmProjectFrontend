@@ -76,7 +76,7 @@
   border-radius: 4px;
 }
 
-.loading{
+.loading {
   margin: 30px 0px;
   display: flex;
   justify-content: center;
@@ -84,7 +84,76 @@
   align-items: center;
 }
 
-.loading p{
+.loading p {
   font-family: "Raleway";
-    font-size: 1.6rem;
+  font-size: 1.6rem;
+}
+
+/* S E P A R A T I O N */
+/* Small View */
+@media screen and (max-width: 37.5em) {
+  .createvm .container {
+    margin: 0;
+    border-radius: 0;
+    padding: 0px 5px;
+    height: 100vh;
+    width: 100vw;
+  }
+  .createvm .lets {
+    font-size: 1.2em;
+    margin-top: 7px;
+  }
+  .createvm .body {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0px;
+  }
+
+  .createvm .material {
+    font-size: 65px;
+  }
+
+  .createvm .description {
+    line-height: unset;
+    padding-top: 0;
+    margin-top: 25px;
+    font-size: 1.05em;
+    margin-bottom: 16px;
+  }
+
+  .createvm #course {
+    height: 33px;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .createvm .description {
+    margin-top: 30px;
+  }
+
+  .createvm #buttonVm {
+    height: 40px;
+    max-width: 280px;
+  }
+
+  .createvm #buttonVm:hover {
+    cursor: pointer;
+    opacity: 95%;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  .createvm .lets {
+    margin-top: 50px;
+  }
+
+  .createvm .container {
+    min-height: unset;
+    width: 90%;
+  }
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
 }

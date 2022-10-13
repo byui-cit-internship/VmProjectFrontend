@@ -88,8 +88,9 @@ function Utilization() {
         <div className={utilization.header}>
           <Header userType="faculty" />
         </div>
-        <div id={utilization.formheader}>
-          {/* <span
+        <div className={utilization.main}>
+          <div id={utilization.formheader}>
+            {/* <span
             onClick={() => {
               navigate("/faculty");
             }}
@@ -97,128 +98,159 @@ function Utilization() {
           >
             &#8592; back
           </span> */}
-          <h1>Class VM Utilization</h1>
-        </div>
+            <h1>Class VM Utilization</h1>
+          </div>
 
-        <div className={utilization.courseselect}>
-          <label htmlFor="course_semester">
-            Semester:
-            {/*onchange="semester_update()*/}
-            <select
-              name="course_semester"
-              id={utilization.course_semester}
-              required
-              onChange={(event) => setSemester(event.target.value)}
-            >
-              <option value="" hidden>
-                Choose Semester
-              </option>
-              <option value="Winter">Winter</option>
-              <option value="Spring">Spring</option>
-              <option value="Summer">Summer</option>
-              <option value="Fall">Fall</option>
-            </select>
-          </label>
-
-          <label className={utilization.choosecourse} htmlFor="course">
-            Course:
-            <select
-              name="course"
-              id={utilization.course}
-              required
-              onChange={(event) => setCourseCode(event.target.value)}
-            >
-              <option value="" hidden>
-                Choose Course
-              </option>
-              {unique.map((item) => (
-                <option key={item.id} value={item.value}>
-                  {item.course_code} {item.original_name}
+          <div className={utilization.courseselect}>
+            <label className={utilization.dropdown} htmlFor="course_semester">
+              Semester:
+              {/*onchange="semester_update()*/}
+              <select
+                name="course_semester"
+                className={utilization.dropdownDescription}
+                id={utilization.course_semester}
+                required
+                onChange={(event) => setSemester(event.target.value)}
+              >
+                <option className={utilization.singleOption} value="" hidden>
+                  Choose Semester
                 </option>
-              ))}
-            </select>
-          </label>
+                <option className={utilization.singleOption} value="Winter">
+                  Winter
+                </option>
+                <option className={utilization.singleOption} value="Spring">
+                  Spring
+                </option>
+                <option className={utilization.singleOption} value="Summer">
+                  Summer
+                </option>
+                <option className={utilization.singleOption} value="Fall">
+                  Fall
+                </option>
+              </select>
+            </label>
 
-          <label htmlFor="choosesection">
-            Section:
-            <select
-              name="choosesection"
-              id={utilization.choosesection}
-              required
-              onChange={(event) => setSection(event.target.value)}
-            >
-              <option value="" hidden>
-                Choose Section
-              </option>
-            </select>
-          </label>
-        </div>
-        <div>
-          <h2>Available templates for this Class</h2>
-        </div>
-        <div className={utilization.button}>
-          <button className={utilization.btn}>
-            <img
-              className={utilization.logo}
-              src={require("../../computerlogo.png")}
-              alt="logo"
-            />
-            <strong>Linux</strong>
-          </button>
-          <button className={utilization.btn}>
-            <img
-              className={utilization.logo}
-              src={require("../../computerlogo.png")}
-              alt="logo"
-            />
-            <strong>Android-Pie</strong>
-          </button>
-        </div>
-
-        <div className={utilization.twoTables}>
-          <div className={utilization.searchBar}>
-            <div className={utilization.listHead}>
-              <strong className={utilization.listHeadText}>Students</strong>
-              <TextField
-                onChange={inputHandler}
-                id={utilization.search}
-                variant="outlined"
-                size="small"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon style={{ color: "white" }} />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </div>
-            <div className={utilization.updateList}>
-              <ul>
-                {filteredData.map((item) => (
-                  <li key={item.id}>{item.text}</li>
+            <label className={utilization.dropdown} htmlFor="course">
+              Course:
+              <select
+                name="course"
+                className={utilization.dropdownDescription}
+                id={utilization.course}
+                required
+                onChange={(event) => setCourseCode(event.target.value)}
+              >
+                <option value="" className={utilization.singleOption} hidden>
+                  Choose Course
+                </option>
+                {unique.map((item) => (
+                  <option
+                    className={utilization.singleOption}
+                    key={item.id}
+                    value={item.value}
+                  >
+                    {item.course_code} {item.original_name}
+                  </option>
                 ))}
-              </ul>
+              </select>
+            </label>
+
+            <label htmlFor="choosesection" className={utilization.dropdown}>
+              Section:
+              <select
+                className={utilization.dropdownDescription}
+                name="choosesection"
+                id={utilization.choosesection}
+                required
+                onChange={(event) => setSection(event.target.value)}
+              >
+                <option value="" hidden>
+                  Choose Section
+                </option>
+              </select>
+            </label>
+          </div>
+          <div className={utilization.templatesAvailable}>
+            <h2 className={utilization.h2available}>
+              Available templates for this Class
+            </h2>
+
+            <div className={utilization.button}>
+              <button className={utilization.btn}>
+                <img
+                  className={utilization.logo}
+                  src={require("../../computerlogo.png")}
+                  alt="logo"
+                />
+                <strong>Linux</strong>
+              </button>
+              <button className={utilization.btn}>
+                <img
+                  className={utilization.logo}
+                  src={require("../../computerlogo.png")}
+                  alt="logo"
+                />
+                <strong>Android-Pie</strong>
+              </button>
             </div>
           </div>
 
-          <div className={utilization.scoreboard}>
-            <table className={utilization.scoreboardTable}>
-              <thead className={utilization.scoreboardtableHead}>
-                <tr className={utilization.scoreboardtableHeaderRow}>
-                  <th>Student Name</th>
-                  <th>Email</th>
-                  <th>Virtual Machine</th>
-                  <th>Creation Date</th>
-                  <th>VM Template</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>hello</td>
-                </tr>
-              </tbody>
-            </table>
+          <div className={utilization.twoTables}>
+            <div className={utilization.searchBar}>
+              <div className={utilization.listHead}>
+                <strong className={utilization.listHeadText}>Students</strong>
+                <TextField
+                  onChange={inputHandler}
+                  id={utilization.search}
+                  variant="outlined"
+                  size="small"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <SearchIcon className={utilization.searchIcon} />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </div>
+              <div className={utilization.updateList}>
+                <ul>
+                  {filteredData.map((item) => (
+                    <li key={item.id} className={utilization.li}>
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className={utilization.scoreboard}>
+              <table className={utilization.scoreboardTable}>
+                <thead className={utilization.scoreboardtableHead}>
+                  <tr className={utilization.scoreboardtableHeaderRow}>
+                    <th className={utilization.studentName}>Student Name</th>
+                    <th className={utilization.studentEmail}>Email</th>
+
+                    <th className={utilization.studentVM}>Virtual Machine</th>
+                    <th className={utilization.creationDate}>Creation Date</th>
+                    <th className={utilization.vmTemplate}>VM Template</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hardcoded1</td>
+                  </tr>
+                  <tr>
+                    <td>Hardcoded2</td>
+                  </tr>
+                  <tr>
+                    <td>Hardcoded3</td>
+                  </tr>
+                  <tr>
+                    <td>Hardcoded4</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

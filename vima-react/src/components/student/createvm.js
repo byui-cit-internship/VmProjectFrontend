@@ -63,14 +63,14 @@ function CreateVM() {
     <div className={createVM.createvm}>
       <div className={createVM.container}>
         <Header userType="student" />
-        <span
+        {/* <span
           onClick={() => {
             navigate("/student");
           }}
           id={createVM.backbtn}
         >
           &#8592; Back
-        </span>
+        </span> */}
         <h4 className={createVM.lets}>Let's create a VM</h4>
         <div>
           {!loading ? (

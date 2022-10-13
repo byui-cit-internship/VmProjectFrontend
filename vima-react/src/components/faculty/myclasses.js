@@ -4,30 +4,31 @@ import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { useEffect, useState } from "react";
+import { Card } from '@mui/material';
 
 function MyClasses() {
   let navigate = useNavigate();
-  const [myCourses, setMyCourses] = useState([]);
+  const [classList, setClassList] = useState([]);
   console.log(JSON.stringify(myclasses));
-  // useEffect(()=>{
-  //   const getClassInfo = async () =>{
-  //     const listResponse = await fetch(
-  //       getApiRoot() + "/api/course/professor/getAllCourses",
-  //       {
-  //         method: "GET",
-  //         credentials: "include",
-  //         headers: {
-  //           "content-type": "application/json",
-  //         },
-  //       }
-  //     );
-  //     console.log("listResponse; ", listResponse)
-  //     const classList = await listResponse.json();
-  //     console.log("classes; ", classList)
-  //     setCourseList(classList);
-  //   };
-  //   getCourseInfo();
-  // }, []);
+  useEffect(() =>{
+    const getclassList = async () =>{
+      const listResponse = await fetch(
+        getApiRoot() + "/api/course/professor/getAllCourses",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      );
+      console.log(listResponse);
+      const classList = await listResponse.json();
+      console.log("classes; ", classList);
+      setClassList(classList);
+    };
+    getclassList();
+  }, []);
 
 
   return (
@@ -35,10 +36,11 @@ function MyClasses() {
       <div className={myclasses.container}>
         <Header />
         {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
-        <span id={myclasses.title}></span>
+        <span id={myclasses.title}>
+        <h1 className={myclasses.lets}>My Classes</h1>
+        </span>
         <div id={myclasses.classesAndSearch}>
-          <h1 className={myclasses.lets}>My Classes</h1>
-          <div className={myclasses.searchbar}>
+          <div className={myclasses.searchbar}>    
             <input
               id={myclasses.search}
               type="text"
@@ -48,20 +50,25 @@ function MyClasses() {
         </div>
           <div className={myclasses.tablegrid}>
             <div className={myclasses.table}>
-              <table id={myclasses.table1}>
-                <tr className={myclasses.tableHead}>
-                <th>CIT 110</th>
-                </tr>
-                <tr>
-                  <span className={myclasses.vmName}>Linux </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
-                </tr>
-                <tr>
-                  <span className={myclasses.vmName}>Windows </span>
-                  <span className={myclasses.semester}> Spring 2022</span>
-                  </tr>
-              </table>
-              <br></br>
+            {classList.map((item) => (
+              <div className={myclasses.card}>
+              <Card variant="outlined">
+                <div value={item.courseName} className={myclasses.tableheader}>
+                  {item.courseName}
+                </div>
+                <div className={myclasses.tablecontent}>
+                  <p>Linux</p>
+                  <span className={myclasses.time} >Semester, year</span>
+                  <p>Windows</p>
+                  <span className={myclasses.time}>Semester, year</span>
+                  <p>Android</p>
+                  <span className={myclasses.time}>Semester, year</span>
+                  <br></br>
+                <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                </div>
+              </Card>
+              </div>
+              ))}
             </div>
           </div>
         <div className={myclasses.add_class} onClick={() => {navigate("/addclass")}}>
