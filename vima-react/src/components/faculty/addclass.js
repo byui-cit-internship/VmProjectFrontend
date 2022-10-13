@@ -180,11 +180,6 @@ function AddClass() {
     getVmFolderInfo();
   }, []);
 
-  function showFolderAlert() {
-    const folderAlert = "How To Create a VCenter Folder: Confluence Article";
-    alert(folderAlert);
-  }
-
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
