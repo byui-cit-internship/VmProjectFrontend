@@ -6,6 +6,18 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+.studentdashboard #singleContainer:hover {
+  cursor: pointer;
+}
+
+.studentdashboard .material:hover {
+  cursor: pointer;
+}
+
+.studentdashboard .button:hover {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
 }

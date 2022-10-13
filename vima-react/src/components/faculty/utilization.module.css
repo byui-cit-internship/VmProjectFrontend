@@ -154,6 +154,10 @@
   flex-direction: column;
 }
 
+.utilization .searchIcon {
+  color: #006eb6;
+}
+
 .utilization .listHead {
   display: flex;
   /* width: 350px; */
