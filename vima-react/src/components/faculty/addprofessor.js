@@ -22,7 +22,7 @@ function AddProfessor() {
   });
 
   const validateForm = async () => {
-    console.log("validateform here.")
+    console.log("validateform here.");
     let allFieldsValid = true;
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0) {
       allFieldsValid = false;
@@ -38,7 +38,7 @@ function AddProfessor() {
             email: email,
             usertype: "Professor",
             userAccess: true,
-            isAdmin: false
+            isAdmin: false,
           }),
           credentials: "include",
           headers: {
@@ -69,8 +69,11 @@ function AddProfessor() {
   // document.body.classList.remove("bg-salmon");
 
   const closePopup = (closeBool) => {
-    setIsOpen(closeBool)
-  } 
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setIsOpen(closeBool);
+  };
 
   return (
     <div className={addprofessor.addprofessor}>
@@ -88,13 +91,18 @@ function AddProfessor() {
         </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
-          <form action="#" className={addprofessor.form} onSubmit={(e)=>(e.preventDefault())}> 
+          <form
+            action="#"
+            className={addprofessor.form}
+            onSubmit={(e) => e.preventDefault()}
+          >
             {/* <!-- Course Name--> */}
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">First Name:</label>
                   <input
+                    value={firstName}
                     type="text"
                     id="fname"
                     name="firstName"
@@ -106,6 +114,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Last Name:</label>
                   <input
+                    value={lastName}
                     type="text"
                     id="lname"
                     name="lastName"
@@ -117,6 +126,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Email:</label>
                   <input
+                    value={email}
                     type="text"
                     id="email"
                     name="email"
@@ -140,7 +150,13 @@ function AddProfessor() {
               Add Professor
             </button>
             {isOpen && (
-              <SubmissionPopup closeHandler={closePopup} message="Added Successfully!"/>
+              <SubmissionPopup
+                closeHandler={closePopup}
+                message="Added Successfully!"
+                goBackRoute="/faculty"
+                againRoute=""
+                againOptionMessage="Add another professor"
+              />
             )}
           </form>
         </div>

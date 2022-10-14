@@ -62,3 +62,8 @@
     padding-top: 2em;
     font-family: "Raleway";
 }
+
+.optionsContainer {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
