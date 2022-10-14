@@ -9,6 +9,7 @@ import Header from "../../header";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import classList from "../../courseList.json";
+import Popup from "./Popup.js";
 
 let registerApiUrlroot = getApiRoot();
 const register_tokenID = sessionStorage.getItem("token");
@@ -29,6 +30,11 @@ function Utilization() {
     //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
   };
 
   const filteredData = data.filter((i) => {
@@ -252,6 +258,51 @@ function Utilization() {
               </table>
             </div>
           </div>
+
+          {/* S E P A R A T I O N */}
+          {/* button */}
+          <div className={utilization.alert}>
+            <label className={utilization.alertLabel}>
+              No Folder For Your Class
+            </label>
+            <button
+              onClick={togglePopup}
+              type="vCenter Folder Alert Button"
+              className={utilization.alertButton}
+            >
+              <i
+                className={utilization.alertIcon}
+                class="fa fa-question-circle fa-lg"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          {/* isOpen  */}
+          {isOpen && (
+            <Popup
+              content={
+                <>
+                  <div className={utilization.popupbox}>
+                    <div className={utilization.box}>
+                      <span
+                        className={utilization.closeicon}
+                        onClick={togglePopup}
+                      >
+                        x
+                      </span>
+                      <img
+                        className={utilization.logo}
+                        src="../../images/LOGO-VIMA.png"
+                        alt="logo"
+                      />
+                      <h3>ALL THE STUDENT INFORMATION</h3>
+                    </div>
+                  </div>
+                </>
+              }
+            />
+          )}
+          {/* S E P A R A T I O N */}
         </div>
       </div>
       <div>

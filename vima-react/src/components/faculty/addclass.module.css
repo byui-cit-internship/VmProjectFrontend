@@ -148,7 +148,7 @@ https://www.byui.edu/branding/color-guide
   top: 0;
   left: 0;
 }
- 
+
 .addclass .box {
   position: relative;
   width: 30%;
@@ -160,7 +160,7 @@ https://www.byui.edu/branding/color-guide
   border-radius: 30px;
   padding: 20px;
   border: 2px solid #999;
-  overflow:hidden;
+  overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -203,7 +203,7 @@ h3 {
 }
 
 .addclass .closeicon {
-  content: 'x';
+  content: "x";
   cursor: pointer;
   position: relative;
   background: #ededed;
@@ -233,7 +233,7 @@ h3 {
 }
 
 @media screen and (max-width: 37.4em) {
-  .addclass .container{
+  .addclass .container {
     background-color: white;
     padding: 15px;
     width: unset;
@@ -247,6 +247,7 @@ h3 {
     /* width: 900px; */
     margin: 30px auto;
     padding: 20px;
+  }
 }
 
 /* Large View */
