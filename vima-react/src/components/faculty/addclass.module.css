@@ -125,12 +125,11 @@ https://www.byui.edu/branding/color-guide
 
 .addclass input.invalid {
   border-color: red;
-}
 
-<<<<<<< Updated upstream
+}
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
-=======
+
 /* Popup style */
 .addclass .popupbox {
   position: fixed;
