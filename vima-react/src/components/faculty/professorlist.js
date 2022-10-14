@@ -11,6 +11,19 @@ import { useEffect, useState } from "react";
 // const element = <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
 
 function ProfessorList() {
+  const body = document.querySelector("body");
+  const urlParams = window.location.href.split("/")[3];
+
+  // Removes styles from the body tag
+  // Apply this useEffect on any page you go from this page
+  useEffect(() => {
+    if (urlParams !== "addprofessor") {
+      body.style.height = "unset";
+      body.style.display = "unset";
+      body.style.justifyContent = "unset";
+      body.style.alignItems = "unset";
+    }
+  });
   let navigate = useNavigate();
   const [courseList, setCourseList] = useState([]);
   console.log(JSON.stringify(professorList))

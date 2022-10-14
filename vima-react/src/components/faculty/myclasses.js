@@ -4,6 +4,7 @@ import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { useEffect, useState } from "react";
+import { Card } from '@mui/material';
 
 function MyClasses() {
   let navigate = useNavigate();
@@ -72,7 +73,9 @@ function MyClasses() {
       <div className={myclasses.container}>
         <Header />
         {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
-        <span id={myclasses.title}></span>
+        <span id={myclasses.title}>
+        <h1 className={myclasses.lets}>My Classes</h1>
+        </span>
         <div id={myclasses.classesAndSearch}>
           <h1 className={myclasses.lets}>My Classes</h1>
           <div className={myclasses.searchbar}>

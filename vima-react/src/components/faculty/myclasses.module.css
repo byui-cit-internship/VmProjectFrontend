@@ -59,12 +59,11 @@
 }
 
 .myclasses .searchbar {
-margin: 0px 10px;
-border-radius: 8px;
+margin: 0px 50px 0px 50px;
 border: 1px solid #ffffff;
 background-color: #006eb6;
 height: 30px;
-width: 455px;
+width: 300px;
 padding: 0px 9px;
 display: flex;
 align-items: center;
@@ -149,4 +148,37 @@ align-items: center;
   border-radius: 7px;
   border: transparent;
   color: #fff;
+}
+
+.myclasses .table{
+  gap: .5em;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.myclasses .card{
+  width: 45%;
+}
+.myclasses .tableheader{
+  background-color: #006eb6;
+  color: white;
+  padding: 20px;
+  font-family: "Raleway";
+  font-weight:bolder
+}
+.myclasses .tablecontent{
+  padding: 20px;
+  font-family: "Raleway";
+  font-weight: bold;
+}
+.myclasses .addbutton{
+  background-color: #006eb6;
+  border-style: none;
+  font-family: "Raleway";
+  font-weight: bolder;
+  color: white;
+  padding: 1em;
+  border-radius: 5px;
+  width: 45%;
 }
