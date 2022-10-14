@@ -1,10 +1,9 @@
-// import './facultydashboard.css';
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DnsIcon from "@mui/icons-material/Dns";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
-// import AddClass from './components/faculty/addclass';
+import MyClass from '../faculty/myclasses';
 import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
@@ -59,7 +58,7 @@ const FacultyDashboard = () => {
         <p id={facultydashboard.greeting}>How can we help you today?</p>
         {/* <div class="addgrid"> */}
         <div
-          className={facultydashboard.add_class}
+          className={facultydashboard.myClasses}
           onClick={() => {
             navigate("/myclasses");
           }}

@@ -159,7 +159,7 @@ https://www.byui.edu/branding/color-guide
     padding-top: 20px;  
   }
   
-  .facultydashboard .add_class{
+  .facultydashboard .myClasses{
     font-size: 20px;
     float: left;
     width: 300px;
@@ -175,11 +175,11 @@ https://www.byui.edu/branding/color-guide
     margin-left: 50px;
   }
   
-  .facultydashboard .add_class:hover {
+  .facultydashboard .myClasses:hover {
     background-color: #022d53;
   }
   
-  .facultydashboard .add_class span {
+  .facultydashboard .myClasses span {
     color: white;
     font-size: 40px;
     float: left;
