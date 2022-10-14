@@ -6,11 +6,11 @@ import React, { useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {
-  const [courseList, setCourseList] = useState([]);
+  const [vmList, setVmList] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
     const getCourseList = async () => {
-      const courseResponse = await fetch(getApiRoot() + "/api/studentcourse", {
+      const courseResponse = await fetch(getApiRoot() + "/", {
         credentials: "include",
         headers: {
           "content-type": "application/json",
@@ -20,7 +20,7 @@ function MyVM() {
       const courseResponseObject = await courseResponse.json();
       console.log(courseResponseObject);
     };
-    getCourseList();
+    getVmList();
   }, []);
 
   return (
@@ -39,11 +39,11 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Class</td>
-                <td>Vm</td>
-                <td>Date</td>
+            vmList.map((item) => {(
+              <tr value={item.vmName}>
+              {item.vmName}
               </tr>
+              )}
             </tbody>
           </table>
         </div>

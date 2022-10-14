@@ -57,14 +57,19 @@ function MyClasses() {
                   {item.courseName}
                 </div>
                 <div className={myclasses.tablecontent}>
+                  <div className={myclasses.tablerow}>
                   <p>Linux</p>
                   <span className={myclasses.time} >Semester, year</span>
+                  </div>
+                  <div className={myclasses.tablerow}>
                   <p>Windows</p>
                   <span className={myclasses.time}>Semester, year</span>
+                  </div>
+                  <div className={myclasses.tablerow}>
                   <p>Android</p>
                   <span className={myclasses.time}>Semester, year</span>
-                  <br></br>
-                <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                  </div>
+                  <button className={myclasses.addbutton}>Add Virtual Machine</button>
                 </div>
               </Card>
               </div>
