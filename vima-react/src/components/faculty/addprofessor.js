@@ -139,25 +139,7 @@ function AddProfessor() {
             >
               Add Professor
             </button>
-            {!isOpen && (
-              // <div className={addprofessor.modal}>
-              //   <div className={addprofessor.modalBox}>
-              //     <button
-              //       className={addprofessor.closeBtn}
-              //       onClick={() => setIsOpen(false)}
-              //     >
-              //       X 
-              //     </button>
-              //     <div className={addprofessor.message}>
-              //       <div className={addprofessor.iconPlaceholder}>
-              //         <FaCheck className={addprofessor.checkicon} />
-              //       </div>
-              //       <div className={addprofessor.message}>
-              //         Added Successfully!
-              //       </div>
-              //     </div>
-              //   </div>
-              // </div>
+            {isOpen && (
               <SubmissionPopup closeHandler={closePopup} message="Added Successfully!"/>
             )}
           </form>

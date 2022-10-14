@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-//import addprofessor from "./faculty/addclass.module.css";
-
+import addprofessor from "./submissionPop.module.css"
 const SubmissionPopup = (props) => {
 
     const handleClosePopup = () => {
