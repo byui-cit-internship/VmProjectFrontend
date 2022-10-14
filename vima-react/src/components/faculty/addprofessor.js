@@ -6,6 +6,7 @@ import Header from "../../header";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../../utils/getApiRoot";
+import SubmissionPopup from "../submissionPop";
 
 function AddProfessor() {
   const body = document.querySelector("body");
@@ -66,6 +67,10 @@ function AddProfessor() {
   // optionally remove styles when component unmounts
   // document.body.style.backgroundColor = null;
   // document.body.classList.remove("bg-salmon");
+
+  const closePopup = (closeBool) => {
+    setIsOpen(closeBool)
+  } 
 
   return (
     <div className={addprofessor.addprofessor}>
@@ -134,25 +139,26 @@ function AddProfessor() {
             >
               Add Professor
             </button>
-            {isOpen && (
-              <div className={addprofessor.modal}>
-                <div className={addprofessor.modalBox}>
-                  <button
-                    className={addprofessor.closeBtn}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    X
-                  </button>
-                  <div className={addprofessor.message}>
-                    <div className={addprofessor.iconPlaceholder}>
-                      <FaCheck className={addprofessor.checkicon} />
-                    </div>
-                    <div className={addprofessor.message}>
-                      Added Successfully!
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {!isOpen && (
+              // <div className={addprofessor.modal}>
+              //   <div className={addprofessor.modalBox}>
+              //     <button
+              //       className={addprofessor.closeBtn}
+              //       onClick={() => setIsOpen(false)}
+              //     >
+              //       X 
+              //     </button>
+              //     <div className={addprofessor.message}>
+              //       <div className={addprofessor.iconPlaceholder}>
+              //         <FaCheck className={addprofessor.checkicon} />
+              //       </div>
+              //       <div className={addprofessor.message}>
+              //         Added Successfully!
+              //       </div>
+              //     </div>
+              //   </div>
+              // </div>
+              <SubmissionPopup closeHandler={closePopup} message="Added Successfully!"/>
             )}
           </form>
         </div>
