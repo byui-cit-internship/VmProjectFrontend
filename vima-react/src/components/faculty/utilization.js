@@ -270,9 +270,7 @@ function Utilization() {
           {/* S E P A R A T I O N */}
           {/* button */}
           <div className={utilization.alert}>
-            <label className={utilization.alertLabel}>
-              No Folder For Your Class
-            </label>
+            <label className={utilization.alertLabel}>Click button</label>
             <button
               onClick={togglePopup}
               type="vCenter Folder Alert Button"
@@ -303,7 +301,9 @@ function Utilization() {
                         src="../../images/LOGO-VIMA.png"
                         alt="logo"
                       />
-                      <h3>ALL THE STUDENT INFORMATION</h3>
+                      <h3 className={utilization.h3}>
+                        ALL THE STUDENT'S INFORMATION
+                      </h3>
                     </div>
                   </div>
                 </>
