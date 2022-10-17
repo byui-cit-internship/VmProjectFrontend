@@ -509,6 +509,7 @@ https://www.byui.edu/branding/color-guide
     float: left;
     padding-left: 20px;
   }
+}
   
   /* Medium View */
   @media only screen and (min-width: 37.5em) {
@@ -519,4 +520,3 @@ https://www.byui.edu/branding/color-guide
   @media only screen and (min-width: 64em) {
   
   }
-
