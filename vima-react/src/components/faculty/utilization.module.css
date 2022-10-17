@@ -151,7 +151,7 @@
 }
 
 .utilization .searchIcon {
-  color: #006eb6;
+  color: #ffffff;
 }
 
 .utilization .listHead {
@@ -184,12 +184,30 @@
 .utilization .scoreboard {
   text-align: left;
   grid-area: 1 / 2 / 2 / 3;
-  border: solid 1px;
 }
 
 .utilization th {
   margin-right: 50px;
   padding-right: 20px;
+}
+.utilization .updateList::-webkit-scrollbar {
+  width: 10px;
+}
+
+.utilization .updateList::-webkit-scrollbar-thumb {
+  background: #006eb6;
+  border-radius: 20px;
+}
+
+.utilization .updateList::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+}
+
+.utilization .li:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: #006eb6;
 }
 
 /* Small View */
@@ -200,7 +218,7 @@
   }
 
   .utilization h1 {
-    padding-left: 0px;
+    padding-left: 0x;
   }
 
   .utilization .h2available {
@@ -496,13 +514,15 @@
     border: none;
     border-radius: 8px;
     padding: 5px 5px;
+    min-width: 550px;
   }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
   .utilization .container {
-    width: 1000px;
+    width: 95vw;
+    max-width: 1000px;
   }
   .utilization .twoTables {
     flex-direction: row;
