@@ -7,250 +7,268 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 .addclass #formheader {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding-top: 2em;
-  padding-bottom: 1em;
-  align-items: center;
-}
-
-.addclass #formheader h1 {
-  font-size: 1.8em;
-  font-weight: bold;
-  grid-column: 2;
-  text-align: center;
-}
-
-.addclass #backbtn {
-  display: flex;
-  color: #006eb6;
-  margin-left: 50px;
-  cursor: pointer;
-  font-size: 1.3em;
-  margin-top: 0.7em;
-}
-
-.addclass #backbtn:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.addclass #gridcont {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
-  background-color: #f0f0f0;
-  width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-}
-
-.addclass body {
-  background-color: #006eb6;
-  font-family: "Raleway", sans-serif;
-}
-
-.addclass h1 {
-  grid-row: 1/2;
-}
-
-.addclass .container {
-  width: 1000px;
-  background-color: white;
-  border-radius: 50px;
-  margin: 50px auto;
-  padding: 15px;
-}
-
-.addclass .column1 {
-  grid-row: 2/2;
-}
-
-.addclass .column2 {
-  grid-row: 2/2;
-}
-
-.addclass .validation {
-  color: #ff0000;
-  text-align: left;
-}
-
-.addclass .input:valid {
-  border: 2px solid rgba(0, 0, 0, 10%);
-}
-
-.addclass input {
-  width: 93.5%;
-  border: 3px solid #98d5fd;
-  padding: 10px 10px;
-  margin-top: 10px;
-  position: relative;
-}
-
-.addclass .alertButton {
-  border: none;
-}
-
-.addclass .alertButton:hover {
-  color: blue;
-  cursor: pointer;
-}
-
-.addclass .alertLabel {
-  font-weight: bold;
-  opacity: 50%;
-}
-
-.addclass .alert {
-  padding: 10px;
-  margin-left: 10px;
-  display: flex;
-}
-
-.addclass select {
-  width: 100%;
-  border: 3px solid #98d5fd;
-  padding: 11.5px;
-  margin-top: 10px;
-}
-
-.addclass .btnprimary {
-  background-color: #006eb6;
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 0px 40% 20px;
-  width: 20%;
-  border-radius: 7px;
-  border: transparent;
-  color: #fff;
-}
-
-.addclass #nameError {
-  display: none;
-  font-size: 0.8em;
-}
-
-.addclass #nameError.visible {
-  display: block;
-}
-
-.addclass input.invalid {
-  border-color: red;
-}
-
-/* Popup style */
-.addclass .popupbox {
-  position: fixed;
-  background: #0000007b;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
- 
-.addclass .box {
-  position: relative;
-  width: 30%;
-  margin: 0 auto;
-  height: auto;
-  max-height: 70vh;
-  margin-top: calc(100vh - 85vh - 20px);
-  background: #fff;
-  border-radius: 30px;
-  padding: 20px;
-  border: 2px solid #999;
-  overflow:hidden;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-h3 {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  font-weight: bold;
-}
-
-.addclass .confluence {
-  border-radius: 3px;
-  position: relative;
-  padding: 12px;
-  border: none;
-  background-color: #006eb6;
-  align-self: center;
-  color: white;
-  transition: 0.3s;
-}
-
-.addclass .confluence:hover {
-  border-color: #006eb6;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.5s;
-  box-shadow: 2px 4px 8px 2px #0000007b;
-}
-
-.addclass .back {
-  background-color: #006eb6;
-}
-
-.addclass .a {
-  padding: 20px;
-  align-self: center;
-}
-
-.addclass .closeicon {
-  content: 'x';
-  cursor: pointer;
-  position: relative;
-  background: #ededed;
-  width: 20px;
-  height: 19px;
-  border-radius: 50%;
-  line-height: 16px;
-  text-align: center;
-  border: 3px solid white;
-  font-size: 20px;
-  align-self: flex-end;
-  transition: 0.3s;
-}
-
-.addclass .closeicon:hover {
-  border-color: #006eb6;
-  transition: 0.5s;
-  border: 3px solid #006db670;
-  background: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.addclass .logo {
-  width: 170px;
-  margin: 17px;
-}
-
-@media screen and (max-width: 37.4em) {
-  .addclass .container{
-    background-color: white;
-    padding: 15px;
-    width: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    align-items: center;
   }
-  .addclass .gridcont {
+  
+  .addclass #formheader h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    grid-column: 2;
+    text-align: center;
+  }
+  
+  .addclass #backbtn {
+    display: flex;
+    color: #006eb6;
+    margin-left: 50px;
+    cursor: pointer;
+    font-size: 1.3em;
+    margin-top: 0.7em;
+  }
+  
+  .addclass #backbtn:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .addclass #gridcont {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
     background-color: #f0f0f0;
-    /* width: 900px; */
+    width: 900px;
     margin: 30px auto;
     padding: 20px;
-}
-}
+  }
+  
+  .addclass body {
+    background-color: #006eb6;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  .addclass h1 {
+    grid-row: 1/2;
+  }
+  
+  .addclass .container {
+    width: 1000px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 50px auto;
+    padding: 15px;
+  }
+  
+  .addclass .column1 {
+    grid-row: 2/2;
+  }
+  
+  .addclass .column2 {
+    grid-row: 2/2;
+  }
+  
+  .addclass .validation {
+    color: #ff0000;
+    text-align: left;
+  }
+  
+  .addclass .input:valid {
+    border: 2px solid rgba(0, 0, 0, 10%);
+  }
+  
+  .addclass input {
+    width: 93.5%;
+    border: 3px solid #98d5fd;
+    padding: 10px 10px;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  .addclass .alertButton {
+    border: none;
+  }
+  
+  .addclass .alertButton:hover {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .addclass .alertLabel {
+    font-weight: bold;
+    opacity: 50%;
+  }
+  
+  .addclass .alert {
+    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+  }
+  
+  .addclass select {
+    width: 100%;
+    border: 3px solid #98d5fd;
+    padding: 11.5px;
+    margin-top: 10px;
+  }
+  
+  .addclass .btnprimary {
+    background-color: #006eb6;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 0px 40% 20px;
+    width: 20%;
+    border-radius: 7px;
+    border: transparent;
+    color: #fff;
+  }
+  
+  .addclass #nameError {
+    display: none;
+    font-size: 0.8em;
+  }
+  
+  .addclass #nameError.visible {
+    display: block;
+  }
+  
+  .addclass input.invalid {
+    border-color: red;
+  }
 
-/* Large View */
-@media only screen and (min-width: 64em) {
-}
-
+  /* Medium View */
+  @media only screen and (min-width: 37.5em) {
+    /* Popup style */
+    .addclass .popupbox {
+      position: fixed;
+      background: #0000007b;
+      width: 100%;
+      height: 100vh;
+      top: 0;
+      left: 0;
+    }
+  
+    .addclass .box {
+      position: relative;
+      width: 30%;
+      margin: 0 auto;
+      height: auto;
+      max-height: 70vh;
+      margin-top: calc(100vh - 85vh - 20px);
+      background: #fff;
+      border-radius: 30px;
+      padding: 20px;
+      border: 2px solid #999;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  
+    h3 {
+      text-align: center;
+      padding: 20px;
+      width: 100%;
+      font-weight: bold;
+    }
+  
+    .addclass .confluence {
+      border-radius: 3px;
+      position: relative;
+      padding: 12px;
+      border: none;
+      background-color: #006eb6;
+      align-self: center;
+      color: white;
+      transition: 0.3s;
+    }
+  
+    .addclass .confluence:hover {
+      border-color: #006eb6;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.5s;
+      box-shadow: 2px 4px 8px 2px #0000007b;
+    }
+  
+    .addclass .back {
+      background-color: #006eb6;
+    }
+  
+    .addclass .a {
+      padding: 20px;
+      align-self: center;
+    }
+  
+    .addclass .closeicon {
+      content: "x";
+      cursor: pointer;
+      position: relative;
+      background: #ededed;
+      width: 20px;
+      height: 19px;
+      border-radius: 50%;
+      line-height: 16px;
+      text-align: center;
+      border: 3px solid white;
+      font-size: 20px;
+      align-self: flex-end;
+      transition: 0.3s;
+    }
+  
+    .addclass .closeicon:hover {
+      border-color: #006eb6;
+      transition: 0.5s;
+      border: 3px solid #006db670;
+      background: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  
+    .addclass .logo {
+      width: 170px;
+      margin: 17px;
+    }
+  
+    @media screen and (max-width: 37.4em) {
+      .addclass .container {
+        background-color: white;
+        padding: 15px;
+        width: unset;
+      }
+      .addclass .gridcont {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+        background-color: #f0f0f0;
+        /* width: 900px; */
+        margin: 30px auto;
+        padding: 20px;
+      }
+    }
+  
+  @media screen and (max-width: 37.4em) {
+    .addclass .container{
+      background-color: white;
+      padding: 15px;
+      width: unset;
+    }
+    .addclass .gridcont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      background-color: #f0f0f0;
+      /* width: 900px; */
+      margin: 30px auto;
+      padding: 20px;
+  }
+  }
+  /* Large View */
+  @media only screen and (min-width: 64em) {
+  }

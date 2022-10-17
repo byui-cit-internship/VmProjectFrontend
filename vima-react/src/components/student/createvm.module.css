@@ -140,6 +140,9 @@
     cursor: pointer;
     opacity: 95%;
   }
+  .createvm .main {
+    min-width: 275px;
+  }
 }
 
 /* Medium View */
