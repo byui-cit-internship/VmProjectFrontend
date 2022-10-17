@@ -384,9 +384,6 @@
     align-self: flex-end;
     transition: 0.3s;
   }
-  .utilization .h1 {
-    color: goldenrod;
-  }
 
   .utilization .scoreboard {
     display: none;
@@ -398,9 +395,7 @@
   .utilization .container {
     width: 90vw;
   }
-  .utilization .h1 {
-    color: red;
-  }
+
   .utilization .main {
     display: flex;
     flex-direction: column;
@@ -500,9 +495,6 @@
 
 /* Large View */
 @media only screen and (min-width: 64em) {
-  .utilization .h1 {
-    color: blueviolet;
-  }
   .utilization .container {
     width: 1000px;
   }
