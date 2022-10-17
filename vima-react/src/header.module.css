@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   justify-content: end;
-  margin-right: 50px;
+  margin-right: 70px;
 }
 
 .header .links {
@@ -102,7 +102,7 @@ a {
   .header {
     align-items: baseline;
     height: 90px;
-    max-width: 260px;
+    /* max-width: 260px; */
   }
 
   .header .rightSide .outHam {
@@ -148,6 +148,7 @@ a {
 @media only screen and (min-width: 37.5em) {
   .header {
     width: 100vw;
+    max-width: 970px;
   }
 
   .header .links {

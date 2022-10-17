@@ -63,10 +63,6 @@
   padding: 15px;
 }
 
-.utilization div {
-  margin: auto auto;
-}
-
 .utilization h1 {
   grid-row: 2/3;
   grid-column: 1/2;
@@ -217,6 +213,7 @@
     flex-direction: column;
     align-items: center;
     margin: unset;
+    min-width: 285px;
   }
 
   .utilization .container {
@@ -390,6 +387,10 @@
   .utilization .h1 {
     color: goldenrod;
   }
+
+  .utilization .scoreboard {
+    display: none;
+  }
 }
 
 /* Medium View */
@@ -485,6 +486,16 @@
   .utilization .alertLabel {
     display: none;
   }
+  .utilization .alertButton {
+    display: none;
+  }
+
+  .utilization .scoreboard {
+    background: lightgrey;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 5px;
+  }
 }
 
 /* Large View */
@@ -508,6 +519,9 @@
   }
 
   .utilization .alertLabel {
+    display: none;
+  }
+  .utilization .alertButton {
     display: none;
   }
 }
