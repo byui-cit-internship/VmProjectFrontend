@@ -30,18 +30,11 @@
 This repository is just for the front end.
 
 Things that need to be finish:
-<<<<<<< HEAD
+
 
 - Work on the set up a template page. It needs to add the APIs.
 - Connect the remainding APIs
 - Create a documentation of your progress
--
-
-# Common GIT COMMANDS
-
-Git commands to the main branch:
-
-=======
 - Work on the canvas token tooltip in addClass.html
 - Error catching 
 
@@ -75,12 +68,12 @@ This repository is just for the front end.
 
 # Common GIT COMMANDS
 Git commands to the main branch:
->>>>>>> 1a82fd7185f9c98a4f5fb02c5527d2ddddedfe71
+
 1. git pull
 2. git add .
 3. git commit -m "message"
 4. git push origin main
-<<<<<<< HEAD
+
 
 Git command to your branch:
 
@@ -100,5 +93,4 @@ To merge your branch to your Main
 To delete branch
 
 1. git branch -d nameOfbranch
-=======
->>>>>>> 1a82fd7185f9c98a4f5fb02c5527d2ddddedfe71
+

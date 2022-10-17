@@ -41,7 +41,6 @@
 .myclasses #classesAndSearch {
   display: flex;
   width: 800px;
-  margin-left: auto;
   margin-right: auto;
   font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
@@ -171,6 +170,8 @@ align-items: center;
   padding: 20px;
   font-family: "Raleway";
   font-weight: bold;
+  margin: auto;
+  text-align: center;
 }
 .myclasses .addbutton{
   background-color: #006eb6;
@@ -181,4 +182,7 @@ align-items: center;
   padding: 1em;
   border-radius: 5px;
   width: 45%;
+}
+.myclasses .tablerow{
+  padding: 1em;
 }
