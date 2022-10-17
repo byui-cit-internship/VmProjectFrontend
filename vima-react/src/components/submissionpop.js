@@ -31,7 +31,7 @@ const SubmissionPopup = (props) => {
             <a href="javascript:;">
               <div
                 className={addprofessor.message}
-                onClick={() => props.closeHandler(false)}
+                onClick={()=>props.closeHandler(false)}
               >
                 {props.againOptionMessage}
               </div>
