@@ -99,9 +99,10 @@ a {
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
-  .header .header {
+  .header {
     align-items: baseline;
     height: 90px;
+    max-width: 260px;
   }
 
   .header .rightSide .outHam {
@@ -138,6 +139,9 @@ a {
   .header .logo {
     width: 130px;
   }
+  .header .hamWrapper {
+    display: flex;
+  }
 }
 
 /* Medium View */
@@ -149,6 +153,9 @@ a {
   .header .links {
     display: flex;
     align-items: center;
+  }
+  .header .hamWrapper {
+    display: none !important;
   }
 }
 

@@ -107,7 +107,7 @@ function Utilization() {
           >
             &#8592; back
           </span> */}
-            <h1>Class VM Utilization</h1>
+            <h1 className={utilization.h1}>Class VM Utilization</h1>
           </div>
 
           <div className={utilization.courseselect}>
@@ -278,7 +278,7 @@ function Utilization() {
             >
               <i
                 className={utilization.alertIcon}
-                class="fa fa-question-circle fa-lg"
+                className="fa fa-question-circle fa-lg"
                 aria-hidden="true"
               ></i>
             </button>
