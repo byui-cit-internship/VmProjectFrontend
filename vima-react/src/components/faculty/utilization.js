@@ -87,7 +87,10 @@ function Utilization() {
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
-
+  const handlePopup = (value) => {
+    setPopupInfo(value);
+    setPopupActivate(true);
+  };
   return (
     <div className={utilization.utilization}>
       <div className={utilization.container}>
@@ -104,7 +107,7 @@ function Utilization() {
           >
             &#8592; back
           </span> */}
-            <h1>Class VM Utilization</h1>
+            <h1 className={utilization.h1}>Class VM Utilization</h1>
           </div>
 
           <div className={utilization.courseselect}>
@@ -221,7 +224,12 @@ function Utilization() {
               <div className={utilization.updateList}>
                 <ul>
                   {filteredData.map((item) => (
-                    <li key={item.id} className={utilization.li}>
+                    <li
+                      key={item.id}
+                      className={utilization.li}
+                      value={item}
+                      onClick={(e) => handlePopup(e.target.value)}
+                    >
                       {item.text}
                     </li>
                   ))}
@@ -262,9 +270,7 @@ function Utilization() {
           {/* S E P A R A T I O N */}
           {/* button */}
           <div className={utilization.alert}>
-            <label className={utilization.alertLabel}>
-              No Folder For Your Class
-            </label>
+            <label className={utilization.alertLabel}>Click button</label>
             <button
               onClick={togglePopup}
               type="vCenter Folder Alert Button"
@@ -272,7 +278,7 @@ function Utilization() {
             >
               <i
                 className={utilization.alertIcon}
-                class="fa fa-question-circle fa-lg"
+                className="fa fa-question-circle fa-lg"
                 aria-hidden="true"
               ></i>
             </button>
@@ -295,7 +301,9 @@ function Utilization() {
                         src="../../images/LOGO-VIMA.png"
                         alt="logo"
                       />
-                      <h3>ALL THE STUDENT INFORMATION</h3>
+                      <h3 className={utilization.h3}>
+                        ALL THE STUDENT'S INFORMATION
+                      </h3>
                     </div>
                   </div>
                 </>
