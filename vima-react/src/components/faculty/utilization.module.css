@@ -338,7 +338,7 @@
   .utilization .vmTemplate {
     display: none;
   }
-  /* POPUP BOX */
+  /* POP UP ALERT */
   .utilization .popupbox {
     position: fixed;
     background: #0000007b;
@@ -347,10 +347,10 @@
     top: 0;
     left: 0;
   }
+
   .utilization .box {
     position: relative;
-    width: 70vw;
-    min-width: 170px;
+    width: 30%;
     margin: 0 auto;
     height: auto;
     max-height: 70vh;
@@ -358,35 +358,41 @@
     background: #fff;
     border-radius: 30px;
     padding: 20px;
-    border: 2px solid #999;
     overflow: hidden;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    width: 75vw;
+    min-width: 180px;
   }
-  .utilization .h3 {
-    padding: 5px 0px 20px 0px;
-  }
-  .utilization .closeicon {
-    content: "x";
-    cursor: pointer;
-    position: relative;
-    color: red;
-    font-weight: bold;
-    width: 20px;
-    height: 19px;
-    border-radius: 50%;
-    line-height: 16px;
-    text-align: center;
-    border: 3px solid white;
-    font-size: 20px;
-    align-self: flex-end;
-    transition: 0.3s;
+  .utilization .alertButton {
+    border: none;
   }
 
-  .utilization .scoreboard {
-    display: none;
+  .utilization .alertButton:hover {
+    cursor: pointer;
+    opacity: 90%;
+  }
+
+  .utilization .alertLabel {
+    font-weight: bold;
+    opacity: 50%;
+  }
+
+  .utilization .alert {
+    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+  }
+  .utilization .closeicon {
+    color: red;
+    font-weight: bold;
+  }
+
+  .utilization .closeicon:hover {
+    cursor: pointer;
+    opacity: 80%;
   }
 }
 
