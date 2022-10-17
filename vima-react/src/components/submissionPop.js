@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import addprofessor from "./submissionPop.module.css";
+import addprofessor from "./submissionpop.module.css";
 import { Link } from "react-router-dom";
 
 const SubmissionPopup = (props) => {
@@ -31,7 +31,7 @@ const SubmissionPopup = (props) => {
             <a href="javascript:;">
               <div
                 className={addprofessor.message}
-                onClick={()=>props.closeHandler(false)}
+                onClick={() => props.closeHandler(false)}
               >
                 {props.againOptionMessage}
               </div>
