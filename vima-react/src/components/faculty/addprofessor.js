@@ -6,6 +6,7 @@ import Header from "../../header";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../../utils/getApiRoot";
+import SubmissionPopup from "../submissionPop";
 
 function AddProfessor() {
   const body = document.querySelector("body");
@@ -21,7 +22,7 @@ function AddProfessor() {
   });
 
   const validateForm = async () => {
-    console.log("validateform here.")
+    console.log("validateform here.");
     let allFieldsValid = true;
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0) {
       allFieldsValid = false;
@@ -37,7 +38,7 @@ function AddProfessor() {
             email: email,
             usertype: "Professor",
             userAccess: true,
-            isAdmin: false
+            isAdmin: false,
           }),
           credentials: "include",
           headers: {
@@ -67,6 +68,13 @@ function AddProfessor() {
   // document.body.style.backgroundColor = null;
   // document.body.classList.remove("bg-salmon");
 
+  const closePopup = (closeBool) => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setIsOpen(closeBool);
+  };
+
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
@@ -83,13 +91,18 @@ function AddProfessor() {
         </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
-          <form action="#" className={addprofessor.form} onSubmit={(e)=>(e.preventDefault())}> 
+          <form
+            action="#"
+            className={addprofessor.form}
+            onSubmit={(e) => e.preventDefault()}
+          >
             {/* <!-- Course Name--> */}
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">First Name:</label>
                   <input
+                    value={firstName}
                     type="text"
                     id="fname"
                     name="firstName"
@@ -101,6 +114,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Last Name:</label>
                   <input
+                    value={lastName}
                     type="text"
                     id="lname"
                     name="lastName"
@@ -112,6 +126,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Email:</label>
                   <input
+                    value={email}
                     type="text"
                     id="email"
                     name="email"
@@ -135,24 +150,13 @@ function AddProfessor() {
               Add Professor
             </button>
             {isOpen && (
-              <div className={addprofessor.modal}>
-                <div className={addprofessor.modalBox}>
-                  <button
-                    className={addprofessor.closeBtn}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    X
-                  </button>
-                  <div className={addprofessor.message}>
-                    <div className={addprofessor.iconPlaceholder}>
-                      <FaCheck className={addprofessor.checkicon} />
-                    </div>
-                    <div className={addprofessor.message}>
-                      Added Successfully!
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <SubmissionPopup
+                closeHandler={closePopup}
+                message="Added Successfully!"
+                goBackRoute="/faculty"
+                againRoute=""
+                againOptionMessage="Add another professor"
+              />
             )}
           </form>
         </div>
