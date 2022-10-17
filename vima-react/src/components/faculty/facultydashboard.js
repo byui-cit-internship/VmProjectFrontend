@@ -65,13 +65,13 @@ const FacultyDashboard = () => {
               className={facultydashboard.add_class}
               id={facultydashboard.singleContainer}
               onClick={() => {
-                navigate("/addclass");
+                navigate("/myclasses");
               }}
             >
               <span className={facultydashboard.material}>
                 <AddCircleOutlineIcon style={iconStyles} />
               </span>
-              <button className={facultydashboard.button}>Add Class</button>
+              <button className={facultydashboard.button}>My Classes</button>
             </div>
             <div
               className={facultydashboard.add_professor}

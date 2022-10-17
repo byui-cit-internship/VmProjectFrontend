@@ -29,6 +29,7 @@
   display: flex;
   width: 100vw;
   height: 80px;
+  max-width: 1000px;
   font-family: Arial, Helvetica, sans-serif;
 }
 

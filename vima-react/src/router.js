@@ -12,6 +12,7 @@ import MyNetworks from "./components/student/mynetworks";
 import ProfessorList from "./components/faculty/professorlist";
 import CreatedSuccessfully from "./components/student/success";
 import MyClasses from "./components/faculty/myclasses";
+import Popup from "./components/faculty/Popup";
 
 export default function VimaRouter () {
     return (
