@@ -66,9 +66,11 @@ function AddClass() {
     if (response.ok) {
       setPopupMessage("Course added succesfully")
       setPopupAgainMessage("Add another course")
+      setIsSuccess(true)
     } else {
       setPopupMessage("Error adding the course")
       setPopupAgainMessage("Try again")
+      setIsSuccess(false)
     }
     setIsPopupOpen(true)
   };
@@ -95,6 +97,7 @@ function AddClass() {
     if (!tokenResponse.ok) {
       setPopupMessage("Canvas Id validation error")
       setPopupAgainMessage("Try again")
+      setIsSuccess(false)
       setIsPopupOpen(true)
     } else {
       await createCourse();

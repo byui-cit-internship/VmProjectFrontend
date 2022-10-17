@@ -12,6 +12,14 @@ function AddProfessor() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
+  const [isOpen, setIsOpen] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSuccess, setIsSuccess] = useState()
+  const [confirmationMessage, setConfirmationMessage] = useState()
+  const [againOptionMessage, setAgainOptionMessage] = useState()
+
   useEffect(() => {
     if (urlParams === "addprofessor") {
       body.style.height = "100vh";
@@ -31,7 +39,7 @@ function AddProfessor() {
       const response = await fetch(
         getApiRoot() + "/api/user/admin/createuser",
         {
-          method: "POST",
+          method: "GET",
           body: JSON.stringify({
             firstName: firstName,
             lastName: lastName,
@@ -46,20 +54,19 @@ function AddProfessor() {
           },
         }
       );
+      console.log(response)
       if (response.ok) {
-        setIsOpen(true);
-        //This makes the modal window popup
+        setConfirmationMessage("Professor added succesfully")
+        setAgainOptionMessage("Add another professor")
+        setIsSuccess(true)
       } else {
-        console.log("Error", responseStatus);
+        setConfirmationMessage("Error adding professor")
+        setAgainOptionMessage("Try again")
+        setIsSuccess(false)
       }
+      setIsOpen(true);
     }
   };
-
-  let navigate = useNavigate();
-  let [isOpen, setIsOpen] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
 
   // document.body.classList.add("bg-salmon");
   // document.body.style.backgroundColor = "green";
@@ -152,9 +159,9 @@ function AddProfessor() {
             {isOpen && (
               <SubmissionPopup
                 closeHandler={closePopup}
-                message="Added Successfully!"
-                againOptionMessage="Add another professor"
-                success={true}
+                message={confirmationMessage}
+                againOptionMessage={againOptionMessage}
+                success={isSuccess}
               />
             )}
           </form>
