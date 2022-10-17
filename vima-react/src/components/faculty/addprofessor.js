@@ -153,9 +153,8 @@ function AddProfessor() {
               <SubmissionPopup
                 closeHandler={closePopup}
                 message="Added Successfully!"
-                goBackRoute="/faculty"
-                againRoute=""
                 againOptionMessage="Add another professor"
+                success={true}
               />
             )}
           </form>
