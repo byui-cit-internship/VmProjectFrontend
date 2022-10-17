@@ -6,12 +6,23 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+.studentdashboard #singleContainer:hover {
+  cursor: pointer;
+}
+
+.studentdashboard .material:hover {
+  cursor: pointer;
+}
+
+.studentdashboard .button:hover {
+  cursor: pointer;
+}
+
 * {
   margin: 0;
 }
 
 .studentdashboard .container {
-  width: 1000px;
   background-color: white;
   height: 500px;
   border-radius: 50px;
@@ -80,7 +91,7 @@ https://www.byui.edu/branding/color-guide
   margin: auto 25px;
 }
 
-.studentdashboard button {
+.studentdashboard .button {
   background-color: transparent;
   color: white;
   font-size: 20px;
@@ -223,10 +234,117 @@ https://www.byui.edu/branding/color-guide
   padding-top: 18px;
 }
 
+/* Small View */
+@media screen and (max-width: 37.5em) {
+  .studentdashboard h1 {
+    padding-left: 0;
+  }
+
+  .studentdashboard .button {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 17px;
+  }
+  .studentdashboard .container {
+    border-radius: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .studentdashboard #greeting {
+    margin-top: 10px;
+    font-size: 17px;
+    padding-top: 0px;
+    padding-left: 0;
+  }
+  .studentdashboard .text {
+    margin: 25px 0px;
+  }
+
+  .studentdashboard .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .studentdashboard #singleContainer {
+    height: 45px;
+    border-radius: 7px;
+    width: 73vw;
+    margin-top: 15px;
+    margin-left: 0px;
+    display: flex;
+    max-width: 250px;
+    min-width: 185px;
+  }
+
+  .studentdashboard #singleContainer:hover {
+    cursor: pointer;
+  }
+  .studentdashboard .material:hover {
+    cursor: pointer;
+  }
+  .studentdashboard .button:hover {
+    cursor: pointer;
+  }
+
+  .studentdashboard .material {
+    padding-top: 0px !important;
+  }
+
+  .studentdashboard .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .studentdashboard .container {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .studentdashboard .main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .studentdashboard .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .studentdashboard #singleContainer {
+    margin-top: 20px;
+  }
+
+  .studentdashboard .text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .studentdashboard #greeting {
+    font-size: 1em;
+    padding-top: 8px;
+  }
+
+  .studentdashboard h1 {
+    margin-top: 50px;
+    font-size: 2.6em;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .studentdashboard .container {
+    width: 1000px;
+  }
+  .studentdashboard #greeting {
+    font-size: 21px;
+  }
 }

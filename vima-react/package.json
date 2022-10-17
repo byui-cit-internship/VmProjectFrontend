@@ -15,6 +15,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.2",
     "jwt-decode": "^3.1.2",
     "react": "^18.1.0",
     "react-burger-menu": "^3.0.8",
@@ -22,6 +23,7 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,7 +33,6 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {},
-
   "browserslist": {
     "production": [
       ">0.2%",

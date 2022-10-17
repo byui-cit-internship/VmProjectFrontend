@@ -94,7 +94,6 @@ function AddProfessor() {
                     id="fname"
                     name="firstName"
                     className={addprofessor.input}
-                    placeholder="Enter professor first name"
                     required
                     onChange={(event) => setFirstName(event.target.value)}
                   />
@@ -106,7 +105,6 @@ function AddProfessor() {
                     id="lname"
                     name="lastName"
                     className={addprofessor.input}
-                    placeholder="Enter professor last name"
                     required
                     onChange={(event) => setLastName(event.target.value)}
                   />
@@ -118,7 +116,6 @@ function AddProfessor() {
                     id="email"
                     name="email"
                     className={addprofessor.input}
-                    placeholder="Enter professor email"
                     required
                     onChange={(event) => setEmail(event.target.value)}
                   />

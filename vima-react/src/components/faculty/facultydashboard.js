@@ -91,12 +91,6 @@ const FacultyDashboard = () => {
           <button>VM Utilization</button>
         </div>
       </div>
-      {/* <button onClick={() => {navigate("/addvm")}}>Add VM</button> */}
-
-      {/* <!-- <a href="/fetch.html" class="submitBt btn-primary">Courses</a> --> */}
-
-      {/* <!-- <div id="admin_portal"> --> */}
-      {/* </div> */}
 
       <script
         src="https://apis.google.com/js/platform.js?onload=onLoad"

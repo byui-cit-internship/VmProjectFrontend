@@ -31,54 +31,64 @@ const StudentDashboard = () => {
         <div className={studentdashboard.header}>
           <Header userType="student" />
         </div>
-        <h1 id={studentdashboard.nameOfStudent}>
-          Hello{" "}
-          <span>
-            {userFirst} {userLast}
-          </span>
-        </h1>
-        <p id={studentdashboard.greeting}>How can we help you today?</p>
-        <div
-          className={studentdashboard.createvm}
-          onClick={() => {
-            navigate("/createvm");
-          }}
-        >
-          <span className={studentdashboard.material}>
-            <AddCircleOutlineIcon
-              studentdashboard={iconStyles}
-              className={studentdashboard.material}
-            />
-          </span>
-          <button>Create VM</button>
-        </div>
-        <div
-          className={studentdashboard.vm_utilization}
-          onClick={() => {
-            navigate("/myvm");
-          }}
-        >
-          <span className={studentdashboard.material}>
-            <Computer
-              studentdashboard={iconStyles}
-              className={studentdashboard.material}
-            />
-          </span>
-          <button>My VMS</button>
-        </div>
-        <div
-          className={studentdashboard.mynetworks}
-          onClick={() => {
-            navigate("/mynetworks");
-          }}
-        >
-          <span className={studentdashboard.material}>
-            <CloudQueue
-              studentdashboard={iconStyles}
-              className={studentdashboard.material}
-            />
-          </span>
-          <button>My Networks</button>
+        <div className={studentdashboard.main}>
+          <div className={studentdashboard.text}>
+            <h1 id={studentdashboard.nameOfStudent}>
+              Hello{" "}
+              <span>
+                {userFirst} {userLast}
+              </span>
+            </h1>
+            <p id={studentdashboard.greeting}>How can we help you today?</p>
+          </div>
+
+          <div className={studentdashboard.buttons}>
+            <div
+              className={studentdashboard.createvm}
+              id={studentdashboard.singleContainer}
+              onClick={() => {
+                navigate("/createvm");
+              }}
+            >
+              <span className={studentdashboard.material}>
+                <AddCircleOutlineIcon
+                  studentdashboard={iconStyles}
+                  className={studentdashboard.material}
+                />
+              </span>
+              <button className={studentdashboard.button}>Create VM</button>
+            </div>
+            <div
+              className={studentdashboard.vm_utilization}
+              id={studentdashboard.singleContainer}
+              onClick={() => {
+                navigate("/myvm");
+              }}
+            >
+              <span className={studentdashboard.material}>
+                <Computer
+                  studentdashboard={iconStyles}
+                  className={studentdashboard.material}
+                />
+              </span>
+              <button className={studentdashboard.button}>My VMS</button>
+            </div>
+            <div
+              className={studentdashboard.mynetworks}
+              id={studentdashboard.singleContainer}
+              onClick={() => {
+                navigate("/mynetworks");
+              }}
+            >
+              <span className={studentdashboard.material}>
+                <CloudQueue
+                  studentdashboard={iconStyles}
+                  className={studentdashboard.material}
+                />
+              </span>
+              <button className={studentdashboard.button}>My Networks</button>
+            </div>
+          </div>
         </div>
       </div>
       <script

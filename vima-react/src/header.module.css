@@ -1,11 +1,33 @@
 .header .logo {
   width: 170px;
-  margin: 17px;
+  margin: 17px 25px;
+}
+
+.header .signOut {
+  height: 20px;
+  color: red;
+  padding: 10px;
+  margin: 0px;
+  height: 40px;
+  border-radius: 25px;
+  font-size: 1em;
+  border: none;
+  background: none;
+}
+
+.header .signOut:hover {
+  cursor: pointer;
+  opacity: 85%;
+}
+
+.header .logo:hover {
+  cursor: pointer;
+  opacity: 95%;
 }
 
 .header {
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 80px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -49,6 +71,7 @@
 .header .rightSide .outHam:hover {
   font-size: 2.1em;
   text-shadow: 0 2px 2px 2px black;
+  cursor: pointer;
 }
 
 .header .rightSide #hidden {
@@ -75,7 +98,7 @@ a {
 /* need to be more specific */
 
 /* Small View */
-@media screen and (max-width: 37.4em) {
+@media screen and (max-width: 37.5em) {
   .header .header {
     align-items: baseline;
     height: 90px;
@@ -119,8 +142,35 @@ a {
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .header {
+    width: 100vw;
+  }
+
+  .header .links {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .header .rightSide .hamWrapper {
+    display: none;
+  }
+
+  .header {
+    width: 70vw;
+    min-width: 1000px;
+  }
+
+  /* .header {
+    width: 100vw;
+  }
+
+  .header .links {
+    display: flex;
+    color: red;
+    background: white;
+    align-items: center;
+  } */
 }

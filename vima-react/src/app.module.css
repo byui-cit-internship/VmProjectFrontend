@@ -1,3 +1,41 @@
+.app .googleLogin {
+  opacity: 1%;
+}
+
+.app .haAclf {
+  opacity: 1%;
+}
+
+.app iframe {
+  display: none;
+}
+
+.nsm7Bb-HzV7m-LgbsSe-bN97Pc-sM5MNb {
+  display: none;
+}
+
+.qJTHM {
+  display: none;
+}
+
+.nsm7Bb-HzV7m-LgbsSe {
+  opacity: 1%;
+}
+
+.jVeSEe {
+  opacity: 1%;
+}
+
+.i5vt6e-Ia7Qfc {
+  opacity: 1%;
+}
+
+.uaxL4e-RbRzK {
+  opacity: 1%;
+}
+
+/* .hello */
+
 .app {
   background-color: #006eb6;
 }
@@ -57,7 +95,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.container {
+.app .container {
   width: 1000px;
   background-color: white;
   height: 500px;
@@ -135,3 +173,113 @@ h3 {
 /* @media only screen and (min-width: 64em) {
 
 } */
+
+/* border-radius: 50px;
+@media only screen and (min-width: 37.4em) {
+/* Small View */
+@media only screen and (max-width: 37.4em) {
+  .app .h2 {
+    padding-left: 0px;
+  }
+
+  .app .container {
+    /* width: unset; */
+    width: 100vw;
+    background: white;
+    border-radius: 0px;
+    height: unset;
+    margin-top: 0px;
+    min-height: 100vh;
+  }
+
+  .app .logo {
+    padding: 28px;
+    width: 38vw;
+    margin-top: 0px;
+    max-width: 130px;
+  }
+
+  .app .p {
+    display: none;
+  }
+
+  .app .h2 {
+    font-size: 1.2em;
+    margin-top: 1.8em;
+  }
+
+  .app .image_and_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .app .imagehero {
+    display: unset;
+  }
+
+  .app .imagehero img {
+    display: unset;
+    width: 100vw;
+    max-width: 300px;
+  }
+
+  .app .button {
+    display: none;
+  }
+  .app .google_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 10px;
+    width: 130px;
+    /* background: linear-gradient(
+      0deg,
+      hsl(204deg 93% 66%) 0%,
+      hsl(205deg 79% 62%) 0%,
+      hsl(206deg 68% 57%) 0%,
+      hsl(206deg 59% 53%) 2%,
+      hsl(207deg 55% 48%) 4%,
+      hsl(208deg 56% 47%) 8%,
+      hsl(208deg 56% 47%) 13%,
+      hsl(208deg 56% 47%) 20%,
+      hsl(208deg 56% 47%) 30%,
+      hsl(207deg 55% 48%) 43%,
+      hsl(206deg 59% 53%) 58%,
+      hsl(206deg 68% 57%) 75%,
+      hsl(205deg 79% 62%) 90%,
+      hsl(204deg 93% 66%) 100%
+    ); */
+  }
+
+  .app .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 61px;
+  }
+
+  .nsm7Bb-HzV7m-LgbsSe {
+    display: none;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.4em) {
+  .app .container {
+    width: 90vw;
+    min-width: none;
+    height: 500px;
+  }
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+  .app .container {
+    width: 1000px;
+    min-width: none;
+    height: 500px;
+  }
+}

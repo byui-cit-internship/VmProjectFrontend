@@ -230,10 +230,22 @@ https://www.byui.edu/branding/color-guide
   .addprofessor .data {
     margin-bottom: 5em;
   }
+
+  .addprofessor .singleContainer input {
+    width: 250px;
+  }
+
+  .addprofessor .container {
+    margin-top: 0px !important;
+  }
 }
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
+  .addprofessor .container {
+    margin-top: 40px !important;
+  }
+
   .addprofessor .flexContainer {
     flex-direction: column;
     align-items: center;
@@ -257,6 +269,10 @@ https://www.byui.edu/branding/color-guide
 
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .addprofessor .singleContainer label {
+    margin-bottom: 4px;
+  }
+
   .addprofessor .image {
     width: 450px;
   }
@@ -266,6 +282,7 @@ https://www.byui.edu/branding/color-guide
     margin-top: 50px;
     margin: auto auto;
     border-radius: 50px;
+    margin-top: 40px !important;
   }
 
   .addprofessor .flexContainer {
