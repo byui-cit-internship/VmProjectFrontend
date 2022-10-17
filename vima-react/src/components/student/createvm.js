@@ -71,55 +71,57 @@ function CreateVM() {
         >
           &#8592; Back
         </span> */}
-        <h4 className={createVM.lets}>Let's create a VM</h4>
-        <div>
-          {!loading ? (
-            <div className={createVM.body}>
-              {/* <!-- course dropdown -->  */}
-              <span className={createVM.material}>
-                <LibraryBooksIcon className={createVM.material} />
-              </span>
-              <p className={createVM.description}>1. Select Course</p>
-              <select
-                className="course"
-                id={createVM.course}
-                onChange={(e) => setEnrollmentId(e.target.value)}
-              >
-                <option value="Default">- Select -</option>
-                {courseList.map((course) => (
-                  <option value={course.enrollmentId}>
-                    {course.courseName}
-                  </option>
-                ))}
-              </select>
+        <div className={createVM.main}>
+          <h4 className={createVM.lets}>Let's create a VM</h4>
+          <div>
+            {!loading ? (
+              <div className={createVM.body}>
+                {/* <!-- course dropdown -->  */}
+                <span className={createVM.material}>
+                  <LibraryBooksIcon className={createVM.material} />
+                </span>
+                <p className={createVM.description}>1. Select Course</p>
+                <select
+                  className="course"
+                  id={createVM.course}
+                  onChange={(e) => setEnrollmentId(e.target.value)}
+                >
+                  <option value="Default">- Select -</option>
+                  {courseList.map((course) => (
+                    <option value={course.enrollmentId}>
+                      {course.courseName}
+                    </option>
+                  ))}
+                </select>
 
-              {/* template vm dropdown - Not needed for MVP */}
-              {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
+                {/* template vm dropdown - Not needed for MVP */}
+                {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
           <p className={createVM.description}>2. Select VM</p>
           <select name="templatevm" id={createVM.course}>
             <option value="Default">-  Select -</option>
           </select> */}
 
-              {/* <!--Create the VM--> */}
-              <span className={createVM.material}>
-                <CheckCircleOutlineIcon className={createVM.material} />
-              </span>
-              <p className={createVM.description}>2. Create the VM</p>
-              <input id="vm_name" type="hidden" value="Default Vm" />
-              <button id={createVM.buttonVm} onClick={postVm}>
-                Create
-              </button>
-            </div>
-          ) : (
-            <p></p>
-          )}
-          {loading ? (
-            <div className={createVM.loading}>
-              <p>Please wait...</p>
-            </div>
-          ) : (
-            <p></p>
-          )}
+                {/* <!--Create the VM--> */}
+                <span className={createVM.material}>
+                  <CheckCircleOutlineIcon className={createVM.material} />
+                </span>
+                <p className={createVM.description}>2. Create the VM</p>
+                <input id="vm_name" type="hidden" value="Default Vm" />
+                <button id={createVM.buttonVm} onClick={postVm}>
+                  Create
+                </button>
+              </div>
+            ) : (
+              <p></p>
+            )}
+            {loading ? (
+              <div className={createVM.loading}>
+                <p>Please wait...</p>
+              </div>
+            ) : (
+              <p></p>
+            )}
+          </div>
         </div>
         <script
           src="https://apis.google.com/js/platform.js?onload=onLoad"
