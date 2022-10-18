@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import addprofessor from "./submissionpop.module.css";
+import submissionpop from "./submissionpop.module.css";
 import { Link } from "react-router-dom";
 
 const SubmissionPopup = (props) => {
@@ -17,20 +17,20 @@ const SubmissionPopup = (props) => {
   }
 
   return (
-    <div className={addprofessor.modal}>
-      <div className={addprofessor.modalBox}>
-        <div className={addprofessor.message}>
-          <div className={addprofessor.iconPlaceholder}>
-            <FaCheck className={addprofessor.checkicon} />
+    <div className={submissionpop.modal}>
+      <div className={submissionpop.modalBox}>
+        <div className={submissionpop.message}>
+          <div className={submissionpop.iconPlaceholder}>
+            <FaCheck className={submissionpop.checkicon} />
           </div>
-          <div className={addprofessor.message}>{props.message}</div>
-          <div className={addprofessor.optionsContainer}>
+          <div className={submissionpop.message}>{props.message}</div>
+          <div className={submissionpop.optionsContainer}>
             <Link to={goBackRoute}>
-              <div className={addprofessor.message}>Go back to dashboard</div>
+              <div className={submissionpop.message}>Go back to dashboard</div>
             </Link>
             <a href="javascript:;">
               <div
-                className={addprofessor.message}
+                className={submissionpop.message}
                 onClick={() => props.closeHandler(false)}
               >
                 {props.againOptionMessage}
