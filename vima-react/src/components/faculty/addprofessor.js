@@ -6,7 +6,7 @@ import Header from "../../header";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../../utils/getApiRoot";
-import SubmissionPopup from "../submissionPop";
+import SubmissionPopup from "../submissionpop";
 
 function AddProfessor() {
   const body = document.querySelector("body");
