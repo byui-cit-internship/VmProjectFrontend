@@ -26,7 +26,7 @@ const SubmissionPopup = (props) => {
           <div className={submissionpop.message}>{props.message}</div>
           <div className={submissionpop.optionsContainer}>
             <Link to={goBackRoute}>
-              <div className={submissionpop.message}>Go back to dashboard</div>
+              <div className={submissionpop.message}>Goo back to dashboard</div>
             </Link>
             <a href="javascript:;">
               <div
