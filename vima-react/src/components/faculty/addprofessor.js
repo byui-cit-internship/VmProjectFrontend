@@ -39,7 +39,7 @@ function AddProfessor() {
       const response = await fetch(
         getApiRoot() + "/api/user/admin/createuser",
         {
-          method: "GET",
+          method: "POST",
           body: JSON.stringify({
             firstName: firstName,
             lastName: lastName,
