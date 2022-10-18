@@ -1,6 +1,7 @@
 import React from "react";
 import { FaSadTear, FaCheck } from "react-icons/fa";
 import submissionPop from "./submissionpop.module.css";
+
 import { Link } from "react-router-dom";
 
 const SubmissionPopup = (props) => {
@@ -38,6 +39,7 @@ const SubmissionPopup = (props) => {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };
