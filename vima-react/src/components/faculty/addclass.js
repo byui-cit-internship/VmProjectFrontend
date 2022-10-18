@@ -6,8 +6,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
 import Popup from "./Popup.js";
-import SubmissionPopup from "../submissionPop";
-import SelectInput from "@mui/material/Select/SelectInput";
+import SubmissionPopup from "../submissionpop";
 
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/

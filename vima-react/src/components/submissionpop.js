@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaSadTear, FaCheck } from "react-icons/fa";
-import addprofessor from "./submissionPop.module.css";
+import submissionPop from "./submissionpop.module.css";
 import { Link } from "react-router-dom";
 
 const SubmissionPopup = (props) => {
@@ -16,20 +16,20 @@ const SubmissionPopup = (props) => {
     }
 
     return (
-        <div className={addprofessor.modal}>
-            <div className={addprofessor.modalBox}>
-                <div className={addprofessor.message}>
-                    <div className={addprofessor.iconPlaceholder}>
-                        {props.success ? <FaCheck className={addprofessor.checkicon} /> : <FaSadTear className={addprofessor.checkicon} />}
+        <div className={submissionPop.modal}>
+            <div className={submissionPop.modalBox}>
+                <div className={submissionPop.message}>
+                    <div className={submissionPop.iconPlaceholder}>
+                        {props.success ? <FaCheck className={submissionPop.checkicon} /> : <FaSadTear className={submissionPop.checkicon} />}
                     </div>
-                    <div className={addprofessor.message}>{props.message}</div>
-                    <div className={addprofessor.optionsContainer}>
+                    <div className={submissionPop.message}>{props.message}</div>
+                    <div className={submissionPop.optionsContainer}>
                         <Link to={goBackRoute}>
-                            <div className={addprofessor.message}>Go back to dashboard</div>
+                            <div className={submissionPop.message}>Go back to dashboard</div>
                         </Link>
                         <a href="javascript:;">
                             <div
-                                className={addprofessor.message}
+                                className={submissionPop.message}
                                 onClick={() => props.closeHandler(false)}
                             >
                                 {props.againOptionMessage}
