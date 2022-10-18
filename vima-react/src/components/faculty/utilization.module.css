@@ -63,10 +63,6 @@
   padding: 15px;
 }
 
-.utilization div {
-  margin: auto auto;
-}
-
 .utilization h1 {
   grid-row: 2/3;
   grid-column: 1/2;
@@ -198,8 +194,9 @@
 
 /* Small View */
 @media only screen and (max-width: 37.5em) {
-  .utilization {
+  .utilization .utilization {
     margin: unset;
+    margin: 0px;
   }
 
   .utilization h1 {
@@ -216,6 +213,7 @@
     flex-direction: column;
     align-items: center;
     margin: unset;
+    min-width: 285px;
   }
 
   .utilization .container {
@@ -256,7 +254,7 @@
     display: flex;
     flex-direction: column;
     margin: unset;
-    width: 80vw;
+    width: unset;
   }
 
   .utilization .listHead {
@@ -304,6 +302,7 @@
 
   .utilization .updateList {
     width: 80vw;
+    max-width: 242px;
   }
 
   .utilization .updateList::-webkit-scrollbar {
@@ -339,15 +338,188 @@
   .utilization .vmTemplate {
     display: none;
   }
+  /* POP UP ALERT */
+  .utilization .popupbox {
+    position: fixed;
+    background: #0000007b;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+
+  .utilization .box {
+    position: relative;
+    width: 30%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    width: 75vw;
+    min-width: 180px;
+  }
+  .utilization .alertButton {
+    border: none;
+  }
+
+  .utilization .alertButton:hover {
+    cursor: pointer;
+    opacity: 90%;
+  }
+
+  .utilization .alertLabel {
+    font-weight: bold;
+    opacity: 50%;
+  }
+
+  .utilization .alert {
+    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+  }
+  .utilization .closeicon {
+    color: red;
+    font-weight: bold;
+  }
+
+  .utilization .closeicon:hover {
+    cursor: pointer;
+    opacity: 80%;
+  }
 }
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .utilization .container {
+    width: 90vw;
+  }
+
+  .utilization .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .utilization .courseselect {
+    display: flex;
+    font-size: unset;
+    margin: unset;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+  }
+
+  .utilization .dropdown {
+    font-size: 0.9em;
+  }
+  .utilization .dropdownDescription {
+    margin-right: unset;
+    width: unset;
+    font-size: unset;
+  }
+  .utilization .templatesAvailable {
+    margin: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .utilization .h2available {
+    margin-top: 2em;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    padding: 0;
+  }
+
+  .utilization .button {
+    padding: unset;
+    justify-content: unset;
+  }
+
+  .utilization .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Raleway";
+    padding: 5px 18px;
+    cursor: pointer;
+    width: unset;
+    height: unset;
+    margin: 0 10px 0px 0px;
+    font-size: unset;
+  }
+
+  .utilization .twoTables {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .utilization .searchBar {
+    display: unset;
+    margin: unset;
+  }
+
+  .utilization .listHead {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: unset;
+    margin: unset;
+  }
+
+  .utilization .updateList {
+    width: unset;
+  }
+
+  .utilization .scoreboard {
+    margin-top: 20px;
+  }
+  .utilization .alertLabel {
+    display: none;
+  }
+  .utilization .alertButton {
+    display: none;
+  }
+
+  .utilization .scoreboard {
+    background: lightgrey;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 5px;
+  }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
   .utilization .container {
     width: 1000px;
+  }
+  .utilization .twoTables {
+    flex-direction: row;
+  }
+  .utilization .scoreboard {
+    background: lightgray;
+    border-radius: 8px;
+    padding: 5px;
+    max-width: 550px;
+    margin: 68px 0px 0px 10px;
+    border: none;
+  }
+
+  .utilization .alertLabel {
+    display: none;
+  }
+  .utilization .alertButton {
+    display: none;
   }
 }
