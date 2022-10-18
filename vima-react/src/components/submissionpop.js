@@ -1,6 +1,6 @@
 import React from "react";
 import { FaSadTear, FaCheck } from "react-icons/fa";
-import submissionPop from "./submissionpop.module.css";
+import submissionPop from "./submissionpopup.module.css";
 
 import { Link } from "react-router-dom";
 
