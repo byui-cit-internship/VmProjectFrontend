@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
-// import background from './background.module.css';
 import addprofessor from "./addprofessor.module.css";
-import { useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { useState } from "react";
-import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../../utils/getApiRoot";
 import SubmissionPopup from "../submissionpop";
 
@@ -12,9 +9,13 @@ function AddProfessor() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
-  // EMAIL VALIDATION LINES
-  const [message, setMessage] = useState("");
-  const [error, setError] = useState(null);
+  const [isOpen, setIsOpen] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSuccess, setIsSuccess] = useState();
+  const [confirmationMessage, setConfirmationMessage] = useState();
+  const [againOptionMessage, setAgainOptionMessage] = useState();
 
   useEffect(() => {
     if (urlParams === "addprofessor") {
@@ -50,20 +51,19 @@ function AddProfessor() {
           },
         }
       );
+      console.log(response);
       if (response.ok) {
-        setIsOpen(true);
-        //This makes the modal window popup
+        setConfirmationMessage("Professor added succesfully");
+        setAgainOptionMessage("Add another professor");
+        setIsSuccess(true);
       } else {
-        console.log("Error", responseStatus);
+        setConfirmationMessage("Error adding professor");
+        setAgainOptionMessage("Try again");
+        setIsSuccess(false);
       }
+      setIsOpen(true);
     }
   };
-
-  let navigate = useNavigate();
-  let [isOpen, setIsOpen] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
 
   // document.body.classList.add("bg-salmon");
   // document.body.style.backgroundColor = "green";
@@ -239,10 +239,9 @@ function isValidEmail(email) {
             {isOpen && (
               <SubmissionPopup
                 closeHandler={closePopup}
-                message="Added Successfully!"
-                goBackRoute="/faculty"
-                againRoute=""
-                againOptionMessage="Add another professor"
+                message={confirmationMessage}
+                againOptionMessage={againOptionMessage}
+                success={isSuccess}
               />
             )}
           </form>
