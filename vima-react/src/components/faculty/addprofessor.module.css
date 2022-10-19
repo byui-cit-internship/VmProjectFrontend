@@ -13,6 +13,19 @@ https://www.byui.edu/branding/color-guide
 } */
 
 /* Small View */
+.addprofessor .emailValidation {
+  position: absolute;
+  margin-top: 4.8em;
+  color: red;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+}
+
 .addprofessor .container {
   background-color: white;
   margin-top: 50px;
@@ -261,9 +274,16 @@ https://www.byui.edu/branding/color-guide
   .addprofessor .data {
     margin-bottom: 0px;
   }
-
+  .addprofessor .image {
+    margin-top: 14px;
+  }
   .addprofessor img {
     width: 235px;
+  }
+
+  .addprofessor .emailValidation {
+    margin-top: 3.8em;
+    margin-left: 112px;
   }
 }
 

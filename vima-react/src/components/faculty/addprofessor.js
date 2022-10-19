@@ -12,6 +12,10 @@ function AddProfessor() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
+  // EMAIL VALIDATION LINES
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     if (urlParams === "addprofessor") {
       body.style.height = "100vh";
@@ -75,6 +79,23 @@ function AddProfessor() {
     setIsOpen(closeBool);
   };
 
+  // separation
+  // email validation lines
+  function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleChange = (event) => {
+    if (!isValidEmail(event.target.value)) {
+      setError("Email is invalid");
+    } else {
+      setError(null);
+    }
+
+    setMessage(event.target.value);
+  };
+  // separation
+
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
@@ -123,7 +144,49 @@ function AddProfessor() {
                     onChange={(event) => setLastName(event.target.value)}
                   />
                 </div>
-                <div className={addprofessor.singleContainer}>
+
+                {/* SEPARATION 
+function isValidEmail(email) {
+    return /\S+@\S+\.\S+/.test(email);
+  }
+
+  const handleChange = event => {
+    if (!isValidEmail(event.target.value)) {
+      setError('Email is invalid');
+    } else {
+      setError(null);
+    }
+
+    setMessage(event.target.value);
+  };
+
+
+
+
+
+
+
+  return (
+  <div className={addprofessor.singleContainer}>
+    <label htmlFor="name">Email:</label>
+      <input
+        value={message}
+        type="text"
+        id="message"
+        name="message"
+        className={addprofessor.input}
+        required
+        onChange={handleChange}
+      />
+
+      {error && <h2 style={{color: 'red'}}>{error}</h2>}
+    </div>
+  </div>
+  );
+}
+ SEPARATION */}
+
+                {/* <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Email:</label>
                   <input
                     value={email}
@@ -134,7 +197,31 @@ function AddProfessor() {
                     required
                     onChange={(event) => setEmail(event.target.value)}
                   />
+                </div> */}
+
+                <div className={addprofessor.singleContainer}>
+                  <label htmlFor="name">Email:</label>
+                  <input
+                    value={email}
+                    type="text"
+                    id="message"
+                    name="message"
+                    className={addprofessor.input}
+                    required
+                    onChange={(event) => setEmail(event.target.value)}
+                    // onChange={handleChange}
+                  />
+
+                  {error && (
+                    <h2
+                      className={addprofessor.emailValidation}
+                      style={{ color: "red" }}
+                    >
+                      {error}
+                    </h2>
+                  )}
                 </div>
+                {/* </div> */}
               </div>
               <img
                 className={addprofessor.image}
