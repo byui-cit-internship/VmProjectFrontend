@@ -45,9 +45,9 @@ function MyVM() {
             </thead>
             <tbody>
               {vmList.map((item) =>(
-                <div value={item.vmName} className={myvm.tableheader}>
+                <tr value={item.vmName} className={myvm.tableheader}>
                   {item.vmName}
-                </div>
+                </tr>
               ))}
             </tbody>
           </table>
