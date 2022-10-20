@@ -9,16 +9,21 @@ function MyVM() {
   const [vmList, setVmList] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
-    const getCourseList = async () => {
-      const courseResponse = await fetch(getApiRoot() + "/", {
+    const getVmList = async () => {
+      const listResponse = await fetch(
+        getApiRoot() + "/api/vmtable/instances", 
+        {
+        method: "GET",
         credentials: "include",
         headers: {
           "content-type": "application/json",
         },
-        method: "GET",
-      });
-      const courseResponseObject = await courseResponse.json();
-      console.log(courseResponseObject);
+      }
+    );
+    console.log(listResponse);
+    const vmList = await listResponse.json();
+    console.log("virtual machines; ", vmList);
+    setVmList(vmList);
     };
     getVmList();
   }, []);
@@ -39,11 +44,11 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-            vmList.map((item) => {(
-              <tr value={item.vmName}>
-              {item.vmName}
-              </tr>
-              )}
+            {vmList.map((item) =>(
+              <div value={item.vmName}>
+                {item.vmName}
+              </div>
+            ))}
             </tbody>
           </table>
         </div>
