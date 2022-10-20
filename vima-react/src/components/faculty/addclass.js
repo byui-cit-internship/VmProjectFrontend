@@ -21,38 +21,39 @@ function AddClass() {
   const [templateVmList, setTemplateVmList] = useState([]);
   const [courseCode, setCourseCode] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
-  const [courseName, setCourseName] = useState("");
+  const [sectionName, setSectionName] = useState("");
   const [courseSemester, setCourseSemester] = useState("");
-  const [courseYear, setCourseYear] = useState("");
+  const [semesterYear, setSemesterYear] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [visibleFolderName, setVisibleFolderName] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [description, setDescription] = useState()
-  const [libraryId, setLibraryId] = useState()
-  const [isPopupOpen, setIsPopupOpen] = useState()
-  const [popupMessage, setPopupMessage] = useState()
-  const [popupAgainMessage, setPopupAgainMessage] = useState()
-  const [success, setIsSuccess] = useState()
-  const selectElement = useRef()
+  const [libraryId, setLibraryId] = useState();
+  const [resourceGroupName, setResourceGroupName] = useState();
+  const [isPopupOpen, setIsPopupOpen] = useState();
+  const [popupMessage, setPopupMessage] = useState();
+  const [popupAgainMessage, setPopupAgainMessage] = useState();
+  const [success, setIsSuccess] = useState();
+  const selectElement = useRef();
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     console.log(courseCode)
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        canvasCourseId: canvasCourseId,
-        courseName: courseCode, // Passing course code because table is set to varchar(20), so it wont accept long strings...
-        description: description,
-        canvasToken: canvasToken,
-        section_num: "1",
+         
+        sectionName: sectionName,
+        courseCode: courseCode,
+        canvas_token: canvasToken,
+        section_num: "1", 
         semester: courseSemester,
-        courseYear: courseYear,
-        userId: userId,
-        teacherId: userId,
+        libraryId: libraryId,
+        folder: vCenterFolderId,
         templateVm: [templateVm],
-        folder: vCenterFolderId
+        resource_group: "blah",
+        userId: userId,
+        semesterYear: semesterYear,
+        canvasCourseId: canvasCourseId
       }),
       credentials: 'include',
       headers: {
@@ -201,34 +202,17 @@ width=0,height=0,left=-1000,top=-1000`;
 
   //*************Maps course list string from canvas and sets course description****************/
 
-  // Not needed?
-  function canvasDesc(item) {
-    const canvasDescList = canvasCourses
-      .filter((element) => {
-        return element.id == item;
-      })
-      .map((desc) => {
-        return [desc.name];
-      });
-    console.log(canvasDescList);
-    let canvasDescString = "";
-    if (canvasDescList.length > 0) {
-      canvasDescString = canvasDescList[0][0];
-    }
-    setDescription(canvasDescString);
-  };
 
   /* What happens after selecting course id */
   const updateInputs = (event) => {
     const code = event.target.options[event.target.selectedIndex].dataset.code
     const id = event.target.options[event.target.selectedIndex].dataset.id
     const name = event.target.options[event.target.selectedIndex].dataset.name
-
-    setCourseCode(code); //course code probably not needed
+    
+    setCourseCode(code);
     setCanvasCourseId(id);
-    setCourseName(name);
+    setSectionName(name);
 
-    canvasDesc(event.target.value)
     vmFolder(code)
   }
 
