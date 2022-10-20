@@ -220,7 +220,7 @@ width=0,height=0,left=-1000,top=-1000`;
     selectElement.current.reset()
     setCanvasCourseId("")
     setCourseCode("")
-    setCourseYear("")
+    setSemesterYear("")
     setCourseSemester("")
     setLibraryId("")
     setIsPopupOpen(closeBool);
@@ -294,7 +294,7 @@ width=0,height=0,left=-1000,top=-1000`;
                 id={addclass.semester}
                 required
                 onChange={(event) => {
-                  setCourseYear(event.target.value);
+                  setSemesterYear(event.target.value);
                 }}
                 disabled={!courseCode}
               >
@@ -319,7 +319,7 @@ width=0,height=0,left=-1000,top=-1000`;
             {/* Semester */}
             <div className={addclass.semester}>
               <label>Choose Semester:</label>
-              <select name="semester" id="semester" required disabled={!courseYear} onChange={(event) => {
+              <select name="semester" id="semester" required disabled={!semesterYear} onChange={(event) => {
                 setCourseSemester(event.target.value)
               }}>
                 <option name="option" value="" hidden>
