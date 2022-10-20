@@ -6,19 +6,24 @@ import React, { useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {
-  const [vmList, setVmList] = useState([]);
   let navigate = useNavigate();
+  const [vmList, setVmList] = useState([]);
   useEffect(() => {
-    const getCourseList = async () => {
-      const courseResponse = await fetch(getApiRoot() + "/", {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-        method: "GET",
-      });
-      const courseResponseObject = await courseResponse.json();
-      console.log(courseResponseObject);
+    const getVmList = async () => {
+      const listResponse = await fetch(
+        getApiRoot() + "/api/vmtable/instances", 
+        {
+            method: "GET",
+            credentials: "include",
+            headers: {
+            "content-type": "application/json",
+          },
+        }
+      );  
+      console.log(listResponse);
+      const vmList = await listResponse.json();
+      console.log("vm's", vmList);
+      setVmList(VmList);
     };
     getVmList();
   }, []);
@@ -39,11 +44,11 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-            vmList.map((item) => {(
-              <tr value={item.vmName}>
-              {item.vmName}
-              </tr>
-              )}
+              {vmList.map((item) =>(
+                <div value={item.vmName} className={myvm.tableheader}>
+                  {item.vmName}
+                </div>
+              ))}
             </tbody>
           </table>
         </div>
