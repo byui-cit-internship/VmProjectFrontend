@@ -307,7 +307,7 @@ width=0,height=0,left=-1000,top=-1000`;
 
           {/*Semester*/}
           <div>
-            <label>Choose Semester: </label><br></br>
+            <label className={addclass.label} >Choose Semester: </label><br></br>
             <select className={addclass.select} name="semester" required disabled={!courseYear}
             onChange={(event) => {setCourseSemester(event.target.value)}}>
               <option name="option" value="" hidden>Default</option>

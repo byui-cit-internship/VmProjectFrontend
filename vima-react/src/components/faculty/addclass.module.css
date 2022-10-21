@@ -217,6 +217,9 @@ h3 {
     height: 100%;
     margin-top: 0;
   }
+  .addclass .table{
+    display: block;
+  }
   .addclass h1{
     font-size: 3rem;
     text-align: center;
@@ -226,8 +229,13 @@ h3 {
     font-weight: bold;
   }
   .addclass .form{
+    display: block;
+  }
+  .addclass .flex1{
     width: 90%;
-    margin: 0 auto;
+  }
+  .addclass .flex2{
+    width: 90%;
   }
   .addclass .form select{
     font-size: 2rem;
