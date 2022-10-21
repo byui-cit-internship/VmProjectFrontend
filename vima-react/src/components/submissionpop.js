@@ -39,7 +39,6 @@ const SubmissionPopup = (props) => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };
