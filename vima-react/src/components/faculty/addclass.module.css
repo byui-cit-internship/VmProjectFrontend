@@ -4,55 +4,9 @@ black: #000000
 white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
-
-/* Small View */
-.addclass #formheader {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding-top: 2em;
-  padding-bottom: 1em;
-  align-items: center;
-}
-
-.addclass #formheader h1 {
-  font-size: 1.8em;
-  font-weight: bold;
-  grid-column: 2;
-  text-align: center;
-}
-
-.addclass #backbtn {
-  display: flex;
-  color: #006eb6;
-  margin-left: 50px;
-  cursor: pointer;
-  font-size: 1.3em;
-  margin-top: 0.7em;
-}
-
-.addclass #backbtn:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.addclass #gridcont {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10px;
-  background-color: #f0f0f0;
-  width: 900px;
-  margin: 30px auto;
-  padding: 20px;
-}
-
 .addclass body {
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
-}
-
-.addclass h1 {
-  grid-row: 1/2;
 }
 
 .addclass .container {
@@ -61,16 +15,37 @@ https://www.byui.edu/branding/color-guide
   border-radius: 50px;
   margin: 50px auto;
   padding: 15px;
+  color: #00568f
 }
-
-.addclass .column1 {
-  grid-row: 2/2;
+.addclass h1{
+  text-align: center;
+  color: #00568f;
 }
-
-.addclass .column2 {
-  grid-row: 2/2;
+.addclass .form{
+  display: flex;
+  gap: 30px;
 }
-
+.addclass .flex1{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  width: 45%;
+  flex-direction: column;
+  justify-content: center;
+}
+.addclass .flex2{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px;
+  width: 45%;
+  flex-direction: column;
+}
+.addclass .courseIdInput{
+  width: 95%;
+}
+.addclass .select{
+  width: 100%;
+}
 .addclass .validation {
   color: #ff0000;
   text-align: left;
@@ -86,6 +61,9 @@ https://www.byui.edu/branding/color-guide
   padding: 10px 10px;
   margin-top: 10px;
   position: relative;
+}
+.addclass .courseIdInput{
+  width: 38%;
 }
 
 .addclass .alertButton {
@@ -234,22 +212,33 @@ h3 {
 
 @media screen and (max-width: 37.4em) {
   .addclass .container{
-    background-color: white;
-    padding: 15px;
-    width: unset;
+    border-radius: 0px;
+    width: 100vw;
+    height: 100%;
+    margin-top: 0;
   }
-  .addclass .gridcont {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px;
-    background-color: #f0f0f0;
-    /* width: 900px; */
-    margin: 30px auto;
-    padding: 20px;
-}
+  .addclass h1{
+    font-size: 3rem;
+    text-align: center;
+  }
+  .addclass .label{
+    font-size:2rem;
+    font-weight: bold;
+  }
+  .addclass .form{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .addclass .form select{
+    font-size: 2rem;
+    width: 100%;
+  }
+  .addclass .courseIdInput{
+    font-size: 2rem;
+  }
+  .addclass .btnprimary{
+    width: 50%;
+    margin-left: 25%;
+  }
 }
 
-/* Large View */
-@media only screen and (min-width: 64em) {
-}
