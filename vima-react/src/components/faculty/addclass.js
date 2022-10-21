@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
-// import FacultyDashboard from "../../facultydashboard";
 import Popup from "./Popup.js";
+import SubmissionPopup from "../submissionpop";
 
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
@@ -21,34 +21,39 @@ function AddClass() {
   const [templateVmList, setTemplateVmList] = useState([]);
   const [courseCode, setCourseCode] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
-  const [courseName, setCourseName] = useState("");
+  const [sectionName, setSectionName] = useState("");
   const [courseSemester, setCourseSemester] = useState("");
-  const [courseYear, setCourseYear] = useState("");
+  const [semesterYear, setSemesterYear] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [visibleFolderName, setVisibleFolderName] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [description, setDescription] = useState()
-  const [libraryId, setLibraryId] = useState()
-
+  const [libraryId, setLibraryId] = useState();
+  const [resourceGroupName, setResourceGroupName] = useState();
+  const [isPopupOpen, setIsPopupOpen] = useState();
+  const [popupMessage, setPopupMessage] = useState();
+  const [popupAgainMessage, setPopupAgainMessage] = useState();
+  const [success, setIsSuccess] = useState();
+  const selectElement = useRef();
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     console.log(courseCode)
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        canvasCourseId: canvasCourseId, 
-        courseName: courseCode, // Passing course code because table is set to varchar(20), so it wont accept long strings...
-        description: description, 
-        canvasToken: canvasToken,
+         
+        sectionName: sectionName,
+        courseCode: courseCode,
+        canvas_token: canvasToken,
         section_num: "1", 
-        semester: courseSemester, 
-        courseYear: courseYear, 
-        userId: userId, 
-        teacherId: userId, 
+        semester: courseSemester,
+        libraryId: libraryId,
+        folder: vCenterFolderId,
         templateVm: [templateVm],
-        folder: vCenterFolderId 
+        resource_group: "blah",
+        userId: userId,
+        semesterYear: semesterYear,
+        canvasCourseId: canvasCourseId
       }),
       credentials: 'include',
       headers: {
@@ -59,11 +64,15 @@ function AddClass() {
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course", options);
     if (response.ok) {
-      alert("Course was added");
+      setPopupMessage("Course added succesfully")
+      setPopupAgainMessage("Add another course")
+      setIsSuccess(true)
     } else {
-      alert("Error adding course.")
+      setPopupMessage("Error adding the course")
+      setPopupAgainMessage("Try again")
+      setIsSuccess(false)
     }
-    console.log(response)
+    setIsPopupOpen(true)
   };
 
   //*********Validates the Canvas token************/
@@ -84,12 +93,12 @@ function AddClass() {
       }
     );
 
-    const canvasValidationObject = await tokenResponse.json();
-    if (tokenResponse.status != 200) {
-      alert(
-        "Canvas Validation failed with the error: " +
-          JSON.stringify(canvasValidationObject.errors)
-      );
+    // const canvasValidationObject = await tokenResponse.json();
+    if (!tokenResponse.ok) {
+      setPopupMessage("Canvas Id validation error")
+      setPopupAgainMessage("Try again")
+      setIsSuccess(false)
+      setIsPopupOpen(true)
     } else {
       await createCourse();
     }
@@ -128,7 +137,6 @@ function AddClass() {
         },
         method: 'GET',
       }
-      //PUT THIS TEMPORARY URL IN JUST SO I CAN SEE A COUPLE TEMPLATES
       const listResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`, methods);
 
       const listResponseObject = await listResponse.json()
@@ -183,7 +191,7 @@ width=0,height=0,left=-1000,top=-1000`;
       };
 
       const listResponse = await fetch(getApiRoot() + '/api/course/professor/canvasDropdown', methods);
-      if (!listResponse.ok){
+      if (!listResponse.ok) {
         console.log("response", listResponse)
       }
       const listResponseObject = await listResponse.json()
@@ -194,22 +202,6 @@ width=0,height=0,left=-1000,top=-1000`;
 
   //*************Maps course list string from canvas and sets course description****************/
 
-  // Not needed?
-  function canvasDesc(item) {
-    const canvasDescList = canvasCourses
-      .filter((element) => {
-        return element.id == item;
-      })
-      .map((desc) => {
-        return [desc.name];
-      });
-    console.log(canvasDescList);
-    let canvasDescString = "";
-    if (canvasDescList.length > 0) {
-      canvasDescString = canvasDescList[0][0];
-    }
-    setDescription(canvasDescString);
-  };
 
   /* What happens after selecting course id */
   const updateInputs = (event) => {
@@ -217,13 +209,22 @@ width=0,height=0,left=-1000,top=-1000`;
     const id = event.target.options[event.target.selectedIndex].dataset.id
     const name = event.target.options[event.target.selectedIndex].dataset.name
     
-    setCourseCode(code); //course code probably not needed
+    setCourseCode(code);
     setCanvasCourseId(id);
-    setCourseName(name);
+    setSectionName(name);
 
-    canvasDesc(event.target.value)
     vmFolder(code)
   }
+
+  const closePopup = (closeBool) => {
+    selectElement.current.reset()
+    setCanvasCourseId("")
+    setCourseCode("")
+    setSemesterYear("")
+    setCourseSemester("")
+    setLibraryId("")
+    setIsPopupOpen(closeBool);
+  };
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -358,6 +359,15 @@ width=0,height=0,left=-1000,top=-1000`;
         </button>
         </div>
       </div>
+
+      {isPopupOpen && (
+        <SubmissionPopup
+          closeHandler={closePopup}
+          message={popupMessage}
+          againOptionMessage={popupAgainMessage}
+          success={success}
+        />
+      )}
       <Background />
 
    </div>

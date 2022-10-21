@@ -1,15 +1,21 @@
 import React, { useEffect } from "react";
-// import background from './background.module.css';
 import addprofessor from "./addprofessor.module.css";
-import { useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { useState } from "react";
-import { FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../../utils/getApiRoot";
+import SubmissionPopup from "../submissionpop";
 
 function AddProfessor() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
+
+  const [isOpen, setIsOpen] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isSuccess, setIsSuccess] = useState();
+  const [confirmationMessage, setConfirmationMessage] = useState();
+  const [againOptionMessage, setAgainOptionMessage] = useState();
 
   useEffect(() => {
     if (urlParams === "addprofessor") {
@@ -21,7 +27,7 @@ function AddProfessor() {
   });
 
   const validateForm = async () => {
-    console.log("validateform here.")
+    console.log("validateform here.");
     let allFieldsValid = true;
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0) {
       allFieldsValid = false;
@@ -37,7 +43,7 @@ function AddProfessor() {
             email: email,
             usertype: "Professor",
             userAccess: true,
-            isAdmin: false
+            isAdmin: false,
           }),
           credentials: "include",
           headers: {
@@ -45,20 +51,19 @@ function AddProfessor() {
           },
         }
       );
+      console.log(response);
       if (response.ok) {
-        setIsOpen(true);
-        //This makes the modal window popup
+        setConfirmationMessage("Professor added succesfully");
+        setAgainOptionMessage("Add another professor");
+        setIsSuccess(true);
       } else {
-        console.log("Error", responseStatus);
+        setConfirmationMessage("Error adding professor");
+        setAgainOptionMessage("Try again");
+        setIsSuccess(false);
       }
+      setIsOpen(true);
     }
   };
-
-  let navigate = useNavigate();
-  let [isOpen, setIsOpen] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
 
   // document.body.classList.add("bg-salmon");
   // document.body.style.backgroundColor = "green";
@@ -66,6 +71,13 @@ function AddProfessor() {
   // optionally remove styles when component unmounts
   // document.body.style.backgroundColor = null;
   // document.body.classList.remove("bg-salmon");
+
+  const closePopup = (closeBool) => {
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setIsOpen(closeBool);
+  };
 
   return (
     <div className={addprofessor.addprofessor}>
@@ -83,13 +95,18 @@ function AddProfessor() {
         </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
-          <form action="#" className={addprofessor.form} onSubmit={(e)=>(e.preventDefault())}> 
+          <form
+            action="#"
+            className={addprofessor.form}
+            onSubmit={(e) => e.preventDefault()}
+          >
             {/* <!-- Course Name--> */}
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">First Name:</label>
                   <input
+                    value={firstName}
                     type="text"
                     id="fname"
                     name="firstName"
@@ -101,6 +118,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Last Name:</label>
                   <input
+                    value={lastName}
                     type="text"
                     id="lname"
                     name="lastName"
@@ -112,6 +130,7 @@ function AddProfessor() {
                 <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Email:</label>
                   <input
+                    value={email}
                     type="text"
                     id="email"
                     name="email"
@@ -135,24 +154,12 @@ function AddProfessor() {
               Add Professor
             </button>
             {isOpen && (
-              <div className={addprofessor.modal}>
-                <div className={addprofessor.modalBox}>
-                  <button
-                    className={addprofessor.closeBtn}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    X
-                  </button>
-                  <div className={addprofessor.message}>
-                    <div className={addprofessor.iconPlaceholder}>
-                      <FaCheck className={addprofessor.checkicon} />
-                    </div>
-                    <div className={addprofessor.message}>
-                      Added Successfully!
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <SubmissionPopup
+                closeHandler={closePopup}
+                message={confirmationMessage}
+                againOptionMessage={againOptionMessage}
+                success={isSuccess}
+              />
             )}
           </form>
         </div>

@@ -117,99 +117,86 @@ https://www.byui.edu/branding/color-guide
   border-color: red;
 }
 
-/* Popup style */
-.addclass .popupbox {
-  position: fixed;
-  background: #0000007b;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
- 
-.addclass .box {
-  position: relative;
-  width: 30%;
-  margin: 0 auto;
-  height: auto;
-  max-height: 70vh;
-  margin-top: calc(100vh - 85vh - 20px);
-  background: #fff;
-  border-radius: 30px;
-  padding: 20px;
-  border: 2px solid #999;
-  overflow:hidden;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-direction: column;
-}
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  /* Popup style */
+  .addclass .popupbox {
+    position: fixed;
+    background: #0000007b;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
 
-h3 {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-  font-weight: bold;
-}
+  .addclass .box {
+    position: relative;
+    width: 30%;
+    margin: 0 auto;
+    height: auto;
+    max-height: 70vh;
+    margin-top: calc(100vh - 85vh - 20px);
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px;
+    border: 2px solid #999;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-.addclass .confluence {
-  border-radius: 3px;
-  position: relative;
-  padding: 12px;
-  border: none;
-  background-color: #006eb6;
-  align-self: center;
-  color: white;
-  transition: 0.3s;
-}
+  h3 {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-weight: bold;
+  }
 
-.addclass .confluence:hover {
-  border-color: #006eb6;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.5s;
-  box-shadow: 2px 4px 8px 2px #0000007b;
-}
+  .addclass .confluence {
+    border-radius: 3px;
+    position: relative;
+    padding: 12px;
+    border: none;
+    background-color: #006eb6;
+    align-self: center;
+    color: white;
+    transition: 0.3s;
+  }
 
-.addclass .back {
-  background-color: #006eb6;
-}
+  .addclass .confluence:hover {
+    border-color: #006eb6;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.5s;
+    box-shadow: 2px 4px 8px 2px #0000007b;
+  }
 
-.addclass .a {
-  padding: 20px;
-  align-self: center;
-}
+  .addclass .back {
+    background-color: #006eb6;
+  }
 
-.addclass .closeicon {
-  content: 'x';
-  cursor: pointer;
-  position: relative;
-  background: #ededed;
-  width: 20px;
-  height: 19px;
-  border-radius: 50%;
-  line-height: 16px;
-  text-align: center;
-  border: 3px solid white;
-  font-size: 20px;
-  align-self: flex-end;
-  transition: 0.3s;
-}
+  .addclass .a {
+    padding: 20px;
+    align-self: center;
+  }
 
-.addclass .closeicon:hover {
-  border-color: #006eb6;
-  transition: 0.5s;
-  border: 3px solid #006db670;
-  background: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.addclass .logo {
-  width: 170px;
-  margin: 17px;
-}
-
+  .addclass .closeicon {
+    content: "x";
+    cursor: pointer;
+    position: relative;
+    background: #ededed;
+    width: 20px;
+    height: 19px;
+    border-radius: 50%;
+    line-height: 16px;
+    text-align: center;
+    border: 3px solid white;
+    font-size: 20px;
+    align-self: flex-end;
+    transition: 0.3s;
+  }
 @media screen and (max-width: 37.4em) {
   .addclass .container{
     border-radius: 0px;
@@ -249,4 +236,3 @@ h3 {
     margin-left: 25%;
   }
 }
-
