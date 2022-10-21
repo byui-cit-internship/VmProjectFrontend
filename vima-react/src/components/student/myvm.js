@@ -6,24 +6,24 @@ import React, { useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {
-  const [vmList, setVmList] = useState([]);
   let navigate = useNavigate();
+  const [vmList, setVmList] = useState([]);
   useEffect(() => {
     const getVmList = async () => {
       const listResponse = await fetch(
         getApiRoot() + "/api/vmtable/instances", 
         {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    console.log(listResponse);
-    const vmList = await listResponse.json();
-    console.log("virtual machines; ", vmList);
-    setVmList(vmList);
+            method: "GET",
+            credentials: "include",
+            headers: {
+            "content-type": "application/json",
+          },
+        }
+      );  
+      console.log(listResponse);
+      const vmList = await listResponse.json();
+      console.log("vm's", vmList);
+      setVmList(VmList);
     };
     getVmList();
   }, []);
@@ -44,11 +44,11 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-            {vmList.map((item) =>(
-              <div value={item.vmName}>
-                {item.vmName}
-              </div>
-            ))}
+              {vmList.map((item) =>(
+                <tr value={item.vmName} className={myvm.tableheader}>
+                  {item.vmName}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

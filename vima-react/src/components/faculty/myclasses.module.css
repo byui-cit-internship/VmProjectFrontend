@@ -27,8 +27,8 @@
 }
 
 
-.myclasses #title {
-  font-size: 1.6rem;
+.myclasses .title {
+  font-size: 3rem;
   font-family: 'Raleway';
   align-items: center;
   text-align: center;
@@ -130,7 +130,6 @@ align-items: center;
   font-size: 1.75rem;
 }
 .myclasses .vmName{
-  /*Need to make this text thicker*/
   color: #006eb6;
   padding: 10px;
 }
@@ -185,4 +184,38 @@ align-items: center;
 }
 .myclasses .tablerow{
   padding: 1em;
+}
+
+/*Small view*/
+@media screen and (max-width: 37.4em) {
+  .myclasses .container{
+    border-radius: 0px;
+    width: 100vw;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .myclasses .title {
+    color: #006eb6;
+  }
+  .myclasses .card{
+    width: 90%;
+  }
+  .myclasses .table{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .myclasses .addbutton{
+    width: 70%;
+    padding: 20px;
+  }
+  .myclasses .submitBt{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 20px;
+  }
+  
 }

@@ -36,9 +36,7 @@ function MyClasses() {
       <div className={myclasses.container}>
         <Header />
         {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
-        <span id={myclasses.title}>
-        <h1 className={myclasses.lets}>My Classes</h1>
-        </span>
+        <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
           <div className={myclasses.searchbar}>    
             <input
@@ -53,8 +51,8 @@ function MyClasses() {
             {classList.map((item) => (
               <div className={myclasses.card}>
               <Card variant="outlined">
-                <div value={item.courseName} className={myclasses.tableheader}>
-                  {item.courseName}
+                <div value={item.courseCod} className={myclasses.tableheader}>
+                  {item.courseCode}
                 </div>
                 <div className={myclasses.tablecontent}>
                   <div className={myclasses.tablerow}>
