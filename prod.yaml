@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vmfrontend-prod
+  namespace: vm-project-prod
 spec:
   replicas: 1
   selector:

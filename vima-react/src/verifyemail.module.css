@@ -1,12 +1,12 @@
-.VerifyEmail .googleLogin {
+.app .googleLogin {
   opacity: 1%;
 }
 
-.VerifyEmail .haAclf {
+.app .haAclf {
   opacity: 1%;
 }
 
-.VerifyEmail iframe {
+.app iframe {
   display: none;
 }
 
@@ -36,7 +36,7 @@
 
 /* .hello */
 
-.VerifyEmail {
+.app {
   background-color: #006eb6;
 }
 
@@ -80,11 +80,11 @@
 }
 
 /* BYUI Color Guide
-  BYUI blue: #006EB6
-  black: #000000
-  white: #FFFFFF
-  https://www.byui.edu/branding/color-guide
-  */
+BYUI blue: #006EB6
+black: #000000
+white: #FFFFFF
+https://www.byui.edu/branding/color-guide
+*/
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
@@ -95,7 +95,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.VerifyEmail .container {
+.app .container {
   width: 1000px;
   background-color: white;
   height: 500px;
@@ -111,10 +111,6 @@ body {
   margin-top: 50px;
 }
 
-.VerifyEmail .p {
-  margin: 10px 0px;
-  width: 30vw;
-}
 .imagehero {
   display: none;
 }
@@ -142,12 +138,14 @@ h2 {
   color: black;
 }
 
-p {
-  text-align: left;
-  padding-left: 50px;
-  margin-bottom: 0;
-  color: black;
+.app .main {
+  max-width: 400px;
 }
+
+.app .description {
+  margin: 10px 0px;
+}
+
 .image {
   display: none;
 }
@@ -175,18 +173,18 @@ h3 {
 
 /* Large View */
 /* @media only screen and (min-width: 64em) {
-  
-  } */
+
+} */
 
 /* border-radius: 50px;
-  @media only screen and (min-width: 37.4em) {
-  /* Small View */
+@media only screen and (min-width: 37.4em) {
+/* Small View */
 @media only screen and (max-width: 37.4em) {
-  .VerifyEmail .h2 {
+  .app .h2 {
     padding-left: 0px;
   }
 
-  .VerifyEmail .container {
+  .app .container {
     /* width: unset; */
     width: 100vw;
     background: white;
@@ -196,43 +194,42 @@ h3 {
     min-height: 100vh;
   }
 
-  .verifyemail .logo {
-    /* padding: 28px;
+  .app .logo {
+    padding: 28px;
     width: 38vw;
     margin-top: 0px;
-    max-width: 130px; */
+    max-width: 130px;
+  }
+
+  .app .p {
     display: none;
   }
 
-  .VerifyEmail .p {
-    display: none;
-  }
-
-  .VerifyEmail .h2 {
+  .app .h2 {
     font-size: 1.2em;
     margin-top: 1.8em;
   }
 
-  .VerifyEmail .image_and_button {
+  .app .image_and_button {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .VerifyEmail .imagehero {
+  .app .imagehero {
     display: unset;
   }
 
-  .VerifyEmail .imagehero img {
+  .app .imagehero img {
     display: unset;
     width: 100vw;
     max-width: 300px;
   }
 
-  .VerifyEmail .button {
+  .app .button {
     display: none;
   }
-  .VerifyEmail .google_button {
+  .app .google_button {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -241,25 +238,25 @@ h3 {
     border-radius: 10px;
     width: 130px;
     /* background: linear-gradient(
-        0deg,
-        hsl(204deg 93% 66%) 0%,
-        hsl(205deg 79% 62%) 0%,
-        hsl(206deg 68% 57%) 0%,
-        hsl(206deg 59% 53%) 2%,
-        hsl(207deg 55% 48%) 4%,
-        hsl(208deg 56% 47%) 8%,
-        hsl(208deg 56% 47%) 13%,
-        hsl(208deg 56% 47%) 20%,
-        hsl(208deg 56% 47%) 30%,
-        hsl(207deg 55% 48%) 43%,
-        hsl(206deg 59% 53%) 58%,
-        hsl(206deg 68% 57%) 75%,
-        hsl(205deg 79% 62%) 90%,
-        hsl(204deg 93% 66%) 100%
-      ); */
+      0deg,
+      hsl(204deg 93% 66%) 0%,
+      hsl(205deg 79% 62%) 0%,
+      hsl(206deg 68% 57%) 0%,
+      hsl(206deg 59% 53%) 2%,
+      hsl(207deg 55% 48%) 4%,
+      hsl(208deg 56% 47%) 8%,
+      hsl(208deg 56% 47%) 13%,
+      hsl(208deg 56% 47%) 20%,
+      hsl(208deg 56% 47%) 30%,
+      hsl(207deg 55% 48%) 43%,
+      hsl(206deg 59% 53%) 58%,
+      hsl(206deg 68% 57%) 75%,
+      hsl(205deg 79% 62%) 90%,
+      hsl(204deg 93% 66%) 100%
+    ); */
   }
 
-  .VerifyEmail .main {
+  .app .main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -273,18 +270,96 @@ h3 {
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
-  .VerifyEmail .container {
+  .app .container {
     width: 90vw;
     min-width: none;
     height: 500px;
+  }
+
+  .app .form {
+    max-width: 300px;
+    margin: 10px 10px 10px 50px;
   }
 }
 
 /* Large View */
 @media only screen and (min-width: 64em) {
-  .VerifyEmail .container {
+  .app .container {
     width: 1000px;
     min-width: none;
     height: 500px;
   }
+}
+
+/* S E P A R A T I O N */
+/* F O R M */
+
+.styles .form {
+  padding: 2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  background: #fff;
+  margin: 10px 10px 10px 50px;
+}
+
+.app .dflex {
+  display: flex;
+}
+
+.app .formControl {
+  display: block;
+  margin-right: 0.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  min-width: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 146px;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.app .formControl:last-child {
+  margin-right: 0;
+}
+
+.app .formControl:focus {
+  border: 1px solid cornflowerblue !important;
+  -webkit-box-shadow: 0px 0px 6px 3px rgb(140 232 232 / 75%);
+  box-shadow: 0px 0px 6px 3px rgba(140, 232, 232, 0.75);
+  -webkit-box-shadow: 0px 0px 6px 3px rgba(140, 232, 232, 0.75);
+  -moz-box-shadow: 0px 0px 6px 3px rgba(140, 232, 232, 0.75);
+}
+
+.app .formControl:focus-visible {
+  outline: none;
+}
+
+.app .btn {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  display: inline-block;
+  -webkit-user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  font-family: "Raleway";
+  margin-top: 20px;
+  font-size: 0.9;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.app .btn:focus-visible {
+  outline: none;
 }
