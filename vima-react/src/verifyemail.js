@@ -1,8 +1,4 @@
-// import './app.css';
-// import './background.css';
 import { useState, useRef, useEffect } from "react";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import Background from "./background";
 import styles from "./verifyemail.module.css";
@@ -10,117 +6,79 @@ import { Navigate } from "react-router-dom";
 import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
 import { getApiRoot } from "./utils/getApiRoot";
-// import { useGoogleLogin } from "@react-oauth/google";
-// import background from './background.module.css';
-// import { Component } from "react";
-// import "./App.css";
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-// import GoogleLoginComponent from "./appextension.js";
+import styled from "styled-components";
+import ReactInputVerificationCode from "react-input-verification-code";
 
-// class AppExt extends Component {
-//   render() {
-//     return (
-//       <div className="App container">
-//         <h2>React Google Login Example</h2>
-//         <GoogleLoginComponent />
-//       </div>
-//     );
-//   }
-// }
-// export default AppExt;
+// V E R I F I C A T I O N   S T Y L E S
+const StyledButton = styled.button`
+  background: #36c6d9;
+  border: none;
+  outline: none;
+  width: 112px;
+  margin: 15px 0px 0px 50px !important;
+  border-radius: 8px;
+  color: white;
+  text-align: unset !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+`;
 
-const handleFailure = (result) => {
-  console.log("There was a problem logging in.", result);
-};
+// V E R I F I C A T I O N   C O N S T A N T S   &   S T Y L E S
+export const StyledSeconds = styled.div`
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.002em;
+  color: lightgray;
+  text-align: unset;
+  margin-left: 50px;
+`;
+
+const StyledError = styled.div`
+  margin-top: 13px;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.004em;
+  color: #ef6c65;
+`;
+
+const StyledReactInputVerificationCode = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin: 5px 5px 5px 50px;
+  --ReactInputVerificationCode-itemWidth: 40px;
+  --ReactInputVerificationCode-itemHeight: 48px;
+  --ReactInputVerificationCode-itemSpacing: 8px;
+
+  .ReactInputVerificationCode__item {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    /* background: rgba(53, 67, 98, 1); */
+    border: 1px solid
+      ${({ isInvalid }) => (isInvalid ? "#EF6C65" : "rgba(28, 30, 60, 0.4)")};
+    border-radius: 4px;
+  }
+
+  .ReactInputVerificationCode__item.is-active {
+    box-shadow: none;
+    color: black;
+    border: 1px solid #36c6d9;
+    box-shadow: 0px 0px 12px 0px rgba(35, 86, 214, 0.75);
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(35, 86, 214, 0.75);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(35, 86, 214, 0.75);
+  }
+`;
 
 function App() {
-  // const login = useGoogleLogin({
-  //   onSuccess: (codeResponse) => console.log(codeResponse),
-  //   flow: "auth-code",
-  // });
-  //
-  //
-  //
   // THIS IS JUST THE VERIFICATION CODE STUFF
-  //
-  //
-  // const form = document.querySelector("form");
-  // const inputs = form.querySelectorAll("input");
-  // const KEYBOARDS = {
-  //   backspace: 8,
-  //   arrowLeft: 37,
-  //   arrowRight: 39,
-  // };
-
-  // function handleInput(e) {
-  //   const input = e.target;
-  //   const nextInput = input.nextElementSibling;
-  //   if (nextInput && input.value) {
-  //     nextInput.focus();
-  //     if (nextInput.value) {
-  //       nextInput.select();
-  //     }
-  //   }
-  // }
-
-  // function handlePaste(e) {
-  //   e.preventDefault();
-  //   const paste = e.clipboardData.getData("text");
-  //   inputs.forEach((input, i) => {
-  //     input.value = paste[i] || "";
-  //   });
-  // }
-
-  // function handleBackspace(e) {
-  //   const input = e.target;
-  //   if (input.value) {
-  //     input.value = "";
-  //     return;
-  //   }
-
-  //   input.previousElementSibling.focus();
-  // }
-
-  // function handleArrowLeft(e) {
-  //   const previousInput = e.target.previousElementSibling;
-  //   if (!previousInput) return;
-  //   previousInput.focus();
-  // }
-
-  // function handleArrowRight(e) {
-  //   const nextInput = e.target.nextElementSibling;
-  //   if (!nextInput) return;
-  //   nextInput.focus();
-  // }
-
-  // form.addEventListener("input", handleInput);
-  // inputs[0].addEventListener("paste", handlePaste);
-
-  // inputs.forEach((input) => {
-  //   input.addEventListener("focus", (e) => {
-  //     setTimeout(() => {
-  //       e.target.select();
-  //     }, 0);
-  //   });
-
-  //   input.addEventListener("keydown", (e) => {
-  //     switch (e.keyCode) {
-  //       case KEYBOARDS.backspace:
-  //         handleBackspace(e);
-  //         break;
-  //       case KEYBOARDS.arrowLeft:
-  //         handleArrowLeft(e);
-  //         break;
-  //       case KEYBOARDS.arrowRight:
-  //         handleArrowRight(e);
-  //         break;
-  //       default:
-  //     }
-  //   });
-  // });
-
-  //
-  //
+  const [value, setValue] = useState("");
+  const [isInvalid, setIsInvalid] = useState(false);
+  const [error, setError] = useState(null);
+  const [seconds, setSeconds] = useState(null);
   //
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
@@ -188,46 +146,67 @@ function App() {
                     using the app, please confirm your email address with the
                     code that we sent to your email.
                   </p>
-                  <form action="#" className={styles.form}>
-                    <h4 class="text-center mb-4">Enter your code</h4>
-                    <div className={styles.dflex}>
-                      <input
-                        required
-                        type="tel"
-                        maxlength="1"
-                        pattern="[0-9]"
-                        className={styles.formControl}
-                      />
-                      <input
-                        type="tel"
-                        maxlength="1"
-                        pattern="[0-9]"
-                        className={styles.formControl}
-                      />
-                      <input
-                        type="tel"
-                        maxlength="1"
-                        pattern="[0-9]"
-                        className={styles.formControl}
-                      />
-                      <input
-                        type="tel"
-                        maxlength="1"
-                        pattern="[0-9]"
-                        className={styles.formControl}
-                      />
-                      <input
-                        type="tel"
-                        maxlength="1"
-                        pattern="[0-9]"
-                        className={styles.formControl}
-                      />
-                    </div>
+                  {/* V A L I D A T I O N */}
+                  <StyledReactInputVerificationCode
+                    isInvalid={isInvalid}
+                    className={styles.StyledReactInputVerificationCode}
+                  >
+                    <ReactInputVerificationCode
+                      className={styles.ReactInputVerificationCode}
+                      value={value}
+                      placeholder={null}
+                      length={5}
+                      onChange={(newValue) => {
+                        setValue(newValue);
 
-                    <button type="submit" className={styles.btn}>
-                      Verify account
-                    </button>
-                  </form>
+                        if (newValue !== "") {
+                          setError(null);
+                        }
+                      }}
+                    />
+                  </StyledReactInputVerificationCode>
+
+                  {error && (
+                    <StyledError className={styles.StyledError}>
+                      {error}
+                    </StyledError>
+                  )}
+                  {/* 
+                  {seconds && (
+                    <StyledSeconds
+                      className={styles.StyledSeconds}
+                    >{`Verification code has been re-sent (${seconds}s)`}</StyledSeconds>
+                  )} */}
+
+                  <StyledButton
+                    className={styles.StyledButton}
+                    onClick={() => {
+                      setValue("");
+                      setError("Incorrect code. Please try again");
+                      setIsInvalid(true);
+                      setSeconds(60);
+
+                      let mySeconds = 60;
+
+                      // TODO Clear previos interval
+
+                      const intervalId = setInterval(() => {
+                        mySeconds = mySeconds - 1;
+                        setSeconds(mySeconds);
+
+                        if (mySeconds === 0) {
+                          clearInterval(intervalId);
+                          setSeconds(null);
+                        }
+                      }, 1000);
+
+                      setTimeout(() => {
+                        setIsInvalid(false);
+                      }, 1000);
+                    }}
+                  >
+                    Send
+                  </StyledButton>
                 </div>
               </div>
             </div>

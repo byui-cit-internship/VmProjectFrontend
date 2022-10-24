@@ -1,5 +1,3 @@
-// import './app.css';
-// import './background.css';
 import { useState, useRef, useEffect } from "react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
@@ -10,34 +8,12 @@ import { Navigate } from "react-router-dom";
 import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
 import { getApiRoot } from "./utils/getApiRoot";
-// import { useGoogleLogin } from "@react-oauth/google";
-// import background from './background.module.css';
-// import { Component } from "react";
-// import "./App.css";
-// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-// import GoogleLoginComponent from "./appextension.js";
-
-// class AppExt extends Component {
-//   render() {
-//     return (
-//       <div className="App container">
-//         <h2>React Google Login Example</h2>
-//         <GoogleLoginComponent />
-//       </div>
-//     );
-//   }
-// }
-// export default AppExt;
 
 const handleFailure = (result) => {
   console.log("There was a problem logging in.", result);
 };
 
 function App() {
-  // const login = useGoogleLogin({
-  //   onSuccess: (codeResponse) => console.log(codeResponse),
-  //   flow: "auth-code",
-  // });
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
