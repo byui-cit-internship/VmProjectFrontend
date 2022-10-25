@@ -13,7 +13,6 @@ import ProfessorList from "./components/faculty/professorlist";
 import CreatedSuccessfully from "./components/student/success";
 import MyClasses from "./components/faculty/myclasses";
 import VerifyEmail from "./verifyemail";
-import UseRef from "./useref";
 import Popup from "./components/faculty/Popup";
 
 export default function VimaRouter() {
@@ -34,7 +33,6 @@ export default function VimaRouter() {
         <Route path="/success" element={<CreatedSuccessfully />} />
         <Route path="/myclasses" element={<MyClasses />} />
         <Route path="/verifyemail" element={<VerifyEmail />} />
-        <Route path="/useref" element={<UseRef />} />
       </Routes>
     </Router>
   );
