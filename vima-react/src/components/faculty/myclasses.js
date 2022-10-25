@@ -67,7 +67,9 @@ function MyClasses() {
                   <p>Android</p>
                   <span className={myclasses.time}>Semester, year</span>
                   </div>
+                  <div className={myclasses.add}>
                   <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                  </div>
                 </div>
               </Card>
               </div>

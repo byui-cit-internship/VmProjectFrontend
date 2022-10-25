@@ -68,9 +68,6 @@ function ProfessorList() {
         <div className={professorList.table}>
           <table>
             <thead>
-              <tr>
-                <th>Name</th>
-              </tr>
             </thead>
             <tbody>
               {courseList.map((professor) => (
@@ -83,7 +80,7 @@ function ProfessorList() {
         </div>
 
         <button
-          className={professorList.backbtn}
+          className={professorList.button}
           onClick={() => {
             navigate("/addprofessor");
           }}

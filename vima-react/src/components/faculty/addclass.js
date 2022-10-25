@@ -301,7 +301,7 @@ width=0,height=0,left=-1000,top=-1000`;
           <div>
             <label className={addclass.label}>Year: </label><br></br>
             <select className={addclass.select} name="semester" id={addclass.semester} required 
-            onChange={(event) =>{setCourseYear(event.target.value)}} disabled={!courseCode}>
+            onChange={(event) =>{setSemesterYear(event.target.value)}} disabled={!courseCode}>
               <option>- Select -</option>
             </select>
           </div>
@@ -309,7 +309,7 @@ width=0,height=0,left=-1000,top=-1000`;
           {/*Semester*/}
           <div>
             <label className={addclass.label} >Choose Semester: </label><br></br>
-            <select className={addclass.select} name="semester" required disabled={!courseYear}
+            <select className={addclass.select} name="semester" required disabled={!semesterYear}
             onChange={(event) => {setCourseSemester(event.target.value)}}>
               <option name="option" value="" hidden>Default</option>
               <option>Season</option>
@@ -325,6 +325,17 @@ width=0,height=0,left=-1000,top=-1000`;
               {vCenterFolderList.map((item) =>(
                 <option key={item.name} value={item.folder}>{item.name}</option>))}
             </select>
+
+          {/*Resource Pool*/}
+          {/* <div>
+            <label className={addclass.label}>Resource Pool:</label><br></br>
+            <select className={addclass.select} id={addclass.resoursePool} name="resoursePool" required
+            onChange={(event) =>{setResourcePool(event.target.value)}}>
+              <option value="" hidden>Choose a Resourse Pool</option>
+              {recoursePoolList.map((item) =>(
+                <option key={item.name} value={item.folder}>{item.name}</option>))}
+            </select>
+            </div> */}
 
             <div className={addclass.alert}>
             <label className={addclass.alertLabel}>No folder for your class</label>

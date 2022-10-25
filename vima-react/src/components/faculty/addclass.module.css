@@ -94,7 +94,7 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addclass .btnprimary {
-  background-color: #006eb6;
+  background-color: #58B952;
   font-size: 1.5rem;
   padding: 10px;
   margin: 0px 40% 20px;
@@ -197,42 +197,24 @@ https://www.byui.edu/branding/color-guide
     align-self: flex-end;
     transition: 0.3s;
   }
+}
+  /*small view*/
 @media screen and (max-width: 37.4em) {
   .addclass .container{
-    border-radius: 0px;
     width: 100vw;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     height: 100%;
-    margin-top: 0;
-  }
-  .addclass .table{
-    display: block;
-  }
-  .addclass h1{
-    font-size: 3rem;
-    text-align: center;
-  }
-  .addclass .label{
-    font-size:2rem;
-    font-weight: bold;
   }
   .addclass .form{
     display: block;
+    margin: auto 0;
   }
   .addclass .flex1{
     width: 90%;
   }
   .addclass .flex2{
     width: 90%;
-  }
-  .addclass .form select{
-    font-size: 2rem;
-    width: 100%;
-  }
-  .addclass .courseIdInput{
-    font-size: 2rem;
-  }
-  .addclass .btnprimary{
-    width: 50%;
-    margin-left: 25%;
   }
 }
