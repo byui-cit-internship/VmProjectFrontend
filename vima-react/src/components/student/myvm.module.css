@@ -34,15 +34,38 @@
 }
 
 .myVm th {
-  
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  font-size: larger;
   border: 2px solid #006EB6;
   background-color: #006EB6;
   padding: 15px;
   color: #FFFFFF;
   text-align: center;
 }
-
-.myVm tr {
+.myVm tr{
   border: 2px solid #006EB6;
+}
+
+.myVm td {
   text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+@media screen and (max-width: 37.4em){
+  .myVm .container {
+    width: 100vw;
+    background-color: white;
+    margin: 0px auto;
+    border-radius: 0px;
+    column-gap: 10%;
+    padding: 10px 20px;
+  }
+  .myVm table {
+    width: 90%;
+    height: auto;
+    border-collapse: collapse;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

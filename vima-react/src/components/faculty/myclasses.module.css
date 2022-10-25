@@ -4,7 +4,6 @@
 .body {
   font-family: "Raleway", sans-serif;
 }
-
 .myclasses .container {
   width: 1000px;
   margin: 50px auto;
@@ -15,7 +14,6 @@
   
 
 }
-
 .myclasses #backbtn {
   display: flex;
   color: #006eb6;
@@ -25,16 +23,15 @@
   margin-top: 1.5em;
   font-family: 'Raleway';
 }
-
-
-.myclasses #title {
-  font-size: 1.6rem;
+.myclasses .title {
+  font-size: 3rem;
   font-family: 'Raleway';
   align-items: center;
   text-align: center;
   font-weight: bold;
   padding: 0px 0px 40px 0px;
   margin: 0 auto;
+  color: #004878;
   display: table;
 }
 
@@ -104,34 +101,8 @@ align-items: center;
 .myclasses #search:focus:-moz-placeholder {
  opacity: 0;
 }
-
-
-.myclasses table {
-  width: 350px;
-  height: 200px;
-  border-collapse: collapse;
-  margin-left: 10%;
-  margin-right: auto;
-  border: 2px solid #006eb6;  
-  padding: 10px;
-}
-
-.myclasses th {
-  font-size: 1.5rem;
-  background-color: #006eb6;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 10px;
-}
-
-.myclasses tr {
-  font-family: "Raleway", sans-serif;
-  font-size: 1.75rem;
-}
 .myclasses .vmName{
-  /*Need to make this text thicker*/
-  color: #006eb6;
+  color: #004878;
   padding: 10px;
 }
 .myclasses .semester{
@@ -139,7 +110,7 @@ align-items: center;
   padding: 10px;
 }
 .submitBt {
-  background-color: #006eb6;
+  background-color: #58B952;
   font-size: 1.5rem;
   padding: 10px;
   margin: 0px 40% 20px;
@@ -172,6 +143,10 @@ align-items: center;
   font-weight: bold;
   margin: auto;
   text-align: center;
+} 
+
+.myclasses .tablecontent span{
+  float: right;
 }
 .myclasses .addbutton{
   background-color: #006eb6;
@@ -185,4 +160,51 @@ align-items: center;
 }
 .myclasses .tablerow{
   padding: 1em;
+  color:#004878;
+}
+
+/*Small view*/
+@media screen and (max-width: 37.4em) {
+
+  .myclasses .container{
+    border-radius: 0px;
+    width: 100vw;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .myclasses .title {
+    color: #004878;
+  }
+  .myclasses .card{
+    width: 90%;
+  }
+  .myclasses .table{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .myclasses .addbutton{
+    width: 70%;
+    padding: 20px;
+  }
+  .myclasses .submitBt{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 20px;
+  }
+  .myclasses .searchbar{
+    width: 100%;
+  }
+  .myclasses #classesAndSearch {
+    width: 100%;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .myclasses .add{
+    width: 100%;
+  }
 }

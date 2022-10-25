@@ -8,24 +8,23 @@ https://www.byui.edu/branding/color-guide
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
 }
-
 .addclass .container {
   width: 1000px;
   background-color: white;
   border-radius: 50px;
   margin: 50px auto;
   padding: 15px;
-  color: #00568f;
+  color: #00568f
 }
-.addclass h1 {
+.addclass h1{
   text-align: center;
   color: #00568f;
 }
-.addclass .form {
+.addclass .form{
   display: flex;
   gap: 30px;
 }
-.addclass .flex1 {
+.addclass .flex1{
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
@@ -33,28 +32,26 @@ https://www.byui.edu/branding/color-guide
   flex-direction: column;
   justify-content: center;
 }
-.addclass .flex2 {
+.addclass .flex2{
   display: flex;
   flex-wrap: wrap;
   padding: 12px;
   width: 45%;
   flex-direction: column;
 }
-.addclass .courseIdInput {
+.addclass .courseIdInput{
   width: 95%;
 }
-.addclass .select {
+.addclass .select{
   width: 100%;
 }
 .addclass .validation {
   color: #ff0000;
   text-align: left;
 }
-
 .addclass .input:valid {
   border: 2px solid rgba(0, 0, 0, 10%);
 }
-
 .addclass input {
   width: 93.5%;
   border: 3px solid #98d5fd;
@@ -62,30 +59,25 @@ https://www.byui.edu/branding/color-guide
   margin-top: 10px;
   position: relative;
 }
-.addclass .courseIdInput {
+.addclass .courseIdInput{
   width: 38%;
 }
-
 .addclass .alertButton {
   border: none;
 }
-
 .addclass .alertButton:hover {
   color: blue;
   cursor: pointer;
 }
-
 .addclass .alertLabel {
   font-weight: bold;
   opacity: 50%;
 }
-
 .addclass .alert {
   padding: 10px;
   margin-left: 10px;
   display: flex;
 }
-
 .addclass select {
   width: 100%;
   border: 3px solid #98d5fd;
@@ -95,6 +87,7 @@ https://www.byui.edu/branding/color-guide
 
 .addclass .btnprimary {
   background-color: #006eb6;
+  background-color: #58B952;
   font-size: 1.5rem;
   padding: 10px;
   margin: 0px 40% 20px;
@@ -103,20 +96,16 @@ https://www.byui.edu/branding/color-guide
   border: transparent;
   color: #fff;
 }
-
 .addclass #nameError {
   display: none;
   font-size: 0.8em;
 }
-
 .addclass #nameError.visible {
   display: block;
 }
-
 .addclass input.invalid {
   border-color: red;
 }
-
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
   /* Popup style */
@@ -128,7 +117,6 @@ https://www.byui.edu/branding/color-guide
     top: 0;
     left: 0;
   }
-
   .addclass .box {
     position: relative;
     width: 30%;
@@ -146,14 +134,12 @@ https://www.byui.edu/branding/color-guide
     align-items: flex-start;
     flex-direction: column;
   }
-
   h3 {
     text-align: center;
     padding: 20px;
     width: 100%;
     font-weight: bold;
   }
-
   .addclass .confluence {
     border-radius: 3px;
     position: relative;
@@ -164,7 +150,6 @@ https://www.byui.edu/branding/color-guide
     color: white;
     transition: 0.3s;
   }
-
   .addclass .confluence:hover {
     border-color: #006eb6;
     cursor: pointer;
@@ -172,16 +157,13 @@ https://www.byui.edu/branding/color-guide
     transition: 0.5s;
     box-shadow: 2px 4px 8px 2px #0000007b;
   }
-
   .addclass .back {
     background-color: #006eb6;
   }
-
   .addclass .a {
     padding: 20px;
     align-self: center;
   }
-
   .addclass .closeicon {
     content: "x";
     cursor: pointer;
@@ -198,41 +180,46 @@ https://www.byui.edu/branding/color-guide
     transition: 0.3s;
   }
 }
+  /*small view*/
 @media screen and (max-width: 37.4em) {
-  .addclass .container {
+  .addclass .container{
     border-radius: 0px;
     width: 100vw;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     height: 100%;
     margin-top: 0;
   }
-  .addclass .table {
+  .addclass .table{
     display: block;
   }
-  .addclass h1 {
+  .addclass h1{
     font-size: 3rem;
     text-align: center;
   }
-  .addclass .label {
-    font-size: 2rem;
+  .addclass .label{
+    font-size:2rem;
     font-weight: bold;
   }
-  .addclass .form {
+  .addclass .form{
     display: block;
+    margin: auto 0;
   }
-  .addclass .flex1 {
+  .addclass .flex1{
     width: 90%;
   }
-  .addclass .flex2 {
+  .addclass .flex2{
     width: 90%;
   }
-  .addclass .form select {
+  .addclass .form select{
     font-size: 2rem;
     width: 100%;
   }
-  .addclass .courseIdInput {
+  .addclass .courseIdInput{
     font-size: 2rem;
   }
-  .addclass .btnprimary {
+  .addclass .btnprimary{
     width: 50%;
     margin-left: 25%;
   }

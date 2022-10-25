@@ -21,38 +21,39 @@ function AddClass() {
   const [templateVmList, setTemplateVmList] = useState([]);
   const [courseCode, setCourseCode] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
-  const [courseName, setCourseName] = useState("");
+  const [sectionName, setSectionName] = useState("");
   const [courseSemester, setCourseSemester] = useState("");
-  const [courseYear, setCourseYear] = useState("");
+  const [semesterYear, setSemesterYear] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolderId, setvCenterFolderId] = useState("");
-  const [visibleFolderName, setVisibleFolderName] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [description, setDescription] = useState()
-  const [libraryId, setLibraryId] = useState()
-  const [isPopupOpen, setIsPopupOpen] = useState()
-  const [popupMessage, setPopupMessage] = useState()
-  const [popupAgainMessage, setPopupAgainMessage] = useState()
-  const [success, setIsSuccess] = useState()
-  const selectElement = useRef()
+  const [libraryId, setLibraryId] = useState();
+  const [resourceGroupName, setResourceGroupName] = useState();
+  const [isPopupOpen, setIsPopupOpen] = useState();
+  const [popupMessage, setPopupMessage] = useState();
+  const [popupAgainMessage, setPopupAgainMessage] = useState();
+  const [success, setIsSuccess] = useState();
+  const selectElement = useRef();
   //*********Creates course by sending all info in body to the BFF course controller************/
   const createCourse = async () => {
     console.log(courseCode)
     const options = {
       method: 'POST',
       body: JSON.stringify({
-        canvasCourseId: canvasCourseId,
-        courseName: courseCode, // Passing course code because table is set to varchar(20), so it wont accept long strings...
-        description: description,
-        canvasToken: canvasToken,
-        section_num: "1",
+         
+        sectionName: sectionName,
+        courseCode: courseCode,
+        canvas_token: canvasToken,
+        section_num: "1", 
         semester: courseSemester,
-        courseYear: courseYear,
-        userId: userId,
-        teacherId: userId,
+        libraryId: libraryId,
+        folder: vCenterFolderId,
         templateVm: [templateVm],
-        folder: vCenterFolderId
+        resource_group: "blah",
+        userId: userId,
+        semesterYear: semesterYear,
+        canvasCourseId: canvasCourseId
       }),
       credentials: 'include',
       headers: {
@@ -201,34 +202,17 @@ width=0,height=0,left=-1000,top=-1000`;
 
   //*************Maps course list string from canvas and sets course description****************/
 
-  // Not needed?
-  function canvasDesc(item) {
-    const canvasDescList = canvasCourses
-      .filter((element) => {
-        return element.id == item;
-      })
-      .map((desc) => {
-        return [desc.name];
-      });
-    console.log(canvasDescList);
-    let canvasDescString = "";
-    if (canvasDescList.length > 0) {
-      canvasDescString = canvasDescList[0][0];
-    }
-    setDescription(canvasDescString);
-  };
 
   /* What happens after selecting course id */
   const updateInputs = (event) => {
     const code = event.target.options[event.target.selectedIndex].dataset.code
     const id = event.target.options[event.target.selectedIndex].dataset.id
     const name = event.target.options[event.target.selectedIndex].dataset.name
-
-    setCourseCode(code); //course code probably not needed
+    
+    setCourseCode(code);
     setCanvasCourseId(id);
-    setCourseName(name);
+    setSectionName(name);
 
-    canvasDesc(event.target.value)
     vmFolder(code)
   }
 
@@ -236,7 +220,7 @@ width=0,height=0,left=-1000,top=-1000`;
     selectElement.current.reset()
     setCanvasCourseId("")
     setCourseCode("")
-    setCourseYear("")
+    setSemesterYear("")
     setCourseSemester("")
     setLibraryId("")
     setIsPopupOpen(closeBool);
@@ -246,236 +230,145 @@ width=0,height=0,left=-1000,top=-1000`;
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
   return (
+   <div>
     <div className={addclass.addclass}>
       <div className={addclass.container}>
-        <div className={addclass.header}>
-          <Header userType="faculty" />
-        </div>
-        <form ref={selectElement}>
-          <div id={addclass.formheader}>
-            <h1>Add Class</h1>
-          </div>
-          <div id={addclass.gridcont}>
+        <Header userType="faculty" />
+        <h1>Add Class</h1>
+        <div className={addclass.form}>
 
-            {/* <!-- Course Code--> */}
-            <div className={addclass.coursename}>
-              <label className={addclass.label} htmlFor="name">
-                Course:
-                <select
-                  onChange={event => updateInputs(event)}
-                >
-                  <option
-                    value="Default"
-                    data-code=""
-                    data-name=""
-                    data-id="">
-                    - Select -
+          {/*Course*/}
+          <div className={addclass.flex1}>
+            <div>
+              <label className={addclass.label} htmlFor="name">Course:</label><br></br>
+                <select className={addclass.select} onChange={event => updateInputs(event)}>
+                  <option value="Default" data-code="" data-name="" data-id="">
+                    -Select-
                   </option>
-                  {
-                    canvasCourses.map((course) => (
-                      <option
-                        data-code={course.course_code}
-                        data-name={course.name}
-                        data-id={course.id}
-                        value={course}
-                      >
-                        {course.course_code} - {course.name}
-                      </option>
-                    ))
-                  }
+                  {canvasCourses.map((course) =>(
+                    <option data-code={course.course_code} data-name={course.name} data-id={course.id} value={course}>
+                      {course.course_code} = {course.name}
+                    </option>
+                  ))}
                 </select>
-              </label>
             </div>
 
-            {/* <!--Course Id--> */}
-            <div className={addclass.courseid}>
-              <label className={addclass.label} htmlFor="name">
-                Canvas Course ID:
-              </label>
-              <span role="alert" id={addclass.nameError} aria-hidden="true">
-                {/* Please add a valid CourseID */}
-              </span>
-              <input
-                readOnly
-                type="text"
-                value={canvasCourseId}
-              ></input>
-            </div>
 
-            {/* Year*/}
-            <div className={addclass.year}>
-              <label>Year:</label>
-              <select
-                name="semester"
-                id={addclass.semester}
-                required
-                onChange={(event) => {
-                  setCourseYear(event.target.value);
-                }}
-                disabled={!courseCode}
-              >
-                <option name="option" value="">
-                  Default
+          {/*Library*/}
+          <div>
+            <label className={addclass.label}>Choose Library: </label><br></br>
+            <select className={addclass.select} name="library" required onChange={(event) => setLibraryId(event.target.value)}
+            disabled={!courseSemester}>
+              <option value="" hidden>
+                -Select-
+              </option>
+              {libraryList.map((item) =>(
+                <option key={item.name} value={item.id}>
+                  {item.name}
                 </option>
-                <option name="option" value="2022">
-                  2022
-                </option>
-                <option name="option" value="2021">
-                  2021
-                </option>
-                <option name="option" value="2020">
-                  2020
-                </option>
-                <option name="option" value="2019">
-                  2019
-                </option>
-              </select>
-            </div>
+              ))}
+            </select>
+          </div>
 
-            {/* Semester */}
-            <div className={addclass.semester}>
-              <label>Choose Semester:</label>
-              <select name="semester" id="semester" required disabled={!courseYear} onChange={(event) => {
-                setCourseSemester(event.target.value)
-              }}>
-                <option name="option" value="" hidden>
-                  Default
-                </option>
-                <option name="option" value="Summer">
-                  Summer
-                </option>
-                <option name="option" value="Spring">
-                  Spring
-                </option>
-                <option name="option" value="Fall">
-                  Fall
-                </option>
-                <option name="option" value="Winter">
-                  Winter
-                </option>
-              </select>
-            </div>
+          {/*Course ID*/}
+          <div className={addclass.courseid}>
+            <label className={addclass.label}>Canvas Course ID: </label><br></br>
+            <span role="alert" id={addclass.nameError} aria-hidden="true">
+              {/* Please add a valid Course ID */}
+            </span>
+            <input className={addclass.courseIdInput} readOnly type="text" value={canvasCourseId}></input>
+          </div>
 
-            {/* <!-- Library --> */}
-            <div className={addclass.library}>
-              <label>Choose Library:</label>
-              <select name="library" id="semester"
-                required
-                onChange={(event) => setLibraryId(event.target.value)}
-                disabled={!courseSemester}
-              >
+        {/*Template VM*/}
+          <div>
+              <label className={addclass.label}>Template Virtual Machine: </label><br></br>
+              <select className={addclass.select} name="templateVm" required 
+              onChange={(event) => {setTemplateVm(event.target.value)}} disabled={!libraryId}>
                 <option value="" hidden>
-                  Choose Library
+                  - Select a Template -
                 </option>
-                {libraryList.map((item) => (
-                  <option key={item.name} value={item.id}>
-                    {item.name}
-                  </option>))}
-              </select>
-            </div>
-
-            {/* Template VM */}
-            <div className={addclass.templateVm}>
-              <label className={addclass.label} htmlFor="templateVM">
-                Template VM:
-              </label>
-              <select
-                name="templateVm"
-                id={addclass.templateVm}
-                required
-                onChange={(event) => { setTemplateVm(event.target.value) }}
-                disabled={!libraryId}
-              >
-                <option value="" hidden>
-                  Choose a Template
-                </option>
-                {templateVmList.map((item) => (
+                {templateVmList.map((item) =>(
                   <option key={item.id} value={item.value}>
                     {item.name}
                   </option>
                 ))}
               </select>
-            </div>
+          </div>
+        </div>
 
-            {/* <!-- vCenterFolder --> */}
-            <div className={addclass.vCenterFolderId}>
-              <label>vCenterFolder:</label>
-              <select
-                id={addclass.vCenterFolderId}
-                name="vCenterFolderId"
-                required
-                onChange={(event) => {
-                  setvCenterFolderId(event.target.value);
-                }}
-              >
-                <option value="" hidden>
-                  Choose vCenter Folder
-                </option>
-                {vCenterFolderList.map((item) => (
-                  <option key={item.name} value={item.folder}>
-                    {item.name}
-                  </option>
-                ))}
-              </select>
-              <div className={addclass.alert}>
-                <label className={addclass.alertLabel}>
-                  No Folder For Your Class
-                </label>
-                <button
-                  onClick={togglePopup}
-                  type="vCenter Folder Alert Button"
-                  className={addclass.alertButton}
-                >
-                  <i
-                    className={addclass.alertIcon}
-                    class="fa fa-question-circle fa-lg"
-                    aria-hidden="true"
-                  ></i>
-                </button>
-              </div>
-              {isOpen && (
-                <Popup
-                  content={
-                    <>
-                      <div className={addclass.popupbox}>
+        {/*Year*/}
+        <div className={addclass.flex2}>
+          <div>
+            <label className={addclass.label}>Year: </label><br></br>
+            <select className={addclass.select} name="semester" id={addclass.semester} required 
+            onChange={(event) =>{setSemesterYear(event.target.value)}} disabled={!courseCode}>
+              <option>- Select -</option>
+            </select>
+          </div>
 
-                        <div className={addclass.box}>
+          {/*Semester*/}
+          <div>
+            <label className={addclass.label} >Choose Semester: </label><br></br>
+            <select className={addclass.select} name="semester" required disabled={!semesterYear}
+            onChange={(event) => {setCourseSemester(event.target.value)}}>
+              <option name="option" value="" hidden>Default</option>
+              <option>Season</option>
+            </select>
+          </div>
 
-                          <span
-                            className={addclass.closeicon}
-                            onClick={togglePopup}
-                          >
-                            x
-                          </span>
-                          <img
-                            className={addclass.logo}
-                            src="../../images/LOGO-VIMA.png"
-                            alt="logo" />
-                          <h3>
-                            Follow This Link To a Confluence Article to Create a
-                            Vcenter Folder
-                          </h3>
-                          <a href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template" className={addclass.a}>
-                            <button className={addclass.confluence}>Create VCenter Folder</button>
-                          </a>
-                        </div>
-                      </div>
-                    </>
-                  }
-                />
-              )}
+          {/*vCenter Folder*/}
+          <div>
+            <label className={addclass.label}>vCenter Folder:</label><br></br>
+            <select className={addclass.select} id={addclass.vCenterFolderId} name="vCenterFolderId" required
+            onChange={(event) =>{setvCenterFolderId(event.target.value)}}>
+              <option value="" hidden>Choose a Folder</option>
+              {vCenterFolderList.map((item) =>(
+                <option key={item.name} value={item.folder}>{item.name}</option>))}
+            </select>
+
+          {/*Resource Pool*/}
+          {/* <div>
+            <label className={addclass.label}>Resource Pool:</label><br></br>
+            <select className={addclass.select} id={addclass.resoursePool} name="resoursePool" required
+            onChange={(event) =>{setResourcePool(event.target.value)}}>
+              <option value="" hidden>Choose a Resourse Pool</option>
+              {recoursePoolList.map((item) =>(
+                <option key={item.name} value={item.folder}>{item.name}</option>))}
+            </select>
+            </div> */}
+
+            <div className={addclass.alert}>
+            <label className={addclass.alertLabel}>No folder for your class</label>
+            <button onClick={togglePopup} type="vCenterFolder Alert Button" className={addclass.alertButton}>
+              <i className={addclass.alertIcon} class="fa fa-question-circle fa-lg" 
+              aria-hidden="true"></i>
+            </button>
             </div>
           </div>
-          <button
-            
-            type="button"
-            id="submit"
-            className={addclass.btnprimary}
-            onClick={validateCanvasToken}
-          >
-            Add
-          </button>
-        </form>
+
+          {isOpen && (
+            <Popup content={
+              <>
+                <div className={addclass.popupbox}>
+                  <div className={addclass.box}>
+                    <span className={addclass.closeicon} onClick={togglePopup}>x</span>
+                    <img className={addclass.logo} src="../../images/LOGO-VIMA.png" alt="logo"/>
+                    <h3>Click the button to find an article that will show how to create a vCenter folder.</h3>
+                    <a href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template"
+                    className={addclass.a}>
+                      <button className={addclass.confluence}>Create vCenter Folder</button>
+                    </a>
+                  </div>
+                </div>
+              </>}
+              />)}
+        </div>
+        </div>
+        <br></br>
+        <button type="button" className={addclass.btnprimary} onClick={validateCanvasToken}>
+          Add
+        </button>
+        </div>
       </div>
 
       {isPopupOpen && (
@@ -487,7 +380,8 @@ width=0,height=0,left=-1000,top=-1000`;
         />
       )}
       <Background />
-    </div>
+
+   </div>
   );
 }
 
