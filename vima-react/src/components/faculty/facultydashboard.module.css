@@ -324,6 +324,7 @@ https://www.byui.edu/branding/color-guide
   .facultydashboard .buttons {
     display: flex;
     flex-direction: column;
+    padding: 50px;
   }
 
   .facultydashboard #singleContainer {
