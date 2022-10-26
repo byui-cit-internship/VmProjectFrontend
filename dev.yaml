@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: vmfrontend-dev
-  namespace: vm-project-dev
+  namespace: vima-project-dev
 spec:
   replicas: 1
   selector:
@@ -36,6 +36,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vmfrontend-dev-nodeport
+  namespace: vima-project-dev
 spec:
   selector:
     app: vmfrontend-dev
@@ -48,6 +49,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: vmfrontend-dev-ingress
+  namespace: vima-project-dev
   annotations:
     kubernetes.io/ingress.global-static-ip-name: vmfrontend-dev
     networking.gke.io/managed-certificates: vmfrontend-dev-certificate
@@ -60,6 +62,7 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
+  namespace: vima-project-dev
   name: vmfrontend-dev-certificate
 spec:
   domains:
