@@ -69,6 +69,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: vmfrontend-dev-nodeport
+            name: vmfrontend-prod-nodeport
             port:
               number: 80
