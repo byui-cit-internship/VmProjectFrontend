@@ -85,6 +85,35 @@ function App() {
   const [googleJwt, setGoogleJwt] = useState("");
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
+
+  useEffect(() => {
+    const verifyUserLink = async () => {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const confirmationCode = urlParams.get("code");
+
+      if (!confirmationCode) {
+        return
+      }
+
+      const options = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "PUT"
+      }
+
+      const response = await fetch(getApiRoot() + `/api/user/verifyUser/${confirmationCode}`, options)
+      
+      if (response.ok) {
+       //TO-DO 
+      }
+    }
+
+    verifyUserLink()
+  }, [])
+
   useEffect(() => {
     const verifyJwt = async () => {
       const jwtResponse = await fetch(getApiRoot() + "/api/token", {
