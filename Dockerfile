@@ -7,6 +7,7 @@ COPY package-lock.json /app/vima-react/
 RUN npm i --prefix /app/vima-react
 RUN npm install react-scripts --prefix /app/vima-react
 RUN npm install react-scripts
+RUN npm install web-vitals --prefix /app/vima-react
 COPY . ./
 RUN npm run build --prefix /app/vima-react
 
