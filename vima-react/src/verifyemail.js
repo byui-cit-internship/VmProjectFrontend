@@ -187,7 +187,7 @@ function App() {
 
                       let mySeconds = 60;
 
-                      // TODO Clear previos interval
+                      // TODO Clear previous interval
 
                       const intervalId = setInterval(() => {
                         mySeconds = mySeconds - 1;
