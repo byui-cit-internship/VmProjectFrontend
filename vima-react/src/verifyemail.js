@@ -8,6 +8,7 @@ import StudentDashboard from "./components/student/studentdashboard";
 import { getApiRoot } from "./utils/getApiRoot";
 import styled from "styled-components";
 import ReactInputVerificationCode from "react-input-verification-code";
+import { useNavigate } from "react-router-dom";
 
 // V E R I F I C A T I O N   S T Y L E S
 const StyledButton = styled.button`
@@ -118,6 +119,8 @@ function App() {
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
   };
 
+  let navigate = useNavigate();
+
   if (googleJwt === "") {
     return (
       <div className={styles.app}>
@@ -171,12 +174,8 @@ function App() {
                       {error}
                     </StyledError>
                   )}
-                  {/* 
-                  {seconds && (
-                    <StyledSeconds
-                      className={styles.StyledSeconds}
-                    >{`Verification code has been re-sent (${seconds}s)`}</StyledSeconds>
-                  )} */}
+
+                  {/* seconds placeholder */}
 
                   <StyledButton
                     className={styles.StyledButton}
@@ -207,6 +206,22 @@ function App() {
                   >
                     Send
                   </StyledButton>
+                  <div className={styles.resendEmail}>
+                    <button
+                      className={styles.resendButton}
+                      onClick={() => {
+                        navigate("");
+                        // console.log("resent code");
+                      }}
+                    >
+                      Resend Code
+                    </button>
+                  </div>
+                  {seconds && (
+                    <StyledSeconds
+                      className={styles.StyledSeconds}
+                    >{`Re-send verification code(${seconds}s)`}</StyledSeconds>
+                  )}
                 </div>
               </div>
             </div>

@@ -293,3 +293,16 @@ h3 {
 
 /* S E P A R A T I O N */
 /* F O R M */
+
+.app .resendButton {
+  margin: 50px;
+  border: none;
+  background: white;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.app .resendButton:hover {
+  opacity: 80%;
+}
