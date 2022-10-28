@@ -84,6 +84,7 @@ function App() {
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
+  const [isCodeResent, setIsCodeResent] = useState();
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
   useEffect(() => {
@@ -120,6 +121,22 @@ function App() {
   };
 
   let navigate = useNavigate();
+
+  const resendConfirmationCode = async () => {
+    const options = {
+      credentials: "include",
+      headers: {
+        "content-type": "application/json"
+      },
+      method: "PUT",
+    }
+    const response = await fetch(getApiRoot() + "/api/user/sendCode", options)
+    if (response.ok) {
+      setIsCodeResent("success")
+    } else {
+      setIsCodeResent("false")
+    }
+  }
 
   if (googleJwt === "") {
     return (
@@ -210,13 +227,13 @@ function App() {
                   <div className={styles.resendEmail}>
                     <button
                       className={styles.resendButton}
-                      onClick={() => {
-                        navigate("");
-                        // console.log("resent code");
-                      }}
+                      onClick={e => resendConfirmationCode()}
                     >
                       Resend Code
                     </button>
+                    {isCodeResent && (
+                      <div>{isCodeResent}</div>
+                    )}
                   </div>
                   {seconds && (
                     <StyledSeconds
