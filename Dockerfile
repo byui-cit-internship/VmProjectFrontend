@@ -4,8 +4,8 @@ WORKDIR /app
 ENV PATH /app/vima-react/node_modules/.bin:$PATH
 COPY package.json /app/vima-react/
 COPY package-lock.json /app/vima-react/
-RUN npm i --prefix /app/vima-react
-RUN npm install react-scripts@3.4.1 -g --prefix /app/vima-react
+RUN npm i
+RUN npm install react-scripts@3.4.1 -g
 COPY . ./
 RUN npm run build --prefix /app/vima-react
 
