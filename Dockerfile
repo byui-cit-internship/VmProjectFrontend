@@ -1,11 +1,10 @@
 # build environment
-FROM node as build
+FROM node:16 as build
 WORKDIR /app
 ENV PATH /app/vima-react/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm i
-RUN npm install react-scripts@3.4.1 -g
+COPY package.json /app/vima-react/
+COPY package-lock.json /app/vima-react/
+RUN npm i --prefix /app/vima-react
 COPY . ./
 RUN npm run build --prefix /app/vima-react
 
