@@ -22,36 +22,37 @@ function AddClass() {
   const [courseCode, setCourseCode] = useState("");
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [sectionName, setSectionName] = useState("");
-  const [courseSemester, setCourseSemester] = useState("");
+  const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [semesterYear, setSemesterYear] = useState("");
   const [vCenterFolderList, setvCenterFolderList] = useState([])
-  const [vCenterFolderId, setvCenterFolderId] = useState("");
+  const [vCenterFolder, setvCenterFolder] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [libraryId, setLibraryId] = useState();
+  const [vmTemplateName, setVmTemplateName] = useState();
   const [resourceGroupName, setResourceGroupName] = useState();
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
   const [success, setIsSuccess] = useState();
   const selectElement = useRef();
-  //*********Creates course by sending all info in body to the BFF course controller************/
+  //*********Creates course by sending all info in body to the B  FF course controller************/
   const createCourse = async () => {
     console.log(courseCode)
     const options = {
       method: 'POST',
       body: JSON.stringify({
-         
         sectionName: sectionName,
         courseCode: courseCode,
         canvas_token: canvasToken,
         section_num: "1", 
-        semester: courseSemester,
+        courseSemester: courseSemester,
         libraryId: libraryId,
-        folder: vCenterFolderId,
+        folder: vCenterFolder,
         templateVm: [templateVm],
         resource_group: "blah",
         userId: userId,
+        vmTemplateName: vmTemplateName,
         semesterYear: semesterYear,
         canvasCourseId: canvasCourseId
       }),
@@ -147,7 +148,27 @@ function AddClass() {
     }
   }, [libraryId])
 
-  //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
+
+  useEffect(() =>{
+    const getcourseSemester = async () =>{
+      const listResponse = await fetch(
+        getApiRoot() + "/api/semester/semester",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json"
+          },
+        }
+      );
+      console.log(listResponse);
+      const courseSemesterList = await listResponse.json();
+      console.log("semesters", courseSemesterList);
+      setCourseSemesterList(courseSemesterList);
+    };
+    getcourseSemester();
+  }, []);
+   //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
   //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
   useEffect(() => {
     const getVmFolderInfo = async () => {
@@ -213,7 +234,7 @@ width=0,height=0,left=-1000,top=-1000`;
     setCanvasCourseId(id);
     setSectionName(name);
 
-    vmFolder(code)
+    setvCenterFolder(code)
   }
 
   const closePopup = (closeBool) => {
@@ -221,8 +242,8 @@ width=0,height=0,left=-1000,top=-1000`;
     setCanvasCourseId("")
     setCourseCode("")
     setSemesterYear("")
-    setCourseSemester("")
     setLibraryId("")
+    setVmName("")
     setIsPopupOpen(closeBool);
   };
 
@@ -257,8 +278,7 @@ width=0,height=0,left=-1000,top=-1000`;
           {/*Library*/}
           <div>
             <label className={addclass.label}>Choose Library: </label><br></br>
-            <select className={addclass.select} name="library" required onChange={(event) => setLibraryId(event.target.value)}
-            disabled={!courseSemester}>
+            <select className={addclass.select} name="library" required onChange={(event) => setLibraryId(event.target.value)}>
               <option value="" hidden>
                 -Select-
               </option>
@@ -309,18 +329,21 @@ width=0,height=0,left=-1000,top=-1000`;
           {/*Semester*/}
           <div>
             <label className={addclass.label} >Choose Semester: </label><br></br>
-            <select className={addclass.select} name="semester" required disabled={!semesterYear}
-            onChange={(event) => {setCourseSemester(event.target.value)}}>
-              <option name="option" value="" hidden>Default</option>
-              <option>Season</option>
-            </select>
+                  <select>
+                  <option>- Select -</option>
+                    {courseSemesterList.map((item) =>(
+                      <option value={item.semesterTerm}>
+                        {item.semesterTerm} {item.semesterYear}
+                      </option>
+                    ))}
+                  </select>
           </div>
 
           {/*vCenter Folder*/}
           <div>
             <label className={addclass.label}>vCenter Folder:</label><br></br>
-            <select className={addclass.select} id={addclass.vCenterFolderId} name="vCenterFolderId" required
-            onChange={(event) =>{setvCenterFolderId(event.target.value)}}>
+            <select className={addclass.select} id={addclass.vCenterFolder} name="vCenterFolder" required
+            onChange={(event) =>{setvCenterFolder(event.target.value)}}>
               <option value="" hidden>Choose a Folder</option>
               {vCenterFolderList.map((item) =>(
                 <option key={item.name} value={item.folder}>{item.name}</option>))}
@@ -370,7 +393,6 @@ width=0,height=0,left=-1000,top=-1000`;
         </button>
         </div>
       </div>
-
       {isPopupOpen && (
         <SubmissionPopup
           closeHandler={closePopup}
