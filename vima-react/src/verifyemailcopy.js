@@ -84,38 +84,8 @@ function App() {
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
-  const [isCodeResent, setIsCodeResent] = useState();
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
-
-  useEffect(() => {
-    const verifyUserLink = async () => {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const confirmationCode = urlParams.get("code");
-
-      if (!confirmationCode) {
-        return
-      }
-
-      const options = {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "PUT"
-      }
-
-      const response = await fetch(getApiRoot() + `/api/user/verifyUser/${confirmationCode}`, options)
-      
-      if (response.ok) {
-       //TO-DO 
-      }
-    }
-
-    verifyUserLink()
-  }, [])
-
   useEffect(() => {
     const verifyJwt = async () => {
       const jwtResponse = await fetch(getApiRoot() + "/api/token", {
@@ -150,22 +120,6 @@ function App() {
   };
 
   let navigate = useNavigate();
-
-  const resendConfirmationCode = async () => {
-    const options = {
-      credentials: "include",
-      headers: {
-        "content-type": "application/json"
-      },
-      method: "PUT",
-    }
-    const response = await fetch(getApiRoot() + "/api/user/sendCode", options)
-    if (response.ok) {
-      setIsCodeResent("success")
-    } else {
-      setIsCodeResent("false")
-    }
-  }
 
   if (googleJwt === "") {
     return (
@@ -233,7 +187,7 @@ function App() {
 
                       let mySeconds = 60;
 
-                      // TODO Clear previous interval
+                      // TODO Clear previos interval
 
                       const intervalId = setInterval(() => {
                         mySeconds = mySeconds - 1;
@@ -256,13 +210,13 @@ function App() {
                   <div className={styles.resendEmail}>
                     <button
                       className={styles.resendButton}
-                      onClick={e => resendConfirmationCode()}
+                      onClick={() => {
+                        navigate("");
+                        // console.log("resent code");
+                      }}
                     >
                       Resend Code
                     </button>
-                    {isCodeResent && (
-                      <div>{isCodeResent}</div>
-                    )}
                   </div>
                   {seconds && (
                     <StyledSeconds
