@@ -16,7 +16,7 @@ const handleFailure = (result) => {
 
 function App() {
   // - Verified Email Code
-  const [verifiedEmail, SetVerifiedEmail] = useState(false); //
+  const verifiedEmail = useRef(false); //
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
@@ -34,27 +34,31 @@ function App() {
       });
 
       const authorizationObject = await jwtResponse.json();
+      verifiedEmail.current = authorizationObject.emailIsVerified; //
+      console.log(verifiedEmail.current);
       sessionStorage.setItem("userInfo", JSON.stringify(authorizationObject));
       setAuthorization(authorizationObject);
     };
 
     // - Verified Email Code
-    const verifyEm = async () => {
-      //
-      const emResponse = await fetch(getApiRoot() + "/api/token", {
-        //
-        credentials: "include", //
-        headers: {
-          //
-          "content-type": "application/json", //
-        }, //
-        method: "POST", //
-        body: JSON.stringify({ accessTokenValue: verifiedEmail }), //
-      }); //
-      const emailIsVerifiedObject = await emResponse.json();
-      sessionStorage.setItem("userInfo", JSON.stringify(emailIsVerifiedObject)); //
-      SetVerifiedEmail(emailIsVerifiedObject); //
-    };
+    // const verifyEm = async () => {
+    //   //
+    //   const emResponse = await fetch(getApiRoot() + "/api/token", {
+    //     //
+    //     credentials: "include", //
+    //     headers: {
+    //       //
+    //       "content-type": "application/json", //
+    //     }, //
+    //     method: "POST", //
+    //     body: JSON.stringify({ accessTokenValue: verifiedEmail }), //
+    //   }); //
+    //   const emailIsVerifiedObject = await emResponse.json();
+    //   sessionStorage.setItem("userInfo", JSON.stringify(emailIsVerifiedObject)); //
+
+    // };
+
+    // verifyEm();
 
     if (googleJwt.length > 0) {
       //be sure the google JWT is already assigned (they have authenticated with Google)
@@ -127,15 +131,12 @@ function App() {
     );
   } else {
     console.log(googleCredentials.current.email);
-    if (
-      authorization.isAdmin === true &&
-      verifiedEmail.emailIsVerified === false
-    ) {
+    if (authorization.isAdmin === true && verifiedEmail.current === false) {
       console.log("Admin not verified");
       return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
     } else if (
       authorization.isAdmin === true &&
-      verifiedEmail.emailIsVerified === true
+      verifiedEmail.current === true
     ) {
       console.log("Admin verified");
       return (
@@ -144,7 +145,7 @@ function App() {
       );
     } else if (
       authorization.isAdmin === false &&
-      verifiedEmail.emailIsVerified === true
+      verifiedEmail.current === true
     ) {
       console.log("Student verified");
       return (
@@ -153,7 +154,7 @@ function App() {
       );
     } else if (
       authorization.isAdmin === false &&
-      verifiedEmail.emailIsVerified === false
+      verifiedEmail.current === false
     ) {
       console.log("Student not verified");
       return (
