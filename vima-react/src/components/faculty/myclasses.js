@@ -51,7 +51,7 @@ function MyClasses() {
             {classList.map((item) => (
               <div className={myclasses.card}>
               <Card variant="outlined">
-                <div value={item.courseCod} className={myclasses.tableheader}>
+                <div value={item.courseCode} className={myclasses.tableheader}>
                   {item.courseCode}
                 </div>
                 <div className={myclasses.tablecontent}>
