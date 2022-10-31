@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
 import VerifiedEmail from "./verifyemail";
-import { getApiRoot } from "./utils/getApiRoot";
+import { BFF } from "./utils/bff";
 
 const handleFailure = (result) => {
   console.log("There was a problem logging in.", result);
@@ -24,17 +24,10 @@ function App() {
   const googleCredentials = useRef({});
   useEffect(() => {
     const verifyJwt = async () => {
-      const jwtResponse = await fetch(getApiRoot() + "/api/token", {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({ accessTokenValue: googleJwt }),
-      });
-
-      const authorizationObject = await jwtResponse.json();
-      verifiedEmail.current = authorizationObject.emailIsVerified; //
+      let postBody = { accessTokenValue: googleJwt };
+      const authorizationObject = await BFF.Post("/api/token", postBody);
+      
+      verifiedEmail.current = authorizationObject.isVerified; //
       console.log(verifiedEmail.current);
       sessionStorage.setItem("userInfo", JSON.stringify(authorizationObject));
       setAuthorization(authorizationObject);
