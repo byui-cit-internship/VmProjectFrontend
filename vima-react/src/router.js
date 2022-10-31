@@ -13,19 +13,19 @@ import ProfessorList from "./components/faculty/professorlist";
 import CreatedSuccessfully from "./components/student/success";
 import MyClasses from "./components/faculty/myclasses";
 import VerifyEmail from "./verifyemail";
-import Popup from "./components/faculty/Popup";
+// import Popup from "./components/faculty/Popup";
 
 export default function VimaRouter() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/faculty" element={<FacultyDashboard />} />
+        <Route path="/facultydashboard" element={<FacultyDashboard />} />
         <Route path="/addclass" element={<AddClass />} />
         <Route path="/addprofessor" element={<AddProfessor />} />
         <Route path="/utilization" element={<Utilization />} />
         <Route path="/addvm" element={<AddVm />} />
-        <Route path="/student" element={<StudentDashboard />} />
+        <Route path="/studentdashboard" element={<StudentDashboard />} />
         <Route path="/createvm" element={<CreateVM />} />
         <Route path="/myvm" element={<MyVM />} />
         <Route path="/mynetworks" element={<MyNetworks />} />

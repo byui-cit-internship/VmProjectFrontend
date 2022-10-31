@@ -26,7 +26,6 @@ function App() {
     const verifyJwt = async () => {
       let postBody = { accessTokenValue: googleJwt };
       const authorizationObject = await BFF.Post("/api/token", postBody);
-      
       verifiedEmail.current = authorizationObject.isVerified; //
       console.log(verifiedEmail.current);
       sessionStorage.setItem("userInfo", JSON.stringify(authorizationObject));
@@ -80,11 +79,7 @@ function App() {
     </div> */}
           <div className={styles.container}>
             <div className={styles.text}>
-              <img
-                className={styles.logo}
-                src="images/LOGO-VIMA.png"
-                alt="logo"
-              />
+              <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
                 <h2 className={styles.h2}>
                   Welcome to <span id="vima">vima</span>
@@ -103,14 +98,12 @@ function App() {
                     {/* Login */}
                     <GoogleOAuthProvider
                       clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
-                      id={styles.googleAuth}
-                    >
+                      id={styles.googleAuth}>
                       <GoogleLogin
                         id={styles.googleLogin}
                         onSuccess={handleLogin}
                         onError={handleFailure}
-                        className={styles.button}
-                      ></GoogleLogin>
+                        className={styles.button}></GoogleLogin>
                     </GoogleOAuthProvider>
                     {/* <GoogleLoginComponent /> */}
                   </div>
@@ -127,28 +120,19 @@ function App() {
     if (authorization.isAdmin === true && verifiedEmail.current === false) {
       console.log("Admin not verified");
       return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
-    } else if (
-      authorization.isAdmin === true &&
-      verifiedEmail.current === true
-    ) {
+    } else if (authorization.isAdmin === true && verifiedEmail.current === true) {
       console.log("Admin verified");
       return (
         // console.log("Admin verified");
         <Navigate to="/facultydashboard" element={<FacultyDashboard />} />
       );
-    } else if (
-      authorization.isAdmin === false &&
-      verifiedEmail.current === true
-    ) {
+    } else if (authorization.isAdmin === false && verifiedEmail.current === true) {
       console.log("Student verified");
       return (
         // window.location.href="VMstudent_dashboard/studentview.html"
         <Navigate to="/studentdashboard" element={<StudentDashboard />} />
       );
-    } else if (
-      authorization.isAdmin === false &&
-      verifiedEmail.current === false
-    ) {
+    } else if (authorization.isAdmin === false && verifiedEmail.current === false) {
       console.log("Student not verified");
       return (
         // window.location.href="VMstudent_dashboard/studentview.html"
