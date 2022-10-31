@@ -2,7 +2,7 @@
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DnsIcon from "@mui/icons-material/Dns";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 // import AddClass from './components/faculty/addclass';
 import Background from "../../background";
@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 const iconStyles = {
   color: "white",
-  fontSize: "35px",
+  fontSize: "35px"
 };
 
 const FacultyDashboard = () => {
@@ -66,8 +66,7 @@ const FacultyDashboard = () => {
               id={facultydashboard.singleContainer}
               onClick={() => {
                 navigate("/myclasses");
-              }}
-            >
+              }}>
               <span className={facultydashboard.material}>
                 <AddCircleOutlineIcon style={iconStyles} />
               </span>
@@ -78,38 +77,28 @@ const FacultyDashboard = () => {
               id={facultydashboard.singleContainer}
               onClick={() => {
                 navigate("/professorlist");
-              }}
-            >
+              }}>
               <span className={facultydashboard.material}>
                 <PersonAddIcon style={iconStyles} />
               </span>
-              <button className={facultydashboard.button}>
-                View Professors
-              </button>
+              <button className={facultydashboard.button}>View Professors</button>
             </div>
             <div
               className={facultydashboard.vm_utilization}
               id={facultydashboard.singleContainer}
               onClick={() => {
                 navigate("/utilization");
-              }}
-            >
+              }}>
               <span className={facultydashboard.material}>
                 <DnsIcon style={iconStyles} />
               </span>
-              <button className={facultydashboard.button}>
-                VM Utilization
-              </button>
+              <button className={facultydashboard.button}>VM Utilization</button>
             </div>
           </div>
         </div>
       </div>
 
-      <script
-        src="https://apis.google.com/js/platform.js?onload=onLoad"
-        async
-        defer
-      ></script>
+      <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
       <Background />
     </div>

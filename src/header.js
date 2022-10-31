@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import header from "./header.module.css";
 import { FaHamburger } from "react-icons/fa";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 
 function Header(props) {
@@ -35,17 +35,13 @@ function Header(props) {
             className={header.signOut}
             onClick={() => {
               navigate("/");
-            }}
-          >
+            }}>
             Sign out
           </button>
         </div>
 
         <div className={header.hamWrapper}>
-          <button
-            className={header.outHam}
-            onClick={() => setShowLinks(!showLinks)}
-          >
+          <button className={header.outHam} onClick={() => setShowLinks(!showLinks)}>
             <FaHamburger />
           </button>
         </div>
