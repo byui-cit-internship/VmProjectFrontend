@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vmfrontend-test
+  namespace: vima-project-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vmfrontend-test
+  template:
+    metadata:
+      labels:
+        app: vmfrontend-test
+    spec:
+      containers:
+        - name: vmfrontend-test
+          image: gcr.io/cubs-consulting/vmfrontend:latest
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: ".5"
+              memory: "500Mi"
+            requests:
+              cpu: ".25"
+              memory: "250Mi"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 3
+            periodSeconds: 3
+      imagePullSecrets:
+      - name: frontend-rcr-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vmfrontend-test-nodeport
+  namespace: vima-project-test
+spec:
+  selector:
+    app: vmfrontend-test
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vmfrontend-test-ingress
+  namespace: vima-project-test
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+spec:
+  tls:
+  - hosts:
+    - rancher-vmfrontend-test.cit.byui.edu
+    secretName: vmfrontend-test-tls
+  rules:
+  - host: rancher-vmfrontend-test.cit.byui.edu
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vmfrontend-test-nodeport
+            port:
+              number: 80
+      
