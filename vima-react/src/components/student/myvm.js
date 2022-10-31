@@ -6,24 +6,24 @@ import React, { useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {
-  const [vmList, setVmList] = useState([]);
   let navigate = useNavigate();
+  const [vmList, setVmList] = useState([]);
   useEffect(() => {
     const getVmList = async () => {
       const listResponse = await fetch(
         getApiRoot() + "/api/vmtable/instances", 
         {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-    console.log(listResponse);
-    const vmList = await listResponse.json();
-    console.log("virtual machines; ", vmList);
-    setVmList(vmList);
+            method: "GET",
+            credentials: "include",
+            headers: {
+            "content-type": "application/json",
+          },
+        }
+      );  
+      console.log(listResponse);
+      const vmList = await listResponse.json();
+      console.log("vm's", vmList);
+      setVmList(vmList);
     };
     getVmList();
   }, []);
@@ -33,7 +33,7 @@ function MyVM() {
       <div className={myVm.container}>
         <Header userType="student" />
         {/* <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span> */}
-
+        <h1>My Vm's</h1> 
         <div className={myVm.table}>
           <table>
             <thead>
@@ -44,11 +44,19 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-            {vmList.map((item) =>(
-              <div value={item.vmName}>
-                {item.vmName}
-              </div>
-            ))}
+              {vmList.map((vm) =>(
+                <tr>
+                <td>
+                  {vm.courseCode}
+                </td>
+                <td>
+                  {vm.vmTemplateName}
+                </td>
+                <td>
+                  {vm.vmInstanceExpire}
+                </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

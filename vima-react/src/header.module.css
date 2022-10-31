@@ -99,7 +99,7 @@ a {
 /* need to be more specific */
 
 /* Small View */
-@media screen and (max-width: 37.5em) {
+@media screen and (max-width: 37.4em) {
   .header {
     align-items: baseline;
     height: 90px;
@@ -146,7 +146,7 @@ a {
 }
 
 /* Medium View */
-@media only screen and (min-width: 37.5em) {
+@media only screen and (min-width: 37.4em) {
   .header {
     width: 100vw;
     max-width: 970px;

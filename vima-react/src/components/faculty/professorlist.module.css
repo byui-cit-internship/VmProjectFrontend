@@ -1,15 +1,18 @@
-/* Large View */
-
 .professorList .container {
   width: 1000px;
   background-color: white;
   margin: 50px auto;
   border-radius: 50px;
   column-gap: 10%;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   padding: 10px 20px;
-  justify-content: center;
   align-items: center;
+}
+
+.professorList .table {
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 500px;
 }
 
 .professorList #backbtn {
@@ -30,6 +33,7 @@
   font-weight: bold;
   padding: 0px 0px 40px 0px;
   margin: 0 auto;
+  color: #004878;
   display: table;
 }
 
@@ -137,9 +141,9 @@ select:focus {
   font-size: 1.5rem;
 }
 
-.professorList .backbtn {
+.professorList .button {
   color: #ffffff;
-  background: #3a8ace;
+  background: #58b952;
   cursor: pointer;
   font-size: 1.5rem;
   padding: 15px;
@@ -151,7 +155,7 @@ select:focus {
   display: grid;
 }
 
-.professorList .backbtn:hover {
+.professorList .button:hover {
   cursor: pointer;
   background-color: #006eb6;
 }
@@ -165,14 +169,76 @@ select:focus {
   display: block;
 } */
 
+.professorList #title {
+  margin: 0;
+  padding: 0;
+}
+
+.professorList .tableHeader {
+  background: #006eb6;
+  padding: 0px 10px;
+  color: white;
+}
+
+.professorList .table::-webkit-scrollbar {
+}
+
+.professorList .table::-webkit-scrollbar-track {
+}
+.professorList .table::-webkit-scrollbar-thumb {
+}
+
+.professorList .tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Small View */
-@media only screen and (max-width: 650px) {
-  .professorList {
+
+@media only screen and (max-width: 37.4em) {
+  /* .professorList {
     display: flex;
+  } */
+
+  .professorList td {
+    border: 2px solid #3a8ace;
+    font-size: 1rem;
   }
 
-  .professorList table {
-    width: 300px;
+  .professorList #title {
+    margin: 0 !important;
+  }
+  .professorList .button {
+    padding: 10px !important;
+    font-size: 19px !important;
+    width: 200px !important;
+    margin: 10px 0px;
+  }
+
+  .professorList .lets {
+    width: unset;
+    margin: 0;
+  }
+
+  .professorList #professorsAndSearch {
+    display: unset !important;
+    color: black;
+    background: white;
+  }
+  .professorList .container {
+    border-radius: 0px;
+    margin: 0;
+    width: 100vw;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+  .professorList .table {
+    height: 360px;
+    overflow: hidden;
+    overflow-y: scroll;
+    width: 80vw;
   }
   .professorList th {
     width: 300px;
@@ -184,39 +250,65 @@ select:focus {
 
   .professorList #professorsAndSearch {
     display: flex;
-    width: 300px;
+    width: 80%;
   }
 
   .professorList #search {
     width: 100px;
   }
 
-  .professorList .backbtn {
-    font-size: 1rem;
-    width: 300px;
+  .professorList .button {
+    font-size: 2rem;
+    width: 60%;
   }
 
   .professorList #title {
     font-size: 1.5rem;
     margin-top: 30px;
   }
+
+  html {
+    background: white;
+  }
 }
 
 /* Medium View */
-@media only screen and (min-width: 650px) and (max-width: 1000px) {
-  .professorList {
+@media only screen and (min-width: 37.4em) {
+  .professorList .container {
     display: flex;
-  }
-
-  .professorList table {
-    width: 530px;
-  }
-  .professorList th {
-    width: 530px;
+    flex-direction: column;
   }
 
   .professorList td {
-    width: 530px;
+    color: #000;
+  }
+  .professorList #professorsAndSearch {
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .professorList table {
+    width: 70vw;
+    max-width: 584px;
+  }
+
+  .professorList .tableHeader {
+    width: 73vw !important;
+    max-width: 584px;
+  }
+
+  .professorList .searchbar {
+    width: unset;
+    background-color: #006eb6;
+  }
+
+  .professorList .tableHeader {
+    width: 600px;
+    padding: 0;
+  }
+
+  .professorList {
+    display: flex;
   }
 
   .professorList #professorsAndSearch {
@@ -236,5 +328,35 @@ select:focus {
   .professorList #title {
     font-size: 1.5rem;
     margin-top: 30px;
+  }
+}
+
+/* L A R G E   V I E W */
+@media only screen and (min-width: 64em) {
+  .professorList .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .professorList td {
+    color: #000;
+  }
+  .professorList #professorsAndSearch {
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .professorList table {
+    width: 567px;
+  }
+
+  .professorList .searchbar {
+    width: unset;
+    background-color: #006eb6;
+  }
+
+  .professorList .tableHeader {
+    width: 600px;
+    padding: 0;
   }
 }

@@ -13,9 +13,9 @@ function AddProfessor() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [isSuccess, setIsSuccess] = useState()
-  const [confirmationMessage, setConfirmationMessage] = useState()
-  const [againOptionMessage, setAgainOptionMessage] = useState()
+  const [isSuccess, setIsSuccess] = useState();
+  const [confirmationMessage, setConfirmationMessage] = useState();
+  const [againOptionMessage, setAgainOptionMessage] = useState();
 
   useEffect(() => {
     if (urlParams === "addprofessor") {
@@ -51,15 +51,15 @@ function AddProfessor() {
           },
         }
       );
-      console.log(response)
+      console.log(response);
       if (response.ok) {
-        setConfirmationMessage("Professor added succesfully")
-        setAgainOptionMessage("Add another professor")
-        setIsSuccess(true)
+        setConfirmationMessage("Professor added succesfully");
+        setAgainOptionMessage("Add another professor");
+        setIsSuccess(true);
       } else {
-        setConfirmationMessage("Error adding professor")
-        setAgainOptionMessage("Try again")
-        setIsSuccess(false)
+        setConfirmationMessage("Error adding professor");
+        setAgainOptionMessage("Try again");
+        setIsSuccess(false);
       }
       setIsOpen(true);
     }

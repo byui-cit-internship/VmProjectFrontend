@@ -26,10 +26,9 @@ function ProfessorList() {
   });
   let navigate = useNavigate();
   const [courseList, setCourseList] = useState([]);
-  console.log(JSON.stringify(professorList))
+  console.log(JSON.stringify(professorList));
   useEffect(() => {
     const getCourseInfo = async () => {
-
       console.log("hello");
       const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
         method: "GET",
@@ -54,36 +53,36 @@ function ProfessorList() {
         {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
         <span id={professorList.title}> Professor List</span>
         <div id={professorList.professorsAndSearch}>
-          <h1 className={professorList.lets}>Professors</h1>
-          <div className={professorList.searchbar}>
-            {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
-            <input
-              id={professorList.search}
-              type="text"
-              placeholder="Search.."
-            />
+          <div className={professorList.tableHeader}>
+            <h1 className={professorList.lets}>Professors</h1>
+            <div className={professorList.searchbar}>
+              {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
+              <input
+                id={professorList.search}
+                type="text"
+                placeholder="Search.."
+              />
+            </div>
+          </div>
+
+          <div className={professorList.table}>
+            <table>
+              <thead></thead>
+              <tbody>
+                {courseList.map((professor) => (
+                  <tr>
+                    <td>
+                      {professor.firstName} {professor.lastName}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div className={professorList.table}>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-              </tr>
-            </thead>
-            <tbody>
-              {courseList.map((professor) => (
-                <tr>
-                  <td>{professor.firstName} {professor.lastName}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
         <button
-          className={professorList.backbtn}
+          className={professorList.button}
           onClick={() => {
             navigate("/addprofessor");
           }}
