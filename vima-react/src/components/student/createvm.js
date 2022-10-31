@@ -1,12 +1,12 @@
 import createVM from "./createvm.module.css";
 import Background from "../../background";
 import Header from "../../header";
-import LaptopIcon from "@mui/icons-material/Laptop";
+// import LaptopIcon from "@mui/icons-material/Laptop";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function CreateVM() {
@@ -22,15 +22,12 @@ function CreateVM() {
       const methods = {
         credentials: "include",
         headers: {
-          "content-type": "application/json",
+          "content-type": "application/json"
         },
-        method: "GET",
+        method: "GET"
       };
 
-      const courseResponse = await fetch(
-        getApiRoot() + "/api/studentcourse",
-        methods
-      );
+      const courseResponse = await fetch(getApiRoot() + "/api/studentcourse", methods);
       const courseResponseObject = await courseResponse.json();
       setCourseList(courseResponseObject);
     };
@@ -43,9 +40,9 @@ function CreateVM() {
       method: "POST",
       credentials: "include",
       headers: {
-        "content-type": "application/json",
+        "content-type": "application/json"
       },
-      body: enrollmentId,
+      body: enrollmentId
     };
 
     const response = await fetch(`${getApiRoot()}/api/deployvm`, options);
@@ -62,7 +59,7 @@ function CreateVM() {
   return (
     <div className={createVM.createvm}>
       <div className={createVM.container}>
-        <Header userType="student" />
+        <Header userType="studentdashboard" />
         {/* <span
           onClick={() => {
             navigate("/student");
@@ -84,13 +81,10 @@ function CreateVM() {
                 <select
                   className="course"
                   id={createVM.course}
-                  onChange={(e) => setEnrollmentId(e.target.value)}
-                >
+                  onChange={(e) => setEnrollmentId(e.target.value)}>
                   <option value="Default">- Select -</option>
                   {courseList.map((course) => (
-                    <option value={course.enrollmentId}>
-                      {course.courseName}
-                    </option>
+                    <option value={course.enrollmentId}>{course.courseName}</option>
                   ))}
                 </select>
 
@@ -123,11 +117,7 @@ function CreateVM() {
             )}
           </div>
         </div>
-        <script
-          src="https://apis.google.com/js/platform.js?onload=onLoad"
-          async
-          defer
-        ></script>
+        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       </div>
       <Background />
     </div>
