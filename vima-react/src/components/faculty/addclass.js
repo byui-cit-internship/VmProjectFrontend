@@ -23,7 +23,7 @@ function AddClass() {
   const [canvasCourseId, setCanvasCourseId] = useState("");
   const [sectionName, setSectionName] = useState("");
   const [courseSemesterList, setCourseSemesterList] = useState([]);
-  const [semesterYear, setSemesterYear] = useState("");
+  const [semester, setSemester] = useState({});
   const [vCenterFolderList, setvCenterFolderList] = useState([])
   const [vCenterFolder, setvCenterFolder] = useState("");
   const [libraryList, setLibraryList] = useState([]);
@@ -46,16 +46,14 @@ function AddClass() {
         courseCode: courseCode,
         canvas_token: canvasToken,
         section_num: "1", 
-        courseSemester: courseSemester,
+        courseSemester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
         templateVm: [templateVm],
         resource_group: "blah",
         userId: userId,
         vmTemplateName: vmTemplateName,
-        semesterYear: semesterYear,
-        canvasCourseId: canvasCourseId
-      }),
+        canvasCourseId: canvasCourseId}),
       credentials: 'include',
       headers: {
         'content-type': 'application/json'
@@ -152,7 +150,7 @@ function AddClass() {
   useEffect(() =>{
     const getcourseSemester = async () =>{
       const listResponse = await fetch(
-        getApiRoot() + "/api/semester/semester",
+        getApiRoot() + "/api/semester/enrollmentTerms",
         {
           method: "GET",
           credentials: "include",
@@ -241,7 +239,6 @@ width=0,height=0,left=-1000,top=-1000`;
     selectElement.current.reset()
     setCanvasCourseId("")
     setCourseCode("")
-    setSemesterYear("")
     setLibraryId("")
     setVmName("")
     setIsPopupOpen(closeBool);
@@ -316,23 +313,18 @@ width=0,height=0,left=-1000,top=-1000`;
           </div>
         </div>
 
-        {/*Year*/}
         <div className={addclass.flex2}>
-          <div>
-            <label className={addclass.label}>Year: </label><br></br>
-            <select className={addclass.select} name="semester" id={addclass.semester} required 
-            onChange={(event) =>{setSemesterYear(event.target.value)}} disabled={!courseCode}>
-              <option>- Select -</option>
-            </select>
-          </div>
 
           {/*Semester*/}
           <div>
             <label className={addclass.label} >Choose Semester: </label><br></br>
-                  <select>
+                  <select
+                  onChange={(event) =>{
+                    var obj = JSON.parse(event.target.value);
+                    setSemester(obj)}}>
                   <option>- Select -</option>
-                    {courseSemesterList.map((item) =>(
-                      <option value={item.semesterTerm}>
+                    {courseSemesterList.map((item, i) =>(
+                      <option key={i} value={JSON.stringify(item)}>
                         {item.semesterTerm} {item.semesterYear}
                       </option>
                     ))}
