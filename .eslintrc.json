@@ -15,7 +15,8 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "only-warn"
     ],
     "rules": {
         "prettier/prettier": [
