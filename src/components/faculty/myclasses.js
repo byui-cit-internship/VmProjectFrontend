@@ -4,24 +4,21 @@ import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { useEffect, useState } from "react";
-import { Card } from '@mui/material';
+import { Card } from "@mui/material";
 
 function MyClasses() {
   let navigate = useNavigate();
   const [classList, setClassList] = useState([]);
   console.log(JSON.stringify(myclasses));
-  useEffect(() =>{
-    const getclassList = async () =>{
-      const listResponse = await fetch(
-        getApiRoot() + "/api/course/professor/getAllCourses",
-        {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "content-type": "application/json",
-          },
+  useEffect(() => {
+    const getclassList = async () => {
+      const listResponse = await fetch(getApiRoot() + "/api/course/professor/getAllCourses", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
         }
-      );
+      });
       console.log(listResponse);
       const classList = await listResponse.json();
       console.log("classes; ", classList);
@@ -29,8 +26,6 @@ function MyClasses() {
     };
     getclassList();
   }, []);
-
-
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
@@ -38,47 +33,47 @@ function MyClasses() {
         {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
         <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
-          <div className={myclasses.searchbar}>    
-            <input
-              id={myclasses.search}
-              type="text"
-              placeholder="Search.."
-            />
+          <div className={myclasses.searchbar}>
+            <input id={myclasses.search} type="text" placeholder="Search.." />
           </div>
         </div>
-          <div className={myclasses.tablegrid}>
-            <div className={myclasses.table}>
+        <div className={myclasses.tablegrid}>
+          <div className={myclasses.table}>
             {classList.map((item) => (
               <div className={myclasses.card}>
-              <Card variant="outlined">
-                <div value={item.courseCode} className={myclasses.tableheader}>
-                  {item.courseCode}
-                </div>
-                <div className={myclasses.tablecontent}>
-                  <div className={myclasses.tablerow}>
-                  <p>Linux</p>
-                  <span className={myclasses.time} >Semester, year</span>
+                <Card variant="outlined">
+                  <div value={item.courseCode} className={myclasses.tableheader}>
+                    {item.courseCode}
                   </div>
-                  <div className={myclasses.tablerow}>
-                  <p>Windows</p>
-                  <span className={myclasses.time}>Semester, year</span>
+                  <div className={myclasses.tablecontent}>
+                    <div className={myclasses.tablerow}>
+                      <p>Linux</p>
+                      <span className={myclasses.time}>Semester, year</span>
+                    </div>
+                    <div className={myclasses.tablerow}>
+                      <p>Windows</p>
+                      <span className={myclasses.time}>Semester, year</span>
+                    </div>
+                    <div className={myclasses.tablerow}>
+                      <p>Android</p>
+                      <span className={myclasses.time}>Semester, year</span>
+                    </div>
+                    <div className={myclasses.add}>
+                      <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                    </div>
                   </div>
-                  <div className={myclasses.tablerow}>
-                  <p>Android</p>
-                  <span className={myclasses.time}>Semester, year</span>
-                  </div>
-                  <div className={myclasses.add}>
-                  <button className={myclasses.addbutton}>Add Virtual Machine</button>
-                  </div>
-                </div>
-              </Card>
+                </Card>
               </div>
-              ))}
-            </div>
+            ))}
           </div>
-        <div className={myclasses.add_class} onClick={() => {navigate("/addclass")}}>
-        <button className={myclasses.submitBt}>Add New Class</button>
-    </div>
+        </div>
+        <div
+          className={myclasses.add_class}
+          onClick={() => {
+            navigate("/addclass");
+          }}>
+          <button className={myclasses.submitBt}>Add New Class</button>
+        </div>
       </div>
 
       <Background />
