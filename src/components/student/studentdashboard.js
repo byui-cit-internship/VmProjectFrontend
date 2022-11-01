@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Background from "../../background";
 import studentdashboard from "./studentdashboard.module.css";
 import Header from "../../header";
+import React from "react";
 
 const iconStyles = {
   color: "white",
-  fontSize: "35px",
+  fontSize: "35px"
 };
 
 const StudentDashboard = () => {
@@ -48,8 +49,7 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/createvm");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
                 <AddCircleOutlineIcon
                   studentdashboard={iconStyles}
@@ -63,13 +63,9 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/myvm");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
-                <Computer
-                  studentdashboard={iconStyles}
-                  className={studentdashboard.material}
-                />
+                <Computer studentdashboard={iconStyles} className={studentdashboard.material} />
               </span>
               <button className={studentdashboard.button}>My VMS</button>
             </div>
@@ -78,24 +74,16 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/mynetworks");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
-                <CloudQueue
-                  studentdashboard={iconStyles}
-                  className={studentdashboard.material}
-                />
+                <CloudQueue studentdashboard={iconStyles} className={studentdashboard.material} />
               </span>
               <button className={studentdashboard.button}>My Networks</button>
             </div>
           </div>
         </div>
       </div>
-      <script
-        src="https://apis.google.com/js/platform.js?onload=onLoad"
-        async
-        defer
-      ></script>
+      <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       <Background />
     </div>
   );

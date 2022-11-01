@@ -2,8 +2,7 @@ import Background from "../../background";
 import Header from "../../header";
 import success from "./success.module.css";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { getApiRoot } from "../../utils/getApiRoot";
+import React from "react";
 import { FaCheck } from "react-icons/fa";
 
 function CreatedSuccessfully() {
@@ -27,8 +26,7 @@ function CreatedSuccessfully() {
               id={success.button}
               onClick={() => {
                 navigate("/#");
-              }}
-            >
+              }}>
               Click Here
             </button>
           </div>
@@ -36,8 +34,7 @@ function CreatedSuccessfully() {
             onClick={() => {
               navigate("/createvm");
             }}
-            className={success.newVm}
-          >
+            className={success.newVm}>
             Or click here to create a new VM
           </span>
         </div>

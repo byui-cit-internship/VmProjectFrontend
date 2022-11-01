@@ -5,7 +5,7 @@ import addvm from "./addvm.module.css";
 import Apple from "@mui/icons-material/Apple";
 
 function AddVm() {
-  const [templateFolders, setTemplateFolders] = useState([]);
+  const [templateFolders] = useState([]);
 
   useEffect(() => {
     console.log("Calling fetch to update a list of template folders");
@@ -43,13 +43,7 @@ function AddVm() {
           <div className={addvm.chooseVm}>
             <label>Choose a Virtual machine:</label>
             <form action="">
-              <select
-                name="templateVm"
-                id={addvm.templateVm}
-                required
-                multiple
-                type="checkbox"
-              >
+              <select name="templateVm" id={addvm.templateVm} required multiple type="checkbox">
                 <option className={addvm.apple} name="option">
                   <Apple />
                 </option>
