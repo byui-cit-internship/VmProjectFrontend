@@ -71,7 +71,8 @@ function Utilization() {
     }
     //return the item which contains the user input
     else {
-      return i.firstName.toLowerCase().includes(inputText);
+      const fullName =  (i.firstName + ' ' + i.lastName)
+      return fullName.toLowerCase().includes(inputText);
     }
   });
   //*****************************************************************/
@@ -337,7 +338,7 @@ const filterSections = (item) => {
                       value={item.firstName}
                       onClick={(e) => handlePopup(e.target.value)}
                     >
-                      {item.firstName}
+                      {item.firstName} {item.lastName}
                     </li>
                   ))}
                 </ul>

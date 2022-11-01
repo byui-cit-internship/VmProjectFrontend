@@ -24,12 +24,14 @@ function ProfessorList() {
       body.style.alignItems = "unset";
     }
   });
+
   let navigate = useNavigate();
-  const [courseList, setCourseList] = useState([]);
+  const [professorsList, setProfessorList] = useState([]);
+  const [inputText, setInputText] = useState("");
+
   console.log(JSON.stringify(professorList));
   useEffect(() => {
-    const getCourseInfo = async () => {
-      console.log("hello");
+    const getProfessorInfo = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
         method: "GET",
         credentials: "include",
@@ -39,12 +41,30 @@ function ProfessorList() {
       });
       console.log("listResponse; ", listResponse);
 
-      const classList = await listResponse.json();
-      console.log("classes; ", classList);
-      setCourseList(classList);
+      const profList = await listResponse.json();
+      console.log("classes; ", profList);
+      setProfessorList(profList);
     };
-    getCourseInfo();
+    getProfessorInfo();
   }, []);
+
+  //*****************************************************************/
+  //Filtering Professor list when input is given in the search bar
+  //******************************************************************/
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+  const filteredData = professorsList.filter((i) => {    
+      if (inputText === "") {
+        return i;
+      }
+      else {
+       const fullName =  (i.firstName + ' ' + i.lastName)
+        return fullName.toLowerCase().includes(inputText);
+      }
+  });
 
   return (
     <div className={professorList.professorList}>
@@ -58,6 +78,7 @@ function ProfessorList() {
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
               <input
+                onChange={inputHandler}
                 id={professorList.search}
                 type="text"
                 placeholder="Search.."
@@ -69,8 +90,8 @@ function ProfessorList() {
             <table>
               <thead></thead>
               <tbody>
-                {courseList.map((professor) => (
-                  <tr>
+                {filteredData.map((professor) => (
+                  <tr key={professor.userId}>
                     <td>
                       {professor.firstName} {professor.lastName}
                     </td>
