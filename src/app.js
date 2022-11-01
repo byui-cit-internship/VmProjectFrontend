@@ -9,6 +9,7 @@ import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
 import VerifiedEmail from "./verifyemail";
 import { BFF } from "./utils/bff";
+import React from "react";
 
 const handleFailure = (result) => {
   console.log("There was a problem logging in.", result);

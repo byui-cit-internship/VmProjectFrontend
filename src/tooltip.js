@@ -1,4 +1,5 @@
-import styles from './tooltip.module.css';
+import styles from "./tooltip.module.css";
+import React from "react";
 
 export default function Tooltip(props) {
   const { text, linkObj, label} = props;
@@ -9,13 +10,7 @@ export default function Tooltip(props) {
       </label>
       <p className={styles.tooltipinfo}>
         <span className={styles.info}>
-          {text ?? 'text not set'}{' '}
-          {linkObj &&
-          (
-            <a href={linkObj.href}>
-              {linkObj.text}
-            </a>
-          )}
+          {text ?? "text not set"} {linkObj && <a href={linkObj.href}>{linkObj.text}</a>}
         </span>
       </p>
     </div>
