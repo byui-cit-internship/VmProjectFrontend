@@ -105,10 +105,12 @@ function App() {
         method: "PUT"
       };
 
+
       const response = await fetch(
         getApiRoot() + `/api/user/verifyUser/${confirmationCode}`,
         options
       );
+
       if (response.ok) {
         //TO-DO
       }
@@ -252,9 +254,12 @@ function App() {
                     {isCodeResent && <div>{isCodeResent}</div>}
                   </div>
                   {seconds && (
+
+
                     <StyledSeconds className={styles.StyledSeconds}>
                       {`Re-send verification code(${seconds}s)`}
                     </StyledSeconds>
+
                   )}
                 </div>
               </div>

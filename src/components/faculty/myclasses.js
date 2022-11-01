@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { useEffect, useState } from "react";
 import { Card } from "@mui/material";
-import React from "react";
 
 function MyClasses() {
   let navigate = useNavigate();
@@ -27,7 +26,7 @@ function MyClasses() {
     };
     getclassList();
   }, []);
-
+  
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
