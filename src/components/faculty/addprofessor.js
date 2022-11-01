@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import addprofessor from "./addprofessor.module.css";
 import Header from "../../header";
-import { useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 import SubmissionPopup from "../submissionpop";
 
@@ -33,24 +32,21 @@ function AddProfessor() {
       allFieldsValid = false;
     }
     if (allFieldsValid) {
-      const response = await fetch(
-        getApiRoot() + "/api/user/admin/createuser",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            usertype: "Professor",
-            userAccess: true,
-            isAdmin: false,
-          }),
-          credentials: "include",
-          headers: {
-            "content-type": "application/json",
-          },
+      const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: firstName,
+          lastName: lastName,
+          email: email,
+          usertype: "Professor",
+          userAccess: true,
+          isAdmin: false
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
         }
-      );
+      });
       console.log(response);
       if (response.ok) {
         setConfirmationMessage("Professor added succesfully");
@@ -95,11 +91,7 @@ function AddProfessor() {
         </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
-          <form
-            action="#"
-            className={addprofessor.form}
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <form action="#" className={addprofessor.form} onSubmit={(e) => e.preventDefault()}>
             {/* <!-- Course Name--> */}
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
@@ -140,17 +132,9 @@ function AddProfessor() {
                   />
                 </div>
               </div>
-              <img
-                className={addprofessor.image}
-                alt="teacher"
-                src="/images/teacherpic.jpg"
-              ></img>
+              <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
             </div>
-            <button
-              type="submit"
-              className={addprofessor.primaryButton}
-              onClick={validateForm}
-            >
+            <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
               Add Professor
             </button>
             {isOpen && (
