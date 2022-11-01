@@ -70,7 +70,8 @@ function Utilization() {
     }
     //return the item which contains the user input
     else {
-      return i.firstName.toLowerCase().includes(inputText);
+      const fullName =  (i.firstName + ' ' + i.lastName)
+      return fullName.toLowerCase().includes(inputText);
     }
   });
   //*****************************************************************/
