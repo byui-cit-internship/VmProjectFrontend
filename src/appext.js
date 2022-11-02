@@ -81,7 +81,7 @@ function App() {
             <div className={styles.text}>
               <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
-                <h2 className={styles.h2}>Please, read the following instructions</h2>
+                <h2 className={styles.h2}>Are you a professor? </h2>
                 {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
 
                 <div className={styles.image_and_button}>
@@ -89,7 +89,7 @@ function App() {
                     <img src="/images/mobile-hero.png" alt="heroimg" />
                   </div>
                   <p className={styles.description}>
-                    Are you a professor? Request access by clicking here
+                    Request access by clicking here
                     <button className={styles.requestButton}>Request Access</button>
                   </p>
                   {/* <p className={styles.description}>
