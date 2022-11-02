@@ -33,14 +33,24 @@ const StudentDashboard = () => {
           <Header userType="student" />
         </div>
         <div className={studentdashboard.main}>
-          <div className={studentdashboard.text}>
-            <h1 id={studentdashboard.nameOfStudent}>
-              Hello{" "}
-              <span>
-                {userFirst} {userLast}
-              </span>
-            </h1>
-            <p id={studentdashboard.greeting}>How can we help you today?</p>
+          <div className={studentdashboard.left}>
+            <div className={studentdashboard.text}>
+              <h1 id={studentdashboard.nameOfStudent}>
+                Hello{" "}
+                <span>
+                  {userFirst} {userLast}
+                </span>
+              </h1>
+              <p id={studentdashboard.greeting}>How can we help you today?</p>
+            </div>
+
+            <div
+              className={studentdashboard.professorpermissions}
+              onClick={() => {
+                navigate("/appext");
+              }}>
+              <button className={studentdashboard.permissionsbutton}>Are you a professor?</button>
+            </div>
           </div>
 
           <div className={studentdashboard.buttons}>
