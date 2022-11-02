@@ -177,9 +177,26 @@ h3 {
 } */
 
 /* border-radius: 50px;
-@media only screen and (min-width: 37.4em) {
+@media only screen and (min-width: 37.4em) {*/
+
+.app .requestButton {
+  border-radius: 8px;
+  margin: 30px 0px;
+}
+
 /* Small View */
 @media only screen and (max-width: 37.4em) {
+  .app .main {
+    width: unset !important;
+  }
+  .app .description {
+    align-items: center;
+  }
+
+  .app .requestButton {
+    width: 80vw;
+    max-width: 210px;
+  }
   .app .h2 {
     padding-left: 0px;
   }
@@ -310,6 +327,7 @@ h3 {
 
   .app .description {
     padding-left: 50px;
+    flex-direction: column;
   }
 }
 
