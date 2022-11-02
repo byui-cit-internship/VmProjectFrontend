@@ -3,7 +3,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import Background from "./background";
-import styles from "./app.module.css";
+import styles from "./appext.module.css";
 import { Navigate } from "react-router-dom";
 import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
@@ -89,27 +89,26 @@ function App() {
                     <img src="/images/mobile-hero.png" alt="heroimg" />
                   </div>
                   <p className={styles.description}>
-                    Are you a professor? Request access by clicking here{" "}
-                    <button className={styles.requestButton}>request</button>
+                    Are you a professor? Request access by clicking here
+                    <button className={styles.requestButton}>Request Access</button>
                   </p>
-                  <p className={styles.description}>
-                    Are you a student? Please, use your byui account to login It should have three
-                    letters and five numbers (abc12345@byui.edu)
-                  </p>
-                  {/* <div class="g-signin2" data-onsuccess="onSignIn" onclick="loadPage()" data-theme="dark"></div> */}
-                  <div className={styles.google_button}>
-                    {/* Login */}
-                    <GoogleOAuthProvider
-                      clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
-                      id={styles.googleAuth}>
-                      <GoogleLogin
-                        id={styles.googleLogin}
-                        onSuccess={handleLogin}
-                        onError={handleFailure}
-                        className={styles.button}></GoogleLogin>
-                    </GoogleOAuthProvider>
-                    {/* <GoogleLoginComponent /> */}
-                  </div>
+                  {/* <p className={styles.description}>
+                    Are you a student? Please, use your byui account
+                    <div className={styles.example}>ex. abc12345@byui.edu</div>
+                    <div className={styles.google_button}>
+                      
+                      <GoogleOAuthProvider
+                        clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
+                        id={styles.googleAuth}>
+                        <GoogleLogin
+                          id={styles.googleLogin}
+                          onSuccess={handleLogin}
+                          onError={handleFailure}
+                          className={styles.button}></GoogleLogin>
+                      </GoogleOAuthProvider>
+                      
+                    </div>
+                  </p> */}
                 </div>
               </div>
             </div>

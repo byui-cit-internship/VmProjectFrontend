@@ -260,16 +260,31 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 61px;
+    width: 86vw;
+    margin: 0px 30px;
   }
 
   .nsm7Bb-HzV7m-LgbsSe {
     display: none;
   }
+
+  .app .imagehero {
+    margin-left: -40px;
+  }
+
+  .app .description {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+  }
 }
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
+  .app h2 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
   .app .container {
     width: 90vw;
     min-width: none;
@@ -280,6 +295,22 @@ h3 {
     max-width: 300px;
     margin: 10px 10px 10px 50px;
   }
+  .app .image_and_button {
+    flex-direction: column;
+    width: 280px;
+  }
+
+  .app .google_button {
+    padding-left: 0px;
+  }
+
+  .app .requestButton {
+    width: 228px !important;
+  }
+
+  .app .description {
+    padding-left: 50px;
+  }
 }
 
 /* Large View */
@@ -289,10 +320,36 @@ h3 {
     min-width: none;
     height: 500px;
   }
+
+  .app .description {
+    display: flex;
+    flex-direction: column !important;
+    width: 235px;
+  }
+
+  .app .google_button {
+    padding-left: 0px;
+  }
+
+  .app .requestButton {
+    width: 100% !important;
+    height: 36px !important;
+    margin-top: 30px !important;
+    border-radius: 4px !important;
+  }
+
+  .app .image_and_button {
+    display: flex !important;
+    flex-direction: row;
+    width: 530px !important;
+  }
 }
 
 /* S E P A R A T I O N */
 /* F O R M */
+.app .description {
+  font-weight: 500;
+}
 
 .app .resendButton {
   margin: 50px;
@@ -305,4 +362,23 @@ h3 {
 
 .app .resendButton:hover {
   opacity: 80%;
+}
+
+.app .requestButton {
+  width: 110px;
+  padding: 8px 0px;
+
+  border: none;
+  cursor: pointer;
+  margin: 10px 0px;
+  background: #006eb6;
+  color: white;
+}
+
+.app .requestButton:hover {
+  opacity: 90%;
+}
+
+.app .example {
+  opacity: 45%;
 }

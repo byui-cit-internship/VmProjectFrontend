@@ -8,7 +8,7 @@ import Header from "../../header";
 
 const iconStyles = {
   color: "white",
-  fontSize: "35px",
+  fontSize: "35px"
 };
 
 const StudentDashboard = () => {
@@ -32,14 +32,24 @@ const StudentDashboard = () => {
           <Header userType="student" />
         </div>
         <div className={studentdashboard.main}>
-          <div className={studentdashboard.text}>
-            <h1 id={studentdashboard.nameOfStudent}>
-              Hello{" "}
-              <span>
-                {userFirst} {userLast}
-              </span>
-            </h1>
-            <p id={studentdashboard.greeting}>How can we help you today?</p>
+          <div className={studentdashboard.left}>
+            <div className={studentdashboard.text}>
+              <h1 id={studentdashboard.nameOfStudent}>
+                Hello{" "}
+                <span>
+                  {userFirst} {userLast}
+                </span>
+              </h1>
+              <p id={studentdashboard.greeting}>How can we help you today?</p>
+            </div>
+
+            <div
+              className={studentdashboard.professorpermissions}
+              onClick={() => {
+                navigate("/appext");
+              }}>
+              <button className={studentdashboard.permissionsbutton}>Are you a professor?</button>
+            </div>
           </div>
 
           <div className={studentdashboard.buttons}>
@@ -48,8 +58,7 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/createvm");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
                 <AddCircleOutlineIcon
                   studentdashboard={iconStyles}
@@ -63,13 +72,9 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/myvm");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
-                <Computer
-                  studentdashboard={iconStyles}
-                  className={studentdashboard.material}
-                />
+                <Computer studentdashboard={iconStyles} className={studentdashboard.material} />
               </span>
               <button className={studentdashboard.button}>My VMS</button>
             </div>
@@ -78,24 +83,16 @@ const StudentDashboard = () => {
               id={studentdashboard.singleContainer}
               onClick={() => {
                 navigate("/mynetworks");
-              }}
-            >
+              }}>
               <span className={studentdashboard.material}>
-                <CloudQueue
-                  studentdashboard={iconStyles}
-                  className={studentdashboard.material}
-                />
+                <CloudQueue studentdashboard={iconStyles} className={studentdashboard.material} />
               </span>
               <button className={studentdashboard.button}>My Networks</button>
             </div>
           </div>
         </div>
       </div>
-      <script
-        src="https://apis.google.com/js/platform.js?onload=onLoad"
-        async
-        defer
-      ></script>
+      <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       <Background />
     </div>
   );
