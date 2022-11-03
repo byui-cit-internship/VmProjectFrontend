@@ -161,7 +161,7 @@ function AddClass() {
     };
     getcourseSemester();
   }, []);
-   //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
+  //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
   //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
   useEffect(() => {
     const getVmFolderInfo = async () => {
@@ -243,7 +243,8 @@ width=0,height=0,left=-1000,top=-1000`;
     <div>
       <div className={addclass.addclass}>
         <div className={addclass.container}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
+
           <h1>Add Class</h1>
           <div className={addclass.form}>
             {/*Course*/}
@@ -291,6 +292,7 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Course ID*/}
               <div className={addclass.courseid}>
+
                 <label className={addclass.label}>Canvas Course ID: </label> <br></br>
                 <span role="alert" id={addclass.nameError} aria-hidden="true">
                   {/* Please add a valid Course ID */}
@@ -304,7 +306,9 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Template VM*/}
               <div>
+
                 <label className={addclass.label}>Template Virtual Machine: </label> <br></br>
+
                 <select
                   className={addclass.select}
                   name="templateVm"
@@ -328,7 +332,10 @@ width=0,height=0,left=-1000,top=-1000`;
             <div className={addclass.flex2}>
               {/*Semester*/}
               <div>
+
+
                 <label className={addclass.label}>Choose Semester: </label> <br></br>
+
                 <select
                   onChange={(event) => {
                     var obj = JSON.parse(event.target.value);
@@ -382,7 +389,9 @@ width=0,height=0,left=-1000,top=-1000`;
                     onClick={togglePopup}
                     type="vCenterFolder Alert Button"
                     className={addclass.alertButton}>
+
                     <i className={addclass.alertIcon} aria-hidden="true"></i>
+
                   </button>
                 </div>
               </div>

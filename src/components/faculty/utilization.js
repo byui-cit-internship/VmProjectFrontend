@@ -28,6 +28,7 @@ function Utilization() {
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
+
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
   useEffect(() => {
@@ -193,7 +194,7 @@ function Utilization() {
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>

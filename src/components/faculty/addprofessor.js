@@ -79,7 +79,7 @@ function AddProfessor() {
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
         <div className={addprofessor.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         {/* <button
           className={addprofessor.backbtn}

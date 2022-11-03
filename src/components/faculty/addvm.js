@@ -15,7 +15,7 @@ function AddVm() {
     <div className={addvm.addvm}>
       <div className={addvm.container}>
         <div className={addvm.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         <h1>Add VSphere Template</h1>
         <div className={addvm.content}>

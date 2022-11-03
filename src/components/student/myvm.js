@@ -28,7 +28,7 @@ function MyVM() {
   return (
     <div className={myVm.myVm}>
       <div className={myVm.container}>
-        <Header userType="student" />
+        <Header userType="studentdashboard" />
         {/* <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span> */}
         <h1>My Vm's</h1>
         <div className={myVm.table}>

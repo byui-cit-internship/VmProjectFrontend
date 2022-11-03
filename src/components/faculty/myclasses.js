@@ -30,7 +30,7 @@ function MyClasses() {
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
-        <Header />
+        <Header userType="facultydashboard" />
         {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
         <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
