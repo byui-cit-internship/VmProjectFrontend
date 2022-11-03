@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Background from "../../background";
 import "./addclassdependencies.css";
 import addclass from "./addclass.module.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
 import Popup from "./Popup.js";
@@ -16,7 +16,7 @@ function AddClass() {
   const canvasToken = userInfoObject.canvasToken;
 
   //*********Variables and React States************/
-  let navigate = useNavigate();
+  useNavigate();
   const [templateVm, setTemplateVm] = useState("");
   const [templateVmList, setTemplateVmList] = useState([]);
   const [courseCode, setCourseCode] = useState("");
@@ -29,8 +29,7 @@ function AddClass() {
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [libraryId, setLibraryId] = useState();
-  const [vmTemplateName, setVmTemplateName] = useState();
-  const [resourceGroupName, setResourceGroupName] = useState();
+  const [vmTemplateName] = useState();
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
@@ -188,7 +187,7 @@ function AddClass() {
     setIsOpen(!isOpen);
   };
 
-  let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+ `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=0,height=0,left=-1000,top=-1000`;
 
   //*************Gets Canvas course info with your canvas token****************/
@@ -222,7 +221,6 @@ width=0,height=0,left=-1000,top=-1000`;
     const code = event.target.options[event.target.selectedIndex].dataset.code;
     const id = event.target.options[event.target.selectedIndex].dataset.id;
     const name = event.target.options[event.target.selectedIndex].dataset.name;
-
     setCourseCode(code);
     setCanvasCourseId(id);
     setSectionName(name);
@@ -235,7 +233,6 @@ width=0,height=0,left=-1000,top=-1000`;
     setCanvasCourseId("");
     setCourseCode("");
     setLibraryId("");
-    setVmName("");
     setIsPopupOpen(closeBool);
   };
 
@@ -247,6 +244,7 @@ width=0,height=0,left=-1000,top=-1000`;
       <div className={addclass.addclass}>
         <div className={addclass.container}>
           <Header userType="facultydashboard" />
+
           <h1>Add Class</h1>
           <div className={addclass.form}>
             {/*Course*/}
@@ -294,8 +292,8 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Course ID*/}
               <div className={addclass.courseid}>
-                <label className={addclass.label}>Canvas Course ID: </label>
-                <br></br>
+
+                <label className={addclass.label}>Canvas Course ID: </label> <br></br>
                 <span role="alert" id={addclass.nameError} aria-hidden="true">
                   {/* Please add a valid Course ID */}
                 </span>
@@ -308,8 +306,9 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Template VM*/}
               <div>
-                <label className={addclass.label}>Template Virtual Machine: </label>
-                <br></br>
+
+                <label className={addclass.label}>Template Virtual Machine: </label> <br></br>
+
                 <select
                   className={addclass.select}
                   name="templateVm"
@@ -333,8 +332,10 @@ width=0,height=0,left=-1000,top=-1000`;
             <div className={addclass.flex2}>
               {/*Semester*/}
               <div>
-                <label className={addclass.label}>Choose Semester: </label>
-                <br></br>
+
+
+                <label className={addclass.label}>Choose Semester: </label> <br></br>
+
                 <select
                   onChange={(event) => {
                     var obj = JSON.parse(event.target.value);
@@ -388,10 +389,9 @@ width=0,height=0,left=-1000,top=-1000`;
                     onClick={togglePopup}
                     type="vCenterFolder Alert Button"
                     className={addclass.alertButton}>
-                    <i
-                      className={addclass.alertIcon}
-                      class="fa fa-question-circle fa-lg"
-                      aria-hidden="true"></i>
+
+                    <i className={addclass.alertIcon} aria-hidden="true"></i>
+
                   </button>
                 </div>
               </div>

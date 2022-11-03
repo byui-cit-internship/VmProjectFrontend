@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import Background from "./background";
 import styles from "./verifyemail.module.css";
@@ -59,8 +59,7 @@ const StyledReactInputVerificationCode = styled.div`
     font-weight: 500;
     color: black;
     /* background: rgba(53, 67, 98, 1); */
-    border: 1px solid
-      ${({ isInvalid }) => (isInvalid ? "#EF6C65" : "rgba(28, 30, 60, 0.4)")};
+    border: 1px solid ${({ isInvalid }) => (isInvalid ? "#EF6C65" : "rgba(28, 30, 60, 0.4)")};
     border-radius: 4px;
   }
 
@@ -91,10 +90,10 @@ function App() {
       const jwtResponse = await fetch(getApiRoot() + "/api/token", {
         credentials: "include",
         headers: {
-          "content-type": "application/json",
+          "content-type": "application/json"
         },
         method: "POST",
-        body: JSON.stringify({ accessTokenValue: googleJwt }),
+        body: JSON.stringify({ accessTokenValue: googleJwt })
       });
 
       const authorizationObject = await jwtResponse.json();
@@ -108,7 +107,7 @@ function App() {
     }
   }, [userIsLoggedIn, googleJwt]); //only verify the token if the logged in state has changed
 
-  const handleLogin = (googleData) => {
+  (googleData) => {
     googleCredentials.current = jwt_decode(googleData.credential);
     setGoogleJwt(googleData.credential);
     const email = googleCredentials.current.email;
@@ -131,11 +130,7 @@ function App() {
     </div> */}
           <div className={styles.container}>
             <div className={styles.text}>
-              <img
-                className={styles.logo}
-                src="images/LOGO-VIMA.png"
-                alt="logo"
-              />
+              <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
                 <h2 className={styles.h2}>Please, confirm your email</h2>
                 {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
@@ -145,15 +140,13 @@ function App() {
                     <img src="/images/mobile-hero.png" alt="heroimg" />
                   </div>
                   <p className={styles.description}>
-                    Hi, (name). We're happy you signed up for VIMA. To start
-                    using the app, please confirm your email address with the
-                    code that we sent to your email.
+                    Hi, (name). We're happy you signed up for VIMA. To start using the app, please
+                    confirm your email address with the code that we sent to your email.
                   </p>
                   {/* V A L I D A T I O N */}
                   <StyledReactInputVerificationCode
                     isInvalid={isInvalid}
-                    className={styles.StyledReactInputVerificationCode}
-                  >
+                    className={styles.StyledReactInputVerificationCode}>
                     <ReactInputVerificationCode
                       className={styles.ReactInputVerificationCode}
                       value={value}
@@ -169,11 +162,7 @@ function App() {
                     />
                   </StyledReactInputVerificationCode>
 
-                  {error && (
-                    <StyledError className={styles.StyledError}>
-                      {error}
-                    </StyledError>
-                  )}
+                  {error && <StyledError className={styles.StyledError}>{error}</StyledError>}
 
                   {/* seconds placeholder */}
 
@@ -202,8 +191,7 @@ function App() {
                       setTimeout(() => {
                         setIsInvalid(false);
                       }, 1000);
-                    }}
-                  >
+                    }}>
                     Send
                   </StyledButton>
 
@@ -213,15 +201,14 @@ function App() {
                       onClick={() => {
                         navigate("");
                         // console.log("resent code");
-                      }}
-                    >
+                      }}>
                       Resend Code
                     </button>
                   </div>
                   {seconds && (
-                    <StyledSeconds
-                      className={styles.StyledSeconds}
-                    >{`Re-send verification code(${seconds}s)`}</StyledSeconds>
+                    <StyledSeconds className={styles.StyledSeconds}>
+                      {`Re-send verification code(${seconds}s)`}
+                      </StyledSeconds>
                   )}
                 </div>
               </div>

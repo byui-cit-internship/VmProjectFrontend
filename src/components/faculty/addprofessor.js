@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import addprofessor from "./addprofessor.module.css";
 import Header from "../../header";
-import { useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 import SubmissionPopup from "../submissionpop";
 

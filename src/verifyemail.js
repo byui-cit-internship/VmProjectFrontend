@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { React, useState, useRef, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import Background from "./background";
 import styles from "./verifyemail.module.css";
@@ -105,6 +105,7 @@ function App() {
         method: "PUT"
       };
 
+
       const response = await fetch(
         getApiRoot() + `/api/user/verifyUser/${confirmationCode}`,
         options
@@ -140,7 +141,7 @@ function App() {
     }
   }, [userIsLoggedIn, googleJwt]); //only verify the token if the logged in state has changed
 
-  const handleLogin = (googleData) => {
+  (googleData) => {
     googleCredentials.current = jwt_decode(googleData.credential);
     setGoogleJwt(googleData.credential);
     const email = googleCredentials.current.email;
@@ -151,7 +152,7 @@ function App() {
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
   };
 
-  let navigate = useNavigate();
+  useNavigate();
 
   const resendConfirmationCode = async () => {
     const options = {
@@ -253,10 +254,12 @@ function App() {
                     {isCodeResent && <div>{isCodeResent}</div>}
                   </div>
                   {seconds && (
-                    <StyledSeconds
-                      className={
-                        styles.StyledSeconds
-                      }>{`Re-send verification code(${seconds}s)`}</StyledSeconds>
+
+
+                    <StyledSeconds className={styles.StyledSeconds}>
+                      {`Re-send verification code(${seconds}s)`}
+                    </StyledSeconds>
+
                   )}
                 </div>
               </div>

@@ -2,9 +2,10 @@ import Background from "../../background";
 import Header from "../../header";
 import mynetworks from "./mynetworks.module.css";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 function MyNetworks() {
-  let navigate = useNavigate();
+  useNavigate();
 
   return (
     <div className={mynetworks.mynetworks}>

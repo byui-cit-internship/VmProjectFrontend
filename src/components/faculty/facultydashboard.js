@@ -1,14 +1,11 @@
-// import './facultydashboard.css';
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DnsIcon from "@mui/icons-material/Dns";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-// import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
-// import AddClass from './components/faculty/addclass';
 import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
-import { useEffect } from "react";
+import { React, useEffect } from "react";
 
 const iconStyles = {
   color: "white",

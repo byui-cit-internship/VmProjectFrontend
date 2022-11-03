@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {
-  let navigate = useNavigate();
+  useNavigate();
   const [vmList, setVmList] = useState([]);
   useEffect(() => {
     const getVmList = async () => {
