@@ -131,6 +131,7 @@ select:focus {
   margin: 10px auto;
   font-size: 1.5rem;
   font-weight: bold;
+  color: black;
 }
 
 .professorList td {
@@ -139,6 +140,7 @@ select:focus {
   padding: 10px;
   margin: 10px auto;
   font-size: 1.5rem;
+  color: black;
 }
 
 .professorList .button {
@@ -178,6 +180,10 @@ select:focus {
   background: #006eb6;
   padding: 0px 10px;
   color: white;
+}
+
+.professorList .isApproved {
+  padding: 10px 15px;
 }
 
 .professorList .table::-webkit-scrollbar {

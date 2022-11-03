@@ -14,6 +14,13 @@ function ProfessorList() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
+  //*****************************************************************/
+  //All useStates and variable for this page
+  //******************************************************************/
+  let navigate = useNavigate();
+  const [professorsList, setProfessorList] = useState([]);
+  const [inputText, setInputText] = useState("");
+
   // Removes styles from the body tag
   // Apply this useEffect on any page you go from this page
   useEffect(() => {
@@ -25,10 +32,9 @@ function ProfessorList() {
     }
   });
 
-  let navigate = useNavigate();
-  const [professorsList, setProfessorList] = useState([]);
-  const [inputText, setInputText] = useState("");
-
+  //*****************************************************************/
+  //Gets all professors and professor user information
+  //******************************************************************/
   console.log(JSON.stringify(professorList));
   useEffect(() => {
     const getProfessorInfo = async () => {
@@ -48,6 +54,7 @@ function ProfessorList() {
     getProfessorInfo();
   }, []);
 
+
   //*****************************************************************/
   //Filtering Professor list when input is given in the search bar
   //******************************************************************/
@@ -56,8 +63,17 @@ function ProfessorList() {
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
-  const filteredData = professorsList.filter((i) => {    
+  const filteredData = professorsList.filter((i) => {
+          
       if (inputText === "") {
+      for(var key in i){
+        console.log(`${key}: ${i[key]}`);
+        if(i[key.toString()] === true){
+            i.isVerified = "BALH";
+          } //else {
+            //i.isVerified = "NO";
+          //}
+        }
         return i;
       }
       else {
@@ -66,6 +82,9 @@ function ProfessorList() {
       }
   });
 
+  //****************************/
+  //Returns all JSX
+  //****************************/
   return (
     <div className={professorList.professorList}>
       <div className={professorList.container}>
@@ -88,12 +107,25 @@ function ProfessorList() {
 
           <div className={professorList.table}>
             <table>
-              <thead></thead>
+              <thead>
+                <tr>
+                  <th>Users</th>
+                  <th>Email</th>
+                  <th>Aprroved</th>
+                </tr>
+              </thead>
               <tbody>
                 {filteredData.map((professor) => (
                   <tr key={professor.userId}>
                     <td>
                       {professor.firstName} {professor.lastName}
+                    </td>
+                    <td>
+                      <button>{professor.isVerified.toString()}</button>
+                       {professor.email}
+                    </td>
+                    <td>
+                      <button className={professorList.isApproved}>{professor.isAdmin.toString()}</button>
                     </td>
                   </tr>
                 ))}
