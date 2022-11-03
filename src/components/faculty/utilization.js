@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import Background from "../../background";
 import utilization from "./utilization.module.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import TextField from "@mui/material/TextField";
 import Header from "../../header";
@@ -9,11 +9,11 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Popup from "./Popup.js";
 
-let registerApiUrlroot = getApiRoot();
-const register_tokenID = sessionStorage.getItem("token");
+getApiRoot();
+sessionStorage.getItem("token");
 
 function Utilization() {
-  let navigate = useNavigate();
+  useNavigate();
 
   const [courseCode, setCourseCode] = useState("");
   const [courseSemester, setSemester] = useState("");
@@ -22,10 +22,12 @@ function Utilization() {
   const [inputText, setInputText] = useState("");
   const [semesters, setSemesters] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [courseName, setCourseName] = useState("");
   const [sectionUsers, setSectionUsers] = useState([]);
-  const [vmLibraries, setVmLibraries] = useState([]);
-  const [libraryId, setLibraryId] = useState("");
+  const [setVmLibraries] = useState([]);
+  const [libraryId] = useState("");
+  const [setPopupInfo] = useState("");
+  const [setPopupActivate] = useState("");
+
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -69,7 +71,8 @@ function Utilization() {
     }
     //return the item which contains the user input
     else {
-      return i.firstName.toLowerCase().includes(inputText);
+      const fullName =  (i.firstName + ' ' + i.lastName)
+      return fullName.toLowerCase().includes(inputText);
     }
   });
   //*****************************************************************/
@@ -280,19 +283,11 @@ function Utilization() {
 
             <div className={utilization.button}>
               <button className={utilization.btn}>
-                <img
-                  className={utilization.logo}
-                  src={require("../../computerlogo.png")}
-                  alt="logo"
-                />
+                <img className={utilization.logo} src={"../../computerlogo.png"} alt="logo" />
                 <strong>Linux</strong>
               </button>
               <button className={utilization.btn}>
-                <img
-                  className={utilization.logo}
-                  src={require("../../computerlogo.png")}
-                  alt="logo"
-                />
+                <img className={utilization.logo} src={"../../computerlogo.png"} alt="logo" />
                 <strong>Android-Pie</strong>
               </button>
             </div>
@@ -369,10 +364,7 @@ function Utilization() {
               onClick={togglePopup}
               type="vCenter Folder Alert Button"
               className={utilization.alertButton}>
-              <i
-                className={utilization.alertIcon}
-                class="fa fa-question-circle fa-lg"
-                aria-hidden="true"></i>
+              <i className={utilization.alertIcon} aria-hidden="true"></i>
             </button>
           </div>
           {/* isOpen  */}

@@ -14,6 +14,13 @@ function ProfessorList() {
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
+  //*****************************************************************/
+  //All useStates and variable for this page
+  //******************************************************************/
+  let navigate = useNavigate();
+  const [professorsList, setProfessorList] = useState([]);
+  const [inputText, setInputText] = useState("");
+
   // Removes styles from the body tag
   // Apply this useEffect on any page you go from this page
   useEffect(() => {
@@ -24,12 +31,13 @@ function ProfessorList() {
       body.style.alignItems = "unset";
     }
   });
-  let navigate = useNavigate();
-  const [courseList, setCourseList] = useState([]);
+
+  //*****************************************************************/
+  //Gets all professors and professor user information
+  //******************************************************************/
   console.log(JSON.stringify(professorList));
   useEffect(() => {
-    const getCourseInfo = async () => {
-      console.log("hello");
+    const getProfessorInfo = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
         method: "GET",
         credentials: "include",
@@ -39,13 +47,44 @@ function ProfessorList() {
       });
       console.log("listResponse; ", listResponse);
 
-      const classList = await listResponse.json();
-      console.log("classes; ", classList);
-      setCourseList(classList);
+      const profList = await listResponse.json();
+      console.log("classes; ", profList);
+      setProfessorList(profList);
     };
-    getCourseInfo();
+    getProfessorInfo();
   }, []);
 
+
+  //*****************************************************************/
+  //Filtering Professor list when input is given in the search bar
+  //******************************************************************/
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+  const filteredData = professorsList.filter((i) => {
+          
+      if (inputText === "") {
+      for(var key in i){
+        console.log(`${key}: ${i[key]}`);
+        if(i[key.toString()] === true){
+            i.isVerified = "BALH";
+          } //else {
+            //i.isVerified = "NO";
+          //}
+        }
+        return i;
+      }
+      else {
+       const fullName =  (i.firstName + ' ' + i.lastName)
+        return fullName.toLowerCase().includes(inputText);
+      }
+  });
+
+  //****************************/
+  //Returns all JSX
+  //****************************/
   return (
     <div className={professorList.professorList}>
       <div className={professorList.container}>
@@ -57,18 +96,36 @@ function ProfessorList() {
             <h1 className={professorList.lets}>Professors</h1>
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
-              <input id={professorList.search} type="text" placeholder="Search.." />
+              <input
+                onChange={inputHandler}
+                id={professorList.search}
+                type="text"
+                placeholder="Search.."
+              />
             </div>
           </div>
 
           <div className={professorList.table}>
             <table>
-              <thead></thead>
+              <thead>
+                <tr>
+                  <th>Users</th>
+                  <th>Email</th>
+                  <th>Aprroved</th>
+                </tr>
+              </thead>
               <tbody>
-                {courseList.map((professor) => (
-                  <tr>
+                {filteredData.map((professor) => (
+                  <tr key={professor.userId}>
                     <td>
                       {professor.firstName} {professor.lastName}
+                    </td>
+                    <td>
+                      <button>{professor.isVerified.toString()}</button>
+                       {professor.email}
+                    </td>
+                    <td>
+                      <button className={professorList.isApproved}>{professor.isAdmin.toString()}</button>
                     </td>
                   </tr>
                 ))}

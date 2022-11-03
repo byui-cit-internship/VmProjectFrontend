@@ -26,6 +26,7 @@ function MyClasses() {
     };
     getclassList();
   }, []);
+  
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>

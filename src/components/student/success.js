@@ -2,8 +2,7 @@ import Background from "../../background";
 import Header from "../../header";
 import success from "./success.module.css";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { getApiRoot } from "../../utils/getApiRoot";
+import React from "react";
 import { FaCheck } from "react-icons/fa";
 
 function CreatedSuccessfully() {
