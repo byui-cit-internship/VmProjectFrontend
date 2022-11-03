@@ -13,7 +13,7 @@ import ProfessorList from "./components/faculty/professorlist";
 import CreatedSuccessfully from "./components/student/success";
 import MyClasses from "./components/faculty/myclasses";
 import VerifyEmail from "./verifyemail";
-import AppExt from "./appext";
+import AppExt from "./components/student/appext";
 // import Popup from "./components/faculty/Popup";
 
 export default function VimaRouter() {

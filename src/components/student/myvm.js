@@ -10,16 +10,13 @@ function MyVM() {
   const [vmList, setVmList] = useState([]);
   useEffect(() => {
     const getVmList = async () => {
-      const listResponse = await fetch(
-        getApiRoot() + "/api/vmtable/instances", 
-        {
-            method: "GET",
-            credentials: "include",
-            headers: {
-            "content-type": "application/json",
-          },
+      const listResponse = await fetch(getApiRoot() + "/api/vmtable/instances", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
         }
-      );  
+      });
       console.log(listResponse);
       const vmList = await listResponse.json();
       console.log("vm's", vmList);
@@ -31,9 +28,9 @@ function MyVM() {
   return (
     <div className={myVm.myVm}>
       <div className={myVm.container}>
-        <Header userType="student" />
+        <Header userType="studentdashboard" />
         {/* <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span> */}
-        <h1>My Vm's</h1> 
+        <h1>My Vm's</h1>
         <div className={myVm.table}>
           <table>
             <thead>
@@ -44,17 +41,11 @@ function MyVM() {
               </tr>
             </thead>
             <tbody>
-              {vmList.map((vm) =>(
+              {vmList.map((vm) => (
                 <tr>
-                <td>
-                  {vm.courseCode}
-                </td>
-                <td>
-                  {vm.vmTemplateName}
-                </td>
-                <td>
-                  {vm.vmInstanceExpire}
-                </td>
+                  <td>{vm.courseCode}</td>
+                  <td>{vm.vmTemplateName}</td>
+                  <td>{vm.vmInstanceExpire}</td>
                 </tr>
               ))}
             </tbody>

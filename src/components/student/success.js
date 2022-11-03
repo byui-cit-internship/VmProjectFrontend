@@ -11,7 +11,7 @@ function CreatedSuccessfully() {
   return (
     <div className={success.success}>
       <div className={success.container}>
-        <Header userType="student" />
+        <Header userType="studentdashboard" />
         {/* <span onClick={() => {navigate("/createvm")}} id={success.backbtn}>&#8592; Back</span> */}
         <div className={success.main}>
           <div className={success.iconPlaceholder}>
@@ -27,8 +27,7 @@ function CreatedSuccessfully() {
               id={success.button}
               onClick={() => {
                 navigate("/#");
-              }}
-            >
+              }}>
               Click Here
             </button>
           </div>
@@ -36,8 +35,7 @@ function CreatedSuccessfully() {
             onClick={() => {
               navigate("/createvm");
             }}
-            className={success.newVm}
-          >
+            className={success.newVm}>
             Or click here to create a new VM
           </span>
         </div>

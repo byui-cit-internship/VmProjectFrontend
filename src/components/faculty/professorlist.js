@@ -34,8 +34,8 @@ function ProfessorList() {
         method: "GET",
         credentials: "include",
         headers: {
-          "content-type": "application/json",
-        },
+          "content-type": "application/json"
+        }
       });
       console.log("listResponse; ", listResponse);
 
@@ -49,7 +49,7 @@ function ProfessorList() {
   return (
     <div className={professorList.professorList}>
       <div className={professorList.container}>
-        <Header userType="faculty" />
+        <Header userType="facultydashboard" />
         {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
         <span id={professorList.title}> Professor List</span>
         <div id={professorList.professorsAndSearch}>
@@ -57,11 +57,7 @@ function ProfessorList() {
             <h1 className={professorList.lets}>Professors</h1>
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
-              <input
-                id={professorList.search}
-                type="text"
-                placeholder="Search.."
-              />
+              <input id={professorList.search} type="text" placeholder="Search.." />
             </div>
           </div>
 
@@ -85,8 +81,7 @@ function ProfessorList() {
           className={professorList.button}
           onClick={() => {
             navigate("/addprofessor");
-          }}
-        >
+          }}>
           Add New Professor
         </button>
       </div>

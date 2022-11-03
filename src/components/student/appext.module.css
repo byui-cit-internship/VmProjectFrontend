@@ -352,7 +352,6 @@ h3 {
   .app .requestButton {
     width: 100% !important;
     height: 36px !important;
-    margin-top: 30px !important;
     border-radius: 4px !important;
   }
 
@@ -383,7 +382,6 @@ h3 {
 }
 
 .app .requestButton {
-  width: 110px;
   padding: 8px 0px;
 
   border: none;

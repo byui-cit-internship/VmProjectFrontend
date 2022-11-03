@@ -15,7 +15,7 @@ function AddVm() {
     <div className={addvm.addvm}>
       <div className={addvm.container}>
         <div className={addvm.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         <h1>Add VSphere Template</h1>
         <div className={addvm.content}>
@@ -43,13 +43,7 @@ function AddVm() {
           <div className={addvm.chooseVm}>
             <label>Choose a Virtual machine:</label>
             <form action="">
-              <select
-                name="templateVm"
-                id={addvm.templateVm}
-                required
-                multiple
-                type="checkbox"
-              >
+              <select name="templateVm" id={addvm.templateVm} required multiple type="checkbox">
                 <option className={addvm.apple} name="option">
                   <Apple />
                 </option>

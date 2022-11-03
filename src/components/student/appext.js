@@ -2,13 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
-import Background from "./background";
+import Background from "../../background";
 import styles from "./appext.module.css";
 import { Navigate } from "react-router-dom";
-import FacultyDashboard from "./components/faculty/facultydashboard";
-import StudentDashboard from "./components/student/studentdashboard";
-import VerifiedEmail from "./verifyemail";
-import { BFF } from "./utils/bff";
+import FacultyDashboard from "../faculty/facultydashboard";
+import StudentDashboard from "./studentdashboard";
+import VerifiedEmail from "../../verifyemail";
+import { BFF } from "../../utils/bff";
+// import Header from "../header";
 
 const handleFailure = (result) => {
   console.log("There was a problem logging in.", result);
@@ -78,6 +79,7 @@ function App() {
       
     </div> */}
           <div className={styles.container}>
+            {/* <Header userType="studentdashboard" /> */}
             <div className={styles.text}>
               <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
