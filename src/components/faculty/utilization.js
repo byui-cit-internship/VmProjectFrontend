@@ -28,6 +28,7 @@ function Utilization() {
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
+
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
   useEffect(() => {

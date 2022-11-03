@@ -183,3 +183,11 @@ a {
     align-items: center;
   } */
 }
+
+.header .signOut {
+  font-size: 16px;
+}
+
+.header #welcome {
+  font-size: 16px;
+}
