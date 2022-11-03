@@ -44,22 +44,10 @@ function MyClasses() {
             {classList.map((item) => (
               <div className={myclasses.card}>
                 <Card variant="outlined">
-                  <div value={item.courseCode} className={myclasses.tableheader}>
+                  <div value={item} className={myclasses.tableheader}>
                     {item.courseCode}
                   </div>
                   <div className={myclasses.tablecontent}>
-                    <div className={myclasses.tablerow}>
-                      <p>Linux</p>
-                      <span className={myclasses.time}>Semester, year</span>
-                    </div>
-                    <div className={myclasses.tablerow}>
-                      <p>Windows</p>
-                      <span className={myclasses.time}>Semester, year</span>
-                    </div>
-                    <div className={myclasses.tablerow}>
-                      <p>Android</p>
-                      <span className={myclasses.time}>Semester, year</span>
-                    </div>
                     <div className={myclasses.add}>
                       <button className={myclasses.addbutton}>Add Virtual Machine</button>
                     </div>
