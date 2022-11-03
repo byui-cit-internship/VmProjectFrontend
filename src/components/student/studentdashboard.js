@@ -4,7 +4,7 @@ import CloudQueue from "@mui/icons-material/CloudQueue";
 import { useNavigate } from "react-router-dom";
 import Background from "../../background";
 import studentdashboard from "./studentdashboard.module.css";
-// import Header from "../../header";
+import Header from "../../header";
 
 const iconStyles = {
   color: "white",

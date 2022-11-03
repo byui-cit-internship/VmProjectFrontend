@@ -1,6 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { GoogleOAuthProvider } from "@react-oauth/google";
-import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
 import Background from "../../background";
 import styles from "./appext.module.css";
@@ -9,7 +7,8 @@ import FacultyDashboard from "../faculty/facultydashboard";
 import StudentDashboard from "./studentdashboard";
 import VerifiedEmail from "../../verifyemail";
 import { BFF } from "../../utils/bff";
-// import Header from "../header";
+import { useNavigate } from "react-router-dom";
+import Header from "../../header";
 
 const handleFailure = (result) => {
   console.log("There was a problem logging in.", result);
@@ -18,6 +17,7 @@ const handleFailure = (result) => {
 function App() {
   // - Verified Email Code
   const verifiedEmail = useRef(false); //
+  let navigate = useNavigate();
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
@@ -79,12 +79,13 @@ function App() {
       
     </div> */}
           <div className={styles.container}>
-            {/* <Header userType="studentdashboard" /> */}
+            <Header userType="studentdashboard" />
             <div className={styles.text}>
-              <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
                 <h2 className={styles.h2}>Are you a professor? </h2>
-                {/* <!-- <div class="image"><img src='/images/hero.png' width="300px"/></div> --> */}
+                {/* <div class="image">
+                  <img src="/images/hero.png" width="300px" />
+                </div> */}
 
                 <div className={styles.image_and_button}>
                   <div className={styles.imagehero}>
@@ -94,23 +95,13 @@ function App() {
                     Request access by clicking here
                     <button className={styles.requestButton}>Request Access</button>
                   </p>
-                  {/* <p className={styles.description}>
-                    Are you a student? Please, use your byui account
-                    <div className={styles.example}>ex. abc12345@byui.edu</div>
-                    <div className={styles.google_button}>
-                      
-                      <GoogleOAuthProvider
-                        clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
-                        id={styles.googleAuth}>
-                        <GoogleLogin
-                          id={styles.googleLogin}
-                          onSuccess={handleLogin}
-                          onError={handleFailure}
-                          className={styles.button}></GoogleLogin>
-                      </GoogleOAuthProvider>
-                      
-                    </div>
-                  </p> */}
+                  <div
+                    className={styles.goBack}
+                    onClick={() => {
+                      navigate("/studentdashboard");
+                    }}>
+                    <button className={styles.goBackLink}>Go back to the Student Dashboard</button>
+                  </div>
                 </div>
               </div>
             </div>

@@ -100,8 +100,6 @@ body {
   background-color: white;
   height: 500px;
   border-radius: 50px;
-  display: grid;
-  grid-template-columns: 30% 70%;
   background-image: url("/public/images/hero.png");
   background-size: 60%;
   background-repeat: no-repeat;
@@ -186,6 +184,10 @@ h3 {
 
 /* Small View */
 @media only screen and (max-width: 37.4em) {
+  .app .goBack {
+    bottom: 4vh !important;
+    margin-left: 0px !important;
+  }
   .app .main {
     width: unset !important;
   }
@@ -203,7 +205,7 @@ h3 {
 
   .app .container {
     /* width: unset; */
-    width: 100vw;
+    width: 100vw !important;
     background: white;
     border-radius: 0px;
     height: unset;
@@ -397,4 +399,49 @@ h3 {
 
 .app .example {
   opacity: 45%;
+}
+
+.app .container {
+  width: 94vw;
+}
+
+.app .goBack {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 8px 8px 0px;
+  max-width: 250px;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.app .goBack:hover {
+  opacity: 95%;
+}
+
+.app .goBackLink {
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  border: transparent;
+  cursor: pointer;
+  height: 100%;
+}
+
+.app .goBack {
+  position: absolute;
+  bottom: 20vh;
+  margin-left: 50px;
+}
+
+.app .goBackLink {
+  opacity: 95%;
+  color: #1a63fb;
+  text-decoration: underline solid blue;
+}
+
+.app .container {
+  max-width: 1000px;
 }
