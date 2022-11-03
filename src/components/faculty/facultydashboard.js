@@ -45,7 +45,7 @@ const FacultyDashboard = () => {
     <div className={facultydashboard.facultydashboard}>
       <div className={facultydashboard.container}>
         <div className={facultydashboard.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         <div className={facultydashboard.main}>
           <div className={facultydashboard.text}>

@@ -70,7 +70,7 @@ function Utilization() {
     }
     //return the item which contains the user input
     else {
-      const fullName =  (i.firstName + ' ' + i.lastName)
+      const fullName = i.firstName + " " + i.lastName;
       return fullName.toLowerCase().includes(inputText);
     }
   });
@@ -193,7 +193,7 @@ function Utilization() {
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header userType="faculty" />
+          <Header userType="facultydashboard" />
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
