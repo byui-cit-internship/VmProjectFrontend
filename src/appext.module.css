@@ -400,3 +400,113 @@ h3 {
 .app .example {
   opacity: 45%;
 }
+
+/* INPUT FIELD */
+
+/* Video Explanation - https://youtu.be/3AK3vspZvvM */
+form {
+  /* width: 100vw; */
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway";
+  font-size: 16px;
+}
+
+.app .customfield {
+  position: relative;
+  font-size: 14px;
+  border-top: 20px solid transparent;
+  margin-bottom: 5px;
+  display: inline-block;
+  --field-padding: 12px;
+}
+.app #two {
+}
+
+.app .inputOne.dirty {
+  background-size: 100% 0.15em, 100% 0.1em, 100%;
+}
+.app .inputOne:not(:placeholder-shown) {
+  background-size: 100% 0.15em, 100% 0.1em, 100%;
+}
+.app .inputOne:focus {
+  background-size: 100% 0.15em, 100% 0.1em, 100%;
+}
+
+.app #two {
+  background-size: 100% 0.15em, 100% 0.1em, 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app .inputOne {
+  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background: linear-gradient(90deg, #222, #222) center bottom/0 0.15em no-repeat,
+    linear-gradient(90deg, #ccc, #ccc) left bottom/100% 0.15em no-repeat,
+    linear-gradient(90deg, #fafafa, #fafafa) left bottom/100% no-repeat;
+  transition: background-size 0.3s ease;
+  /*  */
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  border-radius: 3px;
+  width: 250px;
+  outline: none;
+  font-size: 14px;
+}
+
+.app .placeholder {
+  position: absolute;
+  left: var(--field-padding);
+  width: calc(100% - (var(--field-padding) * 2));
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  top: 22px;
+  line-height: 100%;
+  transform: translateY(-50%);
+  color: #aaa;
+  transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
+}
+
+/*  */
+.app .customfield::before {
+  box-sizing: border-box;
+}
+.app #two::before {
+  box-sizing: border-box;
+}
+
+.app .inputOne::before {
+  box-sizing: border-box;
+}
+
+.app .placeholder::before {
+  box-sizing: border-box;
+}
+
+.app .customfield::after {
+  box-sizing: border-box;
+}
+.app #two::after {
+  box-sizing: border-box;
+}
+
+.app .inputOne::after {
+  box-sizing: border-box;
+}
+
+.app .placeholder::after {
+  box-sizing: border-box;
+}
+
+/* https://codepen.io/cindycas/pen/RwJRJyd?editors=1100 */

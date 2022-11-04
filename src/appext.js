@@ -32,26 +32,6 @@ function App() {
       setAuthorization(authorizationObject);
     };
 
-    // - Verified Email Code
-    // const verifyEm = async () => {
-    //   //
-    //   const emResponse = await fetch(getApiRoot() + "/api/token", {
-    //     //
-    //     credentials: "include", //
-    //     headers: {
-    //       //
-    //       "content-type": "application/json", //
-    //     }, //
-    //     method: "POST", //
-    //     body: JSON.stringify({ accessTokenValue: verifiedEmail }), //
-    //   }); //
-    //   const emailIsVerifiedObject = await emResponse.json();
-    //   sessionStorage.setItem("userInfo", JSON.stringify(emailIsVerifiedObject)); //
-
-    // };
-
-    // verifyEm();
-
     if (googleJwt.length > 0) {
       //be sure the google JWT is already assigned (they have authenticated with Google)
       verifyJwt();
@@ -89,26 +69,25 @@ function App() {
                     <img src="/images/mobile-hero.png" alt="heroimg" />
                   </div>
                   <p className={styles.description}>
-                    Request access by clicking here
-                    <button className={styles.requestButton}>Request Access</button>
+                    To request access, please enter your Canvas Token
+                    <form>
+                      <label className={styles.customfield} id={styles.two}>
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="&nbsp;"
+                          className={styles.inputOne}
+                        />
+                        <span className={styles.placeholder}>Enter Token</span>
+                        <input
+                          type="submit"
+                          value="Request Access"
+                          className={styles.requestButton}
+                          id="placeholder"
+                        />
+                      </label>
+                    </form>
                   </p>
-                  {/* <p className={styles.description}>
-                    Are you a student? Please, use your byui account
-                    <div className={styles.example}>ex. abc12345@byui.edu</div>
-                    <div className={styles.google_button}>
-                      
-                      <GoogleOAuthProvider
-                        clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
-                        id={styles.googleAuth}>
-                        <GoogleLogin
-                          id={styles.googleLogin}
-                          onSuccess={handleLogin}
-                          onError={handleFailure}
-                          className={styles.button}></GoogleLogin>
-                      </GoogleOAuthProvider>
-                      
-                    </div>
-                  </p> */}
                 </div>
               </div>
             </div>
