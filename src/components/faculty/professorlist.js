@@ -54,7 +54,6 @@ function ProfessorList() {
     getProfessorInfo();
   }, []);
 
-
   //*****************************************************************/
   //Filtering Professor list when input is given in the search bar
   //******************************************************************/
@@ -64,22 +63,20 @@ function ProfessorList() {
     setInputText(lowerCase);
   };
   const filteredData = professorsList.filter((i) => {
-          
-      if (inputText === "") {
-      for(var key in i){
+    if (inputText === "") {
+      for (var key in i) {
         console.log(`${key}: ${i[key]}`);
-        if(i[key.toString()] === true){
-            i.isVerified = "BALH";
-          } //else {
-            //i.isVerified = "NO";
-          //}
-        }
-        return i;
+        if (i[key.toString()] === true) {
+          i.isVerified = "BALH";
+        } //else {
+        //i.isVerified = "NO";
+        //}
       }
-      else {
-       const fullName =  (i.firstName + ' ' + i.lastName)
-        return fullName.toLowerCase().includes(inputText);
-      }
+      return i;
+    } else {
+      const fullName = i.firstName + " " + i.lastName;
+      return fullName.toLowerCase().includes(inputText);
+    }
   });
 
   //****************************/
@@ -122,10 +119,12 @@ function ProfessorList() {
                     </td>
                     <td>
                       <button>{professor.isVerified.toString()}</button>
-                       {professor.email}
+                      {professor.email}
                     </td>
                     <td>
-                      <button className={professorList.isApproved}>{professor.isAdmin.toString()}</button>
+                      <button className={professorList.isApproved}>
+                        {professor.isAdmin.toString()}
+                      </button>
                     </td>
                   </tr>
                 ))}

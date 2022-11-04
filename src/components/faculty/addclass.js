@@ -187,7 +187,7 @@ function AddClass() {
     setIsOpen(!isOpen);
   };
 
- `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+  `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=0,height=0,left=-1000,top=-1000`;
 
   //*************Gets Canvas course info with your canvas token****************/
@@ -244,7 +244,6 @@ width=0,height=0,left=-1000,top=-1000`;
       <div className={addclass.addclass}>
         <div className={addclass.container}>
           <Header userType="facultydashboard" />
-
           <h1>Add Class</h1>
           <div className={addclass.form}>
             {/*Course*/}

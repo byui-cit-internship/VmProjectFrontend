@@ -15,6 +15,7 @@ import CreatedSuccessfully from "./components/student/success";
 import MyClasses from "./components/faculty/myclasses";
 import VerifyEmail from "./verifyemail";
 import AppExt from "./components/student/appext";
+import ModalSketch from "./components/faculty/modalsketch";
 // import Popup from "./components/faculty/Popup";
 
 export default function VimaRouter() {
@@ -36,6 +37,7 @@ export default function VimaRouter() {
         <Route path="/myclasses" element={<MyClasses />} />
         <Route path="/verifyemail" element={<VerifyEmail />} />
         <Route path="/appext" element={<AppExt />} />
+        <Route path="/modalsketch" element={<ModalSketch />} />
       </Routes>
     </Router>
   );
