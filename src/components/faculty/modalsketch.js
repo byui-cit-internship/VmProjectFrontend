@@ -9,9 +9,6 @@ function AddProfessor() {
   const urlParams = window.location.href.split("/")[3];
 
   const [isOpen, setIsOpen] = useState();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
   const [token, setToken] = useState("");
   const [isSuccess, setIsSuccess] = useState();
   const [confirmationMessage, setConfirmationMessage] = useState();
@@ -29,12 +26,7 @@ function AddProfessor() {
   const validateForm = async () => {
     console.log("validateform here.");
     let allFieldsValid = true;
-    if (
-      firstName.length === 0 ||
-      lastName.length === 0 ||
-      email.length === 0 ||
-      token.length === 0
-    ) {
+    if (token.length === 0) {
       /**/
       allFieldsValid = false;
     }
@@ -42,9 +34,6 @@ function AddProfessor() {
       const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
         method: "POST",
         body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
           token: token,
           usertype: "Professor",
           userAccess: true,
@@ -57,24 +46,17 @@ function AddProfessor() {
       });
       console.log(response);
       if (response.ok) {
-        setConfirmationMessage("Professor added succesfully");
-        setAgainOptionMessage("Add another professor");
+        setConfirmationMessage("Request sent succesfully");
+        setAgainOptionMessage("Go back to the Student dashboard");
         setIsSuccess(true);
       } else {
-        setConfirmationMessage("Error adding professor");
+        setConfirmationMessage("Error Requesting Access");
         setAgainOptionMessage("Try again");
         setIsSuccess(false);
       }
       setIsOpen(true);
     }
   };
-
-  // document.body.classList.add("bg-salmon");
-  // document.body.style.backgroundColor = "green";
-  // return () => {
-  // optionally remove styles when component unmounts
-  // document.body.style.backgroundColor = null;
-  // document.body.classList.remove("bg-salmon");
 
   const closePopup = (closeBool) => {
     setFirstName("");
@@ -90,14 +72,6 @@ function AddProfessor() {
         <div className={addprofessor.header}>
           <Header userType="facultydashboard" />
         </div>
-        {/* <button
-          className={addprofessor.backbtn}
-          onClick={() => {
-            navigate("/faculty");
-          }}
-        >
-          Back
-        </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
           <form action="#" className={addprofessor.form} onSubmit={(e) => e.preventDefault()}>
@@ -105,67 +79,22 @@ function AddProfessor() {
             <div className={addprofessor.flexContainer}>
               <div className={addprofessor.data}>
                 <div className={addprofessor.singleContainer}>
-                  <label htmlFor="name">First Name:</label>
+                  <label htmlFor="name">Token:</label>
                   <input
-                    value={firstName}
+                    value={token}
                     type="text"
-                    id="fname"
-                    name="firstName"
-                    className={addprofessor.input}
+                    id="token"
+                    name="token"
+                    placeholder="&nbsp;"
+                    className={addprofessor.inputOne}
                     required
-                    onChange={(event) => setFirstName(event.target.value)}
+                    onChange={(event) => setToken(event.target.value)}
                   />
-                </div>
-                <form>
-                  <label className={addprofessor.customfield} id={addprofessor.two}>
-                    <input
-                      value={token}
-                      type="text"
-                      name="token"
-                      placeholder="&nbsp;"
-                      className={addprofessor.inputOne}
-                      required
-                      onChange={(event) => setToken(event.target.value)}
-                    />
-                    <span className={addprofessor.placeholder}>Enter Token</span>
-                    {/* <input
-                      type="submit"
-                      value="Request Access"
-                      className={addprofessor.requestButton}
-                      id="placeholder"
-                    /> */}
-                  </label>
-                </form>
-                <div className={addprofessor.singleContainer}>
-                  <label htmlFor="name">Last Name:</label>
-                  <input
-                    value={lastName}
-                    type="text"
-                    id="lname"
-                    name="lastName"
-                    className={addprofessor.input}
-                    required
-                    onChange={(event) => setLastName(event.target.value)}
-                  />
-                </div>
-                <div className={addprofessor.singleContainer}>
-                  <label htmlFor="name">Email:</label>
-                  <input
-                    value={email}
-                    type="text"
-                    id="email"
-                    name="email"
-                    className={addprofessor.input}
-                    required
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
+                  <span className={addprofessor.placeholder}>Enter Token</span>
                 </div>
               </div>
               <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
             </div>
-            {/* <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
-              Request access
-            </button> */}
             <button
               type="submit"
               value="Request Access"
@@ -188,5 +117,5 @@ function AddProfessor() {
     </div>
   );
 }
-// }
+
 export default AddProfessor;
