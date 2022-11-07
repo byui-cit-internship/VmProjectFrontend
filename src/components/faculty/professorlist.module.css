@@ -182,8 +182,25 @@ select:focus {
   color: white;
 }
 
-.professorList .isApproved {
+.professorList .approveStatus {
   padding: 10px 15px;
+  font-size: 19px;
+  width: 200px;
+  margin: 10px 0px;
+  color: #ffffff;
+  background: #58b952;
+  border: none;
+  border-radius: 7px;
+}
+
+.professorList .approveStatus:hover {
+  cursor: pointer;
+  background-color: #006eb6;
+}
+
+.professorList .checkMark {
+  text-align: center;
+  color: #58b952;
 }
 
 .professorList .table::-webkit-scrollbar {
@@ -198,6 +215,63 @@ select:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.professorList .popupbox {
+  position: fixed;
+  background: #0000007b;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.professorList .box {
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
+  height: auto;
+  max-height: 70vh;
+  margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-radius: 30px;
+  padding: 20px;
+  border: 2px solid #999;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.professorList .h3 {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  font-weight: bold;
+}
+.professorList .confluence {
+  border-radius: 3px;
+  padding: 12px;
+  width: 100px;
+  border: none;
+  background-color: #006eb6;
+  color: white;
+  transition: 0.3s;
+  margin: 12px;
+}
+.professorList .confluence:hover {
+  border-color: #006eb6;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.5s;
+  box-shadow: 2px 4px 8px 2px #0000007b;
+}
+
+.professorList .logo {
+  width: 400px;
+}
+
+.professorList .checkbuttons {
+  padding: 10px;
+  width: auto;
 }
 
 /* Small View */
