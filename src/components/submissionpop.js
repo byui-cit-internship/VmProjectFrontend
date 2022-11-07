@@ -11,9 +11,9 @@ const SubmissionPopup = (props) => {
 
   let goBackRoute;
   if (isAdmin) {
-    goBackRoute = "/faculty";
+    goBackRoute = "/facultydashboard";
   } else {
-    goBackRoute = "/student";
+    goBackRoute = "/studentdashboard";
   }
 
   return (

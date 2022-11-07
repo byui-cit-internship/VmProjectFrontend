@@ -9,10 +9,9 @@ function AddProfessor() {
   const urlParams = window.location.href.split("/")[3];
 
   const [isOpen, setIsOpen] = useState();
-  const [firstName, setFirstName] = useState("");
+  const [token, setToken] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
   const [isSuccess, setIsSuccess] = useState();
   const [confirmationMessage, setConfirmationMessage] = useState();
   const [againOptionMessage, setAgainOptionMessage] = useState();
@@ -29,22 +28,13 @@ function AddProfessor() {
   const validateForm = async () => {
     console.log("validateform here.");
     let allFieldsValid = true;
-    if (
-      firstName.length === 0 ||
-      lastName.length === 0 ||
-      email.length === 0 ||
-      token.length === 0
-    ) {
-      /**/
+    if (token.length === 0) {
       allFieldsValid = false;
     }
     if (allFieldsValid) {
       const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
         method: "POST",
         body: JSON.stringify({
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
           token: token,
           usertype: "Professor",
           userAccess: true,
@@ -57,11 +47,11 @@ function AddProfessor() {
       });
       console.log(response);
       if (response.ok) {
-        setConfirmationMessage("Professor added succesfully");
-        setAgainOptionMessage("Add another professor");
+        setConfirmationMessage("Access Requested Succesfully");
+        setAgainOptionMessage("Go back to the Studend Dashboard");
         setIsSuccess(true);
       } else {
-        setConfirmationMessage("Error adding professor");
+        setConfirmationMessage("Error Requesting Access");
         setAgainOptionMessage("Try again");
         setIsSuccess(false);
       }
@@ -77,10 +67,9 @@ function AddProfessor() {
   // document.body.classList.remove("bg-salmon");
 
   const closePopup = (closeBool) => {
-    setFirstName("");
+    setToken("");
     setLastName("");
     setEmail("");
-    setToken("");
     setIsOpen(closeBool);
   };
 
@@ -109,17 +98,14 @@ function AddProfessor() {
                   <input
                     value={token}
                     type="text"
-                    id="token"
+                    id="fname"
                     name="token"
-                    placeholder="&nbsp;"
-                    className={addprofessor.inputOne}
+                    className={addprofessor.input}
                     required
                     onChange={(event) => setToken(event.target.value)}
                   />
-                  <span className={addprofessor.placeholder}>Enter Token</span>
                 </div>
-                {/* 
-                <div className={addprofessor.singleContainer}>
+                {/* <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Last Name:</label>
                   <input
                     value={lastName}
@@ -130,8 +116,8 @@ function AddProfessor() {
                     required
                     onChange={(event) => setLastName(event.target.value)}
                   />
-                </div>
-                <div className={addprofessor.singleContainer}>
+                </div> */}
+                {/* <div className={addprofessor.singleContainer}>
                   <label htmlFor="name">Email:</label>
                   <input
                     value={email}
@@ -146,17 +132,9 @@ function AddProfessor() {
               </div>
               <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
             </div>
-            {/* <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
-              Request access
-            </button> */}
-            <button
-              type="submit"
-              value="Request Access"
-              className={addprofessor.primaryButton}
-              onClick={validateForm}>
-              Request access
+            <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
+              Request Access
             </button>
-
             {isOpen && (
               <SubmissionPopup
                 closeHandler={closePopup}
