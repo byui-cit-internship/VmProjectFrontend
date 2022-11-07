@@ -3,7 +3,11 @@ import Header from "../../header";
 import professorList from "./professorlist.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { AiOutlineCheck } from "react-icons/ai";
+import ApproveProfessorPopup from "../approveprofessorpop.js";
+import LoadingSpinner from "../spinner.js";
+import Popup from "./Popup.js";
 
 // import ReactDOM from 'react-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -20,6 +24,15 @@ function ProfessorList() {
   let navigate = useNavigate();
   const [professorsList, setProfessorList] = useState([]);
   const [inputText, setInputText] = useState("");
+  const [professorApprove, setProfessorApprove] = useState({});
+  const [popupMessage, setPopupMessage] = useState();
+  const [isPopupOpen, setIsPopupOpen] = useState();
+  const [success, setIsSuccess] = useState();
+  const [popupAgainMessage, setPopupAgainMessage] = useState();
+  const selectElement = useRef();
+  const [isLoading, setIsLoading] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const [approveCheck, setApproveCheck] = useState(false);
 
   // Removes styles from the body tag
   // Apply this useEffect on any page you go from this page
@@ -35,7 +48,6 @@ function ProfessorList() {
   //*****************************************************************/
   //Gets all professors and professor user information
   //******************************************************************/
-  console.log(JSON.stringify(professorList));
   useEffect(() => {
     const getProfessorInfo = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
@@ -64,20 +76,58 @@ function ProfessorList() {
   };
   const filteredData = professorsList.filter((i) => {
     if (inputText === "") {
-      for (var key in i) {
-        console.log(`${key}: ${i[key]}`);
-        if (i[key.toString()] === true) {
-          i.isVerified = "BALH";
-        } //else {
-        //i.isVerified = "NO";
-        //}
-      }
       return i;
     } else {
       const fullName = i.firstName + " " + i.lastName;
       return fullName.toLowerCase().includes(inputText);
     }
   });
+
+  //*****************************************************************/
+  //Put call to approve professors when a button is clicked
+  //******************************************************************/
+  useEffect(() => {
+    const approveProfessor = async () => {
+      togglePopup();
+      setIsLoading(true)
+      const listResponse = await fetch(getApiRoot() + "/api/user/approve", {
+        method: "PUT",
+        body: JSON.stringify(
+          professorApprove
+        ),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+      setIsLoading(false)
+      console.log("listResponse; ", listResponse);
+      if (listResponse.ok) {
+        setPopupMessage("Professor Approved succesfully");
+        setPopupAgainMessage("Approve Another Professor");
+        setIsSuccess(true);
+      } else {
+        setPopupMessage("Error approving professor");
+        setPopupAgainMessage("Try again");
+        setIsSuccess(false);
+      }
+      setIsPopupOpen(true);
+    };
+    if (approveCheck) {
+      approveProfessor();
+    }
+  }, [approveCheck]);
+
+
+    const closePopup = (closeBool) => {
+      setIsPopupOpen(closeBool);
+      window.location.reload(false);
+    };
+
+    const togglePopup = () => {
+      setIsOpen(!isOpen);
+    }
+
 
   //****************************/
   //Returns all JSX
@@ -108,7 +158,7 @@ function ProfessorList() {
                 <tr>
                   <th>Users</th>
                   <th>Email</th>
-                  <th>Aprroved</th>
+                  <th>Approved</th>
                 </tr>
               </thead>
               <tbody>
@@ -118,13 +168,17 @@ function ProfessorList() {
                       {professor.firstName} {professor.lastName}
                     </td>
                     <td>
-                      <button>{professor.isVerified.toString()}</button>
                       {professor.email}
                     </td>
                     <td>
-                      <button className={professorList.isApproved}>
-                        {professor.isAdmin.toString()}
-                      </button>
+                      {(() => {
+                      if (professor.approveStatus == "approved") {
+                        return <div className={professorList.checkMark}><AiOutlineCheck size="40px"/></div>;
+                      } else {
+                        return <button className={professorList.approveStatus} onMouseEnter={(event) => setProfessorApprove(professor)} 
+                        onClick={togglePopup} disabled={isLoading}>Approve Professor</button>
+                      }
+                    })()}
                     </td>
                   </tr>
                 ))}
@@ -141,6 +195,44 @@ function ProfessorList() {
           Add New Professor
         </button>
       </div>
+      {isPopupOpen && (
+        <ApproveProfessorPopup
+          closeHandler={closePopup}
+          message={popupMessage}
+          againOptionMessage={popupAgainMessage}
+          success={success}
+        />
+      )}
+      {isLoading && (
+        <LoadingSpinner
+          />
+      )}
+
+      {isOpen && (
+          <Popup
+            content={
+              <>
+                <div className={professorList.popupbox}>
+                  <div className={professorList.box}>
+                    <img
+                      className={professorList.logo}
+                      src="../../images/LOGO-VIMA.png"
+                      alt="logo"
+                    />
+                    <h2>
+                      Are you Sure you want to approve this professor?
+                    </h2>
+                    <h3 className={professorList.h3}>{professorApprove.firstName} {professorApprove.lastName}: {professorApprove.email}</h3>
+                      <div className={professorList.checkbuttons}>
+                        <button className={professorList.confluence} onClick={(event) => {setApproveCheck(true) }}>Yes</button>
+                        <button className={professorList.confluence} onClick={togglePopup}>No</button>
+                      </div>
+                  </div>
+                </div>
+              </>
+            }
+          />
+        )}
 
       <Background />
     </div>
@@ -148,5 +240,3 @@ function ProfessorList() {
 }
 
 export default ProfessorList;
-
-// [HttpGet("professor/getAllCourses")]
