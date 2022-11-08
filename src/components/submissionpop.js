@@ -25,7 +25,7 @@ const SubmissionPopup = (props) => {
     goBackRoute = "/studentdashboard";
   }
 
-  let closeThePopup = "../modalsketch";
+  //let closeThePopup = "../appext";
   // if (isAdmin) {
   //   goBackRoute = "/facultydashboard";
   // } else {
@@ -35,12 +35,9 @@ const SubmissionPopup = (props) => {
   return (
     <div className={submissionPop.modal}>
       <div className={submissionPop.modalBox}>
-        {/* {isOpen && ()} */}
-
-        <Link to={closeThePopup}>
-          <span className={submissionPop.closeicon}>x</span>
-        </Link>
-
+        <span className={submissionPop.closeicon} onClick={(e) => props.closeHandler(false)}>
+          x
+        </span>
         <div className={submissionPop.message}>
           <div className={submissionPop.iconPlaceholder}>
             {props.success ? (
@@ -54,7 +51,7 @@ const SubmissionPopup = (props) => {
             <Link to={goBackRoute}>
               <div className={submissionPop.message}>Go back to dashboard</div>
             </Link>
-            <a href="javascript:;">
+            <a className={submissionPop.a} href="javascript:;">
               <div className={submissionPop.message} onClick={() => props.closeHandler(false)}>
                 {props.againOptionMessage}
               </div>
@@ -62,14 +59,6 @@ const SubmissionPopup = (props) => {
           </div>
         </div>
       </div>
-      {/* {isPopupOpen && (
-        <SubmissionPopup
-          closeHandler={closePopup}
-          message={popupMessage}
-          againOptionMessage={popupAgainMessage}
-          success={success}
-        />
-      )} */}
     </div>
   );
 };

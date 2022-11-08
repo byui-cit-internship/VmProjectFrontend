@@ -71,3 +71,8 @@
 .closeicon {
   cursor: pointer;
 }
+
+.a {
+  display: flex;
+  justify-content: end;
+}
