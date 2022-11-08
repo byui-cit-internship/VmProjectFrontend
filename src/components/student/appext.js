@@ -1,138 +1,135 @@
-import { useState, useRef, useEffect } from "react";
-import jwt_decode from "jwt-decode";
-import Background from "../../background";
-import styles from "./appext.module.css";
-import { Navigate } from "react-router-dom";
-import FacultyDashboard from "../faculty/facultydashboard";
-import StudentDashboard from "./studentdashboard";
-import VerifiedEmail from "../../verifyemail";
-import { BFF } from "../../utils/bff";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import styles from "../faculty/addprofessor.module.css";
 import Header from "../../header";
+import { getApiRoot } from "../../utils/getApiRoot";
+import SubmissionPopup from "../submissionpop";
 
-const handleFailure = (result) => {
-  console.log("There was a problem logging in.", result);
-};
+function AddProfessor() {
+  const body = document.querySelector("body");
+  const urlParams = window.location.href.split("/")[3];
 
-function App() {
-  // - Verified Email Code
-  const verifiedEmail = useRef(false); //
-  let navigate = useNavigate();
-  const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
-  const [authorization, setAuthorization] = useState({});
-  const [googleJwt, setGoogleJwt] = useState("");
-  // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
-  const googleCredentials = useRef({});
+  const [isOpen, setIsOpen] = useState();
+  const [token, setToken] = useState("");
+  const [isSuccess, setIsSuccess] = useState();
+  const [confirmationMessage, setConfirmationMessage] = useState();
+  const [againOptionMessage, setAgainOptionMessage] = useState();
+
   useEffect(() => {
-    const verifyJwt = async () => {
-      let postBody = { accessTokenValue: googleJwt };
-      const authorizationObject = await BFF.Post("/api/token", postBody);
-      verifiedEmail.current = authorizationObject.isVerified; //
-      console.log(verifiedEmail.current);
-      sessionStorage.setItem("userInfo", JSON.stringify(authorizationObject));
-      setAuthorization(authorizationObject);
-    };
-
-    if (googleJwt.length > 0) {
-      //be sure the google JWT is already assigned (they have authenticated with Google)
-      verifyJwt();
+    if (urlParams === "addprofessor") {
+      body.style.height = "100vh";
+      body.style.display = "flex";
+      body.style.justifyContent = "center";
+      body.style.alignItems = "center";
     }
-  }, [userIsLoggedIn, googleJwt]); //only verify the token if the logged in state has changed
+  });
 
-  const handleLogin = (googleData) => {
-    googleCredentials.current = jwt_decode(googleData.credential);
-    setGoogleJwt(googleData.credential);
-    const email = googleCredentials.current.email;
-
-    setUserLoggedIn(true);
-    // userIsAdministrator=true;//we will need to change this to look up the user from the backend
-    //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
-    console.log(`Welcome ${email} You successfully logged in.`, googleData);
+  const validateForm = async () => {
+    console.log("validateform here.");
+    let allFieldsValid = true;
+    if (token.length === 0) {
+      allFieldsValid = false;
+    }
+    if (allFieldsValid) {
+      const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
+        method: "POST",
+        body: JSON.stringify({
+          token: token,
+          usertype: "Professor",
+          userAccess: true,
+          isAdmin: false
+        }),
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+      console.log(response);
+      if (response.ok) {
+        setConfirmationMessage("Access Requested Succesfully");
+        setAgainOptionMessage("Go back to the Studend Dashboard");
+        setIsSuccess(true);
+      } else {
+        setConfirmationMessage("Error Requesting Access");
+        setAgainOptionMessage("Try again");
+        setIsSuccess(false);
+      }
+      setIsOpen(true);
+    }
   };
 
-  if (googleJwt === "") {
-    return (
-      <div className={styles.app}>
-        <div className={styles.appheader}>
-          {/* <h1>React Google Login App</h1> */}
-          {/* <div id="back_mobile" >
-      
-    </div> */}
-          <div className={styles.container}>
-            <Header userType="studentdashboard" />
-            <div className={styles.text}>
-              <div className={styles.main}>
-                <h2 className={styles.h2}>Are you a professor? </h2>
-                {/* <div class="image">
-                  <img src="/images/hero.png" width="300px" />
-                </div> */}
+  const closePopup = (closeBool) => {
+    setToken("");
+    setIsOpen(closeBool);
+  };
 
-                <div className={styles.image_and_button}>
-                  <div className={styles.imagehero}>
-                    <img src="/images/mobile-hero.png" alt="heroimg" />
-                  </div>
-                  <p className={styles.description}>
-                    To request access, please enter your Canvas Token
-                    <form>
-                      <label className={styles.customfield} id={styles.two}>
-                        <input
-                          type="text"
-                          name="name"
-                          placeholder="&nbsp;"
-                          className={styles.inputOne}
-                        />
-                        <span className={styles.placeholder}>Enter Token</span>
-                        <input
-                          type="submit"
-                          value="Request Access"
-                          className={styles.requestButton}
-                          id="placeholder"
-                        />
-                      </label>
-                    </form>
-                  </p>
-                  <div
-                    className={styles.goBack}
-                    onClick={() => {
-                      navigate("/studentdashboard");
-                    }}>
-                    <button className={styles.goBackLink}>Go back to the Student Dashboard</button>
-                  </div>
-                </div>
+  return (
+    <div className={styles.addprofessor}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <Header userType="studentdashboard" />
+        </div>
+        <div className={styles.main}>
+          <h2 className={styles.h2}>Are you a professor? </h2>
+          <p className={styles.description}>To request access, please enter your Canvas Token</p>
+          {/* <!-- Course Name--> */}
+          <div className={styles.flexContainer}>
+            <div className={styles.data}>
+              <div className={styles.singleContainer}>
+                <label htmlFor="name">Token:</label>
+                <input
+                  value={token}
+                  type="text"
+                  id="fname"
+                  name="token"
+                  className={styles.input}
+                  required
+                  onChange={(event) => setToken(event.target.value)}
+                />
               </div>
             </div>
           </div>
-          <Background />
+          <button type="submit" className={styles.requestButton} onClick={validateForm}>
+            Request Access
+          </button>
+          {/* <img src="/images/mobile-hero.png" alt="heroimg"> */}
+          {isOpen && (
+            <SubmissionPopup
+              closeHandler={closePopup}
+              message={confirmationMessage}
+              againOptionMessage={againOptionMessage}
+              success={isSuccess}
+            />
+          )}
         </div>
       </div>
-    );
-  } else {
-    console.log(googleCredentials.current.email);
-    if (authorization.isAdmin === true && verifiedEmail.current === false) {
-      console.log("Admin not verified");
-      return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
-    } else if (authorization.isAdmin === true && verifiedEmail.current === true) {
-      console.log("Admin verified");
-      return (
-        // console.log("Admin verified");
-        <Navigate to="/facultydashboard" element={<FacultyDashboard />} />
-      );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === true) {
-      console.log("Student verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/studentdashboard" element={<StudentDashboard />} />
-      );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === false) {
-      console.log("Student not verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/verifyemail" element={<VerifiedEmail />} />
-      );
-    } else {
-      console.log("One re-render too soon to verify Google JWT");
-    }
-  }
-}
+      {/*
+       */}
+      {/*  */}
+      <div className={styles.main}>
+        <h2 className={styles.h2}>Are you a professor? </h2>
+        <p className={styles.description}>To request access, please enter your Canvas Token</p>
+        <div className={styles.flexContainer}>
+          <div className={styles.data}>
+            <div className={styles.singleContainer}>
+              <label className={styles.customfield} id={styles.two}>
+                <span className={styles.placeholder}>Enter Token</span>
+                <input type="text" name="name" placeholder="&nbsp;" className={styles.inputOne} />
 
-export default App;
+                <input
+                  type="submit"
+                  value="Request Access"
+                  className={styles.requestButton}
+                  id="placeholder"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*
+       */}
+      {/*  */}
+    </div>
+  );
+}
+export default AddProfessor;
