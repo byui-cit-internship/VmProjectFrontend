@@ -44,7 +44,7 @@ function AddClass() {
         sectionName: sectionName,
         courseCode: courseCode,
         canvas_token: canvasToken,
-        section_num: "1",
+        section_num: "1" /*Keep this hardcoded */,
         courseSemester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
@@ -154,9 +154,7 @@ function AddClass() {
           "content-type": "application/json"
         }
       });
-      console.log(listResponse);
       const courseSemesterList = await listResponse.json();
-      console.log("semesters", courseSemesterList);
       setCourseSemesterList(courseSemesterList);
     };
     getcourseSemester();
@@ -260,7 +258,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   {canvasCourses.map((course) => (
                     <option
                       data-code={course.course_code}
-                      data-name={course.name}
+                      key={course.name}
                       data-id={course.id}
                       value={course}>
                       {course.course_code} = {course.name}
