@@ -1,13 +1,22 @@
-import React from "react";
+// import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSadTear, FaCheck } from "react-icons/fa";
 import submissionPop from "./submissionpopup.module.css";
 
 import { Link } from "react-router-dom";
 
 const SubmissionPopup = (props) => {
+  const [isPopupOpen, setIsPopupOpen] = useState();
   let userInfo = sessionStorage.getItem("userInfo");
   userInfo = JSON.parse(userInfo);
   const isAdmin = userInfo.isAdmin;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+    console.log("click count");
+  };
 
   let goBackRoute;
   if (isAdmin) {
@@ -16,9 +25,22 @@ const SubmissionPopup = (props) => {
     goBackRoute = "/studentdashboard";
   }
 
+  let closeThePopup = "../modalsketch";
+  // if (isAdmin) {
+  //   goBackRoute = "/facultydashboard";
+  // } else {
+  //   goBackRoute = "/studentdashboard";
+  // }
+
   return (
     <div className={submissionPop.modal}>
       <div className={submissionPop.modalBox}>
+        {/* {isOpen && ()} */}
+
+        <Link to={closeThePopup}>
+          <span className={submissionPop.closeicon}>x</span>
+        </Link>
+
         <div className={submissionPop.message}>
           <div className={submissionPop.iconPlaceholder}>
             {props.success ? (
@@ -40,6 +62,14 @@ const SubmissionPopup = (props) => {
           </div>
         </div>
       </div>
+      {/* {isPopupOpen && (
+        <SubmissionPopup
+          closeHandler={closePopup}
+          message={popupMessage}
+          againOptionMessage={popupAgainMessage}
+          success={success}
+        />
+      )} */}
     </div>
   );
 };

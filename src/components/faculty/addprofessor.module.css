@@ -12,6 +12,29 @@ https://www.byui.edu/branding/color-guide
   align-items: center;
 } */
 
+#fname {
+  transition: background-size 0.3s ease;
+  border: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  border-radius: 3px;
+  width: 250px;
+  outline: none;
+  font-size: 14px;
+}
+
+.requestButton {
+  margin-left: 50px;
+  font-family: "Raleway";
+  border-radius: 8px;
+  margin: 30px 0px 30px 50px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  background: #006eb6;
+  color: white;
+}
 /* Small View */
 .addprofessor .emailValidation {
   position: absolute;
@@ -33,6 +56,10 @@ https://www.byui.edu/branding/color-guide
   border-radius: 50px;
   width: 95vw;
   max-width: 1000px;
+  min-width: 272px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addprofessor form {
@@ -75,9 +102,16 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor input {
-  width: 100%;
-  padding: 8px 0;
-  border: 3px solid #98d5fd;
+  transition: background-size 0.3s ease;
+  border: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  padding: 0px 10px 0px 10px;
+  border-radius: 3px;
+  outline: none;
+  font-size: 14px;
+  height: 45px;
 }
 
 .addprofessor img {
@@ -112,6 +146,7 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor .flexContainer {
+  margin-top: 20px;
   display: flex;
   gap: 20px;
   justify-content: center;
@@ -124,7 +159,7 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor input:required:valid {
-  border-bottom: green solid 5px;
+  /* border-bottom: green solid 5px; */
 }
 
 .addprofessor .data {
@@ -198,6 +233,29 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.4em) {
+  p {
+    padding: 10px !important;
+  }
+
+  .addprofessor input {
+    min-width: 220px;
+    width: 80vw;
+    max-width: 320px;
+  }
+  .addprofessor h2 {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  .addprofessor p {
+    padding-left: 0;
+  }
+
+  .requestButton {
+    margin-left: 0;
+  }
+
   .addprofessor .image {
     display: none;
   }
@@ -220,12 +278,15 @@ https://www.byui.edu/branding/color-guide
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 250px;
+    padding: 0px 10px;
   }
 
   .addprofessor .container {
     border-radius: 0px;
     width: 100vw;
     height: 100vh;
+    align-items: unset !important;
     /* width: 95%; */
   }
 
@@ -257,17 +318,21 @@ https://www.byui.edu/branding/color-guide
 @media only screen and (min-width: 37.4em) {
   .addprofessor .container {
     margin-top: 40px !important;
+    min-height: 80vh;
+    width: 98vw;
+    align-items: unset;
   }
 
   .addprofessor .flexContainer {
     flex-direction: column;
-    align-items: center;
+    margin-left: 50px;
+    /* align-items: center; */
   }
 
   .addprofessor .singleContainer {
     align-items: baseline;
     margin-bottom: 10px;
-    flex-direction: row;
+    /* flex-direction: row; */
     width: 400px;
   }
 
@@ -287,8 +352,15 @@ https://www.byui.edu/branding/color-guide
   }
 }
 
+.addprofessor .data {
+  margin-bottom: 0 !important;
+}
+
 /* Large View */
 @media only screen and (min-width: 64em) {
+  .addprofessor .data {
+    margin-bottom: 0 !important;
+  }
   .addprofessor .singleContainer label {
     margin-bottom: 4px;
   }
@@ -327,7 +399,7 @@ https://www.byui.edu/branding/color-guide
   .addprofessor .flexContainer {
     display: flex;
     gap: 20px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .addprofessor .data {
@@ -354,15 +426,12 @@ https://www.byui.edu/branding/color-guide
     color: #006eb6;
   }
 
-  .addprofessor input {
-    width: 100%;
-    padding: 8px 0;
-    border: 3px solid #98d5fd;
+  .addprofessor .requestButton {
+    margin: 0px 0px 30px 50px;
   }
 
   .addprofessor input {
-    width: 100% !important;
-    padding: 8px 0;
-    border: 3px solid #98d5fd;
+    width: 100%;
+    padding: 0;
   }
 }
