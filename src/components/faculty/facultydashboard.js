@@ -48,14 +48,23 @@ const FacultyDashboard = () => {
           <Header userType="facultydashboard" />
         </div>
         <div className={facultydashboard.main}>
-          <div className={facultydashboard.text}>
-            <h1 id={facultydashboard.nameOfProfessor}>
-              Hello{" "}
-              <span>
-                {userFirst} {userLast}
-              </span>
-            </h1>
-            <p id={facultydashboard.greeting}>How can we help you today?</p>
+          <div className={facultydashboard.left}>
+            <div className={facultydashboard.text}>
+              <h1 id={facultydashboard.nameOfProfessor}>
+                Hello{" "}
+                <span>
+                  {userFirst} {userLast}
+                </span>
+              </h1>
+              <p id={facultydashboard.greeting}>How can we help you today?</p>
+            </div>
+            <div
+              className={facultydashboard.professorpermissions}
+              onClick={() => {
+                navigate("/appext");
+              }}>
+              <button className={facultydashboard.permissionsbutton}>Send your Canvas Token</button>
+            </div>
           </div>
           <div className={facultydashboard.buttons}>
             <div

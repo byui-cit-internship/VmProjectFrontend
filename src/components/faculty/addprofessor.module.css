@@ -435,3 +435,7 @@ https://www.byui.edu/branding/color-guide
     padding: 0;
   }
 }
+
+.addprofessor p {
+  max-width: 300px;
+}
