@@ -40,7 +40,7 @@ function Utilization() {
         method: "GET"
       };
 
-      const listResponse = await fetch(getApiRoot() + "/api/semester/semester", methods);
+      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", methods);
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }
@@ -87,7 +87,7 @@ function Utilization() {
         method: "GET"
       };
       const listResponse = await fetch(
-        getApiRoot() + `/api/course/professor/semester/${courseSemester}`,
+        getApiRoot() + `/api/course/professor/canvasDropdown`,
         methods
       );
       if (!listResponse.ok) {
@@ -148,7 +148,7 @@ function Utilization() {
         },
         method: "GET"
       };
-      const listResponse = await fetch(getApiRoot() + "/api/createvm/libraries", methods);
+      const listResponse = await fetch(getApiRoot() + "", methods);
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }

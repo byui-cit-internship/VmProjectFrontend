@@ -44,7 +44,7 @@ function AddClass() {
         sectionName: sectionName,
         courseCode: courseCode,
         canvas_token: canvasToken,
-        section_num: "1", /*Keep this hardcoded */
+        section_num: "1" /*Keep this hardcoded */,
         courseSemester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
