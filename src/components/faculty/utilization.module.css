@@ -2,15 +2,6 @@
   margin: 0;
 }
 
-/* .utilization #backbtn {
-  display: flex;
-  color: #006eb6;
-  margin-left: 50px;
-  cursor: pointer;
-  font-size: 1.3em;
-  margin-top: 0.7em;
-} */
-
 .utilization .li {
   list-style: none;
   font-family: "Raleway";
@@ -256,12 +247,12 @@
     margin: 10px 0px;
     display: flex;
     flex-direction: column;
-    font-size: 0.8em;
+    font-size: 1em;
   }
 
   .utilization .dropdownDescription {
-    font-size: 0.8em;
-    max-width: 300px;
+    font-size: 1em;
+    max-width: 100%;
   }
 
   .utilization .singleOption {
@@ -436,12 +427,12 @@
   }
 
   .utilization .dropdown {
-    font-size: 0.9em;
+    font-size: 1em;
   }
   .utilization .dropdownDescription {
     margin-right: unset;
-    width: unset;
-    font-size: unset;
+    width: 100%;
+    font-size: 1em;
   }
   .utilization .templatesAvailable {
     margin: unset;

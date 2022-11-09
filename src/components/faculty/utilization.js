@@ -198,14 +198,6 @@ function Utilization() {
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
-            {/* <span
-            onClick={() => {
-              navigate("/faculty");
-            }}
-            id={utilization.backbtn}
-          >
-            &#8592; back
-          </span> */}
             <h1 className={utilization.h1}>Class VM Utilization</h1>
           </div>
           {/*SEMESTER*/}
@@ -250,28 +242,6 @@ function Utilization() {
                 {canvasCourses.map((course) => (
                   <option value={course.courseCode} key={course.sectionId}>
                     {course.courseCode}
-                  </option>
-                ))}
-              </select>
-            </label>
-            {/*Section Name*/}
-            <label htmlFor="choosesection" className={utilization.dropdown}>
-              Section:
-              <select
-                className={utilization.dropdownDescription}
-                name="choosesection"
-                id={utilization.choosesection}
-                required
-                onChange={(event) => {
-                  setSectionId(event.target.value);
-                }}
-                disabled={!courseCode}>
-                <option value="Default" className={utilization.singleOption} hidden>
-                  - Select -
-                </option>
-                {courseSections.map((course) => (
-                  <option value={course.sectionId} key={course.sectionNumber}>
-                    {course.courseName}
                   </option>
                 ))}
               </select>
