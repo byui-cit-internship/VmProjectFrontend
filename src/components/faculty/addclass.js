@@ -29,7 +29,7 @@ function AddClass() {
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [libraryId, setLibraryId] = useState();
-  const [vmTemplateName] = useState();
+  const [vmTemplateName, setvmTemplateName] = useState();
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
@@ -45,7 +45,7 @@ function AddClass() {
         courseCode: courseCode,
         canvas_token: canvasToken,
         section_num: "1" /*Keep this hardcoded */,
-        courseSemester: semester,
+        semester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
         templateVm: [templateVm],
@@ -225,7 +225,6 @@ width=0,height=0,left=-1000,top=-1000`;
 
     setvCenterFolder(code);
   };
-
   const closePopup = (closeBool) => {
     selectElement.current.reset();
     setCanvasCourseId("");
@@ -258,7 +257,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   {canvasCourses.map((course) => (
                     <option
                       data-code={course.course_code}
-                      key={course.name}
+                      data-name={course.name}
                       data-id={course.id}
                       value={course}>
                       {course.course_code} = {course.name}
@@ -311,7 +310,8 @@ width=0,height=0,left=-1000,top=-1000`;
                   name="templateVm"
                   required
                   onChange={(event) => {
-                    setTemplateVm(event.target.value);
+                    setTemplateVm(event.target.value),
+                    setvmTemplateName(event.target.value)
                   }}
                   disabled={!libraryId}>
                   <option value="" hidden>
