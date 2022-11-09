@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 
 const iconStyles = {
   color: "white",
@@ -13,6 +13,8 @@ const iconStyles = {
 };
 
 const FacultyDashboard = () => {
+  const [requestMessage, setRequestMessage] = useState();
+
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
 
