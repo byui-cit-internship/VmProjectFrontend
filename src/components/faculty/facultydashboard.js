@@ -13,7 +13,7 @@ const iconStyles = {
 };
 
 const FacultyDashboard = () => {
-  const [requestMessage, setRequestMessage] = useState();
+  const [requestMessage, setRequestMessage] = useState("");
 
   const body = document.querySelector("body");
   const urlParams = window.location.href.split("/")[3];
@@ -42,6 +42,16 @@ const FacultyDashboard = () => {
     userLast = userInfo.lastName;
   }
 
+  useEffect(() => {
+    if (userInfo.approveStatus == "pending") {
+      setRequestMessage("Waiting for professor access request approval");
+    } else if (userInfo.approveStatus == "approved") {
+      setRequestMessage("Professor request access approved");
+    } else if (userInfo.approveStatus == "n/a") {
+      setRequestMessage("Send your Canvas Token");
+    }
+  }, []);
+
   return (
     // window.location.href="VMfaculty_dashboard/facultyview.html";
     <div className={facultydashboard.facultydashboard}>
@@ -65,7 +75,13 @@ const FacultyDashboard = () => {
               onClick={() => {
                 navigate("/appext");
               }}>
-              <button className={facultydashboard.permissionsbutton}>Send your Canvas Token</button>
+              <button
+                className={facultydashboard.permissionsbutton}
+                disabled={
+                  userInfo.approveStatus == "pending" || userInfo.approveStatus == "approved"
+                }>
+                {requestMessage}
+              </button>
             </div>
           </div>
           <div className={facultydashboard.buttons}>
