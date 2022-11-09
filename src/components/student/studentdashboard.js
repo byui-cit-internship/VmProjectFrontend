@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Background from "../../background";
 import studentdashboard from "./studentdashboard.module.css";
 import Header from "../../header";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const iconStyles = {
   color: "white",
@@ -13,6 +13,7 @@ const iconStyles = {
 };
 
 const StudentDashboard = () => {
+  const [requestMessage, setRequestMessage] = useState("");
   let navigate = useNavigate();
 
   //userInfo gets user info from token put in session storage to display the users first and last name
@@ -25,6 +26,16 @@ const StudentDashboard = () => {
     userFirst = userInfo.firstName;
     userLast = userInfo.lastName;
   }
+
+  useEffect(() => {
+    if (userInfo.approveStatus == "pending") {
+      setRequestMessage("Waiting for professor access request approval");
+    } else if (userInfo.approveStatus == "approved") {
+      setRequestMessage("Professor request access approved");
+    } else if (userInfo.approveStatus == "n/a") {
+      setRequestMessage("Are you a professor");
+    }
+  }, []);
 
   return (
     <div className={studentdashboard.studentdashboard}>
@@ -49,7 +60,13 @@ const StudentDashboard = () => {
               onClick={() => {
                 navigate("/appext");
               }}>
-              <button className={studentdashboard.permissionsbutton}>Are you a professor?</button>
+              <button
+                className={studentdashboard.permissionsbutton}
+                disabled={
+                  userInfo.approveStatus == "pending" || userInfo.approveStatus == "approved"
+                }>
+                {requestMessage}
+              </button>
             </div>
           </div>
 

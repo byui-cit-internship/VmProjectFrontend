@@ -25,26 +25,19 @@ function AddProfessor() {
 
   const validateForm = async () => {
     console.log("validateform here.");
-    let allFieldsValid = true;
-    if (token.length === 0) {
-      allFieldsValid = false;
-    }
-    if (allFieldsValid) {
-      const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
-        method: "POST",
+    if (token) {
+      const response = await fetch(getApiRoot() + "/api/user/requestAccess", {
+        method: "PUT",
         body: JSON.stringify({
-          token: token,
-          usertype: "Professor",
-          userAccess: true,
-          isAdmin: false
+          CanvasToken: token
         }),
         credentials: "include",
         headers: {
           "content-type": "application/json"
         }
       });
-      console.log(response);
       if (response.ok) {
+        sessionStorage.setItem("userInfo", JSON.stringify(await response.json()));
         setConfirmationMessage("Access Requested Succesfully");
         setAgainOptionMessage("Go back to the Studend Dashboard");
         setIsSuccess(true);
