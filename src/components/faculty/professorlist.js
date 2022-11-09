@@ -3,11 +3,12 @@ import Header from "../../header";
 import professorList from "./professorlist.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { useEffect, useState, useRef } from "react";
+import { React, useEffect, useState, useRef } from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 import ApproveProfessorPopup from "../approveprofessorpop.js";
 import LoadingSpinner from "../spinner.js";
 import Popup from "./Popup.js";
+
 
 // import ReactDOM from 'react-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -89,18 +90,16 @@ function ProfessorList() {
   useEffect(() => {
     const approveProfessor = async () => {
       togglePopup();
-      setIsLoading(true)
+      setIsLoading(true);
       const listResponse = await fetch(getApiRoot() + "/api/user/approve", {
         method: "PUT",
-        body: JSON.stringify(
-          professorApprove
-        ),
+        body: JSON.stringify(professorApprove),
         credentials: "include",
         headers: {
           "content-type": "application/json"
         }
       });
-      setIsLoading(false)
+      setIsLoading(false);
       console.log("listResponse; ", listResponse);
       if (listResponse.ok) {
         setPopupMessage("Professor Approved succesfully");
@@ -118,16 +117,14 @@ function ProfessorList() {
     }
   }, [approveCheck]);
 
+  const closePopup = (closeBool) => {
+    setIsPopupOpen(closeBool);
+    window.location.reload(false);
+  };
 
-    const closePopup = (closeBool) => {
-      setIsPopupOpen(closeBool);
-      window.location.reload(false);
-    };
-
-    const togglePopup = () => {
-      setIsOpen(!isOpen);
-    }
-
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   //****************************/
   //Returns all JSX
@@ -167,18 +164,27 @@ function ProfessorList() {
                     <td>
                       {professor.firstName} {professor.lastName}
                     </td>
-                    <td>
-                      {professor.email}
-                    </td>
+                    <td>{professor.email}</td>
                     <td>
                       {(() => {
-                      if (professor.approveStatus == "approved") {
-                        return <div className={professorList.checkMark}><AiOutlineCheck size="40px"/></div>;
-                      } else {
-                        return <button className={professorList.approveStatus} onMouseEnter={(event) => setProfessorApprove(professor)} 
-                        onClick={togglePopup} disabled={isLoading}>Approve Professor</button>
-                      }
-                    })()}
+                        if (professor.approveStatus == "approved") {
+                          return (
+                            <div className={professorList.checkMark}>
+                              <AiOutlineCheck size="40px" />
+                            </div>
+                          );
+                        } else {
+                          return (
+                            <button
+                              className={professorList.approveStatus}
+                              onMouseEnter={() => setProfessorApprove(professor)}
+                              onClick={togglePopup}
+                              disabled={isLoading}>
+                              Approve Professor
+                            </button>
+                          );
+                        }
+                      })()}
                     </td>
                   </tr>
                 ))}
@@ -203,36 +209,38 @@ function ProfessorList() {
           success={success}
         />
       )}
-      {isLoading && (
-        <LoadingSpinner
-          />
-      )}
+      {isLoading && <LoadingSpinner />}
 
       {isOpen && (
-          <Popup
-            content={
-              <>
-                <div className={professorList.popupbox}>
-                  <div className={professorList.box}>
-                    <img
-                      className={professorList.logo}
-                      src="../../images/LOGO-VIMA.png"
-                      alt="logo"
-                    />
-                    <h2>
-                      Are you Sure you want to approve this professor?
-                    </h2>
-                    <h3 className={professorList.h3}>{professorApprove.firstName} {professorApprove.lastName}: {professorApprove.email}</h3>
-                      <div className={professorList.checkbuttons}>
-                        <button className={professorList.confluence} onClick={(event) => {setApproveCheck(true) }}>Yes</button>
-                        <button className={professorList.confluence} onClick={togglePopup}>No</button>
-                      </div>
+        <Popup
+          content={
+            <>
+              <div className={professorList.popupbox}>
+                <div className={professorList.box}>
+                  <img className={professorList.logo} src="../../images/LOGO-VIMA.png" alt="logo" />
+                  <h2>Are you Sure you want to approve this professor?</h2>
+                  <h3 className={professorList.h3}>
+                    {professorApprove.firstName} {professorApprove.lastName}:{" "}
+                    {professorApprove.email}
+                  </h3>
+                  <div className={professorList.checkbuttons}>
+                    <button
+                      className={professorList.confluence}
+                      onClick={() => {
+                        setApproveCheck(true);
+                      }}>
+                      Yes
+                    </button>
+                    <button className={professorList.confluence} onClick={togglePopup}>
+                      No
+                    </button>
                   </div>
                 </div>
-              </>
-            }
-          />
-        )}
+              </div>
+            </>
+          }
+        />
+      )}
 
       <Background />
     </div>

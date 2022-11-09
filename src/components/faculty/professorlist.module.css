@@ -162,15 +162,6 @@ select:focus {
   background-color: #006eb6;
 }
 
-/* .submitBt {
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 10px auto;
-  width: 90%;
-  border-radius: 7px;
-  display: block;
-} */
-
 .professorList #title {
   margin: 0;
   padding: 0;
@@ -201,14 +192,6 @@ select:focus {
 .professorList .checkMark {
   text-align: center;
   color: #58b952;
-}
-
-.professorList .table::-webkit-scrollbar {
-}
-
-.professorList .table::-webkit-scrollbar-track {
-}
-.professorList .table::-webkit-scrollbar-thumb {
 }
 
 .professorList .tableHeader {
@@ -277,10 +260,6 @@ select:focus {
 /* Small View */
 
 @media only screen and (max-width: 37.4em) {
-  /* .professorList {
-    display: flex;
-  } */
-
   .professorList td {
     border: 2px solid #3a8ace;
     font-size: 1rem;

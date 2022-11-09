@@ -2,7 +2,7 @@ import Background from "../../background";
 import Header from "../../header";
 import myVm from "./myvm.module.css";
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
 
 function MyVM() {

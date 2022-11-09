@@ -75,33 +75,6 @@ function AddClass() {
     }
     setIsPopupOpen(true);
   };
-
-  //*********Validates the Canvas token************/
-  const validateCanvasToken = async () => {
-    const tokenResponse = await fetch(getApiRoot() + "/api/course/professor/checkCanvasToken", {
-      method: "POST",
-      credentials: "include",
-      withCredentials: true,
-      body: JSON.stringify({
-        canvas_token: canvasToken,
-        canvas_course_id: canvasCourseId
-      }),
-      headers: {
-        "content-type": "application/json"
-      }
-    });
-
-    // const canvasValidationObject = await tokenResponse.json();
-    if (!tokenResponse.ok) {
-      setPopupMessage("Canvas Id validation error");
-      setPopupAgainMessage("Try again");
-      setIsSuccess(false);
-      setIsPopupOpen(true);
-    } else {
-      await createCourse();
-    }
-  };
-
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
     const getLibraries = async () => {
@@ -258,7 +231,7 @@ width=0,height=0,left=-1000,top=-1000`;
                       data-code={course.course_code}
                       data-name={course.name}
                       data-id={course.id}
-                      value={course}>
+                      key={course}>
                       {course.course_code} = {course.name}
                     </option>
                   ))}
@@ -287,7 +260,6 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Course ID*/}
               <div className={addclass.courseid}>
-
                 <label className={addclass.label}>Canvas Course ID: </label> <br></br>
                 <span role="alert" id={addclass.nameError} aria-hidden="true">
                   {/* Please add a valid Course ID */}
@@ -301,9 +273,8 @@ width=0,height=0,left=-1000,top=-1000`;
 
               {/*Template VM*/}
               <div>
-
-                <label className={addclass.label}>Template Virtual Machine: </label> <br></br>
-
+                <label className={addclass.label}>Template Virtual Machine: </label>
+                <br></br>
                 <select
                   className={addclass.select}
                   name="templateVm"
@@ -328,13 +299,11 @@ width=0,height=0,left=-1000,top=-1000`;
             <div className={addclass.flex2}>
               {/*Semester*/}
               <div>
-
-
                 <label className={addclass.label}>Choose Semester: </label> <br></br>
-
                 <select
                   onChange={(event) => {
                     var obj = JSON.parse(event.target.value);
+                    console.log(obj);
                     setSemester(obj);
                   }}>
                   <option>- Select -</option>
@@ -370,14 +339,26 @@ width=0,height=0,left=-1000,top=-1000`;
 
                 {/*Resource Pool*/}
                 {/* <div>
-            <label className={addclass.label}>Resource Pool:</label><br></br>
-            <select className={addclass.select} id={addclass.resoursePool} name="resoursePool" required
-            onChange={(event) =>{setResourcePool(event.target.value)}}>
-              <option value="" hidden>Choose a Resourse Pool</option>
-              {recoursePoolList.map((item) =>(
-                <option key={item.name} value={item.folder}>{item.name}</option>))}
-            </select>
-            </div> */}
+                  <label className={addclass.label}>Resource Pool:</label>
+                  <br></br>
+                  <select
+                    className={addclass.select}
+                    id={addclass.resoursePool}
+                    name="resoursePool"
+                    required
+                    onChange={(event) => {
+                      setResourcePool(event.target.value);
+                    }}>
+                    <option value="" hidden>
+                      Choose a Resourse Pool
+                    </option>
+                    {recoursePoolList.map((item) => (
+                      <option key={item.name} value={item.folder}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div> */}
 
                 <div className={addclass.alert}>
                   <label className={addclass.alertLabel}>No folder for your class</label>
@@ -385,9 +366,7 @@ width=0,height=0,left=-1000,top=-1000`;
                     onClick={togglePopup}
                     type="vCenterFolder Alert Button"
                     className={addclass.alertButton}>
-
                     <i className={addclass.alertIcon} aria-hidden="true"></i>
-
                   </button>
                 </div>
               </div>
@@ -424,7 +403,7 @@ width=0,height=0,left=-1000,top=-1000`;
             </div>
           </div>
           <br></br>
-          <button type="button" className={addclass.btnprimary} onClick={validateCanvasToken}>
+          <button type="button" className={addclass.btnprimary} onClick={createCourse}>
             Add
           </button>
         </div>
