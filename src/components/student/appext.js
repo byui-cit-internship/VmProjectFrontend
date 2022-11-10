@@ -37,7 +37,6 @@ function AddProfessor() {
         }
       });
       if (response.ok) {
-        sessionStorage.setItem("userInfo", JSON.stringify(await response.json()));
         setConfirmationMessage("Access Requested Succesfully");
         setAgainOptionMessage("Go back to the Studend Dashboard");
         setIsSuccess(true);
