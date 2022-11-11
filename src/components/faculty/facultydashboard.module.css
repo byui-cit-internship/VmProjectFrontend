@@ -6,6 +6,39 @@ https://www.byui.edu/branding/color-guide
 */
 
 /* Small View */
+
+.facultydashboard .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.facultydashboard .professorpermissions {
+  background: black;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 8px 8px 0px;
+  max-width: 250px;
+  padding: 5px 0px;
+  cursor: pointer;
+}
+
+.facultydashboard .professorpermissions:hover {
+  opacity: 95%;
+}
+
+.facultydashboard .permissionsbutton {
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  text-decoration: none;
+  border: transparent;
+  cursor: pointer;
+  height: 100%;
+}
+
 * {
   margin: 0;
 }
@@ -241,6 +274,17 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
+  .facultydashboard .professorpermissions {
+    background: white;
+    position: absolute;
+    bottom: 8vh;
+  }
+
+  .facultydashboard .permissionsbutton {
+    opacity: 95%;
+    color: #1a63fb;
+    text-decoration: underline solid blue;
+  }
   .facultydashboard h1 {
     padding-left: 0;
   }
@@ -310,6 +354,14 @@ https://www.byui.edu/branding/color-guide
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .facultydashboard .permissionsbutton {
+    padding-top: 0;
+  }
+
+  .facultydashboard .left {
+    height: 380px;
+  }
+
   .facultydashboard .container {
     display: flex;
     flex-direction: column;
@@ -353,7 +405,7 @@ https://www.byui.edu/branding/color-guide
     width: 1000px;
   }
   .facultydashboard #greeting {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 200;
     text-align: left;
     font-size: 20px;
@@ -363,7 +415,7 @@ https://www.byui.edu/branding/color-guide
     grid-column: 1/2;
     grid-row: 2/3;
   }
-  
+
   .facultydashboard .professorgrid {
     grid-column: 2/3;
     padding: 0px;
@@ -372,14 +424,14 @@ https://www.byui.edu/branding/color-guide
     grid-template-columns: 8% 60% 30%;
     margin: auto 25px;
   }
-  
+
   .facultydashboard .materialicons {
     grid-column: 1/2;
     color: #006eb6;
     text-align: left;
     font-size: 50px;
   }
-  
+
   .facultydashboard #welcome {
     grid-column: 2/3;
     color: #006eb6;
@@ -389,10 +441,10 @@ https://www.byui.edu/branding/color-guide
     margin: 0;
     text-align: right;
   }
-  
+
   .facultydashboard .signOut {
     grid-column: 3/4;
-    background-color:transparent;
+    background-color: transparent;
     color: #006eb6;
     width: 100%;
     height: 25px;
@@ -402,13 +454,12 @@ https://www.byui.edu/branding/color-guide
     margin-left: 5px;
     font-size: 15px;
   }
-  
+
   .facultydashboard .signOut:hover {
     background-color: #006eb6;
     color: white;
-  
   }
-  
+
   .facultydashboard button {
     background-color: transparent;
     color: white;
@@ -420,7 +471,7 @@ https://www.byui.edu/branding/color-guide
     /* width: 200px; */
     border: transparent;
   }
-  
+
   .facultydashboard .add_professor {
     font-size: 20px;
     /* float: left; */
@@ -428,26 +479,26 @@ https://www.byui.edu/branding/color-guide
     height: 90px;
     border-radius: 7px 0px 0px 7px;
     grid-column: 2/3;
-    background-color: #3A8ACE;
+    background-color: #3a8ace;
     color: white;
     grid-row: 2/3;
     margin-left: 50px;
     margin-top: 130px;
   }
-  
+
   .facultydashboard .add_professor:hover {
     background-color: #022d53;
   }
-  
+
   .facultydashboard .add_professor span {
     color: white;
     font-size: 40px;
     float: left;
     padding-left: 40px;
-    padding-top: 20px;  
+    padding-top: 20px;
   }
-  
-  .facultydashboard .myClasses{
+
+  .facultydashboard .myClasses {
     font-size: 20px;
     float: left;
     width: 300px;
@@ -456,17 +507,17 @@ https://www.byui.edu/branding/color-guide
     display: block;
     grid-column: 2/3;
     grid-row: 2/3;
-    background-color: #5BBCFB;
+    background-color: #5bbcfb;
     color: white;
     grid-row: 2/3;
     margin-top: 15px;
     margin-left: 50px;
   }
-  
+
   .facultydashboard .myClasses:hover {
     background-color: #022d53;
   }
-  
+
   .facultydashboard .myClasses span {
     color: white;
     font-size: 40px;
@@ -474,7 +525,7 @@ https://www.byui.edu/branding/color-guide
     padding-left: 40px;
     padding-top: 20px;
   }
-  
+
   .facultydashboard .vm_utilization {
     font-size: 20px;
     float: left;
@@ -484,16 +535,16 @@ https://www.byui.edu/branding/color-guide
     display: block;
     grid-column: 2/3;
     grid-row: 2/3;
-    background-color: #1A63A1;
+    background-color: #1a63a1;
     color: white;
     margin-top: 245px;
     margin-left: 50px;
   }
-  
+
   .facultydashboard .vm_utilization:hover {
     background-color: #022d53;
   }
-  
+
   .facultydashboard .vm_utilization span {
     color: white;
     font-size: 40px;
@@ -501,7 +552,7 @@ https://www.byui.edu/branding/color-guide
     padding-left: 40px;
     padding-top: 20px;
   }
-  
+
   .facultydashboard .vm_utilization a {
     color: white;
     font-size: 20px;
@@ -511,13 +562,11 @@ https://www.byui.edu/branding/color-guide
     padding-left: 20px;
   }
 }
-  
-  /* Medium View */
-  @media only screen and (min-width: 37.5em) {
-    
-  }
-  
-  /* Large View */
-  @media only screen and (min-width: 64em) {
-  
-  }
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+}

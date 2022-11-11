@@ -29,7 +29,7 @@ function AddClass() {
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [libraryId, setLibraryId] = useState();
-  const [vmTemplateName] = useState();
+  const [vmTemplateName, setvmTemplateName] = useState();
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
@@ -45,8 +45,8 @@ function AddClass() {
         sectionName: sectionName,
         courseCode: courseCode,
         canvas_token: canvasToken,
-        section_num: "1",
-        courseSemester: semester,
+        section_num: "1" /*Keep this hardcoded */,
+        semester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
         templateVm: [templateVm],
@@ -145,9 +145,7 @@ function AddClass() {
           "content-type": "application/json"
         }
       });
-      console.log(listResponse);
       const courseSemesterList = await listResponse.json();
-      console.log("semesters", courseSemesterList);
       setCourseSemesterList(courseSemesterList);
     };
     getcourseSemester();
@@ -218,9 +216,7 @@ width=0,height=0,left=-1000,top=-1000`;
 
     setvCenterFolder(code);
   };
-
   const closePopup = (closeBool) => {
-    selectElement.current.reset();
     setCanvasCourseId("");
     setCourseCode("");
     setLibraryId("");
@@ -302,7 +298,8 @@ width=0,height=0,left=-1000,top=-1000`;
                   name="templateVm"
                   required
                   onChange={(event) => {
-                    setTemplateVm(event.target.value);
+                    setTemplateVm(event.target.value),
+                    setvmTemplateName(event.target.value)
                   }}
                   disabled={!libraryId}>
                   <option value="" hidden>

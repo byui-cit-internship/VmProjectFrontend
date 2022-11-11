@@ -35,7 +35,7 @@ const SubmissionPopup = (props) => {
   return (
     <div className={submissionPop.modal}>
       <div className={submissionPop.modalBox}>
-        <span className={submissionPop.closeicon} onClick={(e) => props.closeHandler(false)}>
+        <span className={submissionPop.closeicon} onClick={() => props.closeHandler(false)}>
           x
         </span>
         <div className={submissionPop.message}>
