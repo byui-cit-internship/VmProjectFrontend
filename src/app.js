@@ -118,29 +118,15 @@ function App() {
     );
   } else {
     console.log(googleCredentials.current.email);
-    if (authorization.isAdmin === true && verifiedEmail.current === false) {
+    if (authorization.isAdmin === true) {
       console.log("Admin not verified");
       return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
-    } else if (authorization.isAdmin === true && verifiedEmail.current === true) {
-      console.log("Admin verified");
-      return (
-        // console.log("Admin verified");
-        <Navigate to="/facultydashboard" element={<FacultyDashboard />} />
-      );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === true) {
+    } else if (authorization.isAdmin === false) {
       console.log("Student verified");
       return (
         // window.location.href="VMstudent_dashboard/studentview.html"
         <Navigate to="/studentdashboard" element={<StudentDashboard />} />
       );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === false) {
-      console.log("Student not verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/verifyemail" element={<VerifiedEmail />} />
-      );
-    } else {
-      console.log("One re-render too soon to verify Google JWT");
     }
   }
 }
