@@ -120,7 +120,7 @@ function AddClass() {
   }, [libraryId]);
 
   useEffect(() => {
-    const resourcePools = async () => {
+    const resourcePool = async () => {
       const methods = {
         method: "GET",
         credentials: "include",
@@ -133,7 +133,7 @@ function AddClass() {
       const listResponseObject = await listResponse.json();
       setResourcePoolList(listResponseObject);
     };
-    resourcePools();
+    resourcePool();
   }, []);
 
   useEffect(() => {
@@ -244,7 +244,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   <option value="Default" data-code="" data-name="" data-id="">
                     -Select-
                   </option>
-                  {canvasCourses.map((course) => (
+                  {canvasCourses?.map((course) => (
                     <option
                       data-code={course.course_code}
                       data-name={course.name}
@@ -268,7 +268,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   <option value="" hidden>
                     -Select-
                   </option>
-                  {libraryList.map((item) => (
+                  {libraryList?.map((item) => (
                     <option key={item.name} value={item.id}>
                       {item.name}
                     </option>
@@ -305,7 +305,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   <option value="" hidden>
                     - Select a Template -
                   </option>
-                  {templateVmList.map((item) => (
+                  {templateVmList?.map((item) => (
                     <option key={item.id} value={item.value}>
                       {item.name}
                     </option>
@@ -325,7 +325,7 @@ width=0,height=0,left=-1000,top=-1000`;
                     setSemester(obj);
                   }}>
                   <option>- Select -</option>
-                  {courseSemesterList.map((item, i) => (
+                  {courseSemesterList?.map((item, i) => (
                     <option key={i} value={JSON.stringify(item)}>
                       {item.semesterTerm} {item.semesterYear}
                     </option>
@@ -348,7 +348,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   <option value="" hidden>
                     Choose a Folder
                   </option>
-                  {vCenterFolderList.map((item) => (
+                  {vCenterFolderList?.map((item) => (
                     <option key={item.name} value={item.folder}>
                       {item.name}
                     </option>
@@ -364,15 +364,14 @@ width=0,height=0,left=-1000,top=-1000`;
                     name="resourcePool"
                     required
                     onChange={(event) => setResourcePoolList(event.target.value)}>
-                    {/* <option value="" hidden>
-                      Choose a Resource Pool */}
-                    {/* </option>
-                    
-                    {resourcePool.map((item) => (
+                    <option value="" hidden>
+                      Choose a Resource Pool
+                    </option>
+                    {resourcePool?.map((item) => (
                       <option key={item.name} value={item.resource_pool}>
                         {item.name}
                       </option>
-                    ))} */}
+                    ))}
                   </select>
                 </div>
 

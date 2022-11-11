@@ -60,14 +60,6 @@ function AddProfessor() {
       setIsOpen(true);
     }
   };
-
-  // document.body.classList.add("bg-salmon");
-  // document.body.style.backgroundColor = "green";
-  // return () => {
-  // optionally remove styles when component unmounts
-  // document.body.style.backgroundColor = null;
-  // document.body.classList.remove("bg-salmon");
-
   const closePopup = (closeBool) => {
     setFirstName("");
     setLastName("");
@@ -81,14 +73,6 @@ function AddProfessor() {
         <div className={addprofessor.header}>
           <Header userType="facultydashboard" />
         </div>
-        {/* <button
-          className={addprofessor.backbtn}
-          onClick={() => {
-            navigate("/faculty");
-          }}
-        >
-          Back
-        </button> */}
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
           <form action="#" className={addprofessor.form} onSubmit={(e) => e.preventDefault()}>

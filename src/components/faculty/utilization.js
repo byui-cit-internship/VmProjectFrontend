@@ -77,7 +77,7 @@ function Utilization() {
   //Code for getting a specific professors course list and filtering out any duplicate course codes once semester is selected
   //******************************************************************/
   useEffect(() => {
-    const getCourses = async () => {
+    const courseCode = async () => {
       const methods = {
         credentials: "include",
         headers: {
@@ -85,9 +85,10 @@ function Utilization() {
         },
         method: "GET"
       };
-      const listResponse = await fetch(getApiRoot() + `/api/course/professor/semester/${courseSemester}`, 
-      methods);
-
+      const listResponse = await fetch(
+        getApiRoot() + `/api/course/professor/semester/${courseSemester}`,
+        methods
+      );
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }
@@ -95,7 +96,7 @@ function Utilization() {
       setCanvasCourses(listResponseObject);
     };
     if (courseSemester) {
-      getCourses();
+      courseCode();
     }
   }, [courseSemester]);
 
