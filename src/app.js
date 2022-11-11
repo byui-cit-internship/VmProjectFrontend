@@ -117,16 +117,10 @@ function App() {
       </div>
     );
   } else {
-    console.log(googleCredentials.current.email);
-    if (authorization.isAdmin === true) {
-      console.log("Admin not verified");
-      return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
-    } else if (authorization.isAdmin === false) {
-      console.log("Student verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/studentdashboard" element={<StudentDashboard />} />
-      );
+    if (authorization.isAdmin) {
+      return <Navigate to="/facultydashboard" element={<FacultyDashboard />} />;
+    } else if (!authorization.isAdmin) {
+      return <Navigate to="/studentdashboard" element={<StudentDashboard />} />;
     }
   }
 }
