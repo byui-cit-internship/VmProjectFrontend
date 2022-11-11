@@ -98,7 +98,7 @@ function App() {
                   <div className={styles.google_button}>
                     {/* Login */}
                     <GoogleOAuthProvider
-                      clientId="705504613323-8lejrhq0knt36ltf4fkbth2l8aosrhrb.apps.googleusercontent.com"
+                      clientId="36675469793-5u18bmm9gjjnmfcsdj9l502lo5k3glei.apps.googleusercontent.com"
                       id={styles.googleAuth}>
                       <GoogleLogin
                         id={styles.googleLogin}
