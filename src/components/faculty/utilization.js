@@ -87,6 +87,7 @@ function Utilization() {
       };
       const listResponse = await fetch(getApiRoot() + `/api/course/professor/semester/${courseSemester}`, 
       methods);
+
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }
@@ -153,7 +154,7 @@ function Utilization() {
   //     setLibraries(listResponseObject);
   //   };
   //   getLibraries();
-  // }, []);
+  // }, []);  
 
   // useEffect(() => {
   //   const getTemplates = async () => {

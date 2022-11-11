@@ -25,25 +25,17 @@ function AddProfessor() {
 
   const validateForm = async () => {
     console.log("validateform here.");
-    let allFieldsValid = true;
-    if (token.length === 0) {
-      allFieldsValid = false;
-    }
-    if (allFieldsValid) {
-      const response = await fetch(getApiRoot() + "/api/user/admin/createuser", {
-        method: "POST",
+    if (token) {
+      const response = await fetch(getApiRoot() + "/api/user/requestAccess", {
+        method: "PUT",
         body: JSON.stringify({
-          token: token,
-          usertype: "Professor",
-          userAccess: true,
-          isAdmin: false
+          CanvasToken: token
         }),
         credentials: "include",
         headers: {
           "content-type": "application/json"
         }
       });
-      console.log(response);
       if (response.ok) {
         setConfirmationMessage("Access Requested Succesfully");
         setAgainOptionMessage("Go back to the Studend Dashboard");
@@ -70,7 +62,9 @@ function AddProfessor() {
         </div>
         <div className={styles.main}>
           <h2 className={styles.h2}>Are you a professor? </h2>
-          <p className={styles.description}>To request access, please enter your Canvas Token</p>
+          <p className={styles.description}>
+            To request access and be able to add classes, send your Canvas Token
+          </p>
           {/* <!-- Course Name--> */}
           <div className={styles.flexContainer}>
             <div className={styles.data}>
@@ -102,33 +96,6 @@ function AddProfessor() {
           )}
         </div>
       </div>
-      {/*
-       */}
-      {/*  */}
-      <div className={styles.main}>
-        <h2 className={styles.h2}>Are you a professor? </h2>
-        <p className={styles.description}>To request access, please enter your Canvas Token</p>
-        <div className={styles.flexContainer}>
-          <div className={styles.data}>
-            <div className={styles.singleContainer}>
-              <label className={styles.customfield} id={styles.two}>
-                <span className={styles.placeholder}>Enter Token</span>
-                <input type="text" name="name" placeholder="&nbsp;" className={styles.inputOne} />
-
-                <input
-                  type="submit"
-                  value="Request Access"
-                  className={styles.requestButton}
-                  id="placeholder"
-                />
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*
-       */}
-      {/*  */}
     </div>
   );
 }
