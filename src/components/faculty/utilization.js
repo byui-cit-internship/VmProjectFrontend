@@ -16,6 +16,7 @@ function Utilization() {
   useNavigate();
 
   const [courseCode, setCourseCode] = useState("");
+  const [studentList, setStudentList] = useState("");
   const [courseSemester, setSemester] = useState("");
   const [courseSectionId, setSectionId] = useState("");
   const [courseSections, setCourseSections] = useState([]);
@@ -23,11 +24,8 @@ function Utilization() {
   const [semesters, setSemesters] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
   const [sectionUsers, setSectionUsers] = useState([]);
-  const [setVmLibraries] = useState([]);
-  const [libraryId] = useState("");
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
-
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -87,10 +85,9 @@ function Utilization() {
         },
         method: "GET"
       };
-      const listResponse = await fetch(
-        getApiRoot() + `/api/course/professor/canvasDropdown`,
-        methods
-      );
+      const listResponse = await fetch(getApiRoot() + `/api/course/professor/semester/${courseSemester}`, 
+      methods);
+
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }
@@ -114,7 +111,7 @@ function Utilization() {
   //Gets list of users by section chosen
   //******************************************************************/
   useEffect(() => {
-    const getUsers = async () => {
+    const studentList = async () => {
       const methods = {
         credentials: "include",
         headers: {
@@ -130,58 +127,58 @@ function Utilization() {
         console.log("response", listResponse);
       }
       const listResponseObject = await listResponse.json();
-      setSectionUsers(listResponseObject);
+      setStudentList(listResponseObject);
     };
     if (courseSectionId) {
-      getUsers();
+      studentList();
     }
   }, [courseSectionId]);
 
   //*****************************************************************/
   //Gets list of Libraries and gets templates in the library that matches the section chosen
   //******************************************************************/
-  useEffect(() => {
-    const getLibraries = async () => {
-      const methods = {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "GET"
-      };
-      const listResponse = await fetch(getApiRoot() + "", methods);
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
-      const listResponseObject = await listResponse.json();
-      setVmLibraries(listResponseObject);
-    };
-    getLibraries();
-  }, []);
+  // useEffect(() => {
+  //   const getLibraries = async () => {
+  //     const methods = {
+  //       credentials: "include",
+  //       headers: {
+  //         "content-type": "application/json"
+  //       },
+  //       method: "GET"
+  //     };
+  //     const listResponse = await fetch(getApiRoot() + "/api/createvm/libraries", methods);
+  //     if (!listResponse.ok) {
+  //       console.log("response", listResponse);
+  //     }
+  //     const listResponseObject = await listResponse.json();
+  //     setLibraries(listResponseObject);
+  //   };
+  //   getLibraries();
+  // }, []);  
 
-  useEffect(() => {
-    const getTemplates = async () => {
-      const methods = {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "GET"
-      };
-      const listResponse = await fetch(
-        getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`,
-        methods
-      );
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
-      const listResponseObject = await listResponse.json();
-      setSectionUsers(listResponseObject);
-    };
-    if (libraryId) {
-      getTemplates();
-    }
-  }, [libraryId]);
+  // useEffect(() => {
+  //   const getTemplates = async () => {
+  //     const methods = {
+  //       credentials: "include",
+  //       headers: {
+  //         "content-type": "application/json"
+  //       },
+  //       method: "GET"
+  //     };
+  //     const listResponse = await fetch(
+  //       getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`,
+  //       methods
+  //     );
+  //     if (!listResponse.ok) {
+  //       console.log("response", listResponse);
+  //     }
+  //     const listResponseObject = await listResponse.json();
+  //     setSectionUsers(listResponseObject);
+  //   };
+  //   if (libraryId) {
+  //     getTemplates();
+  //   }
+  // }, [libraryId]);
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -231,9 +228,7 @@ function Utilization() {
                 id={utilization.course}
                 required
                 onChange={(event) => {
-                  setCourseCode(event.target.value),
-                    filterSections(event.target.value),
-                    libraryToName(event.target.value);
+                  setCourseCode(event.target.value), filterSections(event.target.value);
                 }}
                 disabled={!courseSemester}>
                 <option value="Default" className={utilization.singleOption} hidden>

@@ -35,6 +35,7 @@ function AddClass() {
   const [popupAgainMessage, setPopupAgainMessage] = useState();
   const [success, setIsSuccess] = useState();
   const selectElement = useRef();
+  const [resourcePool, setResourcePoolList] = useState();
   //*********Creates course by sending all info in body to the B  FF course controller************/
   const createCourse = async () => {
     console.log(courseCode);
@@ -117,6 +118,23 @@ function AddClass() {
       getTemplateVms();
     }
   }, [libraryId]);
+
+  useEffect(() => {
+    const resourcePools = async () => {
+      const methods = {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      };
+      const listResponse = await fetch(getApiRoot() + "/api/deployvm/resource-pool", methods);
+      console.log(listResponse);
+      const listResponseObject = await listResponse.json();
+      setResourcePoolList(listResponseObject);
+    };
+    resourcePools();
+  }, []);
 
   useEffect(() => {
     const getcourseSemester = async () => {
@@ -338,27 +356,25 @@ width=0,height=0,left=-1000,top=-1000`;
                 </select>
 
                 {/*Resource Pool*/}
-                {/* <div>
+                <div>
                   <label className={addclass.label}>Resource Pool:</label>
                   <br></br>
                   <select
                     className={addclass.select}
-                    id={addclass.resoursePool}
-                    name="resoursePool"
+                    name="resourcePool"
                     required
-                    onChange={(event) => {
-                      setResourcePool(event.target.value);
-                    }}>
-                    <option value="" hidden>
-                      Choose a Resourse Pool
-                    </option>
-                    {recoursePoolList.map((item) => (
-                      <option key={item.name} value={item.folder}>
+                    onChange={(event) => setResourcePoolList(event.target.value)}>
+                    {/* <option value="" hidden>
+                      Choose a Resource Pool */}
+                    {/* </option>
+                    
+                    {resourcePool.map((item) => (
+                      <option key={item.name} value={item.resource_pool}>
                         {item.name}
                       </option>
-                    ))}
+                    ))} */}
                   </select>
-                </div> */}
+                </div>
 
                 <div className={addclass.alert}>
                   <label className={addclass.alertLabel}>No folder for your class</label>
