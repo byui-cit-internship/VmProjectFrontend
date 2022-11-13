@@ -1,21 +1,12 @@
 export const getApiRoot = () => {
-  const hashTag = window.location.hostname;
-  console.log("Hash tag " + hashTag);
-  let apiRoot = "http://localhost:5000";
-  // hashTag === 'localhost'
-  // ? 'https://localhost:5001'
-  // : 'http://dev-vm-api.citwdd.net';
+  const hashTag = window.location.hash;
+  let apiRoot = hashTag.includes('#remote')?'https://rancher-dev-bff.cit.byui.edu':"http://localhost:5000";
+  hashTag === 'localhost'
 
   if (window.location.hostname.includes("rancher-vmfrontend-dev")) {
-    apiRoot = "https://rancher-dev-bff-api.citwdd.net";
+    apiRoot = "https://rancher-dev-bff.cit.byui.edu";
   } else if (window.location.hostname.includes("rancher-vmfrontend-test")) {
-    apiRoot = "https://rancher-test-vm-api.citwdd.net";
-  } else if (window.location.hostname.includes("vmfrontend-dev")) {
-    apiRoot = "https://dev-vm-api.citwdd.net";
-  } else if (window.location.hostname.includes("vmfrontend-test")) {
-    apiRoot = "https://test-vm-api.citwdd.net";
-  } else if (window.location.hostname.includes("vmfrontend-prod")) {
-    apiRoot = "https://prod-vm-api.citwdd.net";
-  }
+    apiRoot = "https://rancher-test-bff.cit.byui.edu";
+  } 
   return apiRoot;
 };
