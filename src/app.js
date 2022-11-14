@@ -17,8 +17,7 @@ const handleFailure = (result) => {
 
 function App() {
   // - Verified Email Code
-  const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
-  const [authorization, setAuthorization] = useState({});
+  const [authorization, setAuthorization] = useState();
   const [googleJwt, setGoogleJwt] = useState("");
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
@@ -35,20 +34,18 @@ function App() {
       //be sure the google JWT is already assigned (they have authenticated with Google)
       verifyJwt();
     }
-  }, [userIsLoggedIn, googleJwt]); //only verify the token if the logged in state has changed
+  }, [googleJwt]); //only verify the token if the logged in state has changed
 
   const handleLogin = (googleData) => {
     googleCredentials.current = jwt_decode(googleData.credential);
-    setGoogleJwt(googleData.credential);
     const email = googleCredentials.current.email;
-
-    setUserLoggedIn(true);
+    setGoogleJwt(googleData.credential);
     // userIsAdministrator=true;//we will need to change this to look up the user from the backend
     //this is dummy information on where the page should load next. We would just need to enter a link that we want to go to here!
     console.log(`Welcome ${email} You successfully logged in.`, googleData);
   };
 
-  if (googleJwt === "") {
+  if (!authorization) {
     return (
       <div className={styles.app}>
         <div className={styles.appheader}>
