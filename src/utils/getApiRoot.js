@@ -7,6 +7,8 @@ export const getApiRoot = () => {
     apiRoot = "https://rancher-dev-bff.cit.byui.edu";
   } else if (window.location.hostname.includes("rancher-vmfrontend-test")) {
     apiRoot = "https://rancher-test-bff.cit.byui.edu";
-  } 
+  } else if (window.location.hostname.includes("rancher-vmfrontend-prod")) {
+    apiRoot = "https://rancher-prod-bff.cit.byui.edu";
+  }
   return apiRoot;
 };
