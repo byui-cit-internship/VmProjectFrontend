@@ -17,7 +17,6 @@ const handleFailure = (result) => {
 
 function App() {
   // - Verified Email Code
-  const verifiedEmail = useRef(false); //
   const [userIsLoggedIn, setUserLoggedIn] = useState(false); //this creates a placeholder for the user logged in state
   const [authorization, setAuthorization] = useState({});
   const [googleJwt, setGoogleJwt] = useState("");
@@ -27,31 +26,10 @@ function App() {
     const verifyJwt = async () => {
       let postBody = { accessTokenValue: googleJwt };
       const authorizationObject = await BFF.Post("/api/token", postBody);
-      verifiedEmail.current = authorizationObject.isVerified; //
-      console.log(verifiedEmail.current);
       sessionStorage.setItem("userInfo", JSON.stringify(authorizationObject));
+      console.log(authorizationObject);
       setAuthorization(authorizationObject);
     };
-
-    // - Verified Email Code
-    // const verifyEm = async () => {
-    //   //
-    //   const emResponse = await fetch(getApiRoot() + "/api/token", {
-    //     //
-    //     credentials: "include", //
-    //     headers: {
-    //       //
-    //       "content-type": "application/json", //
-    //     }, //
-    //     method: "POST", //
-    //     body: JSON.stringify({ accessTokenValue: verifiedEmail }), //
-    //   }); //
-    //   const emailIsVerifiedObject = await emResponse.json();
-    //   sessionStorage.setItem("userInfo", JSON.stringify(emailIsVerifiedObject)); //
-
-    // };
-
-    // verifyEm();
 
     if (googleJwt.length > 0) {
       //be sure the google JWT is already assigned (they have authenticated with Google)
@@ -117,30 +95,10 @@ function App() {
       </div>
     );
   } else {
-    console.log(googleCredentials.current.email);
-    if (authorization.isAdmin === true && verifiedEmail.current === false) {
-      console.log("Admin not verified");
-      return <Navigate to="/verifyemail" element={<VerifiedEmail />} />;
-    } else if (authorization.isAdmin === true && verifiedEmail.current === true) {
-      console.log("Admin verified");
-      return (
-        // console.log("Admin verified");
-        <Navigate to="/facultydashboard" element={<FacultyDashboard />} />
-      );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === true) {
-      console.log("Student verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/studentdashboard" element={<StudentDashboard />} />
-      );
-    } else if (authorization.isAdmin === false && verifiedEmail.current === false) {
-      console.log("Student not verified");
-      return (
-        // window.location.href="VMstudent_dashboard/studentview.html"
-        <Navigate to="/verifyemail" element={<VerifiedEmail />} />
-      );
-    } else {
-      console.log("One re-render too soon to verify Google JWT");
+    if (authorization.isAdmin) {
+      return <Navigate to="/facultydashboard" element={<FacultyDashboard />} />;
+    } else if (!authorization.isAdmin) {
+      return <Navigate to="/studentdashboard" element={<StudentDashboard />} />;
     }
   }
 }
