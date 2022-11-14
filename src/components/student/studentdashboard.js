@@ -6,6 +6,7 @@ import Background from "../../background";
 import studentdashboard from "./studentdashboard.module.css";
 import Header from "../../header";
 import React, { useEffect, useState } from "react";
+import { getApiRoot } from "../../utils/getApiRoot";
 
 const iconStyles = {
   color: "white",
@@ -13,19 +14,39 @@ const iconStyles = {
 };
 
 const StudentDashboard = () => {
+  const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem("userInfo")));
+  const [userLast, setUserLast] = useState(JSON.parse(sessionStorage.getItem("userInfo")).userLast);
   const [requestMessage, setRequestMessage] = useState("");
+  const [userFirst, setUserFirst] = useState(
+    JSON.parse(sessionStorage.getItem("userInfo")).userFirst
+  );
   let navigate = useNavigate();
 
-  //userInfo gets user info from token put in session storage to display the users first and last name
-  const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-  var userFirst = "";
-  var userLast = "";
-  if (userInfo == null) {
-    userFirst = "Student";
-  } else {
-    userFirst = userInfo.firstName;
-    userLast = userInfo.lastName;
-  }
+  const getSessionStorageUserInfo = () => {
+    //userInfo gets user info from token put in session storage to display the users first and last name
+    const sessionStorageInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+    setUserInfo(sessionStorageInfo);
+    setUserFirst(sessionStorageInfo.firstName);
+    setUserLast(sessionStorageInfo.lastName);
+  };
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const options = {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      };
+      const response = await fetch(getApiRoot() + "/api/user/self", options);
+      if (response.ok) {
+        sessionStorage.setItem("userInfo", JSON.stringify(await response.json()));
+        getSessionStorageUserInfo();
+      }
+    };
+    getUserInfo();
+  }, []);
 
   useEffect(() => {
     if (userInfo.approveStatus == "pending") {
@@ -33,7 +54,7 @@ const StudentDashboard = () => {
     } else if (userInfo.approveStatus == "approved") {
       setRequestMessage("Professor request access approved");
     } else if (userInfo.approveStatus == "n/a") {
-      setRequestMessage("Are you a professor");
+      setRequestMessage("Are you a professor?");
     }
   }, []);
 

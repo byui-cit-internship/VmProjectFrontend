@@ -7,7 +7,6 @@ import styles from "./app.module.css";
 import { Navigate } from "react-router-dom";
 import FacultyDashboard from "./components/faculty/facultydashboard";
 import StudentDashboard from "./components/student/studentdashboard";
-import VerifiedEmail from "./verifyemail";
 import { BFF } from "./utils/bff";
 import React from "react";
 
