@@ -6,6 +6,7 @@ import Background from "../../background";
 import studentdashboard from "./studentdashboard.module.css";
 import Header from "../../header";
 import React, { useEffect, useState } from "react";
+import { getApiRoot } from "../../utils/getApiRoot";
 
 const iconStyles = {
   color: "white",
@@ -13,29 +14,49 @@ const iconStyles = {
 };
 
 const StudentDashboard = () => {
+  const [userInfo, setUserInfo] = useState("");
+  const [userLast, setUserLast] = useState("");
   const [requestMessage, setRequestMessage] = useState("");
+  const [userFirst, setUserFirst] = useState("");
   let navigate = useNavigate();
 
-  //userInfo gets user info from token put in session storage to display the users first and last name
-  const userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
-  var userFirst = "";
-  var userLast = "";
-  if (userInfo == null) {
-    userFirst = "Student";
-  } else {
-    userFirst = userInfo.firstName;
-    userLast = userInfo.lastName;
-  }
+  const getSessionStorageUserInfo = () => {
+    //userInfo gets user info from token put in session storage to display the users first and last name
+    const sessionStorageInfo = JSON.parse(sessionStorage.getItem("userInfo"));
+    setUserInfo(sessionStorageInfo);
+    setUserFirst(sessionStorageInfo.firstName);
+    setUserLast(sessionStorageInfo.lastName);
+  };
+
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const options = {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      };
+      const response = await fetch(getApiRoot() + "/api/user/self", options);
+      if (response.ok) {
+        sessionStorage.setItem("userInfo", JSON.stringify(await response.json()));
+        getSessionStorageUserInfo();
+      }
+    };
+    getUserInfo();
+  }, []);
 
   useEffect(() => {
     if (userInfo.approveStatus == "pending") {
       setRequestMessage("Waiting for professor access request approval");
-    } else if (userInfo.approveStatus == "approved") {
-      setRequestMessage("Professor request access approved");
+    } else if (userInfo.approveStatus == "approved" && userInfo.canvasToken) {
+      setRequestMessage("Professor access approved");
+    } else if (userInfo.approveStatus == "approved" && !userInfo.canvasToken) {
+      setRequestMessage("Please enter your canvas token.");
     } else if (userInfo.approveStatus == "n/a") {
-      setRequestMessage("Are you a professor");
+      setRequestMessage("Are you a professor?");
     }
-  }, []);
+  }, [userInfo]);
 
   return (
     <div className={studentdashboard.studentdashboard}>
@@ -54,22 +75,23 @@ const StudentDashboard = () => {
               </h1>
               <p id={studentdashboard.greeting}>How can we help you today?</p>
             </div>
-
-            <div
-              className={studentdashboard.professorpermissions}
-              onClick={() => {
-                navigate("/appext");
-              }}>
-              <button
-                className={studentdashboard.permissionsbutton}
-                disabled={
-                  userInfo.approveStatus == "pending" || userInfo.approveStatus == "approved"
-                }>
-                {requestMessage}
-              </button>
-            </div>
+            {userInfo.role != "student" && (
+              <div
+                className={studentdashboard.professorpermissions}
+                onClick={() => {
+                  navigate("/appext");
+                }}>
+                <button
+                  className={studentdashboard.permissionsbutton}
+                  disabled={
+                    userInfo.approveStatus == "pending" ||
+                    (userInfo.approveStatus == "approved" && userInfo.canvasToken)
+                  }>
+                  {requestMessage}
+                </button>
+              </div>
+            )}
           </div>
-
           <div className={studentdashboard.buttons}>
             <div
               className={studentdashboard.createvm}

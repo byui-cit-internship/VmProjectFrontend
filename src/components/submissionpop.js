@@ -1,36 +1,42 @@
 // import React from "react";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaSadTear, FaCheck } from "react-icons/fa";
+import { getApiRoot } from "../utils/getApiRoot";
 import submissionPop from "./submissionpopup.module.css";
 
-import { Link } from "react-router-dom";
-
 const SubmissionPopup = (props) => {
-  const [isPopupOpen, setIsPopupOpen] = useState();
-  let userInfo = sessionStorage.getItem("userInfo");
-  userInfo = JSON.parse(userInfo);
-  const isAdmin = userInfo.isAdmin;
+  const [link, setLink] = useState("");
 
-  const [isOpen, setIsOpen] = useState(false);
+  const redirect = async () => {
+    const options = {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json"
+      }
+    };
+    var response = await fetch(getApiRoot() + "/api/user/self", options);
+    if (response.ok) {
+      response = await response.json();
+      sessionStorage.setItem("userInfo", JSON.stringify(response));
+      const role = response.role;
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-    console.log("click count");
+      if (role === "professor") {
+        return "/facultydashboard";
+      } else {
+        return "/studentdashboard";
+      }
+    }
   };
 
-  let goBackRoute;
-  if (isAdmin) {
-    goBackRoute = "/facultydashboard";
-  } else {
-    goBackRoute = "/studentdashboard";
-  }
-
-  //let closeThePopup = "../appext";
-  // if (isAdmin) {
-  //   goBackRoute = "/facultydashboard";
-  // } else {
-  //   goBackRoute = "/studentdashboard";
-  // }
+  useEffect(() => {
+    const getRedirectLink = async () => {
+      const route = await redirect();
+      setLink(route);
+    };
+    getRedirectLink();
+  }, []);
 
   return (
     <div className={submissionPop.modal}>
@@ -48,7 +54,7 @@ const SubmissionPopup = (props) => {
           </div>
           <div className={submissionPop.message}>{props.message}</div>
           <div className={submissionPop.optionsContainer}>
-            <Link to={goBackRoute}>
+            <Link to={link}>
               <div className={submissionPop.message}>Go back to dashboard</div>
             </Link>
             <a className={submissionPop.a} href="javascript:;">

@@ -14,12 +14,10 @@ const iconStyles = {
 };
 
 const FacultyDashboard = () => {
-  const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem("userInfo")));
-  const [userLast, setUserLast] = useState(JSON.parse(sessionStorage.getItem("userInfo")).userLast);
+  const [userInfo, setUserInfo] = useState("");
+  const [userLast, setUserLast] = useState("");
   const [requestMessage, setRequestMessage] = useState("");
-  const [userFirst, setUserFirst] = useState(
-    JSON.parse(sessionStorage.getItem("userInfo")).userFirst
-  );
+  const [userFirst, setUserFirst] = useState("");
   let navigate = useNavigate();
 
   const body = document.querySelector("body");
@@ -65,12 +63,14 @@ const FacultyDashboard = () => {
   useEffect(() => {
     if (userInfo.approveStatus == "pending") {
       setRequestMessage("Waiting for professor access request approval");
-    } else if (userInfo.approveStatus == "approved") {
-      setRequestMessage("Professor request access approved");
+    } else if (userInfo.approveStatus == "approved" && userInfo.canvasToken) {
+      setRequestMessage("Professor access approved");
+    } else if (userInfo.approveStatus == "approved" && !userInfo.canvasToken) {
+      setRequestMessage("Please enter your canvas token.");
     } else if (userInfo.approveStatus == "n/a") {
-      setRequestMessage("Send your Canvas Token");
+      setRequestMessage("Are you a professor?");
     }
-  }, []);
+  }, [userInfo]);
 
   return (
     // window.location.href="VMfaculty_dashboard/facultyview.html";
@@ -98,7 +98,8 @@ const FacultyDashboard = () => {
               <button
                 className={facultydashboard.permissionsbutton}
                 disabled={
-                  userInfo.approveStatus == "pending" || userInfo.approveStatus == "approved"
+                  userInfo.approveStatus == "pending" ||
+                  (userInfo.approveStatus == "approved" && userInfo.canvasToken)
                 }>
                 {requestMessage}
               </button>

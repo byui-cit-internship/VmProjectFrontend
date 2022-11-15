@@ -51,7 +51,7 @@ function ProfessorList() {
   //******************************************************************/
   useEffect(() => {
     const getProfessorInfo = async () => {
-      const listResponse = await fetch(getApiRoot() + "/api/user/professors", {
+      const listResponse = await fetch(getApiRoot() + "/api/user/allProfessors", {
         method: "GET",
         credentials: "include",
         headers: {
