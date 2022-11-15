@@ -14,12 +14,10 @@ const iconStyles = {
 };
 
 const StudentDashboard = () => {
-  const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem("userInfo")));
-  const [userLast, setUserLast] = useState(JSON.parse(sessionStorage.getItem("userInfo")).userLast);
+  const [userInfo, setUserInfo] = useState("");
+  const [userLast, setUserLast] = useState("");
   const [requestMessage, setRequestMessage] = useState("");
-  const [userFirst, setUserFirst] = useState(
-    JSON.parse(sessionStorage.getItem("userInfo")).userFirst
-  );
+  const [userFirst, setUserFirst] = useState("");
   let navigate = useNavigate();
 
   const getSessionStorageUserInfo = () => {
@@ -56,7 +54,7 @@ const StudentDashboard = () => {
     } else if (userInfo.approveStatus == "n/a") {
       setRequestMessage("Are you a professor?");
     }
-  }, []);
+  }, [userInfo]);
 
   return (
     <div className={studentdashboard.studentdashboard}>

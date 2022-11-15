@@ -14,12 +14,10 @@ const iconStyles = {
 };
 
 const FacultyDashboard = () => {
-  const [userInfo, setUserInfo] = useState(JSON.parse(sessionStorage.getItem("userInfo")));
-  const [userLast, setUserLast] = useState(JSON.parse(sessionStorage.getItem("userInfo")).userLast);
+  const [userInfo, setUserInfo] = useState("");
+  const [userLast, setUserLast] = useState("");
   const [requestMessage, setRequestMessage] = useState("");
-  const [userFirst, setUserFirst] = useState(
-    JSON.parse(sessionStorage.getItem("userInfo")).userFirst
-  );
+  const [userFirst, setUserFirst] = useState("");
   let navigate = useNavigate();
 
   const body = document.querySelector("body");
@@ -70,7 +68,7 @@ const FacultyDashboard = () => {
     } else if (userInfo.approveStatus == "n/a") {
       setRequestMessage("Send your Canvas Token");
     }
-  }, []);
+  }, [userInfo]);
 
   return (
     // window.location.href="VMfaculty_dashboard/facultyview.html";
