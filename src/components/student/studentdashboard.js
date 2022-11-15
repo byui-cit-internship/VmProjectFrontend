@@ -49,8 +49,10 @@ const StudentDashboard = () => {
   useEffect(() => {
     if (userInfo.approveStatus == "pending") {
       setRequestMessage("Waiting for professor access request approval");
-    } else if (userInfo.approveStatus == "approved") {
-      setRequestMessage("Professor request access approved");
+    } else if (userInfo.approveStatus == "approved" && userInfo.canvasToken) {
+      setRequestMessage("Professor access approved");
+    } else if (userInfo.approveStatus == "approved" && !userInfo.canvasToken) {
+      setRequestMessage("Please enter your canvas token.");
     } else if (userInfo.approveStatus == "n/a") {
       setRequestMessage("Are you a professor?");
     }
@@ -82,7 +84,8 @@ const StudentDashboard = () => {
               <button
                 className={studentdashboard.permissionsbutton}
                 disabled={
-                  userInfo.approveStatus == "pending" || userInfo.approveStatus == "approved"
+                  userInfo.approveStatus == "pending" ||
+                  (userInfo.approveStatus == "approved" && userInfo.canvasToken)
                 }>
                 {requestMessage}
               </button>
