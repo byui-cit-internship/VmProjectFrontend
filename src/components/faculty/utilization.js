@@ -15,15 +15,15 @@ sessionStorage.getItem("token");
 function Utilization() {
   useNavigate();
 
-  const [courseCode, setCourseCode] = useState("");
-  const [studentList, setStudentList] = useState("");
-  const [courseSemester, setSemester] = useState("");
-  const [courseSectionId, setSectionId] = useState("");
-  const [courseSections, setCourseSections] = useState([]);
+  const [courseCode] = useState("");
+  const [setStudentList] = useState("");
+  const [courseSemester, setCourseSemester] = useState("");
+  const [courseSectionId] = useState("");
+  const [setCourseSections] = useState([]);
   const [inputText, setInputText] = useState("");
   const [semesters, setSemesters] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [sectionUsers, setSectionUsers] = useState([]);
+  const [sectionUsers] = useState([]);
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
@@ -39,7 +39,7 @@ function Utilization() {
         method: "GET"
       };
 
-      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", methods);
+      const listResponse = await fetch(getApiRoot() + "/api/semester/semester", methods);
       if (!listResponse.ok) {
         console.log("response", listResponse);
       }
@@ -208,12 +208,13 @@ function Utilization() {
                 id={utilization.course_semester}
                 required
                 onChange={(event) => {
-                  setSemester(event.target.value);
+                  console.log("Course Semester", event.target.value);
+                  setCourseSemester(event.target.value);
                 }}>
                 <option className={utilization.singleOption} value="" hidden>
                   Choose Semester
                 </option>
-                {semesters.map((item) => (
+                {semesters?.map((item) => (
                   <option key={item.semesterId} value={item.semesterTerm}>
                     {item.semesterTerm} {item.semesterYear}
                   </option>
@@ -229,13 +230,13 @@ function Utilization() {
                 id={utilization.course}
                 required
                 onChange={(event) => {
-                  setCourseCode(event.target.value), filterSections(event.target.value);
+                  courseCode(event.target.value), filterSections(event.target.value);
                 }}
                 disabled={!courseSemester}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
-                {canvasCourses.map((course) => (
+                {canvasCourses?.map((course) => (
                   <option value={course.courseCode} key={course.sectionId}>
                     {course.courseCode}
                   </option>
@@ -279,7 +280,7 @@ function Utilization() {
               </div>
               <div className={utilization.updateList}>
                 <ul>
-                  {filteredData.map((item) => (
+                  {filteredData?.map((item) => (
                     <li
                       key={item.userId}
                       className={utilization.li}
