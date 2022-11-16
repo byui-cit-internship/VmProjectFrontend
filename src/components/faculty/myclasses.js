@@ -3,7 +3,7 @@ import Header from "../../header";
 import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Card } from "@mui/material";
 
 function MyClasses() {

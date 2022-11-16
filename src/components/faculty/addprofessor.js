@@ -26,7 +26,7 @@ function AddProfessor() {
   });
 
   const validateForm = async () => {
-    console.log("validateform here.");
+    console.log("validate form here.");
     let allFieldsValid = true;
     if (firstName.length === 0 || lastName.length === 0 || email.length === 0) {
       allFieldsValid = false;
