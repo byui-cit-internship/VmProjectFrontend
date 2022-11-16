@@ -35,7 +35,8 @@ function AddClass() {
   const [popupAgainMessage, setPopupAgainMessage] = useState();
   const [success, setIsSuccess] = useState();
   const selectElement = useRef();
-  const [resourcePool, setResourcePoolList] = useState();
+  const [resourcePoolList, setResourcePoolList] = useState();
+  const [resourcePool, setResourcePool] = useState();
   //*********Creates course by sending all info in body to the B  FF course controller************/
   const createCourse = async () => {
     console.log(courseCode);
@@ -50,7 +51,7 @@ function AddClass() {
         libraryId: libraryId,
         folder: vCenterFolder,
         templateVm: [templateVm],
-        resource_group: "blah",
+        resource_group: resourcePool,
         userId: userId,
         vmTemplateName: vmTemplateName,
         canvasCourseId: canvasCourseId
@@ -120,7 +121,7 @@ function AddClass() {
   }, [libraryId]);
 
   useEffect(() => {
-    const resourcePool = async () => {
+    const getResourcePool = async () => {
       const methods = {
         method: "GET",
         credentials: "include",
@@ -133,7 +134,7 @@ function AddClass() {
       const listResponseObject = await listResponse.json();
       setResourcePoolList(listResponseObject);
     };
-    resourcePool();
+    getResourcePool();
   }, []);
 
   useEffect(() => {
@@ -222,7 +223,7 @@ width=0,height=0,left=-1000,top=-1000`;
     setLibraryId("");
     setIsPopupOpen(closeBool);
   };
-
+  console.log(resourcePoolList)
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -249,7 +250,7 @@ width=0,height=0,left=-1000,top=-1000`;
                       data-code={course.course_code}
                       data-name={course.name}
                       data-id={course.id}
-                      key={course}>
+                      key={course.id}>
                       {course.course_code} = {course.name}
                     </option>
                   ))}
@@ -299,7 +300,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   required
                   onChange={(event) => {
                     setTemplateVm(event.target.value),
-                    setvmTemplateName(event.target.value)
+                      setvmTemplateName(event.target.value)
                   }}
                   disabled={!libraryId}>
                   <option value="" hidden>
@@ -363,11 +364,11 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
-                    onChange={(event) => setResourcePoolList(event.target.value)}>
+                    onChange={(event) => setResourcePool(event.target.value)}>
                     <option value="" hidden>
                       Choose a Resource Pool
                     </option>
-                    {resourcePool?.map((item) => (
+                    {resourcePoolList?.map((item) => (
                       <option key={item.name} value={item.resource_pool}>
                         {item.name}
                       </option>
