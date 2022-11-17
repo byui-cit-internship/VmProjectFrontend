@@ -15,7 +15,6 @@ sessionStorage.getItem("token");
 function Utilization() {
   useNavigate();
 
-<<<<<<< HEAD
   const [courseCode, setCourseCode] = useState("");
   const [studentList, setStudentList] = useState([]);
   const [courseSemester, setSemester] = useState("");
@@ -26,17 +25,6 @@ function Utilization() {
   const [courses, setCourses] = useState([]);
   const [template, setTemplates] = useState("");
   const [library, setLibraries] = useState([]);
-=======
-  const [courseCode] = useState("");
-  const [setStudentList] = useState("");
-  const [courseSemester, setCourseSemester] = useState("");
-  const [courseSectionId] = useState("");
-  const [setCourseSections] = useState([]);
-  const [inputText, setInputText] = useState("");
-  const [semesters, setSemesters] = useState([]);
-  const [canvasCourses, setCanvasCourses] = useState([]);
-  const [sectionUsers] = useState([]);
->>>>>>> d78060b0dc36805c8adbb3643d02df3a5927ece5
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
