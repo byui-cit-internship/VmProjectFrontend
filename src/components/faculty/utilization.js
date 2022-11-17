@@ -8,6 +8,7 @@ import Header from "../../header";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Popup from "./Popup.js";
+import { AiOutlineReload } from "react-icons/ai";
 
 getApiRoot();
 sessionStorage.getItem("token");
@@ -17,20 +18,20 @@ function Utilization() {
 
   const [studentList, setStudentList] = useState([]);
   const [sectionId, setSectionId] = useState("");
+  const [section, setSection] = useState([])
   const [courseSections, setCourseSections] = useState([]);
   const [courseCode, setCourseCode] = useState("");
   const [inputText, setInputText] = useState("");
   const [semesters, setSemesters] = useState([]);
   const [semesterEnrollmentId, setSemesterEnrollmentId] = useState("");
   const [courses, setCourses] = useState([]);
-  const [template, setTemplates] = useState("");
-  const [library, setLibraries] = useState([]);
+  const [templates, setTemplates] = useState([]);
+  const [libraryId, setLibraryId] = useState("");
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
-  useEffect(() => {
     const getSemesters = async () => {
       const methods = {
         credentials: "include",
@@ -41,14 +42,10 @@ function Utilization() {
       };
 
       const listResponse = await fetch(getApiRoot() + "/api/semester/semester", methods);
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
+
       const listResponseObject = await listResponse.json();
       setSemesters(listResponseObject);
     };
-    getSemesters();
-  }, []);
 
   //Code for filtering student lists when the proper course is selected ****
   //***********************************************************************/
@@ -62,7 +59,7 @@ function Utilization() {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-
+console.log(studentList)
   const filteredData = studentList.filter((i) => {
     //if no input the return the original
     if (inputText === "") {
@@ -90,9 +87,6 @@ function Utilization() {
         getApiRoot() + `/api/course/professor/semester/${semesterEnrollmentId}`,
         methods
       );
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
       const listResponseObject = await listResponse.json();
       setCourses(listResponseObject);
     };
@@ -108,11 +102,24 @@ function Utilization() {
     });
     setCourseSections(sectionList);
   };
+
+  //*********Resets Dropdowns for selecting a different section/course/semester*******************/
+  const resetDropdowns = () => {
+    setSemesterEnrollmentId("");
+    setCourseCode("");
+    setCourses([]);
+    setCourseSections([]);
+    setSectionId("");
+    setStudentList([]);
+    setSemesters([]);
+    setLibraryId("");
+    setTemplates([]);
+  }
+
   //*****************************************************************/
   //Gets list of users by section chosen
   //******************************************************************/
   useEffect(() => {
-    console.log(sectionId)
     const studentList = async () => {
       const methods = {
         credentials: "include",
@@ -137,27 +144,8 @@ function Utilization() {
   }, [sectionId]);
 
   //*****************************************************************/
-  //Gets list of Libraries and gets templates in the library that matches the section chosen
+  //Gets templates in the library that matches the section chosen
   //******************************************************************/
-  useEffect(() => {
-    const getLibraries = async () => {
-      const methods = {
-        credentials: "include",
-        headers: {
-          "content-type": "application/json"
-        },
-        method: "GET"
-      };
-      const listResponse = await fetch(getApiRoot() + "/api/createvm/libraries", methods);
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
-      const listResponseObject = await listResponse.json();
-      setLibraries(listResponseObject);
-    };
-    getLibraries();
-  }, []);
-
   useEffect(() => {
     const getTemplates = async () => {
       const methods = {
@@ -168,19 +156,27 @@ function Utilization() {
         method: "GET"
       };
       const listResponse = await fetch(
-        getApiRoot() + `/api/vmtable/templates/all?libraryId=db09653f-4963-4452-8abf-02656a9957b8`,
+        getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`,
         methods
       );
-      if (!listResponse.ok) {
-        console.log("response", listResponse);
-      }
       const listResponseObject = await listResponse.json();
       setTemplates(listResponseObject);
     };
-    if (library) {
+    if (libraryId) {
       getTemplates();
     }
-  }, [library]);
+  }, [libraryId]);
+
+
+  //*****************************************************************/
+  //Set the Section ID and Section's Library Id useStates when the section is selected
+  //******************************************************************/
+  const setSectionStates = (item) => {
+    const tempItem = JSON.parse(item);
+    setSectionId(tempItem.sectionId)
+    setLibraryId(tempItem.libraryVCenterId)
+  }
+
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -199,6 +195,7 @@ function Utilization() {
           <div id={utilization.formheader}>
             <h1 className={utilization.h1}>Class VM Utilization</h1>
           </div>
+
           {/*SEMESTER*/}
           <div className={utilization.courseselect}>
             <label className={utilization.dropdown} htmlFor="course_semester">
@@ -208,12 +205,12 @@ function Utilization() {
                 className={utilization.dropdownDescription}
                 id={utilization.course_semester}
                 required
+                onClick={() => {getSemesters()}}
                 onChange={(event) => {
-                  console.log("Semester", event.target.value);
                   setSemesterEnrollmentId(event.target.value);
                 }}>
                 <option className={utilization.singleOption} value="" hidden>
-                  Choose Semester
+                  - Select -
                 </option>
                 {semesters.map((item) => (
                   <option key={item.semesterId} value={item.enrollmentTermCanvasId}>
@@ -222,6 +219,7 @@ function Utilization() {
                 ))}
               </select>
             </label>
+
             {/*COURSE CODE*/}
             <label className={utilization.dropdown} htmlFor="course">
               Course:
@@ -245,6 +243,7 @@ function Utilization() {
                 ))}
               </select>
             </label>
+
             {/*SECTION*/}
             <label className={utilization.dropdown} htmlFor="section">
               Section:
@@ -253,34 +252,38 @@ function Utilization() {
                 className={utilization.dropdownDescription}
                 id={utilization.course}
                 required
-                onChange={(event) => {setSectionId(event.target.value)}}
+                onChange={(event) => {setSectionStates(event.target.value)}}
                 disabled={!courseCode}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
                 {courseSections.map((section) => (
-                  <option key={section.sectionCanvasId} value={section.sectionId}>
+                  <option key={section.sectionCanvasId} value={JSON.stringify(section)}>
                     {section.sectionName}
                   </option>
                 ))}
               </select>
             </label>
+
+            {/*Reload Button for Selecting A Different Class*/}
+            <label className={utilization.dropdown}><button onClick={() => {resetDropdowns()}}><AiOutlineReload /></button></label>
           </div>
+
           {/*Templates*/}
           <div className={utilization.templatesAvailable}>
             <h2 className={utilization.h2available}>Available templates for this Class</h2>
 
             <div className={utilization.button}>
-              <button className={utilization.btn}>
-                <img className={utilization.logo} src={"../../computerlogo.png"} alt="logo" />
-                <strong>Linux</strong>
+            {templates.map((template) => (
+              <button className={utilization.btn} key={template.id} value={template.name}>
+                <img className={utilization.logo} src={"../../images/computerlogo.png"} alt="logo" />
+                <strong>{template.name}</strong>
               </button>
-              <button className={utilization.btn}>
-                <img className={utilization.logo} src={"../../computerlogo.png"} alt="logo" />
-                <strong>Android-Pie</strong>
-              </button>
+                ))}
+              
             </div>
           </div>
+
           {/*User Filter List*/}
           <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
@@ -314,6 +317,7 @@ function Utilization() {
                 </ul>
               </div>
             </div>
+
             {/*User Info Table*/}
             <div className={utilization.scoreboard}>
               <table className={utilization.scoreboardTable}>
