@@ -15,13 +15,13 @@ sessionStorage.getItem("token");
 function Utilization() {
   useNavigate();
 
-  const [courseCode, setCourseCode] = useState("");
   const [studentList, setStudentList] = useState([]);
-  const [courseSemester, setSemester] = useState("");
-  const [courseSectionId, setSectionId] = useState("");
+  const [sectionId, setSectionId] = useState("");
   const [courseSections, setCourseSections] = useState([]);
+  const [courseCode, setCourseCode] = useState("");
   const [inputText, setInputText] = useState("");
   const [semesters, setSemesters] = useState([]);
+  const [semesterEnrollmentId, setSemesterEnrollmentId] = useState("");
   const [courses, setCourses] = useState([]);
   const [template, setTemplates] = useState("");
   const [library, setLibraries] = useState([]);
@@ -78,7 +78,7 @@ function Utilization() {
   //Code for getting a specific professors course list and filtering out any duplicate course codes once semester is selected
   //******************************************************************/
   useEffect(() => {
-    const courseCode = async () => {
+    const semesterByCourse = async () => {
       const methods = {
         credentials: "include",
         headers: {
@@ -87,7 +87,7 @@ function Utilization() {
         method: "GET"
       };
       const listResponse = await fetch(
-        getApiRoot() + `/api/course/professor/semester/${courseSemester}`,
+        getApiRoot() + `/api/course/professor/semester/${semesterEnrollmentId}`,
         methods
       );
       if (!listResponse.ok) {
@@ -96,10 +96,10 @@ function Utilization() {
       const listResponseObject = await listResponse.json();
       setCourses(listResponseObject);
     };
-    if (courseSemester) {
-      courseCode();
+    if (semesterEnrollmentId) {
+      semesterByCourse();
     }
-  }, [courseSemester]);
+  }, [semesterEnrollmentId]);
 
   //*********Gets all Section names from courses that match the chosen course Code*******************/
   const filterSections = (item) => {
@@ -108,12 +108,11 @@ function Utilization() {
     });
     setCourseSections(sectionList);
   };
-
   //*****************************************************************/
   //Gets list of users by section chosen
   //******************************************************************/
   useEffect(() => {
-    console.log(courseSectionId)
+    console.log(sectionId)
     const studentList = async () => {
       const methods = {
         credentials: "include",
@@ -123,7 +122,7 @@ function Utilization() {
         method: "GET"
       };
       const listResponse = await fetch(
-        getApiRoot() + `/api/user/bySection?sectionId=${courseSectionId}`,
+        getApiRoot() + `/api/user/bySection?sectionId=${sectionId}`,
         methods
       );
       if (!listResponse.ok) {
@@ -132,10 +131,10 @@ function Utilization() {
       const listResponseObject = await listResponse.json();
       setStudentList(listResponseObject);
     };
-    if (courseSectionId) {
+    if (sectionId) {
       studentList();
     }
-  }, [courseSectionId]);
+  }, [sectionId]);
 
   //*****************************************************************/
   //Gets list of Libraries and gets templates in the library that matches the section chosen
@@ -210,8 +209,8 @@ function Utilization() {
                 id={utilization.course_semester}
                 required
                 onChange={(event) => {
-                  console.log("Course Semester", event.target.value);
-                  setCourseSemester(event.target.value);
+                  console.log("Semester", event.target.value);
+                  setSemesterEnrollmentId(event.target.value);
                 }}>
                 <option className={utilization.singleOption} value="" hidden>
                   Choose Semester
@@ -232,9 +231,10 @@ function Utilization() {
                 id={utilization.course}
                 required
                 onChange={(event) => {
-                  courseCode(event.target.value), filterSections(event.target.value);
+                  setCourseCode(event.target.value);
+                  filterSections(event.target.value);
                 }}
-                disabled={!courseSemester}>
+                disabled={!semesterEnrollmentId}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
