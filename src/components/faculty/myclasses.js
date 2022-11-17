@@ -3,13 +3,31 @@ import Header from "../../header";
 import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Card } from "@mui/material";
 
 function MyClasses() {
   let navigate = useNavigate();
   const [classList, setClassList] = useState([]);
-  console.log(JSON.stringify(myclasses));
+  const [searchInput, setSearchInput] = useState("");
+
+  // Mock data to test search functionality
+  // const classesArray = [
+  //   { courseId: 32, courseCode: "CIT 171", resourceGroupId: 1060 },
+  //   { courseId: 33, courseCode: "CSE 150", resourceGroupId: 1060 },
+  //   { courseId: 34, courseCode: "WDD 130", resourceGroupId: 1060 },
+  //   { courseId: 35, courseCode: "CIT 172", resourceGroupId: 1060 },
+  //   { courseId: 36, courseCode: "CIT 172", resourceGroupId: 1060 }
+  // ];
+
+  const filteredClasses = classList.filter((singleClass) => {
+    if (searchInput === "") {
+      return singleClass;
+    } else {
+      return singleClass.courseCode.includes(searchInput);
+    }
+  });
+
   useEffect(() => {
     const getclassList = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/course/professor/getAllCourses", {
@@ -19,9 +37,7 @@ function MyClasses() {
           "content-type": "application/json"
         }
       });
-      console.log(listResponse);
       const classList = await listResponse.json();
-      console.log("classes; ", classList);
       setClassList(classList);
     };
     getclassList();
@@ -35,13 +51,18 @@ function MyClasses() {
         <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
           <div className={myclasses.searchbar}>
-            <input id={myclasses.search} type="text" placeholder="Search.." />
+            <input
+              id={myclasses.search}
+              onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
+              type="text"
+              placeholder="Search..."
+            />
           </div>
         </div>
         <div className={myclasses.tablegrid}>
           <div className={myclasses.table}>
-            {classList.map((item) => (
-              <div className={myclasses.card}>
+            {filteredClasses.map((item) => (
+              <div className={myclasses.card} key={item.courseId}>
                 <Card variant="outlined">
                   <div value={item} className={myclasses.tableheader}>
                     {item.courseCode}
