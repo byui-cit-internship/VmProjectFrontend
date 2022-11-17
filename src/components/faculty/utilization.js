@@ -16,14 +16,15 @@ function Utilization() {
   useNavigate();
 
   const [courseCode, setCourseCode] = useState("");
-  const [studentList, setStudentList] = useState("");
+  const [studentList, setStudentList] = useState([]);
   const [courseSemester, setSemester] = useState("");
   const [courseSectionId, setSectionId] = useState("");
   const [courseSections, setCourseSections] = useState([]);
   const [inputText, setInputText] = useState("");
   const [semesters, setSemesters] = useState([]);
-  const [canvasCourses, setCanvasCourses] = useState([]);
-  const [sectionUsers, setSectionUsers] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [template, setTemplates] = useState("");
+  const [library, setLibraries] = useState([]);
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
 
@@ -62,7 +63,7 @@ function Utilization() {
     setIsOpen(!isOpen);
   };
 
-  const filteredData = sectionUsers.filter((i) => {
+  const filteredData = studentList.filter((i) => {
     //if no input the return the original
     if (inputText === "") {
       return i;
@@ -93,16 +94,16 @@ function Utilization() {
         console.log("response", listResponse);
       }
       const listResponseObject = await listResponse.json();
-      setCanvasCourses(listResponseObject);
+      setCourses(listResponseObject);
     };
     if (courseSemester) {
       courseCode();
     }
   }, [courseSemester]);
 
-  //*********Gets all Section names from canvasCourses that match the chosen canvas Code*******************/
+  //*********Gets all Section names from courses that match the chosen course Code*******************/
   const filterSections = (item) => {
-    const sectionList = canvasCourses.filter((element) => {
+    const sectionList = courses.filter((element) => {
       return element.courseCode == item;
     });
     setCourseSections(sectionList);
@@ -112,6 +113,7 @@ function Utilization() {
   //Gets list of users by section chosen
   //******************************************************************/
   useEffect(() => {
+    console.log(courseSectionId)
     const studentList = async () => {
       const methods = {
         credentials: "include",
@@ -138,48 +140,48 @@ function Utilization() {
   //*****************************************************************/
   //Gets list of Libraries and gets templates in the library that matches the section chosen
   //******************************************************************/
-  // useEffect(() => {
-  //   const getLibraries = async () => {
-  //     const methods = {
-  //       credentials: "include",
-  //       headers: {
-  //         "content-type": "application/json"
-  //       },
-  //       method: "GET"
-  //     };
-  //     const listResponse = await fetch(getApiRoot() + "/api/createvm/libraries", methods);
-  //     if (!listResponse.ok) {
-  //       console.log("response", listResponse);
-  //     }
-  //     const listResponseObject = await listResponse.json();
-  //     setLibraries(listResponseObject);
-  //   };
-  //   getLibraries();
-  // }, []);  
+  useEffect(() => {
+    const getLibraries = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
+      const listResponse = await fetch(getApiRoot() + "/api/createvm/libraries", methods);
+      if (!listResponse.ok) {
+        console.log("response", listResponse);
+      }
+      const listResponseObject = await listResponse.json();
+      setLibraries(listResponseObject);
+    };
+    getLibraries();
+  }, []);
 
-  // useEffect(() => {
-  //   const getTemplates = async () => {
-  //     const methods = {
-  //       credentials: "include",
-  //       headers: {
-  //         "content-type": "application/json"
-  //       },
-  //       method: "GET"
-  //     };
-  //     const listResponse = await fetch(
-  //       getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`,
-  //       methods
-  //     );
-  //     if (!listResponse.ok) {
-  //       console.log("response", listResponse);
-  //     }
-  //     const listResponseObject = await listResponse.json();
-  //     setSectionUsers(listResponseObject);
-  //   };
-  //   if (libraryId) {
-  //     getTemplates();
-  //   }
-  // }, [libraryId]);
+  useEffect(() => {
+    const getTemplates = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
+      const listResponse = await fetch(
+        getApiRoot() + `/api/vmtable/templates/all?libraryId=db09653f-4963-4452-8abf-02656a9957b8`,
+        methods
+      );
+      if (!listResponse.ok) {
+        console.log("response", listResponse);
+      }
+      const listResponseObject = await listResponse.json();
+      setTemplates(listResponseObject);
+    };
+    if (library) {
+      getTemplates();
+    }
+  }, [library]);
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -214,7 +216,7 @@ function Utilization() {
                   Choose Semester
                 </option>
                 {semesters.map((item) => (
-                  <option key={item.semesterId} value={item.semesterTerm}>
+                  <option key={item.semesterId} value={item.enrollmentTermCanvasId}>
                     {item.semesterTerm} {item.semesterYear}
                   </option>
                 ))}
@@ -235,9 +237,29 @@ function Utilization() {
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
-                {canvasCourses.map((course) => (
-                  <option value={course.courseCode} key={course.sectionId}>
+                {courses.map((course) => (
+                  <option key={course.courseId} value={course.courseCode}>
                     {course.courseCode}
+                  </option>
+                ))}
+              </select>
+            </label>
+            {/*SECTION*/}
+            <label className={utilization.dropdown} htmlFor="section">
+              Section:
+              <select
+                name="section"
+                className={utilization.dropdownDescription}
+                id={utilization.course}
+                required
+                onChange={(event) => {setSectionId(event.target.value)}}
+                disabled={!courseCode}>
+                <option value="Default" className={utilization.singleOption} hidden>
+                  - Select -
+                </option>
+                {courseSections.map((section) => (
+                  <option key={section.sectionCanvasId} value={section.sectionId}>
+                    {section.sectionName}
                   </option>
                 ))}
               </select>
@@ -285,7 +307,7 @@ function Utilization() {
                       className={utilization.li}
                       value={item.firstName}
                       onClick={(e) => handlePopup(e.target.value)}>
-                      {item.firstName}
+                      {item.firstName} {item.lastName}
                     </li>
                   ))}
                 </ul>
