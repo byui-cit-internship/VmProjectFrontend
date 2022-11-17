@@ -28,15 +28,35 @@ function AddClass() {
   const [vCenterFolder, setvCenterFolder] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [libraryId, setLibraryId] = useState();
-  const [vmTemplateName, setvmTemplateName] = useState();
+  const [libraryId, setLibraryId] = useState("");
+  const [vmTemplateName, setvmTemplateName] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
   const [success, setIsSuccess] = useState();
-  const selectElement = useRef();
-  const [resourcePool, setResourcePoolList] = useState();
+  const [resourcePool, setResourcePoolList] = useState([]);
   //*********Creates course by sending all info in body to the B  FF course controller************/
+  const validateForm = async () => {
+    console.log("validate form here");
+    let allFieldsValid = true;
+    if (
+      sectionName.length === 0 ||
+      courseCode.length === 0 ||
+      canvasToken.length === 0 ||
+      semester.length === 0 ||
+      libraryId.length === 0 ||
+      vCenterFolder.length === 0 ||
+      templateVm.length === 0 ||
+      resourcePool.length === 0 ||
+      vmTemplateName.length === 0 ||
+      canvasCourseId.length === 0
+    ) {
+      allFieldsValid = false;
+    }
+    if (allFieldsValid) {
+      createCourse();
+    }
+  };
   const createCourse = async () => {
     console.log(courseCode);
     const options = {
@@ -137,7 +157,7 @@ function AddClass() {
   }, []);
 
   useEffect(() => {
-    const getcourseSemester = async () => {
+    const getCourseSemester = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", {
         method: "GET",
         credentials: "include",
@@ -148,7 +168,7 @@ function AddClass() {
       const courseSemesterList = await listResponse.json();
       setCourseSemesterList(courseSemesterList);
     };
-    getcourseSemester();
+    getCourseSemester();
   }, []);
   //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
   //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
@@ -298,8 +318,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   name="templateVm"
                   required
                   onChange={(event) => {
-                    setTemplateVm(event.target.value),
-                    setvmTemplateName(event.target.value)
+                    setTemplateVm(event.target.value), setvmTemplateName(event.target.value);
                   }}
                   disabled={!libraryId}>
                   <option value="" hidden>
@@ -363,7 +382,7 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
-                    onChange={(event) => setResourcePoolList(event.target.value)}>
+                    onChange={(event) => resourcePool(event.target.value)}>
                     <option value="" hidden>
                       Choose a Resource Pool
                     </option>
@@ -418,7 +437,7 @@ width=0,height=0,left=-1000,top=-1000`;
             </div>
           </div>
           <br></br>
-          <button type="button" className={addclass.btnprimary} onClick={createCourse}>
+          <button type="button" className={addclass.btnprimary} onClick={validateForm}>
             Add
           </button>
         </div>
