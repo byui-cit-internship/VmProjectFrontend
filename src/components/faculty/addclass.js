@@ -28,13 +28,13 @@ function AddClass() {
   const [vCenterFolder, setvCenterFolder] = useState("");
   const [libraryList, setLibraryList] = useState([]);
   const [canvasCourses, setCanvasCourses] = useState([]);
-  const [libraryId, setLibraryId] = useState();
-  const [vmTemplateName, setvmTemplateName] = useState();
+  const [libraryId, setLibraryId] = useState("");
+  const [vmTemplateName, setvmTemplateName] = useState("");
   const [isPopupOpen, setIsPopupOpen] = useState();
   const [popupMessage, setPopupMessage] = useState();
   const [popupAgainMessage, setPopupAgainMessage] = useState();
   const [success, setIsSuccess] = useState();
-  const [resourcePool, setResourcePoolList] = useState();
+  const [resourcePool, setResourcePoolList] = useState([]);
   //*********Creates course by sending all info in body to the B  FF course controller************/
   const validateForm = async () => {
     console.log("validate form here");
@@ -55,6 +55,40 @@ function AddClass() {
     }
     if (allFieldsValid) {
       createCourse();
+    }
+  };
+  const createCourse = async () => {
+    console.log(courseCode);
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        sectionName: sectionName,
+        courseCode: courseCode,
+        canvas_token: canvasToken,
+        section_num: "1" /*Keep this hardcoded */,
+        semester: semester,
+        libraryId: libraryId,
+        folder: vCenterFolder,
+        templateVm: [templateVm],
+        resource_group: "blah",
+        userId: userId,
+        vmTemplateName: vmTemplateName,
+        canvasCourseId: canvasCourseId
+      }),
+      credentials: "include",
+      headers: {
+        "content-type": "application/json"
+      }
+    };
+    console.log(options.body);
+    const response = await fetch(
+      getApiRoot() + "/api/enrollment/professor/register/course",
+      options
+    );
+    if (response.ok) {
+      setPopupMessage("Course added succesfully");
+      setPopupAgainMessage("Add another course");
+      setIsSuccess(true);
     } else {
       {
         setPopupMessage("Error adding the course");
@@ -136,19 +170,30 @@ function AddClass() {
       }
     }, [libraryId]);
 
-    useEffect(() => {
-      const resourcePool = async () => {
-        const methods = {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "content-type": "application/json"
-          }
-        };
-        const listResponse = await fetch(getApiRoot() + "/api/deployvm/resource-pool", methods);
-        console.log(listResponse);
-        const listResponseObject = await listResponse.json();
-        setResourcePoolList(listResponseObject);
+  useEffect(() => {
+    const getCourseSemester = async () => {
+      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+      const courseSemesterList = await listResponse.json();
+      setCourseSemesterList(courseSemesterList);
+    };
+    getCourseSemester();
+  }, []);
+  //*************Sets VM Folder when Course Code is set and if no folder, gives link to article on how to create one****************/
+  //*************Sets Folder by comparing name of the course code to the name of the folder if it matches, it fills it in****************/
+  useEffect(() => {
+    const getVmFolderInfo = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
       };
       resourcePool();
     }, []);
@@ -273,17 +318,24 @@ width=0,height=0,left=-1000,top=-1000`;
                   </select>
                 </div>
 
-                {/*Library*/}
-                <div>
-                  <label className={addclass.label}>Choose Library: </label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    name="library"
-                    required
-                    onChange={(event) => setLibraryId(event.target.value)}>
-                    <option value="" hidden>
-                      -Select-
+              {/*Template VM*/}
+              <div>
+                <label className={addclass.label}>Template Virtual Machine: </label>
+                <br></br>
+                <select
+                  className={addclass.select}
+                  name="templateVm"
+                  required
+                  onChange={(event) => {
+                    setTemplateVm(event.target.value), setvmTemplateName(event.target.value);
+                  }}
+                  disabled={!libraryId}>
+                  <option value="" hidden>
+                    - Select a Template -
+                  </option>
+                  {templateVmList?.map((item) => (
+                    <option key={item.id} value={item.value}>
+                      {item.name}
                     </option>
                     {libraryList?.map((item) => (
                       <option key={item.name} value={item.id}>
@@ -357,9 +409,7 @@ width=0,height=0,left=-1000,top=-1000`;
                     id={addclass.vCenterFolder}
                     name="vCenterFolder"
                     required
-                    onChange={(event) => {
-                      setvCenterFolder(event.target.value);
-                    }}>
+                    onChange={(event) => resourcePool(event.target.value)}>
                     <option value="" hidden>
                       Choose a Folder
                     </option>
@@ -436,6 +486,10 @@ width=0,height=0,left=-1000,top=-1000`;
               Add
             </button>
           </div>
+          <br></br>
+          <button type="button" className={addclass.btnprimary} onClick={validateForm}>
+            Add
+          </button>
         </div>
         {isPopupOpen && (
           <SubmissionPopup
