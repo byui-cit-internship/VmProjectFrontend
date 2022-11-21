@@ -54,16 +54,16 @@ function AddClass() {
     ) {
       allFieldsValid = false;
     }
-    // if (allFieldsValid) {
-    createCourse();
-    // } else {
-    //   {
-    //     setPopupMessage("Error adding the course");
-    //     setPopupAgainMessage("Try again");
-    //     setIsSuccess(false);
-    //     setIsPopupOpen(true);
-    //   }
-    // }
+    if (allFieldsValid) {
+      createCourse();
+    } else {
+      {
+        setPopupMessage("Error adding the course");
+        setPopupAgainMessage("Try again");
+        setIsSuccess(false);
+        setIsPopupOpen(true);
+      }
+    }
   };
   const createCourse = async () => {
     console.log(courseCode);
