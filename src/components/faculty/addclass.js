@@ -36,9 +36,12 @@ function AddClass() {
   const [success, setIsSuccess] = useState();
   const [resourcePoolList, setResourcePoolList] = useState([]);
   const [resourcePool, setResourcePool] = useState("");
+  const [resourcePoolName, setResourcePoolName] = useState("");
   //*********Creates course by sending all info in body to the B  FF course controller************/
+  console.log(resourcePool);
+  console.log(resourcePoolName);
   const validateForm = async () => {
-    console.log("clicked");
+    console.log("validate form here");
     let allFieldsValid = true;
     if (
       sectionName === undefined ||
@@ -54,16 +57,16 @@ function AddClass() {
     ) {
       allFieldsValid = false;
     }
-    if (allFieldsValid) {
-      createCourse();
-    } else {
-      {
-        setPopupMessage("Error adding the course");
-        setPopupAgainMessage("Try again");
-        setIsSuccess(false);
-        setIsPopupOpen(true);
-      }
-    }
+    // if (allFieldsValid) {
+    createCourse();
+    // } else {
+    //   {
+    //     setPopupMessage("Error adding the course");
+    //     setPopupAgainMessage("Try again");
+    //     setIsSuccess(false);
+    //     setIsPopupOpen(true);
+    //   }
+    // }
   };
   const createCourse = async () => {
     console.log(courseCode);
@@ -78,7 +81,8 @@ function AddClass() {
         libraryId: libraryId,
         folder: vCenterFolder,
         templateVm: [templateVm],
-        resourcePool: resourcePool,
+        resource_pool: resourcePool,
+        resourcePoolName: resourcePoolName,
         userId: userId,
         vmTemplateName: vmTemplateName,
         canvasCourseId: canvasCourseId
@@ -95,7 +99,6 @@ function AddClass() {
     );
     console.log(response);
   };
-
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
     const getLibraries = async () => {
@@ -243,6 +246,20 @@ width=0,height=0,left=-1000,top=-1000`;
     setIsPopupOpen(closeBool);
   };
 
+  const seperateTemplateName = (item) => {
+    console.log(item);
+    const thing = JSON.parse(item);
+    setvmTemplateName(thing.name);
+    setTemplateVm(thing.id);
+  };
+
+  const seperateResourcePoolName = (item) => {
+    console.log(item);
+    const thing = JSON.parse(item);
+    setResourcePool(thing.resource_pool);
+    setResourcePoolName(thing.name);
+  };
+
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -317,14 +334,14 @@ width=0,height=0,left=-1000,top=-1000`;
                   name="templateVm"
                   required
                   onChange={(event) => {
-                    setTemplateVm(event.target.key), setvmTemplateName(event.target.value);
+                    seperateTemplateName(event.target.value);
                   }}
                   disabled={!libraryId}>
                   <option value="" hidden>
                     - Select a Template -
                   </option>
                   {templateVmList?.map((item) => (
-                    <option key={item.id} value={item.value}>
+                    <option key={item.id} value={JSON.stringify(item)}>
                       {item.name}
                     </option>
                   ))}
@@ -338,7 +355,6 @@ width=0,height=0,left=-1000,top=-1000`;
                 <select
                   onChange={(event) => {
                     var obj = JSON.parse(event.target.value);
-                    console.log(obj);
                     setSemester(obj);
                   }}>
                   <option>- Select -</option>
@@ -379,12 +395,14 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
-                    onChange={(event) => setResourcePool(event.target.value)}>
+                    onChange={(event) => {
+                      seperateResourcePoolName(event.target.value);
+                    }}>
                     <option value="" hidden>
                       Choose a Resource Pool
                     </option>
                     {resourcePoolList?.map((item) => (
-                      <option key={item.name} value={item.resource_pool}>
+                      <option key={item.name} value={JSON.stringify(item)}>
                         {item.name}
                       </option>
                     ))}
