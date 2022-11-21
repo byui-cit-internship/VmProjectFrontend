@@ -13,11 +13,11 @@ function MyClasses() {
 
   // Mock data to test search functionality
   // const classesArray = [
-  //   { courseId: 32, courseCode: "CIT 171", resourceGroupId: 1060 },
-  //   { courseId: 33, courseCode: "CSE 150", resourceGroupId: 1060 },
-  //   { courseId: 34, courseCode: "WDD 130", resourceGroupId: 1060 },
-  //   { courseId: 35, courseCode: "CIT 172", resourceGroupId: 1060 },
-  //   { courseId: 36, courseCode: "CIT 172", resourceGroupId: 1060 }
+  //   { courseId: 32, courseCode: "CIT 171", resourcePoolId: 1060 },
+  //   { courseId: 33, courseCode: "CSE 150", resourcePoolId: 1060 },
+  //   { courseId: 34, courseCode: "WDD 130", resourcePoolId: 1060 },
+  //   { courseId: 35, courseCode: "CIT 172", resourcePoolId: 1060 },
+  //   { courseId: 36, courseCode: "CIT 172", resourcePoolId: 1060 }
   // ];
 
   const filteredClasses = classList.filter((singleClass) => {
