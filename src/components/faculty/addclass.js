@@ -38,7 +38,7 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   //*********Creates course by sending all info in body to the B  FF course controller************/
   const validateForm = async () => {
-    console.log("validate form here");
+    console.log("clicked");
     let allFieldsValid = true;
     if (
       sectionName === undefined ||
@@ -55,7 +55,7 @@ function AddClass() {
       allFieldsValid = false;
     }
     // if (allFieldsValid) {
-      createCourse();
+    createCourse();
     // } else {
     //   {
     //     setPopupMessage("Error adding the course");
