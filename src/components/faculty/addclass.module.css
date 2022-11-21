@@ -96,6 +96,9 @@ https://www.byui.edu/branding/color-guide
   border: transparent;
   color: #fff;
 }
+.addclass .btnprimary:hover{
+  background-color: #3d8639;
+}
 .addclass #nameError {
   display: none;
   font-size: 0.8em;
