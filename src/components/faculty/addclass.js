@@ -40,6 +40,7 @@ function AddClass() {
   //*********Creates course by sending all info in body to the B  FF course controller************/
   console.log(resourcePool);
   console.log(resourcePoolName);
+
   const validateForm = async () => {
     console.log("validate form here");
     let allFieldsValid = true;
@@ -260,6 +261,7 @@ width=0,height=0,left=-1000,top=-1000`;
     setResourcePoolName(thing.name);
   };
 
+
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -336,6 +338,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   onChange={(event) => {
                     seperateTemplateName(event.target.value);
                   }}
+
                   disabled={!libraryId}>
                   <option value="" hidden>
                     - Select a Template -
@@ -395,6 +398,7 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
+
                     onChange={(event) => {
                       seperateResourcePoolName(event.target.value);
                     }}>
