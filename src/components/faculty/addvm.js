@@ -4,57 +4,70 @@ import Header from "../../header";
 import addvm from "./addvm.module.css";
 import Apple from "@mui/icons-material/Apple";
 import { getApiRoot } from "../../utils/getApiRoot";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 function AddVm() {
-  const [libraries, setLibraries] = useState([]);
+  const [libraryId, setLibraryId] = useState();
   const [library, setLibrary] = useState();
   const [templates, setTemplates] = useState();
+  const [checkboxes, setCheckboxes] = useState([]);
+  const [section, setSection] = useState();
 
-  // Would we need to add a section dropdown to to select which section?
-  // Picks section -> show default library, and allow to select a different one
-  // Show templates based on selected library
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const courseId = urlParams.get("courseId");
-
-  const uniq = (a) => {
-    return Array.from(new Set(a));
+  const options = {
+    method: "Get",
+    credentials: "include",
+    headers: { "content-type": "application/json" }
   };
 
-  const fetchSections = async () => {
-    const options = {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json"
-      }
-    };
-    const response = await fetch(
-      getApiRoot() + `/api/course/getSectionsByCourseId/${courseId}`,
-      options
-    );
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get("sectionId");
+
+  const postTemplate = async () => { };
+
+  const fetchLibrary = async () => {
+    const response = await fetch(getApiRoot() + `/api/createvm/libraryById/${libraryId}`, options);
     if (response.ok) {
-      const fetchedSections = await response.json();
-
-      var librariesArray = [""];
-
-      fetchedSections.forEach((section, index, arr) => {
-        librariesArray[index] = section.libraryVCenterId;
-      });
-
-      setLibraries(uniq(librariesArray));
+      const fetchedData = await response.json();
+      setLibrary(fetchedData);
     } else {
       console.log(response);
     }
   };
 
-  const postTemplate = async () => {};
+  const fetchSection = async () => {
+    const response = await fetch(getApiRoot() + `/api/course/getSectionById/${courseId}`, options);
+    if (response.ok) {
+      const section = await response.json();
+      setLibraryId(section.libraryVCenterId);
+    } else {
+      console.log(response);
+    }
+  };
+
+  const fetchTemplates = async () => {
+    const response = await fetch(getApiRoot() + `/api/createvm/templates/${libraryId}`, options);
+    if (response.ok) {
+      const fetchedData = await response.json();
+      console.log("fetched templates: ", fetchedData);
+      setTemplates(fetchedData);
+    }
+  };
+
+  const checkboxHandler = (value) => {
+    
+  };
 
   useEffect(() => {
-    fetchSections();
+    fetchSection();
   }, []);
 
-  console.log(libraries);
+  useEffect(() => {
+    if (libraryId) {
+      fetchLibrary();
+      fetchTemplates();
+    }
+  }, [libraryId]);
+
   return (
     <div className={addvm.addvm}>
       <div className={addvm.container}>
@@ -63,70 +76,35 @@ function AddVm() {
         </div>
         <h1>Add VSphere Template</h1>
         <div className={addvm.content}>
+
           {/* Content Library */}
           <div className={addvm.contentLibrary}>
-            <label>Choose a Content Library:</label>
-            <select
+            <label>Content Library:</label>
+            <input
               name="contentLibrary"
               id={addvm.contentLibrary}
-              onChange={(e) => setLibrary(e.target.value)}
-              required>
-              <option name="option" value="Default">
-                -Select-
-              </option>
-              {libraries.map((library) => (
-                <option key={library} value={library}>
-                  {library}
-                </option>
-              ))}
-            </select>
+              value={library ? library.name : "-No Libraries Found-"}
+              disabled
+            />
           </div>
 
           {/* Virtual Machine */}
           <div className={addvm.chooseVm}>
-            <label>Choose a Virtual Machine Template:</label>
-            <form action="">
-              <select name="templateVm" id={addvm.templateVm} required multiple type="checkbox">
-                <option className={addvm.apple} name="option">
-                  <Apple />
-                </option>
-                {/* <option name="option" value="Default">Default</option> */}
-              </select>
-            </form>
-          </div>
-
-          <div className={addvm.modalForTemplate}>
-            <div className={addvm.modalcontent}>
-              <span className={addvm.closeModal}>X</span>
-              <h1>Add templates</h1>
-              <label>Choose a template Virtual machine:</label>
-              <select name="addTemplateVm" id={addvm.addTemplateVm} required>
-                <option className={addvm.vm} name="option" value="Default">
-                  Default
-                </option>
-              </select>
-              <button id={addvm.more}>
-                <i className={addvm.materialicons}>add</i>
-              </button>
-              <button id={addvm.submitAddTemplates}>save</button>
-            </div>
-          </div>
-
-          <div className={addvm.modalForTemplate}>
-            <div className={addvm.modalcontent}>
-              <span className={addvm.closeModal}>X</span>
-              <h1>Add templates</h1>
-              <label>Choose a template Virtual machine:</label>
-              <select className={addvm.addTemplateVm} required>
-                <option className={addvm.vm} name="option" value="Default">
-                  Default
-                </option>
-              </select>
-              <button id={addvm.more}>
-                <i className={addvm.materialicons}>add</i>
-              </button>
-              <button id={addvm.submitAddTemplates}>save</button>
-            </div>
+            <h3>Choose a Virtual Machine Template:</h3>
+            {templates && checkboxes && (
+              <div>
+                {templates.map((template) => (
+                  <label key={template.id}>
+                    <input
+                      type="checkbox"
+                      value={template}
+                      onChange={(e) => checkboxHandler(e.target.value)}
+                    />
+                    {template.name}
+                  </label>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Description */}
