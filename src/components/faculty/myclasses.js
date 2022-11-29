@@ -38,6 +38,7 @@ function MyClasses() {
         }
       });
       const classList = await listResponse.json();
+      console.log(classList);
       setClassList(classList);
     };
     getclassList();
@@ -69,7 +70,11 @@ function MyClasses() {
                   </div>
                   <div className={myclasses.tablecontent}>
                     <div className={myclasses.add}>
-                      <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                      <button
+                        className={myclasses.addbutton}
+                        onClick={(e) => navigate(`/addvm?courseId=${item.courseId}`)}>
+                        Add Virtual Machine Template
+                      </button>
                     </div>
                   </div>
                 </Card>

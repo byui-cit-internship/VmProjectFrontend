@@ -3,14 +3,58 @@ import Background from "../../background";
 import Header from "../../header";
 import addvm from "./addvm.module.css";
 import Apple from "@mui/icons-material/Apple";
+import { getApiRoot } from "../../utils/getApiRoot";
 
 function AddVm() {
-  const [templateFolders] = useState([]);
+  const [libraries, setLibraries] = useState([]);
+  const [library, setLibrary] = useState();
+  const [templates, setTemplates] = useState();
+
+  // Would we need to add a section dropdown to to select which section?
+  // Picks section -> show default library, and allow to select a different one
+  // Show templates based on selected library
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const courseId = urlParams.get("courseId");
+
+  const uniq = (a) => {
+    return Array.from(new Set(a));
+  };
+
+  const fetchSections = async () => {
+    const options = {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "content-type": "application/json"
+      }
+    };
+    const response = await fetch(
+      getApiRoot() + `/api/course/getSectionsByCourseId/${courseId}`,
+      options
+    );
+    if (response.ok) {
+      const fetchedSections = await response.json();
+
+      var librariesArray = [""];
+
+      fetchedSections.forEach((section, index, arr) => {
+        librariesArray[index] = section.libraryVCenterId;
+      });
+
+      setLibraries(uniq(librariesArray));
+    } else {
+      console.log(response);
+    }
+  };
+
+  const postTemplate = async () => {};
 
   useEffect(() => {
-    console.log("Calling fetch to update a list of template folders");
-  }, templateFolders);
+    fetchSections();
+  }, []);
 
+  console.log(libraries);
   return (
     <div className={addvm.addvm}>
       <div className={addvm.container}>
@@ -19,29 +63,28 @@ function AddVm() {
         </div>
         <h1>Add VSphere Template</h1>
         <div className={addvm.content}>
-          {/* Folders */}
-          <div className={addvm.folder}>
-            <label>Choose a Folder:</label>
-            <br />
-            <select name="folder" id={addvm.folder} required>
-              <option name="option" value="Default">
-                Default
-              </option>
-            </select>
-          </div>
-
           {/* Content Library */}
           <div className={addvm.contentLibrary}>
             <label>Choose a Content Library:</label>
-            <select name="contentLibrary" id={addvm.contentLibrary} required>
+            <select
+              name="contentLibrary"
+              id={addvm.contentLibrary}
+              onChange={(e) => setLibrary(e.target.value)}
+              required>
               <option name="option" value="Default">
-                Default
+                -Select-
               </option>
+              {libraries.map((library) => (
+                <option key={library} value={library}>
+                  {library}
+                </option>
+              ))}
             </select>
           </div>
+
           {/* Virtual Machine */}
           <div className={addvm.chooseVm}>
-            <label>Choose a Virtual machine:</label>
+            <label>Choose a Virtual Machine Template:</label>
             <form action="">
               <select name="templateVm" id={addvm.templateVm} required multiple type="checkbox">
                 <option className={addvm.apple} name="option">
