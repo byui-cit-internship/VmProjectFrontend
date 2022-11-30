@@ -38,36 +38,34 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
   //*********Creates course by sending all info in body to the B  FF course controller************/
-  console.log(resourcePool);
-  console.log(resourcePoolName);
 
   const validateForm = async () => {
     console.log("validate form here");
     let allFieldsValid = true;
     if (
-      sectionName === undefined ||
-      courseCode === undefined ||
-      canvasToken === undefined ||
-      semester === undefined ||
-      libraryId === undefined ||
-      vCenterFolder === undefined ||
-      templateVm === undefined ||
-      resourcePool === undefined ||
-      vmTemplateName === undefined ||
-      canvasCourseId === undefined
+      sectionName.length === 0 ||
+      courseCode.length === 0 ||
+      canvasToken.length === 0 ||
+      semester.length === 0 ||
+      libraryId.length === 0 ||
+      vCenterFolder.length === 0 ||
+      templateVm.length === 0 ||
+      resourcePool.length === 0 ||
+      vmTemplateName.length === 0 ||
+      canvasCourseId.length === 0
     ) {
       allFieldsValid = false;
     }
-    // if (allFieldsValid) {
-    createCourse();
-    // } else {
-    //   {
-    //     setPopupMessage("Error adding the course");
-    //     setPopupAgainMessage("Try again");
-    //     setIsSuccess(false);
-    //     setIsPopupOpen(true);
-    //   }
-    // }
+    if (allFieldsValid) {
+      createCourse();
+    } else {
+      {
+        setPopupMessage("Error adding the course");
+        setPopupAgainMessage("Try again");
+        setIsSuccess(false);
+        setIsPopupOpen(true);
+      }
+    }
   };
   const createCourse = async () => {
     console.log(courseCode);
@@ -99,6 +97,9 @@ function AddClass() {
       options
     );
     console.log(response);
+    setPopupMessage("Successfully added Course!");
+    setIsSuccess(true);
+    setIsPopupOpen(true);
   };
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
@@ -247,24 +248,19 @@ width=0,height=0,left=-1000,top=-1000`;
     setIsPopupOpen(closeBool);
   };
 
-  const seperateTemplateName = (item) => {
+  const separateTemplateName = (item) => {
     console.log(item);
     const thing = JSON.parse(item);
     setvmTemplateName(thing.name);
     setTemplateVm(thing.id);
   };
 
-  const seperateResourcePoolName = (item) => {
+  const separateResourcePoolName = (item) => {
     console.log(item);
     const thing = JSON.parse(item);
     setResourcePool(thing.resource_pool);
     setResourcePoolName(thing.name);
   };
-
-
-  //*****************************************************************************/
-  //Return statement with all JSX for this page**********************************/
-  //*****************************************************************************/
   return (
     <div>
       <div className={addclass.addclass}>
@@ -336,9 +332,8 @@ width=0,height=0,left=-1000,top=-1000`;
                   name="templateVm"
                   required
                   onChange={(event) => {
-                    seperateTemplateName(event.target.value);
+                    separateTemplateName(event.target.value);
                   }}
-
                   disabled={!libraryId}>
                   <option value="" hidden>
                     - Select a Template -
@@ -398,9 +393,8 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
-
                     onChange={(event) => {
-                      seperateResourcePoolName(event.target.value);
+                      separateResourcePoolName(event.target.value);
                     }}>
                     <option value="" hidden>
                       Choose a Resource Pool
