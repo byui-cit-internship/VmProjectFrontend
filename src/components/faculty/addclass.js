@@ -38,8 +38,9 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
   //*********Creates course by sending all info in body to the B  FF course controller************/
-  console.log(resourcePool)
-  console.log(resourcePoolName)
+  console.log(resourcePool);
+  console.log(resourcePoolName);
+
   const validateForm = async () => {
     console.log("validate form here");
     let allFieldsValid = true;
@@ -58,7 +59,7 @@ function AddClass() {
       allFieldsValid = false;
     }
     // if (allFieldsValid) {
-      createCourse();
+    createCourse();
     // } else {
     //   {
     //     setPopupMessage("Error adding the course");
@@ -247,18 +248,19 @@ width=0,height=0,left=-1000,top=-1000`;
   };
 
   const seperateTemplateName = (item) => {
-    console.log(item)
-    const thing = JSON.parse(item)
+    console.log(item);
+    const thing = JSON.parse(item);
     setvmTemplateName(thing.name);
     setTemplateVm(thing.id);
-  }
+  };
 
   const seperateResourcePoolName = (item) => {
-    console.log(item)
-    const thing = JSON.parse(item)
+    console.log(item);
+    const thing = JSON.parse(item);
     setResourcePool(thing.resource_pool);
     setResourcePoolName(thing.name);
-  }
+  };
+
 
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
@@ -333,7 +335,10 @@ width=0,height=0,left=-1000,top=-1000`;
                   className={addclass.select}
                   name="templateVm"
                   required
-                  onChange={(event) => {seperateTemplateName(event.target.value)}}
+                  onChange={(event) => {
+                    seperateTemplateName(event.target.value);
+                  }}
+
                   disabled={!libraryId}>
                   <option value="" hidden>
                     - Select a Template -
@@ -393,7 +398,10 @@ width=0,height=0,left=-1000,top=-1000`;
                     className={addclass.select}
                     name="resourcePool"
                     required
-                    onChange={(event) => {seperateResourcePoolName(event.target.value)}}>
+
+                    onChange={(event) => {
+                      seperateResourcePoolName(event.target.value);
+                    }}>
                     <option value="" hidden>
                       Choose a Resource Pool
                     </option>
