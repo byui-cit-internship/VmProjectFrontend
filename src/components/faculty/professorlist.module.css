@@ -12,7 +12,7 @@
 .professorList .table {
   overflow: hidden;
   overflow-y: scroll;
-  height: 500px;
+  max-height: 235px;
 }
 
 .professorList #backbtn {
@@ -39,7 +39,7 @@
 
 .professorList #professorsAndSearch {
   display: flex;
-  width: 800px;
+  /* width: 800px; */
   margin-left: auto;
   margin-right: auto;
   font-size: 1.5rem;
@@ -52,7 +52,7 @@
 }
 
 .professorList .lets {
-  width: 800px;
+  /* width: 800px; */
   margin: 0px 10px;
   font-weight: bold;
   font-size: 1.5rem;
@@ -115,7 +115,6 @@ select:focus {
 }
 
 .professorList table {
-  width: 800px;
   height: 200px;
   border-collapse: collapse;
   margin-left: auto;
@@ -168,6 +167,7 @@ select:focus {
 }
 
 .professorList .tableHeader {
+  width: 100%;
   background: #006eb6;
   padding: 0px 10px;
   color: white;
@@ -257,9 +257,67 @@ select:focus {
   width: auto;
 }
 
+/* email title */
+thead tr th:nth-child(2) {
+  /* max-width: 35px; */
+  font-size: 0.9rem;
+}
+
+/* email content */
+tbody tr td:nth-child(2) {
+  /* max-width: 35px; */
+  font-size: 0.9rem;
+  padding: 10px 10px 10px 10px;
+}
+
+/* approved title */
+thead tr th:nth-child(3) {
+  font-size: 0.9rem;
+}
+
+/* approved content */
+tbody tr td:nth-child(3) {
+  font-size: 0.9rem;
+}
+
 /* Small View */
 
 @media only screen and (max-width: 37.4em) {
+  /* Users first value */
+  thead tr th:nth-child(1) {
+    display: none;
+  }
+
+  /* email title */
+  thead tr th:nth-child(2) {
+    display: none;
+  }
+
+  /* email content */
+  tbody tr td:nth-child(2) {
+    display: none;
+  }
+
+  /* approved title */
+  thead tr th:nth-child(3) {
+    display: none;
+  }
+
+  /* approved content */
+  tbody tr td:nth-child(3) {
+    display: none;
+  }
+
+  .professorList .tableHeader {
+    flex-direction: column;
+    align-items: baseline;
+    padding: 0px 0px 15px 0px;
+  }
+
+  .professorList .searchbar {
+    max-width: 175px;
+  }
+
   .professorList td {
     border: 2px solid #3a8ace;
     font-size: 1rem;
@@ -297,7 +355,8 @@ select:focus {
     height: 360px;
     overflow: hidden;
     overflow-y: scroll;
-    width: 80vw;
+    min-width: 215px;
+    max-width: 80vw;
   }
   .professorList th {
     width: 300px;
@@ -309,7 +368,7 @@ select:focus {
 
   .professorList #professorsAndSearch {
     display: flex;
-    width: 80%;
+    /* width: 80%; */
   }
 
   .professorList #search {
@@ -333,6 +392,28 @@ select:focus {
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
+  /* users title */
+  thead tr th:nth-child(1) {
+    max-width: 100px;
+    font-size: 0.9rem;
+  }
+
+  /* users content */
+  tbody tr td:nth-child(1) {
+    max-width: 100px;
+    font-size: 0.9rem;
+  }
+
+  /* approved title */
+  thead tr th:nth-child(3) {
+    max-width: 70px;
+  }
+
+  /* approved content */
+  tbody tr td:nth-child(3) {
+    max-width: 70px;
+  }
+
   .professorList .container {
     display: flex;
     flex-direction: column;
@@ -342,18 +423,18 @@ select:focus {
     color: #000;
   }
   .professorList #professorsAndSearch {
+    max-width: 80vw;
     flex-direction: column;
     background-color: white;
   }
 
-  .professorList table {
-    width: 70vw;
-    max-width: 584px;
+  .professorList .table {
+    max-width: 80vw;
   }
 
   .professorList .tableHeader {
-    width: 73vw !important;
-    max-width: 584px;
+    /* width: 73vw !important; */
+    /* max-width: 584px; */
   }
 
   .professorList .searchbar {
@@ -362,7 +443,7 @@ select:focus {
   }
 
   .professorList .tableHeader {
-    width: 600px;
+    /* width: 600px; */
     padding: 0;
   }
 
@@ -372,7 +453,7 @@ select:focus {
 
   .professorList #professorsAndSearch {
     display: flex;
-    width: 530px;
+    /* width: 530px; */
   }
 
   .professorList #search {
@@ -415,7 +496,7 @@ select:focus {
   }
 
   .professorList .tableHeader {
-    width: 600px;
+    /* width: 600px; */
     padding: 0;
   }
 }

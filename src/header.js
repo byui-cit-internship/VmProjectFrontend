@@ -3,6 +3,7 @@ import header from "./header.module.css";
 import { FaHamburger } from "react-icons/fa";
 // import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./navbar";
 
 function Header(props) {
   const [showLinks, setShowLinks] = useState(false);
