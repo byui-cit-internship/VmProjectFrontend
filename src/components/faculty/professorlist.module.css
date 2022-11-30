@@ -12,7 +12,7 @@
 .professorList .table {
   overflow: hidden;
   overflow-y: scroll;
-  height: 500px;
+  max-height: 235px;
 }
 
 .professorList #backbtn {
@@ -115,7 +115,6 @@ select:focus {
 }
 
 .professorList table {
-  width: 800px;
   height: 200px;
   border-collapse: collapse;
   margin-left: auto;
@@ -258,47 +257,38 @@ select:focus {
   width: auto;
 }
 
-/* users title */
-thead tr th:nth-child(1) {
-  color: red;
-  max-width: 20px;
-  font-size: 1.1rem;
-}
-
-/* users content */
-tbody tr td:nth-child(1) {
-  max-width: 20px;
-  font-size: 1.1rem;
-}
 
 /* email title */
 thead tr th:nth-child(2) {
-  color: red;
-  max-width: 35px;
-  font-size: 1.1rem;
+  /* max-width: 35px; */
+  font-size: 0.9rem;
 }
 
 /* email content */
 tbody tr td:nth-child(2) {
-  max-width: 35px;
+  /* max-width: 35px; */
   font-size: 0.9rem;
   padding: 10px 10px 10px 10px;
 }
 
 /* approved title */
 thead tr th:nth-child(3) {
-  max-width: 10px;
-  color: rebeccapurple;
+  font-size: 0.9rem;
 }
 
 /* approved content */
 tbody tr td:nth-child(3) {
-  max-width: 10px;
+  font-size: 0.9rem;
 }
 
 /* Small View */
 
 @media only screen and (max-width: 37.4em) {
+  /* Users first value */
+  thead tr th:nth-child(1) {
+    display: none;
+  }
+
   /* email title */
   thead tr th:nth-child(2) {
     display: none;
@@ -327,10 +317,6 @@ tbody tr td:nth-child(3) {
 
   .professorList .searchbar {
     max-width: 175px;
-  }
-
-  .professorList #title {
-    color: pink;
   }
 
   .professorList td {
@@ -407,8 +393,26 @@ tbody tr td:nth-child(3) {
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
-  .professorList #title {
-    color: green;
+  /* users title */
+  thead tr th:nth-child(1) {
+    max-width: 100px;
+    font-size: 0.9rem;
+  }
+
+  /* users content */
+  tbody tr td:nth-child(1) {
+    max-width: 100px;
+    font-size: 0.9rem;
+  }
+
+  /* approved title */
+  thead tr th:nth-child(3) {
+    max-width: 70px;
+  }
+
+  /* approved content */
+  tbody tr td:nth-child(3) {
+    max-width: 70px;
   }
 
   .professorList .container {

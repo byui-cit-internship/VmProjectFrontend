@@ -11,6 +11,7 @@ https://www.byui.edu/branding/color-guide
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 25px;
 }
 
 .facultydashboard .professorpermissions {
@@ -23,6 +24,10 @@ https://www.byui.edu/branding/color-guide
   max-width: 250px;
   padding: 5px 0px;
   cursor: pointer;
+}
+
+.facultydashboard .tableHeader {
+  border-radius: 8px 8px 0px 0px;
 }
 
 .facultydashboard .professorpermissions:hover {
@@ -175,7 +180,7 @@ https://www.byui.edu/branding/color-guide
   text-decoration: none;
   padding-top: 34px;
   float: left;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   /* width: 200px; */
   border: transparent;
 }
@@ -274,6 +279,14 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
+  .facultydashboard .text {
+    margin-left: 24px;
+  }
+
+  .facultydashboard #greeting {
+    padding-left: 0px !important;
+  }
+
   .facultydashboard .professorpermissions {
     background: white;
     position: absolute;
@@ -317,6 +330,7 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-right: 0 !important;
   }
 
   .facultydashboard #singleContainer {
@@ -358,12 +372,12 @@ https://www.byui.edu/branding/color-guide
 
   .facultydashboard .left {
     height: 380px;
+    margin-left: 0px;
   }
 
   .facultydashboard .container {
     display: flex;
     flex-direction: column;
-    width: 95%;
   }
 
   .facultydashboard .main {
@@ -428,6 +442,11 @@ https://www.byui.edu/branding/color-guide
     color: #006eb6;
     text-align: left;
     font-size: 50px;
+  }
+
+  .facultydashboard .material {
+    padding-left: 0px !important;
+    margin-left: 0px !important;
   }
 
   .facultydashboard #welcome {
@@ -563,6 +582,9 @@ https://www.byui.edu/branding/color-guide
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .facultydashboard .buttons {
+    padding-right: 0 !important;
+  }
 }
 
 /* Large View */
