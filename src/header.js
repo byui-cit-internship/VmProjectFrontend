@@ -42,9 +42,10 @@ function Header(props) {
         </div>
 
         <div className={header.hamWrapper}>
-          <button className={header.outHam} onClick={() => setShowLinks(!showLinks)}>
+          {/* <button className={header.outHam} onClick={() => setShowLinks(!showLinks)}>
             <FaHamburger />
-          </button>
+          </button> */}
+          <Navbar />
         </div>
       </div>
     </div>
