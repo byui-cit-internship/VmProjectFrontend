@@ -5,13 +5,13 @@ import addvm from "./addvm.module.css";
 import Apple from "@mui/icons-material/Apple";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import TemplateMetadata from "./templateMetadata";
 
 function AddVm() {
   const [libraryId, setLibraryId] = useState();
   const [library, setLibrary] = useState();
   const [templates, setTemplates] = useState();
-  const [checkboxes, setCheckboxes] = useState([]);
-  const [section, setSection] = useState();
+  const [template, setTemplate] = useState();
 
   const options = {
     method: "Get",
@@ -24,50 +24,58 @@ function AddVm() {
 
   const postTemplate = async () => { };
 
-  const fetchLibrary = async () => {
-    const response = await fetch(getApiRoot() + `/api/createvm/libraryById/${libraryId}`, options);
-    if (response.ok) {
-      const fetchedData = await response.json();
-      setLibrary(fetchedData);
-    } else {
-      console.log(response);
-    }
-  };
-
-  const fetchSection = async () => {
-    const response = await fetch(getApiRoot() + `/api/course/getSectionById/${courseId}`, options);
-    if (response.ok) {
-      const section = await response.json();
-      setLibraryId(section.libraryVCenterId);
-    } else {
-      console.log(response);
-    }
-  };
-
-  const fetchTemplates = async () => {
-    const response = await fetch(getApiRoot() + `/api/createvm/templates/${libraryId}`, options);
-    if (response.ok) {
-      const fetchedData = await response.json();
-      console.log("fetched templates: ", fetchedData);
-      setTemplates(fetchedData);
-    }
-  };
-
-  const checkboxHandler = (value) => {
-    
-  };
+  const radioHandler = async () => { };
 
   useEffect(() => {
+    const fetchSection = async () => {
+      const response = await fetch(
+        getApiRoot() + `/api/course/getSectionById/${courseId}`,
+        options
+      );
+      if (response.ok) {
+        const section = await response.json();
+        setLibraryId(section.libraryVCenterId);
+      } else {
+        console.log(response);
+      }
+    };
     fetchSection();
   }, []);
 
   useEffect(() => {
+    const fetchLibrary = async () => {
+      const response = await fetch(
+        getApiRoot() + `/api/createvm/libraryById/${libraryId}`,
+        options
+      );
+      if (response.ok) {
+        const fetchedData = await response.json();
+        setLibrary(fetchedData);
+      } else {
+        console.log(response);
+      }
+    };
+
+    const fetchTemplates = async () => {
+      const response = await fetch(getApiRoot() + `/api/createvm/templates/${libraryId}`, options);
+      if (response.ok) {
+        const fetchedData = await response.json();
+        console.log("fetched templates: ", fetchedData);
+        setTemplates(fetchedData);
+      }
+    };
+
     if (libraryId) {
       fetchLibrary();
       fetchTemplates();
     }
   }, [libraryId]);
 
+  const handleSubmission = (template) => {
+    console.log("template: ", template);
+  };
+  //console.log("chose template: ", JSON.parse(template));
+  console.log("templates: ", templates);
   return (
     <div className={addvm.addvm}>
       <div className={addvm.container}>
@@ -76,7 +84,6 @@ function AddVm() {
         </div>
         <h1>Add VSphere Template</h1>
         <div className={addvm.content}>
-
           {/* Content Library */}
           <div className={addvm.contentLibrary}>
             <label>Content Library:</label>
@@ -91,31 +98,23 @@ function AddVm() {
           {/* Virtual Machine */}
           <div className={addvm.chooseVm}>
             <h3>Choose a Virtual Machine Template:</h3>
-            {templates && checkboxes && (
+            {templates && (
               <div>
-                {templates.map((template) => (
-                  <label key={template.id}>
-                    <input
-                      type="checkbox"
-                      value={template}
-                      onChange={(e) => checkboxHandler(e.target.value)}
-                    />
-                    {template.name}
-                  </label>
-                ))}
+                <div onChange={e => console.log("the template is: ", e.target.value)}>
+                  {templates.map((template) => (
+                    <label key={template.id}>
+                      <input type="radio" name="template" value={template} />
+                      {template.name}
+                    </label>
+                  ))}
+                </div>
+                <TemplateMetadata />
               </div>
             )}
           </div>
-
-          {/* Description */}
-          {/* <div className={addvm.description}>
-                <label>Description of Virtual Machine:</label>
-                <textarea type="text" id={addvm.description} name="description" rows="2" cols="30" placeholder="Describe your course"></textarea>
-            </div> */}
         </div>
-        {/* Button to open a modal to add more templates */}
         <button id={addvm.open}>Add</button>
-        <Background />
+        <Background templateInfo={template} />
       </div>
     </div>
   );
