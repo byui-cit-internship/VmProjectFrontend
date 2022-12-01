@@ -7,22 +7,6 @@
   font-family: "Raleway";
 }
 
-.utilization .studentName {
-  font-family: "Raleway";
-}
-.utilization .studentEmail {
-  font-family: "Raleway";
-}
-.utilization .studentVM {
-  font-family: "Raleway";
-}
-.utilization .creationDate {
-  font-family: "Raleway";
-}
-.utilization .vmTemplate {
-  font-family: "Raleway";
-}
-
 .utilization #backbtn:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -172,15 +156,34 @@
   /* width: 350px; */
 }
 
-.utilization .scoreboard {
+.utilization th {
+  margin: 10px;
+  padding: 15px;
+  font-family: "Raleway";
   text-align: left;
-  grid-area: 1 / 2 / 2 / 3;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #006eb6;
+  border: 2px solid black;
 }
 
-.utilization th {
-  margin-right: 50px;
-  padding-right: 20px;
+.utilization .thHeader {
+  color: #006eb6;
+  font-weight: bolder;
+  font-size: 10;
+  text-align: center;
 }
+
+.utilization td {
+  margin: 10px;
+  padding: 10px;
+  font-family: "Raleway";
+  white-space: nowrap;
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
 .utilization .updateList::-webkit-scrollbar {
   width: 10px;
 }
@@ -505,7 +508,7 @@
     background: lightgrey;
     border: none;
     border-radius: 8px;
-    padding: 5px 5px;
+    padding: 10px 10px;
     min-width: 550px;
   }
 }
@@ -522,12 +525,16 @@
   .utilization .scoreboard {
     background: lightgray;
     border-radius: 8px;
-    padding: 5px;
-    max-width: 550px;
-    margin: 68px 0px 0px 10px;
+    padding: 10px;
+    margin-left: 15px;
+    max-width: 65%;
     border: none;
   }
-
+  .utilization .scoreboardTable {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse:collapse;
+  }
   .utilization .alertLabel {
     display: none;
   }

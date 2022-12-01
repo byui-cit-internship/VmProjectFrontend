@@ -29,6 +29,9 @@ function Utilization() {
   const [libraryId, setLibraryId] = useState("");
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
+  const [studentFullName, setStudentFullName] = useState("");
+  const [studentEmail, setStudentEmail] = useState("");
+  const [tableData, setTableData] = useState([]);
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -59,7 +62,7 @@ function Utilization() {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-console.log(studentList)
+//console.log(studentList)
   const filteredData = studentList.filter((i) => {
     //if no input the return the original
     if (inputText === "") {
@@ -177,12 +180,18 @@ console.log(studentList)
     setLibraryId(tempItem.libraryVCenterId)
   }
 
-
+  const setStudentInfo = (first, last, email) => {
+    const fullStudentName = first + ' ' + last;
+    //setStudentFullName(fullStudentName)
+    //setStudentEmail(email)
+    setTableData([{'fullName':fullStudentName, 'email':email}])
+  }
+console.log(tableData)
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
   const handlePopup = (value) => {
-    setPopupInfo(value);
+    //setPopupInfo(value);
     setPopupActivate(true);
   };
   return (
@@ -310,7 +319,7 @@ console.log(studentList)
                       key={item.userId}
                       className={utilization.li}
                       value={item.firstName}
-                      onClick={(e) => handlePopup(e.target.value)}>
+                      onClick={(e) => {setStudentInfo(item.firstName, item.lastName, item.email)}}>
                       {item.firstName} {item.lastName}
                     </li>
                   ))}
@@ -320,35 +329,43 @@ console.log(studentList)
 
             {/*User Info Table*/}
             <div className={utilization.scoreboard}>
+            {tableData?.map((item) => (
               <table className={utilization.scoreboardTable}>
-                <thead className={utilization.scoreboardtableHead}>
-                  <tr className={utilization.scoreboardtableHeaderRow}>
-                    <th className={utilization.studentName}>Student Name</th>
-                    <th className={utilization.studentEmail}>Email</th>
 
-                    <th className={utilization.studentVM}>Virtual Machine</th>
-                    <th className={utilization.creationDate}>Creation Date</th>
-                    <th className={utilization.vmTemplate}>VM Template</th>
+                <thead>
+                  <tr>
+                    <th className={utilization.thHeader} colspan='2'>
+                      Student Information
+                    </th>
                   </tr>
                 </thead>
-                <tbody>
+
                   <tr>
-                    <td>Hardcoded1</td>
+                    <th className={utilization.studentName}>Student Name</th>
+                    <td>{item.fullName}</td>
                   </tr>
+
                   <tr>
-                    <td>Hardcoded2</td>
+                    <th className={utilization.studentEmail}>Email</th>
+                    <td>{item.email}</td>
                   </tr>
+
                   <tr>
-                    <td>Hardcoded3</td>
+                    <th className={utilization.studentVM}>Virtual Machine</th>
                   </tr>
+
                   <tr>
-                    <td>Hardcoded4</td>
+                    <th className={utilization.creationDate}>Creation Date</th>
                   </tr>
-                </tbody>
+
+                  <tr>
+                    <th className={utilization.vmTemplate}>VM Template</th>
+                  </tr>
               </table>
+              ))}
             </div>
           </div>
-
+        
           {/* S E P A R A T I O N */}
           {/* button */}
           <div className={utilization.alert}>
