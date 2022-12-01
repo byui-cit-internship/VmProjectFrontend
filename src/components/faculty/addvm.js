@@ -22,7 +22,9 @@ function AddVm() {
   const urlParams = new URLSearchParams(window.location.search);
   const courseId = urlParams.get("sectionId");
 
-  const postTemplate = async () => { };
+  const postTemplate = async () => {
+    
+  };
 
   const fetchLibrary = async () => {
     const response = await fetch(getApiRoot() + `/api/createvm/libraryById/${libraryId}`, options);
