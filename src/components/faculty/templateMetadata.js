@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { getApiRoot } from "../../utils/getApiRoot";
+import templateMetadata from "./templateMetadata.module.css";
 
 const TemplateMetadata = (props) => {
   const [metadata, setMetadata] = useState();
@@ -48,26 +49,26 @@ const TemplateMetadata = (props) => {
   }, [template]);
 
   return (
-    <div>
+    <div className={templateMetadata.templateMetadata}>
       {metadata && (
-        <div>
-          <div>
+        <div className={templateMetadata.metaDataContainer}>
+          <div className={templateMetadata.dataContainer}>
             <div>Creation Date: </div>
             <div>{date.toLocaleString("en-US", options)}</div>
           </div>
-          <div>
+          <div className={templateMetadata.dataContainer}>
             <div>Last modified: </div>
             <div>{date2.toLocaleDateString("en-US", options)}</div>
           </div>
-          <div>
+          <div className={templateMetadata.dataContainer}>
             <div>Memory: </div>
             <div>{metadata.memory / 1000} GB</div>
           </div>
-          <div>
+          <div className={templateMetadata.dataContainer}>
             <div>CPU count: </div>
             <div>{metadata.cpuCount}</div>
           </div>
-          <div>
+          <div className={templateMetadata.dataContainer}>
             <div>Operating System: </div>
             <div>{metadata.os}</div>
           </div>
