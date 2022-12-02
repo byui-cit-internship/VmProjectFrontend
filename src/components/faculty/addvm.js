@@ -22,11 +22,9 @@ function AddVm() {
   const urlParams = new URLSearchParams(window.location.search);
   const courseId = urlParams.get("sectionId");
 
-  const postTemplate = async () => {
-    
-  };
+  const postTemplate = async () => {};
 
-  const radioHandler = async () => { };
+  const radioHandler = async () => {};
 
   useEffect(() => {
     const fetchSection = async () => {
@@ -62,7 +60,6 @@ function AddVm() {
       const response = await fetch(getApiRoot() + `/api/createvm/templates/${libraryId}`, options);
       if (response.ok) {
         const fetchedData = await response.json();
-        console.log("fetched templates: ", fetchedData);
         setTemplates(fetchedData);
       }
     };
@@ -76,8 +73,7 @@ function AddVm() {
   const handleSubmission = (template) => {
     console.log("template: ", template);
   };
-  //console.log("chose template: ", JSON.parse(template));
-  console.log("templates: ", templates);
+
   return (
     <div className={addvm.addvm}>
       <div className={addvm.container}>
@@ -102,15 +98,20 @@ function AddVm() {
             <h3>Choose a Virtual Machine Template:</h3>
             {templates && (
               <div>
-                <div onChange={e => console.log("the template is: ", e.target.value)}>
-                  {templates.map((template) => (
-                    <label key={template.id}>
-                      <input type="radio" name="template" value={template} />
-                      {template.name}
-                    </label>
-                  ))}
-                </div>
-                <TemplateMetadata />
+                {templates && (
+                  <div
+                    onChange={(e) => {
+                      setTemplate(e.target.value);
+                    }}>
+                    {templates.map((template) => (
+                      <label key={template.id}>
+                        <input type="radio" name="template" value={JSON.stringify(template)} />
+                        {template.name}
+                      </label>
+                    ))}
+                  </div>
+                )}
+                <TemplateMetadata templateInfo={template} key={template}/>
               </div>
             )}
           </div>
