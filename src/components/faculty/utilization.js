@@ -31,6 +31,7 @@ function Utilization() {
   const [setPopupActivate] = useState("");
   const [studentFullName, setStudentFullName] = useState("");
   const [studentEmail, setStudentEmail] = useState("");
+  const [studentUserId, setStudentUserId] = useState("");
   const [tableData, setTableData] = useState([]);
 
   //Code that gets a list of semesters and puts it in a dropdown ****
@@ -139,6 +140,7 @@ function Utilization() {
         console.log("response", listResponse);
       }
       const listResponseObject = await listResponse.json();
+      console.log(listResponseObject)
       setStudentList(listResponseObject);
     };
     if (sectionId) {
@@ -172,6 +174,44 @@ function Utilization() {
 
 
   //*****************************************************************/
+  //Gets a user's vm instance info by the user id set when a name is selected
+  //******************************************************************/
+  useEffect(() => {
+    const getVmInstanceInfo = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
+      const listResponse = await fetch(
+        getApiRoot() + `/api/vmtable/professor/instance?userId=${studentUserId}`,
+        methods
+      );
+      const listResponseObject = await listResponse.json();
+
+      listResponseObject.map((item) => {
+        console.log(item.courseCode)
+        if (item.courseCode = courseCode) {
+          const tableVmTemplateName = listResponseObject.vmTemplateName;
+          const tableVmInstanceCreationDate = listResponseObject.vmInstanceExpireDate;
+          const tableVmInstanceName = listResponseObject.vmInstanceVcenterName;
+        } else {
+          const tableVmTemplateName = "N/A";
+          const tableVmInstanceCreationDate = "N/A";
+          const tableVmInstanceName = "N/A";
+        }
+    });
+
+    };
+    if (studentUserId) {
+      getVmInstanceInfo();
+    }
+  }, [studentUserId]);
+
+
+  //*****************************************************************/
   //Set the Section ID and Section's Library Id useStates when the section is selected
   //******************************************************************/
   const setSectionStates = (item) => {
@@ -180,11 +220,13 @@ function Utilization() {
     setLibraryId(tempItem.libraryVCenterId)
   }
 
-  const setStudentInfo = (first, last, email) => {
+  const setStudentInfo = (first, last, email, userId) => {
     const fullStudentName = first + ' ' + last;
-    //setStudentFullName(fullStudentName)
-    //setStudentEmail(email)
-    setTableData([{'fullName':fullStudentName, 'email':email}])
+    setStudentUserId(userId);
+    setStudentFullName(fullStudentName)
+    setStudentEmail(email)
+    
+    //setTableData([{'fullName':fullStudentName, 'email':email}])
   }
 console.log(tableData)
   //*****************************************************************************/
@@ -319,7 +361,7 @@ console.log(tableData)
                       key={item.userId}
                       className={utilization.li}
                       value={item.firstName}
-                      onClick={(e) => {setStudentInfo(item.firstName, item.lastName, item.email)}}>
+                      onClick={(e) => {setStudentInfo(item.firstName, item.lastName, item.email, item.userId)}}>
                       {item.firstName} {item.lastName}
                     </li>
                   ))}
@@ -334,12 +376,12 @@ console.log(tableData)
 
                 <thead>
                   <tr>
-                    <th className={utilization.thHeader} colspan='2'>
+                    <th className={utilization.thHeader} colSpan='2'>
                       Student Information
                     </th>
                   </tr>
                 </thead>
-
+                <tbody>
                   <tr>
                     <th className={utilization.studentName}>Student Name</th>
                     <td>{item.fullName}</td>
@@ -361,6 +403,7 @@ console.log(tableData)
                   <tr>
                     <th className={utilization.vmTemplate}>VM Template</th>
                   </tr>
+                </tbody>
               </table>
               ))}
             </div>
