@@ -12,8 +12,10 @@ import { getApiRoot } from "../../utils/getApiRoot";
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
   const [enrollmentId, setEnrollmentId] = useState("");
+  const [vmInstanceName, setVmInstanceName] = useState("");
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
+console.log(vmInstanceName)
 
   let navigate = useNavigate();
 
@@ -27,9 +29,10 @@ function CreateVM() {
         method: "GET"
       };
 
-      const courseResponse = await fetch(getApiRoot() + "/api/studentcourse", methods);
+      const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/StudentCourse", methods);
       const courseResponseObject = await courseResponse.json();
-      setCourseList(courseResponseObject);
+      const arrUniq = [...new Map(courseResponseObject.map(v => [v.id, v])).values()]
+      setCourseList(arrUniq);
     };
     getCourseList();
   }, []);
@@ -42,7 +45,10 @@ function CreateVM() {
       headers: {
         "content-type": "application/json"
       },
-      body: enrollmentId
+      body: JSON.stringify({
+        enrollment_id: enrollmentId,
+        vmInstanceName: vmInstanceName
+      })
     };
 
     const response = await fetch(`${getApiRoot()}/api/deployvm`, options);
@@ -84,9 +90,18 @@ function CreateVM() {
                   onChange={(e) => setEnrollmentId(e.target.value)}>
                   <option value="Default">- Select -</option>
                   {courseList.map((course) => (
-                    <option value={course.enrollmentId}>{course.courseName}</option>
+                    <option key={course.canvasSectionId} value={course.enrollmentId}>
+                      {course.sectionName}
+                    </option>
                   ))}
                 </select>
+
+                {/* <!-- VM Instance Name -->  */}
+                <span className={createVM.material}>
+                  <LibraryBooksIcon className={createVM.material} />
+                </span>
+                <p className={createVM.description}>2. Name Your VM</p>
+                <input onChange={(e) => setVmInstanceName(e.target.value)} type="text" id={createVM.vmName} placeholder="VM Name"/>
 
                 {/* template vm dropdown - Not needed for MVP */}
                 {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
@@ -99,7 +114,7 @@ function CreateVM() {
                 <span className={createVM.material}>
                   <CheckCircleOutlineIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>2. Create the VM</p>
+                <p className={createVM.description}>3. Create the VM</p>
                 <input id="vm_name" type="hidden" value="Default Vm" />
                 <button id={createVM.buttonVm} onClick={postVm}>
                   Create

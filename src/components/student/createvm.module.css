@@ -25,8 +25,8 @@
 
 .createvm .body {
   display: grid;
-  grid-template-columns: 1fr 1fr /*1fr*/;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1r;
   position: relative;
   padding-top: 4%;
 }
@@ -53,8 +53,21 @@
   color: #919294;
   border-radius: 4px;
   width: 65%;
+  height: 200%;
 }
-
+.createvm #vmName {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  background: #ddd;
+  color: #3a8ace;
+  border-radius: 4px;
+  width: 65%;
+  height: 200%;
+}
 .createvm .description {
   grid-row: 2;
   line-height: 60px;
@@ -67,6 +80,7 @@
 
 .createvm #buttonVm {
   width: 65%;
+  height: 200%;
   display: block;
   margin-left: auto;
   margin-right: auto;
