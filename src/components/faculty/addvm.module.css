@@ -2,30 +2,22 @@
   margin: 0 auto;
 }
 
-.addvm .questionMark {
-  font-size: 10rem;
-  color: black;
-}
-
 .addvm,
 .addvm .headerText {
   color: #2e5b9a;
   font-family: "Raleway", sans-serif;
-}
-.addvm .icon{
-  width: 10rem;
 }
 
 .addvm .flexbox {
   padding: 1rem;
 }
 
-.addvm .templates input[type=radio]{
+.addvm .templates input[type=radio] {
   opacity: 0;
   cursor: pointer;
 }
 
-.addvm .uncheckedCheckmark{
+.addvm .uncheckedCheckmark {
   position: absolute;
   height: 25px;
   width: 25px;
@@ -34,7 +26,7 @@
   border: 1px solid #337AB7
 }
 
-.addvm .checkedCheckmark{
+.addvm .checkedCheckmark {
   position: absolute;
   height: 25px;
   width: 25px;
@@ -43,18 +35,18 @@
   border: 1px solid #337AB7;
 }
 
-.addvm .checkedCheckmark::after{
+.addvm .checkedCheckmark::after {
   content: "";
   position: absolute;
 }
 
-.addvm .checkedCheckmark::after{
+.addvm .checkedCheckmark::after {
   top: 9px;
-	left: 9px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 
 .addvm .headerText {

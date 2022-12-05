@@ -1,0 +1,42 @@
+ .windowsIcon,
+ .ubuntuIcon,
+ .debianIcon,
+ .linuxIcon,
+ .macIcon,
+ .fedoraIcon,
+ .linuxIcon {
+     width: 10rem;
+ }
+
+ .questionMark {
+     font-size: 10rem;
+     color: black;
+ }
+
+ /* Ubuntu Icon Style */
+ .ubuntuIcon rect {
+     fill: white;
+ }
+
+ .ubuntuIcon g {
+     stroke: white;
+     fill: black;
+ }
+
+ .ubuntuIcon>circle:nth-child(2) {
+     stroke: black;
+ }
+
+ /*Windows Icon Style*/
+ .windowsIcon rect {
+     fill: white;
+ }
+
+ .windowsIcon path {
+     fill: black;
+ }
+
+ .linuxIcon{
+    background-color: white;
+    border-radius: 30px;
+ }
