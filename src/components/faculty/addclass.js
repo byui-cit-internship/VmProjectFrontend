@@ -408,44 +408,20 @@ width=0,height=0,left=-1000,top=-1000`;
                 </div>
 
                 <div className={addclass.alert}>
-                  <label className={addclass.alertLabel}>No folder for your class</label>
+                  <label className={addclass.alertLabel}>No folder for your class?</label>
                   <button
                     onClick={togglePopup}
                     type="vCenterFolder Alert Button"
                     className={addclass.alertButton}>
                     <i className={addclass.alertIcon} aria-hidden="true"></i>
+                    <a
+                      href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template"
+                      className={addclass.a}>
+                      Create vCenter Folder
+                    </a>
                   </button>
                 </div>
               </div>
-              {isOpen && (
-                <Popup
-                  content={
-                    <>
-                      <div className={addclass.popupbox}>
-                        <div className={addclass.box}>
-                          <span className={addclass.closeicon} onClick={togglePopup}>
-                            x
-                          </span>
-                          <img
-                            className={addclass.logo}
-                            src="../../images/LOGO-VIMA.png"
-                            alt="logo"
-                          />
-                          <h3>
-                            Click the button to find an article that will show how to create a
-                            vCenter folder.
-                          </h3>
-                          <a
-                            href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template"
-                            className={addclass.a}>
-                            <button className={addclass.confluence}>Create vCenter Folder</button>
-                          </a>
-                        </div>
-                      </div>
-                    </>
-                  }
-                />
-              )}
             </div>
           </div>
           <br></br>

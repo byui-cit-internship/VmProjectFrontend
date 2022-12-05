@@ -445,8 +445,9 @@ https://www.byui.edu/branding/color-guide
   }
 
   .facultydashboard .material {
-    padding-left: 0px !important;
+    padding-left: 20px !important;
     margin-left: 0px !important;
+
   }
 
   .facultydashboard #welcome {

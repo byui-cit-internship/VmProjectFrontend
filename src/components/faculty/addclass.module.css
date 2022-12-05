@@ -142,14 +142,14 @@ https://www.byui.edu/branding/color-guide
   }
   h3 {
     text-align: center;
-    padding: 20px;
+    padding-top: 30px;
     width: 100%;
     font-weight: bold;
   }
   .addclass .confluence {
     border-radius: 3px;
     position: relative;
-    padding: 12px;
+    padding: 15px;
     border: none;
     background-color: #006eb6;
     align-self: center;
@@ -169,6 +169,8 @@ https://www.byui.edu/branding/color-guide
   .addclass .a {
     padding: 20px;
     align-self: center;
+    color: white;
+    text-decoration: none;
   }
   .addclass .closeicon {
     content: "x";
