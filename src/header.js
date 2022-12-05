@@ -31,7 +31,48 @@ function Header(props) {
       </div>
       <div className={header.rightSide}>
         <div className={header.links} id={showLinks ? "hidden" : ""}>
-          <a id={header.welcome}>Welcome {userFirstName} |</a>
+          <div className={header.dropdown}>
+            <button class={header.dropbtn}>
+              Professors
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div className={header.dropdown_content}>
+              <a
+                onClick={() => {
+                  navigate("/addprofessor");
+                }}>
+                Add Professor
+              </a>
+              <a
+                onClick={() => {
+                  navigate("/professorlist");
+                }}>
+                View Professors
+              </a>
+            </div>
+          </div>
+          <div className={header.dropdown}>
+            <button class={header.dropbtn}>
+              Classes
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div className={header.dropdown_content}>
+              <a
+                onClick={() => {
+                  navigate("/addclass");
+                }}>
+                Add Class
+              </a>
+              <a
+                onClick={() => {
+                  navigate("/myclasses");
+                }}>
+                My Classes
+              </a>
+            </div>
+          </div>
+          <a id={header.dropdown}>Utilization</a>
+          {/* <a id={header.welcome}>Welcome {userFirstName} |</a> */}
           <button
             className={header.signOut}
             onClick={() => {

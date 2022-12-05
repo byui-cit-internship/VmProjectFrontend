@@ -63,7 +63,7 @@
   visibility: hidden;
   border: none;
   font-size: 2em;
-  background-color: transparent;
+  /* background-color:transparent ; */
   color: #006eb6;
   /* transition: ease-in-out .2s; */
 }
@@ -189,4 +189,32 @@ a {
 
 .header #welcome {
   font-size: 16px;
+}
+
+/* hi */
+.header .dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: transparent;
+  color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.header .dropdown_content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.header .dropdown_content a:hover {
+  background-color: #ddd;
+}
+
+.header .dropdown:hover .dropdown_content {
+  display: block;
 }
