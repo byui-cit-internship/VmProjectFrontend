@@ -192,27 +192,48 @@ a {
 }
 
 /* hi */
+.header #dropdown:hover:nth-child(3) {
+  cursor: pointer;
+}
+
 .header .dropdown_content {
   display: none;
   position: absolute;
-  background-color: transparent;
-  color: black;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* margin: 25px 0px; */
+  /* background-color: #006eb6; */
+  /* box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2); */
   z-index: 1;
+  background: white;
 }
 
 .header .dropdown_content a {
   float: none;
-  color: black;
-  padding: 12px 16px;
+  color: white;
+  padding: 12px 0px;
   text-decoration: none;
   display: block;
   text-align: left;
+  cursor: pointer;
+  /* margin-top: -25px; */
 }
 
 .header .dropdown_content a:hover {
   background-color: #ddd;
+}
+
+.dropdown button {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  font-family: "Raleway";
+  color: #006eb6;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 7px;
+  font-size: 1rem;
+  outline: white;
 }
 
 .header .dropdown:hover .dropdown_content {

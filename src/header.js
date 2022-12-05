@@ -71,7 +71,13 @@ function Header(props) {
               </a>
             </div>
           </div>
-          <a id={header.dropdown}>Utilization</a>
+          <a
+            id={header.dropdown}
+            onClick={() => {
+              navigate("/utilization");
+            }}>
+            VM Utilization
+          </a>
           {/* <a id={header.welcome}>Welcome {userFirstName} |</a> */}
           <button
             className={header.signOut}
