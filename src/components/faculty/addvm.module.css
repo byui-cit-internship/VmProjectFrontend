@@ -2,59 +2,130 @@
   margin: 0 auto;
 }
 
+.addvm,
+.addvm .headerText {
+  color: #2e5b9a;
+  font-family: "Raleway", sans-serif;
+}
+
+.addvm .flexbox {
+  padding: 1rem;
+}
+
+.addvm .templates input[type=radio] {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.addvm .uncheckedCheckmark {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid #337AB7;
+  margin-top: 0.5rem;
+  margin-left:0.3rem;
+}
+
+.addvm .checkedCheckmark {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: #337AB7;
+  border-radius: 50%;
+  border: 2px solid #337AB7;
+  margin-top: 0.5rem;
+  margin-left:0.3rem;
+}
+
+.addvm .checkedCheckmark::after {
+  content: "";
+  position: absolute;
+}
+
+.addvm .checkedCheckmark::after {
+  top: 5px;
+  left: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.addvm .headerText {
+  font-size: 1.4rem;
+}
+
+.addvm .templateOptionsContainer {
+  padding: 1rem 0rem;
+}
+
+.addvm .templateOptionsContainer .templates {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.addvm .templateOptionsContainer div input {
+  display: block;
+}
+
 .addvm h1 {
   text-align: center;
   padding: 20px 50px;
 }
 
 .addvm .container {
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
   width: 1000px;
   background-image: none;
   background-color: white;
   margin: 50px auto;
   border-radius: 50px;
-  height: 650px;
+  height: fit-content;
   padding-top: 15px;
 }
 
 .addvm .content {
   background-color: #f0f0f0;
   width: 800px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   padding: 35px 25px;
   margin: auto auto;
   margin-bottom: 20px;
+  /* height: fit-content; */
 }
 
 .addvm .folder {
-  grid-column: 1/3;
   width: 100%;
 }
 
 .addvm .contentLibrary {
-  grid-column: 3/5;
   width: 100%;
 }
 
-.addvm .year {
-  grid-column: 1/2;
+.addvm .contentLibrary label {
+  display: block;
 }
 
-.addvm .semester {
-  grid-column: 2/3;
+.addvm .contentLibrary input {
+  width: 48%;
+  height: 2rem;
+  border: 4px solid #98d5fd;
+  background-color: white;
+  color: #747272;
+  font-family: "Raleway", sans-serif;
+  padding-left: 1rem;
 }
 
 .addvm .chooseVm {
-  grid-column: 1/5;
   width: 100%;
+  padding: 1rem 0rem;
 }
 
 .addvm label {
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .addvm select {
@@ -79,17 +150,26 @@
 
 /*modal */
 .addvm .modalForTemplate {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .addvm .closeModal {
@@ -117,13 +197,16 @@
 .addvm #open {
   background-color: #3a8ace;
   width: 175px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   margin: auto;
   display: flex;
   justify-content: center;
   margin-left: 40%;
   padding: 10px;
+  color: white;
+  border: none;
+  font-weight: 700;
 }
 
 .addvm #addmore {
@@ -135,7 +218,6 @@
 }
 
 .addvm .materialicons {
-  grid-column: 1/2;
   color: #006eb6;
   text-align: left;
 }

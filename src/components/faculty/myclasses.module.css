@@ -155,6 +155,7 @@ align-items: center;
   padding: 1em;
   border-radius: 5px;
   width: 45%;
+  cursor: pointer;
 }
 .myclasses .tablerow{
   padding: 1em;

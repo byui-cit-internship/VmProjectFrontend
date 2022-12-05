@@ -8,7 +8,7 @@ import { Card } from "@mui/material";
 
 function MyClasses() {
   let navigate = useNavigate();
-  const [classList, setClassList] = useState([]);
+  const [sectionList, setSectionList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
 
   // Mock data to test search functionality
@@ -19,26 +19,30 @@ function MyClasses() {
   //   { courseId: 35, courseCode: "CIT 172", resourcePoolId: 1060 },
   //   { courseId: 36, courseCode: "CIT 172", resourcePoolId: 1060 }
   // ];
+  // const filteredSections = sectionList.filter((singleClass) => {
+  //   if (!searchInput) {
+  //     return singleClass;
+  //   } else {
+  //     return singleClass.courseCode.includes(searchInput);
+  //   }
+  // });
 
-  const filteredClasses = classList.filter((singleClass) => {
-    if (searchInput === "") {
-      return singleClass;
-    } else {
-      return singleClass.courseCode.includes(searchInput);
-    }
-  });
+  // useEffect(() => {
+  //   filteredClasses();
+  // }, [searchInput]);
 
   useEffect(() => {
     const getclassList = async () => {
-      const listResponse = await fetch(getApiRoot() + "/api/course/professor/getAllCourses", {
+      const listResponse = await fetch(getApiRoot() + "/api/course/professor/getAllSections", {
         method: "GET",
         credentials: "include",
         headers: {
           "content-type": "application/json"
         }
       });
-      const classList = await listResponse.json();
-      setClassList(classList);
+      const sections = await listResponse.json();
+      console.log(sections);
+      setSectionList(sections);
     };
     getclassList();
   }, []);
@@ -61,15 +65,19 @@ function MyClasses() {
         </div>
         <div className={myclasses.tablegrid}>
           <div className={myclasses.table}>
-            {filteredClasses.map((item) => (
-              <div className={myclasses.card} key={item.courseId}>
+            {sectionList.map((item) => (
+              <div className={myclasses.card} key={item.sectionId}>
                 <Card variant="outlined">
                   <div value={item} className={myclasses.tableheader}>
-                    {item.courseCode}
+                    {item.sectionName}
                   </div>
                   <div className={myclasses.tablecontent}>
                     <div className={myclasses.add}>
-                      <button className={myclasses.addbutton}>Add Virtual Machine</button>
+                      <button
+                        className={myclasses.addbutton}
+                        onClick={(e) => navigate(`/addvm?sectionId=${item.sectionId}`)}>
+                        Add Virtual Machine Template
+                      </button>
                     </div>
                   </div>
                 </Card>
