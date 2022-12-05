@@ -140,7 +140,7 @@ https://www.byui.edu/branding/color-guide
     align-items: flex-start;
     flex-direction: column;
   }
-  h3 {
+  .addClass h3 {
     text-align: center;
     padding: 20px;
     width: 100%;
