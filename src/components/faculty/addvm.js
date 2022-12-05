@@ -30,10 +30,28 @@ function AddVm() {
   const urlParams = new URLSearchParams(window.location.search);
   const courseId = urlParams.get("sectionId");
 
-  const postTemplate = async () => { };
+  const postTemplate = async () => {
+    const templateData = JSON.parse(template);
+    const options = {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        VmTemplateVCenterId: templateData.id,
+        VmTemplateName: templateData.name,
+        LibraryVCenterId: libraryId
+      })
+    };
 
-  const radioHandler = async () => { };
-
+    const response = await fetch(getApiRoot() + "/api/createvm/templates/postTemplate", options);
+    if (response.ok) {
+      alert("success!");
+    } else {
+      alert("error");
+    }
+  };
   useEffect(() => {
     const fetchSection = async () => {
       const response = await fetch(
@@ -131,7 +149,9 @@ function AddVm() {
               </div>
             )}
           </div>
-          <button id={addvm.open}>Add</button>
+          <button id={addvm.open} onClick={() => postTemplate()}>
+            Add
+          </button>
         </div>
 
         <Background templateInfo={template} />

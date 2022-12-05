@@ -17,7 +17,7 @@ const OSIcon = (props) => {
 
   if (osName.includes("WINDOWS")) return WindowsIcon;
   if (osName.includes("MAC")) return MacIcon;
-  if (osName.includes("UBUNTU")) return LinuxMintIcon;
+  if (osName.includes("UBUNTU")) return UbuntuIcon;
   if (osName.includes("DEBIAN")) return DebianIcon;
   if (osName.includes("FEDORA")) return FedoraIcon;
   if (osName.includes("MINT")) return LinuxMintIcon;
