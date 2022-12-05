@@ -5,15 +5,6 @@ import addvm from "./addvm.module.css";
 import { getApiRoot } from "../../utils/getApiRoot";
 import TemplateMetadata from "./templateMetadata";
 import OSIcon from "./osIcon";
-import { getOSIcon } from "react-os-icons";
-
-const WindowsIcon = getOSIcon({ os: "Windows", className: "icon windows" });
-const UbuntuIcon = getOSIcon({ os: "Ubuntu", className: "icon ubuntu" });
-const DebianIcon = getOSIcon({ os: "Debian", className: "icon debian" });
-const LinuxIcon = getOSIcon({ os: "Linux", className: "icon linux" });
-const MacIcon = getOSIcon({ os: "Mac OS", className: "icon mac" });
-const FedoraIcon = getOSIcon({ os: "Fedora", className: "icon fedora" });
-const LinuxMintIcon = getOSIcon({ os: "Linux Mint", className: "icon linux-mint" });
 
 function AddVm() {
   const [libraryId, setLibraryId] = useState();

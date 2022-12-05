@@ -197,13 +197,16 @@
 .addvm #open {
   background-color: #3a8ace;
   width: 175px;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   margin: auto;
   display: flex;
   justify-content: center;
   margin-left: 40%;
   padding: 10px;
+  color: white;
+  border: none;
+  font-weight: 700;
 }
 
 .addvm #addmore {

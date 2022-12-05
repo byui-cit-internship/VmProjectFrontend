@@ -8,9 +8,16 @@
      width: 10rem;
  }
 
- .questionMark {
-     font-size: 10rem;
-     color: black;
+ .vimaIcon {
+     background-color: white;
+     text-align: center;
+        border-radius: 30px;
+ }
+
+ .vimaIcon img {
+     width: 8rem;
+     padding: 1rem;
+
  }
 
  /* Ubuntu Icon Style */
@@ -36,7 +43,7 @@
      fill: black;
  }
 
- .linuxIcon{
-    background-color: white;
-    border-radius: 30px;
+ .linuxIcon {
+     background-color: white;
+     border-radius: 30px;
  }

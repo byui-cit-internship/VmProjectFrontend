@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { BsQuestionLg } from "react-icons/bs";
 import { getOSIcon } from "react-os-icons";
 import osIcon from "./osIcon.module.css";
+import vimaIcon from "../../VIMAICON.png";
+import AddVm from "./addvm";
 
 const WindowsIcon = getOSIcon({ os: "Windows", className: osIcon.windowsIcon });
 const UbuntuIcon = getOSIcon({ os: "Ubuntu", className: osIcon.ubuntuIcon });
@@ -22,7 +24,12 @@ const OSIcon = (props) => {
   if (osName.includes("FEDORA")) return FedoraIcon;
   if (osName.includes("MINT")) return LinuxMintIcon;
   if (osName.includes("LINUX")) return LinuxIcon;
-  return <BsQuestionLg className={osIcon.questionMark} />;
+  // return <BsQuestionLg className={osIcon.questionMark} />;
+  return (
+    <div className={osIcon.vimaIcon}>
+      <img alt="vima logo" src={vimaIcon} />
+    </div>
+  );
 };
 
 OSIcon.propTypes = {
