@@ -2,18 +2,59 @@
   margin: 0 auto;
 }
 
-.addvm rect {
-  fill: white;
-}
-
-.addvm path {
-  fill: black;
+.addvm .questionMark {
+  font-size: 10rem;
+  color: black;
 }
 
 .addvm,
 .addvm .headerText {
   color: #2e5b9a;
   font-family: "Raleway", sans-serif;
+}
+.addvm .icon{
+  width: 10rem;
+}
+
+.addvm .flexbox {
+  padding: 1rem;
+}
+
+.addvm .templates input[type=radio]{
+  opacity: 0;
+  cursor: pointer;
+}
+
+.addvm .uncheckedCheckmark{
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 1px solid #337AB7
+}
+
+.addvm .checkedCheckmark{
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background-color: #337AB7;
+  border-radius: 50%;
+  border: 1px solid #337AB7;
+}
+
+.addvm .checkedCheckmark::after{
+  content: "";
+  position: absolute;
+}
+
+.addvm .checkedCheckmark::after{
+  top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
 }
 
 .addvm .headerText {
@@ -88,6 +129,7 @@
 
 .addvm label {
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .addvm select {
@@ -112,17 +154,26 @@
 
 /*modal */
 .addvm .modalForTemplate {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .addvm .closeModal {

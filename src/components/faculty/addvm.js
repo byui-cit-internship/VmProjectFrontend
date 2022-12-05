@@ -2,19 +2,17 @@ import { React, useState, useEffect } from "react";
 import Background from "../../background";
 import Header from "../../header";
 import addvm from "./addvm.module.css";
-import Apple from "@mui/icons-material/Apple";
 import { getApiRoot } from "../../utils/getApiRoot";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import TemplateMetadata from "./templateMetadata";
+import OSIcon from "./osIcon";
 import { getOSIcon } from "react-os-icons";
 
 const WindowsIcon = getOSIcon({ os: "Windows", className: "icon windows" });
-const UbuntuIcon = getOSIcon({ os: "Ubunty", className: "icon ubuntu" });
+const UbuntuIcon = getOSIcon({ os: "Ubuntu", className: "icon ubuntu" });
 const DebianIcon = getOSIcon({ os: "Debian", className: "icon debian" });
 const LinuxIcon = getOSIcon({ os: "Linux", className: "icon linux" });
 const MacIcon = getOSIcon({ os: "Mac OS", className: "icon mac" });
 const FedoraIcon = getOSIcon({ os: "Fedora", className: "icon fedora" });
-const ArchIcon = getOSIcon({ os: "Arch", className: "icon arch" });
 const LinuxMintIcon = getOSIcon({ os: "Linux Mint", className: "icon linux-mint" });
 
 function AddVm() {
@@ -32,9 +30,9 @@ function AddVm() {
   const urlParams = new URLSearchParams(window.location.search);
   const courseId = urlParams.get("sectionId");
 
-  const postTemplate = async () => {};
+  const postTemplate = async () => { };
 
-  const radioHandler = async () => {};
+  const radioHandler = async () => { };
 
   useEffect(() => {
     const fetchSection = async () => {
@@ -111,13 +109,19 @@ function AddVm() {
                       onChange={(e) => {
                         setTemplate(e.target.value);
                       }}>
-                      {templates.map((template) => (
-                        <div className={addvm.flexbox}>
-                          <label key={template.id} className={addvm.template}>
-                            <input type="radio" name="template" value={JSON.stringify(template)} />
-                            {WindowsIcon}
+                      {templates.map((item) => (
+                        <div className={addvm.flexbox} key={item.id}>
+                          <label className={addvm.template}>
+                            <input type="radio" name="template" value={JSON.stringify(item)} />
+                            <span
+                              className={
+                                JSON.stringify(item) != template
+                                  ? addvm.uncheckedCheckmark
+                                  : addvm.checkedCheckmark
+                              }></span>
+                            <OSIcon operatingSystem={item.name} />
                           </label>
-                          <div>{template.name}</div>
+                          <div>{item.name}</div>
                         </div>
                       ))}
                     </div>
