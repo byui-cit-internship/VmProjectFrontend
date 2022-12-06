@@ -114,8 +114,8 @@ const FacultyDashboard = () => {
               }}>
               <span className={facultydashboard.material}>
                 <AddCircleOutlineIcon style={iconStyles} />
+                <p>My Classes</p>
               </span>
-              <button className={facultydashboard.button}>My Classes</button>
             </div>
             <div
               className={facultydashboard.add_professor}
@@ -125,8 +125,8 @@ const FacultyDashboard = () => {
               }}>
               <span className={facultydashboard.material}>
                 <PersonAddIcon style={iconStyles} />
+                <p>View Professors</p>
               </span>
-              <button className={facultydashboard.button}>View Professors</button>
             </div>
             <div
               className={facultydashboard.vm_utilization}
@@ -136,8 +136,8 @@ const FacultyDashboard = () => {
               }}>
               <span className={facultydashboard.material}>
                 <DnsIcon style={iconStyles} />
+                <p>VM Utilization</p>
               </span>
-              <button className={facultydashboard.button}>VM Utilization</button>
             </div>
           </div>
         </div>

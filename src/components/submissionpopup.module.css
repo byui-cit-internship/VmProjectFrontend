@@ -6,6 +6,20 @@
   height: 100vh;
 }
 
+button{
+  width: 100%;
+  background-color: #006eb6;
+  border-style: none;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  border-radius: 10px;
+}
+
+button:hover{
+  background-color: #014878;
+}
+
 .modalBox {
   position: absolute;
   width: 350px;
@@ -38,6 +52,7 @@
 
 .message {
   padding-top: 2em;
+  padding-bottom: 2em;
   font-family: "Raleway";
 }
 
@@ -70,9 +85,11 @@
 
 .closeicon {
   cursor: pointer;
+  padding-left: 300px;
 }
 
 .a {
   display: flex;
   justify-content: end;
+  text-decoration: none;
 }
