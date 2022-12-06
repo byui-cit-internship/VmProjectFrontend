@@ -55,7 +55,14 @@ https://www.byui.edu/branding/color-guide
 .facultydashboard .material:hover {
   cursor: pointer;
 }
-
+.facultydashboard .material p{
+  display: inline;
+  color:white;
+  padding: 10px;
+  font-family: "Raleway";
+  font-size: 1.7rem;
+  font-weight: bold;
+}
 .facultydashboard .button:hover {
   cursor: pointer;
 }
@@ -173,15 +180,13 @@ https://www.byui.edu/branding/color-guide
   color: white;
 }
 
-.facultydashboard button {
+.facultydashboard .permissionsbutton {
   background-color: transparent;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
   padding-top: 34px;
   float: left;
-  /* padding-left: 20px; */
-  /* width: 200px; */
   border: transparent;
 }
 
@@ -293,11 +298,6 @@ https://www.byui.edu/branding/color-guide
     bottom: 8vh;
   }
 
-  .facultydashboard .permissionsbutton {
-    opacity: 95%;
-    color: #1a63fb;
-    text-decoration: underline solid blue;
-  }
   .facultydashboard h1 {
     padding-left: 0;
   }
@@ -477,19 +477,10 @@ https://www.byui.edu/branding/color-guide
     background-color: #006eb6;
     color: white;
   }
-
-  .facultydashboard button {
-    background-color: transparent;
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    padding-top: 34px;
-    float: left;
-    padding-left: 20px;
-    /* width: 200px; */
-    border: transparent;
+  .facultydashboard .buttontitle{
+    color:white;
+    
   }
-
   .facultydashboard .add_professor {
     font-size: 20px;
     float: left;
