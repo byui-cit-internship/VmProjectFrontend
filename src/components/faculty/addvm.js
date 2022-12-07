@@ -5,12 +5,14 @@ import addvm from "./addvm.module.css";
 import { getApiRoot } from "../../utils/getApiRoot";
 import TemplateMetadata from "./templateMetadata";
 import OSIcon from "./osIcon";
+import LoadingSpinner from "../spinner";
 
 function AddVm() {
   const [libraryId, setLibraryId] = useState();
   const [library, setLibrary] = useState();
   const [templates, setTemplates] = useState();
   const [template, setTemplate] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const options = {
     method: "Get",
@@ -75,6 +77,7 @@ function AddVm() {
 
     const fetchTemplates = async () => {
       const response = await fetch(getApiRoot() + `/api/createvm/templates/${libraryId}`, options);
+      setIsLoading(false);
       if (response.ok) {
         const fetchedData = await response.json();
         setTemplates(fetchedData);
@@ -107,42 +110,50 @@ function AddVm() {
             />
           </div>
           {/* Virtual Machine */}
-          <div className={addvm.chooseVm}>
-            {templates && (
-              <div>
-                <div className={addvm.templateOptionsContainer}>
-                  <h3 className={addvm.headerText}>Choose a Virtual Machine Template:</h3>
-                  {templates && (
-                    <div
-                      className={addvm.templates}
-                      onChange={(e) => {
-                        setTemplate(e.target.value);
-                      }}>
-                      {templates.map((item) => (
-                        <div className={addvm.flexbox} key={item.id}>
-                          <label className={addvm.template}>
-                            <input type="radio" name="template" value={JSON.stringify(item)} />
-                            <span
-                              className={
-                                JSON.stringify(item) != template
-                                  ? addvm.uncheckedCheckmark
-                                  : addvm.checkedCheckmark
-                              }></span>
-                            <OSIcon operatingSystem={item.name} />
-                          </label>
-                          <div>{item.name}</div>
+
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <div>
+              <div className={addvm.chooseVm}>
+                {templates && (
+                  <div>
+                    <div className={addvm.templateOptionsContainer}>
+                      <h3 className={addvm.headerText}>Choose a Virtual Machine Template:</h3>
+                      {templates && (
+                        <div
+                          className={addvm.templates}
+                          onChange={(e) => {
+                            setTemplate(e.target.value);
+                          }}>
+                          {templates.map((item) => (
+                            <div className={addvm.flexbox} key={item.id}>
+                              <label className={addvm.template}>
+                                <input type="radio" name="template" value={JSON.stringify(item)} />
+                                <span
+                                  className={
+                                    JSON.stringify(item) != template
+                                      ? addvm.uncheckedCheckmark
+                                      : addvm.checkedCheckmark
+                                  }></span>
+                                <OSIcon operatingSystem={item.name} />
+                              </label>
+                              <div>{item.name}</div>
+                            </div>
+                          ))}
                         </div>
-                      ))}
+                      )}
                     </div>
-                  )}
-                </div>
-                <TemplateMetadata templateInfo={template} key={template} />
+                    <TemplateMetadata templateInfo={template} key={template} />
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-          <button id={addvm.open} onClick={() => postTemplate()}>
-            Add
-          </button>
+
+              <button id={addvm.open} onClick={() => postTemplate()}>
+                Add
+              </button>
+            </div>
+          )}
         </div>
 
         <Background templateInfo={template} />

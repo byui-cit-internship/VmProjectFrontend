@@ -34,7 +34,6 @@ const TemplateMetadata = (props) => {
       );
       if (response.ok) {
         const data = await response.json();
-        console.log("metadata: ", data);
         setMetadata(data);
       } else {
         console.log(response);
