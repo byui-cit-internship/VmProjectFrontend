@@ -1,9 +1,9 @@
-// import React from "react";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSadTear, FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../utils/getApiRoot";
 import submissionPop from "./submissionpopup.module.css";
+import PropTypes from "prop-types";
 
 const SubmissionPopup = (props) => {
   const [link, setLink] = useState("");
@@ -71,6 +71,13 @@ const SubmissionPopup = (props) => {
       </div>
     </div>
   );
+};
+
+SubmissionPopup.propTypes = {
+  againOptionMessage: PropTypes.string,
+  message: PropTypes.string,
+  success: PropTypes.bool,
+  closeHandler: PropTypes.func
 };
 
 export default SubmissionPopup;
