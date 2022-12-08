@@ -3,6 +3,7 @@ import header from "./header.module.css";
 import { FaHamburger } from "react-icons/fa";
 // import PersonIcon from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
+// import Navbar from "./navbarStudentD";
 import Navbar from "./navbar";
 
 function Header(props) {
@@ -31,14 +32,62 @@ function Header(props) {
       </div>
       <div className={header.rightSide}>
         <div className={header.links} id={showLinks ? "hidden" : ""}>
-          <a id={header.welcome}>Welcome {userFirstName} |</a>
-          <button
-            className={header.signOut}
-            onClick={() => {
-              navigate("/");
-            }}>
-            Sign out
-          </button>
+          {/* <a id={header.welcome}>Welcome {userFirstName} |</a> */}
+          <div className={header.dropdown}>
+            <button className={header.dropbtn}>Classes</button>
+            <div className={header.dropdown_content}>
+              <a
+                onClick={() => {
+                  navigate("/myclasses");
+                }}>
+                My Classes
+              </a>
+              <a
+                onClick={() => {
+                  navigate("/addclass");
+                }}>
+                Add Class
+              </a>
+            </div>
+          </div>
+          <div className={header.dropdown}>
+            <button className={header.dropbtn}>Professors</button>
+            <div className={header.dropdown_content}>
+              <a
+                onClick={() => {
+                  navigate("/professorlist");
+                }}>
+                Professor List
+              </a>
+              <a
+                onClick={() => {
+                  navigate("/addprofessor");
+                }}>
+                Add Professor
+              </a>
+            </div>
+          </div>
+          <div className={header.dropdown}>
+            <button
+              className={header.dropbtn}
+              onClick={() => {
+                navigate("/utilization");
+              }}>
+              Utilization
+            </button>
+            <div className={header.dropdown_content}></div>
+          </div>
+          <div className={header.dropdown}>
+            <button
+              className={header.signOut}
+              id={header.dropbtn}
+              onClick={() => {
+                navigate("/");
+              }}>
+              Sign out
+            </button>
+            <div className={header.dropdown_content}></div>
+          </div>
         </div>
 
         <div className={header.hamWrapper}>

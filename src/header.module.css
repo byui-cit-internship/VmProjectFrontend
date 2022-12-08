@@ -1,18 +1,20 @@
 .header .logo {
   width: 170px;
-  margin: 17px 25px;
+  margin-left: 25px;
 }
 
 .header .signOut {
-  height: 20px;
+  height: unset;
   color: red;
   padding: 10px;
   margin: 0px;
   height: 40px;
   border-radius: 25px;
-  font-size: 1em;
   border: none;
   background: none;
+  font-family: "Raleway";
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
 .header .signOut:hover {
@@ -48,7 +50,7 @@
 .header .rightSide .links a {
   text-decoration: none;
   color: #006eb6;
-  font-size: 1em;
+  font-size: 0.9em;
   margin-left: 15px;
 }
 
@@ -93,7 +95,7 @@
 /* may not work */
 
 a {
-  margin: 0px 30px;
+  margin: 10px 6px;
 }
 /* need to be more specific */
 
@@ -190,3 +192,135 @@ a {
 .header #welcome {
   font-size: 16px;
 }
+
+/* DROPDOWN */
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: white;
+  color: #022d53;
+  font-family: "Raleway";
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  transition: 3 sec;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 20px;
+  position: relative;
+  /* text-decoration-color: black; */
+}
+
+.dropbtn:hover {
+  background-color: white;
+  cursor: pointer;
+  columns: black;
+}
+
+.dropbtn::after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #022d53;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.dropbtn:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+/*  */
+/*  */
+/* Dropdown Button */
+#dropbtn {
+  height: unset;
+  background-color: white;
+  color: red;
+  font-family: "Raleway";
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 100;
+  transition: 3 sec;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding: 0px;
+  min-width: 55px;
+}
+
+#dropbtn:hover {
+  background-color: white;
+  cursor: pointer;
+  columns: black;
+}
+
+#dropbtn::after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #022d53;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+#dropbtn:hover:after {
+  width: 100%;
+  left: 0;
+}
+/*  */
+/*  */
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown_content a {
+  color: black;
+  padding: 0px;
+  text-decoration: none;
+  display: block;
+  font-family: "Raleway";
+  font-size: 0.9rem;
+  /* cursor: pointer; */
+}
+
+/* Change color of dropdown links on hover */
+.dropdown_content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown_content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+} */
