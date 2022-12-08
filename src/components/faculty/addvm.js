@@ -13,6 +13,7 @@ function AddVm() {
   const [templates, setTemplates] = useState();
   const [template, setTemplate] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [isBtnDisabled, setIsBtnDisabled] = useState(true);
 
   const options = {
     method: "Get",
@@ -144,12 +145,20 @@ function AddVm() {
                         </div>
                       )}
                     </div>
-                    <TemplateMetadata templateInfo={template} key={template} />
+                    {template && (
+                      <TemplateMetadata
+                        templateInfo={template}
+                        btnHandler={setIsBtnDisabled}
+                        key={template}
+                      />
+                    )}
                   </div>
                 )}
               </div>
-
-              <button id={addvm.open} onClick={() => postTemplate()}>
+              <button
+                onClick={() => postTemplate()}
+                disabled={!template}
+                id={isBtnDisabled ? addvm.postTemplateDisabled : addvm.postTemplateEnabled}>
                 Add
               </button>
             </div>
