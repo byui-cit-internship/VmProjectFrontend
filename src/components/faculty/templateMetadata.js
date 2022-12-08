@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { getApiRoot } from "../../utils/getApiRoot";
 import templateMetadata from "./templateMetadata.module.css";
-import LoadingSpinner from "../spinner";
+import LoadingSpinner2 from "../spinner2";
 
 const TemplateMetadata = (props) => {
   const [metadata, setMetadata] = useState();
@@ -35,7 +35,7 @@ const TemplateMetadata = (props) => {
       if (response.ok) {
         const data = await response.json();
         setMetadata(data);
-        setMetadataResponse("Error fetching data.");
+        setMetadataResponse("success");
       } else {
         setMetadataResponse("Error fetching data.");
       }
@@ -85,7 +85,7 @@ const TemplateMetadata = (props) => {
       );
     }
   } else {
-    return <LoadingSpinner />;
+    return <LoadingSpinner2 />;
   }
 };
 
