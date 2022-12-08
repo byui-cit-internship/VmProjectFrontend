@@ -29,10 +29,9 @@ function Utilization() {
   const [libraryId, setLibraryId] = useState("");
   const [setPopupInfo] = useState("");
   const [setPopupActivate] = useState("");
-  const [studentFullName, setStudentFullName] = useState("");
-  const [studentEmail, setStudentEmail] = useState("");
+  const [vmInstanceList, setVmInstanceList] = useState([]);
   const [studentUserId, setStudentUserId] = useState("");
-  const [tableData, setTableData] = useState([]);
+  const [tableStudentData, setTableStudentData] = useState([]);
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -190,20 +189,8 @@ function Utilization() {
         methods
       );
       const listResponseObject = await listResponse.json();
-
-      listResponseObject.map((item) => {
-        console.log(item.courseCode)
-        if (item.courseCode = courseCode) {
-          const tableVmTemplateName = listResponseObject.vmTemplateName;
-          const tableVmInstanceCreationDate = listResponseObject.vmInstanceExpireDate;
-          const tableVmInstanceName = listResponseObject.vmInstanceVcenterName;
-        } else {
-          const tableVmTemplateName = "N/A";
-          const tableVmInstanceCreationDate = "N/A";
-          const tableVmInstanceName = "N/A";
-        }
-    });
-
+      const officialVmList = listResponseObject.filter(item => item.sectionId = sectionId);
+      setVmInstanceList(officialVmList);
     };
     if (studentUserId) {
       getVmInstanceInfo();
@@ -216,19 +203,16 @@ function Utilization() {
   //******************************************************************/
   const setSectionStates = (item) => {
     const tempItem = JSON.parse(item);
-    setSectionId(tempItem.sectionId)
-    setLibraryId(tempItem.libraryVCenterId)
+    setSectionId(tempItem.sectionId);
+    setLibraryId(tempItem.libraryVCenterId);
   }
 
   const setStudentInfo = (first, last, email, userId) => {
     const fullStudentName = first + ' ' + last;
     setStudentUserId(userId);
-    setStudentFullName(fullStudentName)
-    setStudentEmail(email)
     
-    //setTableData([{'fullName':fullStudentName, 'email':email}])
+    setTableStudentData([{'fullName':fullStudentName, 'email':email}])
   }
-console.log(tableData)
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -303,13 +287,13 @@ console.log(tableData)
                 className={utilization.dropdownDescription}
                 id={utilization.course}
                 required
-                onChange={(event) => {setSectionStates(event.target.value)}}
+                onChange={(event) => {setSectionStates(event.target.value);}}
                 disabled={!courseCode}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
                 {courseSections.map((section) => (
-                  <option key={section.sectionCanvasId} value={JSON.stringify(section)}>
+                  <option key={section.sectionId} value={JSON.stringify(section)}>
                     {section.sectionName}
                   </option>
                 ))}
@@ -371,7 +355,7 @@ console.log(tableData)
 
             {/*User Info Table*/}
             <div className={utilization.scoreboard}>
-            {tableData?.map((item) => (
+            
               <table className={utilization.scoreboardTable}>
 
                 <thead>
@@ -380,32 +364,51 @@ console.log(tableData)
                       Student Information
                     </th>
                   </tr>
-                </thead>
-                <tbody>
+                
+                {tableStudentData?.map((item) => (
                   <tr>
                     <th className={utilization.studentName}>Student Name</th>
                     <td>{item.fullName}</td>
                   </tr>
-
+                ))}
+                {tableStudentData?.map((item) => (
                   <tr>
                     <th className={utilization.studentEmail}>Email</th>
                     <td>{item.email}</td>
                   </tr>
+                ))}
+                </thead>
+                {vmInstanceList?.map((item) => (
+                <tbody className={utilization.tbody}>
+                  <tr>
+                    <th className={utilization.thHeader} colSpan='2'>
+                      Virtual Machines
+                    </th>
+                  </tr>
 
                   <tr>
-                    <th className={utilization.studentVM}>Virtual Machine</th>
+                    <th className={utilization.creationDate}>VM Name</th>
+                    <td>{item.vmInstanceVcenterName}</td>
                   </tr>
 
                   <tr>
                     <th className={utilization.creationDate}>Creation Date</th>
+                    <td>{item.vmInstanceCreationDate}</td>
                   </tr>
 
                   <tr>
-                    <th className={utilization.vmTemplate}>VM Template</th>
+                    <th className={utilization.creationDate}>Expire Date</th>
+                    <td>{item.vmInstanceExpireDate}</td>
+                  </tr>
+
+                  <tr>
+                    <th className={utilization.vmTemplate}>VM Template Used</th>
+                    <td>{item.vmTemplateName}</td>
                   </tr>
                 </tbody>
+                ))}
               </table>
-              ))}
+              
             </div>
           </div>
         
