@@ -12,7 +12,7 @@
   padding: 1rem;
 }
 
-.addvm .templates input[type=radio] {
+.addvm .templates input[type="radio"] {
   opacity: 0;
   cursor: pointer;
 }
@@ -23,20 +23,20 @@
   width: 16px;
   background-color: white;
   border-radius: 50%;
-  border: 2px solid #337AB7;
+  border: 2px solid #337ab7;
   margin-top: 0.5rem;
-  margin-left:0.3rem;
+  margin-left: 0.3rem;
 }
 
 .addvm .checkedCheckmark {
   position: absolute;
   height: 16px;
   width: 16px;
-  background-color: #337AB7;
+  background-color: #337ab7;
   border-radius: 50%;
-  border: 2px solid #337AB7;
+  border: 2px solid #337ab7;
   margin-top: 0.5rem;
-  margin-left:0.3rem;
+  margin-left: 0.3rem;
 }
 
 .addvm .checkedCheckmark::after {
@@ -194,7 +194,21 @@
   width: 50%;
 }
 
-.addvm #open {
+.addvm #postTemplateDisabled {
+  width: 175px;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-left: 40%;
+  padding: 10px;
+  color: rgba(135, 138, 140, 0.6);
+  cursor: not-allowed;
+  background-color: rgba(135, 138, 140, 0.3);
+}
+
+.addvm #postTemplateEnabled {
   background-color: #3a8ace;
   width: 175px;
   border-radius: 10px;
@@ -207,6 +221,7 @@
   color: white;
   border: none;
   font-weight: 700;
+  cursor:pointer;
 }
 
 .addvm #addmore {
