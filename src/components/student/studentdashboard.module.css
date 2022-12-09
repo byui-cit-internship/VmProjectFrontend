@@ -267,6 +267,10 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
+  .studentdashboard .container {
+    padding: 0px 20px;
+  }
+
   .studentdashboard .professorpermissions {
     background: white;
     position: absolute;

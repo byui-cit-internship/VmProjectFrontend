@@ -2,7 +2,7 @@
   font-family: "Raleway", sans-serif;
 }
 .myclasses .container {
-  width: 1000px;
+  max-width: 1000px;
   margin: 50px auto;
   border-radius: 50px;
   column-gap: 10%;

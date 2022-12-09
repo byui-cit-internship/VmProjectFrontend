@@ -1,5 +1,5 @@
 import Background from "../../background";
-import Header from "../../header";
+import Header from "../../headerStudent";
 import myVm from "./myvm.module.css";
 import { useNavigate } from "react-router-dom";
 import { React, useEffect, useState } from "react";

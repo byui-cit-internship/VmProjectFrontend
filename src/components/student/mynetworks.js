@@ -1,5 +1,5 @@
 import Background from "../../background";
-import Header from "../../header";
+import Header from "../../headerStudent";
 import mynetworks from "./mynetworks.module.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";

@@ -1,6 +1,6 @@
 import createVM from "./createvm.module.css";
 import Background from "../../background";
-import Header from "../../header";
+import Header from "../../headerStudent";
 // import LaptopIcon from "@mui/icons-material/Laptop";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -15,7 +15,7 @@ function CreateVM() {
   const [vmInstanceName, setVmInstanceName] = useState("");
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
-console.log(vmInstanceName)
+  console.log(vmInstanceName);
 
   let navigate = useNavigate();
 
@@ -29,9 +29,12 @@ console.log(vmInstanceName)
         method: "GET"
       };
 
-      const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/StudentCourse", methods);
+      const courseResponse = await fetch(
+        getApiRoot() + "/api/StudentCourse/StudentCourse",
+        methods
+      );
       const courseResponseObject = await courseResponse.json();
-      const arrUniq = [...new Map(courseResponseObject.map(v => [v.id, v])).values()]
+      const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
       setCourseList(arrUniq);
     };
     getCourseList();
@@ -101,7 +104,12 @@ console.log(vmInstanceName)
                   <LibraryBooksIcon className={createVM.material} />
                 </span>
                 <p className={createVM.description}>2. Name Your VM</p>
-                <input onChange={(e) => setVmInstanceName(e.target.value)} type="text" id={createVM.vmName} placeholder="VM Name"/>
+                <input
+                  onChange={(e) => setVmInstanceName(e.target.value)}
+                  type="text"
+                  id={createVM.vmName}
+                  placeholder="VM Name"
+                />
 
                 {/* template vm dropdown - Not needed for MVP */}
                 {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
