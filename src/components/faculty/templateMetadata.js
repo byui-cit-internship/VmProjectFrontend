@@ -47,7 +47,7 @@ const TemplateMetadata = (props) => {
     } else {
       console.log("no template");
     }
-  }, [template]);
+  }, []);
 
   if (metadataResponse) {
     if (metadataResponse !== "Error fetching data.") {
