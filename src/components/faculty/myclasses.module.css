@@ -1,6 +1,3 @@
-
-/* Large View */
-
 .body {
   font-family: "Raleway", sans-serif;
 }
@@ -19,11 +16,11 @@
   cursor: pointer;
   font-size: 1.5em;
   margin-top: 1.5em;
-  font-family: 'Raleway';
+  font-family: "Raleway";
 }
 .myclasses .title {
   font-size: 3rem;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   align-items: center;
   text-align: center;
   font-weight: bold;
@@ -36,7 +33,7 @@
 .myclasses #classesAndSearch {
   display: flex;
   width: 800px;
-  margin-right: auto;
+  /* margin-right: auto; */
   font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
   padding: 10px 0px;
@@ -53,14 +50,14 @@
 }
 
 .myclasses .searchbar {
-margin: 0px 50px 0px 50px;
-border: 1px solid #ffffff;
-background-color: #006eb6;
-height: 30px;
-width: 300px;
-padding: 0px 9px;
-display: flex;
-align-items: center;
+  margin: 0px 50px 0px 50px;
+  border: 1px solid #ffffff;
+  background-color: #006eb6;
+  height: 30px;
+  width: 300px;
+  padding: 0px 9px;
+  display: flex;
+  align-items: center;
 }
 
 .myclasses #search {
@@ -70,14 +67,15 @@ align-items: center;
   margin-left: 3px;
 }
 
-.myclasses #search::placeholder{
+.myclasses #search::placeholder {
   color: #ffffff;
   background-color: #006eb6;
   opacity: 80%;
 }
 
-
-.myclasses #search:focus, textarea:focus, select:focus{
+.myclasses #search:focus,
+textarea:focus,
+select:focus {
   outline: none;
   caret-color: auto;
   color: transparent;
@@ -89,7 +87,7 @@ align-items: center;
 }
 
 .myclasses #search:focus::-moz-placeholder {
- opacity: 0;
+  opacity: 0;
 }
 
 .myclasses #search:focus:-ms-input-placeholder {
@@ -97,18 +95,18 @@ align-items: center;
 }
 
 .myclasses #search:focus:-moz-placeholder {
- opacity: 0;
+  opacity: 0;
 }
-.myclasses .vmName{
+.myclasses .vmName {
   color: #004878;
   padding: 10px;
 }
-.myclasses .semester{
+.myclasses .semester {
   float: right;
   padding: 10px;
 }
 .submitBt {
-  background-color: #58B952;
+  background-color: #58b952;
   font-size: 1.5rem;
   padding: 10px;
   margin: 0px 40% 20px;
@@ -118,35 +116,35 @@ align-items: center;
   color: #fff;
 }
 
-.myclasses .table{
-  gap: .5em;
+.myclasses .table {
+  gap: 0.5em;
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.myclasses .card{
+.myclasses .card {
   width: 45%;
 }
-.myclasses .tableheader{
+.myclasses .tableheader {
   background-color: #006eb6;
   color: white;
   padding: 20px;
   font-family: "Raleway";
-  font-weight:bolder
+  font-weight: bolder;
 }
-.myclasses .tablecontent{
+.myclasses .tablecontent {
   padding: 20px;
   font-family: "Raleway";
   font-weight: bold;
   margin: auto;
   text-align: center;
-} 
+}
 
-.myclasses .tablecontent span{
+.myclasses .tablecontent span {
   float: right;
 }
-.myclasses .addbutton{
+.myclasses .addbutton {
   background-color: #006eb6;
   border-style: none;
   font-family: "Raleway";
@@ -157,9 +155,13 @@ align-items: center;
   width: 45%;
   cursor: pointer;
 }
-.myclasses .tablerow{
+.myclasses .tablerow {
   padding: 1em;
-  color:#004878;
+  color: #004878;
+}
+
+.myclasses .submitBt {
+  cursor: pointer;
 }
 
 /* 
@@ -171,61 +173,130 @@ phone: 480px
 
 /*Small view*/
 @media screen and (max-width: 37.4em) {
-
-  .myclasses .container{
+  .header {
+    background-color: black;
+  }
+  .myclasses .container {
+    padding: 0px 10px 10px 10px;
     border-radius: 0px;
-    width: 100vw;
+    width: unset;
     height: auto;
     margin-top: 0;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .myclasses .title {
+    margin: 0;
+    padding: 10px 15px;
     color: #004878;
     align-self: center;
   }
-  .myclasses .card{
+  .myclasses h1 {
+    font-size: 2rem !important;
+  }
+  .myclasses .card {
     width: 90%;
     align-self: center;
-    padding: 20px;
+    padding: 20px 0px;
   }
-  .myclasses .table{
+  .myclasses .table {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     width: 100%;
+    padding: 0;
   }
-  .myclasses .addbutton{
+  .myclasses .addbutton {
     width: 70%;
     padding: 20px;
     display: flex block;
     justify-content: center;
     align-items: center;
   }
-  .myclasses .submitBt{
+  .myclasses .submitBt {
     display: flex;
     justify-content: center;
     align-items: center;
     align-self: center;
-    width: 70%;
-    padding: 20px;
+    min-width: 165px;
     margin-top: 15px;
     margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 1rem;
+    cursor: pointer;
   }
-  .myclasses .searchbar{
-    width: 100%;
+  .myclasses .searchbar {
+    margin: 0;
+    width: 60vw;
+    max-width: 300px;
+    min-width: 152px;
   }
+
+  .myclasses #search {
+    width: 60vw;
+    max-width: 300px;
+    min-width: 152px;
+    margin: 0;
+  }
+
   .myclasses #classesAndSearch {
-    width: 100%;
     color: white;
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: -25px;
+    width: unset;
+    padding: 15px;
+    width: 70vw;
+    max-width: 300px;
+    min-width: 170px;
   }
-  .myclasses .add{
+
+  .myclasses .tablecontent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .myclasses .add {
     width: 80%;
-    padding: 20px;
-    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+  .myclasses .addbutton {
+    width: 100%;
+  }
+
+  .myclasses .tablegrid {
+    width: 75vw;
+    max-width: 400px;
+    min-width: 185px;
+  }
+
+  .myclasses .myclasses {
+    margin-right: 0 !important;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  .myclasses .container {
+    width: 92vw;
+    min-width: 550px;
+  }
+
+  .myclasses .submitBt {
+    font-size: 1rem;
+  }
+
+  .myclasses #classesAndSearch {
+    width: unset;
+  }
+}
+
+@media only screen and (min-width: 64em) {
 }

@@ -71,7 +71,7 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass .alertLabel {
   font-weight: bold;
-  opacity: 50%;
+  opacity: 65%;
 }
 .addclass .alert {
   padding: 10px;
@@ -112,8 +112,98 @@ https://www.byui.edu/branding/color-guide
 .addclass input.invalid {
   border-color: red;
 }
+
+/*small view*/
+@media screen and (max-width: 37.4em) {
+  .addclass .container {
+    border-radius: 0px;
+    width: unset;
+    border-radius: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 100%;
+    margin-top: 0;
+    padding: 0px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .addclass .table {
+    display: block;
+  }
+  .addclass h1 {
+    font-size: 2rem;
+    text-align: left;
+    padding: 0px 15px;
+    color: pink;
+  }
+
+  .addclass .singleDiv {
+    margin: 0px 0px 25px 0px !important;
+  }
+
+  .addclass .label {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .addclass .form {
+    margin: auto 0;
+    width: 75vw;
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  .addclass .flex1 {
+    width: 90%;
+    padding: 15px 15px 0px 15px;
+  }
+  .addclass .flex2 {
+    width: 90%;
+    padding: 0px 15px 15px 15px;
+  }
+  .addclass .form select {
+    font-size: 1rem;
+    width: 100%;
+  }
+  .addclass .courseIdInput {
+    font-size: 2rem;
+  }
+  .addclass .btnprimary {
+    width: 165px;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .addclass .alert {
+    padding: 0;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addclass .alertLabel {
+    font-size: 0.9rem;
+    font-weight: 100;
+    margin: 25px 0px;
+  }
+}
+
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .addclass .form {
+    flex-direction: column;
+  }
+
+  .addclass h1 {
+    color: green;
+  }
+
+  .addclass .container {
+    width: unset;
+  }
+
   /* Popup style */
   .addclass .popupbox {
     position: fixed;
@@ -188,47 +278,10 @@ https://www.byui.edu/branding/color-guide
     transition: 0.3s;
   }
 }
-/*small view*/
-@media screen and (max-width: 37.4em) {
-  .addclass .container {
-    border-radius: 0px;
-    width: 100vw;
-    border-radius: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 100%;
-    margin-top: 0;
-  }
-  .addclass .table {
-    display: block;
-  }
+
+/*large view*/
+@media screen and (min-width: 64em) {
   .addclass h1 {
-    font-size: 3rem;
-    text-align: center;
-  }
-  .addclass .label {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  .addclass .form {
-    display: block;
-    margin: auto 0;
-  }
-  .addclass .flex1 {
-    width: 90%;
-  }
-  .addclass .flex2 {
-    width: 90%;
-  }
-  .addclass .form select {
-    font-size: 2rem;
-    width: 100%;
-  }
-  .addclass .courseIdInput {
-    font-size: 2rem;
-  }
-  .addclass .btnprimary {
-    width: 50%;
-    margin-left: 25%;
+    color: purple;
   }
 }

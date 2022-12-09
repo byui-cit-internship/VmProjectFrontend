@@ -55,12 +55,12 @@
   margin-left: 15px;
 }
 
-.header .rightSide .hamWrapper {
+/* .header .rightSide .hamWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 45px;
-}
+} */
 
 .header .rightSide .outHam {
   visibility: hidden;
@@ -102,9 +102,14 @@ a {
 
 /* Small View */
 @media screen and (max-width: 37.4em) {
+  .header .rightSide {
+    margin-right: 0px !important;
+  }
+
   .header {
-    align-items: baseline;
+    /* align-items: baseline; */
     height: 90px;
+    width: 85vw;
     /* max-width: 260px; */
   }
 
@@ -141,6 +146,7 @@ a {
 
   .header .logo {
     width: 130px;
+    margin-left: 0px;
   }
   .header .hamWrapper {
     display: flex;
@@ -150,7 +156,7 @@ a {
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
   .header {
-    width: 100vw;
+    width: 96vw;
     max-width: 970px;
   }
 
