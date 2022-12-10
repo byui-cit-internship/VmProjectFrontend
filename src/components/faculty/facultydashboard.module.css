@@ -452,6 +452,15 @@ https://www.byui.edu/branding/color-guide
     margin-top: 50px;
     font-size: 2.6em;
   }
+
+  .facultydashboard .buttons {
+    padding-right: 0 !important;
+  }
+
+  .facultydashboard .container {
+    width: 95vw;
+    max-width: 1000px;
+  }
 }
 
 /* Large View */
@@ -610,17 +619,5 @@ https://www.byui.edu/branding/color-guide
     margin-top: 30px;
     float: left;
     padding-left: 20px;
-  }
-}
-
-/* Medium View */
-@media only screen and (min-width: 37.5em) {
-  .facultydashboard .buttons {
-    padding-right: 0 !important;
-  }
-
-  .facultydashboard .container {
-    width: 95vw;
-    max-width: 1000px;
   }
 }

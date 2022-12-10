@@ -12,7 +12,7 @@
   padding: 1rem;
 }
 
-.addvm .templates input[type=radio] {
+.addvm .templates input[type="radio"] {
   opacity: 0;
   cursor: pointer;
 }
@@ -23,20 +23,20 @@
   width: 16px;
   background-color: white;
   border-radius: 50%;
-  border: 2px solid #337AB7;
+  border: 2px solid #337ab7;
   margin-top: 0.5rem;
-  margin-left:0.3rem;
+  margin-left: 0.3rem;
 }
 
 .addvm .checkedCheckmark {
   position: absolute;
   height: 16px;
   width: 16px;
-  background-color: #337AB7;
+  background-color: #337ab7;
   border-radius: 50%;
-  border: 2px solid #337AB7;
+  border: 2px solid #337ab7;
   margin-top: 0.5rem;
-  margin-left:0.3rem;
+  margin-left: 0.3rem;
 }
 
 .addvm .checkedCheckmark::after {
@@ -228,4 +228,90 @@
 
 .addvm .addTemplateVm {
   width: 50px;
+}
+
+/* S E P A R A T I O N */
+
+/* Small View */
+@media screen and (max-width: 37.5em) {
+  .addvm .header {
+    width: 90vw;
+    max-width: 800px !important;
+  }
+  .addvm .container {
+    margin: 0;
+    padding-top: 0 !important;
+    width: unset;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 15px;
+  }
+
+  .addvm h1 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 5px 0px 30px 0px;
+  }
+
+  .addvm .content {
+    width: unset;
+    padding: 0;
+    margin: 0px 0px 0px 15px;
+    background-color: white;
+  }
+
+  .addvm .headerText {
+    font-size: 1rem;
+  }
+
+  .addvm #open {
+    margin: 20px 0px;
+  }
+
+  .addvm .contentLibrary {
+    background-color: white;
+  }
+
+  .addvm .chooseVm {
+    background-color: white;
+  }
+
+  .addvm .flexbox {
+    padding: 0;
+  }
+
+  .addvm #contentLibrary {
+    width: unset;
+    padding-left: 0;
+  }
+
+  .addvm #open {
+    margin: 10px 0px 25px 0px;
+    width: 100%;
+    /* background-color: white; */
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+  .addvm .container {
+    width: 95vw;
+    max-width: 1000px;
+  }
+
+  .addvm .content {
+    padding: 0px 25px;
+    width: unset;
+    border-radius: 50px;
+  }
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
+  .addvm .content {
+    max-width: 580px;
+    padding: 25px 50px;
+  }
 }
