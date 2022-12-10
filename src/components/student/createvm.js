@@ -13,6 +13,7 @@ function CreateVM() {
   const [courseList, setCourseList] = useState([]);
   const [enrollmentId, setEnrollmentId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
+  const [vmCreationDate, setVmCreationDate] = useState("");
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
   console.log(vmInstanceName);
@@ -29,10 +30,7 @@ function CreateVM() {
         method: "GET"
       };
 
-      const courseResponse = await fetch(
-        getApiRoot() + "/api/StudentCourse/StudentCourse",
-        methods
-      );
+      const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/section", methods);
       const courseResponseObject = await courseResponse.json();
       const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
       setCourseList(arrUniq);
@@ -50,7 +48,8 @@ function CreateVM() {
       },
       body: JSON.stringify({
         enrollment_id: enrollmentId,
-        vmInstanceName: vmInstanceName
+        vmInstanceName: vmInstanceName,
+        vmInstanceCreationDate: vmCreationDate
       })
     };
 
@@ -65,6 +64,15 @@ function CreateVM() {
     }
   };
 
+  //Gets the current date for the creation date of the vm instance
+useEffect(() => {
+  var currentDate = new Date();
+  const offset = currentDate.getTimezoneOffset()
+  currentDate = new Date(currentDate.getTime() - (offset*60*1000))
+  const creationDate = currentDate.toISOString().split('T')[0]
+  setVmCreationDate(creationDate)
+}, []);
+  
   return (
     <div className={createVM.createvm}>
       <div className={createVM.container}>
@@ -86,7 +94,7 @@ function CreateVM() {
                 <span className={createVM.material}>
                   <LibraryBooksIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>1. Select Course</p>
+                <p className={createVM.description}>1. Select Section</p>
                 <select
                   className="course"
                   id={createVM.course}

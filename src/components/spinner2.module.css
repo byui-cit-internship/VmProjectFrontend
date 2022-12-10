@@ -6,7 +6,7 @@
       transform: rotate(360deg);
     }
   }
-.loadingSpinner {
+  .loadingSpinner {
     width: 100px;
     height: 100px;
     border: 20px solid #3a8ace;
@@ -14,16 +14,12 @@
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
   }
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+  
+  .modal {
+    position: block;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
+  } 
+  
