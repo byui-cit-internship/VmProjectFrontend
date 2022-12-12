@@ -16,7 +16,6 @@ function CreateVM() {
   const [vmCreationDate, setVmCreationDate] = useState("");
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
-  console.log(vmInstanceName);
 
   let navigate = useNavigate();
 
