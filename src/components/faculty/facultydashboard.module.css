@@ -55,9 +55,9 @@ https://www.byui.edu/branding/color-guide
 .facultydashboard .material:hover {
   cursor: pointer;
 }
-.facultydashboard .material p{
+.facultydashboard .material p {
   display: inline;
-  color:white;
+  color: white;
   padding: 10px;
   font-family: "Raleway";
   font-size: 1.7rem;
@@ -280,6 +280,10 @@ https://www.byui.edu/branding/color-guide
   padding-left: 20px;
 }
 
+.facultydashboard .material p {
+  font-size: 1.2rem;
+}
+
 /* S E P A R A T I O N */
 
 /* Small View */
@@ -355,6 +359,8 @@ https://www.byui.edu/branding/color-guide
 
   .facultydashboard .material {
     padding-top: 0px !important;
+    display: flex;
+    align-items: center;
   }
 
   .facultydashboard .main {
@@ -409,6 +415,18 @@ https://www.byui.edu/branding/color-guide
     margin-top: 50px;
     font-size: 2.6em;
   }
+
+  .facultydashboard .material {
+    display: flex;
+    align-items: center;
+    margin: 0px 0px 0px 55px;
+    padding: 0 !important;
+  }
+
+  .facultydashboard #singleContainer {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Large View */
@@ -447,7 +465,6 @@ https://www.byui.edu/branding/color-guide
   .facultydashboard .material {
     padding-left: 20px !important;
     margin-left: 0px !important;
-
   }
 
   .facultydashboard #welcome {
@@ -477,9 +494,8 @@ https://www.byui.edu/branding/color-guide
     background-color: #006eb6;
     color: white;
   }
-  .facultydashboard .buttontitle{
-    color:white;
-    
+  .facultydashboard .buttontitle {
+    color: white;
   }
   .facultydashboard .add_professor {
     font-size: 20px;
