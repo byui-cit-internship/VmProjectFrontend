@@ -267,6 +267,10 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
+  .studentdashboard .container {
+    padding: 0px 20px;
+  }
+
   .studentdashboard .professorpermissions {
     background: white;
     position: absolute;
@@ -367,8 +371,13 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
   }
 
+  .studentdashboard .button {
+    padding: 0px;
+  }
+
   .studentdashboard #singleContainer {
     margin-top: 20px;
+    display: flex;
   }
 
   .studentdashboard .text {

@@ -268,9 +268,8 @@ width=0,height=0,left=-1000,top=-1000`;
           <Header userType="facultydashboard" />
           <h1>Add Class</h1>
           <div className={addclass.form}>
-            {/*Course*/}
             <div className={addclass.flex1}>
-              <div>
+              <div className={addclass.singleDiv}>
                 <label className={addclass.label} htmlFor="name">
                   Course:
                 </label>
@@ -292,7 +291,7 @@ width=0,height=0,left=-1000,top=-1000`;
               </div>
 
               {/*Library*/}
-              <div>
+              <div className={addclass.singleDiv}>
                 <label className={addclass.label}>Choose Library: </label>
                 <br></br>
                 <select
@@ -312,19 +311,21 @@ width=0,height=0,left=-1000,top=-1000`;
               </div>
 
               {/*Course ID*/}
-              <div className={addclass.courseid}>
-                <label className={addclass.label}>Canvas Course ID: </label> <br></br>
-                <span role="alert" id={addclass.nameError} aria-hidden="true">
-                  {/* Please add a valid Course ID */}
-                </span>
-                <input
-                  className={addclass.courseIdInput}
-                  readOnly
-                  type="text"
-                  value={canvasCourseId}></input>
+              <div className={addclass.singleDiv}>
+                <div className={addclass.courseid}>
+                  <label className={addclass.label}>Canvas Course ID: </label> <br></br>
+                  <span role="alert" id={addclass.nameError} aria-hidden="true">
+                    {/* Please add a valid Course ID */}
+                  </span>
+                  <input
+                    className={addclass.courseIdInput}
+                    readOnly
+                    type="text"
+                    value={canvasCourseId}></input>
+                </div>
               </div>
               {/*Template VM*/}
-              <div>
+              <div className={addclass.singleDiv}>
                 <label className={addclass.label}>Template Virtual Machine: </label>
                 <br></br>
                 <select
@@ -348,7 +349,7 @@ width=0,height=0,left=-1000,top=-1000`;
             </div>
             <div className={addclass.flex2}>
               {/*Semester*/}
-              <div>
+              <div className={addclass.singleDiv}>
                 <label className={addclass.label}>Choose Semester: </label> <br></br>
                 <select
                   onChange={(event) => {
@@ -364,7 +365,7 @@ width=0,height=0,left=-1000,top=-1000`;
                 </select>
               </div>
               {/*vCenter Folder*/}
-              <div>
+              <div className={addclass.singleDiv}>
                 <label className={addclass.label}>vCenter Folder:</label>
                 <br></br>
                 <select
@@ -384,50 +385,45 @@ width=0,height=0,left=-1000,top=-1000`;
                     </option>
                   ))}
                 </select>
+              </div>
 
-                {/*Resource Pool*/}
-                <div>
-                  <label className={addclass.label}>Resource Pool:</label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    name="resourcePool"
-                    required
-                    onChange={(event) => {
-                      separateResourcePoolName(event.target.value);
-                    }}>
-                    <option value="" hidden>
-                      Choose a Resource Pool
+              {/*Resource Pool*/}
+              <div className={addclass.singleDiv}>
+                <label className={addclass.label}>Resource Pool:</label>
+                <br></br>
+                <select
+                  className={addclass.select}
+                  name="resourcePool"
+                  required
+                  onChange={(event) => {
+                    separateResourcePoolName(event.target.value);
+                  }}>
+                  <option value="" hidden>
+                    Choose a Resource Pool
+                  </option>
+                  {resourcePoolList?.map((item) => (
+                    <option key={item.name} value={JSON.stringify(item)}>
+                      {item.name}
                     </option>
-                    {resourcePoolList?.map((item) => (
-                      <option key={item.name} value={JSON.stringify(item)}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className={addclass.alert}>
-                  <label className={addclass.alertLabel}>No folder for your class?</label>
-                  <button
-                    onClick={togglePopup}
-                    type="vCenterFolder Alert Button"
-                    className={addclass.alertButton}>
-                    <i className={addclass.alertIcon} aria-hidden="true"></i>
-                    <a
-                      href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template"
-                      className={addclass.a}>
-                      Create vCenter Folder
-                    </a>
-                  </button>
-                </div>
+                  ))}
+                </select>
               </div>
             </div>
+
+            <button type="button" className={addclass.btnprimary} onClick={validateForm}>
+              Add
+            </button>
+            <div className={addclass.alert}>
+              <label className={addclass.alertLabel}>
+                No folder for your class?{" "}
+                <a
+                  href="https://byui-cit.atlassian.net/wiki/spaces/VSSP/pages/2392332/How+to+set+up+a+VM+template"
+                  className={addclass.a}>
+                  Create vCenter Folder
+                </a>
+              </label>
+            </div>
           </div>
-          <br></br>
-          <button type="button" className={addclass.btnprimary} onClick={validateForm}>
-            Add
-          </button>
         </div>
       </div>
       {isPopupOpen && (

@@ -76,7 +76,7 @@ function MyClasses() {
                       <button
                         className={myclasses.addbutton}
                         onClick={(e) => navigate(`/addvm?sectionId=${item.sectionId}`)}>
-                        Add Virtual Machine Template
+                        Add VM Template
                       </button>
                     </div>
                   </div>
