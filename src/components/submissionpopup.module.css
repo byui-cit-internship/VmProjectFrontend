@@ -6,7 +6,7 @@
   height: 100vh;
 }
 
-button{
+button {
   width: 100%;
   background-color: #006eb6;
   border-style: none;
@@ -16,7 +16,7 @@ button{
   border-radius: 10px;
 }
 
-button:hover{
+button:hover {
   background-color: #014878;
 }
 
@@ -92,4 +92,33 @@ button:hover{
   display: flex;
   justify-content: end;
   text-decoration: none;
+}
+
+/* Small View */
+@media only screen and (max-width: 37.5em) {
+  .modalBox {
+    width: 65vw;
+  }
+
+  .iconPlaceholder {
+    margin: 0;
+  }
+
+  .message {
+    min-width: 165px;
+    width: 65vw;
+  }
+
+  .optionsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
 }
