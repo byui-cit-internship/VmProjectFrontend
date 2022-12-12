@@ -10,8 +10,6 @@ const TemplateMetadata = (props) => {
   const template = props.templateInfo ? JSON.parse(props.templateInfo) : false;
   var options = { year: "numeric", month: "numeric", day: "numeric" };
 
-  if (props.templateInfo) console.log("template info: ", JSON.parse(props.templateInfo));
-
   var date;
   var date2;
   if (template) {

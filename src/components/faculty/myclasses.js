@@ -5,6 +5,28 @@ import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { React, useEffect, useState } from "react";
 import { Card } from "@mui/material";
+import LoadingSpinner2 from "../spinner2";
+
+const DbLibraryTemplates = (props) => {
+  useEffect(() => {
+    const fetchTemplates = async () => {
+      const options = {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      };
+      const response = await fetch(
+        getApiRoot() + `/api/createvm/templates/bylibraryid/${props.libraryId}`,
+        options
+      );
+      if(response.ok){
+        
+      }
+    };
+  }, []);
+};
 
 function MyClasses() {
   let navigate = useNavigate();
@@ -51,7 +73,6 @@ function MyClasses() {
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
         <Header userType="facultydashboard" />
-        {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
         <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
           <div className={myclasses.searchbar}>
