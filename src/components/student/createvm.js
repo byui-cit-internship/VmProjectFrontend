@@ -1,6 +1,6 @@
 import createVM from "./createvm.module.css";
 import Background from "../../background";
-import Header from "../../header";
+import Header from "../../headerStudent";
 // import LaptopIcon from "@mui/icons-material/Laptop";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -16,7 +16,6 @@ function CreateVM() {
   const [vmCreationDate, setVmCreationDate] = useState("");
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
-console.log(vmInstanceName)
 
   let navigate = useNavigate();
 
@@ -32,7 +31,7 @@ console.log(vmInstanceName)
 
       const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/section", methods);
       const courseResponseObject = await courseResponse.json();
-      const arrUniq = [...new Map(courseResponseObject.map(v => [v.id, v])).values()]
+      const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
       setCourseList(arrUniq);
     };
     getCourseList();
@@ -112,7 +111,12 @@ useEffect(() => {
                   <LibraryBooksIcon className={createVM.material} />
                 </span>
                 <p className={createVM.description}>2. Name Your VM</p>
-                <input onChange={(e) => setVmInstanceName(e.target.value)} type="text" id={createVM.vmName} placeholder="VM Name"/>
+                <input
+                  onChange={(e) => setVmInstanceName(e.target.value)}
+                  type="text"
+                  id={createVM.vmName}
+                  placeholder="VM Name"
+                />
 
                 {/* template vm dropdown - Not needed for MVP */}
                 {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
