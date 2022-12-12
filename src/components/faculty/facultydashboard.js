@@ -113,7 +113,7 @@ const FacultyDashboard = () => {
                 navigate("/myclasses");
               }}>
               <span className={facultydashboard.material}>
-                <AddCircleOutlineIcon style={iconStyles} />
+                <AddCircleOutlineIcon style={iconStyles} className={facultydashboard.icon} />
                 <p>My Classes</p>
               </span>
             </div>
@@ -124,7 +124,7 @@ const FacultyDashboard = () => {
                 navigate("/professorlist");
               }}>
               <span className={facultydashboard.material}>
-                <PersonAddIcon style={iconStyles} />
+                <PersonAddIcon style={iconStyles} className={facultydashboard.icon} />
                 <p>View Professors</p>
               </span>
             </div>
@@ -135,7 +135,7 @@ const FacultyDashboard = () => {
                 navigate("/utilization");
               }}>
               <span className={facultydashboard.material}>
-                <DnsIcon style={iconStyles} />
+                <DnsIcon style={iconStyles} className={facultydashboard.icon} />
                 <p>VM Utilization</p>
               </span>
             </div>
