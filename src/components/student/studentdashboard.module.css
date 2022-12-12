@@ -371,8 +371,13 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
   }
 
+  .studentdashboard .button {
+    padding: 0px;
+  }
+
   .studentdashboard #singleContainer {
     margin-top: 20px;
+    display: flex;
   }
 
   .studentdashboard .text {
