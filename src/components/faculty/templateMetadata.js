@@ -89,7 +89,7 @@ const TemplateMetadata = (props) => {
 
 TemplateMetadata.propTypes = {
   templateInfo: PropTypes.string,
-  btnHandler: PropTypes.func
+  btnHandler: PropTypes.func.isRequired
 };
 
 export default TemplateMetadata;

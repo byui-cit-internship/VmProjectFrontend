@@ -1,6 +1,7 @@
 import React from "react";
 import { FaSadTear, FaCheck } from "react-icons/fa";
 import approveprofessorpop from "./approveprofessorpop.module.css";
+import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 
@@ -42,6 +43,13 @@ const ApproveProfessorPopup = (props) => {
       </div>
     </div>
   );
+};
+
+ApproveProfessorPopup.propTypes = {
+  againOptionMessage: PropTypes.string.isRequired,
+  closeHandler: PropTypes.func.isRequired,
+  success: PropTypes.bool,
+  message: PropTypes.string.isRequired
 };
 
 export default ApproveProfessorPopup;

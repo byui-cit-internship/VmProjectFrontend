@@ -69,7 +69,7 @@ const DbLibraryTemplates = (props) => {
 };
 
 DbLibraryTemplates.propTypes = {
-  libraryId: PropTypes.string
+  libraryId: PropTypes.string.isRequired
 };
 
 export default DbLibraryTemplates;
