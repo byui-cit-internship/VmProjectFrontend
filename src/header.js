@@ -5,6 +5,7 @@ import { FaHamburger } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 // import Navbar from "./navbarStudentD";
 import Navbar from "./navbar";
+import PropTypes from "prop-types";
 
 function Header(props) {
   const [showLinks, setShowLinks] = useState(false);
@@ -100,5 +101,9 @@ function Header(props) {
     </div>
   );
 }
+
+Header.propTypes = {
+  userType: PropTypes.string.isRequired
+};
 
 export default Header;

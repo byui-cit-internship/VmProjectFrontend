@@ -74,10 +74,10 @@ const SubmissionPopup = (props) => {
 };
 
 SubmissionPopup.propTypes = {
-  againOptionMessage: PropTypes.string,
-  message: PropTypes.string,
+  againOptionMessage: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
   success: PropTypes.bool,
-  closeHandler: PropTypes.func
+  closeHandler: PropTypes.func.isRequired
 };
 
 export default SubmissionPopup;
