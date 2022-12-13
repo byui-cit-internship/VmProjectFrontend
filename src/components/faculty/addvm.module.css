@@ -221,7 +221,7 @@
   color: white;
   border: none;
   font-weight: 700;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .addvm #addmore {
@@ -307,6 +307,16 @@
     width: 100%;
     /* background-color: white; */
   }
+
+  .addvm #postTemplateDisabled {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .addvm #postTemplateEnabled {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
 }
 
 /* Medium View */
@@ -318,8 +328,18 @@
 
   .addvm .content {
     padding: 0px 25px;
-    width: unset;
+
     border-radius: 50px;
+    padding: 26px 26px;
+    width: 80vw;
+  }
+
+  .addvm #postTemplateDisabled {
+    margin-left: auto !important;
+  }
+
+  .addvm #postTemplateEnabled {
+    margin-left: auto !important;
   }
 }
 

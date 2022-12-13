@@ -238,9 +238,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addprofessor input {
-    min-width: 220px;
-    width: 80vw;
-    max-width: 320px;
+    width: unset !important;
   }
   .addprofessor h2 {
     margin-left: 0;
@@ -286,7 +284,6 @@ https://www.byui.edu/branding/color-guide
     border-radius: 0px;
     width: 100vw;
     height: 100vh;
-    align-items: unset !important;
     /* width: 95%; */
   }
 
@@ -317,9 +314,9 @@ https://www.byui.edu/branding/color-guide
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
   .addprofessor .container {
-    margin-top: 40px !important;
+    margin-top: 100px !important;
     min-height: 80vh;
-    width: 98vw;
+    width: 94vw;
     align-items: unset;
   }
 
