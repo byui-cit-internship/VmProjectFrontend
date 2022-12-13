@@ -125,7 +125,7 @@ const FacultyDashboard = () => {
               }}>
               <span className={facultydashboard.material}>
                 <PersonAddIcon style={iconStyles} className={facultydashboard.icon} />
-                <p>View Professors</p>
+                <p>Professor List</p>
               </span>
             </div>
             <div

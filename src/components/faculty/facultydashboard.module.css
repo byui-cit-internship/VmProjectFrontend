@@ -85,6 +85,8 @@ https://www.byui.edu/branding/color-guide
   background-position-x: -10%;
   background-position-y: 110%;
   margin: 50px auto;
+  width: 95vw;
+  max-width: 1000px;
 }
 
 .facultydashboard .header {
@@ -288,6 +290,44 @@ https://www.byui.edu/branding/color-guide
 
 /* Small View */
 @media screen and (max-width: 37.5em) {
+  .facultydashboard .left {
+    margin-left: 0 !important;
+  }
+  .facultydashboard .icon {
+    display: none;
+  }
+  .facultydashboard .add_class {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .facultydashboard .add_professor {
+    justify-content: center;
+    margin-left: 0;
+    /* font-size: 10px; */
+  }
+
+  .facultydashboard .vm_utilization {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .facultydashboard .add_class span {
+    padding-left: 0;
+  }
+
+  .facultydashboard .add_professor span {
+    padding-left: 0;
+  }
+
+  .facultydashboard .vm_utilization span {
+    padding-left: 0;
+  }
+
+  .facultydashboard .material p {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
   .facultydashboard .text {
     margin-left: 24px;
   }
@@ -317,7 +357,8 @@ https://www.byui.edu/branding/color-guide
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 100vw;
+    padding: 0px 22px;
+    width: unset;
   }
   .facultydashboard #greeting {
     margin-top: 10px;
@@ -390,6 +431,8 @@ https://www.byui.edu/branding/color-guide
 
   .facultydashboard .container {
     display: flex;
+    width: 95vw;
+    max-width: 1000px;
     flex-direction: column;
   }
 
