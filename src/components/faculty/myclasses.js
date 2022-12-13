@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { getApiRoot } from "../../utils/getApiRoot";
 import { React, useEffect, useState } from "react";
 import { Card } from "@mui/material";
+import LoadingSpinner2 from "../spinner2";
+import DbLibraryTemplates from "./dbLibraryTemplates";
 
 function MyClasses() {
   let navigate = useNavigate();
@@ -51,7 +53,6 @@ function MyClasses() {
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
         <Header userType="facultydashboard" />
-        {/* <span onClick={() => {navigate("/faculty")}} id={myclasses.backbtn}>&#8592; back</span> */}
         <h1 className={myclasses.title}>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
           <div className={myclasses.searchbar}>
@@ -72,11 +73,12 @@ function MyClasses() {
                     {item.sectionName}
                   </div>
                   <div className={myclasses.tablecontent}>
+                    <DbLibraryTemplates libraryId={item.libraryVCenterId} />
                     <div className={myclasses.add}>
                       <button
                         className={myclasses.addbutton}
-                        onClick={(e) => navigate(`/addvm?sectionId=${item.sectionId}`)}>
-                        Add VM Template
+                        onClick={() => navigate(`/addvm?sectionId=${item.sectionId}`)}>
+                        Add Virtual Machine Template
                       </button>
                     </div>
                   </div>

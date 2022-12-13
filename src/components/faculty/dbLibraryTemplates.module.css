@@ -1,0 +1,30 @@
+.dblibrarytemplates {
+  padding: 1.5rem 0;
+}
+
+.dblibrarytemplates .templateFlexContainer {
+  display: flex;
+}
+
+.dblibrarytemplates .templateFlexContainer > div {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.dblibrarytemplates .templateFlexContainer > div:first-child {
+  font-family: "Montserrat Alternates";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #006eb6;
+  text-align: left;
+}
+
+.dblibrarytemplates .templateFlexContainer > div:nth-child(2) {
+  text-align: end;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000000;
+}
