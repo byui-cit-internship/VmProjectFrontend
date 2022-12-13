@@ -8,6 +8,12 @@
   padding: 10px 20px;
 }
 
+.myVm h1 {
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
 .myVm #backbtn {
   display: flex;
   color: #006eb6;
@@ -24,13 +30,50 @@
 }
 
 .myVm table {
-  width: 800px;
-  height: 200px;
+  width: 750px;
   border-collapse: collapse;
-  margin-top: 70px;
+  margin-top: 0px;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
+  border: 5px solid black;
+}
+
+.myVm .table {
+  overflow-y: scroll;
+  max-height: 400px;
+  width: 800px;
+  margin-left: 100px;
+  margin-right: 50px;
+}
+
+.myVm .bodyHeader {
+  font-weight: bolder;
+  font-size: 20px;
+  border-bottom: 5px solid black;
+  border-top: 3px solid black;
+}
+
+.myVm .tableHead {
+  font-weight: bolder;
+  font-size: 30px;
+  border-bottom: 5px solid black;
+  border-top: 5px solid black;
+}
+
+.myVm .table::-webkit-scrollbar {
+  width: 10px;
+}
+
+.myVm .table::-webkit-scrollbar-thumb {
+  background: #006eb6;
+  border-radius: 20px;
+}
+
+.myVm .table::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 20px;
+  margin-top: 0px;
 }
 
 .myVm th {
@@ -39,7 +82,7 @@
   font-size: larger;
   border: 2px solid #006EB6;
   background-color: #006EB6;
-  padding: 15px;
+  padding:15px;
   color: #FFFFFF;
   text-align: center;
 }
