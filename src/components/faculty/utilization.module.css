@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.utilization {
+  align-items: unset;
+}
+
 .utilization .li {
   list-style: none;
   font-family: "Raleway";
@@ -15,14 +19,14 @@
 .utilization #formheader {
   padding-top: 2em;
   padding-bottom: 1em;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .utilization #formheader h1 {
   font-size: 1.8em;
   font-weight: bold;
   grid-column: 2;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .utilization .container {
@@ -212,7 +216,8 @@
   }
 
   .utilization h1 {
-    padding-left: 0x;
+    padding-left: 0x !important
+    ;
   }
 
   .utilization .h2available {
@@ -225,21 +230,26 @@
     flex-direction: column;
     align-items: center;
     margin: unset;
-    min-width: 285px;
   }
 
   .utilization .container {
-    width: 100vw !important;
+    width: unset !important;
     border-radius: 0;
     margin: 0;
     height: 100%;
     padding: 0 !important;
   }
 
+  .utilization .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .utilization #formheader {
     margin: 0px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     font-size: 0.9em;
   }
 
@@ -279,6 +289,7 @@
   .utilization .templatesAvailable {
     display: flex;
     flex-direction: column;
+    margin: 0px 25px;
   }
   .utilization .button {
     padding: 0px;
@@ -350,7 +361,7 @@
   .utilization .vmTemplate {
     display: none;
   }
-  
+
   /* POP UP ALERT */
   .utilization .popupbox {
     position: fixed;
@@ -412,7 +423,8 @@
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
   .utilization .container {
-    width: 90vw;
+    width: 91vw;
+    margin-top: 40px !important;
   }
 
   .utilization .main {
@@ -535,12 +547,12 @@
   .utilization .scoreboard::-webkit-scrollbar {
     width: 10px;
   }
-  
+
   .utilization .scoreboard::-webkit-scrollbar-thumb {
     background: #006eb6;
     border-radius: 20px;
   }
-  
+
   .utilization .scoreboard::-webkit-scrollbar-track {
     background: #ddd;
     border-radius: 20px;
@@ -548,7 +560,7 @@
   .utilization .scoreboardTable {
     table-layout: fixed;
     width: 100%;
-    border-collapse:collapse;
+    border-collapse: collapse;
   }
   .utilization .alertLabel {
     display: none;

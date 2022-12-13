@@ -106,12 +106,30 @@ button:hover {
 
   .message {
     min-width: 165px;
-    width: 65vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
+  .modalBox {
+    width: 65vw;
+  }
   .optionsContainer {
     display: flex;
     flex-direction: column;
+  }
+
+  .closeicon {
+    display: flex;
+    justify-content: end;
+    margin-right: 3vw !important;
+    margin-top: 3vw !important;
+    padding-left: 0;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 

@@ -116,8 +116,18 @@ https://www.byui.edu/branding/color-guide
 /*small view*/
 @media screen and (max-width: 37.4em) {
   .addclass .container {
+    width: unset !important;
+    min-width: 250px;
+  }
+
+  .addclass .wrapper {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+
+  .addclass .container {
     border-radius: 0px;
-    width: unset;
     border-radius: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -127,6 +137,8 @@ https://www.byui.edu/branding/color-guide
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 91vw;
+    max-width: 1000px;
   }
   .addclass .table {
     display: block;
@@ -135,7 +147,6 @@ https://www.byui.edu/branding/color-guide
     font-size: 2rem;
     text-align: left;
     padding: 0px 15px;
-    color: pink;
   }
 
   .addclass .singleDiv {
@@ -192,12 +203,15 @@ https://www.byui.edu/branding/color-guide
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
-  .addclass .form {
-    flex-direction: column;
+  .addclass .container {
+    width: 91vw !important;
+    max-width: 1000px !important;
   }
 
-  .addclass h1 {
-    color: green;
+  .addclass .wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
   .addclass .container {
@@ -259,7 +273,6 @@ https://www.byui.edu/branding/color-guide
   .addclass .a {
     padding: 20px;
     align-self: center;
-    color: white;
     text-decoration: none;
   }
   .addclass .closeicon {
@@ -277,11 +290,21 @@ https://www.byui.edu/branding/color-guide
     align-self: flex-end;
     transition: 0.3s;
   }
+
+  .addclass .singleDiv {
+    margin-top: 10px;
+  }
 }
 
 /*large view*/
 @media screen and (min-width: 64em) {
-  .addclass h1 {
-    color: purple;
+  .addclass .container {
+    width: 91vw;
+    max-width: 1000px;
+  }
+
+  .addclass .wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }

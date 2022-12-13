@@ -21,6 +21,26 @@
   text-align: end;
 }
 
-.templateMetadata .errorMessage{
+.templateMetadata .errorMessage {
   background-color: white;
+}
+
+/* Small View */
+@media screen and (max-width: 37.5em) {
+  .templateMetadata .dataContainer {
+    flex-direction: column;
+  }
+
+  .templateMetadata .dataContainer div:nth-child(2) {
+    text-align: unset;
+    color: black;
+  }
+}
+
+/* Medium View */
+@media only screen and (min-width: 37.5em) {
+}
+
+/* Large View */
+@media only screen and (min-width: 64em) {
 }

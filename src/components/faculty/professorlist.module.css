@@ -257,7 +257,6 @@ select:focus {
   width: auto;
 }
 
-
 /* email title */
 thead tr th:nth-child(2) {
   /* max-width: 35px; */
@@ -474,10 +473,6 @@ tbody tr td:nth-child(3) {
 
 /* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
-  .professorList #title {
-    color: yellow;
-  }
-
   .professorList .container {
     display: flex;
     flex-direction: column;

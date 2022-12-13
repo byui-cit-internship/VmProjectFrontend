@@ -111,7 +111,10 @@
     border-radius: 0;
     padding: 0px 5px;
     height: 100vh;
-    width: 100vw;
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .createvm .lets {
     font-size: 1.2em;
@@ -155,7 +158,7 @@
     opacity: 95%;
   }
   .createvm .main {
-    min-width: 275px;
+    width: unset;
   }
 }
 
