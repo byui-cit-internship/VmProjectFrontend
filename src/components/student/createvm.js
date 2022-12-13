@@ -64,14 +64,14 @@ function CreateVM() {
   };
 
   //Gets the current date for the creation date of the vm instance
-useEffect(() => {
-  var currentDate = new Date();
-  const offset = currentDate.getTimezoneOffset()
-  currentDate = new Date(currentDate.getTime() - (offset*60*1000))
-  const creationDate = currentDate.toISOString().split('T')[0]
-  setVmCreationDate(creationDate)
-}, []);
-  
+  useEffect(() => {
+    var currentDate = new Date();
+    const offset = currentDate.getTimezoneOffset();
+    currentDate = new Date(currentDate.getTime() - offset * 60 * 1000);
+    const creationDate = currentDate.toISOString().split("T")[0];
+    setVmCreationDate(creationDate);
+  }, []);
+
   return (
     <div className={createVM.createvm}>
       <div className={createVM.container}>
