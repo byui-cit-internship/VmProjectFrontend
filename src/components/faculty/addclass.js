@@ -57,6 +57,7 @@ function AddClass() {
       allFieldsValid = false;
     }
     if (allFieldsValid) {
+      console.log("creating");
       createCourse();
     } else {
       {
@@ -67,8 +68,8 @@ function AddClass() {
       }
     }
   };
+
   const createCourse = async () => {
-    console.log(courseCode);
     const options = {
       method: "POST",
       body: JSON.stringify({
@@ -92,18 +93,23 @@ function AddClass() {
       }
     };
 
+    console.log("Before response");
+    // Backend not sending a response when class is added
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course",
       options
     );
+    console.log("After response");
 
-    await response.json().then((res) => {
-      if (res.message === "A course already exits with this code CIT 171") {
-        setPopupMessage("Class has been added previously");
-        setIsSuccess(false);
-        setIsPopupOpen(true);
-      }
-    });
+    const res = await response.text();
+
+    console.log(res);
+
+    if (res.message === "A course already exits with this code CIT 171") {
+      setPopupMessage("Class has been added previously");
+      setIsSuccess(false);
+      setIsPopupOpen(true);
+    }
   };
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
