@@ -91,15 +91,19 @@ function AddClass() {
         "content-type": "application/json"
       }
     };
-    console.log(options.body);
+
     const response = await fetch(
       getApiRoot() + "/api/enrollment/professor/register/course",
       options
     );
-    console.log(response);
-    setPopupMessage("Successfully added Course!");
-    setIsSuccess(true);
-    setIsPopupOpen(true);
+
+    await response.json().then((res) => {
+      if (res.message === "A course already exits with this code CIT 171") {
+        setPopupMessage("Class has been added previously");
+        setIsSuccess(false);
+        setIsPopupOpen(true);
+      }
+    });
   };
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
