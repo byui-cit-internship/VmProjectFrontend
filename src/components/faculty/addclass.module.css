@@ -18,7 +18,6 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass h1 {
   text-align: center;
-  color: #00568f;
 }
 .addclass .form {
   display: flex;
@@ -27,17 +26,17 @@ https://www.byui.edu/branding/color-guide
 .addclass .flex1 {
   display: flex;
   flex-wrap: wrap;
-  padding: 15px;
+  gap: 32px;
   width: 45%;
   flex-direction: column;
   justify-content: center;
 }
 .addclass .flex2 {
+  margin-top: 32px;
   display: flex;
   flex-wrap: wrap;
-  padding: 12px;
-  width: 45%;
   flex-direction: column;
+  gap: 32px;
 }
 .addclass .courseIdInput {
   width: 95%;
@@ -73,16 +72,12 @@ https://www.byui.edu/branding/color-guide
   font-weight: bold;
   opacity: 65%;
 }
-.addclass .alert {
-  padding: 10px;
-  margin-left: 10px;
-  display: flex;
-}
+
 .addclass select {
   width: 100%;
   border: 3px solid #98d5fd;
   padding: 11.5px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .addclass .btnprimary {
@@ -121,9 +116,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addclass .wrapper {
-    display: flex !important;
-    align-items: center !important;
-    flex-direction: column !important;
+    margin-top: 32px;
   }
 
   .addclass .container {
@@ -133,7 +126,7 @@ https://www.byui.edu/branding/color-guide
     margin-bottom: 0px;
     height: 100%;
     margin-top: 0;
-    padding: 0px !important;
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,13 +137,12 @@ https://www.byui.edu/branding/color-guide
     display: block;
   }
   .addclass h1 {
-    font-size: 2rem;
-    text-align: left;
+    font-size: 30px;
+    font-family: "Ralweay", sans-serif;
+    font-weight: 700;
     padding: 0px 15px;
-  }
-
-  .addclass .singleDiv {
-    margin: 0px 0px 25px 0px !important;
+    color: black;
+    margin-bottom: 60px;
   }
 
   .addclass .label {
@@ -167,12 +159,10 @@ https://www.byui.edu/branding/color-guide
     margin-bottom: 40px;
   }
   .addclass .flex1 {
-    width: 90%;
-    padding: 15px 15px 0px 15px;
+    width: 100%;
   }
   .addclass .flex2 {
-    width: 90%;
-    padding: 0px 15px 15px 15px;
+    width: 100%;
   }
   .addclass .form select {
     font-size: 1rem;
@@ -182,16 +172,20 @@ https://www.byui.edu/branding/color-guide
     font-size: 2rem;
   }
   .addclass .btnprimary {
-    width: 165px;
-    font-size: 1rem;
+    width: 100%;
+    font-size: 24px;
     margin: 0;
   }
 
   .addclass .alert {
     padding: 0;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
+    text-align: center;
+    margin: 16px 0;
+    padding: 12px 0;
+  }
+
+  .addclass .alert a:visited {
+    color: #006eb6;
   }
 
   .addclass .alertLabel {

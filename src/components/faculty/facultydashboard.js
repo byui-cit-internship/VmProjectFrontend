@@ -1,7 +1,4 @@
 import { React, useEffect, useState } from "react";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import DnsIcon from "@mui/icons-material/Dns";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonIcon from "@mui/icons-material/Person";
 import ClassIcon from "@mui/icons-material/Class";
 import ComputerIcon from "@mui/icons-material/Computer";
@@ -11,11 +8,6 @@ import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
-
-const iconStyles = {
-  color: "white",
-  fontSize: "35px"
-};
 
 const FacultyDashboard = () => {
   const [userInfo, setUserInfo] = useState("");
