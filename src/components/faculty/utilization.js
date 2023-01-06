@@ -18,7 +18,7 @@ function Utilization() {
 
   const [studentList, setStudentList] = useState([]);
   const [sectionId, setSectionId] = useState("");
-  const [section, setSection] = useState([])
+  const [section, setSection] = useState([]);
   const [courseSections, setCourseSections] = useState([]);
   const [courseCode, setCourseCode] = useState("");
   const [inputText, setInputText] = useState("");
@@ -33,8 +33,11 @@ function Utilization() {
   const [studentUserId, setStudentUserId] = useState("");
   const [tableStudentData, setTableStudentData] = useState([]);
 
+  console.log(courses);
+
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
+  useEffect(() => {
     const getSemesters = async () => {
       const methods = {
         credentials: "include",
@@ -50,6 +53,9 @@ function Utilization() {
       setSemesters(listResponseObject);
     };
 
+    getSemesters();
+  }, []);
+
   //Code for filtering student lists when the proper course is selected ****
   //***********************************************************************/
   let inputHandler = (e) => {
@@ -62,7 +68,7 @@ function Utilization() {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-//console.log(studentList)
+  //console.log(studentList)
   const filteredData = studentList.filter((i) => {
     //if no input the return the original
     if (inputText === "") {
@@ -93,6 +99,7 @@ function Utilization() {
       const listResponseObject = await listResponse.json();
       setCourses(listResponseObject);
     };
+
     if (semesterEnrollmentId) {
       semesterByCourse();
     }
@@ -117,7 +124,7 @@ function Utilization() {
     setSemesters([]);
     setLibraryId("");
     setTemplates([]);
-  }
+  };
 
   //*****************************************************************/
   //Gets list of users by section chosen
@@ -139,7 +146,7 @@ function Utilization() {
         console.log("response", listResponse);
       }
       const listResponseObject = await listResponse.json();
-      console.log(listResponseObject)
+      console.log(listResponseObject);
       setStudentList(listResponseObject);
     };
     if (sectionId) {
@@ -171,7 +178,6 @@ function Utilization() {
     }
   }, [libraryId]);
 
-
   //*****************************************************************/
   //Gets a user's vm instance info by the user id set when a name is selected
   //******************************************************************/
@@ -189,14 +195,13 @@ function Utilization() {
         methods
       );
       const listResponseObject = await listResponse.json();
-      const officialVmList = listResponseObject.filter(item => item.sectionId = sectionId);
+      const officialVmList = listResponseObject.filter((item) => (item.sectionId = sectionId));
       setVmInstanceList(officialVmList);
     };
     if (studentUserId) {
       getVmInstanceInfo();
     }
   }, [studentUserId]);
-
 
   //*****************************************************************/
   //Set the Section ID and Section's Library Id useStates when the section is selected
@@ -205,14 +210,14 @@ function Utilization() {
     const tempItem = JSON.parse(item);
     setSectionId(tempItem.sectionId);
     setLibraryId(tempItem.libraryVCenterId);
-  }
+  };
 
   const setStudentInfo = (first, last, email, userId) => {
-    const fullStudentName = first + ' ' + last;
+    const fullStudentName = first + " " + last;
     setStudentUserId(userId);
-    
-    setTableStudentData([{'fullName':fullStudentName, 'email':email}])
-  }
+
+    setTableStudentData([{ fullName: fullStudentName, email: email }]);
+  };
   //*****************************************************************************/
   //Return statement with all JSX for this page**********************************/
   //*****************************************************************************/
@@ -240,7 +245,6 @@ function Utilization() {
                 className={utilization.dropdownDescription}
                 id={utilization.course_semester}
                 required
-                onClick={() => {getSemesters()}}
                 onChange={(event) => {
                   setSemesterEnrollmentId(event.target.value);
                 }}>
@@ -287,7 +291,9 @@ function Utilization() {
                 className={utilization.dropdownDescription}
                 id={utilization.course}
                 required
-                onChange={(event) => {setSectionStates(event.target.value);}}
+                onChange={(event) => {
+                  setSectionStates(event.target.value);
+                }}
                 disabled={!courseCode}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
@@ -301,7 +307,14 @@ function Utilization() {
             </label>
 
             {/*Reload Button for Selecting A Different Class*/}
-            <label className={utilization.dropdown}><button onClick={() => {resetDropdowns()}}><AiOutlineReload /></button></label>
+            <label className={utilization.dropdown}>
+              <button
+                onClick={() => {
+                  resetDropdowns();
+                }}>
+                <AiOutlineReload />
+              </button>
+            </label>
           </div>
 
           {/*Templates*/}
@@ -309,13 +322,16 @@ function Utilization() {
             <h2 className={utilization.h2available}>Available templates for this Class</h2>
 
             <div className={utilization.button}>
-            {templates.map((template) => (
-              <button className={utilization.btn} key={template.id} value={template.name}>
-                <img className={utilization.logo} src={"../../images/computerlogo.png"} alt="logo" />
-                <strong>{template.name}</strong>
-              </button>
-                ))}
-              
+              {templates.map((template) => (
+                <button className={utilization.btn} key={template.id} value={template.name}>
+                  <img
+                    className={utilization.logo}
+                    src={"../../images/computerlogo.png"}
+                    alt="logo"
+                  />
+                  <strong>{template.name}</strong>
+                </button>
+              ))}
             </div>
           </div>
 
@@ -345,7 +361,9 @@ function Utilization() {
                       key={item.userId}
                       className={utilization.li}
                       value={item.firstName}
-                      onClick={(e) => {setStudentInfo(item.firstName, item.lastName, item.email, item.userId)}}>
+                      onClick={(e) => {
+                        setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
+                      }}>
                       {item.firstName} {item.lastName}
                     </li>
                   ))}
@@ -355,63 +373,60 @@ function Utilization() {
 
             {/*User Info Table*/}
             <div className={utilization.scoreboard}>
-            
               <table className={utilization.scoreboardTable}>
-
                 <thead>
                   <tr>
-                    <th className={utilization.thHeader} colSpan='2'>
+                    <th className={utilization.thHeader} colSpan="2">
                       Student Information
                     </th>
                   </tr>
-                
-                {tableStudentData?.map((item) => (
-                  <tr>
-                    <th className={utilization.studentName}>Student Name</th>
-                    <td>{item.fullName}</td>
-                  </tr>
-                ))}
-                {tableStudentData?.map((item) => (
-                  <tr>
-                    <th className={utilization.studentEmail}>Email</th>
-                    <td>{item.email}</td>
-                  </tr>
-                ))}
+
+                  {tableStudentData?.map((item) => (
+                    <tr>
+                      <th className={utilization.studentName}>Student Name</th>
+                      <td>{item.fullName}</td>
+                    </tr>
+                  ))}
+                  {tableStudentData?.map((item) => (
+                    <tr>
+                      <th className={utilization.studentEmail}>Email</th>
+                      <td>{item.email}</td>
+                    </tr>
+                  ))}
                 </thead>
                 {vmInstanceList?.map((item) => (
-                <tbody className={utilization.tbody}>
-                  <tr>
-                    <th className={utilization.thHeader} colSpan='2'>
-                      Virtual Machines
-                    </th>
-                  </tr>
+                  <tbody className={utilization.tbody}>
+                    <tr>
+                      <th className={utilization.thHeader} colSpan="2">
+                        Virtual Machines
+                      </th>
+                    </tr>
 
-                  <tr>
-                    <th className={utilization.creationDate}>VM Name</th>
-                    <td>{item.vmInstanceVcenterName}</td>
-                  </tr>
+                    <tr>
+                      <th className={utilization.creationDate}>VM Name</th>
+                      <td>{item.vmInstanceVcenterName}</td>
+                    </tr>
 
-                  <tr>
-                    <th className={utilization.creationDate}>Creation Date</th>
-                    <td>{item.vmInstanceCreationDate}</td>
-                  </tr>
+                    <tr>
+                      <th className={utilization.creationDate}>Creation Date</th>
+                      <td>{item.vmInstanceCreationDate}</td>
+                    </tr>
 
-                  <tr>
-                    <th className={utilization.creationDate}>Expire Date</th>
-                    <td>{item.vmInstanceExpireDate}</td>
-                  </tr>
+                    <tr>
+                      <th className={utilization.creationDate}>Expire Date</th>
+                      <td>{item.vmInstanceExpireDate}</td>
+                    </tr>
 
-                  <tr>
-                    <th className={utilization.vmTemplate}>VM Template Used</th>
-                    <td>{item.vmTemplateName}</td>
-                  </tr>
-                </tbody>
+                    <tr>
+                      <th className={utilization.vmTemplate}>VM Template Used</th>
+                      <td>{item.vmTemplateName}</td>
+                    </tr>
+                  </tbody>
                 ))}
               </table>
-              
             </div>
           </div>
-        
+
           {/* S E P A R A T I O N */}
           {/* button */}
           <div className={utilization.alert}>
