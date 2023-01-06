@@ -96,9 +96,16 @@ function AddClass() {
       getApiRoot() + "/api/enrollment/professor/register/course",
       options
     );
-    console.log(response);
-    setPopupMessage("Successfully added Course!");
-    setIsSuccess(true);
+    if (response.status == 200){
+      console.log(response);
+      setPopupMessage("Successfully added the Course!");
+      setPopupAgainMessage("Add more");
+      setIsSuccess(true);
+    } else {
+      setPopupMessage("Error adding the course");
+      setPopupAgainMessage("Try again");
+      setIsSuccess(false);
+    }
     setIsPopupOpen(true);
   };
   //*************Gets Library ID's and Names****************/
