@@ -109,7 +109,7 @@ a {
   .header {
     /* align-items: baseline; */
     height: 90px;
-    width: 85vw;
+    width: 100%;
     /* max-width: 260px; */
   }
 

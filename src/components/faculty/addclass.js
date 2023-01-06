@@ -96,7 +96,7 @@ function AddClass() {
       getApiRoot() + "/api/enrollment/professor/register/course",
       options
     );
-    if (response.status == 200){
+    if (response.status == 200) {
       console.log(response);
       setPopupMessage("Successfully added the Course!");
       setPopupAgainMessage("Add more");
