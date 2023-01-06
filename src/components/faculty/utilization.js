@@ -33,8 +33,8 @@ function Utilization() {
   const [studentUserId, setStudentUserId] = useState("");
   const [tableStudentData, setTableStudentData] = useState([]);
 
-  console.log(courses);
-  console.log(semesterEnrollmentId);
+  console.log(tableStudentData);
+  console.log(vmInstanceList);
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -147,7 +147,6 @@ function Utilization() {
         console.log("response", listResponse);
       }
       const listResponseObject = await listResponse.json();
-      console.log(listResponseObject);
       setStudentList(listResponseObject);
     };
     if (sectionId) {
@@ -384,20 +383,20 @@ function Utilization() {
                   </tr>
 
                   {tableStudentData?.map((item) => (
-                    <tr>
+                    <tr key={item.email}>
                       <th className={utilization.studentName}>Student Name</th>
                       <td>{item.fullName}</td>
                     </tr>
                   ))}
                   {tableStudentData?.map((item) => (
-                    <tr>
+                    <tr key={item.email}>
                       <th className={utilization.studentEmail}>Email</th>
                       <td>{item.email}</td>
                     </tr>
                   ))}
                 </thead>
-                {vmInstanceList?.map((item) => (
-                  <tbody className={utilization.tbody}>
+                {vmInstanceList?.map((item, index) => (
+                  <tbody className={utilization.tbody} key={index}>
                     <tr>
                       <th className={utilization.thHeader} colSpan="2">
                         Virtual Machines
