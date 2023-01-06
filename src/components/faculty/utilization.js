@@ -34,6 +34,7 @@ function Utilization() {
   const [tableStudentData, setTableStudentData] = useState([]);
 
   console.log(courses);
+  console.log(semesterEnrollmentId);
 
   //Code that gets a list of semesters and puts it in a dropdown ****
   //***********************************************************************/
@@ -225,6 +226,7 @@ function Utilization() {
     //setPopupInfo(value);
     setPopupActivate(true);
   };
+
   return (
     <div className={utilization.utilization}>
       <div className={utilization.container}>
@@ -271,7 +273,7 @@ function Utilization() {
                   setCourseCode(event.target.value);
                   filterSections(event.target.value);
                 }}
-                disabled={!semesterEnrollmentId}>
+                disabled={courses.length === 0 && "disabled"}>
                 <option value="Default" className={utilization.singleOption} hidden>
                   - Select -
                 </option>
