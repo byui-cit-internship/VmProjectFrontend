@@ -212,6 +212,7 @@ h3 {
     color: #3a8ace;
     font-weight: 700;
     font-family: "Montserrat Alternates", sans-serif;
+    line-height: 1.5;
   }
 
   .app .image_and_button {
@@ -234,13 +235,10 @@ h3 {
     display: none;
   }
   .app .google_button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    padding: 0;
     height: 40px;
     border-radius: 10px;
-    width: 130px;
     /* background: linear-gradient(
       0deg,
       hsl(204deg 93% 66%) 0%,
@@ -261,10 +259,10 @@ h3 {
   }
 
   .app .main {
-    margin-bottom: 61px;
-
-    margin-top: 96px;
-    padding: 0 40px;
+    padding: 96px 40px 110px;
+    background-image: url("../public/images/loginBackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .nsm7Bb-HzV7m-LgbsSe {
