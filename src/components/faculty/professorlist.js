@@ -9,7 +9,6 @@ import ApproveProfessorPopup from "../approveprofessorpop.js";
 import LoadingSpinner from "../spinner.js";
 import Popup from "./Popup.js";
 
-
 // import ReactDOM from 'react-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -137,7 +136,7 @@ function ProfessorList() {
         <span id={professorList.title}> Professor List</span>
         <div id={professorList.professorsAndSearch}>
           <div className={professorList.tableHeader}>
-            <h1 className={professorList.lets}>Professors</h1>
+            {/* <h1 className={professorList.lets}>Professors</h1> */}
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
               <input

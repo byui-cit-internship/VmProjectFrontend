@@ -70,9 +70,8 @@ function AddProfessor() {
   return (
     <div className={addprofessor.addprofessor}>
       <div className={addprofessor.container}>
-        <div className={addprofessor.header}>
-          <Header userType="facultydashboard" />
-        </div>
+        <Header userType="facultydashboard" />
+
         <div className={addprofessor.main}>
           <h1 className={addprofessor.h1}>Add a Professor</h1>
           <form action="#" className={addprofessor.form} onSubmit={(e) => e.preventDefault()}>
@@ -119,7 +118,7 @@ function AddProfessor() {
               <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
             </div>
             <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
-              Add Professor
+              Add
             </button>
             {isOpen && (
               <SubmissionPopup

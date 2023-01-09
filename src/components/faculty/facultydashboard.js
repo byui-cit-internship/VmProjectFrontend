@@ -1,17 +1,13 @@
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import DnsIcon from "@mui/icons-material/Dns";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import { React, useEffect, useState } from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import ClassIcon from "@mui/icons-material/Class";
+import ComputerIcon from "@mui/icons-material/Computer";
 import { useNavigate } from "react-router-dom";
+
 import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
-import { React, useEffect, useState } from "react";
 import { getApiRoot } from "../../utils/getApiRoot";
-
-const iconStyles = {
-  color: "white",
-  fontSize: "35px"
-};
 
 const FacultyDashboard = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -113,7 +109,7 @@ const FacultyDashboard = () => {
                 navigate("/myclasses");
               }}>
               <span className={facultydashboard.material}>
-                <AddCircleOutlineIcon style={iconStyles} className={facultydashboard.icon} />
+                <ClassIcon />
                 <p>My Classes</p>
               </span>
             </div>
@@ -124,7 +120,7 @@ const FacultyDashboard = () => {
                 navigate("/professorlist");
               }}>
               <span className={facultydashboard.material}>
-                <PersonAddIcon style={iconStyles} className={facultydashboard.icon} />
+                <PersonIcon />
                 <p>Professor List</p>
               </span>
             </div>
@@ -135,7 +131,7 @@ const FacultyDashboard = () => {
                 navigate("/utilization");
               }}>
               <span className={facultydashboard.material}>
-                <DnsIcon style={iconStyles} className={facultydashboard.icon} />
+                <ComputerIcon />
                 <p>VM Utilization</p>
               </span>
             </div>

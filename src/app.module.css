@@ -87,7 +87,7 @@ https://www.byui.edu/branding/color-guide
 */
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
 /* Small View */
 body {
@@ -212,6 +212,12 @@ h3 {
     color: #3a8ace;
     font-weight: 700;
     font-family: "Montserrat Alternates", sans-serif;
+    line-height: 1.5;
+  }
+
+  .app .text {
+    display: flex;
+    flex-direction: column;
   }
 
   .app .image_and_button {
@@ -234,13 +240,10 @@ h3 {
     display: none;
   }
   .app .google_button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    padding: 0;
     height: 40px;
     border-radius: 10px;
-    width: 130px;
     /* background: linear-gradient(
       0deg,
       hsl(204deg 93% 66%) 0%,
@@ -261,10 +264,11 @@ h3 {
   }
 
   .app .main {
-    margin-bottom: 61px;
-
-    margin-top: 96px;
-    padding: 0 40px;
+    padding: 96px 40px 110px;
+    background-image: url("../public/images/loginBackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: -webkit-fill-available; /* Fills up space in screen */
   }
 
   .nsm7Bb-HzV7m-LgbsSe {

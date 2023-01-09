@@ -7,7 +7,7 @@
   border-radius: 50px;
   column-gap: 10%;
   background-color: #ffffff;
-  padding: 10px;
+  padding: 0 40px;
 }
 .myclasses #backbtn {
   display: flex;
@@ -129,9 +129,10 @@ select:focus {
 .myclasses .tableheader {
   background-color: #006eb6;
   color: white;
-  padding: 20px;
+  padding: 12px;
   font-family: "Raleway";
   font-weight: bolder;
+  font-size: 20px;
 }
 .myclasses .tablecontent {
   padding: 20px;
@@ -177,7 +178,6 @@ phone: 480px
     background-color: black;
   }
   .myclasses .container {
-    padding: 0px 10px 10px 10px;
     border-radius: 0px;
     width: unset;
     height: auto;
@@ -188,23 +188,24 @@ phone: 480px
     align-items: center;
   }
   .myclasses .title {
-    margin: 0;
-    padding: 10px 15px;
-    color: #004878;
-    align-self: center;
+    padding: 0;
+    font-size: 30px;
+    margin-top: 32px;
+    margin-bottom: 48px;
+    font-family: "Raleway", sans-serif;
+    color: black;
   }
   .myclasses h1 {
     font-size: 2rem !important;
   }
   .myclasses .card {
-    width: 90%;
+    width: 100%;
     align-self: center;
-    padding: 20px 0px;
   }
   .myclasses .table {
     display: flex;
     flex-direction: column;
-    /* margin-top: 30px; */
+    gap: 24px;
     width: 100%;
     padding: 0;
   }
@@ -230,7 +231,6 @@ phone: 480px
   }
   .myclasses .searchbar {
     margin: 0;
-    width: 60vw;
     max-width: 300px;
     min-width: 152px;
   }
@@ -246,22 +246,18 @@ phone: 480px
     color: white;
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: -25px;
+    margin-bottom: 16px;
     width: unset;
-    padding: 15px;
-    width: 70vw;
-    max-width: 300px;
-    min-width: 170px;
+    padding: 0;
+    width: 100%;
   }
 
   .myclasses .tablecontent {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
   }
 
   .myclasses .add {
-    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,9 +268,8 @@ phone: 480px
   }
 
   .myclasses .tablegrid {
-    width: 75vw;
-    max-width: 400px;
-    min-width: 185px;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .myclasses .myclasses {

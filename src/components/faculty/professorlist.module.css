@@ -45,7 +45,6 @@
   font-size: 1.5rem;
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
-  padding: 10px 0px;
   font-weight: bold;
   color: #ffffff;
   align-items: center;
@@ -134,7 +133,6 @@ select:focus {
 }
 
 .professorList td {
-  border: 2px solid #3a8ace;
   font-family: "Raleway", sans-serif;
   padding: 10px;
   margin: 10px auto;
@@ -311,7 +309,7 @@ tbody tr td:nth-child(3) {
   .professorList .tableHeader {
     flex-direction: column;
     align-items: baseline;
-    padding: 0px 0px 15px 0px;
+    padding: 12px 0;
   }
 
   .professorList .searchbar {
@@ -319,18 +317,15 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList td {
-    border: 2px solid #3a8ace;
+    border-bottom: 2px solid #3a8ace;
     font-size: 1rem;
   }
 
-  .professorList #title {
-    margin: 0 !important;
-  }
   .professorList .button {
     padding: 10px !important;
     font-size: 19px !important;
-    width: 200px !important;
-    margin: 10px 0px;
+    width: 100% !important;
+    margin-top: 60px;
   }
 
   .professorList .lets {
@@ -346,17 +341,19 @@ tbody tr td:nth-child(3) {
   .professorList .container {
     border-radius: 0px;
     margin: 0;
-    width: 100vw;
-    padding: 0px;
+    width: unset;
+    padding: 0 40px;
     display: flex;
     flex-direction: column;
   }
   .professorList .table {
-    height: 360px;
+    max-height: 300px;
     overflow: hidden;
     overflow-y: scroll;
     min-width: 215px;
     max-width: 80vw;
+    border: 2px solid #3a8ace;
+    border-top: none;
   }
   .professorList th {
     width: 300px;
@@ -364,6 +361,7 @@ tbody tr td:nth-child(3) {
 
   .professorList td {
     width: 300px;
+    font-size: 20px;
   }
 
   .professorList #professorsAndSearch {
@@ -381,8 +379,11 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList #title {
-    font-size: 1.5rem;
-    margin-top: 30px;
+    font-size: 30px;
+    margin-top: 32px;
+    margin-bottom: 48px;
+    font-family: "Raleway", sans-serif;
+    color: black;
   }
 
   html {
