@@ -215,6 +215,11 @@ h3 {
     line-height: 1.5;
   }
 
+  .app .text {
+    display: flex;
+    flex-direction: column;
+  }
+
   .app .image_and_button {
     display: flex;
     flex-direction: column;
@@ -263,6 +268,7 @@ h3 {
     background-image: url("../public/images/loginBackground.png");
     background-size: cover;
     background-repeat: no-repeat;
+    height: -webkit-fill-available; /* Fills up space in screen */
   }
 
   .nsm7Bb-HzV7m-LgbsSe {
