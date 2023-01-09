@@ -108,7 +108,6 @@ body {
   background-position-x: 110%;
   background-position-y: 110%;
   margin: auto auto;
-  margin-top: 50px;
 }
 
 .imagehero {
@@ -278,6 +277,11 @@ h3 {
 
 /* Medium View */
 @media only screen and (min-width: 37.4em) {
+  .app .appheader {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
   .app .container {
     width: 90vw;
     min-width: none;
