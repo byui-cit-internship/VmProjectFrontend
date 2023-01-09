@@ -18,6 +18,8 @@ function App() {
   // - Verified Email Code
   const [authorization, setAuthorization] = useState();
   const [googleJwt, setGoogleJwt] = useState("");
+
+  console.log(authorization);
   // let userIsAdministrator = useRef(false);//this is similar to state but won't re-render
   const googleCredentials = useRef({});
   useEffect(() => {
