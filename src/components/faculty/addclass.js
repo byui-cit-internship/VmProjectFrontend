@@ -127,7 +127,7 @@ function AddClass() {
 
       const listResponseObject = await listResponse.json();
       setLibraryList(listResponseObject);
-      // setFetchingLibraries(false);
+      setFetchingLibraries(false);
     };
     getLibraries();
   }, []);

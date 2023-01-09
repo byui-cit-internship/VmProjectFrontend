@@ -6,3 +6,13 @@
 .addClassSkeleton div {
   margin-bottom: 30px;
 }
+
+@media screen and (min-width: 37.4rem) {
+  .addClassSkeleton {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    min-width: 440px;
+  }
+}
