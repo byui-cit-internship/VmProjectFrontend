@@ -153,7 +153,7 @@ select:focus {
   color: white;
   padding: 1em;
   border-radius: 5px;
-  width: 45%;
+  max-width: 200px;
   cursor: pointer;
 }
 .myclasses .tablerow {

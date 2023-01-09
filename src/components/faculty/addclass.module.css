@@ -197,6 +197,23 @@ https://www.byui.edu/branding/color-guide
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .addclass .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #f0f0f0;
+    margin: 32px;
+    padding: 32px;
+    gap: 60px;
+  }
+
+  .addclass .flex1 {
+    width: 100%;
+  }
+
+  .addclass .flex2 {
+    margin-top: 0;
+  }
+
   .addclass .container {
     width: 91vw !important;
     max-width: 1000px !important;

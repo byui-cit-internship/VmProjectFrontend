@@ -7,6 +7,7 @@ import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
 import Popup from "./Popup.js";
 import SubmissionPopup from "../submissionpop";
+import AddClassSkeleton from "./addClassSkeleton";
 
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
@@ -37,6 +38,7 @@ function AddClass() {
   const [resourcePoolList, setResourcePoolList] = useState([]);
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
+  const [fetchingLibraries, setFetchingLibraries] = useState(false);
   //*********Creates course by sending all info in body to the B  FF course controller************/
 
   const validateForm = async () => {
@@ -110,6 +112,8 @@ function AddClass() {
   };
   //*************Gets Library ID's and Names****************/
   useEffect(() => {
+    setFetchingLibraries(true);
+
     const getLibraries = async () => {
       const methods = {
         credentials: "include",
@@ -123,6 +127,7 @@ function AddClass() {
 
       const listResponseObject = await listResponse.json();
       setLibraryList(listResponseObject);
+      setFetchingLibraries(false);
     };
     getLibraries();
   }, []);
@@ -275,149 +280,157 @@ width=0,height=0,left=-1000,top=-1000`;
           <Header userType="facultydashboard" />
           <div className={addclass.wrapper}>
             <h1>Add Class</h1>
+
             <div className={addclass.form}>
-              <div className={addclass.flex1}>
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label} htmlFor="name">
-                    Course:
-                  </label>
-                  <br></br>
-                  <select className={addclass.select} onChange={(event) => updateInputs(event)}>
-                    <option value="Default" data-code="" data-name="" data-id="">
-                      -Select-
-                    </option>
-                    {canvasCourses?.map((course) => (
-                      <option
-                        data-code={course.course_code}
-                        data-name={course.name}
-                        data-id={course.id}
-                        key={course.id}>
-                        {course.course_code} = {course.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+              {fetchingLibraries ? (
+                <AddClassSkeleton />
+              ) : (
+                <>
+                  <div className={addclass.flex1}>
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label} htmlFor="name">
+                        Course:
+                      </label>
+                      <br></br>
+                      <select className={addclass.select} onChange={(event) => updateInputs(event)}>
+                        <option value="Default" data-code="" data-name="" data-id="">
+                          -Select-
+                        </option>
+                        {canvasCourses?.map((course) => (
+                          <option
+                            data-code={course.course_code}
+                            data-name={course.name}
+                            data-id={course.id}
+                            key={course.id}>
+                            {course.course_code} = {course.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
-                {/*Library*/}
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label}>Choose Library: </label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    name="library"
-                    required
-                    onChange={(event) => setLibraryId(event.target.value)}>
-                    <option value="" hidden>
-                      -Select-
-                    </option>
-                    {libraryList?.map((item) => (
-                      <option key={item.name} value={item.id}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                    {/*Library*/}
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label}>Choose Library: </label>
+                      <br></br>
+                      <select
+                        className={addclass.select}
+                        name="library"
+                        required
+                        onChange={(event) => setLibraryId(event.target.value)}>
+                        <option value="" hidden>
+                          -Select-
+                        </option>
+                        {libraryList?.map((item) => (
+                          <option key={item.name} value={item.id}>
+                            {item.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
-                {/*Course ID*/}
-                <div className={addclass.singleDiv}>
-                  <div className={addclass.courseid}>
-                    <label className={addclass.label}>Canvas Course ID: </label> <br></br>
-                    <span role="alert" id={addclass.nameError} aria-hidden="true">
-                      {/* Please add a valid Course ID */}
-                    </span>
-                    <input
-                      className={addclass.courseIdInput}
-                      readOnly
-                      type="text"
-                      value={canvasCourseId}></input>
+                    {/*Course ID*/}
+                    <div className={addclass.singleDiv}>
+                      <div className={addclass.courseid}>
+                        <label className={addclass.label}>Canvas Course ID: </label> <br></br>
+                        <span role="alert" id={addclass.nameError} aria-hidden="true">
+                          {/* Please add a valid Course ID */}
+                        </span>
+                        <input
+                          className={addclass.courseIdInput}
+                          readOnly
+                          type="text"
+                          value={canvasCourseId}></input>
+                      </div>
+                    </div>
+                    {/*Template VM*/}
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label}>Template Virtual Machine: </label>
+                      <br></br>
+                      <select
+                        className={addclass.select}
+                        name="templateVm"
+                        required
+                        onChange={(event) => {
+                          separateTemplateName(event.target.value);
+                        }}
+                        disabled={!libraryId}>
+                        <option value="" hidden>
+                          - Select a Template -
+                        </option>
+                        {templateVmList?.map((item) => (
+                          <option key={item.id} value={JSON.stringify(item)}>
+                            {item.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
-                </div>
-                {/*Template VM*/}
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label}>Template Virtual Machine: </label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    name="templateVm"
-                    required
-                    onChange={(event) => {
-                      separateTemplateName(event.target.value);
-                    }}
-                    disabled={!libraryId}>
-                    <option value="" hidden>
-                      - Select a Template -
-                    </option>
-                    {templateVmList?.map((item) => (
-                      <option key={item.id} value={JSON.stringify(item)}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-              <div className={addclass.flex2}>
-                {/*Semester*/}
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label}>Choose Semester: </label> <br></br>
-                  <select
-                    onChange={(event) => {
-                      var obj = JSON.parse(event.target.value);
-                      setSemester(obj);
-                    }}>
-                    <option>- Select -</option>
-                    {courseSemesterList?.map((item, i) => (
-                      <option key={i} value={JSON.stringify(item)}>
-                        {item.semesterTerm} {item.semesterYear}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {/*vCenter Folder*/}
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label}>vCenter Folder:</label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    id={addclass.vCenterFolder}
-                    name="vCenterFolder"
-                    required
-                    onChange={(event) => {
-                      setvCenterFolder(event.target.value);
-                    }}>
-                    <option value="" hidden>
-                      Choose a Folder
-                    </option>
-                    {vCenterFolderList?.map((item) => (
-                      <option key={item.name} value={item.folder}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                  <div className={addclass.flex2}>
+                    {/*Semester*/}
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label}>Choose Semester: </label> <br></br>
+                      <select
+                        onChange={(event) => {
+                          var obj = JSON.parse(event.target.value);
+                          setSemester(obj);
+                        }}>
+                        <option>- Select -</option>
+                        {courseSemesterList?.map((item, i) => (
+                          <option key={i} value={JSON.stringify(item)}>
+                            {item.semesterTerm} {item.semesterYear}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    {/*vCenter Folder*/}
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label}>vCenter Folder:</label>
+                      <br></br>
+                      <select
+                        className={addclass.select}
+                        id={addclass.vCenterFolder}
+                        name="vCenterFolder"
+                        required
+                        onChange={(event) => {
+                          setvCenterFolder(event.target.value);
+                        }}>
+                        <option value="" hidden>
+                          Choose a Folder
+                        </option>
+                        {vCenterFolderList?.map((item) => (
+                          <option key={item.name} value={item.folder}>
+                            {item.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
 
-                {/*Resource Pool*/}
-                <div className={addclass.singleDiv}>
-                  <label className={addclass.label}>Resource Pool:</label>
-                  <br></br>
-                  <select
-                    className={addclass.select}
-                    name="resourcePool"
-                    required
-                    onChange={(event) => {
-                      separateResourcePoolName(event.target.value);
-                    }}>
-                    <option value="" hidden>
-                      Choose a Resource Pool
-                    </option>
-                    {resourcePoolList?.map((item) => (
-                      <option key={item.name} value={JSON.stringify(item)}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+                    {/*Resource Pool*/}
+                    <div className={addclass.singleDiv}>
+                      <label className={addclass.label}>Resource Pool:</label>
+                      <br></br>
+                      <select
+                        className={addclass.select}
+                        name="resourcePool"
+                        required
+                        onChange={(event) => {
+                          separateResourcePoolName(event.target.value);
+                        }}>
+                        <option value="" hidden>
+                          Choose a Resource Pool
+                        </option>
+                        {resourcePoolList?.map((item) => (
+                          <option key={item.name} value={JSON.stringify(item)}>
+                            {item.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
+
             <button type="button" className={addclass.btnprimary} onClick={validateForm}>
               Add
             </button>
