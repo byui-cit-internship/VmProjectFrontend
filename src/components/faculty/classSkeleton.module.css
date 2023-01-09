@@ -1,0 +1,8 @@
+.classSkeleton div {
+  display: grid;
+  margin: 20px 0;
+}
+
+.classSkeleton .button {
+  justify-self: center;
+}
