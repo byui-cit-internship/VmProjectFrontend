@@ -37,8 +37,8 @@ function AddProfessor() {
         }
       });
       if (response.ok) {
-        setConfirmationMessage("Access Requested Succesfully");
-        setAgainOptionMessage("Go back to the Studend Dashboard");
+        setConfirmationMessage("Access Requested Successfully");
+        setAgainOptionMessage("Go back to the Student Dashboard");
         setIsSuccess(true);
       } else {
         setConfirmationMessage("Error Requesting Access");

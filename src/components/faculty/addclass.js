@@ -268,6 +268,9 @@ width=0,height=0,left=-1000,top=-1000`;
     setResourcePool(thing.resource_pool);
     setResourcePoolName(thing.name);
   };
+  const clearForm = () =>{
+    console.log("Try Again")
+  };
   return (
     <div>
       <div className={addclass.addclass}>
@@ -439,6 +442,7 @@ width=0,height=0,left=-1000,top=-1000`;
           message={popupMessage}
           againOptionMessage={popupAgainMessage}
           success={success}
+          tryAgain={clearForm}
         />
       )}
       <Background />

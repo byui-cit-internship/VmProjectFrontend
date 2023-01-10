@@ -7,6 +7,12 @@ import PropTypes from "prop-types";
 
 const SubmissionPopup = (props) => {
   const [link, setLink] = useState("");
+  const [role, setRole] = useState("student")
+  useEffect(()=>{
+    const result = JSON.parse(sessionStorage.getItem('userInfo'))
+    // setRole(sessionStorage.getItem('userInfo'))
+    console.log(result.firstName)
+  },[])
 
   const redirect = async () => {
     const options = {
@@ -59,13 +65,15 @@ const SubmissionPopup = (props) => {
                 <div className={submissionPop.message}>Go back to dashboard</div>
               </button>
             </Link>
-            <a className={submissionPop.a} href="javascript:;">
-              <button>
-                <div className={submissionPop.message} onClick={() => props.closeHandler(false)}>
-                  {props.againOptionMessage}
-                </div>
-              </button>
-            </a>
+            {!role=='student' &&
+              <a className={submissionPop.a} href="javascript:;">
+               <button>
+                 <div className={submissionPop.message} onClick={() => props.tryAgain}>
+                   {props.againOptionMessage}
+                 </div>
+               </button>
+             </a>
+            }
           </div>
         </div>
       </div>
@@ -77,7 +85,8 @@ SubmissionPopup.propTypes = {
   againOptionMessage: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   success: PropTypes.bool,
-  closeHandler: PropTypes.func.isRequired
+  closeHandler: PropTypes.func.isRequired,
+  tryAgain: PropTypes.func.isRequired
 };
 
 export default SubmissionPopup;
