@@ -140,7 +140,7 @@ function CreateVM() {
             )}
             {loading ? (
               <div className={createVM.loading}>
-                <p>Please wait...</p>
+                <p>Check my VMs in 5 minuties </p>
               </div>
             ) : (
               <p></p>
