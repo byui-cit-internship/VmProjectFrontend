@@ -67,6 +67,7 @@ function Header(props) {
               id={header.dropbtn}
               onClick={() => {
                 navigate("/");
+                window.sessionStorage.removeItem('userInfo')
               }}>
               Sign out
             </button>
