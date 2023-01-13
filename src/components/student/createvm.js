@@ -12,6 +12,8 @@ import { getApiRoot } from "../../utils/getApiRoot";
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
   const [enrollmentId, setEnrollmentId] = useState("");
+  const [templateList, setTemplateList] = useState([]);
+  const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
   // const [response, setResponse] = useState(null)
@@ -31,11 +33,13 @@ function CreateVM() {
 
       const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/section", methods);
       const courseResponseObject = await courseResponse.json();
-      const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
-      setCourseList(arrUniq);
+      // const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
+      setCourseList(courseResponseObject);
     };
     getCourseList();
   }, []);
+
+
 
   const postVm = async () => {
     setLoading(true);
@@ -106,11 +110,28 @@ function CreateVM() {
                   ))}
                 </select>
 
+                {/* <!-- VM Template dropdown --> */}
+                <span className={createVM.material}>
+                  <LibraryBooksIcon className={createVM.material} />
+                </span>
+                <p className={createVM.description}>2. Select VM Template</p>   
+                <select 
+                className="template" id={createVM.course}
+                onChange={(e) => setTemplateId(e.target.value)}>
+                <option value="Default">-  Select -</option>
+
+                {templateList.map((template) => (
+                  <option key={template.canvasSectionId} value={template.templateId}>
+                    {template.templateName}
+                  </option>
+                ))}
+                </select>
+
                 {/* <!-- VM Instance Name -->  */}
                 <span className={createVM.material}>
                   <LibraryBooksIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>2. Name Your VM</p>
+                <p className={createVM.description}>3. Name Your VM</p>
                 <input
                   onChange={(e) => setVmInstanceName(e.target.value)}
                   type="text"
@@ -118,18 +139,11 @@ function CreateVM() {
                   placeholder="VM Name"
                 />
 
-                {/* template vm dropdown - Not needed for MVP */}
-                {/* <span className={createVM.material}><LaptopIcon className={createVM.material} /></span>
-          <p className={createVM.description}>2. Select VM</p>
-          <select name="templatevm" id={createVM.course}>
-            <option value="Default">-  Select -</option>
-          </select> */}
-
                 {/* <!--Create the VM--> */}
                 <span className={createVM.material}>
                   <CheckCircleOutlineIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>3. Create the VM</p>
+                <p className={createVM.description}>4. Create the VM</p>
                 <input id="vm_name" type="hidden" value="Default Vm" />
                 <button id={createVM.buttonVm} onClick={postVm}>
                   Create
