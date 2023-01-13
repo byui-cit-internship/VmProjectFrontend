@@ -12,6 +12,17 @@ function MyVM() {
   const [networkList, setNetworkList] = useState([]);
   useEffect(() => {
     //setNetworkList([])
+    const getVmNetwork = async (item) => {
+      
+      if (listResponse.status >= 400) {
+        setNetworkList(networkList => [...networkList, {id: item, address: null, status: "offline"}])
+      } else {
+        var networks = await listResponse.json();
+        var ip = networks[0].ip.ip_addresses[0].ip_address
+        setNetworkList(networkList => [...networkList, {id: item, address: ip, status: "online"}])
+      }
+    };
+
     const getVmList = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/vmtable/instances", {
         method: "GET",
@@ -21,7 +32,35 @@ function MyVM() {
         }
       });
       console.log(listResponse);
-      const vmList = await listResponse.json();
+      let vmList = await listResponse.json();
+      vmList = vmList.map(async vm => {
+        try {const listResponse = await fetch(getApiRoot() + `/api/deployvm/vm-network?vmInstanceVcenterId=${vm.vmInstanceVcenterId}`, {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json"
+          }
+        });
+
+        const networkList = await listResponse.json() 
+        console.log(networkList)
+        let ip = ""
+        networkList.forEach(network => {
+          console.log(network)
+          console.log(network.ip.ip_addresses)
+          if (network.ip != null && network.ip.ip_addresses.length > 0) {
+            ip = ip + " " + network.ip.ip_addresses[0].ip_address
+            console.log(ip)
+          } 
+          
+        });
+        vm.ip = ip}
+        catch (error) {
+          console.log(error)
+        }
+        return vm
+      });
+      vmList = await Promise.all(vmList)
       console.log("vm's", vmList);
       setVmList(vmList);
     };
@@ -29,31 +68,6 @@ function MyVM() {
   }, []);
 
 //*********Get Vm Instance Netowkr Info**********/
-useEffect(() => {
-  const getVmNetwork = async (item) => {
-    const listResponse = await fetch(getApiRoot() + `/api/deployvm/vm-network?vmInstanceVcenterId=${item}`, {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        "content-type": "application/json"
-      }
-    });
-    if (listResponse.status >= 400) {
-      setNetworkList(networkList => [...networkList, {id: item, address: null, status: "offline"}])
-    } else {
-      var networks = await listResponse.json();
-      var ip = networks[0].ip.ip_addresses[0].ip_address
-      setNetworkList(networkList => [...networkList, {id: item, address: ip, status: "online"}])
-    }
-  };
-
-const mapVms = () => {
-  vmList.map(vm => {getVmNetwork(vm.vmInstanceVcenterId)});
-}
-  if (vmList) {
-    mapVms()
-  }
-}, [vmList]);
 
 console.log(networkList);
 
@@ -87,22 +101,15 @@ console.log(networkList);
                 <td>{vm.vmInstanceExpireDate}</td>
               </tr>
 
+              <tr>
+                <th>Ipv4 Address</th>
+                <td>{vm.ip}</td>
+              </tr>
+              
+
             </thead>
             ))}
 
-            <tbody>
-
-              <tr>
-                <th>Mac Address</th>
-                <td>{}</td>
-              </tr>
-
-              <tr>
-                <th>Ipv4 Address</th>
-                <td>{}</td>
-              </tr>
-
-          </tbody>
           </table>
         </div>
         <Background />
