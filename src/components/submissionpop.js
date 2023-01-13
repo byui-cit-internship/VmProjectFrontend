@@ -59,13 +59,15 @@ const SubmissionPopup = (props) => {
                 <div className={submissionPop.message}>Go back to dashboard</div>
               </button>
             </Link>
-            <a className={submissionPop.a} href="javascript:;">
-              <button>
-                <div className={submissionPop.message} onClick={() => props.closeHandler(false)}>
-                  {props.againOptionMessage}
-                </div>
-              </button>
-            </a>
+            {props.againOptionMessage && (
+              <a className={submissionPop.a} href="javascript:;">
+                <button>
+                  <div className={submissionPop.message} onClick={() => props.closeHandler(false)}>
+                    {props.againOptionMessage}
+                  </div>
+                </button>
+              </a>
+            )}
           </div>
         </div>
       </div>
