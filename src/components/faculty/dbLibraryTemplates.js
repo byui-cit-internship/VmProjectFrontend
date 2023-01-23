@@ -27,7 +27,7 @@ const DbLibraryTemplates = (props) => {
         }
       };
       const response = await fetch(
-        getApiRoot() + `/api/createvm/templates/bylibraryid/${props.libraryId}`,
+        getApiRoot() + `/api/vmtable/templates/all?libraryId=${props.libraryId}`,
         options
       );
       if (response.ok) {
