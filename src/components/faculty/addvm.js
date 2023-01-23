@@ -74,6 +74,7 @@ function AddVm() {
       );
       if (response.ok) {
         const section = await response.json();
+        console.log("section object",section);
         setLibraryId(section.libraryVCenterId);
       } else {
         console.log(response);
