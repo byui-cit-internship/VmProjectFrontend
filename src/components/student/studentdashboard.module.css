@@ -66,6 +66,8 @@ https://www.byui.edu/branding/color-guide
   background-position-x: -10%;
   background-position-y: 110%;
   margin: 50px auto;
+  width: 95vw;
+  max-width: 1000px;
 }
 
 /* .studentdashboard .header {
