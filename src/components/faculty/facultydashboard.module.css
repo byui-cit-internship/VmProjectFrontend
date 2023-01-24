@@ -74,7 +74,7 @@ https://www.byui.edu/branding/color-guide
 .facultydashboard .container {
   background-color: white;
   /* margin-top: 50px; */
-  height: 500px;
+  height: 545px; /* Lined up more with studentdashboard */
   border-radius: 50px;
   display: grid;
   grid-template-columns: 65% 35%;
