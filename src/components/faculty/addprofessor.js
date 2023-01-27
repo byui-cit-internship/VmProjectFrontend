@@ -19,7 +19,7 @@ function AddProfessor() {
   useEffect(() => {
     if (urlParams === "addprofessor") {
       body.style.height = "100vh";
-      body.style.display = "flex";
+      // body.style.display = "flex";
       body.style.justifyContent = "center";
       body.style.alignItems = "center";
     }
@@ -49,7 +49,7 @@ function AddProfessor() {
       });
       console.log(response);
       if (response.ok) {
-        setConfirmationMessage("Professor added succesfully");
+        setConfirmationMessage("Professor added successfully");
         setAgainOptionMessage("Add another professor");
         setIsSuccess(true);
       } else {
