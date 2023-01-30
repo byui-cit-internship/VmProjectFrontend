@@ -16,6 +16,7 @@ function CreateVM() {
   const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
+  const [libraryId, setLibraryId] =useState("");//this will store the library id of the selected course
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
 
@@ -39,7 +40,25 @@ function CreateVM() {
     getCourseList();
   }, []);
 
+  useEffect(() => {
+    const getTemplateList = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
 
+      const templatelistResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`, methods);
+      const templatelistResponseObject = await templatelistResponse.json();
+      // const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
+      setTemplateList(templatelistResponseObject);
+    };
+    if (libraryId){
+    getTemplateList();
+    }
+  }, []);
 
   const postVm = async () => {
     setLoading(true);
@@ -51,6 +70,7 @@ function CreateVM() {
       },
       body: JSON.stringify({
         enrollment_id: enrollmentId,
+        template_Id: templateId,
         vmInstanceName: vmInstanceName,
         vmInstanceCreationDate: vmCreationDate
       })
@@ -101,10 +121,15 @@ function CreateVM() {
                 <select
                   className="course"
                   id={createVM.course}
-                  onChange={(e) => setEnrollmentId(e.target.value)}>
+                  onChange={(e) => {
+                    const course=JSON.parse(e.target.value) 
+                    console.log(e.target.value)
+                    setEnrollmentId(course.enrollmentId);
+                    setLibraryId(course.libraryVCenterId);
+                  }}>
                   <option value="Default">- Select -</option>
                   {courseList.map((course) => (
-                    <option key={course.canvasSectionId} value={course.enrollmentId}>
+                    <option key={course.canvasSectionId} value={JSON.stringify(course)}>
                       {course.sectionName}
                     </option>
                   ))}
