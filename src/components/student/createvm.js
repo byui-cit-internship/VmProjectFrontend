@@ -39,6 +39,22 @@ function CreateVM() {
     getCourseList();
   }, []);
 
+  useEffect(() => {
+    const getTemplateList = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
+
+      const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/template", methods);
+      const courseResponseObject = await courseResponse.json();
+      setTemplateList(courseResponseObject);
+    };
+    getTemplateList();
+  }, []);
 
 
   const postVm = async () => {
@@ -52,7 +68,8 @@ function CreateVM() {
       body: JSON.stringify({
         enrollment_id: enrollmentId,
         vmInstanceName: vmInstanceName,
-        vmInstanceCreationDate: vmCreationDate
+        vmInstanceCreationDate: vmCreationDate,
+        templateId: templateId
       })
     };
 
