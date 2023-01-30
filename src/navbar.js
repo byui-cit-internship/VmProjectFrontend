@@ -70,7 +70,7 @@ function Navbar() {
             <a
               onClick={() => {
                 navigate("/");
-                window.sessionStorage.removeItem('userInfo')
+                window.sessionStorage.removeItem("userInfo");
               }}>
               Sign Out
             </a>
