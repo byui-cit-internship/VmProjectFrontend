@@ -11,7 +11,7 @@ import { getApiRoot } from "../../utils/getApiRoot";
 
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
-  const [enrollmentId, setEnrollmentId] = useState("");
+  const [enrollment, setEnrollment] = useState({});
   const [templateList, setTemplateList] = useState([]);
   const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
@@ -34,6 +34,8 @@ function CreateVM() {
 
       const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/section", methods);
       const courseResponseObject = await courseResponse.json();
+      console.log(courseResponseObject)
+      
       // const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
       setCourseList(courseResponseObject);
     };
@@ -50,12 +52,13 @@ function CreateVM() {
         method: "GET"
       };
 
-      const templatelistResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${libraryId}`, methods);
+      const templatelistResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${enrollment.libraryVCenterId}`, methods);
+      // console.log(templatelistResponse)
       const templatelistResponseObject = await templatelistResponse.json();
-      // const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
+      console.log(templatelistResponseObject)
       setTemplateList(templatelistResponseObject);
     };
-    if (libraryId){
+    if (enrollment.libraryVCenterId){
     getTemplateList();
     }
   }, []);
@@ -69,7 +72,7 @@ function CreateVM() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        enrollment_id: enrollmentId,
+        enrollment_id: enrollment.enrollmentId,
         template_Id: templateId,
         vmInstanceName: vmInstanceName,
         vmInstanceCreationDate: vmCreationDate
@@ -124,8 +127,8 @@ function CreateVM() {
                   onChange={(e) => {
                     const course=JSON.parse(e.target.value) 
                     console.log(e.target.value)
-                    setEnrollmentId(course.enrollmentId);
-                    setLibraryId(course.libraryVCenterId);
+                    setEnrollment(course);
+                    // setLibraryId(course.libraryVCenterId);
                   }}>
                   <option value="Default">- Select -</option>
                   {courseList.map((course) => (
@@ -146,8 +149,8 @@ function CreateVM() {
                 <option value="Default">-  Select -</option>
 
                 {templateList.map((template) => (
-                  <option key={template.canvasSectionId} value={template.templateId}>
-                    {template.templateName}
+                  <option key={template.id} value={template.templateId}>
+                    {template.name}
                   </option>
                 ))}
                 </select>
