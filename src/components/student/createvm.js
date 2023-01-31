@@ -13,7 +13,8 @@ function CreateVM() {
   const [courseList, setCourseList] = useState([]);
   const [enrollmentId, setEnrollmentId] = useState("");
   const [templateList, setTemplateList] = useState([]);
-  const [templateId, setTemplateId] = useState("");
+  // inside the quotations just for testing and need to be change when the vm template dropdown is done
+  const [templateId, setTemplateId] = useState("8cb6e535-729c-4ee8-a306-8b399ad03250");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
   // const [response, setResponse] = useState(null)
