@@ -59,9 +59,10 @@ function CreateVM() {
       setTemplateList(templatelistResponseObject);
     };
     if (enrollment.libraryVCenterId){
-    getTemplateList();
-    }
-  }, []);
+      getTemplateList();
+      }
+    
+  }, [enrollment]);
 
   const postVm = async () => {
     setLoading(true);
@@ -128,6 +129,8 @@ function CreateVM() {
                     const course=JSON.parse(e.target.value) 
                     console.log(e.target.value)
                     setEnrollment(course);
+                    
+                    // getTemplateList();
                     // setLibraryId(course.libraryVCenterId);
                   }}>
                   <option value="Default">- Select -</option>
