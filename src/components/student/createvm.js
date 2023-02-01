@@ -14,7 +14,7 @@ function CreateVM() {
   const [enrollment, setEnrollment] = useState({});
   const [templateList, setTemplateList] = useState([]);
   // inside the quotations just for testing and need to be change when the vm template dropdown is done
-  const [templateId, setTemplateId] = useState("8cb6e535-729c-4ee8-a306-8b399ad03250");
+  const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
   const [libraryId, setLibraryId] =useState("");//this will store the library id of the selected course
