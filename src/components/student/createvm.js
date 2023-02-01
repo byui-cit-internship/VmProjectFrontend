@@ -11,12 +11,13 @@ import { getApiRoot } from "../../utils/getApiRoot";
 
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
-  const [enrollmentId, setEnrollmentId] = useState("");
+  const [enrollment, setEnrollment] = useState({});
   const [templateList, setTemplateList] = useState([]);
   // inside the quotations just for testing and need to be change when the vm template dropdown is done
-  const [templateId, setTemplateId] = useState("8cb6e535-729c-4ee8-a306-8b399ad03250");
+  const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
+  const [libraryId, setLibraryId] =useState("");//this will store the library id of the selected course
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
 
@@ -34,11 +35,35 @@ function CreateVM() {
 
       const courseResponse = await fetch(getApiRoot() + "/api/StudentCourse/section", methods);
       const courseResponseObject = await courseResponse.json();
+      console.log(courseResponseObject)
+      
       // const arrUniq = [...new Map(courseResponseObject.map((v) => [v.id, v])).values()];
       setCourseList(courseResponseObject);
     };
     getCourseList();
   }, []);
+
+  useEffect(() => {
+    const getTemplateList = async () => {
+      const methods = {
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        },
+        method: "GET"
+      };
+
+      const templatelistResponse = await fetch(getApiRoot() + `/api/vmtable/templates/all?libraryId=${enrollment.libraryVCenterId}`, methods);
+      // console.log(templatelistResponse)
+      const templatelistResponseObject = await templatelistResponse.json();
+      console.log(templatelistResponseObject)
+      setTemplateList(templatelistResponseObject);
+    };
+    if (enrollment.libraryVCenterId){
+      getTemplateList();
+      }
+    
+  }, [enrollment]);
 
   const postVm = async () => {
     setLoading(true);
@@ -49,7 +74,8 @@ function CreateVM() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        enrollment_id: enrollmentId,
+        enrollment_id: enrollment.enrollmentId,
+        template_Id: templateId,
         vmInstanceName: vmInstanceName,
         vmInstanceCreationDate: vmCreationDate,
         templateId: templateId
@@ -101,10 +127,17 @@ function CreateVM() {
                 <select
                   className="course"
                   id={createVM.course}
-                  onChange={(e) => setEnrollmentId(e.target.value)}>
+                  onChange={(e) => {
+                    const course=JSON.parse(e.target.value) 
+                    console.log(e.target.value)
+                    setEnrollment(course);
+                    
+                    // getTemplateList();
+                    // setLibraryId(course.libraryVCenterId);
+                  }}>
                   <option value="Default">- Select -</option>
                   {courseList.map((course) => (
-                    <option key={course.canvasSectionId} value={course.enrollmentId}>
+                    <option key={course.canvasSectionId} value={JSON.stringify(course)}>
                       {course.sectionName}
                     </option>
                   ))}
@@ -121,8 +154,8 @@ function CreateVM() {
                 <option value="Default">-  Select -</option>
 
                 {templateList.map((template) => (
-                  <option key={template.canvasSectionId} value={template.templateId}>
-                    {template.templateName}
+                  <option key={template.id} value={template.templateId}>
+                    {template.name}
                   </option>
                 ))}
                 </select>
