@@ -101,7 +101,8 @@ https://www.byui.edu/branding/color-guide
 
 .addprofessor input {
   transition: background-size 0.3s ease;
-  border: none;
+  border: 3px solid #98d5fd;
+  /* border: none; */
   appearance: none;
   background: #f2f2f2;
   padding: var(--field-padding);
@@ -235,7 +236,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addprofessor input {
-    border: 3px solid #98d5fd;
+    /* border: 3px solid #98d5fd; */
     padding: 11.5px;
     margin-top: 8px;
   }
@@ -307,7 +308,7 @@ https://www.byui.edu/branding/color-guide
 @media only screen and (min-width: 37.4em) {
   .addprofessor .container {
     margin-top: 100px !important;
-    min-height: 80vh;
+    min-height: 90vh;
     width: 94vw;
     align-items: unset;
   }
