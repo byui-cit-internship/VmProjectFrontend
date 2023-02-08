@@ -64,11 +64,7 @@ function MyClasses() {
                     <div className={myclasses.tablecontent}>
                       <DbLibraryTemplates libraryId={item.libraryVCenterId} />
                       <div className={myclasses.add}>
-                        <button
-                          className={myclasses.addbutton}
-                          onClick={() => navigate(`/addvm?sectionId=${item.sectionId}`)}>
-                          Add Virtual Machine Template
-                        </button>
+                        
                       </div>
                     </div>
                   </Card>
