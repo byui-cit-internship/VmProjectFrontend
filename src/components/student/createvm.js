@@ -11,13 +11,13 @@ import { getApiRoot } from "../../utils/getApiRoot";
 
 function CreateVM() {
   const [courseList, setCourseList] = useState([]);
-  const [enrollment, setEnrollment] = useState({});
+  const [enrollment, setEnrollment] = useState([]);
   const [templateList, setTemplateList] = useState([]);
   // inside the quotations just for testing and need to be change when the vm template dropdown is done
   const [templateId, setTemplateId] = useState("");
   const [vmInstanceName, setVmInstanceName] = useState("");
   const [vmCreationDate, setVmCreationDate] = useState("");
-  const [libraryId, setLibraryId] =useState("");//this will store the library id of the selected course
+  const [libraryId, setLibraryId] = useState("");//this will store the library id of the selected course
   // const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(null);
 
@@ -74,11 +74,10 @@ function CreateVM() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        enrollment_id: enrollment.enrollmentId,
-        template_Id: templateId,
+        enrollmentId: enrollment.userSectionRoleId,
+        templateId: templateId,
         vmInstanceName: vmInstanceName,
-        vmInstanceCreationDate: vmCreationDate,
-        templateId: templateId
+        vmInstanceCreationDate: vmCreationDate
       })
     };
 
@@ -154,7 +153,7 @@ function CreateVM() {
                 <option value="Default">-  Select -</option>
 
                 {templateList.map((template) => (
-                  <option key={template.id} value={template.templateId}>
+                  <option key={template.id} value={template.id}>
                     {template.name}
                   </option>
                 ))}
