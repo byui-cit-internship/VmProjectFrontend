@@ -38,10 +38,11 @@ function Header(props) {
             <button
               className={header.dropbtn}
               onClick={() => {
-                navigate("/myvm");
+                navigate("/" + props.userType);
               }}>
-              My VMs
+              Home
             </button>
+            <div className={header.dropdown_content}></div>
           </div>
           <div className={header.dropdown}>
             <button
@@ -50,6 +51,15 @@ function Header(props) {
                 navigate("/createvm");
               }}>
               Create VM
+            </button>
+          </div>
+          <div className={header.dropdown}>
+            <button
+              className={header.dropbtn}
+              onClick={() => {
+                navigate("/myvm");
+              }}>
+              My VMs
             </button>
           </div>
           <div className={header.dropdown}>
@@ -69,7 +79,7 @@ function Header(props) {
                 navigate("/");
                 window.sessionStorage.removeItem('userInfo')
               }}>
-              Sign out
+              Sign Out
             </button>
             <div className={header.dropdown_content}></div>
           </div>

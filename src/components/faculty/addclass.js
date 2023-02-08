@@ -344,8 +344,10 @@ width=0,height=0,left=-1000,top=-1000`;
                   <div className={addclass.flex2}>
                     {/*Semester*/}
                     <div className={addclass.singleDiv}>
-                      <label className={addclass.label}>Choose Semester: </label> <br></br>
+                      <label className={addclass.label}>Choose Semester: </label> 
+                      <br></br>
                       <select
+                        className={addclass.select}
                         onChange={(event) => {
                           var obj = JSON.parse(event.target.value);
                           setSemester(obj);
