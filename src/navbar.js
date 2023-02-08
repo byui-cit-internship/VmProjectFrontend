@@ -29,9 +29,25 @@ function Navbar() {
           <li className="nav-text">
             <a
               onClick={() => {
+                navigate("/myclasses");
+              }}>
+              My Classes
+            </a>
+          </li>
+          <li className="nav-text">
+            <a
+              onClick={() => {
                 navigate("/addclass");
               }}>
               Add Class
+            </a>
+          </li>
+          <li className="nav-text">
+            <a
+              onClick={() => {
+                navigate("/professorlist");
+              }}>
+              Professor List
             </a>
           </li>
           <li className="nav-text">
@@ -45,25 +61,9 @@ function Navbar() {
           <li className="nav-text">
             <a
               onClick={() => {
-                navigate("/myclasses");
-              }}>
-              My Classes
-            </a>
-          </li>
-          <li className="nav-text">
-            <a
-              onClick={() => {
                 navigate("/utilization");
               }}>
               VM Utilization
-            </a>
-          </li>
-          <li className="nav-text">
-            <a
-              onClick={() => {
-                navigate("/professorlist");
-              }}>
-              View Professors
             </a>
           </li>
           <li className="nav-text">

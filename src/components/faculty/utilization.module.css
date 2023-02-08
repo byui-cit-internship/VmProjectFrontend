@@ -32,7 +32,7 @@
 .utilization .container {
   background-color: white;
   margin: 50px auto;
-  height: 800px;
+  /* height: 800px; */
   border-radius: 50px;
   background-image: url("/public/images/background.png");
   background-size: 60%;
@@ -165,7 +165,7 @@
   padding: 15px;
   font-family: "Raleway";
   text-align: left;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   font-weight: bold;
   color: #006eb6;
   border: 2px solid black;

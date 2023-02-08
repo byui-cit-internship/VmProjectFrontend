@@ -35,6 +35,16 @@ function Header(props) {
         <div className={header.links} id={showLinks ? "hidden" : ""}>
           {/* <a id={header.welcome}>Welcome {userFirstName} |</a> */}
           <div className={header.dropdown}>
+            <button
+              className={header.dropbtn}
+              onClick={() => {
+                navigate("/" + props.userType);
+              }}>
+              Home
+            </button>
+            <div className={header.dropdown_content}></div>
+          </div>
+          <div className={header.dropdown}>
             <button className={header.dropbtn}>Classes</button>
             <div className={header.dropdown_content}>
               <a
@@ -74,7 +84,7 @@ function Header(props) {
               onClick={() => {
                 navigate("/utilization");
               }}>
-              Utilization
+              VM Utilization
             </button>
             <div className={header.dropdown_content}></div>
           </div>
@@ -86,7 +96,7 @@ function Header(props) {
                 navigate("/");
                 window.sessionStorage.removeItem('userInfo')
               }}>
-              Sign out
+              Sign Out
             </button>
             <div className={header.dropdown_content}></div>
           </div>
