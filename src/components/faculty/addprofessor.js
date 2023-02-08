@@ -115,7 +115,7 @@ function AddProfessor() {
                   />
                 </div>
               </div>
-              <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
+              {/* <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img> */}
             </div>
             <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
               Add
