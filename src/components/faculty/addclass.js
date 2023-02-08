@@ -51,9 +51,7 @@ function AddClass() {
       semester.length === 0 ||
       libraryId.length === 0 ||
       vCenterFolder.length === 0 ||
-      templateVm.length === 0 ||
       resourcePool.length === 0 ||
-      vmTemplateName.length === 0 ||
       canvasCourseId.length === 0
     ) {
       allFieldsValid = false;
@@ -81,7 +79,6 @@ function AddClass() {
         semester: semester,
         libraryId: libraryId,
         folder: vCenterFolder,
-        templateVm: [templateVm],
         resource_pool: resourcePool,
         resourcePoolName: resourcePoolName,
         userId: userId,
@@ -342,34 +339,15 @@ width=0,height=0,left=-1000,top=-1000`;
                           value={canvasCourseId}></input>
                       </div>
                     </div>
-                    {/*Template VM*/}
-                    <div className={addclass.singleDiv}>
-                      <label className={addclass.label}>Template Virtual Machine: </label>
-                      <br></br>
-                      <select
-                        className={addclass.select}
-                        name="templateVm"
-                        required
-                        onChange={(event) => {
-                          separateTemplateName(event.target.value);
-                        }}
-                        disabled={!libraryId}>
-                        <option value="" hidden>
-                          - Select a Template -
-                        </option>
-                        {templateVmList?.map((item) => (
-                          <option key={item.id} value={JSON.stringify(item)}>
-                            {item.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                    
                   </div>
                   <div className={addclass.flex2}>
                     {/*Semester*/}
                     <div className={addclass.singleDiv}>
-                      <label className={addclass.label}>Choose Semester: </label> <br></br>
+                      <label className={addclass.label}>Choose Semester: </label> 
+                      <br></br>
                       <select
+                        className={addclass.select}
                         onChange={(event) => {
                           var obj = JSON.parse(event.target.value);
                           setSemester(obj);
