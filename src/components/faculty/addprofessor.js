@@ -73,7 +73,7 @@ function AddProfessor() {
         <Header userType="facultydashboard" />
 
         <div className={addprofessor.main}>
-          <h1 className={addprofessor.h1}>Add a Professor</h1>
+          <h1 className={addprofessor.h1}>Add Professor</h1>
           <form action="#" className={addprofessor.form} onSubmit={(e) => e.preventDefault()}>
             {/* <!-- Course Name--> */}
             <div className={addprofessor.flexContainer}>
@@ -115,7 +115,7 @@ function AddProfessor() {
                   />
                 </div>
               </div>
-              <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img>
+              {/* <img className={addprofessor.image} alt="teacher" src="/images/teacherpic.jpg"></img> */}
             </div>
             <button type="submit" className={addprofessor.primaryButton} onClick={validateForm}>
               Add
