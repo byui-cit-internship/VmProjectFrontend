@@ -21,6 +21,7 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass .form {
   display: flex;
+  margin: 0px ;
   gap: 30px;
 }
 .addclass .flex1 {
@@ -39,9 +40,11 @@ https://www.byui.edu/branding/color-guide
   gap: 32px;
 }
 .addclass .courseIdInput {
-  width: 95%;
+  border-radius: 10px;
+  width: 91%;
 }
 .addclass .select {
+  border-radius: 10px;
   width: 100%;
 }
 .addclass .validation {
@@ -58,9 +61,10 @@ https://www.byui.edu/branding/color-guide
   margin-top: 10px;
   position: relative;
 }
-.addclass .courseIdInput {
+/* .addclass .courseIdInput {
+  
   width: 38%;
-}
+} */
 .addclass .alertButton {
   border: none;
 }
@@ -169,7 +173,8 @@ https://www.byui.edu/branding/color-guide
     width: 100%;
   }
   .addclass .courseIdInput {
-    font-size: 2rem;
+    font-size: 1rem;
+    width: 91%;
   }
   .addclass .btnprimary {
     width: 100%;
@@ -200,8 +205,8 @@ https://www.byui.edu/branding/color-guide
   .addclass .form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #f0f0f0;
-    margin: 32px;
+    background-color: white;
+    margin: 0px ;
     padding: 32px;
     gap: 60px;
   }
