@@ -75,10 +75,9 @@ function CreateVM() {
       },
       body: JSON.stringify({
         enrollment_id: enrollment.enrollmentId,
-        template_Id: templateId,
         vmInstanceName: vmInstanceName,
         vmInstanceCreationDate: vmCreationDate,
-        templateId: templateId
+        templateId: templateId,
       })
     };
 
