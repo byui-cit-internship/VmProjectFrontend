@@ -59,13 +59,13 @@
 }
 
 .professorList .searchbar {
-  margin: 0px 10px;
+  margin: 0px 0px;
   border-radius: 8px;
   border: 1px solid #ffffff;
   background-color: #006eb6;
   height: 30px;
   width: 455px;
-  padding: 0px 9px;
+  padding: 0px 0px;
   display: flex;
   align-items: center;
 }
@@ -122,14 +122,16 @@ select:focus {
 
 .professorList th {
   border-bottom: 1px solid black;
-  border: 2px solid #3a8ace;
+  border: 2px solid ;
+  background-color: #3a8ace ;
+  color: #3a8ace;
+  text-emphasis-color: white ;
   text-align: left;
   font-family: "Raleway", sans-serif;
   padding: 10px;
   margin: 10px auto;
   font-size: 1.5rem;
   font-weight: bold;
-  color: black;
 }
 
 .professorList td {
@@ -166,7 +168,7 @@ select:focus {
 
 .professorList .tableHeader {
   width: 100%;
-  background: #006eb6;
+  background: white;
   padding: 0px 10px;
   color: white;
 }
@@ -193,9 +195,9 @@ select:focus {
 }
 
 .professorList .tableHeader {
-  display: flex;
+  /* display: flex; */
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .professorList .popupbox {
   position: fixed;
@@ -467,7 +469,7 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList #title {
-    font-size: 1.5rem;
+    font-size: 35px;
     margin-top: 30px;
   }
 }
