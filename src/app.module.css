@@ -1,3 +1,25 @@
+
+:root {
+  --maincolor: #5bbcfb;
+  --secondarycolor: #3a8ace;
+  --emphasiscolor: #2265A5;
+  --backgroundcolor: #006eb6;
+  --lightcolor: #98D5FD;
+  --darktextcolor: #000000;
+  --lighttextcolor: #FFFFFF;
+  --successcolor: #58B952;
+  --warningcolor: #F58E2F;
+  --dangercolor: #D01900;
+  --disabledcolor: #9C9FA1;
+  --header1fontsize: 55px;
+  --header2fontsize: 45px;
+  --header3fontsize: 35px;
+  --paragraphfontsize: 25px;
+  --labelfontsize: 15px;
+  --boldlabelfontsize: 15px;
+}
+
+
 .app .googleLogin {
   opacity: 1%;
 }
@@ -67,7 +89,7 @@
 }
 
 .applink {
-  color: #61dafb;
+  color: #98D5FD;
 }
 
 @keyframes App-logo-spin {

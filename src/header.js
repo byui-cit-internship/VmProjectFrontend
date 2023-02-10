@@ -86,7 +86,7 @@ function Header(props) {
                 navigate("/");
                 window.sessionStorage.removeItem('userInfo')
               }}>
-              Sign out
+              Sign Out
             </button>
             <div className={header.dropdown_content}></div>
           </div>
