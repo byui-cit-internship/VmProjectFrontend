@@ -107,7 +107,6 @@ https://www.byui.edu/branding/color-guide
 
 .addprofessor input {
   transition: background-size 0.3s ease;
-  border: 2px solid var(--backgroundcolor);
   border-radius: 10px;
   /* border: none; */
   padding: 5px 25px 5px 25px;
