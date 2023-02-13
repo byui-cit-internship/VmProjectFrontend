@@ -8,6 +8,8 @@ import { AiOutlineCheck } from "react-icons/ai";
 import ApproveProfessorPopup from "../approveprofessorpop.js";
 import LoadingSpinner from "../spinner.js";
 import Popup from "./Popup.js";
+import Checkbox from '@mui/material/Checkbox';
+import { green } from '@mui/material/colors';
 
 // import ReactDOM from 'react-dom'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -158,8 +160,19 @@ function ProfessorList() {
                 </tr>
               </thead>
               <tbody>
-                {filteredData.map((professor) => (
-                  <tr key={professor.userId}>
+                {filteredData.map((professor, index) => (
+
+
+                  // sx={index%2==0 || index==0? {
+                  //   color: green[500],
+                  //   '&.Mui-checked': {
+                  //     color: green[500],
+                  //   },
+                  // }: {}}
+
+
+                  <tr key={professor.userId} style={index%2==0 || index==0? {
+                    backgroundColor:'#F0F0F0'}:{}}>
                     <td>
                       {professor.firstName} {professor.lastName}
                     </td>
@@ -169,7 +182,16 @@ function ProfessorList() {
                         if (professor.approveStatus == "approved") {
                           return (
                             <div className={professorList.checkMark}>
-                              <AiOutlineCheck size="40px" />
+                              <Checkbox
+                                checked={true}
+                                disabled
+                                sx={{
+                                  color: green[500],
+                                  '&.Mui-checked': {
+                                    color: green[500],
+                                  },
+                                }}
+                              />
                             </div>
                           );
                         } else {
@@ -197,7 +219,7 @@ function ProfessorList() {
           onClick={() => {
             navigate("/addprofessor");
           }}>
-          Add New Professor
+          Add Professor
         </button>
       </div>
       {isPopupOpen && (
