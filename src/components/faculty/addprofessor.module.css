@@ -206,8 +206,7 @@ https://www.byui.edu/branding/color-guide
 .addprofessor .singleContainer label {
   font-family: 'Raleway';
   font-style: italic;
-  color: #006eb6;
-  font-style: italic;
+  color: var(--backgroundcolor);
   padding-bottom: 10px;
 }
 

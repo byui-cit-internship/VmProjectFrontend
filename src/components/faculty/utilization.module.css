@@ -23,7 +23,8 @@
 }
 
 .utilization #formheader h1 {
-  font-size: 1.8em;
+  color: var(--emphasiscolor);
+  font-size: var(--header2fontsize);
   font-weight: bold;
   grid-column: 2;
   /* text-align: center; */
@@ -64,11 +65,11 @@
 }
 
 .utilization label {
-  color: #006eb6;
+  color: var(--backgroundcolor);
+  font-style: italic;
 }
 
 .utilization select {
-  margin-left: 10px;
   margin-right: 10px;
   background-color: rgba(0, 0, 0, 10%);
   border: none;
@@ -81,7 +82,9 @@
 }
 
 .utilization h2 {
-  color: #006eb6;
+  color: var(--backgroundcolor);
+  font-weight: bold;
+  font-size: var(--paragraphfontsize);
 }
 
 .utilization .btn {
@@ -460,7 +463,7 @@
 
   .utilization .h2available {
     margin-top: 2em;
-    font-size: 1em;
+    font-size: var(--paragraphfontsize);
     margin-bottom: 0.5em;
     padding: 0;
   }
