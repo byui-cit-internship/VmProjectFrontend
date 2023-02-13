@@ -59,7 +59,10 @@ function App() {
               <img className={styles.logo} src="images/LOGO-VIMA.png" alt="logo" />
               <div className={styles.main}>
                 <h2 className={styles.h2}>
-                  Welcome to <span id="vima">vima</span>
+                  Welcome to{" "}
+                  <span className={styles.vima} id="vima">
+                    vima
+                  </span>
                   <br />
                   the VM self-service app
                 </h2>
