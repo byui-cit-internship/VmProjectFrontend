@@ -8,12 +8,13 @@
 
 button {
   width: 100%;
-  background-color: #006eb6;
+  background-color: var(--backgroundcolor);
   border-style: none;
   color: white;
   font-weight: bold;
-  font-size: medium;
+  font-size: var(--boldlabelfontsize);
   border-radius: 10px;
+  padding: 15px;
 }
 
 button:hover {
