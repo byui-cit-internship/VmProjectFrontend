@@ -145,7 +145,7 @@ function ProfessorList() {
                 onChange={inputHandler}
                 id={professorList.search}
                 type="text"
-                placeholder="Search.."
+                placeholder="Search..."
               />
             </div>
           </div>
