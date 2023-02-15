@@ -172,15 +172,16 @@ function CreateVM() {
                 />
 
                 {/* <!--Create the VM--> */}
-                <span className={createVM.material}>
+                {/* <span className={createVM.material}>
                   <CheckCircleOutlineIcon className={createVM.material} />
-                </span>
-                <p className={createVM.description}>4. Create the VM</p>
+                </span> */}
+                {/* <p className={createVM.description}>4. Create the VM</p> */}
                 <input id="vm_name" type="hidden" value="Default Vm" />
                 <button id={createVM.buttonVm} onClick={postVm}>
                   Create
                 </button>
               </div>
+                
             ) : (
               <p></p>
             )}
@@ -191,7 +192,9 @@ function CreateVM() {
             ) : (
               <p></p>
             )}
+            
           </div>
+          
         </div>
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       </div>
