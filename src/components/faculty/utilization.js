@@ -340,7 +340,7 @@ function Utilization() {
           <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
               <div className={utilization.listHead}>
-                <strong className={utilization.listHeadText}>Students</strong>
+                <strong className={utilization.listHeadText}>Student</strong>
                 <TextField
                   onChange={inputHandler}
                   id={utilization.search}
@@ -349,7 +349,7 @@ function Utilization() {
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
-                        <SearchIcon className={utilization.searchIcon} />
+                        {/* <SearchIcon className={utilization.searchIcon} /> */}
                       </InputAdornment>
                     )
                   }}
