@@ -161,16 +161,6 @@ function ProfessorList() {
               </thead>
               <tbody>
                 {filteredData.map((professor, index) => (
-
-
-                  // sx={index%2==0 || index==0? {
-                  //   color: green[500],
-                  //   '&.Mui-checked': {
-                  //     color: green[500],
-                  //   },
-                  // }: {}}
-
-
                   <tr key={professor.userId} style={index%2==0 || index==0? {
                     backgroundColor:'#F0F0F0'}:{}}>
                     <td>
