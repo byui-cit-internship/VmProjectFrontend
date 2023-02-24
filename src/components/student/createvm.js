@@ -113,8 +113,8 @@ function CreateVM() {
         >
           &#8592; Back
         </span> */}
+        <h1> Let's Create a VM</h1>
         <div className={createVM.main}>
-          <h4 className={createVM.lets}>Let's create a VM</h4>
           <div>
             {!loading ? (
               <div className={createVM.body}>

@@ -1,17 +1,19 @@
 .myVm .container {
-  width: 1000px;
+  max-width: 1000px;
   background-color: white;
   margin: 50px auto;
-  height: 700px;
   border-radius: 50px;
   column-gap: 10%;
-  padding: 10px 20px;
+  padding-top: 10px;
+  padding-bottom: 100px;
+  min-height: 500px;
 }
 
 .myVm h1 {
   text-align: center;
-  padding: 15px;
-  margin-top: 20px;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
 
 .myVm #backbtn {
@@ -30,7 +32,6 @@
 }
 
 .myVm table {
-  width: 750px;
   border-collapse: collapse;
   margin-top: 0px;
   margin-bottom: auto;
@@ -41,10 +42,9 @@
 
 .myVm .table {
   overflow-y: scroll;
-  max-height: 400px;
-  width: 800px;
-  margin-left: 100px;
-  margin-right: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 4%;
 }
 
 .myVm .bodyHeader {
@@ -94,7 +94,11 @@
   text-align: center;
   font-family: "Raleway", sans-serif;
 }
-@media screen and (max-width: 37.4em){
+
+/* -------------------------------------------------------- */
+
+/* S M A L L   V I E W */
+@media screen and (max-width: 37.5em){
   .myVm .container {
     width: 100vw;
     background-color: white;
@@ -108,7 +112,48 @@
     height: auto;
     border-collapse: collapse;
     margin-top: 70px;
-    margin-left: auto;
-    margin-right: auto;
   }
+
+  .myVm h1 {
+    font-size: 26px;
+  }
+}
+
+/* -------------------------------------------------------- */
+
+/* M E D I U M   V I E W */
+@media only screen and (min-width: 37.5em) {
+  .myVm .container {
+    min-height: unset;
+    width: 95%;
+  }
+
+  .myVm .table {
+    max-height: 500px;
+    width: 600px;
+  }
+
+  .myVm h1 {
+    font-size: 30px;
+  }
+
+}
+
+/* -------------------------------------------------------- */
+
+/* L A R G E   V I E W */
+@media only screen and (min-width: 64em) {
+  .myVm table {
+    width: 750px;
+  }
+
+  .myVm .table {
+  max-height: 500px;
+  width: 800px;
+  }
+
+  .myVm h1 {
+    font-size: 33px;
+  }
+
 }
