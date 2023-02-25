@@ -339,7 +339,6 @@ width=0,height=0,left=-1000,top=-1000`;
                           value={canvasCourseId}></input>
                       </div>
                     </div>
-                    
                   </div>
                   <div className={addclass.flex2}>
                     {/*Semester*/}

@@ -41,7 +41,7 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass .courseIdInput {
   border-radius: 10px;
-  width: 91%;
+  /* width: 91%; */
 }
 .addclass .select {
   border-radius: 10px;
