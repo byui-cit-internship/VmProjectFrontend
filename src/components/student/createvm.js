@@ -1,9 +1,9 @@
 import createVM from "./createvm.module.css";
 import Background from "../../background";
 import Header from "../../headerStudent";
-// import LaptopIcon from "@mui/icons-material/Laptop";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
+import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
+import LaptopChromebookOutlinedIcon from '@mui/icons-material/LaptopChromebookOutlined';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import React, { useState } from "react";
@@ -120,9 +120,9 @@ function CreateVM() {
               <div className={createVM.body}>
                 {/* <!-- course dropdown -->  */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <ClassOutlinedIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>1. Select Section</p>
+                <p className={createVM.description}>1. Select Class</p>
                 <select
                   className="course"
                   id={createVM.course}
@@ -144,7 +144,7 @@ function CreateVM() {
 
                 {/* <!-- VM Template dropdown --> */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <LaptopChromebookOutlinedIcon className={createVM.material} />
                 </span>
                 <p className={createVM.description}>2. Select VM Template</p>   
                 <select 
@@ -161,9 +161,9 @@ function CreateVM() {
 
                 {/* <!-- VM Instance Name -->  */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <DriveFileRenameOutlineOutlinedIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>3. Name Your VM</p>
+                <p className={createVM.description}>3. Name your VM</p>
                 <input
                   onChange={(e) => setVmInstanceName(e.target.value)}
                   type="text"
