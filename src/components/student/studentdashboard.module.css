@@ -124,7 +124,7 @@ https://www.byui.edu/branding/color-guide
   background-color: transparent;
   color: white;
   text-decoration: none;
-  padding-top: 34px;
+  margin-top: 10px;
   float: left;
   padding-left: 20px;
   border: transparent;
@@ -289,8 +289,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .button {
-    margin-top: 0px;
-    padding-top: 0px;
+    margin-top: 5px;
     font-size: 17px;
   }
   .studentdashboard .container {
@@ -339,7 +338,8 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .material {
-    padding-top: 0px !important;
+    margin-bottom: 10px;
+    margin-top: -10px;;
   }
 
   .studentdashboard .main {
@@ -376,8 +376,8 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .button {
-    padding: 0px;
-    font-size: 15px;
+    padding-top: 12px;
+    font-size: 18px;
     width: 50%;
   }
 
@@ -432,8 +432,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .button {
-    padding: 0px;
-    font-size: 20px;
+    font-size: 22px;
     width: 100%;
   }
 }
