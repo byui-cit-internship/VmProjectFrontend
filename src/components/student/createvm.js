@@ -1,9 +1,9 @@
 import createVM from "./createvm.module.css";
 import Background from "../../background";
 import Header from "../../headerStudent";
-// import LaptopIcon from "@mui/icons-material/Laptop";
-import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DriveFileRenameOutlineOutlinedIcon from '@mui/icons-material/DriveFileRenameOutlineOutlined';
+import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
+import LaptopChromebookOutlinedIcon from '@mui/icons-material/LaptopChromebookOutlined';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import React, { useState } from "react";
@@ -113,16 +113,16 @@ function CreateVM() {
         >
           &#8592; Back
         </span> */}
+        <h1> Let's Create a VM</h1>
         <div className={createVM.main}>
-          <h4 className={createVM.lets}>Let's create a VM</h4>
           <div>
             {!loading ? (
               <div className={createVM.body}>
                 {/* <!-- course dropdown -->  */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <ClassOutlinedIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>1. Select Section</p>
+                <p className={createVM.description}>1. Select Class</p>
                 <select
                   className="course"
                   id={createVM.course}
@@ -144,7 +144,7 @@ function CreateVM() {
 
                 {/* <!-- VM Template dropdown --> */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <LaptopChromebookOutlinedIcon className={createVM.material} />
                 </span>
                 <p className={createVM.description}>2. Select VM Template</p>   
                 <select 
@@ -161,9 +161,9 @@ function CreateVM() {
 
                 {/* <!-- VM Instance Name -->  */}
                 <span className={createVM.material}>
-                  <LibraryBooksIcon className={createVM.material} />
+                  <DriveFileRenameOutlineOutlinedIcon className={createVM.material} />
                 </span>
-                <p className={createVM.description}>3. Name Your VM</p>
+                <p className={createVM.description}>3. Name your VM</p>
                 <input
                   onChange={(e) => setVmInstanceName(e.target.value)}
                   type="text"
@@ -172,15 +172,16 @@ function CreateVM() {
                 />
 
                 {/* <!--Create the VM--> */}
-                <span className={createVM.material}>
+                {/* <span className={createVM.material}>
                   <CheckCircleOutlineIcon className={createVM.material} />
-                </span>
-                <p className={createVM.description}>4. Create the VM</p>
+                </span> */}
+                {/* <p className={createVM.description}>4. Create the VM</p> */}
                 <input id="vm_name" type="hidden" value="Default Vm" />
                 <button id={createVM.buttonVm} onClick={postVm}>
                   Create
                 </button>
               </div>
+                
             ) : (
               <p></p>
             )}
@@ -191,7 +192,9 @@ function CreateVM() {
             ) : (
               <p></p>
             )}
+            
           </div>
+          
         </div>
         <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
       </div>

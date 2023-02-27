@@ -39,11 +39,10 @@
   margin: 50px auto;
   /* height: 800px; */
   border-radius: 50px;
-  background-image: url("/public/images/background.png");
-  background-size: 60%;
+  /* background-image: url("/public/images/background.png");
   background-repeat: no-repeat;
   background-position-x: -10%;
-  background-position-y: 110%;
+  background-position-y: 110%; */
   padding: 15px;
 }
 
@@ -141,14 +140,6 @@
 /* .utilization .searchIcon {
   color: #ffffff;
 } */
-
-/*.utilization .listHead {
-  display: flex;
-  width: 350px;
-  background-color: #006eb6;
-  height: 60px;
-  padding: 5px; 
-}*/
 
 .utilization #search {
   /* color: white; */

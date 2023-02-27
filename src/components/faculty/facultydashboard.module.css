@@ -5,8 +5,6 @@ white: #FFFFFF
 https://www.byui.edu/branding/color-guide
 */
 
-/* Small View */
-
 .facultydashboard .left {
   display: flex;
   flex-direction: column;
@@ -59,7 +57,8 @@ https://www.byui.edu/branding/color-guide
   display: inline;
   color: white;
   padding: 10px;
-  font-family: "Raleway";
+  padding-top: 0px;
+  font-family: "Raleway", sans-serif;
   font-size: 1.7rem;
   font-weight: bold;
 }
@@ -187,9 +186,9 @@ https://www.byui.edu/branding/color-guide
   color: white;
   font-size: 16px;
   text-decoration: none;
-  padding-top: 34px;
   float: left;
   border: transparent;
+  font-family: "Raleway", sans-serif;
 }
 
 .facultydashboard .add_professor {
@@ -326,8 +325,8 @@ https://www.byui.edu/branding/color-guide
 
   .facultydashboard .material p {
     font-size: 1.5rem;
-    font-weight: 100;
-    font-family: "Montserrat Alternates";
+    font-weight: bold;
+    font-family: "Raleway", sans-serif;
     font-size: 16px;
   }
 
@@ -347,7 +346,7 @@ https://www.byui.edu/branding/color-guide
 
   .facultydashboard h1 {
     padding-left: 0;
-    font-family: Raleway, sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 25px;
     line-height: 1.5;
     font-weight: 400;
@@ -415,6 +414,14 @@ https://www.byui.edu/branding/color-guide
     display: flex;
     align-items: center;
     padding-left: 0 !important;
+  }
+
+  .facultydashboard .material p {
+    margin: 0px !important;
+  }
+
+  .facultydashboard .permissionsbutton {
+    padding-top: 0px !important;
   }
 
   .facultydashboard .main {
@@ -511,8 +518,8 @@ https://www.byui.edu/branding/color-guide
     font-weight: 200;
     text-align: left;
     font-size: 20px;
-    padding-top: 45px;
-    padding-left: 50px;
+    padding-top: 10px;
+    padding-left: 45px;
     color: black;
     grid-column: 1/2;
     grid-row: 2/3;
@@ -662,4 +669,8 @@ https://www.byui.edu/branding/color-guide
     float: left;
     padding-left: 20px;
   }
+}
+
+.facultydashboard .material p {
+  padding-top: 0px;
 }

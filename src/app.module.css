@@ -85,7 +85,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .applink {
@@ -153,7 +153,7 @@ h2 {
   font-family: "Raleway", sans-serif;
   font-weight: 200;
   text-align: left;
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 4em;
   padding-left: 50px;
   color: black;
@@ -162,15 +162,18 @@ h2 {
 p {
   text-align: left;
   padding-left: 50px;
-  margin-bottom: 0;
-  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #9c9fa1;
 }
 .image {
   display: none;
 }
-#vima {
+
+.vima {
   color: #006eb6;
   font-weight: bold;
+  font-size: 30px;
 }
 
 th,
@@ -178,7 +181,7 @@ td,
 p,
 input,
 h3 {
-  font: 15px "Segoe UI";
+  font: 15px "Raleway";
 }
 
 #googlebutton {
@@ -265,6 +268,7 @@ h3 {
     padding: 0;
     height: 40px;
     border-radius: 10px;
+
     /* background: linear-gradient(
       0deg,
       hsl(204deg 93% 66%) 0%,

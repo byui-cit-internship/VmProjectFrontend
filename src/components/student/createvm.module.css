@@ -4,7 +4,8 @@
   margin: 50px auto;
   border-radius: 50px;
   column-gap: 10%;
-  padding: 10px 20px 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   min-height: 500px;
 }
 
@@ -17,18 +18,19 @@
   margin-top: 0.7em;
 }
 
-.createvm .lets {
-  font-weight: bold;
+.createvm h1 {
   text-align: center;
-  font-size: 180%;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
 
 .createvm .body {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1f;
+  grid-template-columns: 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr .5fr;
   position: relative;
-  padding-top: 4%;
+  padding: 5%;
 }
 
 .createvm body {
@@ -38,8 +40,7 @@
 }
 
 .createvm .material {
-  font-size: 50px;
-  color: #006eb6;
+  color: #3D8AC9;
   grid-row: 1;
   text-align: center;
 }
@@ -48,46 +49,48 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: none;
+  border: 2px solid #3D8AC9;
   background: #ddd;
   color: #919294;
-  border-radius: 4px;
+  border-radius: 10px;
   width: 65%;
-  height: 200%;
+  height: 50%;
 }
 .createvm #vmName {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: none;
-  outline: none;
-  font-weight: 500;
+  border: 2px solid #3D8AC9;
   background: #ddd;
-  color: #3a8ace;
-  border-radius: 4px;
+  color: #3D8AC9;
+  border-radius: 10px;
   width: 65%;
-  height: 200%;
+  padding: 0.3em;
 }
 .createvm .description {
   grid-row: 2;
   line-height: 40px;
-  color: #3a8ace;
+  color: #3D8AC9;
   font-family: "Raleway", sans-serif;
   text-align: center;
-  padding-top: 2%;
+  padding-top: 0px;
+  padding-bottom: 20px;
   padding-left: 0;
 }
 
 .createvm #buttonVm {
-  width: 65%;
-  height: 200%;
+  width: 66%;
+  height: 100%;
+  font-size: 20px;
+  padding: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: none;
   background: #58b952;
   color: white;
-  border-radius: 4px;
+  border-radius: 8px;
+  grid-column:2/3;
+  grid-row: 5/5;
 }
 
 .loading {
@@ -103,8 +106,9 @@
   font-size: 1.6rem;
 }
 
-/* S E P A R A T I O N */
-/* Small View */
+/* -------------------------------------------------------- */
+
+/* S M A L L   V I E W */
 @media screen and (max-width: 37.5em) {
   .createvm .container {
     margin: 0;
@@ -116,18 +120,16 @@
     flex-direction: column;
     align-items: center;
   }
-  .createvm .lets {
-    font-size: 1.2em;
-    margin-top: 7px;
+  .createvm h1 {
+    font-size: 26px;
   }
   .createvm .body {
     display: flex;
     flex-direction: column;
-    margin: 30px 0px;
   }
 
   .createvm .material {
-    font-size: 65px;
+    font-size: 55px;
     padding-top: 20px;
   }
 
@@ -135,7 +137,8 @@
     line-height: unset;
     padding-top: 0;
     margin-top: 25px;
-    font-size: 1.05em;
+    font-size: 18px;
+    margin-top: 5px;
     margin-bottom: 16px;
   }
 
@@ -146,13 +149,10 @@
   }
 
   .createvm #vmName {
-    height: 33px;
+    height: 18px;
     margin-bottom: 20px;
     max-width: 280px;
-  }
-
-  .createvm .description {
-    margin-top: 30px;
+    margin-bottom: 60px;
   }
 
   .createvm #buttonVm {
@@ -169,18 +169,54 @@
   }
 }
 
-/* Medium View */
-@media only screen and (min-width: 37.5em) {
-  .createvm .lets {
-    margin-top: 50px;
-  }
+/* -------------------------------------------------------- */
 
+/* M E D I U M   V I E W */
+@media only screen and (min-width: 37.5em) {
   .createvm .container {
     min-height: unset;
-    width: 90%;
+    width: 95%;
+  }
+
+  .createvm h1 {
+    font-size: 30px;
+  }
+
+  .createvm .material {
+    font-size: 60px;
+  }
+
+  .createvm #vmName {
+    height: 24px;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .createvm .description {
+    font-size: 17px;
   }
 }
 
-/* Large View */
+/* -------------------------------------------------------- */
+
+/* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
+  .createvm h1 {
+    font-size: 33px;
+  }
+
+  .createvm .material {
+    font-size: 70px;
+  }
+
+  .createvm #vmName {
+    height: 30px;
+    margin-bottom: 20px;
+    max-width: 280px;
+  }
+
+  .createvm .description {
+    font-size: 20px;
+  }
+
 }

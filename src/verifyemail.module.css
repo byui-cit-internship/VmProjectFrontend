@@ -92,7 +92,7 @@ https://www.byui.edu/branding/color-guide
 /* Small View */
 body {
   background-color: #006eb6;
-  font-family: "Roboto", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .app .container {
@@ -128,12 +128,11 @@ body {
 }
 
 h2 {
-  margin-top: 20px;
   font-family: "Raleway", sans-serif;
   font-weight: 200;
   text-align: left;
-  font-size: 20px;
-  margin-top: 4em;
+  font-size: 30px;
+  margin-top: 3em;
   padding-left: 50px;
   color: black;
 }
@@ -159,7 +158,7 @@ td,
 p,
 input,
 h3 {
-  font: 15px "Segoe UI";
+  font: 15px "Raleway";
 }
 
 #googlebutton {

@@ -54,9 +54,10 @@ button:hover {
 }
 
 .message {
-  padding-top: 2em;
-  padding-bottom: 2em;
-  font-family: "Raleway";
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
 }
 
 .iconPlaceholder {
@@ -74,11 +75,6 @@ button:hover {
 .checkicon {
   font-size: 50px;
   color: white;
-}
-
-.message {
-  padding-top: 2em;
-  font-family: "Raleway";
 }
 
 .optionsContainer {
