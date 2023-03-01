@@ -344,7 +344,7 @@ function Utilization() {
           <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
               <div className={utilization.listHead}>
-              {/*STUDENT*/}
+                {/*STUDENT*/}
                 <div className={utilization.filterContainer}>
                   <div className={utilization.courseselect}>
                     <label className={utilization.dropdown} htmlFor="student">
@@ -357,42 +357,42 @@ function Utilization() {
                         // onChange={inputHandler}
                         onChange={(event) => {
                           setStudentInfo(event.target.value);
-                        }}>
-                      {/* disabled={!courseCode}> */}
-                      {/* <option value="Default" className={utilization.singleOption} hidden>
-                        - Select -
-                      </option> */}
-                      <option className={utilization.singleOption} value="" hidden>
-                        - Select -
-                      </option>
-                      {filteredData?.map((item) => (
-                        <option 
-                          key={item.userId} 
-                          value={item.firstName}
-                          onClick={(e) => {
-                            setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
-                          }}>
-                          {item.firstName} {item.lastName}
+                        }}
+                        disabled={!courseCode}>
+                        {/* <option value="Default" className={utilization.singleOption} hidden>
+                          - Select -
+                        </option> */}
+                        <option className={utilization.singleOption} value="" hidden>
+                          - Select -
                         </option>
-                        // <li
-                        //   key={item.userId}
-                        //   className={utilization.li}
-                        //   value={item.firstName}
-                        //   onClick={(e) => {
-                        //     setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
-                        //   }}>
-                        //   {item.firstName} {item.lastName}
-                        // </li>
-                      ))}
-                      {/* {filteredData?.map((student) => (
-                        <option key={student.userId} value={JSON.stringify(student)}>
-                          {student.firstName} {student.lastName}
-                        </option>
-                      ))} */}
-                </select>
-              </label>
-            </div>
-           </div>
+                        {filteredData?.map((item) => (
+                          <option 
+                            key={item.userId} 
+                            value={item.firstName}
+                            onClick={(e) => {
+                              setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
+                            }}>
+                            {item.firstName} {item.lastName}
+                          </option>
+                          // <li
+                          //   key={item.userId}
+                          //   className={utilization.li}
+                          //   value={item.firstName}
+                          //   onClick={(e) => {
+                          //     setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
+                          //   }}>
+                          //   {item.firstName} {item.lastName}
+                          // </li>
+                        ))}
+                        {/* {filteredData?.map((student) => (
+                          <option key={student.userId} value={JSON.stringify(student)}>
+                            {student.firstName} {student.lastName}
+                          </option>
+                        ))} */}
+                      </select>
+                    </label>
+                  </div>
+                </div>
                 {/* <strong className={utilization.listHeadText}>Student</strong> */}
                 {/* <TextField */}
                   {/* onChange={inputHandler} */}
