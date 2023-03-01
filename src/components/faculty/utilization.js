@@ -356,7 +356,8 @@ function Utilization() {
                         required
                         // onChange={inputHandler}
                         onChange={(event) => {
-                          setStudentInfo(event.target.value);
+                          const student = JSON.parse(event.target.value);
+                          setStudentInfo(student.firstName, student.lastName, student.email, student.userId);
                         }}
                         disabled={!courseCode}>
                         {/* <option value="Default" className={utilization.singleOption} hidden>
@@ -368,10 +369,7 @@ function Utilization() {
                         {filteredData?.map((item) => (
                           <option 
                             key={item.userId} 
-                            value={item.firstName}
-                            onClick={(e) => {
-                              setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
-                            }}>
+                            value={JSON.stringify(item)}>
                             {item.firstName} {item.lastName}
                           </option>
                           // <li
