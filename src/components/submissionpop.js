@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSadTear, FaCheck } from "react-icons/fa";
 import { getApiRoot } from "../utils/getApiRoot";
 import submissionPop from "./submissionpopup.module.css";
 import PropTypes from "prop-types";
+import CloseIcon from "@mui/icons-material/Close";
+import CancelIcon from "@mui/icons-material/Cancel";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const SubmissionPopup = (props) => {
   const [link, setLink] = useState("");
@@ -42,21 +44,21 @@ const SubmissionPopup = (props) => {
     <div className={submissionPop.modal}>
       <div className={submissionPop.modalBox}>
         <span className={submissionPop.closeicon} onClick={() => props.closeHandler(false)}>
-          x
+          <CloseIcon />
         </span>
         <div className={submissionPop.message}>
-          <div className={submissionPop.iconPlaceholder}>
+          <div className={submissionPop}>
             {props.success ? (
-              <FaCheck className={submissionPop.checkicon} />
+              <CheckCircleIcon className={submissionPop.checkiconGreen} />
             ) : (
-              <FaSadTear className={submissionPop.checkicon} />
+              <CancelIcon className={submissionPop.checkicon} />
             )}
           </div>
           <div className={submissionPop.message}>{props.message}</div>
           <div className={submissionPop.optionsContainer}>
             <Link to={link}>
-              <button>
-                <div className={submissionPop.message}>Go back to dashboard</div>
+              <button className={submissionPop.dashboardButton}>
+                <div className={submissionPop.message}>Go to dashboard</div>
               </button>
             </Link>
             {props.againOptionMessage && (

@@ -16,7 +16,19 @@ button {
   font-weight: bold;
   font-size: var(--boldlabelfontsize);
   border-radius: 10px;
-  padding: 10px 15px 10px 15px;
+
+}
+
+.dashboardButton {
+  background-color: white !important;
+  border-style: inset;
+  border: 0.1rem solid var(--backgroundcolor);
+  color: var(--backgroundcolor);
+}
+
+.dashboardButton:hover {
+  background-color: #014878 !important;
+  color: white;
 }
 
 button:hover {
@@ -36,7 +48,7 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr;
   text-align: center;
-  padding: 20px;
+  padding: 2.5rem;
 }
 
 .closeBtn {
@@ -54,13 +66,13 @@ button:hover {
 }
 
 .message {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
 }
 
-.iconPlaceholder {
+/* .iconPlaceholder {
   height: 100px;
   width: 100px;
   background: limegreen;
@@ -70,16 +82,22 @@ button:hover {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-}
+} */
 
 .checkicon {
-  font-size: 50px;
-  color: white;
+  font-size: 5rem !important;
+  color: #d01900;
+}
+
+.checkiconGreen {
+  font-size: 5rem !important;
+  color: var(--successcolor);
 }
 
 .optionsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin: 0.5rem 1rem;
 }
 
 .closeicon {
