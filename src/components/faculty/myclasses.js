@@ -56,7 +56,7 @@ function MyClasses() {
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
         <Header userType="facultydashboard" />
-        <h1 className={myclasses.title}>My Classes</h1>
+        <h1>My Classes</h1>
         <div className={myclasses.flex2}>
           {/*Semester*/}
           <div className={myclasses.singleDiv}>

@@ -227,15 +227,14 @@ function Utilization() {
   };
 
   return (
-    
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header userType="facultydashboard" />
+          <Header userType="facultydashboard"/>
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
-            <h1 className={utilization.h1}>Class VM Utilization</h1>
+            <h1>Class VM Utilization</h1>
           </div>
 
       <div className={utilization.filterContainer}>

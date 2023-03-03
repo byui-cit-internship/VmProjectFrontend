@@ -1,7 +1,7 @@
 .mynetworks .container {
   max-width: 1000px;
   background-color: white;
-  margin: 50px auto;
+  margin: 130px auto;
   border-radius: 50px;
   column-gap: 10%;
   padding-top: 10px;
@@ -32,7 +32,6 @@
   .mynetworks h1 {
     font-size: 26px;
   }
-
 }
 
 /* -------------------------------------------------------- */

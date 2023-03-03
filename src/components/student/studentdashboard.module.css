@@ -85,7 +85,7 @@ https://www.byui.edu/branding/color-guide
   grid-row: 1/2;
 }
 
-.studentdashboard #name0fStudent {
+.studentdashboard #nameOfStudent {
   font-family: "Raleway", sans-serif;
   font-weight: 200;
   text-align: left;
@@ -96,7 +96,7 @@ https://www.byui.edu/branding/color-guide
   color: black;
 }
 
-.studentdashboard #name0fStudent span {
+.studentdashboard #nameOfStudent span {
   font-weight: bold;
 }
 
@@ -108,7 +108,6 @@ https://www.byui.edu/branding/color-guide
   color: black;
   grid-column: 1/2;
   grid-row: 2/3;
-  padding-top: 45px;
 }
 
 .studentdashboard .studentgrid {
@@ -139,8 +138,8 @@ https://www.byui.edu/branding/color-guide
   background-color: #5bbcfb;
   color: white;
   grid-row: 2/3;
-  margin-right: 0px;
   margin-top: 15px;
+  margin-right: 0px;
   margin-left: 50px;
 }
 .studentdashboard .professorgrid {
@@ -158,22 +157,6 @@ https://www.byui.edu/branding/color-guide
   float: left;
   padding-left: 40px;
   padding-top: 18px;
-}
-
-.studentdashboard .add_class {
-  font-size: 20px;
-  float: left;
-  width: 300px;
-  height: 90px;
-  border-radius: 7px 0px 0px 7px;
-  display: block;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  background-color: #3a8ace;
-  color: white;
-  grid-row: 2/3;
-  margin-top: 15px;
-  margin-right: 0px;
 }
 
 .studentdashboard .add_class:hover {
@@ -245,8 +228,8 @@ https://www.byui.edu/branding/color-guide
   grid-row: 2/3;
   background-color: #1a63a1;
   color: white;
-  margin-right: 0px;
   margin-top: 245px;
+  margin-right: 0px;
   margin-left: 50px;
 }
 
@@ -277,11 +260,6 @@ https://www.byui.edu/branding/color-guide
     position:absolute;
     top: 520px;
     left: 0px;
-  }
-
-  .studentdashboard .permissionsbutton {
-    opacity: 95%;
-    color: white;
   }
 
   .studentdashboard h1 {
@@ -328,12 +306,6 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard #singleContainer:hover {
-    cursor: pointer;
-  }
-  .studentdashboard .material:hover {
-    cursor: pointer;
-  }
-  .studentdashboard .button:hover {
     cursor: pointer;
   }
 
@@ -406,10 +378,6 @@ https://www.byui.edu/branding/color-guide
 
 /* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
-  .studentdashboard .professorpermissions {
-    position: unset !important;
-    bottom: unset !important;
-  }
   .studentdashboard .container {
     width: 1000px;
   }
