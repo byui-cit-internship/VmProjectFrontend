@@ -450,7 +450,7 @@ function Utilization() {
                 {vmInstanceList?.map((item, index) => (
                   <tbody className={utilization.tbody} key={index}>
                     <tr>
-                      <th className={utilization.thHeader} colSpan="2">
+                      <th className={utilization.vMachine} colSpan="2">
                         Virtual Machines
                       </th>
                     </tr>

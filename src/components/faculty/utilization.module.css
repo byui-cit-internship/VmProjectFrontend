@@ -175,14 +175,17 @@
   color: white;
   /* white-space: nowrap; */
   font-weight: bold;
-  border-radius: 10px 10px 0px 0px;
+  /* border-radius: 10px 10px 0px 0px; */
+  border-top: 1px solid black;
   box-sizing: border-box;
-  background-color: var(--backgroundcolor);
+  background-color: var(--disabledcolor);
 }
 
 .utilization .thHeader {
+  border: none;
   font-weight: bolder;
-  font-size: 10;
+  font-size: var(--paragraphfontsize);
+  background-color: var(--backgroundcolor);
 }
 
 .utilization td {
@@ -192,7 +195,7 @@
   white-space: nowrap;
   text-align: center;
   font-weight: bold;
-  border: 2px solid black;
+  border-top: 1px solid black;
 }
 
 .utilization .updateList::-webkit-scrollbar {
