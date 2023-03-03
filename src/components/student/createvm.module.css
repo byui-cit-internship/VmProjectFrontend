@@ -1,7 +1,7 @@
 .createvm .container {
   max-width: 1000px;
   background-color: white;
-  margin: 50px auto;
+  margin: 130px auto;
   border-radius: 50px;
   column-gap: 10%;
   padding-top: 10px;
@@ -31,12 +31,6 @@
   grid-template-rows: 1fr 1fr 1fr .5fr;
   position: relative;
   padding: 5%;
-}
-
-.createvm body {
-  background-color: #006eb6;
-  font-family: "Raleway", sans-serif;
-  text-align: center;
 }
 
 .createvm .material {
@@ -111,8 +105,8 @@
 /* S M A L L   V I E W */
 @media screen and (max-width: 37.5em) {
   .createvm .container {
-    margin: 0;
-    border-radius: 0;
+    margin: 0px;
+    border-radius: 0px;
     padding: 0px 5px;
     height: 100vh;
     width: unset;

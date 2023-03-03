@@ -3,40 +3,38 @@
 }
 .myclasses .container {
   max-width: 1000px;
-  margin: 50px auto;
+  background-color: white;
+  margin: 130px auto;
   border-radius: 50px;
   column-gap: 10%;
-  background-color: #ffffff;
-  padding: 0 40px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  min-height: 500px;
 }
+
 .myclasses #backbtn {
   display: flex;
-  color: #006eb6;
+  color: #3D8AC9;
   margin-left: 65px;
   cursor: pointer;
   font-size: 1.5em;
   margin-top: 1.5em;
   font-family: "Raleway";
 }
-.myclasses .title {
-  font-size: 3rem;
-  font-family: "Raleway";
-  align-items: center;
+.myclasses h1 {
   text-align: center;
-  font-weight: bold;
-  padding: 0px 0px 40px 0px;
-  margin: 0 auto;
-  color: #004878;
-  display: table;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
 
 .myclasses #classesAndSearch {
   display: flex;
   width: 800px;
-  /* margin-right: auto; */
+  padding-left: 2%;
+  padding: 20px;
   font-size: 1.5rem;
   font-family: "Raleway", sans-serif;
-  padding: 10px 0px;
   font-weight: bold;
   align-items: center;
 }
@@ -105,20 +103,30 @@ select:focus {
   float: right;
   padding: 10px;
 }
-.submitBt {
+.myclasses .submitBt {
   background-color: #58b952;
-  font-size: 1.5rem;
-  padding: 10px;
-  margin: 0px 40% 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  font-size: 1.2rem;
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
+  margin-bottom: 20px;
   width: 20%;
-  border-radius: 7px;
-  border: transparent;
-  color: #fff;
+  border-radius:10px;
+}
+
+.myclasses .submitBt:hover {
+  cursor: pointer;
+  background-color: #3D8AC9;
 }
 
 .myclasses .table {
   gap: 0.5em;
-  padding: 15px;
+  margin: 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -145,24 +153,10 @@ select:focus {
 .myclasses .tablecontent span {
   float: right;
 }
-.myclasses .addbutton {
-  background-color: #006eb6;
-  border-style: none;
-  font-family: "Raleway";
-  font-weight: bolder;
-  color: white;
-  padding: 1em;
-  border-radius: 5px;
-  max-width: 200px;
-  cursor: pointer;
-}
+
 .myclasses .tablerow {
   padding: 1em;
   color: #004878;
-}
-
-.myclasses .submitBt {
-  cursor: pointer;
 }
 
 /* 
@@ -172,17 +166,18 @@ tablet: 768px
 phone: 480px
 */
 
-/*Small view*/
+/* -------------------------------------------------------- */
+
+/* S M A L L   V I E W */
 @media screen and (max-width: 37.4em) {
   .header {
     background-color: black;
   }
   .myclasses .container {
+    margin: 0px;
     border-radius: 0px;
+    padding: 0px 5px;
     width: unset;
-    height: auto;
-    margin-top: 0;
-    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -195,9 +190,13 @@ phone: 480px
     font-family: "Raleway", sans-serif;
     color: black;
   }
+
   .myclasses h1 {
-    font-size: 2rem !important;
+    font-size: 30px;
+    padding: 0px 15px;
+    margin-bottom: 60px;
   }
+
   .myclasses .card {
     width: 100%;
     align-self: center;
@@ -209,13 +208,7 @@ phone: 480px
     width: 100%;
     padding: 0;
   }
-  .myclasses .addbutton {
-    width: 70%;
-    padding: 20px;
-    display: flex block;
-    justify-content: center;
-    align-items: center;
-  }
+  
   .myclasses .submitBt {
     display: flex;
     justify-content: center;
@@ -226,9 +219,10 @@ phone: 480px
     margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 1rem;
+    font-size: 18px;
     cursor: pointer;
   }
+  
   .myclasses .searchbar {
     margin: 0;
     max-width: 300px;
@@ -239,22 +233,22 @@ phone: 480px
     width: 60vw;
     max-width: 300px;
     min-width: 152px;
-    margin: 0;
   }
 
   .myclasses #classesAndSearch {
     color: white;
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 16px;
+    margin-left: 50px;
+    align-items: center;
     width: unset;
-    padding: 0;
-    width: 100%;
   }
 
   .myclasses .tablecontent {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin: auto;
   }
 
   .myclasses .add {
@@ -268,7 +262,10 @@ phone: 480px
   }
 
   .myclasses .tablegrid {
-    width: 100%;
+    width: 50%;
+    align-items: center;
+    margin: auto ;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 
@@ -277,15 +274,13 @@ phone: 480px
   }
 }
 
-/* Medium View */
+/* -------------------------------------------------------- */
+
+/* M E D I U M   V I E W */
 @media only screen and (min-width: 37.5em) {
   .myclasses .container {
-    width: 92vw;
-    min-width: 550px;
-  }
-
-  .myclasses .submitBt {
-    font-size: 1rem;
+    min-height: unset;
+    width: 95%;
   }
 
   .myclasses #classesAndSearch {
@@ -294,4 +289,14 @@ phone: 480px
 }
 
 @media only screen and (min-width: 64em) {
+}
+
+/* -------------------------------------------------------- */
+
+/* L A R G E   V I E W */
+@media only screen and (min-width: 64em) {
+  .myclasses #classesAndSearch {
+    width: unset;
+  }
+
 }

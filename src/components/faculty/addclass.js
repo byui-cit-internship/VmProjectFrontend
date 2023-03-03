@@ -276,7 +276,7 @@ width=0,height=0,left=-1000,top=-1000`;
         <div className={addclass.container}>
           <Header userType="facultydashboard" />
           <div className={addclass.wrapper}>
-            <h1>Add Class</h1>
+            <h1>Add New Class</h1>
 
             <div className={addclass.form}>
               {fetchingLibraries ? (

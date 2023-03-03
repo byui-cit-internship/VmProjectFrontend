@@ -39,7 +39,7 @@ function MyClasses() {
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
         <Header userType="facultydashboard" />
-        <h1 className={myclasses.title}>My Classes</h1>
+        <h1>My Classes</h1>
         <div id={myclasses.classesAndSearch}>
           <div className={myclasses.searchbar}>
             <input

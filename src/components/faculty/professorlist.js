@@ -135,7 +135,7 @@ function ProfessorList() {
       <div className={professorList.container}>
         <Header userType="facultydashboard" />
         {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
-        <span id={professorList.title}> Professor List</span>
+        <h1>Professor List</h1>
         <div id={professorList.professorsAndSearch}>
           <div className={professorList.tableHeader}>
             {/* <h1 className={professorList.lets}>Professors</h1> */}
