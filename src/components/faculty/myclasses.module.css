@@ -39,6 +39,10 @@
   align-items: center;
 }
 
+/* .myclasses .label {
+  padding-left: 40px;
+} */
+
 .myclasses .lets {
   width: 800px;
   margin: 0px 10px;
@@ -124,6 +128,26 @@ select:focus {
   background-color: #3D8AC9;
 }
 
+.myclasses .select {
+  border-radius: 10px;
+  border: 3px solid #98d5fd;
+  /* width: 434px; */
+  height: 47px;
+  /* left: 258px;
+  top: 260px; */
+  padding-left: 9px;
+  /* margin-top: 8px; */
+  /* margin-left: 30px; */
+  margin: auto;
+  width: 50%;
+}
+
+.myclasses .singleDiv {
+  /* text-align: center; */
+  margin-left: 9px;
+  width: 50%;
+}
+
 .myclasses .table {
   gap: 0.5em;
   margin: 5%;
@@ -182,6 +206,10 @@ phone: 480px
     flex-direction: column;
     align-items: center;
   }
+  .myclasses .singleDiv {
+    margin: auto;
+    width: 100%;
+  }
   .myclasses .title {
     padding: 0;
     font-size: 30px;
@@ -200,6 +228,11 @@ phone: 480px
   .myclasses .card {
     width: 100%;
     align-self: center;
+  }
+  .myclasses .select {
+   margin: auto;
+   margin-bottom: 20px;
+   width: 100%;
   }
   .myclasses .table {
     display: flex;
@@ -282,7 +315,7 @@ phone: 480px
     min-height: unset;
     width: 95%;
   }
-
+  
   .myclasses #classesAndSearch {
     width: unset;
   }
@@ -298,5 +331,4 @@ phone: 480px
   .myclasses #classesAndSearch {
     width: unset;
   }
-
 }

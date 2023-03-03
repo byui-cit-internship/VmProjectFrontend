@@ -343,7 +343,7 @@ function Utilization() {
           <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
               <div className={utilization.listHead}>
-              {/*STUDENT*/}
+                {/*STUDENT*/}
                 <div className={utilization.filterContainer}>
                   <div className={utilization.courseselect}>
                     <label className={utilization.dropdown} htmlFor="student">
@@ -353,23 +353,43 @@ function Utilization() {
                         className={utilization.dropdownDescription}
                         id={utilization.search}
                         required
-                        onChange={inputHandler}
-                        // onChange={(event) => {
-                        //   setSectionStates(event.target.value);
-                        // }}
-                      disabled={!courseCode}>
-                      <option value="Default" className={utilization.singleOption} hidden>
-                        - Select -
-                      </option>
-                      {filteredData?.map((student) => (
-                        <option key={student.userId} value={JSON.stringify(student)}>
-                          {student.firstName} {student.lastName}
+                        // onChange={inputHandler}
+                        onChange={(event) => {
+                          const student = JSON.parse(event.target.value);
+                          setStudentInfo(student.firstName, student.lastName, student.email, student.userId);
+                        }}
+                        disabled={!courseCode}>
+                        {/* <option value="Default" className={utilization.singleOption} hidden>
+                          - Select -
+                        </option> */}
+                        <option className={utilization.singleOption} value="" hidden>
+                          - Select -
                         </option>
-                      ))}
-                </select>
-              </label>
-            </div>
-          </div>
+                        {filteredData?.map((item) => (
+                          <option 
+                            key={item.userId} 
+                            value={JSON.stringify(item)}>
+                            {item.firstName} {item.lastName}
+                          </option>
+                          // <li
+                          //   key={item.userId}
+                          //   className={utilization.li}
+                          //   value={item.firstName}
+                          //   onClick={(e) => {
+                          //     setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
+                          //   }}>
+                          //   {item.firstName} {item.lastName}
+                          // </li>
+                        ))}
+                        {/* {filteredData?.map((student) => (
+                          <option key={student.userId} value={JSON.stringify(student)}>
+                            {student.firstName} {student.lastName}
+                          </option>
+                        ))} */}
+                      </select>
+                    </label>
+                  </div>
+                </div>
                 {/* <strong className={utilization.listHeadText}>Student</strong> */}
                 {/* <TextField */}
                   {/* onChange={inputHandler} */}
@@ -385,7 +405,8 @@ function Utilization() {
                   {/* }} */}
                 {/* /> */}
               </div>
-              <div className={utilization.updateList}>
+
+              {/* <div className={utilization.updateList}>
                 <ul>
                   {filteredData?.map((item) => (
                     <li
@@ -399,7 +420,7 @@ function Utilization() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
 
             {/*User Info Table*/}
@@ -428,7 +449,7 @@ function Utilization() {
                 {vmInstanceList?.map((item, index) => (
                   <tbody className={utilization.tbody} key={index}>
                     <tr>
-                      <th className={utilization.thHeader} colSpan="2">
+                      <th className={utilization.vMachine} colSpan="2">
                         Virtual Machines
                       </th>
                     </tr>

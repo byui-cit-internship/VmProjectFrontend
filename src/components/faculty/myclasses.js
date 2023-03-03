@@ -14,6 +14,8 @@ function MyClasses() {
   let navigate = useNavigate();
   const [sectionList, setSectionList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [semester, setSemester] = useState([]);
+  const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [fetchingClasses, setFetchingClasses] = useState(false);
 
   useEffect(() => {
@@ -35,53 +37,86 @@ function MyClasses() {
     getclassList();
   }, []);
 
+  useEffect(() => {
+    const getcourseSemester = async () => {
+      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          "content-type": "application/json"
+        }
+      });
+      const courseSemesterList = await listResponse.json();
+      setCourseSemesterList(courseSemesterList);
+    };
+    getcourseSemester();
+  }, []);
+
   return (
     <div className={myclasses.myclasses}>
       <div className={myclasses.container}>
         <Header userType="facultydashboard" />
         <h1>My Classes</h1>
-        <div id={myclasses.classesAndSearch}>
-          <div className={myclasses.searchbar}>
-            <input
-              id={myclasses.search}
-              onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
-              type="text"
-              placeholder="Search..."
-            />
+        <div className={myclasses.flex2}>
+          {/*Semester*/}
+          <div className={myclasses.singleDiv}>
+            {/* <label className={myclasses.label}>Choose Semester: </label> <br></br> */}
+            <select
+              className={myclasses.select}
+              onChange={(event) => {
+                var obj = JSON.parse(event.target.value);
+                setSemester(obj);
+              }}>
+              <option>- Select Semester -</option>
+
+              {courseSemesterList?.map((item, i) => (
+                <option key={i} value={JSON.stringify(item)}>
+                  {item.semesterTerm} {item.semesterYear}
+                </option>
+              ))}
+            </select>
           </div>
-        </div>
-        <div className={myclasses.tablegrid}>
-          <div className={myclasses.table}>
-            {fetchingClasses ? (
-              <ClassesSkeleton />
-            ) : (
-              sectionList.map((item) => (
-                <div className={myclasses.card} key={item.sectionId}>
-                  <Card variant="outlined">
-                    <div value={item} className={myclasses.tableheader}>
-                      {item.sectionName}
-                    </div>
-                    <div className={myclasses.tablecontent}>
-                      <DbLibraryTemplates libraryId={item.libraryVCenterId} />
-                      <div className={myclasses.add}>
-                        
+
+          {/* <div id={myclasses.classesAndSearch}>
+            <div className={myclasses.searchbar}>
+              <input
+                id={myclasses.search}
+                onChange={(e) => setSearchInput(e.target.value.toUpperCase())}
+                type="text"
+                placeholder="Search..."
+              />
+            </div>
+          </div> */}
+          <div className={myclasses.tablegrid}>
+            <div className={myclasses.table}>
+              {fetchingClasses ? (
+                <ClassesSkeleton />
+              ) : (
+                sectionList.map((item) => (
+                  <div className={myclasses.card} key={item.sectionId}>
+                    <Card variant="outlined">
+                      <div value={item} className={myclasses.tableheader}>
+                        {item.sectionName}
                       </div>
-                    </div>
-                  </Card>
-                </div>
-              ))
-            )}
+                      <div className={myclasses.tablecontent}>
+                        <DbLibraryTemplates libraryId={item.libraryVCenterId} />
+                        <div className={myclasses.add}></div>
+                      </div>
+                    </Card>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
-        </div>
-        <div
-          className={myclasses.add_class}
-          onClick={() => {
-            navigate("/addclass");
-          }}>
-          <button className={myclasses.submitBt}>Add New Class</button>
+
+          <div className={myclasses.add_class}
+            onClick={() => {
+              navigate("/addclass");
+            }}>
+            <button className={myclasses.submitBt}>Add New Class</button>
+          </div>
         </div>
       </div>
-
       <Background />
     </div>
   );

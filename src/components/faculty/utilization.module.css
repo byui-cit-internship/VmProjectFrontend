@@ -64,10 +64,10 @@
 .utilization label, .utilization .listHeadText {
   color: var(--backgroundcolor);
   font-style: italic;
-  padding-right: 15px;
+  padding-right: 50px;
 }
 
-.utilization select {
+.utilization select, .utilization #search {
   margin-right: 10px;
   background-color: white;
   /* border: none; */
@@ -75,7 +75,7 @@
   border-radius: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
-  /* width: 200px; */
+  width: 200px;
   height: 35px;
   font-size: 16px;
 }
@@ -135,18 +135,18 @@
   color: #ffffff;
 } */
 
-.utilization #search {
-  /* color: white; */
-  /* margin-right: 10px; */
+/* .utilization #search {
+  color: white;
+  margin-right: 10px;
   margin-left: -21px;
   background-color: white;
   border: 2px solid var(--secondarycolor);
   border-radius: 8px;
   padding: 5px;
-  /* width: 200px; */
+  width: 200px;
   height: 25px;
   font-size: 16px;
-}
+} */
 
 /*.utilization .listHeadText {
   color: white;
@@ -169,14 +169,17 @@
   color: white;
   /* white-space: nowrap; */
   font-weight: bold;
-  border-radius: 10px 10px 0px 0px;
+  /* border-radius: 10px 10px 0px 0px; */
+  border-top: 1px solid black;
   box-sizing: border-box;
-  background-color: var(--backgroundcolor);
+  background-color: var(--disabledcolor);
 }
 
 .utilization .thHeader {
+  border: none;
   font-weight: bolder;
-  font-size: 10;
+  font-size: var(--paragraphfontsize);
+  background-color: var(--backgroundcolor);
 }
 
 .utilization td {
@@ -186,7 +189,7 @@
   white-space: nowrap;
   text-align: center;
   font-weight: bold;
-  border: 2px solid black;
+  border-top: 1px solid black;
 }
 
 .utilization .updateList::-webkit-scrollbar {
@@ -510,6 +513,7 @@
     justify-content: space-between;
     width: unset;
     margin: unset;
+    padding-left: 85px;
   }
 
   .utilization .updateList {
