@@ -230,13 +230,14 @@ function Utilization() {
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header userType="facultydashboard" />
+          <Header userType="facultydashboard"/>
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
-            <h1 className={utilization.h1}>Class VM Utilization</h1>
+            <h1>Class VM Utilization</h1>
           </div>
 
+      <div className={utilization.filterContainer}>
           {/*SEMESTER*/}
           <div className={utilization.courseselect}>
             <label className={utilization.dropdown} htmlFor="course_semester">
@@ -306,17 +307,19 @@ function Utilization() {
                 ))}
               </select>
             </label>
-
+          </div>
+          <div className={utilization.resetBtn}>
             {/*Reload Button for Selecting A Different Class*/}
-            <label className={utilization.dropdown}>
+            {/* <label> */}
               <button
                 onClick={() => {
                   resetDropdowns();
                 }}>
                 <AiOutlineReload />
               </button>
-            </label>
+            {/* </label> */}
           </div>
+    </div>
 
           {/*Templates*/}
           <div className={utilization.templatesAvailable}>
@@ -340,22 +343,70 @@ function Utilization() {
           <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
               <div className={utilization.listHead}>
-                <strong className={utilization.listHeadText}>Student</strong>
-                <TextField
-                  onChange={inputHandler}
-                  id={utilization.search}
-                  variant="outlined"
-                  size="small"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
+                {/*STUDENT*/}
+                <div className={utilization.filterContainer}>
+                  <div className={utilization.courseselect}>
+                    <label className={utilization.dropdown} htmlFor="student">
+                      Student:
+                      <select
+                        name="student"
+                        className={utilization.dropdownDescription}
+                        id={utilization.search}
+                        required
+                        // onChange={inputHandler}
+                        onChange={(event) => {
+                          const student = JSON.parse(event.target.value);
+                          setStudentInfo(student.firstName, student.lastName, student.email, student.userId);
+                        }}
+                        disabled={!courseCode}>
+                        {/* <option value="Default" className={utilization.singleOption} hidden>
+                          - Select -
+                        </option> */}
+                        <option className={utilization.singleOption} value="" hidden>
+                          - Select -
+                        </option>
+                        {filteredData?.map((item) => (
+                          <option 
+                            key={item.userId} 
+                            value={JSON.stringify(item)}>
+                            {item.firstName} {item.lastName}
+                          </option>
+                          // <li
+                          //   key={item.userId}
+                          //   className={utilization.li}
+                          //   value={item.firstName}
+                          //   onClick={(e) => {
+                          //     setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
+                          //   }}>
+                          //   {item.firstName} {item.lastName}
+                          // </li>
+                        ))}
+                        {/* {filteredData?.map((student) => (
+                          <option key={student.userId} value={JSON.stringify(student)}>
+                            {student.firstName} {student.lastName}
+                          </option>
+                        ))} */}
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                {/* <strong className={utilization.listHeadText}>Student</strong> */}
+                {/* <TextField */}
+                  {/* onChange={inputHandler} */}
+                  {/* id={utilization.search} */}
+                  {/* variant="outlined" */}
+                  {/* size="small" */}
+                  {/* InputProps={{ */}
+                    {/* startAdornment: ( */}
+                      {/* <InputAdornment position="start"> */}
                         {/* <SearchIcon className={utilization.searchIcon} /> */}
-                      </InputAdornment>
-                    )
-                  }}
-                />
+                      {/* </InputAdornment> */}
+                    {/* ) */}
+                  {/* }} */}
+                {/* /> */}
               </div>
-              <div className={utilization.updateList}>
+
+              {/* <div className={utilization.updateList}>
                 <ul>
                   {filteredData?.map((item) => (
                     <li
@@ -369,7 +420,7 @@ function Utilization() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> */}
             </div>
 
             {/*User Info Table*/}
@@ -398,7 +449,7 @@ function Utilization() {
                 {vmInstanceList?.map((item, index) => (
                   <tbody className={utilization.tbody} key={index}>
                     <tr>
-                      <th className={utilization.thHeader} colSpan="2">
+                      <th className={utilization.vMachine} colSpan="2">
                         Virtual Machines
                       </th>
                     </tr>

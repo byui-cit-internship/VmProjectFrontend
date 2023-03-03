@@ -1,18 +1,33 @@
 .professorList .container {
-  width: 1000px;
+  max-width: 1000px;
   background-color: white;
-  margin: 50px auto;
+  margin: 130px auto;
   border-radius: 50px;
   column-gap: 10%;
-  background-color: #ffffff;
-  padding: 10px 20px;
-  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  min-height: 500px;
+}
+
+.professorList h1 {
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
 
 .professorList .table {
   overflow: hidden;
   overflow-y: scroll;
   max-height: 235px;
+  border: 2px solid #3D8AC9;
+}
+
+.professorList table {
+  height: 200px;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .professorList #backbtn {
@@ -25,20 +40,9 @@
   font-family: "Raleway";
 }
 
-.professorList #title {
-  font-size: 1.6rem;
-  font-family: "Raleway";
-  align-items: center;
-  text-align: center;
-  font-weight: bold;
-  padding: 0px 0px 40px 0px;
-  margin: 0 auto;
-  color: #2265A5;
-  display: table;
-}
-
 .professorList #professorsAndSearch {
   display: flex;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.5rem;
@@ -58,13 +62,22 @@
 }
 
 .professorList .searchbar {
+  border: 2px solid #3D8AC9;
   margin-top: 15px;
   margin-bottom: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
   padding-bottom: 0px 0px;
   display: flex;
   align-items: center;
 }
+
+/* .professorList .searchbar {
+    border: 2px solid #3D8AC9 ;
+    width: 455px;
+    padding-bottom: 0px 0px;
+    display: flex;
+    align-items: center;
+  } */
 
 .professorList .searchbar #MGlass {
   font-size: 0.9rem;
@@ -99,13 +112,6 @@
   opacity: 0;
 }
 
-.professorList table {
-  height: 200px;
-  border-collapse: collapse;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .professorList th {
   background-color: #3D8AC9 ;
   color: white;
@@ -129,23 +135,25 @@
 }
 
 .professorList .button {
-  color: #ffffff;
-  background: #3D8AC9;
-  cursor: pointer;
-  margin: 50px;
-  border-radius: 7px;
-  border: none;
-  text-align: center;
+  background-color: #58b952;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  font-size: 1.2rem;
+  padding: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  width: 20%;
+  height: 8%;
+  border-radius:10px;
 }
 
 .professorList .button:hover {
   cursor: pointer;
   background-color: #58B952;
-}
-
-.professorList #title {
-  margin: 0;
-  padding: 0;
 }
 
 /* .professorList .tableHeader {
@@ -260,8 +268,9 @@ tbody tr td:nth-child(3) {
   padding-right: 70px;
 }
 
-/* S M A L L   V I E W */
+/* -------------------------------------------------------- */
 
+/* S M A L L   V I E W */
 @media only screen and (max-width: 37.4em) {
   /* Users first value */
   thead tr th:nth-child(1) {
@@ -294,14 +303,15 @@ tbody tr td:nth-child(3) {
   .professorList .tableHeader {
     flex-direction: column;
     align-items: baseline;
-    /* padding-left: 50px; */
     padding: 10px;
     align-self: center;
-    background-color: #006EB6;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #3D8AC9;
   }
 
   .professorList td {
-    border-bottom: 2px solid #3a8ace;
+    /* border-bottom: 2px solid #3D8AC9; */
     font-size: 1rem;
   }
 
@@ -316,21 +326,30 @@ tbody tr td:nth-child(3) {
     background: white;
   }
   .professorList .container {
-    border-radius: 0px;
     margin: 0;
-    width: unset;
+    border-radius: 0px;
     padding: 0 40px;
+    width: unset;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
+
+  .professorList h1 {
+    font-size: 30px;
+    padding: 0px 15px;
+    margin-bottom: 60px;
+  }
+
   .professorList .table {
     max-height: 300px;
     overflow: hidden;
     overflow-y: scroll;
     min-width: 215px;
     max-width: 80vw;
-    border: 2px solid #3a8ace;
     border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   .professorList th {
     width: 300px;
@@ -342,19 +361,13 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList #search {
-    width: 150px;
-    margin-left: 60px;
-    margin-right: 60px;
+    width: 200px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
-  }
-
-  .professorList #title {
-    font-size: 30px;
-    margin-top: 32px;
-    margin-bottom: 48px;
-    font-family: "Raleway", sans-serif;
-    color: #2265A5;
+    border-radius: 7px;
   }
 
   .professorList .button {
@@ -369,13 +382,15 @@ tbody tr td:nth-child(3) {
   }
 }
 
+/* -------------------------------------------------------- */
+
 /* M E D I U M   V I E W */
 @media only screen and (min-width: 37.4em) {
   /* users title */
   thead tr th:nth-child(1) {
     max-width: 100px;
     font-size: 20px;
-    padding-left: 40px;
+    /* padding-left: 40px; */
   }
 
   /* users content */
@@ -414,8 +429,8 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList .container {
-    display: flex;
-    flex-direction: column;
+    min-height: unset;
+    width: 95%;
   }
 
   .professorList td {
@@ -429,33 +444,13 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList .table {
-    /* width: 800px; */
     max-width: 90vw;
-    border: 2px solid #3D8AC9;
     border-radius: 10px;
   }
 
   .professorList .searchbar {
-    border: 2px solid #3D8AC9 ;
-    width: 455px;
-    padding-bottom: 0px 0px;
-    display: flex;
-    align-items: center;
-  }
-
-  .professorList .searchbar {
-    width: unset;
-  }
-
-  .professorList .tableHeader {
-    width: 100%;
-    background: white;
-    padding: 0px 10px;
-    color: white;
-  }
-
-  .professorList {
-    display: flex;
+    max-width: unset;
+    width: 580px;
   }
 
   .professorList #search {
@@ -476,12 +471,9 @@ tbody tr td:nth-child(3) {
     font-size: 35px;
     margin-top: 10px;
   }
-
-  .professorList .button {
-    font-size: 20px;
-    width: 25%;
-  }
 }
+
+/* -------------------------------------------------------- */
 
 /* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
@@ -494,19 +486,14 @@ tbody tr td:nth-child(3) {
     color: #000;
   }
   .professorList #professorsAndSearch {
-    flex-direction: column;
-    background-color: white;
-  }
-
-  .professorList table {
-    width: 800px;
+    width: unset;
   }
 
   /* users title */
   thead tr th:nth-child(1) {
     max-width: 100px;
-    font-size: 20px;
-    padding-left: 80px;
+    font-size: 15px;
+    /* padding-left: 80px; */
   }
 
   /* users content */
@@ -527,7 +514,7 @@ tbody tr td:nth-child(3) {
   tbody tr td:nth-child(2) {
     /* max-width: 35px; */
     font-size: 0.9rem;
-    padding-left: 100px;
+    /* padding-left: 100px; */
   }
 
   /* approved title */
@@ -538,30 +525,13 @@ tbody tr td:nth-child(3) {
   /* approved content */
   tbody tr td:nth-child(3) {
     max-width: 100px;
-    padding-right: 50px;
   }
 
   .professorList .searchbar {
-    border: 2px solid #3D8AC9 ;
-    width: 455px;
-    padding-bottom: 0px 0px;
-    display: flex;
-    align-items: center;
-  }
-
-  .professorList .searchbar {
-    width: unset;
+    width: 670px;
   }
 
   .professorList .tableHeader {
-    width: 100%;
-    background: white;
-    padding: 0px 10px;
-    color: white;
-  }
-
-  .professorList .button {
-    font-size: 23px;
-    width: 25%;
+    width: unset;
   }
 }

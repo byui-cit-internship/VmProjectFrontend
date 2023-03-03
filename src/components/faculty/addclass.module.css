@@ -8,22 +8,36 @@ https://www.byui.edu/branding/color-guide
   background-color: #006eb6;
   font-family: "Raleway", sans-serif;
 }
+
 .addclass .container {
-  width: 1000px;
+  max-width: 1000px;
   background-color: white;
+  margin: 130px auto;
   border-radius: 50px;
-  margin: 50px auto;
-  padding: 15px;
-  color: #00568f;
+  column-gap: 10%;
+  padding-top: 10px;
+  padding-bottom: 70px;
+  min-height: 500px;
 }
+
 .addclass h1 {
   text-align: center;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
+
 .addclass .form {
-  display: flex;
-  margin: 0px ;
-  gap: 30px;
+  gap: 0.5em;
+  margin: 5%;
+  margin-top: -5%;
 }
+
+/* .addclass .a {
+  padding: 10px;
+  align-self: center;
+} */
+
 .addclass .flex1 {
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +55,7 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass .courseIdInput {
   border-radius: 10px;
-  width: 91%;
+  /* width: 91%; */
 }
 .addclass .select {
   border-radius: 10px;
@@ -56,7 +70,7 @@ https://www.byui.edu/branding/color-guide
 }
 .addclass input {
   width: 93.5%;
-  border: 3px solid #98d5fd;
+  border: 3px solid #3D8AC9;
   padding: 10px 10px;
   margin-top: 10px;
   position: relative;
@@ -72,6 +86,13 @@ https://www.byui.edu/branding/color-guide
   color: blue;
   cursor: pointer;
 }
+
+.addclass .label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3D8AC9;
+}
+
 .addclass .alertLabel {
   font-weight: bold;
   opacity: 65%;
@@ -79,26 +100,25 @@ https://www.byui.edu/branding/color-guide
 
 .addclass select {
   width: 100%;
-  border: 3px solid #98d5fd;
+  border: 3px solid #3D8AC9;
   padding: 11.5px;
   margin-top: 8px;
 }
 
 .addclass .btnprimary {
-  cursor: pointer;
-  background-color: #006eb6;
-  background-color: #58b952;
+  background-color: #58B952;
   font-size: 1.5rem;
   padding: 10px;
-  margin: 0px 40% 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
   width: 20%;
-  border-radius: 7px;
-  border: transparent;
-  color: #fff;
+  border-radius: 10px;
 }
 
 .addclass .btnprimary:hover {
-  opacity: 90%;
+  cursor: pointer;
+  background-color: #3D8AC9;
 }
 
 .addclass #nameError {
@@ -112,56 +132,42 @@ https://www.byui.edu/branding/color-guide
   border-color: red;
 }
 
-/*small view*/
-@media screen and (max-width: 37.4em) {
-  .addclass .container {
-    width: unset !important;
-    min-width: 250px;
-  }
+/* -------------------------------------------------------- */
 
+/* S M A L L   V I E W */
+@media screen and (max-width: 37.4em) {
   .addclass .wrapper {
     margin-top: 32px;
   }
 
   .addclass .container {
+    margin: 0px;
     border-radius: 0px;
-    border-radius: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: 100%;
-    margin-top: 0;
-    padding: 0 40px;
+    padding: 0 5px;
+    height: 100vh;
+    width: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 91vw;
-    max-width: 1000px;
   }
   .addclass .table {
     display: block;
   }
   .addclass h1 {
     font-size: 30px;
-    font-family: "Ralweay", sans-serif;
-    font-weight: 700;
     padding: 0px 15px;
-    color: black;
     margin-bottom: 60px;
   }
 
-  .addclass .label {
-    font-size: 1rem;
-    font-weight: bold;
-  }
   .addclass .form {
-    margin: auto 0;
     width: 75vw;
     gap: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
+    margin: auto;
   }
+  
   .addclass .flex1 {
     width: 100%;
   }
@@ -177,16 +183,19 @@ https://www.byui.edu/branding/color-guide
     width: 91%;
   }
   .addclass .btnprimary {
-    width: 100%;
-    font-size: 24px;
-    margin: 0;
+    width: 50%;
+    height: 5%;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 50px;
   }
 
   .addclass .alert {
-    padding: 0;
     text-align: center;
-    margin: 16px 0;
-    padding: 12px 0;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   .addclass .alert a:visited {
@@ -200,15 +209,15 @@ https://www.byui.edu/branding/color-guide
   }
 }
 
-/* Medium View */
+/* -------------------------------------------------------- */
+
+/* M E D I U M   V I E W */
 @media only screen and (min-width: 37.5em) {
   .addclass .form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background-color: white;
-    margin: 0px ;
-    padding: 32px;
+    padding: 5%;
     gap: 60px;
+    display: grid;
+    grid-template-columns: .75fr .75fr;
   }
 
   .addclass .flex1 {
@@ -220,18 +229,14 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addclass .container {
-    width: 91vw !important;
-    max-width: 1000px !important;
+    min-height: unset;
+    width: 95%;
   }
 
   .addclass .wrapper {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-  }
-
-  .addclass .container {
-    width: unset;
   }
 
   /* Popup style */
@@ -286,11 +291,7 @@ https://www.byui.edu/branding/color-guide
   .addclass .back {
     background-color: #006eb6;
   }
-  .addclass .a {
-    padding: 20px;
-    align-self: center;
-    text-decoration: none;
-  }
+  
   .addclass .closeicon {
     content: "x";
     cursor: pointer;
@@ -312,12 +313,10 @@ https://www.byui.edu/branding/color-guide
   }
 }
 
-/*large view*/
+/* -------------------------------------------------------- */
+
+/* L A R G E   V I E W */
 @media screen and (min-width: 64em) {
-  .addclass .container {
-    width: 91vw;
-    max-width: 1000px;
-  }
 
   .addclass .wrapper {
     display: flex;

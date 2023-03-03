@@ -112,7 +112,7 @@ const StudentDashboard = () => {
                 navigate("/myvm");
               }}>
               <span className={studentdashboard.material}>
-                <Computer studentdashboard={iconStyles} className={studentdashboard.material} />
+                <Computer studentdashboard={iconStyles} className={studentdashboard.material}/>
               </span>
               <button className={studentdashboard.button}>My VMS</button>
             </div>
@@ -123,7 +123,7 @@ const StudentDashboard = () => {
                 navigate("/mynetworks");
               }}>
               <span className={studentdashboard.material}>
-                <CloudQueue studentdashboard={iconStyles} className={studentdashboard.material} />
+                <CloudQueue studentdashboard={iconStyles} className={studentdashboard.material}/>
               </span>
               <button className={studentdashboard.button}>My Networks</button>
             </div>
@@ -135,4 +135,5 @@ const StudentDashboard = () => {
     </div>
   );
 };
+
 export default StudentDashboard;
