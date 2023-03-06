@@ -133,13 +133,11 @@ select:focus {
   margin: auto;
   width: 50%;
 }
-
 .myclasses .singleDiv {
   /* text-align: center; */
   margin-left: 9px;
   width: 50%;
 }
-
 .myclasses .table {
   gap: 0.5em;
   padding: 15px;
@@ -150,6 +148,7 @@ select:focus {
 }
 .myclasses .card {
   width: 45%;
+  border-radius: 10px;
 }
 .myclasses .tableheader {
   background-color: #3D8AC9;
@@ -230,6 +229,7 @@ phone: 480px
   .myclasses .card {
     width: 100%;
     align-self: center;
+    border-radius: 10px;
   }
   .myclasses .select {
    margin: auto;
@@ -313,6 +313,9 @@ phone: 480px
 
 /* Medium View */
 @media only screen and (min-width: 37.5em) {
+  .myclasses .card {
+    border-radius: 10px;
+  }
   .myclasses .container {
     border-radius: 0px;
     width: 91vw;
@@ -353,6 +356,9 @@ phone: 480px
 }
 
 @media only screen and (min-width: 64em) {
+  .myclasses .card {
+    border-radius: 10px;
+  }
   .myclasses .container {
     border-radius: 0px;
     width: 91vw;
