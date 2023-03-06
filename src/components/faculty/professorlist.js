@@ -152,7 +152,7 @@ function ProfessorList() {
           <div className={professorList.table}>
             <table>
               <thead>
-                <tr>
+                <tr className={professorList.table_header}>
                   <th>Users</th>
                   <th>Email</th>
                   <th>Approved</th>
