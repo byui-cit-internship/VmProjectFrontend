@@ -115,6 +115,10 @@ https://www.byui.edu/branding/color-guide
   width: 20%;
   border-radius: 10px;
 }
+.addclass .btnprimary:disabled {
+  background-color: gray;
+  color: white;
+}
 
 .addclass .btnprimary:hover {
   cursor: pointer;
