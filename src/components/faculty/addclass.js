@@ -8,7 +8,6 @@ import { getApiRoot } from "../../utils/getApiRoot";
 import Popup from "./Popup.js";
 import SubmissionPopup from "../submissionpop";
 import AddClassSkeleton from "./addClassSkeleton";
-import { FaUber } from "react-icons/fa";
 
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
@@ -64,7 +63,7 @@ function AddClass() {
       createCourse();
     } else {
       {
-        setPopupMessage("Error adding the course it miss some iinformation");
+        setPopupMessage("Error adding the course. missing information");
         setPopupAgainMessage("Try again");
         setIsSuccess(false);
         setIsPopupOpen(true);
@@ -108,7 +107,7 @@ function AddClass() {
       setIsSuccess(true);
       setaddButtonDisabled(false);
     } else {
-      setPopupMessage("The crouse already exist");
+      setPopupMessage("This crouse already exists");
       setPopupAgainMessage("Try again");
       setIsSuccess(false);
       setaddButtonDisabled(false);
