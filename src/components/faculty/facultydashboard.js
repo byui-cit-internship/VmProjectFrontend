@@ -8,6 +8,12 @@ import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
+import { faC } from "@fortawesome/free-solid-svg-icons";
+
+const iconStyles = {
+  color: "white",
+  fontSize: "35px"
+};
 
 const FacultyDashboard = () => {
   const [userInfo, setUserInfo] = useState("");
@@ -109,9 +115,13 @@ const FacultyDashboard = () => {
                 navigate("/myclasses");
               }}>
               <span className={facultydashboard.material}>
-                <ClassIcon />
-                <p>My Classes</p>
+                <ClassIcon
+                facultydashboard={iconStyles}
+                className={facultydashboard.material} 
+                />
               </span>
+              <button className={facultydashboard.button}
+              >Add Classes</button>
             </div>
             <div
               className={facultydashboard.add_professor}
@@ -120,9 +130,10 @@ const FacultyDashboard = () => {
                 navigate("/professorlist");
               }}>
               <span className={facultydashboard.material}>
-                <PersonIcon />
-                <p>Professor List</p>
+                <PersonIcon facultydashboard={iconStyles}
+                className={facultydashboard.material}/>
               </span>
+              <button className={facultydashboard.button}>Professor List</button>
             </div>
             <div
               className={facultydashboard.vm_utilization}
@@ -131,16 +142,15 @@ const FacultyDashboard = () => {
                 navigate("/utilization");
               }}>
               <span className={facultydashboard.material}>
-                <ComputerIcon />
-                <p>VM Utilization</p>
-              </span>
+                <ComputerIcon facultydashboard={iconStyles}
+                className={facultydashboard.material}/>
+                </span>
+                <button className={facultydashboard.button}>VM Utilization</button> 
             </div>
           </div>
         </div>
       </div>
-
       <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-
       <Background />
     </div>
   );

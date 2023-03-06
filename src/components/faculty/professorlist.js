@@ -135,10 +135,9 @@ function ProfessorList() {
       <div className={professorList.container}>
         <Header userType="facultydashboard" />
         {/* <span onClick={() => {navigate("/student")}} id={professorList.backbtn}>&#8592; back</span> */}
-        <span id={professorList.title}> Professor List</span>
+        <h1>Professor List</h1>
         <div id={professorList.professorsAndSearch}>
           <div className={professorList.tableHeader}>
-            {/* <h1 className={professorList.lets}>Professors</h1> */}
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
               <input
@@ -161,16 +160,6 @@ function ProfessorList() {
               </thead>
               <tbody>
                 {filteredData.map((professor, index) => (
-
-
-                  // sx={index%2==0 || index==0? {
-                  //   color: green[500],
-                  //   '&.Mui-checked': {
-                  //     color: green[500],
-                  //   },
-                  // }: {}}
-
-
                   <tr key={professor.userId} style={index%2==0 || index==0? {
                     backgroundColor:'#F0F0F0'}:{}}>
                     <td>

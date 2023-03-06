@@ -1,6 +1,6 @@
 .header .logo {
-  width: 170px;
-  margin-left: 75px;
+  width: 150px;
+  margin-left: 20px;
 }
 
 .header .signOut {
@@ -27,21 +27,13 @@
   opacity: 95%;
 }
 
+/* Home Page */
 .header {
   display: flex;
-  width: 100vw;
-  height: 80px;
+  /* width: 100vw; */
+  height: 120px;
   max-width: 1000px;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.header .rightSide {
-  flex: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-
-  margin-right: 35px;
 }
 
 .header .links {
@@ -55,13 +47,6 @@
   cursor: pointer;
   margin-left: 15px;
 }
-
-/* .header .rightSide .hamWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 45px;
-} */
 
 .header .rightSide .outHam {
   visibility: hidden;
@@ -101,17 +86,17 @@ a {
 }
 /* need to be more specific */
 
-/* Small View */
+/* -------------------------------------------------------- */
+
+/* S M A L L   V I E W */
 @media screen and (max-width: 37.4em) {
   .header .rightSide {
     margin-right: 0px !important;
   }
 
   .header {
-    /* align-items: baseline; */
     height: 90px;
     width: 100%;
-    /* max-width: 260px; */
   }
 
   .header .rightSide .outHam {
@@ -154,11 +139,30 @@ a {
   }
 }
 
-/* Medium View */
+/* -------------------------------------------------------- */
+
+/* M E D I U M   V I E W */
 @media only screen and (min-width: 37.4em) {
   .header {
-    width: 96vw;
-    max-width: 970px;
+    width: 100vw;
+    margin-right: 20px;
+    margin-left: 15px;
+  }
+
+  .header .logo {
+    width: 120px;
+    margin-left: 20px;
+  }
+
+  .header .rightSide {
+    flex: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 90px;
+  }
+
+  .header .leftSide {
+    margin-left: 10px;
   }
 
   .header .links {
@@ -170,38 +174,43 @@ a {
   }
 }
 
-/* Large View */
+/* -------------------------------------------------------- */
+
+/* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
   .header .rightSide .hamWrapper {
     display: none;
   }
 
+  .header .logo {
+  width: 150px;
+  margin-left: 30px;
+}
+
   .header {
-    width: 70vw;
+    width: 100vw;
     min-width: 1000px;
   }
 
-  /* .header {
-    width: 100vw;
+  .header .rightSide {
+    flex: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
   }
 
-  .header .links {
+  .header .leftSide {
+    flex: 50%;
     display: flex;
-    color: red;
-    background: white;
     align-items: center;
-  } */
+    margin-left: 40px;
+  }
 }
 
-.header .signOut {
-  font-size: 16px;
-}
+/* -------------------------------------------------------- */
 
-.header #welcome {
-  font-size: 16px;
-}
-
-/* DROPDOWN */
+/* DROPDOWN MOBILE VIEW */
 
 /* Dropdown Button */
 .dropbtn {
