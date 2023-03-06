@@ -8,6 +8,7 @@ import { getApiRoot } from "../../utils/getApiRoot";
 import Popup from "./Popup.js";
 import SubmissionPopup from "../submissionpop";
 import AddClassSkeleton from "./addClassSkeleton";
+import { FaUber } from "react-icons/fa";
 
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
@@ -39,10 +40,12 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
   const [fetchingLibraries, setFetchingLibraries] = useState(false);
+  const [addButtonDisabled, setaddButtonDisabled ] = useState(false);
   //*********Creates course by sending all info in body to the B  FF course controller************/
 
   const validateForm = async () => {
     console.log("validate form here");
+    
     let allFieldsValid = true;
     if (
       sectionName.length === 0 ||
@@ -55,20 +58,23 @@ function AddClass() {
       canvasCourseId.length === 0
     ) {
       allFieldsValid = false;
+      setaddButtonDisabled(true);
     }
     if (allFieldsValid) {
       createCourse();
     } else {
       {
-        setPopupMessage("Error adding the course");
+        setPopupMessage("Error adding the course it miss some iinformation");
         setPopupAgainMessage("Try again");
         setIsSuccess(false);
         setIsPopupOpen(true);
+        setaddButtonDisabled(false);
       }
     }
   };
   const createCourse = async () => {
     console.log(courseCode);
+    setaddButtonDisabled(true);
     const options = {
       method: "POST",
       body: JSON.stringify({
@@ -100,10 +106,12 @@ function AddClass() {
       setPopupMessage("Successfully added the Course!");
       setPopupAgainMessage("Add more");
       setIsSuccess(true);
+      setaddButtonDisabled(false);
     } else {
-      setPopupMessage("Error adding the course");
+      setPopupMessage("The crouse already exist");
       setPopupAgainMessage("Try again");
       setIsSuccess(false);
+      setaddButtonDisabled(false);
     }
     setIsPopupOpen(true);
   };
@@ -408,7 +416,7 @@ width=0,height=0,left=-1000,top=-1000`;
               )}
             </div>
 
-            <button type="button" className={addclass.btnprimary} onClick={validateForm}>
+            <button type="button" disabled={addButtonDisabled} className={addclass.btnprimary} onClick= {validateForm}>
               Add
             </button>
             <div className={addclass.alert}>
