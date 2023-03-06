@@ -63,7 +63,7 @@ function AddClass() {
       createCourse();
     } else {
       {
-        setPopupMessage("Error adding the course. missing information");
+        setPopupMessage("Error adding the course. Missing Information");
         setPopupAgainMessage("Try again");
         setIsSuccess(false);
         setIsPopupOpen(true);
@@ -107,7 +107,7 @@ function AddClass() {
       setIsSuccess(true);
       setaddButtonDisabled(false);
     } else {
-      setPopupMessage("This crouse already exists");
+      setPopupMessage("This course already exists");
       setPopupAgainMessage("Try again");
       setIsSuccess(false);
       setaddButtonDisabled(false);
