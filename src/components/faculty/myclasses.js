@@ -9,7 +9,6 @@ import { getApiRoot } from "../../utils/getApiRoot";
 import LoadingSpinner2 from "../spinner2";
 import DbLibraryTemplates from "./dbLibraryTemplates";
 import ClassesSkeleton from "./classesSkeleton";
-import Collapsible from 'react-collapsible';
 
 function MyClasses() {
   let navigate = useNavigate();
