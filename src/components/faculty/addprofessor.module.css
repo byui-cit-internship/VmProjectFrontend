@@ -284,12 +284,6 @@ https://www.byui.edu/branding/color-guide
     padding: 0px 10px;
   }
 
-  .addprofessor .container {
-    border-radius: 0px;
-    height: 100vh;
-    /* width: 95%; */
-  }
-
   .addprofessor form {
     display: flex;
     flex-direction: column;
@@ -317,12 +311,12 @@ https://www.byui.edu/branding/color-guide
 
   .addprofessor .container {
     margin: 0;
-    border-radius: 0px;
     padding: 0 40px;
     width: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
   }
 }
 
