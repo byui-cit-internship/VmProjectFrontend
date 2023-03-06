@@ -129,18 +129,15 @@ select:focus {
 }
 
 .myclasses .select {
-  border-radius: 10px;
+  border-radius: 6px;
   border: 3px solid #98d5fd;
-  /* width: 434px; */
-  height: 47px;
-  /* left: 258px;
-  top: 260px; */
-  padding-left: 9px;
-  /* margin-top: 8px; */
-  /* margin-left: 30px; */
-  margin: auto;
   width: 50%;
+  margin: 50px;
+  padding-left: 8px;
+  margin-top: 8px;
+  margin-left: 30px;
 }
+
 .myclasses .singleDiv {
   /* text-align: center; */
   margin-left: 9px;
@@ -327,35 +324,6 @@ phone: 480px
 /* -------------------------------------------------------- */
 
 /* L A R G E   V I E W */
-@media only screen and (min-width: 64em) {
-  .myclasses .card {
-    border-radius: 10px;
-  }
-  
-  .myclasses .container {
-    border-radius: 0px;
-    width: 91vw;
-    height: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .myclasses .select {
-    border-radius: 10px;
-    border: 3px solid #98d5fd;
-    width: 434px;
-    height: 47px;
-    left: 258px;
-    top: 260px;
-    padding-left: 8px;
-    margin-top: 8px;
-    margin-left: 30px;
-  }
-  
-  .myclasses .singleDiv {
-    display: flex;  
-  }
+@media only screen and (min-width: 64em) { 
+
 }
