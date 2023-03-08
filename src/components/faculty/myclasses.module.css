@@ -129,17 +129,13 @@ select:focus {
 }
 
 .myclasses .select {
-  border-radius: 10px;
+  border-radius: 6px;
   border: 3px solid #98d5fd;
-  /* width: 434px; */
-  height: 47px;
-  /* left: 258px;
-  top: 260px; */
-  padding-left: 9px;
-  /* margin-top: 8px; */
-  /* margin-left: 30px; */
-  margin: auto;
   width: 50%;
+  margin: 50px;
+  padding-left: 8px;
+  margin-top: 8px;
+  margin-left: 30px;
 }
 
 .myclasses .singleDiv {
@@ -147,7 +143,6 @@ select:focus {
   margin-left: 9px;
   width: 50%;
 }
-
 .myclasses .table {
   gap: 0.5em;
   margin: 5%;
@@ -157,6 +152,7 @@ select:focus {
 }
 .myclasses .card {
   width: 45%;
+  border-radius: 10px;
 }
 .myclasses .tableheader {
   background-color: #3D8AC9;
@@ -228,6 +224,7 @@ phone: 480px
   .myclasses .card {
     width: 100%;
     align-self: center;
+    border-radius: 10px;
   }
   .myclasses .select {
    margin: auto;
@@ -311,6 +308,9 @@ phone: 480px
 
 /* M E D I U M   V I E W */
 @media only screen and (min-width: 37.5em) {
+  .myclasses .card {
+    border-radius: 10px;
+  }
   .myclasses .container {
     min-height: unset;
     width: 95%;
@@ -321,14 +321,9 @@ phone: 480px
   }
 }
 
-@media only screen and (min-width: 64em) {
-}
-
 /* -------------------------------------------------------- */
 
 /* L A R G E   V I E W */
-@media only screen and (min-width: 64em) {
-  .myclasses #classesAndSearch {
-    width: unset;
-  }
+@media only screen and (min-width: 64em) { 
+
 }

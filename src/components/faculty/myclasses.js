@@ -13,13 +13,21 @@ import ClassesSkeleton from "./classesSkeleton";
 function MyClasses() {
   let navigate = useNavigate();
   const [sectionList, setSectionList] = useState([]);
+  const [filteredSectionList, setFilteredSectionList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [semester, setSemester] = useState([]);
+  const [semester, setSemester] = useState(null);
   const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [fetchingClasses, setFetchingClasses] = useState(false);
 
   useEffect(() => {
     setFetchingClasses(true);
+
+    const filterBySemesterId = (section) => {
+      console.log(section.semesterId);
+      if (section.semesterId == semester.semesterId) {
+        return true;
+      }
+    };
 
     const getclassList = async () => {
       const listResponse = await fetch(getApiRoot() + "/api/course/professor/getAllSections", {
@@ -63,9 +71,19 @@ function MyClasses() {
             {/* <label className={myclasses.label}>Choose Semester: </label> <br></br> */}
             <select
               className={myclasses.select}
-              onChange={(event) => {
-                var obj = JSON.parse(event.target.value);
+              onChange={(e) => {
+                var obj = JSON.parse(e.target.value);
                 setSemester(obj);
+                const filteredSections = sectionList.filter((section) => {
+                  console.log(section);
+                  if (section.semesterId == semester.semesterId) {
+                    console.log(section.semesterId);
+                    console.log(semester.semesterId);
+                    return true;
+                  }
+                });
+                console.log(filteredSections);
+                setFilteredSectionList(filteredSections);
               }}>
               <option>- Select Semester -</option>
 
@@ -92,7 +110,7 @@ function MyClasses() {
               {fetchingClasses ? (
                 <ClassesSkeleton />
               ) : (
-                sectionList.map((item) => (
+                filteredSectionList.map((item) => (
                   <div className={myclasses.card} key={item.sectionId}>
                     <Card variant="outlined">
                       <div value={item} className={myclasses.tableheader}>

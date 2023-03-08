@@ -56,7 +56,7 @@
   font-size: 20px;
   display: grid;
   margin-bottom: 0px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 50px;
   margin-left: 50px;
 }
@@ -64,7 +64,7 @@
 .utilization label, .utilization .listHeadText {
   color: var(--backgroundcolor);
   font-style: italic;
-  padding-right: 50px;
+  padding-right: 20px;
 }
 
 .utilization select, .utilization #search {
@@ -459,8 +459,10 @@
   }
 
   .utilization .resetBtn {
-    margin-top: 10px;
-    margin-bottom: -20px;
+    margin-top: 15px;
+    margin-bottom: -15px;
+    height: 55px;
+    width: 40px;
   }
 
   .utilization .templatesAvailable {
@@ -497,6 +499,8 @@
   }
 
   .utilization .twoTables {
+    padding-left: 70px;
+    padding-right: 60px;
     display: flex;
     flex-direction: column;
   }
@@ -513,7 +517,7 @@
     justify-content: space-between;
     width: unset;
     margin: unset;
-    padding-left: 85px;
+    /* padding-left: 85px; */
   }
 
   .utilization .updateList {
@@ -551,7 +555,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-left: 15px;
-    max-width: 65%;
+    max-width: 95%;
     max-height: 400px;
     overflow: auto;
   }

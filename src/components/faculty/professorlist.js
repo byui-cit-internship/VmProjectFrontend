@@ -138,7 +138,6 @@ function ProfessorList() {
         <h1>Professor List</h1>
         <div id={professorList.professorsAndSearch}>
           <div className={professorList.tableHeader}>
-            {/* <h1 className={professorList.lets}>Professors</h1> */}
             <div className={professorList.searchbar}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
               <input
@@ -153,7 +152,7 @@ function ProfessorList() {
           <div className={professorList.table}>
             <table>
               <thead>
-                <tr>
+                <tr className={professorList.table_header}>
                   <th>Users</th>
                   <th>Email</th>
                   <th>Approved</th>

@@ -17,10 +17,11 @@
 }
 
 .professorList .table {
-  overflow: hidden;
+  /* overflow: hidden; */
   overflow-y: scroll;
-  max-height: 235px;
+  max-height: 290px;
   border: 2px solid #3D8AC9;
+  border-radius: 10px;
 }
 
 .professorList table {
@@ -41,16 +42,16 @@
 }
 
 .professorList #professorsAndSearch {
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  margin-left: auto;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin-right: auto;
+  margin-left: auto;
   font-size: 1.5rem;
-  background-color: #3D8AC9;
   font-family: "Raleway", sans-serif;
   font-weight: bold;
-  color: #ffffff;
-  align-items: center;
 }
 
 .professorList .lets {
@@ -61,23 +62,16 @@
   padding: 10px 0px;
 }
 
-.professorList .searchbar {
+/* .professorList .searchbar {
   border: 2px solid #3D8AC9;
   margin-top: 15px;
   margin-bottom: 15px;
   border-radius: 10px;
   padding-bottom: 0px 0px;
   display: flex;
+  justify-content: center;
   align-items: center;
-}
-
-/* .professorList .searchbar {
-    border: 2px solid #3D8AC9 ;
-    width: 455px;
-    padding-bottom: 0px 0px;
-    display: flex;
-    align-items: center;
-  } */
+} */
 
 .professorList .searchbar #MGlass {
   font-size: 0.9rem;
@@ -87,8 +81,16 @@
 .professorList #search {
   font-family: "Raleway", sans-serif;
   color: black;
-  border: none;
-  margin-left: 3px;
+  border: 2px solid #3D8AC9;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .professorList #search::placeholder {
@@ -242,65 +244,61 @@
   width: auto;
 }
 
-/* email title */
-thead tr th:nth-child(2) {
-  /* max-width: 35px; */
-  font-size: 20px;
-  padding-left: 100px;
-}
-
-/* email content */
-tbody tr td:nth-child(2) {
-  /* max-width: 35px; */
-  font-size: 0.9rem;
-  padding-left: 100px;
-}
-
-/* approved title */
-thead tr th:nth-child(3) {
-  font-size: 20px;
-  padding-right: 50px;
-}
-
-/* approved content */
-tbody tr td:nth-child(3) {
-  font-size: 0.9rem;
-  padding-right: 70px;
-}
-
 /* -------------------------------------------------------- */
 
 /* S M A L L   V I E W */
 @media only screen and (max-width: 37.4em) {
-  /* Users first value */
+  /* users title */
   thead tr th:nth-child(1) {
-    display: none;
-    max-width: 100px;
+    max-width: 50px;
+    font-size: 1rem;
+    padding-left: 20px;
+  }
+
+  /* users content */
+  tbody tr td:nth-child(1) {
+    max-width: 50px;
+    font-size: 0.8rem;
+    padding-left: 20px;
   }
 
   /* email title */
   thead tr th:nth-child(2) {
-    display: none;
-    max-width: 100px;
+    max-width: 60px;
+    font-size: 1rem;
+    padding-left: 10px;
+    padding-right: 80px;
   }
 
   /* email content */
   tbody tr td:nth-child(2) {
-    display: none;
-    max-width: 100px;
+    max-width: 60px;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 80px;
   }
 
   /* approved title */
   thead tr th:nth-child(3) {
-    display: none;
+    max-width: 100px;
+    font-size: 1rem;
+    padding-left: 80px;
+    padding-right: 0px;
   }
 
   /* approved content */
   tbody tr td:nth-child(3) {
-    display: none;
+    max-width: 100px;
+    padding-left: 60px;
+    padding-right: 0px;
   }
 
-  .professorList .tableHeader {
+  .professorList #professorsAndSearch {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* .professorList .tableHeader {
     flex-direction: column;
     align-items: baseline;
     padding: 10px;
@@ -308,7 +306,7 @@ tbody tr td:nth-child(3) {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     background-color: #3D8AC9;
-  }
+  } */
 
   .professorList td {
     /* border-bottom: 2px solid #3D8AC9; */
@@ -320,15 +318,11 @@ tbody tr td:nth-child(3) {
     margin: 0;
   }
 
-  .professorList #professorsAndSearch {
-    display: unset;
-    color: black;
-    background: white;
-  }
   .professorList .container {
-    margin: 0;
+    margin: 0px;
     border-radius: 0px;
-    padding: 0 40px;
+    padding: 0 5px;
+    height: 100vh;
     width: unset;
     display: flex;
     flex-direction: column;
@@ -342,14 +336,11 @@ tbody tr td:nth-child(3) {
   }
 
   .professorList .table {
-    max-height: 300px;
+    
     overflow: hidden;
     overflow-y: scroll;
-    min-width: 215px;
-    max-width: 80vw;
-    border-top: none;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    /* min-width: 215px; */
+    /* max-width: 100%; */
   }
   .professorList th {
     width: 300px;
@@ -372,9 +363,9 @@ tbody tr td:nth-child(3) {
 
   .professorList .button {
     font-size: 20px;
-    width: 55%;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    width: 45%;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   html {
@@ -389,43 +380,46 @@ tbody tr td:nth-child(3) {
   /* users title */
   thead tr th:nth-child(1) {
     max-width: 100px;
-    font-size: 20px;
-    /* padding-left: 40px; */
+    font-size: 1rem;
+    padding-left: 40px;
   }
 
   /* users content */
   tbody tr td:nth-child(1) {
     max-width: 100px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding-left: 40px;
   }
 
   /* email title */
   thead tr th:nth-child(2) {
-    /* max-width: 35px; */
-    font-size: 20px;
-    padding-left: 50px;
-    padding-right: -30px;
+    max-width: 150px;
+    font-size: 1rem;
+    padding-left: 40px;
+    padding-right: 30px;
   }
 
   /* email content */
   tbody tr td:nth-child(2) {
-    /* max-width: 35px; */
+    max-width: 150px;
     font-size: 0.9rem;
-    padding-left: 50px;
-    padding-right: -30px;
+    padding-left: 40px;
+    padding-right: 30px;
   }
 
   /* approved title */
   thead tr th:nth-child(3) {
     max-width: 100px;
+    font-size: 1rem;
+    padding-left: 40px;
     padding-right: 40px;
   }
 
   /* approved content */
   tbody tr td:nth-child(3) {
     max-width: 100px;
-    padding-right: 20px;
+    padding-left: 50px;
+    padding-right: 40px;
   }
 
   .professorList .container {
@@ -437,29 +431,16 @@ tbody tr td:nth-child(3) {
     color: #000;
   }
   .professorList #professorsAndSearch {
-    max-width: 80vw;
-    flex-direction: column;
-    background-color: white;
-    display: flex;
+    min-width: unset;
   }
 
-  .professorList .table {
-    max-width: 90vw;
-    border-radius: 10px;
-  }
-
-  .professorList .searchbar {
+  /* .professorList .searchbar {
     max-width: unset;
     width: 580px;
-  }
+  } */
 
   .professorList #search {
-    width: 100%;
-    border-radius: 7px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 1px;
+    width: 480px;
   }
 
   .professorList .backbtn {
@@ -485,53 +466,67 @@ tbody tr td:nth-child(3) {
   .professorList td {
     color: #000;
   }
+  
+
   .professorList #professorsAndSearch {
     width: unset;
   }
 
   /* users title */
-  thead tr th:nth-child(1) {
-    max-width: 100px;
-    font-size: 15px;
-    /* padding-left: 80px; */
-  }
+ thead tr th:nth-child(1) {
+  max-width: 150px;
+  font-size: 1.25rem;
+  padding-left: 80px;
+}
 
-  /* users content */
-  tbody tr td:nth-child(1) {
-    max-width: 100px;
-    font-size: 0.9rem;
-    padding-left: 80px;
-  }
+/* users content */
+tbody tr td:nth-child(1) {
+  max-width: 150px;
+  font-size: 0.9rem;
+  padding-left: 80px;
+}
 
-  /* email title */
-  thead tr th:nth-child(2) {
-    /* max-width: 35px; */
-    font-size: 20px;
-    padding-left: 100px;
-  }
+/* email title */
+thead tr th:nth-child(2) {
+  max-width: 200px;
+  font-size: 1.25rem;
+  padding-left: 60px;
+  padding-right: 60px;
+}
 
-  /* email content */
-  tbody tr td:nth-child(2) {
-    /* max-width: 35px; */
-    font-size: 0.9rem;
-    /* padding-left: 100px; */
-  }
+/* email content */
+tbody tr td:nth-child(2) {
+  max-width: 200px;
+  font-size: 0.9rem;
+  padding-left: 60px;
+  padding-right: 60px;
+}
 
-  /* approved title */
-  thead tr th:nth-child(3) {
-    max-width: 100px;
-  }
+/* approved title */
+thead tr th:nth-child(3) {
+  max-width: 150px;
+  font-size: 1.25rem;
+  padding-left: 20px;
+  padding-right: 80px;
+}
 
-  /* approved content */
-  tbody tr td:nth-child(3) {
-    max-width: 100px;
-  }
+/* approved content */
+tbody tr td:nth-child(3) {
+  max-width: 150px;
+  font-size: 1.25rem;
+  padding-left: 20px;
+  padding-right: 80px;
+}
 
-  .professorList .searchbar {
-    width: 670px;
-  }
+  /* .professorList .searchbar {
+    width: 620px;
+  } */
 
   .professorList .tableHeader {
     width: unset;
+  }
+
+  .professorList #search {
+    width: 710px;
   }
 }
