@@ -9,6 +9,7 @@ import Popup from "./Popup.js";
 import SubmissionPopup from "../submissionpop";
 import AddClassSkeleton from "./addClassSkeleton";
 
+
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
   const userInfoString = sessionStorage.getItem("userInfo");
