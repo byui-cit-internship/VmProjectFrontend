@@ -40,7 +40,7 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
   const [fetchingLibraries, setFetchingLibraries] = useState(false);
-  const [addButtonDisabled, setaddButtonDisabled ] = useState(false);
+  const [addButtonDisabled, setaddButtonDisabled ] = useState(true);
   //*********Creates course by sending all info in body to the B  FF course controller************/
 
   const validateForm = async () => {
@@ -68,7 +68,6 @@ function AddClass() {
         setPopupAgainMessage("Try again");
         setIsSuccess(false);
         setIsPopupOpen(true);
-        setaddButtonDisabled(false);
       }
     }
   };
@@ -106,12 +105,10 @@ function AddClass() {
       setPopupMessage("Successfully added the Course!");
       setPopupAgainMessage("Add more");
       setIsSuccess(true);
-      setaddButtonDisabled(false);
     } else {
       setPopupMessage("This course already exists");
       setPopupAgainMessage("Try again");
       setIsSuccess(false);
-      setaddButtonDisabled(false);
     }
     setIsPopupOpen(true);
   };
@@ -277,6 +274,7 @@ width=0,height=0,left=-1000,top=-1000`;
     const thing = JSON.parse(item);
     setResourcePool(thing.resource_pool);
     setResourcePoolName(thing.name);
+    setaddButtonDisabled(false);
   };
   return (
     <div>
