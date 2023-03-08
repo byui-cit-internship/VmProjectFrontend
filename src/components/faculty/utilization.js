@@ -237,7 +237,7 @@ function Utilization() {
             <h1>Class VM Utilization</h1>
           </div>
 
-      <div className={utilization.filterContainer}>
+        <div className={utilization.filterContainer}>
           {/*SEMESTER*/}
           <div className={utilization.courseselect}>
             <label className={utilization.dropdown} htmlFor="course_semester">
@@ -307,40 +307,6 @@ function Utilization() {
                 ))}
               </select>
             </label>
-          </div>
-          <div className={utilization.resetBtn}>
-            {/*Reload Button for Selecting A Different Class*/}
-            {/* <label> */}
-              <button
-                onClick={() => {
-                  resetDropdowns();
-                }}>
-                <AiOutlineReload />
-              </button>
-            {/* </label> */}
-          </div>
-    </div>
-
-          {/*Templates*/}
-          <div className={utilization.templatesAvailable}>
-            <h2 className={utilization.h2available}>Available templates for this Class</h2>
-
-            <div className={utilization.button}>
-              {templates.map((template) => (
-                <button className={utilization.btn} key={template.id} value={template.name}>
-                  <img
-                    className={utilization.logo}
-                    src={"../../images/computerlogo.png"}
-                    alt="logo"
-                  />
-                  <strong>{template.name}</strong>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/*User Filter List*/}
-          <div className={utilization.twoTables}>
             <div className={utilization.searchBar}>
               <div className={utilization.listHead}>
                 {/*STUDENT*/}
@@ -371,57 +337,49 @@ function Utilization() {
                             value={JSON.stringify(item)}>
                             {item.firstName} {item.lastName}
                           </option>
-                          // <li
-                          //   key={item.userId}
-                          //   className={utilization.li}
-                          //   value={item.firstName}
-                          //   onClick={(e) => {
-                          //     setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
-                          //   }}>
-                          //   {item.firstName} {item.lastName}
-                          // </li>
                         ))}
-                        {/* {filteredData?.map((student) => (
-                          <option key={student.userId} value={JSON.stringify(student)}>
-                            {student.firstName} {student.lastName}
-                          </option>
-                        ))} */}
                       </select>
                     </label>
                   </div>
                 </div>
-                {/* <strong className={utilization.listHeadText}>Student</strong> */}
-                {/* <TextField */}
-                  {/* onChange={inputHandler} */}
-                  {/* id={utilization.search} */}
-                  {/* variant="outlined" */}
-                  {/* size="small" */}
-                  {/* InputProps={{ */}
-                    {/* startAdornment: ( */}
-                      {/* <InputAdornment position="start"> */}
-                        {/* <SearchIcon className={utilization.searchIcon} /> */}
-                      {/* </InputAdornment> */}
-                    {/* ) */}
-                  {/* }} */}
-                {/* /> */}
               </div>
-
-              {/* <div className={utilization.updateList}>
-                <ul>
-                  {filteredData?.map((item) => (
-                    <li
-                      key={item.userId}
-                      className={utilization.li}
-                      value={item.firstName}
-                      onClick={(e) => {
-                        setStudentInfo(item.firstName, item.lastName, item.email, item.userId);
-                      }}>
-                      {item.firstName} {item.lastName}
-                    </li>
-                  ))}
-                </ul>
-              </div> */}
             </div>
+          </div>
+          <div className={utilization.resetBtn}>
+            {/*Reload Button for Selecting A Different Class*/}
+            {/* <label> */}
+              <button
+                onClick={() => {
+                  resetDropdowns();
+                }}>
+                <AiOutlineReload />
+              </button>
+            {/* </label> */}
+          </div>
+
+        </div>
+
+          {/*Templates*/}
+          <div className={utilization.templatesAvailable}>
+            <h2 className={utilization.h2available}>Available templates for this Class</h2>
+
+            <div className={utilization.button}>
+              {templates.map((template) => (
+                <button className={utilization.btn} key={template.id} value={template.name}>
+                  <img
+                    className={utilization.logo}
+                    src={"../../images/computerlogo.png"}
+                    alt="logo"
+                  />
+                  <strong>{template.name}</strong>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/*User Filter List*/}
+          <div className={utilization.twoTables}>
+            
 
             {/*User Info Table*/}
             <div className={utilization.scoreboard}>
