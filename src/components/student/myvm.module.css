@@ -13,7 +13,7 @@
   text-align: center;
   margin-top: 50px;
   padding-bottom: 40px;
-  color:#337AB7;
+  color: #337ab7;
 }
 
 .myVm #backbtn {
@@ -31,34 +31,62 @@
   font-size: 180%;
 }
 
-.myVm table {
-  border-collapse: collapse;
-  margin-top: 0px;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border: 5px solid black;
+.myVm .individualBox {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.eachBox {
+  border: 2px solid #3d8ac9;
+  margin: 1rem auto;
+  border-radius: 25px;
+  width: 25rem;
+}
+
+.myVm .details {
+  display: flex;
+  flex-direction: row;
 }
 
 .myVm .table {
   overflow-y: scroll;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 4%;
+  margin: 0 auto;
+}
+
+.myVm .VMname {
+  text-align: center;
+  background-color: #006eb6;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
 }
 
 .myVm .bodyHeader {
+  color: white;
   font-weight: bolder;
   font-size: 20px;
-  border-bottom: 5px solid black;
-  border-top: 3px solid black;
+  padding: 1rem;
 }
 
-.myVm .tableHead {
-  font-weight: bolder;
-  font-size: 30px;
-  border-bottom: 5px solid black;
-  border-top: 5px solid black;
+.myVm .boldedPara {
+  font-weight: bold;
+  width: 30%;
+  padding: 1rem;
+  padding-right: 0;
+  text-align: center;
+  color: black;
+}
+
+.myVm .infoReceived {
+  width: 60%;
+  padding: 1rem;
+  padding-right: 0;
+  text-align: left;
+  color: black;
+}
+
+.myVm .oddNum {
+  background-color: #f0f0f0;
 }
 
 .myVm .table::-webkit-scrollbar {
@@ -76,31 +104,12 @@
   margin-top: 0px;
 }
 
-.myVm th {
-  font-family: "Raleway", sans-serif;
-  font-weight: bolder;
-  font-size: larger;
-  border: 2px solid #006EB6;
-  background-color: #006EB6;
-  padding:15px;
-  color: #FFFFFF;
-  text-align: center;
-}
-.myVm tr{
-  border: 2px solid #006EB6;
-}
-
-.myVm td {
-  text-align: center;
-  font-family: "Raleway", sans-serif;
-}
-
 /* -------------------------------------------------------- */
 
 /* S M A L L   V I E W */
-@media screen and (max-width: 37.5em){
+@media screen and (max-width: 37.5em) {
   .myVm .container {
-    width: 100vw;
+    width: 80vw;
     background-color: white;
     margin: 0px auto;
     border-radius: 0px;
@@ -117,6 +126,18 @@
   .myVm h1 {
     font-size: 26px;
   }
+
+  .myVm .bodyHeader {
+    font-size: 15px;
+  }
+
+  .myVm .boldedPara {
+    font-size: 13px;
+  }
+
+  .myVm .infoReceived {
+    font-size: 13px;
+  }
 }
 
 /* -------------------------------------------------------- */
@@ -130,13 +151,12 @@
 
   .myVm .table {
     max-height: 500px;
-    width: 600px;
+    width: 75%;
   }
 
   .myVm h1 {
     font-size: 30px;
   }
-
 }
 
 /* -------------------------------------------------------- */
@@ -148,12 +168,11 @@
   }
 
   .myVm .table {
-  max-height: 500px;
-  width: 800px;
+    max-height: 500px;
+    width: 90%;
   }
 
   .myVm h1 {
     font-size: 33px;
   }
-
 }

@@ -13,13 +13,18 @@ function MyVM() {
   useEffect(() => {
     //setNetworkList([])
     const getVmNetwork = async (item) => {
-      
       if (listResponse.status >= 400) {
-        setNetworkList(networkList => [...networkList, {id: item, address: null, status: "offline"}])
+        setNetworkList((networkList) => [
+          ...networkList,
+          { id: item, address: null, status: "offline" }
+        ]);
       } else {
         var networks = await listResponse.json();
-        var ip = networks[0].ip.ip_addresses[0].ip_address
-        setNetworkList(networkList => [...networkList, {id: item, address: ip, status: "online"}])
+        var ip = networks[0].ip.ip_addresses[0].ip_address;
+        setNetworkList((networkList) => [
+          ...networkList,
+          { id: item, address: ip, status: "online" }
+        ]);
       }
     };
 
@@ -33,43 +38,46 @@ function MyVM() {
       });
       console.log(listResponse);
       let vmList = await listResponse.json();
-      vmList = vmList.map(async vm => {
-        try {const listResponse = await fetch(getApiRoot() + `/api/deployvm/vm-network?vmInstanceVcenterId=${vm.vmInstanceVcenterId}`, {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            "content-type": "application/json"
-          }
-        });
+      vmList = vmList.map(async (vm) => {
+        try {
+          const listResponse = await fetch(
+            getApiRoot() + `/api/deployvm/vm-network?vmInstanceVcenterId=${vm.vmInstanceVcenterId}`,
+            {
+              method: "GET",
+              credentials: "include",
+              headers: {
+                "content-type": "application/json"
+              }
+            }
+          );
 
-        const networkList = await listResponse.json() 
-        console.log(networkList)
-        let ip = ""
-        networkList.forEach(network => {
-          console.log(network)
-          console.log(network.ip.ip_addresses)
-          if (network.ip != null && network.ip.ip_addresses.length > 0) {
-            ip = ip + " " + network.ip.ip_addresses[0].ip_address
-            console.log(ip)
-          } 
-          
-        });
-        vm.ip = ip}
-        catch (error) {
-          console.log(error)
+          const networkList = await listResponse.json();
+          console.log(networkList);
+          let ip = "";
+          networkList.forEach((network) => {
+            console.log(network);
+            console.log(network.ip.ip_addresses);
+            if (network.ip != null && network.ip.ip_addresses.length > 0) {
+              ip = ip + " " + network.ip.ip_addresses[0].ip_address;
+              console.log(ip);
+            }
+          });
+          vm.ip = ip;
+        } catch (error) {
+          console.log(error);
         }
-        return vm
+        return vm;
       });
-      vmList = await Promise.all(vmList)
+      vmList = await Promise.all(vmList);
       console.log("vm's", vmList);
       setVmList(vmList);
     };
     getVmList();
   }, []);
 
-//*********Get Vm Instance Netowkr Info**********/
+  //*********Get Vm Instance Netowkr Info**********/
 
-console.log(networkList);
+  console.log(networkList);
 
   return (
     <div className={myVm.myVm}>
@@ -78,39 +86,37 @@ console.log(networkList);
         {/* <span onClick={() => {navigate("/student")}} id={myVm.backbtn}>&#8592; Back</span> */}
         <h1>My Vm's</h1>
         <div className={myVm.table}>
-          <table>
+          <div className={myVm.individualBox}>
             {vmList.map((vm) => (
-            <thead>
+              <div className={myVm.eachBox}>
+                <div className={myVm.VMname}>
+                  <div className={myVm.bodyHeader} colSpan="2">
+                    {vm.vmInstanceVcenterName}
+                  </div>
+                </div>
 
-              <tr>
-                <th className={myVm.bodyHeader} colSpan='2'>{vm.vmInstanceVcenterName}</th>
-              </tr>
+                <div className={`${myVm.details} ${myVm.oddNum}`}>
+                  <p className={myVm.boldedPara}>Class:</p>
+                  <p className={myVm.infoReceived}>{vm.courseCode}</p>
+                </div>
 
-              <tr>
-                <th>Class</th>
-                <td>{vm.courseCode}</td>
-              </tr>
+                <div className={myVm.details}>
+                  <p className={myVm.boldedPara}>VM Template:</p>
+                  <p className={myVm.infoReceived}>{vm.vmTemplateName}</p>
+                </div>
 
-              <tr>
-                <th>VM Template</th>
-                <td>{vm.vmTemplateName}</td>
-              </tr>
+                <div className={`${myVm.details} ${myVm.oddNum}`}>
+                  <p className={myVm.boldedPara}>Expire Date:</p>
+                  <p className={myVm.infoReceived}>{vm.vmInstanceExpireDate}</p>
+                </div>
 
-              <tr>
-                <th>Expire Date</th>
-                <td>{vm.vmInstanceExpireDate}</td>
-              </tr>
-
-              <tr>
-                <th>Ipv4 Address</th>
-                <td>{vm.ip}</td>
-              </tr>
-              
-
-            </thead>
+                <div className={myVm.details}>
+                  <p className={myVm.boldedPara}>Ipv4 Address:</p>
+                  <p className={myVm.infoReceived}>{vm.ip}</p>
+                </div>
+              </div>
             ))}
-
-          </table>
+          </div>
         </div>
         <Background />
       </div>
