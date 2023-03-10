@@ -310,8 +310,8 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addprofessor .container {
-    margin: 0;
-    padding: 0 40px;
+    margin: 0px;
+    padding: 0px 40px;
     width: unset;
     display: flex;
     flex-direction: column;
