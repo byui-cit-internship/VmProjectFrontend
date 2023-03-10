@@ -159,6 +159,8 @@ p,
 input,
 h3 {
   font: 15px "Raleway";
+  padding-left: 50px;
+  padding-top: 20px;
 }
 
 #googlebutton {
