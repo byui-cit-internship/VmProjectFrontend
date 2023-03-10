@@ -138,7 +138,7 @@ function ProfessorList() {
         <h1>Professor List</h1>
         <div id={professorList.professorsAndSearch}>
           <div className={professorList.tableHeader}>
-            <div className={professorList.searchbar}>
+            <div id={professorList.search_div}>
               {/* <FontAwesomeIcon id={professorList.MGlass} icon={faMagnifyingGlass} /> */}
               <input
                 onChange={inputHandler}
@@ -148,16 +148,17 @@ function ProfessorList() {
               />
             </div>
           </div>
-
-          <div className={professorList.table}>
-            <table>
-              <thead>
-                <tr className={professorList.table_header}>
+          <div id={professorList.table_div_h}>
+            <table id={professorList.table_h}>
+                <tr>
                   <th>Users</th>
                   <th>Email</th>
                   <th>Approved</th>
                 </tr>
-              </thead>
+            </table>
+          </div>
+          <div className={professorList.table_div_b}>
+            <table id={professorList.table_b}>
               <tbody>
                 {filteredData.map((professor, index) => (
                   <tr key={professor.userId} style={index%2==0 || index==0? {
