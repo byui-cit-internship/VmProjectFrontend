@@ -345,23 +345,11 @@ function Utilization() {
               </div>
             </div>
           </div>
-          <div className={utilization.resetBtn}>
-            {/*Reload Button for Selecting A Different Class*/}
-            {/* <label> */}
-              <button
-                onClick={() => {
-                  resetDropdowns();
-                }}>
-                <AiOutlineReload />
-              </button>
-            {/* </label> */}
-          </div>
-
         </div>
 
           {/*Templates*/}
           <div className={utilization.templatesAvailable}>
-            <h2 className={utilization.h2available}>Available templates for this Class</h2>
+            <h2 className={utilization.h2available}>Available templates for this class:</h2>
 
             <div className={utilization.button}>
               {templates.map((template) => (

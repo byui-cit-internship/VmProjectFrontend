@@ -46,7 +46,7 @@ https://www.byui.edu/branding/color-guide
   justify-content: center;
   padding: 0px;
   font-family: "Raleway", sans-serif;
-  font-weight: 200;
+  font-weight: bold;
 }
 
 .addprofessor .container {
@@ -61,8 +61,8 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor form {
-  width: 90%;
-  margin: auto auto;
+  width: 100%;
+  margin: auto;
   /* display: flex;
   flex-direction: column;
   align-items: center; */
@@ -70,7 +70,6 @@ https://www.byui.edu/branding/color-guide
 
 .addprofessor .form {
   gap: 0.5em;
-  margin: 5%;
   margin-top: -5%;
   display: flex;
   flex-direction: column;
@@ -103,22 +102,18 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor input {
-  transition: background-size 0.3s ease;
+  /* transition: background-size 0.3s ease; */
+  border: solid 2px #3D8AC9;
   border-radius: 10px;
-  /* border: none; */
-  padding: 5px 25px 5px 25px;
-  appearance: none;
-  outline: none;
+  padding: 12px;
+  /* padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%; */
+  margin-top: 10px;
   background: white;
-  font-size: var(--labelfontsize);
-  /*width: 477px;*/
+  font-size: 15px;
 }
-
-/*
-.addprofessor img {
-  max-width: 450px;
-}
-*/
 
 .addprofessor .primaryButton {
   display: flex;
@@ -131,8 +126,9 @@ https://www.byui.edu/branding/color-guide
   height: 58px;
   border-radius: 10px;
   border: transparent;
-  font-size: var(--paragraphfontsize);
+  font-size: 25px;
   background-color: var(--successcolor);
+  font-weight: bold;
   color: white;
   margin-top: 30px;
 }
@@ -148,11 +144,6 @@ https://www.byui.edu/branding/color-guide
   justify-content: space-between;
   margin-bottom: 40px;
 }
-
-/*
-.addprofessor .singleContainer input {
-  width: 280px;
-}*/
 
 .addprofessor .flexContainer {
   margin-top: 20px;
@@ -193,8 +184,8 @@ https://www.byui.edu/branding/color-guide
 .addprofessor .singleContainer label {
   font-family: 'Raleway';
   font-style: italic;
-  color: var(--backgroundcolor);
-  padding-bottom: 10px;
+  font-weight: bold;
+  color: #3D8AC9;
 }
 
 .addprofessor .closeBtn {
@@ -244,9 +235,9 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addprofessor input {
-    /* border: 3px solid #98d5fd; */
-    font-size: var(--labelfontsize);
-    padding: 11.5px;
+    border: 2px solid #3D8AC9;
+    font-size: 15px;
+    padding: 12px;
     margin-top: 8px;
   }
   .addprofessor h2 {
@@ -311,6 +302,7 @@ https://www.byui.edu/branding/color-guide
 
   .addprofessor .container {
     margin: 0px;
+    border-radius: 0px;
     padding: 0px 40px;
     width: unset;
     display: flex;
@@ -337,13 +329,13 @@ https://www.byui.edu/branding/color-guide
   }
 
   .addprofessor .singleContainer input {
-    width: 280px;
+    width: 100%;
   }
 
   .addprofessor .flexContainer {
     flex-direction: column;
-    margin-left: 50px;
-    /* align-items: center; */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .addprofessor .singleContainer {
@@ -392,10 +384,6 @@ https://www.byui.edu/branding/color-guide
     width: 450px;
   } */
 
-  .addprofessor .flexContainer {
-    flex-direction: row;
-  }
-
   .addprofessor form {
     width: 90%;
     margin: auto auto;
@@ -433,10 +421,6 @@ https://www.byui.edu/branding/color-guide
     justify-content: space-between;
   }
 
-  /*
-  .addprofessor .singleContainer input {
-    width: 280px;
-  }*/
 
   .addprofessor .singleContainer label {
     color: var(--backgroundcolor);
