@@ -50,7 +50,7 @@ function AddProfessor() {
       console.log(response);
       if (response.ok) {
         setConfirmationMessage("Professor added successfully");
-        setAgainOptionMessage("Add another professor");
+        setAgainOptionMessage("New professor");
         setIsSuccess(true);
       } else {
         setConfirmationMessage("Error adding professor");
