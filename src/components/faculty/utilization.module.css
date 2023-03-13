@@ -17,11 +17,10 @@
 }
 
 .utilization h1 {
-  color: var(--emphasiscolor);
-  font-size: var(--header2fontsize);
-  font-weight: bold;
-  grid-column: 2;
-  /* text-align: center; */
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 40px;
+  color:#337AB7;
 }
 
 .utilization .filterContainer {
@@ -37,13 +36,6 @@
   padding-top: 10px;
   padding-bottom: 100px;
   min-height: 500px;
-}
-
-.utilization h1 {
-  text-align: center;
-  margin-top: 50px;
-  padding-bottom: 40px;
-  color:#337AB7;
 }
 
 /* .utilization .header {
@@ -62,16 +54,18 @@
 }
 
 .utilization label, .utilization .listHeadText {
-  color: var(--backgroundcolor);
+  color: #3D8AC9;
   font-style: italic;
-  padding-right: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px;
 }
 
 .utilization select, .utilization #search {
   margin-right: 10px;
   background-color: white;
   /* border: none; */
-  border: 2px solid var(--secondarycolor);
+  border: 2px solid #3D8AC9;
   border-radius: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -81,13 +75,15 @@
 }
 
 .utilization h2 {
-  color: var(--backgroundcolor);
+  color: #3D8AC9;
   font-weight: bold;
-  font-size: var(--paragraphfontsize);
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .utilization .btn {
-  background-color: #006eb6;
+  background-color: #6AB8E7;
   padding: 30px;
   border: none;
   border-radius: 8px;
@@ -102,9 +98,9 @@
 }
 
 .utilization .logo {
-  /* width: 35px; */
-  height: 40px;
+  height: 30px;
   align-self: center;
+  padding: 10px;
 }
 
 .utilization .button {
@@ -131,30 +127,6 @@
   flex-direction: column;
 }
 
-/* .utilization .searchIcon {
-  color: #ffffff;
-} */
-
-/* .utilization #search {
-  color: white;
-  margin-right: 10px;
-  margin-left: -21px;
-  background-color: white;
-  border: 2px solid var(--secondarycolor);
-  border-radius: 8px;
-  padding: 5px;
-  width: 200px;
-  height: 25px;
-  font-size: 16px;
-} */
-
-/*.utilization .listHeadText {
-  color: white;
-  font-size: 25px;
-  padding: 10px;
-  text-align: center;
-}*/
-
 .utilization .updateList {
   overflow-y: scroll;
   height: 180px;
@@ -177,9 +149,8 @@
 
 .utilization .thHeader {
   border: none;
-  font-weight: bolder;
-  font-size: var(--paragraphfontsize);
-  background-color: var(--backgroundcolor);
+  font-size: 15px;
+  background-color: #3D8AC9;;
 }
 
 .utilization td {
@@ -222,7 +193,9 @@
   }
 
   .utilization h1 {
-    font-size: 26px;
+    font-size: 30px;
+    padding: 0px 15px;
+    margin-bottom: 60px;
   }
 
   .utilization .h2available {
@@ -255,9 +228,6 @@
     font-size: 0.9em;
   }
 
-  .utilization .logo {
-    display: none;
-  }
   .utilization .dropdown {
     margin: 10px 0px;
     display: flex;
@@ -431,10 +401,6 @@
     width: 95%;
   }
 
-  .utilization h1 {
-    font-size: 30px;
-  }
-
   .utilization .main {
     display: flex;
     flex-direction: column;
@@ -485,22 +451,10 @@
     justify-content: unset;
   }
 
-  .utilization .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Raleway";
-    padding: 5px 18px;
-    cursor: pointer;
-    width: unset;
-    height: unset;
-    margin: 0 10px 0px 0px;
-    font-size: unset;
-  }
-
   .utilization .twoTables {
-    padding-left: 70px;
-    padding-right: 60px;
+    padding-left: 100px;
+    padding-right: 90px;
+    /* padding: 60px; */
     display: flex;
     flex-direction: column;
   }
@@ -550,7 +504,7 @@
   }
   .utilization .scoreboard {
     background: white;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     border-radius: 8px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -582,9 +536,5 @@
   }
   .utilization .alertButton {
     display: none;
-  }
-
-  .utilization h1 {
-    font-size: 30px;
   }
 }

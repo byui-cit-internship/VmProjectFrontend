@@ -112,11 +112,13 @@
 
 .professorList .button {
   background-color: #3A8ACE;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: center;
   font-size: 1.2rem;
+  font-weight: bold;
   padding: 15px;
   margin-right: auto;
   margin-left: auto;
@@ -125,6 +127,7 @@
   width: 20%;
   height: 8%;
   border-radius:10px;
+  border: none;
 }
 
 .professorList .button:hover {
