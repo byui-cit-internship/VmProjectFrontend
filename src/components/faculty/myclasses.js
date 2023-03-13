@@ -47,7 +47,7 @@ function MyClasses() {
 
   useEffect(() => {
     const getcourseSemester = async () => {
-      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", {
+      const listResponse = await fetch(getApiRoot() + "/api/semester/semester", {
         method: "GET",
         credentials: "include",
         headers: {
