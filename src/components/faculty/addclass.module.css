@@ -83,7 +83,6 @@ https://www.byui.edu/branding/color-guide
   border: none;
 }
 .addclass .alertButton:hover {
-  color: blue;
   cursor: pointer;
 }
 
@@ -122,7 +121,7 @@ https://www.byui.edu/branding/color-guide
 
 .addclass .btnprimary:hover {
   cursor: pointer;
-  background-color: #3d8ac9;
+  
 }
 
 .addclass #nameError {
