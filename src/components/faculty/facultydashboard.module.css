@@ -24,7 +24,7 @@ https://www.byui.edu/branding/color-guide
 }
 
 .facultydashboard .professorpermissions {
-  background: green;
+  background: #58B952;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -222,40 +222,45 @@ https://www.byui.edu/branding/color-guide
 @media screen and (max-width: 37.5em) {
   .facultydashboard .container {
     padding: 0px 20px;
-    background-size: 100%;
-    background-position-x: -10%;
-    background-position-y: 50%;
     border-radius: 0px;
     margin: 0px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    background: none;
   }
 
   .facultydashboard .professorpermissions {
-    position: absolute;
-    top: 520px;
-    left: 0px;
+    border-radius: 8px;
+    padding: 0.3rem;
+    position: relative;
+    top: 115%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 82%;
+  }
+
+  .facultydashboard #nameOfProfessor {
+    font-size: 25px;
+    padding-left: 10%;
   }
 
   .facultydashboard h1 {
     padding-left: 0;
   }
 
-  .facultydashboard .button {
-    margin-top: 5px;
-    font-size: 17px;
-  }
 
   .facultydashboard #greeting {
     margin-top: 10px;
     font-size: 17px;
-    padding-top: 0px;
-    padding-left: 0;
+    padding-top: 10px;
+    margin-left: 7%;
   }
 
   .facultydashboard .text {
     margin: 25px 0px;
+    
   }
 
   .facultydashboard .buttons {
@@ -263,13 +268,15 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 17px;
+    margin-top: -50px;
   }
 
   .facultydashboard #singleContainer {
     height: 45px;
     border-radius: 7px;
     width: 73vw;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-left: 0px;
     display: flex;
     max-width: 250px;
@@ -283,6 +290,7 @@ https://www.byui.edu/branding/color-guide
   .facultydashboard .material {
     margin-bottom: 10px;
     margin-top: -10px;
+    margin-right: -15px;
   }
 
   .facultydashboard .main {
@@ -296,6 +304,10 @@ https://www.byui.edu/branding/color-guide
 
 /* M E D I U M   V I E W */
 @media only screen and (min-width: 37.5em) {
+  p {
+    padding-left: 10px;
+  }
+
   .facultydashboard .professorpermissions {
     position: unset;
     bottom: unset;
@@ -377,5 +389,3 @@ https://www.byui.edu/branding/color-guide
     width: 100%;
   }
 }
-
-

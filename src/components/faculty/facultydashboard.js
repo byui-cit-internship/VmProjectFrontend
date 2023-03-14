@@ -8,6 +8,7 @@ import Background from "../../background";
 import facultydashboard from "./facultydashboard.module.css";
 import Header from "../../header";
 import { getApiRoot } from "../../utils/getApiRoot";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { faC } from "@fortawesome/free-solid-svg-icons";
 
 const iconStyles = {
@@ -103,6 +104,7 @@ const FacultyDashboard = () => {
                   userInfo.approveStatus == "pending" ||
                   (userInfo.approveStatus == "approved" && userInfo.canvasToken)
                 }>
+                <InfoOutlinedIcon className={facultydashboard.iconStyles}/>
                 {requestMessage}
               </button>
             </div>
