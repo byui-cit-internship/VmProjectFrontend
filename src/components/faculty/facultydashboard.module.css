@@ -298,6 +298,20 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
     align-items: center;
   }
+
+  button {
+    width: 100%;
+    height: 75%;
+    margin-bottom: -10px;
+    background-color: var(--backgroundcolor);
+    border-style: none;
+    color: white;
+    font-weight: bold;
+    font-size: var(--boldlabelfontsize);
+    border-radius: 10px;
+}
+
+
 }
 
 /* -------------------------------------------------------- */
