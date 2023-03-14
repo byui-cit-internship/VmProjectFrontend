@@ -10,7 +10,7 @@ body {
 }
 
 .menu-bars {
-  color: #006eb6;
+  color: var(--maincolor);
   /* margin-right: 2rem; */
   font-size: 2rem;
   background: none;
@@ -21,7 +21,7 @@ body {
 } */
 
 .nav-menu {
-  background-color: #060b26;
+  background-color: var(--emphasiscolor);
   width: 220px;
   height: 100vh;
   display: flex;
@@ -41,7 +41,7 @@ body {
 
 .nav-text {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   padding: 8px 0 8px 0px;
   list-style: none;
@@ -56,14 +56,14 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .nav-text a:hover {
-  opacity: 70%;
-  color: aqua;
+  opacity: transparent;
+  background-color: var(--secondarycolor);
 }
 
 .nav-menu-items {
@@ -72,10 +72,10 @@ body {
 }
 
 .navbar-toggle {
-  background-color: #060b26;
+  background-color: var(--emphasiscolor);
   width: 100%;
   height: 80px;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
 }
