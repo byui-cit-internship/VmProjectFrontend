@@ -161,7 +161,7 @@ h2 {
 
 p {
   text-align: left;
-  padding-left: 0px;
+  padding-left: 50px;
   margin-top: 10px;
   margin-bottom: 5px;
   color: #9c9fa1;
@@ -169,6 +169,7 @@ p {
 .image {
   display: none;
 }
+
 
 .vima {
   color: #006eb6;
