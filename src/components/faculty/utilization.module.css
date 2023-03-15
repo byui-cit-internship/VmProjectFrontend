@@ -20,7 +20,7 @@
   text-align: center;
   margin-top: 50px;
   padding-bottom: 40px;
-  color:#337AB7;
+  color: #337ab7;
 }
 
 .utilization .filterContainer {
@@ -53,19 +53,21 @@
   margin-left: 50px;
 }
 
-.utilization label, .utilization .listHeadText {
-  color: #3D8AC9;
+.utilization label,
+.utilization .listHeadText {
+  color: #3d8ac9;
   font-style: italic;
   font-weight: 700;
   font-size: 15px;
   padding: 12px;
 }
 
-.utilization select, .utilization #search {
+.utilization select,
+.utilization #search {
   margin-right: 10px;
   background-color: white;
   /* border: none; */
-  border: 2px solid #3D8AC9;
+  border: 2px solid #3d8ac9;
   border-radius: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -75,7 +77,7 @@
 }
 
 .utilization h2 {
-  color: #3D8AC9;
+  color: #3d8ac9;
   font-weight: bold;
   font-size: 15px;
   font-style: italic;
@@ -83,7 +85,7 @@
 }
 
 .utilization .btn {
-  background-color: #6AB8E7;
+  background-color: #6ab8e7;
   padding: 30px;
   border: none;
   border-radius: 8px;
@@ -108,14 +110,6 @@
   margin-bottom: 20px;
   padding: 25px;
   justify-content: flex-start;
-}
-
-.utilization .twoTables {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 
 .utilization .searchBar {
@@ -150,7 +144,7 @@
 .utilization .thHeader {
   border: none;
   font-size: 15px;
-  background-color: #3D8AC9;;
+  background-color: #3d8ac9;
 }
 
 .utilization td {
@@ -181,6 +175,95 @@
   cursor: pointer;
   font-weight: bold;
   color: #006eb6;
+}
+
+.utilization .twoTables {
+  border: 2px solid #3d8ac9;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 76%;
+}
+
+.studentHeader {
+  background-color: #3d8ac9;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.studentHeader h2 {
+  color: white;
+  font-style: normal;
+  margin: 0.7rem auto;
+  padding: 0px;
+}
+
+.vmInfo {
+  width: 100%;
+  overflow-y: scroll;
+  max-height: 190px;
+  border-left: 2px solid #3d8ac9;
+}
+
+.vmInfo::-webkit-scrollbar {
+  width: 8px;
+}
+.vmInfo::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+.vmInfo::-webkit-scrollbar-thumb {
+  background-color: #3d8ac9;
+  border-radius: 5px;
+  border: none;
+  padding: 1rem; /* creates padding around scroll thumb */
+}
+
+.utilization .vmDirection {
+  display: flex;
+  flex-direction: row;
+}
+
+.utilization .vmDirection p {
+  padding: 0.5rem;
+  color: black;
+}
+
+.creationDate,
+.vmTemplate {
+  font-weight: bold;
+}
+
+.vmChange {
+  background-color: #f0f0f0;
+}
+
+.allInfoContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.eachVM {
+  border-bottom: 2px solid #3d8ac9;
+}
+
+.iconStyle {
+  color: #6ab8e7;
+  margin: 0 auto;
+  margin-top: 1.3rem;
+}
+
+.studentInfoSection {
+  text-align: center;
+}
+
+.studentInfoSection p {
+  padding: 0.5rem;
+  text-align: center;
+  color: black;
+  margin: 0 auto;
 }
 
 /* -------------------------------------------------------- */
@@ -451,13 +534,13 @@
     justify-content: unset;
   }
 
-  .utilization .twoTables {
+  /* .utilization .twoTables {
     padding-left: 100px;
     padding-right: 90px;
-    /* padding: 60px; */
+    padding: 60px; 
     display: flex;
     flex-direction: column;
-  }
+  } */
 
   .utilization .searchBar {
     display: unset;
@@ -499,9 +582,9 @@
 
 /* L A R G E   V I E W */
 @media only screen and (min-width: 64em) {
-  .utilization .twoTables {
+  /* .utilization .twoTables {
     flex-direction: row;
-  }
+  } */
   .utilization .scoreboard {
     background: white;
     /* border: 1px solid gray; */
