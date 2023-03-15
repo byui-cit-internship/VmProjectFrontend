@@ -9,6 +9,8 @@ import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Popup from "./Popup.js";
 import { AiOutlineReload } from "react-icons/ai";
+import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
+import { fontSize } from "@mui/system";
 
 getApiRoot();
 sessionStorage.getItem("token");
@@ -230,122 +232,125 @@ function Utilization() {
     <div className={utilization.utilization}>
       <div className={utilization.container}>
         <div className={utilization.header}>
-          <Header userType="facultydashboard"/>
+          <Header userType="facultydashboard" />
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
             <h1>Class VM Utilization</h1>
           </div>
 
-        <div className={utilization.filterContainer}>
-          {/*SEMESTER*/}
-          <div className={utilization.courseselect}>
-            <label className={utilization.dropdown} htmlFor="course_semester">
-              Semester:
-              <select
-                name="course_semester"
-                className={utilization.dropdownDescription}
-                id={utilization.course_semester}
-                required
-                onChange={(event) => {
-                  setSemesterEnrollmentId(event.target.value);
-                }}>
-                <option className={utilization.singleOption} value="" hidden>
-                  - Select -
-                </option>
-                {semesters.map((item) => (
-                  <option key={item.semesterId} value={item.enrollmentTermCanvasId}>
-                    {item.semesterTerm} {item.semesterYear}
+          <div className={utilization.filterContainer}>
+            {/*SEMESTER*/}
+            <div className={utilization.courseselect}>
+              <label className={utilization.dropdown} htmlFor="course_semester">
+                Semester:
+                <select
+                  name="course_semester"
+                  className={utilization.dropdownDescription}
+                  id={utilization.course_semester}
+                  required
+                  onChange={(event) => {
+                    setSemesterEnrollmentId(event.target.value);
+                  }}>
+                  <option className={utilization.singleOption} value="" hidden>
+                    - Select -
                   </option>
-                ))}
-              </select>
-            </label>
+                  {semesters.map((item) => (
+                    <option key={item.semesterId} value={item.enrollmentTermCanvasId}>
+                      {item.semesterTerm} {item.semesterYear}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            {/*COURSE CODE*/}
-            <label className={utilization.dropdown} htmlFor="course">
-              Course:
-              <select
-                name="course"
-                className={utilization.dropdownDescription}
-                id={utilization.course}
-                required
-                onChange={(event) => {
-                  setCourseCode(event.target.value);
-                  filterSections(event.target.value);
-                }}
-                disabled={courses.length === 0 && "disabled"}>
-                <option value="Default" className={utilization.singleOption} hidden>
-                  - Select -
-                </option>
-                {courses.map((course) => (
-                  <option key={course.courseId} value={course.courseCode}>
-                    {course.courseCode}
+              {/*COURSE CODE*/}
+              <label className={utilization.dropdown} htmlFor="course">
+                Course:
+                <select
+                  name="course"
+                  className={utilization.dropdownDescription}
+                  id={utilization.course}
+                  required
+                  onChange={(event) => {
+                    setCourseCode(event.target.value);
+                    filterSections(event.target.value);
+                  }}
+                  disabled={courses.length === 0 && "disabled"}>
+                  <option value="Default" className={utilization.singleOption} hidden>
+                    - Select -
                   </option>
-                ))}
-              </select>
-            </label>
+                  {courses.map((course) => (
+                    <option key={course.courseId} value={course.courseCode}>
+                      {course.courseCode}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
-            {/*SECTION*/}
-            <label className={utilization.dropdown} htmlFor="section">
-              Section:
-              <select
-                name="section"
-                className={utilization.dropdownDescription}
-                id={utilization.course}
-                required
-                onChange={(event) => {
-                  setSectionStates(event.target.value);
-                }}
-                disabled={!courseCode}>
-                <option value="Default" className={utilization.singleOption} hidden>
-                  - Select -
-                </option>
-                {courseSections.map((section) => (
-                  <option key={section.sectionId} value={JSON.stringify(section)}>
-                    {section.sectionName}
+              {/*SECTION*/}
+              <label className={utilization.dropdown} htmlFor="section">
+                Section:
+                <select
+                  name="section"
+                  className={utilization.dropdownDescription}
+                  id={utilization.course}
+                  required
+                  onChange={(event) => {
+                    setSectionStates(event.target.value);
+                  }}
+                  disabled={!courseCode}>
+                  <option value="Default" className={utilization.singleOption} hidden>
+                    - Select -
                   </option>
-                ))}
-              </select>
-            </label>
-            <div className={utilization.searchBar}>
-              <div className={utilization.listHead}>
-                {/*STUDENT*/}
-                <div className={utilization.filterContainer}>
-                  <div className={utilization.courseselect}>
-                    <label className={utilization.dropdown} htmlFor="student">
-                      Student:
-                      <select
-                        name="student"
-                        className={utilization.dropdownDescription}
-                        id={utilization.search}
-                        required
-                        // onChange={inputHandler}
-                        onChange={(event) => {
-                          const student = JSON.parse(event.target.value);
-                          setStudentInfo(student.firstName, student.lastName, student.email, student.userId);
-                        }}
-                        disabled={!courseCode}>
-                        {/* <option value="Default" className={utilization.singleOption} hidden>
+                  {courseSections.map((section) => (
+                    <option key={section.sectionId} value={JSON.stringify(section)}>
+                      {section.sectionName}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <div className={utilization.searchBar}>
+                <div className={utilization.listHead}>
+                  {/*STUDENT*/}
+                  <div className={utilization.filterContainer}>
+                    <div className={utilization.courseselect}>
+                      <label className={utilization.dropdown} htmlFor="student">
+                        Student:
+                        <select
+                          name="student"
+                          className={utilization.dropdownDescription}
+                          id={utilization.search}
+                          required
+                          // onChange={inputHandler}
+                          onChange={(event) => {
+                            const student = JSON.parse(event.target.value);
+                            setStudentInfo(
+                              student.firstName,
+                              student.lastName,
+                              student.email,
+                              student.userId
+                            );
+                          }}
+                          disabled={!courseCode}>
+                          {/* <option value="Default" className={utilization.singleOption} hidden>
                           - Select -
                         </option> */}
-                        <option className={utilization.singleOption} value="" hidden>
-                          - Select -
-                        </option>
-                        {filteredData?.map((item) => (
-                          <option 
-                            key={item.userId} 
-                            value={JSON.stringify(item)}>
-                            {item.firstName} {item.lastName}
+                          <option className={utilization.singleOption} value="" hidden>
+                            - Select -
                           </option>
-                        ))}
-                      </select>
-                    </label>
+                          {filteredData?.map((item) => (
+                            <option key={item.userId} value={JSON.stringify(item)}>
+                              {item.firstName} {item.lastName}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
           {/*Templates*/}
           <div className={utilization.templatesAvailable}>
@@ -367,10 +372,58 @@ function Utilization() {
 
           {/*User Filter List*/}
           <div className={utilization.twoTables}>
-            
+            <div className={utilization.studentHeader}>
+              <h2>Student</h2>
+              <h2>Virtual Machines</h2>
+            </div>
+            <div className={utilization.allInfoContainer}>
+              <div className={utilization.studentInfoSection}>
+                <AccountCircleRoundedIcon
+                  style={{ fontSize: "70px" }}
+                  className={utilization.iconStyle}
+                />
+                {tableStudentData?.map((item) => (
+                  <div key={item.email}>
+                    <p style={{ fontWeight: "bold" }}>{item.fullName}</p>
+                  </div>
+                ))}
+                {tableStudentData?.map((item) => (
+                  <div key={item.email}>
+                    <p>{item.email}</p>
+                  </div>
+                ))}
+              </div>
+              <div className={utilization.vmInfo}>
+                <div>
+                  {vmInstanceList?.map((item, index) => (
+                    <div className={utilization.eachVM} key={index}>
+                      <div className={`${utilization.vmDirection} ${utilization.vmChange}`}>
+                        <p className={utilization.creationDate}>VM Name:</p>
+                        <p>{item.vmInstanceVcenterName}</p>
+                      </div>
+
+                      <div className={utilization.vmDirection}>
+                        <p className={utilization.creationDate}>Creation Date:</p>
+                        <p>{item.vmInstanceCreationDate}</p>
+                      </div>
+
+                      <div className={`${utilization.vmDirection} ${utilization.vmChange}`}>
+                        <p className={utilization.creationDate}>Expire Date:</p>
+                        <p>{item.vmInstanceExpireDate}</p>
+                      </div>
+
+                      <div className={utilization.vmDirection}>
+                        <p className={utilization.vmTemplate}>VM Template Used:</p>
+                        <p>{item.vmTemplateName}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             {/*User Info Table*/}
-            <div className={utilization.scoreboard}>
+            {/* <div className={utilization.scoreboard}>
               <table className={utilization.scoreboardTable}>
                 <thead>
                   <tr>
@@ -422,7 +475,7 @@ function Utilization() {
                   </tbody>
                 ))}
               </table>
-            </div>
+            </div> */}
           </div>
 
           {/* S E P A R A T I O N */}
