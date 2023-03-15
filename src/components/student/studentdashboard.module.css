@@ -26,6 +26,9 @@ https://www.byui.edu/branding/color-guide
 .studentdashboard .professorpermissions {
   background: black;
   height: 40px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,6 +46,8 @@ https://www.byui.edu/branding/color-guide
   background-color: transparent;
   color: white;
   font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   text-decoration: none;
   border: transparent;
   cursor: pointer;
@@ -59,11 +64,13 @@ https://www.byui.edu/branding/color-guide
 
 .studentdashboard .button {
   background-color: transparent;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 2px;
   float: left;
-  padding-left: 20px;
+  padding-left: 0px;
   border: transparent;
 }
 
@@ -104,7 +111,7 @@ https://www.byui.edu/branding/color-guide
   font-family: "Raleway", sans-serif;
   font-weight: 200;
   text-align: left;
-  font-size: 40px;
+  font-size: 30px;
   grid-column: 1/2;
   grid-row: 2/3;
   padding-left: 50px;
@@ -148,56 +155,8 @@ https://www.byui.edu/branding/color-guide
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 18px;
-}
-
-.studentdashboard .add_class:hover {
-  background-color: #022d53;
-}
-
-.studentdashboard .add_class span {
-  color: white;
-  font-size: 40px;
-  float: left;
-  padding-left: 40px;
-  padding-top: 25px;
-}
-
-.studentdashboard .vm_utilization {
-  font-size: 20px;
-  float: left;
-  width: 300px;
-  height: 90px;
-  border-radius: 7px 0px 0px 7px;
-  display: block;
-  grid-column: 2/3;
-  grid-row: 2/3;
-  background-color: #3a8ace;
-  color: white;
-  margin-right: 0px;
-  margin-left: 50px;
-  margin-top: 130px;
-}
-
-.studentdashboard .vm_utilization:hover {
-  background-color: #022d53;
-}
-
-.studentdashboard .vm_utilization span {
-  color: white;
-  font-size: 40px;
-  float: left;
-  padding-left: 40px;
-  padding-top: 18px;
-}
-
-.studentdashboard .vm_utilization a {
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
-  margin-top: 30px;
-  float: left;
-  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .studentdashboard .mynetworks {
@@ -234,7 +193,46 @@ https://www.byui.edu/branding/color-guide
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.studentdashboard .vm_utilization {
+  font-size: 20px;
+  float: left;
+  width: 300px;
+  height: 90px;
+  border-radius: 7px 0px 0px 7px;
+  display: block;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  background-color: #3a8ace;
+  color: white;
+  margin-right: 0px;
+  margin-left: 50px;
+  margin-top: 130px;
+}
+
+.studentdashboard .vm_utilization:hover {
+  background-color: #022d53;
+}
+
+.studentdashboard .vm_utilization span {
+  color: white;
+  font-size: 40px;
+  float: left;
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.studentdashboard .vm_utilization a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin-top: 30px;
+  float: left;
+  padding-left: 20px;
 }
 
 /* -------------------------------------------------------- */
@@ -243,20 +241,37 @@ https://www.byui.edu/branding/color-guide
 @media screen and (max-width: 37.5em) {
   .studentdashboard .container {
     padding: 0px 20px;
-    background-size: 100%;
-    background-position-x: -10%;
-    background-position-y: 50%;
     border-radius: 0px;
     margin: 0px;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background: none;
+    background-color: white;
   }
 
   .studentdashboard .professorpermissions {
-    position:absolute;
-    top: 520px;
-    left: 0px;
+    background: black;
+    border-radius: 10px;
+    position: relative;
+    top: 170%;
+    cursor: pointer;
+    margin: auto;
+    width: 100%;
+  }
+
+  .studentdashboard .permissionsbutton {
+    cursor: pointer;
+    font-weight: normal;
+    font-weight: bold;
+    color: white;
+
+  }
+
+  .studentdashboard #nameOfStudent {
+    font-size: 25px;
+    padding-left: 0px;
+    width: 100%;
   }
 
   .studentdashboard h1 {
@@ -264,15 +279,27 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .button {
-    margin-top: 5px;
-    font-size: 17px;
+    margin-top: 6px;
   }
+
+  .studentdashboard .createvm span{
+    padding-top: 17px;
+  }
+
+  .studentdashboard .vm_utilization span {
+    padding-top: 17px;
+  }
+
+  .studentdashboard .mynetworks span {
+    padding-top: 17px;
+  }
+  
+  
  
   .studentdashboard #greeting {
     margin-top: 10px;
     font-size: 17px;
-    padding-top: 0px;
-    padding-left: 0;
+    margin-left: -10px;
   }
   .studentdashboard .text {
     margin: 25px 0px;
@@ -283,13 +310,15 @@ https://www.byui.edu/branding/color-guide
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 17px;
+    margin-top: -50px;
   }
 
   .studentdashboard #singleContainer {
     height: 45px;
     border-radius: 7px;
     width: 73vw;
-    margin-top: 15px;
+    margin-top: 25px;
     margin-left: 0px;
     display: flex;
     max-width: 250px;
@@ -316,6 +345,10 @@ https://www.byui.edu/branding/color-guide
 
 /* M E D I U M   V I E W */
 @media only screen and (min-width: 37.5em) {
+  p {
+    padding-left: 10px;
+  }
+  
   .studentdashboard .professorpermissions {
     position: unset;
     bottom: unset;
@@ -339,9 +372,9 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard .button {
-    padding-top: 12px;
     font-size: 18px;
-    width: 40%;
+    width: 50%;
+    padding-left: 0px;
   }
 
   .studentdashboard #singleContainer {
@@ -355,7 +388,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .studentdashboard #greeting {
-    font-size: 1em;
+    font-size: 18px;
     padding-top: 8px;
   }
 
@@ -396,5 +429,10 @@ https://www.byui.edu/branding/color-guide
   .studentdashboard .button {
     font-size: 22px;
     width: 100%;
+    padding-left: 0px;
+  }
+
+  .studentdashboard #nameOfStudent {
+    font-size: 40px;
   }
 }
