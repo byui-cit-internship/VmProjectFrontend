@@ -26,13 +26,16 @@ https://www.byui.edu/branding/color-guide
 .facultydashboard .professorpermissions {
   background: #58B952;
   height: 40px;
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0px 8px 8px 0px;
   max-width: 250px;
   padding: 5px 0px;
-  cursor: pointer;
+  cursor: default;
 }
 
 .facultydashboard .professorpermissions:hover {
@@ -43,9 +46,11 @@ https://www.byui.edu/branding/color-guide
   background-color: transparent;
   color: white;
   font-size: 15px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   text-decoration: none;
   border: transparent;
-  cursor: pointer;
+  cursor: default;
   height: 100%;
 }
 
@@ -59,9 +64,11 @@ https://www.byui.edu/branding/color-guide
 
 .facultydashboard .button {
   background-color: transparent;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 2px;
   float: left;
   padding-left: 20px;
   border: transparent;
@@ -148,7 +155,8 @@ https://www.byui.edu/branding/color-guide
   font-size: 40px;
   float: left;
   padding-left: 40px;
-  padding-top: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .facultydashboard .add_professor {
@@ -177,6 +185,7 @@ https://www.byui.edu/branding/color-guide
   float: left;
   padding-left: 40px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .facultydashboard .vm_utilization {
@@ -214,6 +223,8 @@ https://www.byui.edu/branding/color-guide
   float: left;
   padding-left: 40px;
   padding-top: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 /* -------------------------------------------------------- */
@@ -226,24 +237,31 @@ https://www.byui.edu/branding/color-guide
     margin: 0px;
     display: flex;
     flex-direction: column;
+    height: 100vh;
     background: none;
+    background-color: white;
   }
 
   .facultydashboard .professorpermissions {
-    border-radius: 8px;
-    padding: 0.3rem;
+    background: #E0FDDE;
+    border-radius: 0px;
     position: relative;
-    top: 115%;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 170%;
+    cursor: default;
     margin: auto;
-    width: 82%;
+    width: 100%;
+  }
+
+  .facultydashboard .permissionsbutton {
+    cursor: default;
+    font-weight: normal;
+    color: #58B952;
   }
 
   .facultydashboard #nameOfProfessor {
     font-size: 25px;
-    padding-left: 10%;
+    padding-left: 0px;
+    width: 100%;
   }
 
   .facultydashboard h1 {
@@ -254,8 +272,7 @@ https://www.byui.edu/branding/color-guide
   .facultydashboard #greeting {
     margin-top: 10px;
     font-size: 17px;
-    padding-top: 10px;
-    margin-left: 7%;
+    margin-left: -10px;
   }
 
   .facultydashboard .text {
@@ -270,6 +287,22 @@ https://www.byui.edu/branding/color-guide
     justify-content: center;
     font-size: 17px;
     margin-top: -50px;
+  }
+
+  .facultydashboard .button {
+    margin-top: 6px;
+  }
+
+  .facultydashboard .add_class span {
+    padding-top: 17px;
+  }
+
+  .facultydashboard .add_professor span {
+    padding-top: 17px;
+  }
+
+  .facultydashboard .vm_utilization span {
+    padding-top: 17px;
   }
 
   .facultydashboard #singleContainer {
@@ -302,11 +335,6 @@ https://www.byui.edu/branding/color-guide
   button {
     width: 100%;
     height: 75%;
-    margin-bottom: -10px;
-    background-color: var(--backgroundcolor);
-    border-style: none;
-    color: white;
-    font-weight: bold;
     font-size: var(--boldlabelfontsize);
     border-radius: 10px;
 }
@@ -345,9 +373,9 @@ https://www.byui.edu/branding/color-guide
   }
 
   .facultydashboard .button {
-    padding-top: 12px;
     font-size: 18px;
     width: 50%;
+    padding-left: 0px;
   }
 
   .facultydashboard #singleContainer {
@@ -361,7 +389,7 @@ https://www.byui.edu/branding/color-guide
   }
 
   .facultydashboard #greeting {
-    font-size: 1em;
+    font-size: 18px;
     padding-top: 8px;
   }
 
@@ -401,5 +429,6 @@ https://www.byui.edu/branding/color-guide
   .facultydashboard .button {
     font-size: 22px;
     width: 100%;
+    padding-left: 0px;
   }
 }

@@ -104,7 +104,12 @@ const FacultyDashboard = () => {
                   userInfo.approveStatus == "pending" ||
                   (userInfo.approveStatus == "approved" && userInfo.canvasToken)
                 }>
-                <InfoOutlinedIcon className={facultydashboard.iconStyles}/>
+                {/* <span className={facultydashboard.material}>
+                <InfoOutlinedIcon
+                facultydashboard={iconStyles} 
+                className={facultydashboard.material}
+                />
+                </span> */}
                 {requestMessage}
               </button>
             </div>
