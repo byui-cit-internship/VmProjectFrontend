@@ -107,20 +107,54 @@ select:focus {
   float: right;
   padding: 10px;
 }
-.myclasses .submitBt {
-  background-color: #58b952;
+
+.myclasses .MyClasscontainer {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid var(--secondarycolor);
+  border-radius: 10px;
+  /* border-collapse: collapse; */
+}
+
+.myclasses .MyClasstableheader {
   display: flex;
+  flex-direction: row;
+  background-color: var(--secondarycolor);
+  text-align: center;
+  justify-content: space-around;
+}
+
+.myclasses .MyClasstableheader th {
+  margin: 0 auto;
+  padding: 10px;
+  padding-left: 60px;
+  padding-right: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.myclasses .submitBt {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-self: center;
-  font-size: 1.2rem;
+  /* align-self: center; */
+  color: white;
+  background-color: var(--successcolor);
   padding: 15px;
+  gap: 10px;
+  width: 211px;
+  height: 58px;
+  border-radius: 10px;
+  border: transparent;
+  font-size: 25px;
+  font-weight: bold;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 70px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  width: 20%;
-  border-radius:10px;
 }
 
 .myclasses .submitBt:hover {
@@ -129,18 +163,23 @@ select:focus {
 }
 
 .myclasses .select {
-  border-radius: 6px;
-  border: 3px solid #98d5fd;
+  border-radius: 5px;
+  border: 2px solid #3D8AC9;
   width: 50%;
   margin: 50px;
-  padding-left: 8px;
+  padding: 8px;
   margin-top: 8px;
   margin-left: 30px;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 15px;
+  color: var(--secondarycolor)
 }
 
 .myclasses .singleDiv {
-  /* text-align: center; */
-  margin-left: 9px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
 }
 .myclasses .table {
