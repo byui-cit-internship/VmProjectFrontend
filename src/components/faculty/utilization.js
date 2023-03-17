@@ -374,7 +374,7 @@ function Utilization() {
           <div className={utilization.twoTables}>
             <div className={utilization.studentHeader}>
               <h2>Student</h2>
-              <h2>Virtual Machines</h2>
+              <h2 className={utilization.removeWhenSmall}>Virtual Machines</h2>
             </div>
             <div className={utilization.allInfoContainer}>
               <div className={utilization.studentInfoSection}>
@@ -477,41 +477,6 @@ function Utilization() {
               </table>
             </div> */}
           </div>
-
-          {/* S E P A R A T I O N */}
-          {/* button */}
-          <div className={utilization.alert}>
-            <label className={utilization.alertLabel}>Click button</label>
-            <button
-              onClick={togglePopup}
-              type="vCenter Folder Alert Button"
-              className={utilization.alertButton}>
-              <i className={utilization.alertIcon} aria-hidden="true"></i>
-            </button>
-          </div>
-          {/* isOpen  */}
-          {isOpen && (
-            <Popup
-              content={
-                <>
-                  <div className={utilization.popupbox}>
-                    <div className={utilization.box}>
-                      <span className={utilization.closeicon} onClick={togglePopup}>
-                        x
-                      </span>
-                      <img
-                        className={utilization.logo}
-                        src="../../images/LOGO-VIMA.png"
-                        alt="logo"
-                      />
-                      <h3 className={utilization.h3}>ALL THE STUDENT'S INFORMATION</h3>
-                    </div>
-                  </div>
-                </>
-              }
-            />
-          )}
-          {/* S E P A R A T I O N */}
         </div>
       </div>
       <div>

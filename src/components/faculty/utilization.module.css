@@ -183,6 +183,7 @@
   display: flex;
   flex-direction: column;
   width: 76%;
+  margin-bottom: 2rem;
 }
 
 .studentHeader {
@@ -240,11 +241,6 @@
   background-color: #f0f0f0;
 }
 
-.allInfoContainer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-
 .eachVM {
   border-bottom: 2px solid #3d8ac9;
 }
@@ -295,7 +291,8 @@
 
   .utilization .container {
     border-radius: 0px;
-    height: 100vh;
+    margin: 0;
+    padding: 0.3rem 1rem;
   }
 
   .utilization .header {
@@ -338,7 +335,6 @@
     flex-direction: column;
     height: unset;
     border-radius: 15px;
-    padding: 5px 20px 15px 20px;
     align-items: flex-start;
   }
   .utilization .templatesAvailable {
@@ -410,13 +406,6 @@
     display: none;
   }
 
-  .utilization .creationDate {
-    display: none;
-  }
-  .utilization .vmTemplate {
-    display: none;
-  }
-
   /* POP UP ALERT */
   .utilization .popupbox {
     position: fixed;
@@ -472,6 +461,33 @@
   .utilization .closeicon:hover {
     cursor: pointer;
     opacity: 80%;
+  }
+
+  .allInfoContainer {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .removeWhenSmall {
+    display: none;
+  }
+
+  .studentHeader {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .vmInfo {
+    border-left: none;
+    max-height: 220px;
+  }
+
+  .studentInfoSection {
+    border-bottom: 2px solid #3d8ac9;
+  }
+
+  .utilization .twoTables {
+    width: 85%;
   }
 }
 
@@ -576,6 +592,16 @@
     border-radius: 8px;
     min-width: 550px;
   }
+
+  .allInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .studentHeader {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 /* -------------------------------------------------------- */
@@ -619,5 +645,15 @@
   }
   .utilization .alertButton {
     display: none;
+  }
+
+  .allInfoContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .studentHeader {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
   }
 }
