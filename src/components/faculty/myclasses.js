@@ -85,7 +85,7 @@ function MyClasses() {
                 console.log(filteredSections);
                 setFilteredSectionList(filteredSections);
               }}>
-              <option>- Select Semester -</option>
+              <option>Select Semester</option>
 
               {courseSemesterList?.map((item, i) => (
                 <option key={i} value={JSON.stringify(item)}>
@@ -105,6 +105,18 @@ function MyClasses() {
               />
             </div>
           </div> */}
+
+          
+          <div className={myclasses.MyClasscontainer}>
+            <table className={myclasses.MyClasstableheader}>
+              <tr>
+                <th>Class</th>
+                <th>Virtual Machine</th>
+                <th>Creation Date</th>
+              </tr>
+            </table>
+          </div>
+          
           <div className={myclasses.tablegrid}>
             <div className={myclasses.table}>
               {fetchingClasses ? (
@@ -131,7 +143,7 @@ function MyClasses() {
             onClick={() => {
               navigate("/addclass");
             }}>
-            <button className={myclasses.submitBt}>Add New Class</button>
+            <button className={myclasses.submitBt}>Add Class</button>
           </div>
         </div>
       </div>
