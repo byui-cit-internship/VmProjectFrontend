@@ -60,15 +60,15 @@ function AddProfessor() {
         <div className={styles.header}>
           <Header userType="studentdashboard" />
         </div>
-        <div className={styles.main}>
-          <h2 className={styles.h2}>Are you a professor? </h2>
-          <p className={styles.description}>
-            To request access and be able to add classes, send your Canvas Token
+        <div className={styles.main_token}>
+          <h2 className={styles.h2_token}>Are you a professor? </h2>
+          <p className={styles.description_token}>
+            To request access and be able to add classes, please put in your <strong>Canvas Token</strong>
           </p>
           {/* <!-- Course Name--> */}
-          <div className={styles.flexContainer}>
+          <div className={styles.flexContainer_token}>
             <div className={styles.data}>
-              <div className={styles.singleContainer}>
+              <div className={styles.singleContainer_token}>
                 <label htmlFor="name">Token:</label>
                 <input
                   value={token}
@@ -81,10 +81,10 @@ function AddProfessor() {
                 />
               </div>
             </div>
+            <button type="submit" className={styles.requestButton} onClick={validateForm}>
+              Request Access
+            </button>
           </div>
-          <button type="submit" className={styles.requestButton} onClick={validateForm}>
-            Request Access
-          </button>
           {/* <img src="/images/mobile-hero.png" alt="heroimg"> */}
           {isOpen && (
             <SubmissionPopup

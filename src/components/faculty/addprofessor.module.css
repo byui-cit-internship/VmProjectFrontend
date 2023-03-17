@@ -24,18 +24,6 @@ https://www.byui.edu/branding/color-guide
   font-size: 14px;
 }
 
-.requestButton {
-  margin-left: 50px;
-  font-family: "Raleway";
-  border-radius: 8px;
-  margin: 30px 0px 30px 50px;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  background: #006eb6;
-  color: white;
-}
-
 .addprofessor .emailValidation {
   position: absolute;
   margin-top: 4.8em;
@@ -63,9 +51,6 @@ https://www.byui.edu/branding/color-guide
 .addprofessor form {
   width: 100%;
   margin: auto;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 }
 
 .addprofessor .form {
@@ -102,14 +87,9 @@ https://www.byui.edu/branding/color-guide
 }
 
 .addprofessor input {
-  /* transition: background-size 0.3s ease; */
   border: solid 2px #3D8AC9;
   border-radius: 10px;
   padding: 12px;
-  /* padding-top: 2.5%;
-  padding-bottom: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%; */
   margin-top: 10px;
   background: white;
   font-size: 15px;
@@ -145,17 +125,18 @@ https://www.byui.edu/branding/color-guide
   margin-bottom: 40px;
 }
 
+.addprofessor .singleContainer label {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: bold;
+  color: #3D8AC9;
+}
+
 .addprofessor .flexContainer {
   margin-top: 20px;
   display: flex;
   gap: 20px;
   justify-content: center;
-}
-
-.addprofessor .data {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
 .addprofessor .modal {
@@ -179,13 +160,6 @@ https://www.byui.edu/branding/color-guide
   grid-template-columns: 1fr;
   text-align: center;
   padding: 20px;
-}
-
-.addprofessor .singleContainer label {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: bold;
-  color: #3D8AC9;
 }
 
 .addprofessor .closeBtn {
@@ -226,14 +200,33 @@ https://www.byui.edu/branding/color-guide
   font-family: "Raleway";
 }
 
+
+/* ----------------------------------- */
+
+/* Request Token Page */
+.addprofessor .singleContainer_token label {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: bold;
+  color: #3D8AC9;
+  font-size: 1.25rem;
+}
+
+.addprofessor .requestButton {
+  font-family: "Raleway";
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #3D8AC9;
+  color: white;
+  font-weight: bold;
+}
+
+
 /* -------------------------------------------------------- */
 
 /* S M A L L   V I E W */
 @media screen and (max-width: 37.4em) {
-  p {
-    padding: 10px !important;
-  }
-
   .addprofessor input {
     border: 2px solid #3D8AC9;
     font-size: 15px;
@@ -307,8 +300,59 @@ https://www.byui.edu/branding/color-guide
     width: unset;
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100vh;
+  }
+
+
+  /* ----------------------------------- */
+
+  /* Request Token Page  */
+  .addprofessor .main_token {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .addprofessor .h2_token{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 40px;
+    padding-bottom: 5px;
+    padding: 0px;
+    margin-bottom: 20px;
+  }
+
+  .addprofessor .description_token {
+    padding-bottom: 20px;
+    padding: 0px;
+    margin-bottom: 30px;
+    color: black;
+  }
+
+  .addprofessor .singleContainer_token {
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    width: 93%;
+  }
+
+  .addprofessor .flexContainer_token {
+    align-items: center;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token input, .addprofessor .flexContainer_token button {
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-size: 1rem;
+    align-items: center;
   }
 }
 
@@ -341,24 +385,65 @@ https://www.byui.edu/branding/color-guide
   .addprofessor .singleContainer {
     align-items: baseline;
     margin-bottom: 30px;
-    /* flex-direction: row; */
     width: 350px;
   }
-
-  .addprofessor .data {
-    margin-bottom: 0px;
-  }
-
-  /*.addprofessor .image {
-    margin-top: 14px;
-  }
-  .addprofessor img {
-    width: 235px;
-  }*/
 
   .addprofessor .emailValidation {
     margin-top: 3.8em;
     margin-left: 112px;
+  }
+
+
+  /* ----------------------------------- */
+
+  /* Request Token Page */
+  .addprofessor .main_token {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  .addprofessor .h2_token{
+    font-size: 2rem;
+    padding-bottom: 5px;
+    padding: 0px;
+    margin-bottom: 35px;
+  }
+
+  .addprofessor .description_token {
+    padding-bottom: 20px;
+    padding: 0px;
+    margin-bottom: 30px;
+    color: black;
+  }
+
+  .addprofessor .singleContainer_token {
+    align-items: baseline;
+    margin-top: 40px;
+    margin-bottom: 73px;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token input, .addprofessor .flexContainer_token button {
+    display: inline-block;
+    padding: 0.5rem;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token button {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 50px;
+    width: 30%;
+    font-size: .8rem;
   }
 }
 
@@ -370,34 +455,11 @@ https://www.byui.edu/branding/color-guide
     display: flex;
     flex-direction: column;
   }
-  
-  .addprofessor .data {
-    margin-bottom: 0 !important;
-  }
-
-  .addprofessor .singleContainer label {
-    margin-bottom: 4px;
-  }
-
-  /*
-  .addprofessor .image {
-    width: 450px;
-  } */
 
   .addprofessor form {
     width: 90%;
     margin: auto auto;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
   }
-
-  /* .addprofessor .form {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
 
   .addprofessor .flexContainer {
     display: flex;
@@ -405,34 +467,65 @@ https://www.byui.edu/branding/color-guide
     justify-content: flex-start;
   }
 
-  .addprofessor .data {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-
-  .addprofessor .data {
-    margin-bottom: 2.3em;
-  }
-
   .addprofessor .singleContainer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
-
-  .addprofessor .singleContainer label {
-    color: var(--backgroundcolor);
-    font-style: italic;
-  }
-
-  .addprofessor .requestButton {
-    margin: 0px 0px 30px 50px;
-  }
   
   .addprofessor input {
     width: 100%;
-    /*padding: 0;*/
   }
+
+
+  /* ----------------------------------- */
+
+  /* Request Token Page */
+  .addprofessor .main_token {
+    padding-left: 22%;
+    padding-right: 22%;
+  }
+
+  .addprofessor .h2_token{
+    font-size: 2rem;
+    padding-bottom: 5px;
+    padding: 0px;
+    margin-bottom: 30px;
+  }
+
+  .addprofessor .description_token {
+    padding-bottom: 20px;
+    padding: 0px;
+    margin-bottom: 40px;
+  }
+
+  .addprofessor .singleContainer_token {
+    align-items: baseline;
+    margin-top: 30px;
+    margin-bottom: 73px;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .addprofessor .flexContainer_token input, .addprofessor .flexContainer_token button {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+
+  .addprofessor .flexContainer_token button {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  
 }

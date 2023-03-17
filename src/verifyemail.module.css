@@ -132,7 +132,7 @@ h2 {
   font-weight: 200;
   text-align: left;
   font-size: 30px;
-  margin-top: 3em;
+  margin-top: 2em;
   padding-left: 50px;
   color: black;
 }
@@ -160,7 +160,7 @@ input,
 h3 {
   font: 15px "Raleway";
   padding-left: 50px;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 #googlebutton {
