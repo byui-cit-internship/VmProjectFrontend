@@ -191,7 +191,7 @@ function ProfessorList() {
                               onMouseEnter={() => setProfessorApprove(professor)}
                               onClick={togglePopup}
                               disabled={isLoading}>
-                              Approve Professor
+                              Approve
                             </button>
                           );
                         }
