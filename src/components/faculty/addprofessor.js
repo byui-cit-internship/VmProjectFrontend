@@ -49,11 +49,11 @@ function AddProfessor() {
       });
       console.log(response);
       if (response.ok) {
-        setConfirmationMessage("Professor added successfully");
-        setAgainOptionMessage("New professor");
+        setConfirmationMessage("Professor Added!");
+        setAgainOptionMessage("New Professor");
         setIsSuccess(true);
       } else {
-        setConfirmationMessage("Error adding professor");
+        setConfirmationMessage("Error Adding Professor");
         setAgainOptionMessage("Try again");
         setIsSuccess(false);
       }

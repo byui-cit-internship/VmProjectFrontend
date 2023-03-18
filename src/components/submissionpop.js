@@ -5,7 +5,7 @@ import submissionPop from "./submissionpopup.module.css";
 import PropTypes from "prop-types";
 import CloseIcon from "@mui/icons-material/Close";
 import CancelIcon from "@mui/icons-material/Cancel";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
 
 const SubmissionPopup = (props) => {
   const [link, setLink] = useState("");
@@ -46,10 +46,10 @@ const SubmissionPopup = (props) => {
         <span className={submissionPop.closeicon} onClick={() => props.closeHandler(false)}>
           <CloseIcon />
         </span>
-        <div className={submissionPop.message}>
+        <div className={submissionPop.message_box}>
           <div className={submissionPop}>
             {props.success ? (
-              <CheckCircleIcon className={submissionPop.checkiconGreen} />
+              <CheckCircleRoundedIcon className={submissionPop.greenicon} />
             ) : (
               <CancelIcon className={submissionPop.checkicon} />
             )}
@@ -58,13 +58,13 @@ const SubmissionPopup = (props) => {
           <div className={submissionPop.optionsContainer}>
             <Link to={link}>
               <button className={submissionPop.dashboardButton}>
-                <div className={submissionPop.message}>Go to dashboard</div>
+                <div className={submissionPop.dash_button}>Go to dashboard</div>
               </button>
             </Link>
             {props.againOptionMessage && (
               <a className={submissionPop.a} href="javascript:;">
-                <button>
-                  <div className={submissionPop.message} onClick={() => props.closeHandler(false)}>
+                <button className={submissionPop.addnewButton}>
+                  <div className={submissionPop.addnew_button} onClick={() => props.closeHandler(false)}>
                     {props.againOptionMessage}
                   </div>
                 </button>
