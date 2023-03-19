@@ -4,8 +4,8 @@ import { getApiRoot } from "../utils/getApiRoot";
 import submissionPop from "./submissionpopup.module.css";
 import PropTypes from "prop-types";
 import CloseIcon from "@mui/icons-material/Close";
-import CancelIcon from "@mui/icons-material/Cancel";
 import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 
 const SubmissionPopup = (props) => {
   const [link, setLink] = useState("");
@@ -51,7 +51,7 @@ const SubmissionPopup = (props) => {
             {props.success ? (
               <CheckCircleRoundedIcon className={submissionPop.greenicon} />
             ) : (
-              <CancelIcon className={submissionPop.checkicon} />
+              <CancelRoundedIcon className={submissionPop.checkicon} />
             )}
           </div>
           <div className={submissionPop.message}>{props.message}</div>

@@ -37,12 +37,12 @@ function AddProfessor() {
         }
       });
       if (response.ok) {
-        setConfirmationMessage("Access Requested Succesfully");
-        //setAgainOptionMessage("Go back to the Studend Dashboard");
+        setConfirmationMessage("Access Requested!");
+        setAgainOptionMessage("Close Pop-up");
         setIsSuccess(true);
       } else {
         setConfirmationMessage("Error Requesting Access");
-        //setAgainOptionMessage("Try again");
+        setAgainOptionMessage("Please Try Again");
         setIsSuccess(false);
       }
       setIsOpen(true);
