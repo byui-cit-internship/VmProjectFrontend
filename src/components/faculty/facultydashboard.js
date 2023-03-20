@@ -128,7 +128,19 @@ const FacultyDashboard = () => {
                 />
               </span>
               <button className={facultydashboard.button}
-              >Add Classes</button>
+              >My Classes</button>
+            </div>
+            <div
+              className={facultydashboard.vm_utilization}
+              id={facultydashboard.singleContainer}
+              onClick={() => {
+                navigate("/utilization");
+              }}>
+              <span className={facultydashboard.material}>
+                <ComputerIcon facultydashboard={iconStyles}
+                className={facultydashboard.material}/>
+                </span>
+                <button className={facultydashboard.button}>Students VMs</button> 
             </div>
             <div
               className={facultydashboard.add_professor}
@@ -141,18 +153,6 @@ const FacultyDashboard = () => {
                 className={facultydashboard.material}/>
               </span>
               <button className={facultydashboard.button}>Professor List</button>
-            </div>
-            <div
-              className={facultydashboard.vm_utilization}
-              id={facultydashboard.singleContainer}
-              onClick={() => {
-                navigate("/utilization");
-              }}>
-              <span className={facultydashboard.material}>
-                <ComputerIcon facultydashboard={iconStyles}
-                className={facultydashboard.material}/>
-                </span>
-                <button className={facultydashboard.button}>VM Utilization</button> 
             </div>
           </div>
         </div>
