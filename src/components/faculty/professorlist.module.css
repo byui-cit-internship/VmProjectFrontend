@@ -136,19 +136,16 @@
 }
 
 .professorList .approveStatus {
-  padding: 10px 15px;
-  font-size: 19px;
-  width: 200px;
-  margin: 10px 0px;
+  width: 100%;
   color: #ffffff;
-  background: #58B952;
+  background: #f3bd59;
   border: none;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 
 .professorList .approveStatus:hover {
   cursor: pointer;
-  background-color: #3D8AC9;
+  background-color: #58b952;
 }
 
 .professorList .checkMark {
@@ -277,6 +274,12 @@
     width: 100%;
   }
 
+  .professorList .approveStatus {
+    font-size: 13px;
+    padding: 3px;
+    padding-bottom: 10px;
+  }
+
   /* users content -- mobile view */
   tbody tr td:nth-child(1) {
     font-size: 1rem;
@@ -302,7 +305,6 @@
 
   /* approved content -- mobile view */
   tbody tr td:nth-child(3) {
-    max-width: 20%;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
@@ -352,6 +354,11 @@
     font-size: .9rem;
   }
 
+  .professorList .approveStatus {
+    font-size: 16px;
+    padding: 5px
+  }
+
   /* users title */
   table tr th:nth-child(1) {
     max-width: 50px;
@@ -380,7 +387,7 @@
 
   /* approved content */
   tbody tr td:nth-child(3) {
-    max-width: 20px;
+    max-width: 25px;
   }
 
   .professorList #table_div_h {
@@ -435,6 +442,11 @@
     padding-left: 60px;
     padding-right: 60px;
     font-size: 1rem;
+  }
+
+  .professorList .approveStatus {
+    font-size: 18px;
+    padding: 9px
   }
 
   /* users title */
