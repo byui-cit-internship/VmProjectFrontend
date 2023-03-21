@@ -15,7 +15,7 @@ function MyClasses() {
   const [sectionList, setSectionList] = useState([]);
   const [filteredSectionList, setFilteredSectionList] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [semester, setSemester] = useState(null);
+  const [semester, setSemester] = useState([]);
   const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [fetchingClasses, setFetchingClasses] = useState(false);
 
@@ -72,8 +72,11 @@ function MyClasses() {
             <select
               className={myclasses.select}
               onChange={(e) => {
+                console.log(e);
                 var obj = JSON.parse(e.target.value);
                 setSemester(obj);
+                console.log(obj);
+                console.log(semester);
                 const filteredSections = sectionList.filter((section) => {
                   console.log(section);
                   if (section.semesterId == semester.semesterId) {
@@ -82,8 +85,8 @@ function MyClasses() {
                     return true;
                   }
                 });
-                console.log(filteredSections);
-                setFilteredSectionList(filteredSections);
+                // console.log(filteredSections);
+                // setFilteredSectionList(filteredSections);
               }}>
               <option>- Select Semester -</option>
 
