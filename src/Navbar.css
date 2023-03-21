@@ -22,7 +22,7 @@ body {
 
 .nav-menu {
   background-color: var(--emphasiscolor);
-  width: 220px;
+  width: 414px;
   height: 100vh;
   display: flex;
   justify-content: center;

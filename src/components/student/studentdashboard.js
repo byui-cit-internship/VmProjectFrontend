@@ -114,7 +114,7 @@ const StudentDashboard = () => {
               <span className={studentdashboard.material}>
                 <Computer studentdashboard={iconStyles} className={studentdashboard.material}/>
               </span>
-              <button className={studentdashboard.button}>My VMS</button>
+              <button className={studentdashboard.button}>My VMs</button>
             </div>
             <div
               className={studentdashboard.mynetworks}
