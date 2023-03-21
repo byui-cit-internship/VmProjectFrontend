@@ -72,10 +72,10 @@ function MyClasses() {
             <select
               className={myclasses.select}
               onChange={(e) => {
-
-                var obj = JSON.parse(e.target.value);
-                var semester = obj;
-                setSemester(semester);
+                console.log(e);
+                var selectedSemester = JSON.parse(e.target.value);
+                setSemester(selectedSemester);
+                console.log(selectedSemester);
                 const filteredSections = sectionList.filter((section) => {
                   console.log(section);
                   if (section.semesterId == selectedSemester.semesterId) {
