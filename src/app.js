@@ -72,7 +72,7 @@ function App() {
                   <div className={styles.imagehero}>
                     <img src="/images/mobile-hero.png" alt="heroimg" />
                   </div>
-                  <p className={styles.p}>Login with your BYUI account.</p>
+                  
                   {/* <div class="g-signin2" data-onsuccess="onSignIn" onclick="loadPage()" data-theme="dark"></div> */}
                   <div className={styles.google_button}>
                     {/* Login */}
@@ -87,6 +87,7 @@ function App() {
                     </GoogleOAuthProvider>
                     {/* <GoogleLoginComponent /> */}
                   </div>
+                  <p className={styles.p}>Login with your BYUI account</p>
                 </div>
               </div>
             </div>

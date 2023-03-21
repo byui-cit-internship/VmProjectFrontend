@@ -73,7 +73,8 @@ function MyClasses() {
               className={myclasses.select}
               onChange={(e) => {
                 var obj = JSON.parse(e.target.value);
-                setSemester(obj);
+                var semester = obj;
+                setSemester(semester);
                 const filteredSections = sectionList.filter((section) => {
                   console.log(section);
                   if (section.semesterId == semester.semesterId) {
@@ -106,7 +107,6 @@ function MyClasses() {
             </div>
           </div> */}
 
-          
           <div className={myclasses.MyClasscontainer}>
             <table className={myclasses.MyClasstableheader}>
               <tr>
@@ -116,7 +116,7 @@ function MyClasses() {
               </tr>
             </table>
           </div>
-          
+
           <div className={myclasses.tablegrid}>
             <div className={myclasses.table}>
               {fetchingClasses ? (
@@ -139,7 +139,8 @@ function MyClasses() {
             </div>
           </div>
 
-          <div className={myclasses.add_class}
+          <div
+            className={myclasses.add_class}
             onClick={() => {
               navigate("/addclass");
             }}>
