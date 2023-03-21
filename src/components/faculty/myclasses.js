@@ -47,7 +47,7 @@ function MyClasses() {
 
   useEffect(() => {
     const getcourseSemester = async () => {
-      const listResponse = await fetch(getApiRoot() + "/api/semester/enrollmentTerms", {
+      const listResponse = await fetch(getApiRoot() + "/api/semester/semester", {
         method: "GET",
         credentials: "include",
         headers: {
@@ -76,7 +76,6 @@ function MyClasses() {
                 var selectedSemester = JSON.parse(e.target.value);
                 setSemester(selectedSemester);
                 console.log(selectedSemester);
-                console.log(semester);
                 const filteredSections = sectionList.filter((section) => {
                   console.log(section);
                   if (section.semesterId == selectedSemester.semesterId) {
@@ -86,7 +85,7 @@ function MyClasses() {
                   }
                 });
                 console.log(filteredSections);
-                setFilteredSectionList(sectionList);
+                setFilteredSectionList(filteredSections);
               }}>
               <option>- Select Semester -</option>
 
