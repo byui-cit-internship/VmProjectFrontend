@@ -52,7 +52,7 @@ function CreateVM() {
     } else {
       {
         setPopupMessage("Error adding the course");
-        setPopupAgainMessage("Try again");
+        setPopupAgainMessage("Please Try Again");
         setIsSuccess(false);
         setIsPopupOpen(true);
       }
