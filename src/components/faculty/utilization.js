@@ -236,7 +236,7 @@ function Utilization() {
         </div>
         <div className={utilization.main}>
           <div id={utilization.formheader}>
-            <h1>Class VM Utilization</h1>
+            <h1>VM Utilization</h1>
           </div>
 
           <div className={utilization.filterContainer}>

@@ -22,13 +22,53 @@
   text-align: center;
   margin-top: 50px;
   padding-bottom: 40px;
-  color:#337AB7;
+  color: #337ab7;
+}
+
+.messageContainer {
+  width: 50%;
+  margin: 0 auto;
+  border: 2px solid #e5e5e5;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.mynetworks .iconStyle {
+  font-size: 5rem;
+  color: #b1b1b1;
+  margin: 1rem 0.5rem;
+}
+
+.dashboardButton {
+  background-color: #2265a5;
+  border-style: inset;
+  border: 2px solid #2265a5;
+  border-radius: 6px;
+  color: white;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-family: "Raleway", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 2rem 0.5rem;
+}
+
+.dashboardButton:hover {
+  background-color: #014878 !important;
+  color: white;
+  cursor: pointer;
+}
+
+.mynetworks p {
+  padding: 0;
+  text-align: center;
+  color: black;
 }
 
 /* -------------------------------------------------------- */
 
 /* S M A L L   V I E W */
-@media screen and (max-width: 37.5em){
+@media screen and (max-width: 37.5em) {
   .mynetworks h1 {
     font-size: 26px;
   }
@@ -46,7 +86,6 @@
   .mynetworks h1 {
     font-size: 30px;
   }
-
 }
 
 /* -------------------------------------------------------- */
@@ -56,5 +95,4 @@
   .mynetworks h1 {
     font-size: 33px;
   }
-  
 }
