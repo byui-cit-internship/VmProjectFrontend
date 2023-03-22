@@ -139,16 +139,13 @@ function MyClasses() {
               )}
             </div>
           </div>
-
-          <div
-            className={myclasses.add_class}
-            onClick={() => {
-              navigate("/addclass");
-            }}>
-          </div>
-            <button className={myclasses.submitBt}>Add Class</button>
+          
+            <button className={myclasses.submitBt} onClick={()=>navigate("/addclass")}
+            >Add Class</button>
       
+          <div>
             <a className={myclasses.conf_link} href="https://byui-cit.atlassian.net/wiki/spaces/CDI/pages/25493505/Creating+A+VM+and+Template+in+VSphere" target="_blank">Don't see your template?</a>
+          </div>
 
         </div>
       </div>

@@ -58,7 +58,7 @@ const SubmissionPopup = (props) => {
           <div className={submissionPop.optionsContainer}>
             <Link to={link}>
               <button className={submissionPop.dashboardButton}>
-                <div className={submissionPop.dash_button}>Go to dashboard</div>
+                <div className={submissionPop.dash_button}>Go to Dashboard</div>
               </button>
             </Link>
             {props.againOptionMessage && (

@@ -63,8 +63,8 @@ function AddClass() {
       createCourse();
     } else {
       {
-        setPopupMessage("Error adding the course. Missing Information");
-        setPopupAgainMessage("Please Try again");
+        setPopupMessage("Error Adding the Course. Missing Information");
+        setPopupAgainMessage("Please Try Again");
         setIsSuccess(false);
         setIsPopupOpen(true);
       }
@@ -101,12 +101,12 @@ function AddClass() {
     );
     if (response.status == 200) {
       console.log(response);
-      setPopupMessage("Successfully added the Course!");
-      setPopupAgainMessage("Add more");
+      setPopupMessage("Successfully Added the Course!");
+      setPopupAgainMessage("Add More");
       setIsSuccess(true);
     } else {
-      setPopupMessage("This course already exists");
-      setPopupAgainMessage("Try again");
+      setPopupMessage("This Course Already Exists");
+      setPopupAgainMessage("Please Try Again");
       setIsSuccess(false);
     }
     setIsPopupOpen(true);
