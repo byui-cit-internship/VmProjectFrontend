@@ -9,7 +9,6 @@ import Popup from "./Popup.js";
 import SubmissionPopup from "../submissionpop";
 import AddClassSkeleton from "./addClassSkeleton";
 
-
 function AddClass() {
   //*********Session Storage for name and email data of current user***********/
   const userInfoString = sessionStorage.getItem("userInfo");
@@ -40,12 +39,12 @@ function AddClass() {
   const [resourcePool, setResourcePool] = useState("");
   const [resourcePoolName, setResourcePoolName] = useState("");
   const [fetchingLibraries, setFetchingLibraries] = useState(false);
-  const [addButtonDisabled, setaddButtonDisabled ] = useState(true);
+  const [addButtonDisabled, setaddButtonDisabled] = useState(true);
   //*********Creates course by sending all info in body to the B  FF course controller************/
 
   const validateForm = async () => {
     console.log("validate form here");
-    
+
     let allFieldsValid = true;
     if (
       sectionName.length === 0 ||
@@ -65,7 +64,7 @@ function AddClass() {
     } else {
       {
         setPopupMessage("Error adding the course. Missing Information");
-        setPopupAgainMessage("Try again");
+        setPopupAgainMessage("Please Try again");
         setIsSuccess(false);
         setIsPopupOpen(true);
       }
@@ -349,7 +348,7 @@ width=0,height=0,left=-1000,top=-1000`;
                   <div className={addclass.flex2}>
                     {/*Semester*/}
                     <div className={addclass.singleDiv}>
-                      <label className={addclass.label}>Choose Semester: </label> 
+                      <label className={addclass.label}>Choose Semester: </label>
                       <br></br>
                       <select
                         className={addclass.select}
@@ -414,7 +413,11 @@ width=0,height=0,left=-1000,top=-1000`;
               )}
             </div>
 
-            <button type="button" disabled={addButtonDisabled} className={addclass.btnprimary} onClick= {validateForm}>
+            <button
+              type="button"
+              disabled={addButtonDisabled}
+              className={addclass.btnprimary}
+              onClick={validateForm}>
               Add
             </button>
             <div className={addclass.alert}>
