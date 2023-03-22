@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import React from "react";
 
-function MyNetworks() {
-  useNavigate();
+const MyNetworks = () => {
+  const navigate = useNavigate();
 
   return (
     <div className={mynetworks.mynetworks}>
@@ -17,7 +17,8 @@ function MyNetworks() {
         <div className={mynetworks.messageContainer}>
           <SettingsRoundedIcon className={mynetworks.iconStyle} />
           <p>This feature is currently under development</p>
-          <button className={mynetworks.dashboardButton}>Go To Dashboard</button>
+
+          <button className={mynetworks.dashboardButton} onClick={()=> navigate("/studentdashboard")}>Go To Dashboard</button>
         </div>
       </div>
       <Background />
