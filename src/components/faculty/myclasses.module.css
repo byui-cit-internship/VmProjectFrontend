@@ -103,13 +103,25 @@ select:focus {
   color: #004878;
   padding: 10px;
 }
+.myclasses .noclasses p {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 ;
+}
+.myclasses .noclasses{
+  text-align: center ;
+  
+}
+.myclasses .noclassicon{
+  color: gray;
+}
 .myclasses .semester {
   float: right;
   padding: 10px;
 }
 
 .myclasses .MyClasscontainer {
-  width: 75%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   border: 3px solid var(--secondarycolor);

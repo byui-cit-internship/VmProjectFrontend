@@ -4,7 +4,7 @@ import myclasses from "./myclasses.module.css";
 import { useNavigate } from "react-router-dom";
 import { React, useEffect, useState } from "react";
 import { Card } from "@mui/material";
-
+import LibraryBooksRoundedIcon from '@mui/icons-material/LibraryBooksRounded';
 import { getApiRoot } from "../../utils/getApiRoot";
 import LoadingSpinner2 from "../spinner2";
 import DbLibraryTemplates from "./dbLibraryTemplates";
@@ -18,6 +18,7 @@ function MyClasses() {
   const [semester, setSemester] = useState(null);
   const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [fetchingClasses, setFetchingClasses] = useState(false);
+  
 
   useEffect(() => {
     setFetchingClasses(true);
@@ -107,51 +108,45 @@ function MyClasses() {
               />
             </div>
           </div> */}
-
-          {/* <div className={myclasses.MyClasscontainer}>
-            <table className={myclasses.MyClasstableheader}>
-              <tr>
-                <th>Class</th>
-                <th>Virtual Machine</th>
-                <th>Creation Date</th>
-              </tr>
-            </table>
-          </div> */}
-
-          {/* <div className={myclasses.tablegrid}> */}
-            <div className={myclasses.table}>
-            <div className={myclasses.MyClasscontainer}>
-            <table className={myclasses.MyClasstableheader}>
-              <tr>
-                <th>Class</th>
-                <th>Virtual Machine</th>
-                <th>Creation Date</th>
-              </tr>
-            </table>
-            </div>
-              
-              
+          
               {fetchingClasses ? (
                 <ClassesSkeleton />
-              ) : (
-                filteredSectionList.map((item) => (
-
-
-                  <div className={myclasses.card} key={item.sectionId}>
-                      <div value={item} className={myclasses.tableheader}>
-                        {item.sectionName}
-                      </div>
-                      <div className={myclasses.tablecontent}>
-                        <DbLibraryTemplates libraryId={item.libraryVCenterId} />
-                        <div className={myclasses.add}>
+              ) : filteredSectionList.length > 0 ?(
+                <div className={myclasses.tablegrid}>
+                  <div className={myclasses.table}>
+                    {filteredSectionList.map((item) => (
+                      <div>
+                        <div className={myclasses.MyClasscontainer}>
+                          <table className={myclasses.MyClasstableheader}>
+                            <tr>
+                              <th>Class</th>
+                              <th>Virtual Machine</th>
+                              <th>Creation Date</th>
+                            </tr>
+                          </table>
+                        </div>
+                        <div className={myclasses.card} key={item.sectionId}>
+                          <Card variant="outlined">
+                            <div value={item} className={myclasses.tableheader}>
+                              {item.sectionName}
+                            </div>
+                            <div className={myclasses.tablecontent}>
+                              <DbLibraryTemplates libraryId={item.libraryVCenterId} />
+                              <div className={myclasses.add}></div>
+                            </div>
+                          </Card>
                         </div>
                       </div>
-                
+                    ))}
                   </div>
-                ))
-              )}
-            </div>
-          {/* </div> */}
+                </div>
+              ):(<div className={myclasses.noclasses}>
+                  <LibraryBooksRoundedIcon className={myclasses.noclassicon} />
+                  <p>There are no classes to display.</p>
+                </div>)
+            }
+
+         
             <button className={myclasses.submitBt} onClick={()=>navigate("/addclass")}
             >Add Class</button>
           <div>
