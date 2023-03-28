@@ -108,15 +108,7 @@ function MyClasses() {
             </div>
           </div> */}
 
-          <div className={myclasses.MyClasscontainer}>
-            <table className={myclasses.MyClasstableheader}>
-              <tr>
-                <th>Class</th>
-                <th>Virtual Machine</th>
-                <th>Creation Date</th>
-              </tr>
-            </table>
-          </div>
+         
 
           <div className={myclasses.tablegrid}>
             <div className={myclasses.table}>
@@ -124,6 +116,16 @@ function MyClasses() {
                 <ClassesSkeleton />
               ) : (
                 filteredSectionList.map((item) => (
+                  <div>
+                  <div className={myclasses.MyClasscontainer}>
+                    <table className={myclasses.MyClasstableheader}>
+                      <tr>
+                        <th>Class</th>
+                        <th>Virtual Machine</th>
+                        <th>Creation Date</th>
+                      </tr>
+                    </table>
+                  </div>
                   <div className={myclasses.card} key={item.sectionId}>
                     <Card variant="outlined">
                       <div value={item} className={myclasses.tableheader}>
@@ -134,6 +136,7 @@ function MyClasses() {
                         <div className={myclasses.add}></div>
                       </div>
                     </Card>
+                  </div>
                   </div>
                 ))
               )}
