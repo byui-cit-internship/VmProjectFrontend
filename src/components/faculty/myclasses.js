@@ -108,6 +108,7 @@ function MyClasses() {
               />
             </div>
           </div> */}
+          
               {fetchingClasses ? (
                 <ClassesSkeleton />
               ) : filteredSectionList.length > 0 ?(
@@ -145,14 +146,12 @@ function MyClasses() {
                 </div>)
             }
 
-          
+         
             <button className={myclasses.submitBt} onClick={()=>navigate("/addclass")}
             >Add Class</button>
-      
           <div>
             <a className={myclasses.conf_link} href="https://byui-cit.atlassian.net/wiki/spaces/CDI/pages/25493505/Creating+A+VM+and+Template+in+VSphere" target="_blank">Don't see your template?</a>
           </div>
-
         </div>
       </div>
       <Background />

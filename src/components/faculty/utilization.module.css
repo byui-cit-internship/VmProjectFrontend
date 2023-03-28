@@ -89,8 +89,10 @@
   padding: 30px;
   border: none;
   border-radius: 8px;
-  /* width: 220px; */
-  height: 75px;
+  width: 200px;
+  height: 55px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 10px;
   font-size: 18px;
@@ -100,9 +102,17 @@
 }
 
 .utilization .logo {
-  height: 30px;
+  height: 20px;
   align-self: center;
   padding: 10px;
+  padding-left: 0px;
+}
+
+.utilization .tem_name {
+  display: flex;
+  font-size: 15px;
+  font-family: "Raleway";
+  margin-top: -9px;
 }
 
 .utilization .button {

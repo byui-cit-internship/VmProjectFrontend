@@ -102,7 +102,7 @@ function AddClass() {
     if (response.status == 200) {
       console.log(response);
       setPopupMessage("Successfully Added the Course!");
-      setPopupAgainMessage("Add More");
+      setPopupAgainMessage("Add New Course");
       setIsSuccess(true);
     } else {
       setPopupMessage("This Course Already Exists");
