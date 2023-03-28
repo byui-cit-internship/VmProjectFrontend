@@ -113,7 +113,8 @@ select:focus {
   margin-left: auto;
   margin-right: auto;
   border: 3px solid var(--secondarycolor);
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   /* border-collapse: collapse; */
 }
 
@@ -185,14 +186,17 @@ select:focus {
 .myclasses .table {
   gap: 0.5em;
   margin: 5%;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   justify-content: space-around;
 }
-.myclasses .card {
+
+/* .myclasses .card {
   width: 45%;
   border-radius: 10px;
-}
+} */
+
+/* 
 .myclasses .tableheader {
   background-color: #3D8AC9;
   color: white;
@@ -200,18 +204,20 @@ select:focus {
   font-family: "Raleway";
   font-weight: bolder;
   font-size: 20px;
-}
-.myclasses .tablecontent {
+} */
+
+
+/* .myclasses .tablecontent {
   padding: 20px;
   font-family: "Raleway";
   font-weight: bold;
   margin: auto;
   text-align: center;
-}
+} */
 
-.myclasses .tablecontent span {
+/* .myclasses .tablecontent span {
   float: right;
-}
+} */
 
 .myclasses .tablerow {
   padding: 1em;

@@ -108,7 +108,7 @@ function MyClasses() {
             </div>
           </div> */}
 
-          <div className={myclasses.MyClasscontainer}>
+          {/* <div className={myclasses.MyClasscontainer}>
             <table className={myclasses.MyClasstableheader}>
               <tr>
                 <th>Class</th>
@@ -116,37 +116,47 @@ function MyClasses() {
                 <th>Creation Date</th>
               </tr>
             </table>
-          </div>
+          </div> */}
 
-          <div className={myclasses.tablegrid}>
+          {/* <div className={myclasses.tablegrid}> */}
             <div className={myclasses.table}>
+            <div className={myclasses.MyClasscontainer}>
+            <table className={myclasses.MyClasstableheader}>
+              <tr>
+                <th>Class</th>
+                <th>Virtual Machine</th>
+                <th>Creation Date</th>
+              </tr>
+            </table>
+            </div>
+              
+              
               {fetchingClasses ? (
                 <ClassesSkeleton />
               ) : (
                 filteredSectionList.map((item) => (
+
+
                   <div className={myclasses.card} key={item.sectionId}>
-                    <Card variant="outlined">
                       <div value={item} className={myclasses.tableheader}>
                         {item.sectionName}
                       </div>
                       <div className={myclasses.tablecontent}>
                         <DbLibraryTemplates libraryId={item.libraryVCenterId} />
-                        <div className={myclasses.add}></div>
+                        <div className={myclasses.add}>
+                        </div>
                       </div>
-                    </Card>
+                
                   </div>
                 ))
               )}
             </div>
-          </div>
-          
+          {/* </div> */}
             <button className={myclasses.submitBt} onClick={()=>navigate("/addclass")}
             >Add Class</button>
-      
           <div>
             <a className={myclasses.conf_link} href="https://byui-cit.atlassian.net/wiki/spaces/CDI/pages/25493505/Creating+A+VM+and+Template+in+VSphere" target="_blank">Don't see your template?</a>
           </div>
-
         </div>
       </div>
       <Background />

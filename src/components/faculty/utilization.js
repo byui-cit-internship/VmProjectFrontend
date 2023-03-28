@@ -364,7 +364,7 @@ function Utilization() {
                     src={"../../images/computerlogo.png"}
                     alt="logo"
                   />
-                  <strong>{template.name}</strong>
+                  <strong className={utilization.tem_name}>{template.name}</strong>
                 </button>
               ))}
             </div>
