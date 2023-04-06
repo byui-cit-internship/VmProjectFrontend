@@ -17,7 +17,6 @@ function MyClasses() {
   const [semester, setSemester] = useState(null);
   const [courseSemesterList, setCourseSemesterList] = useState([]);
   const [fetchingClasses, setFetchingClasses] = useState(false);
-  
 
   useEffect(() => {
     setFetchingClasses(true);
@@ -95,6 +94,7 @@ function MyClasses() {
               ))}
             </select>
           </div>
+
           
               {fetchingClasses ? (
                 <ClassesSkeleton/>
@@ -143,8 +143,14 @@ function MyClasses() {
             }
             <button className={myclasses.submitBt} onClick={()=>navigate("/addclass")}
             >Add Class</button>
+
           <div>
-            <a className={myclasses.conf_link} href="https://byui-cit.atlassian.net/wiki/spaces/CDI/pages/25493505/Creating+A+VM+and+Template+in+VSphere" target="_blank">Don't see your template?</a>
+            <a
+              className={myclasses.conf_link}
+              href="https://byui-cit.atlassian.net/wiki/spaces/CDI/pages/25493505/Creating+A+VM+and+Template+in+VSphere"
+              target="_blank">
+              Don't see your template?
+            </a>
           </div>
         </div>
       </div>
