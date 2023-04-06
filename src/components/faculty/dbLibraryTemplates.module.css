@@ -1,14 +1,14 @@
 .dblibrarytemplates {
-  padding: 1.5rem 0;
+  /* padding: 1.5rem 0; */
 }
 
 .dblibrarytemplates .templateFlexContainer {
-  display: flex;
+  /* display: flex; */
 }
 
 .dblibrarytemplates .templateFlexContainer > div {
-  flex-grow: 1;
-  margin-bottom: 1rem;
+  /* flex-grow: 1;
+  margin-bottom: 1rem; */
 }
 
 .dblibrarytemplates .templateFlexContainer > div:first-child {

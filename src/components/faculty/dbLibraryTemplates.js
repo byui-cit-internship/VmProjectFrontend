@@ -46,8 +46,9 @@ const DbLibraryTemplates = (props) => {
         <div className={dblibrarytemplates.dblibrarytemplates}>
           {templates.map((template) => (
             <div key={template.id} className={dblibrarytemplates.templateFlexContainer}>
-              <div>{template.name}</div>
-              <div>{formatDate(template.last_modified_time)}</div>
+              {props.displayTemplateName && <div>{template.name}</div>}
+
+              {props.displayCreationDate && <div>{formatDate(template.last_modified_time)}</div>}
             </div>
           ))}
         </div>
