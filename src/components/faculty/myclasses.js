@@ -104,9 +104,10 @@ function MyClasses() {
                   <div id={myclasses.table_h_div}>
                     <table id={myclasses.Table_h}>
                       <tr>
-                        <th>Class</th>
+                        <th>Class Name</th>
                         <th>Virtual Machine</th>
                         <th>Creation Date</th>
+                        <th>VM Count</th>
                       </tr>
                     </table>
                   </div>
@@ -116,8 +117,6 @@ function MyClasses() {
                       {filteredSectionList.map((item, index) => (
                         <tr key={item.userId} style={index%2==0 || index==0? {
                           backgroundColor:'#F0F0F0'}:{}}>
-
-                      {/* <div className={myclasses.table_b_div}> */}
                         <td>
                           {/* class name */}
                           {item.sectionName}
@@ -128,8 +127,9 @@ function MyClasses() {
                         <td>
                           <DbLibraryTemplates displayTemplateName={false} displayCreationDate={true} libraryId={item.libraryVCenterId}/>
                         </td>
-
-                      {/* </div> */}
+                        <td className={myclasses.vmCountContent}>
+                        {item.vmCount}
+                        </td>
                       </tr>
                     ))}
                     </tbody>

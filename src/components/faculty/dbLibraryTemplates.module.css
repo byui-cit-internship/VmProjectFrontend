@@ -12,12 +12,12 @@
 }
 
 .dblibrarytemplates .templateFlexContainer > div:first-child {
-  font-family: "Raleway";
+  /* font-family: "Raleway";
   font-weight: normal;
-  font-size: 15px;
+  font-size: 13px; */
 }
 
 .dblibrarytemplates .templateFlexContainer > div:nth-child(2){
-  font-weight: normal;
-  font-size: 15px;
+  /* font-weight: normal;
+  font-size: 15px; */
 }
