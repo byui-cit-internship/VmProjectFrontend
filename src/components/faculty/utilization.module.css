@@ -20,7 +20,7 @@
   text-align: center;
   margin-top: 50px;
   padding-bottom: 40px;
-  color: black;
+  color: #337AB7;
 }
 
 .utilization .filterContainer {
@@ -68,6 +68,7 @@
   background-color: white;
   /* border: none; */
   border: 2px solid #3d8ac9;
+  color: #3D8AC9;
   border-radius: 8px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -290,6 +291,7 @@
   .utilization .h2available {
     padding: 0px;
     margin-top: 40px;
+    padding-bottom: 20px;
     font-size: 1em;
   }
   .utilization .main {
@@ -318,6 +320,10 @@
     font-size: 0.9em;
   }
 
+  .utilization .tem_name {
+    margin-top: 0px;
+  }
+
   .utilization .dropdown {
     margin: 10px 0px;
     display: flex;
@@ -328,6 +334,7 @@
   .utilization .dropdownDescription {
     font-size: 1em;
     max-width: 100%;
+    color: #3D8AC9;
   }
 
   .utilization .singleOption {
@@ -357,7 +364,7 @@
   }
 
   .utilization .btn {
-    width: 90px;
+    width: 100%;
     display: flex;
     align-items: center;
     margin-top: 5px;
@@ -377,7 +384,7 @@
   }
 
   .utilization #search {
-    color: black;
+    color: #3D8AC9;
   }
 
   .utilization .searchBar {
@@ -514,6 +521,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
   }
   .utilization .courseselect {
     /* display: flex; */

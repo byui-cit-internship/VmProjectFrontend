@@ -11,18 +11,13 @@ body {
 
 .menu-bars {
   color: var(--maincolor);
-  /* margin-right: 2rem; */
   font-size: 2rem;
   background: none;
 }
 
-/* .menu-bars:nth-child(2) {
-  margin-right: 1px !important;
-} */
-
 .nav-menu {
-  background-color: var(--emphasiscolor);
-  width: 414px;
+  background-color: #3D8AC9;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -49,9 +44,10 @@ body {
 }
 
 .nav-text a {
-  text-decoration: none;
   color: #fff;
   font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
   width: 95%;
   height: 100%;
   display: flex;
@@ -63,7 +59,7 @@ body {
 
 .nav-text a:hover {
   opacity: transparent;
-  background-color: var(--secondarycolor);
+  background-color: #6AB8E7;
 }
 
 .nav-menu-items {
@@ -72,9 +68,8 @@ body {
 }
 
 .navbar-toggle {
-  background-color: var(--emphasiscolor);
   width: 100%;
-  height: 80px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -71,14 +71,12 @@ https://www.byui.edu/branding/color-guide
 .addclass input {
   width: 93.5%;
   border: 3px solid #3d8ac9;
+  color: #3D8AC9;
   padding: 10px 10px;
   margin-top: 10px;
   position: relative;
 }
-/* .addclass .courseIdInput {
-  
-  width: 38%;
-} */
+
 .addclass .alertButton {
   border: none;
 }
@@ -100,6 +98,7 @@ https://www.byui.edu/branding/color-guide
 .addclass select {
   width: 100%;
   border: 3px solid #3d8ac9;
+  color: #3D8AC9;
   padding: 0.7rem;
   margin-top: 8px;
 }
@@ -148,13 +147,14 @@ https://www.byui.edu/branding/color-guide
   .addclass .container {
     margin: 0px;
     border-radius: 0px;
-    padding: 0 5px;
-    height: 100vh;
+    padding: 0 40px;
     width: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 130vh;
   }
+  
   .addclass .table {
     display: block;
   }

@@ -44,8 +44,8 @@
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #3D8AC9;
-  background: #ddd;
-  color: #919294;
+  background: white;
+  color: #3D8AC9;
   border-radius: 10px;
   width: 65%;
   height: 50%;
@@ -55,7 +55,7 @@
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #3D8AC9;
-  background: #ddd;
+  background: white;
   color: #3D8AC9;
   border-radius: 10px;
   width: 65%;
@@ -82,6 +82,7 @@
   margin-right: auto;
   background: #58b952;
   color: white;
+  border: none;
   border-radius: 8px;
   grid-column:2/3;
   grid-row: 5/5;
