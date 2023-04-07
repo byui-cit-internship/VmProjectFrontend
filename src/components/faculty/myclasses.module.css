@@ -12,13 +12,6 @@
   min-height: 500px;
 }
 
-.myclasses .semestertable_div {
-  /* margin-left: auto;
-  margin-right: auto;
-  padding-left: 60px;
-  padding-right: 60px; */
-}
-
 .myclasses #backbtn {
   display: flex;
   color: #3D8AC9;
@@ -35,21 +28,6 @@
   color:#337AB7;
 }
 
-/* .myclasses #classesAndSearch {
-  display: flex;
-  width: 800px;
-  padding-left: 2%;
-  padding: 20px;
-  font-size: 1.5rem;
-  font-family: "Raleway", sans-serif;
-  font-weight: bold;
-  align-items: center;
-} */
-
-/* .myclasses .label {
-  padding-left: 40px;
-} */
-
 .myclasses .lets {
   width: 800px;
   margin: 0px 10px;
@@ -58,55 +36,6 @@
   padding: 10px 0px;
 }
 
-/* .myclasses .searchbar {
-  margin: 0px 50px 0px 50px;
-  border: 2px solid #ffffff;
-  background-color: #006eb6;
-  height: 30px;
-  width: 300px;
-  padding: 0px 9px;
-  display: flex;
-  align-items: center;
-} */
-
-/* .myclasses #search {
-  font-family: "Raleway", sans-serif;
-  background-color: #006eb6;
-  border: none;
-  margin-left: 3px;
-}
-
-.myclasses #search::placeholder {
-  color: #ffffff;
-  background-color: #006eb6;
-  opacity: 80%;
-} */
-
-/* .myclasses #search:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  caret-color: auto;
-  color: transparent;
-  color: currentColor;
-} */
-
-/* .myclasses #search:focus::-webkit-input-placeholder {
-  opacity: 0;
-}
-
-.myclasses #search:focus::-moz-placeholder {
-  opacity: 0;
-}
-
-.myclasses #search:focus:-ms-input-placeholder {
-  opacity: 0;
-}
-
-.myclasses #search:focus:-moz-placeholder {
-  opacity: 0;
-} */
-
 .myclasses .vmName {
   color: #004878;
   padding: 10px;
@@ -114,7 +43,7 @@ select:focus {
 .myclasses .noclasses p {
   text-align: center;
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   padding: 0px;
   font-size: 15px;
 }
@@ -124,13 +53,13 @@ select:focus {
 }
 .myclasses .noclassicon{
   color: gray;
-  padding: 35px;
-  
+  padding: 55px;
 }
 
 .myclasses .semester {
   float: right;
   padding: 10px;
+  margin-bottom: 20px;
 }
 
 .myclasses #table_h_div {
@@ -152,7 +81,7 @@ select:focus {
 
 .myclasses #Table_h th {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   color: white;
   font-weight: bold;
   font-size: 16px;
@@ -162,15 +91,15 @@ select:focus {
 
 .myclasses #Table_h tr {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr .75fr;
   padding: 10px;
   font-size: 1.5rem;
 }
 
 .myclasses #Table_b tr {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 10px;
+  grid-template-columns: 1fr 1fr 1fr .75fr;
+  padding: 15px;
   font-size: .8rem;
 }
 
@@ -196,7 +125,7 @@ select:focus {
 }
 
 .myclasses #Table_b td {
-  padding: 15px;
+  padding: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -275,9 +204,6 @@ phone: 480px
 
 /* S M A L L   V I E W */
 @media screen and (max-width: 37.4em) {
-  /* .header {
-    background-color: black;
-  } */
   .myclasses .container {
     margin: 0px;
     border-radius: 0px;
@@ -288,42 +214,92 @@ phone: 480px
     align-items: center;
   }
 
+  .myclasses #table_h_div {
+    width: 90%;
+  }
+
+  .myclasses .table_b_div {
+    width: 90%;
+  }
+
+  .myclasses #Table_h {
+    width: 100%;
+  }
+
+  .myclasses #Table_b {
+    width: 100%;
+  }
+
+  .myclasses #Table_h tr {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .myclasses #Table_b tr {
     display: flex;
-    grid-template-columns: 1fr 1fr 1fr;
+    flex-wrap: nowrap;
+    flex-direction: row;
     padding: 10px;
-    font-size: .8rem;
-    width: 100%;
+  }
+
+  .myclasses #Table_b td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* class title */
   #Table_h tr th:nth-child(1) {
-    max-width: 150px;
+    max-width: 100px;
+    font-size: .95rem;
   }
 
   /* class content */
   #Tb_b tr td:nth-child(1) {
-    max-width: 150px;
+    max-width: 80px;
+    font-size: .8rem;
+    font-weight: normal;
   }
 
   /* vm title */
   #Table_h tr th:nth-child(2) {
-    max-width: 150px;
+    max-width: 120px;
+    font-size: .95rem;
   }
 
   /* vm content */
   #Tb_b tr td:nth-child(2) {
-    max-width: 150px;
+    max-width: 120px;
+    font-size: .8rem;
   }
 
   /* date title */
   #Table_h tr th:nth-child(3) {
-    max-width: 150px;
+    max-width: 100px;
+    font-size: .95rem;
   }
 
   /* date content */
   #Tb_b tr td:nth-child(3) {
-    max-width: 150px;
+    max-width: 60px;
+    font-size: .8rem;
+  }
+
+  /* count title */
+  #Table_h tr th:nth-child(4) {
+    max-width: 100px;
+    font-size: .95rem;
+  }
+
+  /* count content */
+  #Tb_b tr td:nth-child(4) {
+    max-width: 100px;
+    font-size: .8rem;
   }
 }
 
@@ -344,6 +320,7 @@ phone: 480px
   /* class content */
   #Tb_b tr td:nth-child(1) {
     max-width: 150px;
+    font-size: 0.85rem;
   }
 
   /* vm title */
@@ -354,6 +331,7 @@ phone: 480px
   /* vm content */
   #Tb_b tr td:nth-child(2) {
     max-width: 150px;
+    font-size: 0.85rem;
   }
 
   /* date title */
@@ -364,6 +342,18 @@ phone: 480px
   /* date content */
   #Tb_b tr td:nth-child(3) {
     max-width: 150px;
+    font-size: 0.85rem;
+  }
+
+  /* count title */
+  #Table_h tr th:nth-child(4) {
+    max-width: 150px;
+  }
+
+  /* count content */
+  #Tb_b tr td:nth-child(4) {
+    max-width: 150px;
+    font-size: 0.85rem;
   }
 }
 
@@ -376,19 +366,15 @@ phone: 480px
     flex-direction: column;
   }
   
-  .myclasses td {
-    padding: 10px;
-    /* font-size: .8rem; */
-  }
-
   /* class title */
   #Table_h tr th:nth-child(1) {
-    max-width: 150px;
+    max-width: 200px;
   }
 
   /* class content */
   #Tb_b tr td:nth-child(1) {
-    max-width: 150px;
+    max-width: 200px;
+    font-size: 1rem;
   }
 
   /* vm title */
@@ -399,6 +385,7 @@ phone: 480px
   /* vm content */
   #Tb_b tr td:nth-child(2) {
     max-width: 200px;
+    font-size: 1rem;
   }
 
   /* date title */
@@ -409,6 +396,18 @@ phone: 480px
   /* date content */
   #Tb_b tr td:nth-child(3) {
     max-width: 200px;
+    font-size: 1rem;
+  }
+
+  /* count title */
+  #Table_h tr th:nth-child(4) {
+    max-width: 200px;
+  }
+
+  /* count content */
+  #Tb_b tr td:nth-child(4) {
+    max-width: 200px;
+    font-size: 1rem;
   }
 
 }
