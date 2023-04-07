@@ -49,7 +49,7 @@
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   font-family: "Raleway", sans-serif;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: bold;
   margin: 2rem 0.5rem;
 }
@@ -73,6 +73,27 @@
 @media screen and (max-width: 37.5em) {
   .mynetworks h1 {
     font-size: 26px;
+  }
+
+  .mynetworks .container {
+    margin: 0px;
+    border-radius: 0px;
+    padding: 0px 40px;
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .dashboardButton {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 2rem 0.5rem;
+    height: 40px;
   }
 }
 

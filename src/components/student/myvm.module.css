@@ -109,13 +109,16 @@
 /* S M A L L   V I E W */
 @media screen and (max-width: 37.5em) {
   .myVm .container {
-    width: 80vw;
-    background-color: white;
-    margin: 0px auto;
+    margin: 0px;
     border-radius: 0px;
-    column-gap: 10%;
-    padding: 10px 20px;
+    padding: 0px 40px;
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
   }
+
   .myVm table {
     width: 90%;
     height: auto;
