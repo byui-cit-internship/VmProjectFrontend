@@ -112,7 +112,7 @@ function CreateVM() {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        enrollmentId: enrollment.userSectionRoleId,
+        enrollmentId: enrollment.sectionRoleId,
         templateId: templateId,
         vmInstanceName: vmInstanceName,
         vmInstanceCreationDate: vmCreationDate
